@@ -2,6 +2,7 @@ import Head from "next/head";
 import Link from "next/link";
 import { MouseEvent, useEffect, useRef, useState } from "react";
 import { animated, SpringBaseProps, useSpring } from "react-spring";
+// @ts-expect-error
 import Typewriter from "typewriter-effect";
 
 const translate = (x: number, y: number, multiplier: number) =>
@@ -53,7 +54,7 @@ function ClaimCard() {
     tension: 350,
     friction: 40
   });
-  const typewriterRef = useRef();
+  const typewriterRef = useRef<{ pause: () => void; start: () => void }>();
   useEffect(() => {
     if (isHovered) {
       typewriterRef.current?.pause();
@@ -82,9 +83,12 @@ function ClaimCard() {
           className="highlight"
           style={{
             opacity: props.xy?.interpolate(
-              (x, y) => 0.1 + (Math.abs(x) + Math.abs(y)) / 4
+              // @ts-expect-error
+              (x: number, y: number) => 0.1 + (Math.abs(x) + Math.abs(y)) / 4
             ),
+            // @ts-expect-error
             left: props.xy?.interpolate(x => (x + 1) * 50 + "%"),
+            // @ts-expect-error
             top: props.xy?.interpolate((x, y) => (y + 1) * 50 + "%")
           }}
         />
