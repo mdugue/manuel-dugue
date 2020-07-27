@@ -2,6 +2,7 @@ import Head from "next/head";
 import Link from "next/link";
 import { MouseEvent, useEffect, useRef, useState } from "react";
 import { animated, SpringBaseProps, useSpring } from "react-spring";
+import { useMedia } from "react-use";
 // @ts-expect-error
 import Typewriter from "typewriter-effect";
 
@@ -21,26 +22,28 @@ const transFooter = (x: number, y: number) => {
   }deg)`;
 };
 
-const transAside = (x: number, y: number) => {
-  return `perspective(60vmin) rotateX(${10 * y}deg) rotateY(${-5 * x}deg) 
-  ${translate(x, y, 0.25)}`;
-};
+const largeBreakpoint = "768px";
 
+const slow = { mass: 10, tension: 200, friction: 50 };
 function useMaterial(
   defaultPosition: [number, number],
   config: SpringBaseProps["config"]
 ) {
   const [props, set] = useSpring(() => ({
-    xy: defaultPosition,
+    xy: [0, 0],
     config
   }));
+  const isWide = useMedia(`(min-width: ${largeBreakpoint})`);
+  useEffect(() => {
+    set({ xy: isWide ? defaultPosition : [0, 0], config: slow });
+  }, [isWide, set]);
 
   function onMouseMove(event: MouseEvent) {
     console.log(event.target, event.currentTarget, event);
     const rect = (event.currentTarget as HTMLElement).getBoundingClientRect();
     const relativeX = (2 * (event.clientX - rect.left)) / rect.width - 1;
     const relativeY = (2 * (event.clientY - rect.top)) / rect.height - 1;
-    set({ xy: [relativeX, relativeY] });
+    set({ xy: [relativeX, relativeY], config });
   }
 
   const onMouseLeave = () => set({ xy: defaultPosition });
@@ -255,7 +258,7 @@ export default function Home() {
           min-height: 100vh;
         }
 
-        @media screen and (min-width: 768px) {
+        @media screen and (min-width: ${largeBreakpoint}) {
           .container {
             justify-content: space-between;
           }
@@ -270,7 +273,7 @@ export default function Home() {
           will-change: transform;
         }
 
-        @media screen and (min-width: 768px) {
+        @media screen and (min-width: ${largeBreakpoint}) {
           hgroup {
             margin: 10vh 0 0 10vw;
             min-height: initial;
@@ -304,15 +307,15 @@ export default function Home() {
           will-change: transform;
         }
 
-        @media screen and (min-width: 768px) {
+        @media screen and (min-width: ${largeBreakpoint}) {
           h1 {
             font-family: "Bungee Shade", cursive;
           }
         }
 
-        @media screen and (min-width: 768px) {
+        @media screen and (min-width: ${largeBreakpoint}) {
           h2 {
-            color: #f2de91;
+            color: #e9c237;
             font-size: 1.5vw;
           }
         }
@@ -437,6 +440,21 @@ export default function Home() {
         }
         * {
           box-sizing: border-box;
+        }
+
+        ::-webkit-scrollbar {
+          width: 0.75rem;
+        }
+
+        ::-webkit-scrollbar-track {
+          background: #ffffff00;
+        }
+        ::-webkit-scrollbar-track:hover {
+          background: var(--colorBodyBackground);
+        }
+
+        ::-webkit-scrollbar-thumb {
+          border-radius: 2px;
         }
       `}</style>
     </div>

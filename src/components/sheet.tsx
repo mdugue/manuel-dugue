@@ -80,9 +80,22 @@ export default function Sheet(props: SheetProps) {
           background: white;
           box-shadow: 0 0 1rem #0000001c;
           font-family: "Montserrat", sans-serif;
-          padding: 6rem 4rem;
-          max-width: 21cm;
+          height: 100%;
           margin: auto;
+          max-height: 29.6cm;
+          max-width: 21cm;
+          overflow-y: auto;
+          padding: 6rem 4rem;
+          color: #000;
+        }
+
+        .sheet::-webkit-scrollbar-thumb {
+          background: #00000000;
+          transition: background 1s;
+        }
+
+        .sheet:hover::-webkit-scrollbar-thumb {
+          background: #e9c237;
         }
 
         .sheet section {
@@ -101,6 +114,7 @@ export default function Sheet(props: SheetProps) {
           font-size: 1em;
           margin: 0;
           text-align: right;
+          hyphens: auto;
         }
 
         .sheet h4 {
