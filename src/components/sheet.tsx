@@ -42,6 +42,12 @@ export default function Sheet(props: SheetProps) {
       <div className="sheetContainer">
         <main className="sheet">
           <h1>{title}</h1>
+          <address>
+            Manuel Dugué, Görlitzer Str. 23, 01099 Dresden
+            <br />
+            <a href="tel:0049 151 58791155">+49 151 58791155</a>{" "}
+            <a href="mailto:post@manueldugue.de">post@manueldugue.de</a>
+          </address>
           {document.sections.map(section => (
             <section>
               <h2 className="sectionTitle">{section.sectionTitle}</h2>
@@ -66,6 +72,13 @@ export default function Sheet(props: SheetProps) {
         </main>
       </div>
       <style jsx>{`
+        address {
+          font-style: normal;
+          color: #206c5f;
+          font-family: "Bungee", cursive;
+          font-size: 0.875rem;
+        }
+
         .sheetContainer {
           position: absolute;
           top: 0;
