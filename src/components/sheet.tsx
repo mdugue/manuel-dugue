@@ -1,36 +1,20 @@
 import Head from "next/head";
+import Link from "next/link";
 import Router from "next/router";
-import React, { Fragment } from "react";
+import React, { Fragment, ReactNode } from "react";
+import { XCircle } from "react-feather";
 import { useKeyPressEvent } from "react-use";
 
 export type SheetProps = {
   title: string;
-  document: {
-    sections: {
-      sectionTitle: string;
-      entries: {
-        title: string;
-        subtitle?: string;
-        description: string;
-        links?: string[];
-      }[];
-    }[];
-  };
+  children: ReactNode;
 };
 
 export default function Sheet(props: SheetProps) {
-  const { document, title } = props;
-  useKeyPressEvent(
-    "Escape",
-    () => {
-      console.log("r");
-      Router.push("/");
-    },
-    () => {
-      console.log("r");
-      Router.push("/");
-    }
-  );
+  const { title, children } = props;
+  useKeyPressEvent("Escape", () => {
+    Router.push("/");
+  });
   return (
     <>
       <Head>
@@ -41,6 +25,13 @@ export default function Sheet(props: SheetProps) {
       </Head>
       <div className="sheetContainer">
         <main className="sheet">
+          <nav>
+            <Link href="/">
+              <a>
+                <XCircle />
+              </a>
+            </Link>
+          </nav>
           <h1>{title}</h1>
           <address>
             Manuel Dugué, Görlitzer Str. 23, 01099 Dresden
@@ -48,30 +39,10 @@ export default function Sheet(props: SheetProps) {
             <a href="tel:0049 151 58791155">+49 151 58791155</a>{" "}
             <a href="mailto:post@manueldugue.de">post@manueldugue.de</a>
           </address>
-          {document.sections.map(section => (
-            <section>
-              <h2 className="sectionTitle">{section.sectionTitle}</h2>
-              {section.entries.map((entry, index) => (
-                <Fragment key={index}>
-                  <h3 className="sectionEntry">{entry.title}</h3>
-                  <div className="entryContent">
-                    {entry.subtitle && <h4>{entry.subtitle}</h4>}
-                    {entry.description.split("\n").map(item => (
-                      <p key={item}>{item}</p>
-                    ))}
-                    {entry.links?.map(link => (
-                      <a key={link} href={link} rel="noopener noreferer">
-                        {link}
-                      </a>
-                    ))}
-                  </div>
-                </Fragment>
-              ))}
-            </section>
-          ))}
+          {children}
         </main>
       </div>
-      <style jsx>{`
+      <style jsx global>{`
         address {
           font-style: normal;
           color: #206c5f;
@@ -87,6 +58,7 @@ export default function Sheet(props: SheetProps) {
           bottom: 0;
           padding: 2rem;
           overflow: auto;
+          pointer-events: none;
         }
 
         .sheet {
@@ -100,6 +72,20 @@ export default function Sheet(props: SheetProps) {
           overflow-y: auto;
           padding: 6rem 4rem;
           color: #000;
+          position: relative;
+          pointer-events: all;
+        }
+
+        .sheet nav {
+          visibility: hidden;
+          position: absolute;
+          color: #206c5f;
+          top: 1rem;
+          right: 1rem;
+        }
+
+        .sheet:hover nav {
+          visibility: visible;
         }
 
         .sheet::-webkit-scrollbar-thumb {
@@ -133,11 +119,60 @@ export default function Sheet(props: SheetProps) {
         .sheet h4 {
           margin: 0;
         }
-
-        .sheet .entryContent p {
-          margin: 0;
-        }
       `}</style>
+    </>
+  );
+}
+
+export type StructuredSheetProps = {
+  title: string;
+  document: {
+    sections: {
+      sectionTitle: string;
+      entries: {
+        title: string;
+        subtitle?: string;
+        description: string;
+        links?: string[];
+      }[];
+    }[];
+  };
+};
+
+export function StructuredSheet(props: StructuredSheetProps) {
+  const { document, title } = props;
+  return (
+    <>
+      <Sheet title={title}>
+        {document.sections.map(section => (
+          <section>
+            <h2 className="sectionTitle">{section.sectionTitle}</h2>
+            {section.entries.map((entry, index) => (
+              <Fragment key={index}>
+                <h3 className="sectionEntry">{entry.title}</h3>
+                <div className="entryContent">
+                  {entry.subtitle && <h4>{entry.subtitle}</h4>}
+                  {entry.description.split("\n").map(item => (
+                    <p key={item}>{item}</p>
+                  ))}
+                  {entry.links?.map(link => (
+                    <a key={link} href={link} rel="noopener noreferer">
+                      {link}
+                    </a>
+                  ))}
+                </div>
+              </Fragment>
+            ))}
+          </section>
+        ))}
+      </Sheet>
+      <style jsx global>
+        {`
+          .sheet .entryContent p {
+            margin: 0;
+          }
+        `}
+      </style>
     </>
   );
 }

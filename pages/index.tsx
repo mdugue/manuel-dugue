@@ -164,7 +164,7 @@ function ClaimCard() {
   );
 }
 
-function Aside() {
+function ContactAside() {
   return (
     <aside>
       <div>Manuel Dugué</div>
@@ -193,7 +193,20 @@ function Aside() {
   );
 }
 
-function Footer() {
+function LegalSection() {
+  return (
+    <nav className="legal">
+      <Link href="/legal">
+        <a>legal note</a>
+      </Link>
+      <Link href="/privacy">
+        <a>privacy</a>
+      </Link>
+    </nav>
+  );
+}
+
+function ContactFooter() {
   const { props, onMouseMove, onMouseLeave } = useMaterial([-0.9, -0.9], {
     mass: 1,
     tension: 450,
@@ -202,6 +215,7 @@ function Footer() {
 
   return (
     <animated.footer
+      className="contact"
       onMouseMove={onMouseMove}
       onMouseLeave={onMouseLeave}
       style={{
@@ -235,8 +249,9 @@ export default function Home() {
         ></link>
       </Head>
       <ClaimCard />
-      <Aside />
-      <Footer />
+      <ContactAside />
+      <LegalSection />
+      <ContactFooter />
 
       <style jsx global>{`
         :root {
@@ -365,7 +380,21 @@ export default function Home() {
           font-weight: normal;
         }
 
-        footer {
+        .legal {
+          font-family: "Bungee Hairline", cursive;
+          position: absolute;
+          right: 1rem;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-end;
+          justify-content: initial;
+        }
+
+        .legal a {
+          padding: 1ch 1ch 0;
+        }
+
+        .contact {
           align-items: flex-end;
           background: #e9c238;
           border-radius: 100%;
@@ -383,20 +412,20 @@ export default function Home() {
           will-change: transform;
         }
 
-        footer a {
+        .contact a {
           padding-right: 8vmin;
           width: 100%;
         }
 
-        footer a:first-child {
+        .contact a:first-child {
           padding-top: 4vmin;
         }
 
-        footer a:last-child {
+        .contact a:last-child {
           padding-bottom: 4vmin;
         }
 
-        footer a:hover {
+        .contact a:hover {
           color: #cb6666;
         }
 
@@ -434,10 +463,16 @@ export default function Home() {
           line-height: 1.25;
           overflow: hidden;
         }
+
+        svg {
+          stroke-width: 1.5px;
+        }
+
         a {
           text-decoration: none;
           color: inherit;
         }
+
         * {
           box-sizing: border-box;
         }

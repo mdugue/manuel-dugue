@@ -3,22 +3,20 @@ import Home from ".";
 import { GoogleSpreadsheet } from "google-spreadsheet";
 import { GetStaticProps } from "next";
 import Head from "next/head";
-import Sheet, { SheetProps } from "../src/components/sheet";
+import { StructuredSheet, StructuredSheetProps } from "../src/components/sheet";
 var creds = require("../client_secret.json");
 
-export default function Cv(props: { document: SheetProps["document"] }) {
+export default function Cv(props: {
+  document: StructuredSheetProps["document"];
+}) {
   const { document } = props;
   return (
     <>
       <Home />
       <Head>
         <title>skill profile – Manuel Dugué</title>
-        <link
-          href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap"
-          rel="stylesheet"
-        ></link>
       </Head>
-      <Sheet title="skill profile" document={props.document} />
+      <StructuredSheet title="skill profile" document={props.document} />
     </>
   );
 }
@@ -47,7 +45,7 @@ export const getStaticProps: GetStaticProps = async () => {
       };
     })
   );
-  const document: SheetProps["document"] = { sections };
+  const document: StructuredSheetProps["document"] = { sections };
 
   return { props: { document } };
 };
