@@ -61,17 +61,25 @@ export default function Sheet(props: SheetProps) {
           background: white;
         }
 
+        @media print {
+          .sheet {
+            font-size: 12px;
+          }
+        }
+
         .sheet h1 {
           font-family: "Bungee Inline", cursive;
           font-weight: normal;
-          font-size: 2.75rem;
+          font-size: 2.75em;
+          margin: 0;
         }
 
         address {
           font-style: normal;
           color: #206c5f;
           font-family: "Bungee", cursive;
-          font-size: 0.875rem;
+          font-size: 0.875em;
+          padding-bottom: 1em;
         }
 
         @media screen {
@@ -133,14 +141,14 @@ export default function Sheet(props: SheetProps) {
         }
 
         .sheet section {
-          padding: 3rem 0;
+          padding: 1em 0;
           page-break-inside: avoid;
         }
 
         .sheet section h1 {
           font-size: 1.375em;
           grid-column: 1 / -1;
-          margin: 0 0 1rem;
+          margin: 0 0 1em;
           color: hsl(47 80% 75% / 1);
         }
 
@@ -204,11 +212,16 @@ export function StructuredSheet(props: StructuredSheetProps) {
           .sectionEntry {
             display: flex;
             page-break-inside: avoid;
-            margin-bottom: 1rem;
+            margin-bottom: 1em;
+          }
+          @media print {
+            .sectionEntry {
+              margin-bottom: 0.5em;
+            }
           }
           .sectionEntry h2 {
             flex: 0 0 20%;
-            margin: 0 2rem 0 0;
+            margin: 0 2em 0 0;
             font-size: 1em;
             text-align: right;
             hyphens: auto;
