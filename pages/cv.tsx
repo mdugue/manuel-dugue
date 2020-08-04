@@ -46,5 +46,5 @@ export const getStaticProps: GetStaticProps = async () => {
     })
   );
   const document: StructuredSheetProps["document"] = { sections };
-  return { props: { document } };
+  return { props: { document }, revalidate: 1 };
 };
