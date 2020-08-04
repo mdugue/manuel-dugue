@@ -80,12 +80,21 @@ export default function Sheet(props: SheetProps) {
           visibility: hidden;
           position: absolute;
           color: #206c5f;
-          top: 1rem;
-          right: 1rem;
+          top: 0;
+          right: 0;
         }
 
         .sheet:hover nav {
           visibility: visible;
+        }
+
+        .sheet nav a {
+          padding: 1rem;
+          display: inline-block;
+        }
+
+        .sheet nav a:hover {
+          background: var(--colorBodyBackground);
         }
 
         .sheet::-webkit-scrollbar-thumb {
@@ -156,8 +165,13 @@ export function StructuredSheet(props: StructuredSheetProps) {
                     <p key={item}>{item}</p>
                   ))}
                   {entry.links?.map(link => (
-                    <a key={link} href={link} rel="noopener noreferer">
-                      {link}
+                    <a
+                      key={link}
+                      href={link}
+                      target="_blank"
+                      rel="noopener noreferer"
+                    >
+                      link
                     </a>
                   ))}
                 </div>
@@ -168,8 +182,14 @@ export function StructuredSheet(props: StructuredSheetProps) {
       </Sheet>
       <style jsx global>
         {`
-          .sheet .entryContent p {
+          .entryContent p {
             margin: 0;
+          }
+          .entryContent a {
+            color: #206c5f;
+            font-family: "Bungee Hairline", cursive;
+            font-weight: bold;
+            float: right;
           }
         `}
       </style>
