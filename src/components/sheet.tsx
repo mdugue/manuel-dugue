@@ -29,7 +29,34 @@ export default function Sheet(props: SheetProps) {
             <div
               tabIndex={1}
               title="download"
-              onClick={() => alert("download coming soon")}
+              onClick={() =>
+                fetch("/api/pdf")
+                  .then(async res => ({
+                    filename: `${title} dugue.pdf`,
+                    blob: await res.blob()
+                  }))
+                  .then(resObj => {
+                    const newBlob = new Blob([resObj.blob], {
+                      type: "application/pdf"
+                    });
+
+                    if (window.navigator && window.navigator.msSaveOrOpenBlob) {
+                      window.navigator.msSaveOrOpenBlob(newBlob);
+                    } else {
+                      const objUrl = window.URL.createObjectURL(newBlob);
+
+                      const link = document.createElement("a");
+                      link.href = objUrl;
+                      link.download = resObj.filename;
+                      link.click();
+
+                      // For Firefox it is necessary to delay revoking the ObjectURL.
+                      setTimeout(() => {
+                        window.URL.revokeObjectURL(objUrl);
+                      }, 250);
+                    }
+                  })
+              }
               className="link"
             >
               <Download />
@@ -53,7 +80,7 @@ export default function Sheet(props: SheetProps) {
       <style jsx global>{`
         @page {
           size: A4 portrait;
-          margin: 2cm;
+          margin: 1.75cm;
         }
 
         .sheet {
@@ -63,7 +90,7 @@ export default function Sheet(props: SheetProps) {
 
         @media print {
           .sheet {
-            font-size: 12px;
+            font-size: 14px;
           }
         }
 
@@ -142,7 +169,6 @@ export default function Sheet(props: SheetProps) {
 
         .sheet section {
           padding: 1em 0;
-          page-break-inside: avoid;
         }
 
         .sheet section h1 {
@@ -211,8 +237,8 @@ export function StructuredSheet(props: StructuredSheetProps) {
         {`
           .sectionEntry {
             display: flex;
-            page-break-inside: avoid;
             margin-bottom: 1em;
+            page-break-inside: avoid;
           }
           @media print {
             .sectionEntry {
