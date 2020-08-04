@@ -337,6 +337,10 @@ export default function Home(props: { isHiddenInPrint?: boolean }) {
       <Head>
         <title>Manuel Dugué</title>
         <link rel="icon" href="/favicon.ico" />
+        <meta
+          name="Description"
+          content="Manuel Dugué. Handcrafting web experiences since 2008. Teching, analyzing, coding. For consumers, experts & bots."
+        />
         <link
           href="https://fonts.googleapis.com/css2?family=Bungee&family=Bungee+Hairline&family=Bungee+Inline&family=Bungee+Shade&display=swap"
           rel="stylesheet"
