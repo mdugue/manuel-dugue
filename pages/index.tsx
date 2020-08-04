@@ -53,9 +53,11 @@ function Headline(props: { children: string; style?: CSSProperties }) {
   const { children, style } = props;
   return (
     <>
-      <animated.h1 style={style}>{children}</animated.h1>
+      <animated.h1 style={style} className="title">
+        {children}
+      </animated.h1>
       <style jsx global>{`
-        h1 {
+        .title {
           display: flex;
           flex-direction: column;
           font-family: "Bungee Inline", cursive;
@@ -65,7 +67,7 @@ function Headline(props: { children: string; style?: CSSProperties }) {
           letter-spacing: 0.1em;
         }
 
-        h1::before {
+        .title::before {
           position: absolute;
           font-family: "Bungee Shade", cursive;
           content: "${children}";
@@ -143,6 +145,7 @@ function ClaimCard() {
         handcrafting web experiences for everybody
       </Headline>
       <animated.h2
+        className="tagline"
         style={{
           // @ts-expect-error
           transform: props.xy?.interpolate(trans3)
@@ -328,7 +331,7 @@ function ContactFooter() {
   );
 }
 
-export default function Home() {
+export default function Home(props: { isHiddenInPrint?: boolean }) {
   return (
     <div className="container">
       <Head>
@@ -364,6 +367,12 @@ export default function Home() {
           min-height: 100vh;
         }
 
+        @media print {
+          .container {
+            display: ${props.isHiddenInPrint ? "none" : "flex"};
+          }
+        }
+
         @media screen and (min-width: ${largeBreakpoint}) {
           .container {
             justify-content: space-between;
@@ -393,7 +402,7 @@ export default function Home() {
           font-weight: 700;
         }
 
-        h2 {
+        .tagline {
           font-family: "Bungee Inline", cursive;
           font-size: max(1.5vw, 1.25rem);
           font-weight: normal;
@@ -403,7 +412,7 @@ export default function Home() {
         }
 
         @media screen and (min-width: ${largeBreakpoint}) {
-          h2 {
+          .tagline {
             color: hsl(47 80% 75% / 1);
             font-size: 1.5vw;
           }

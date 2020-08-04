@@ -2,7 +2,7 @@ import Head from "next/head";
 import Link from "next/link";
 import Router from "next/router";
 import React, { Fragment, ReactNode } from "react";
-import { XCircle } from "react-feather";
+import { Download, XCircle } from "react-feather";
 import { useKeyPressEvent } from "react-use";
 
 export type SheetProps = {
@@ -26,8 +26,16 @@ export default function Sheet(props: SheetProps) {
       <div className="sheetContainer">
         <main className="sheet">
           <nav>
-            <Link href="/">
-              <a>
+            <div
+              tabIndex={1}
+              title="download"
+              onClick={() => alert("download coming soon")}
+              className="link"
+            >
+              <Download />
+            </div>
+            <Link href="/" className="link">
+              <a title="close" tabIndex={1}>
                 <XCircle />
               </a>
             </Link>
@@ -43,6 +51,22 @@ export default function Sheet(props: SheetProps) {
         </main>
       </div>
       <style jsx global>{`
+        @page {
+          size: A4 portrait;
+          margin: 2cm;
+        }
+
+        .sheet {
+          font-family: "Montserrat", sans-serif;
+          background: white;
+        }
+
+        .sheet h1 {
+          font-family: "Bungee Inline", cursive;
+          font-weight: normal;
+          font-size: 2.75rem;
+        }
+
         address {
           font-style: normal;
           color: #206c5f;
@@ -50,30 +74,30 @@ export default function Sheet(props: SheetProps) {
           font-size: 0.875rem;
         }
 
-        .sheetContainer {
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          padding: 2rem;
-          overflow: auto;
-          pointer-events: none;
-        }
+        @media screen {
+          .sheetContainer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            padding: 2rem;
+            overflow: auto;
+            pointer-events: none;
+          }
 
-        .sheet {
-          background: white;
-          box-shadow: 0 0 1rem #0000001c;
-          font-family: "Montserrat", sans-serif;
-          height: 100%;
-          margin: auto;
-          max-height: 29.6cm;
-          max-width: 21cm;
-          overflow-y: auto;
-          padding: 6rem 4rem;
-          color: #000;
-          position: relative;
-          pointer-events: all;
+          .sheet {
+            box-shadow: 0 0 1rem #0000001c;
+            height: 100%;
+            margin: auto;
+            max-height: 29.6cm;
+            max-width: 21cm;
+            overflow-y: auto;
+            padding: 6rem 4rem;
+            color: #000;
+            position: relative;
+            pointer-events: all;
+          }
         }
 
         .sheet nav {
@@ -82,18 +106,20 @@ export default function Sheet(props: SheetProps) {
           color: #206c5f;
           top: 0;
           right: 0;
+          display: flex;
         }
 
         .sheet:hover nav {
           visibility: visible;
         }
 
-        .sheet nav a {
+        .sheet nav > * {
           padding: 1rem;
           display: inline-block;
         }
 
-        .sheet nav a:hover {
+        .sheet nav > *:hover,
+        .sheet nav > *:focus {
           background: var(--colorBodyBackground);
         }
 
@@ -107,22 +133,15 @@ export default function Sheet(props: SheetProps) {
         }
 
         .sheet section {
-          display: grid;
-          grid-template-columns: 1fr 3fr;
-          grid-gap: 1rem 2rem;
-          margin: 3rem 0;
+          padding: 3rem 0;
+          page-break-inside: avoid;
         }
 
-        .sheet h2 {
+        .sheet section h1 {
+          font-size: 1.375em;
           grid-column: 1 / -1;
           margin: 0 0 1rem;
-        }
-
-        .sheet h3 {
-          font-size: 1em;
-          margin: 0;
-          text-align: right;
-          hyphens: auto;
+          color: hsl(47 80% 75% / 1);
         }
 
         .sheet h4 {
@@ -155,10 +174,10 @@ export function StructuredSheet(props: StructuredSheetProps) {
       <Sheet title={title}>
         {document.sections.map(section => (
           <section>
-            <h2 className="sectionTitle">{section.sectionTitle}</h2>
+            <h1 className="sectionTitle">{section.sectionTitle}</h1>
             {section.entries.map((entry, index) => (
-              <Fragment key={index}>
-                <h3 className="sectionEntry">{entry.title}</h3>
+              <div className="sectionEntry" key={index}>
+                <h2>{entry.title}</h2>
                 <div className="entryContent">
                   {entry.subtitle && <h4>{entry.subtitle}</h4>}
                   {entry.description.split("\n").map(item => (
@@ -175,16 +194,34 @@ export function StructuredSheet(props: StructuredSheetProps) {
                     </a>
                   ))}
                 </div>
-              </Fragment>
+              </div>
             ))}
           </section>
         ))}
       </Sheet>
       <style jsx global>
         {`
+          .sectionEntry {
+            display: flex;
+            page-break-inside: avoid;
+            margin-bottom: 1rem;
+          }
+          .sectionEntry h2 {
+            flex: 0 0 20%;
+            margin: 0 2rem 0 0;
+            font-size: 1em;
+            text-align: right;
+            hyphens: auto;
+          }
+          .entryContent {
+            flex: 1 0 0;
+            page-break-inside: avoid;
+          }
+
           .entryContent p {
             margin: 0;
           }
+
           .entryContent a {
             color: #206c5f;
             font-family: "Bungee Hairline", cursive;

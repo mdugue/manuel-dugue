@@ -12,7 +12,7 @@ export default function Cv(props: {
   const { document } = props;
   return (
     <>
-      <Home />
+      <Home isHiddenInPrint />
       <Head>
         <title>cv – Manuel Dugué</title>
       </Head>
