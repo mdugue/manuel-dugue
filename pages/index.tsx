@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Link from "next/link";
-import { MouseEvent, useEffect, useRef, useState } from "react";
+import { CSSProperties, MouseEvent, useEffect, useRef, useState } from "react";
 import { animated, SpringBaseProps, useSpring } from "react-spring";
 import { useMedia } from "react-use";
 // @ts-expect-error
@@ -48,6 +48,37 @@ function useMaterial(
 
   const onMouseLeave = () => set({ xy: defaultPosition });
   return { props, onMouseMove, onMouseLeave };
+}
+
+function Headline(props: { children: string; style?: CSSProperties }) {
+  const { children, style } = props;
+  return (
+    <>
+      <animated.h1 style={style}>{children}</animated.h1>
+      <style jsx global>{`
+        h1 {
+          display: flex;
+          flex-direction: column;
+          font-family: "Bungee Inline", cursive;
+          font-size: max(3vw, 2rem);
+          font-weight: 400;
+          margin: 0;
+          padding-bottom: 2vmin;
+              letter-spacing: 0.1em;
+        }
+
+        h1::before {
+          position: absolute;
+          font-family: "Bungee Shade", cursive;
+          content: "${children}";
+          color: #D68585;
+          z-Index: -1;
+          letter-spacing: 0em;
+          transform: translateX(-0.12em);
+        }
+      `}</style>
+    </>
+  );
 }
 
 function ClaimCard() {
@@ -105,14 +136,14 @@ function ClaimCard() {
       >
         – since 2008 –
       </animated.small>
-      <animated.h1
+      <Headline
         style={{
           // @ts-expect-error
           transform: props.xy?.interpolate(trans2)
         }}
       >
         handcrafting web experiences for everybody
-      </animated.h1>
+      </Headline>
       <animated.h2
         style={{
           // @ts-expect-error
@@ -214,26 +245,66 @@ function ContactFooter() {
   });
 
   return (
-    <animated.footer
-      className="contact"
-      onMouseMove={onMouseMove}
-      onMouseLeave={onMouseLeave}
-      style={{
-        // @ts-expect-error
-        transform: props.xy?.interpolate(transFooter)
-      }}
-    >
-      <Link href="/cv">
-        <a>CV</a>
-      </Link>
-      <Link href="/skill-profile">
-        <a>
-          skill
-          <br />
-          profile
-        </a>
-      </Link>
-    </animated.footer>
+    <>
+      <animated.footer
+        className="contact"
+        onMouseMove={onMouseMove}
+        onMouseLeave={onMouseLeave}
+        style={{
+          // @ts-expect-error
+          transform: props.xy?.interpolate(transFooter)
+        }}
+      >
+        <Link href="/cv">
+          <a>CV</a>
+        </Link>
+        <Link href="/skill-profile">
+          <a>
+            skill
+            <br />
+            profile
+          </a>
+        </Link>
+      </animated.footer>
+      <style jsx global>
+        {`
+          .contact {
+            align-items: flex-end;
+            background: hsl(47 80% 57% / 1);
+            border-radius: 100%;
+            bottom: -10vmin;
+            color: var(--colorBodyText);
+            display: flex;
+            flex-direction: column;
+            font-family: "Bungee Inline", cursive;
+            font-size: 2vmin;
+            height: 23vmin;
+            position: fixed;
+            right: -5vmin;
+            text-align: right;
+            width: 23vmin;
+            will-change: transform;
+          }
+
+          .contact a {
+            padding-right: 8vmin;
+            width: 100%;
+          }
+
+          .contact a:first-child {
+            padding-top: 4vmin;
+          }
+
+          .contact a:last-child {
+            padding-bottom: 4vmin;
+          }
+
+          .contact a:hover {
+            color: #cb6666;
+          }
+        `}
+      </style>
+    </>
   );
 }
 
@@ -303,16 +374,6 @@ export default function Home() {
           font-weight: 700;
         }
 
-        h1 {
-          display: flex;
-          flex-direction: column;
-          font-family: "Bungee Inline", cursive;
-          font-size: max(3vw, 2rem);
-          font-weight: 400;
-          margin: 0;
-          padding-bottom: 2vmin;
-        }
-
         h2 {
           font-family: "Bungee Inline", cursive;
           font-size: max(1.5vw, 1.25rem);
@@ -323,14 +384,8 @@ export default function Home() {
         }
 
         @media screen and (min-width: ${largeBreakpoint}) {
-          h1 {
-            font-family: "Bungee Shade", cursive;
-          }
-        }
-
-        @media screen and (min-width: ${largeBreakpoint}) {
           h2 {
-            color: #e9c237;
+            color: hsl(47 80% 75% / 1);
             font-size: 1.5vw;
           }
         }
@@ -360,7 +415,7 @@ export default function Home() {
         }
 
         aside {
-          color: #e9c238;
+          color: hsl(47 80% 57% / 1);
           font-family: "Bungee Inline", cursive;
           font-size: 1.125rem;
           line-height: 1;
@@ -392,41 +447,6 @@ export default function Home() {
 
         .legal a {
           padding: 1ch 1ch 0;
-        }
-
-        .contact {
-          align-items: flex-end;
-          background: #e9c238;
-          border-radius: 100%;
-          bottom: -10vmin;
-          color: var(--colorBodyText);
-          display: flex;
-          flex-direction: column;
-          font-family: "Bungee Inline", cursive;
-          font-size: 2vmin;
-          height: 23vmin;
-          position: fixed;
-          right: -5vmin;
-          text-align: right;
-          width: 23vmin;
-          will-change: transform;
-        }
-
-        .contact a {
-          padding-right: 8vmin;
-          width: 100%;
-        }
-
-        .contact a:first-child {
-          padding-top: 4vmin;
-        }
-
-        .contact a:last-child {
-          padding-bottom: 4vmin;
-        }
-
-        .contact a:hover {
-          color: #cb6666;
         }
 
         .highlight-container {
