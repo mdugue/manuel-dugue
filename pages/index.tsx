@@ -39,7 +39,6 @@ function useMaterial(
   }, [isWide, set]);
 
   function onMouseMove(event: MouseEvent) {
-    console.log(event.target, event.currentTarget, event);
     const rect = (event.currentTarget as HTMLElement).getBoundingClientRect();
     const relativeX = (2 * (event.clientX - rect.left)) / rect.width - 1;
     const relativeY = (2 * (event.clientY - rect.top)) / rect.height - 1;
@@ -62,9 +61,8 @@ function Headline(props: { children: string; style?: CSSProperties }) {
           font-family: "Bungee Inline", cursive;
           font-size: max(3vw, 2rem);
           font-weight: 400;
-          margin: 0;
-          padding-bottom: 2vmin;
-              letter-spacing: 0.1em;
+          margin: 0 0 2vh;
+          letter-spacing: 0.1em;
         }
 
         h1::before {
@@ -272,35 +270,57 @@ function ContactFooter() {
             align-items: flex-end;
             background: hsl(47 80% 57% / 1);
             border-radius: 100%;
-            bottom: -10vmin;
+            bottom: -10vmax;
             color: var(--colorBodyText);
             display: flex;
             flex-direction: column;
             font-family: "Bungee Inline", cursive;
-            font-size: 2vmin;
-            height: 23vmin;
+            font-size: 2vmax;
+            height: 23vmax;
             position: fixed;
-            right: -5vmin;
+            right: -5vmax;
             text-align: right;
-            width: 23vmin;
+            width: 23vmax;
             will-change: transform;
           }
 
           .contact a {
-            padding-right: 8vmin;
+            padding-right: 8vmax;
             width: 100%;
           }
 
           .contact a:first-child {
-            padding-top: 4vmin;
+            padding-top: 4vmax;
           }
 
           .contact a:last-child {
-            padding-bottom: 4vmin;
+            padding-bottom: 4vmax;
           }
 
           .contact a:hover {
             color: #cb6666;
+          }
+
+          @media screen and (min-width: ${largeBreakpoint}) {
+            .contact {
+              bottom: -10vmin;
+              font-size: 2vmin;
+              height: 23vmin;
+              right: -5vmin;
+              width: 23vmin;
+            }
+
+            .contact a {
+              padding-right: 8vmin;
+            }
+
+            .contact a:first-child {
+              padding-top: 4vmin;
+            }
+
+            .contact a:last-child {
+              padding-bottom: 4vmin;
+            }
           }
         `}
       </style>
@@ -351,10 +371,9 @@ export default function Home() {
         }
 
         hgroup {
-          background: #cb6666;
+          background: hsl(0 55% 62% / 1);
           color: var(--colorBodyText);
-          margin: 7vw 5vw;
-          padding: 20vw 5vw;
+          padding: 10vmax 2vmax;
           min-height: 55vh;
           will-change: transform;
         }
@@ -363,7 +382,7 @@ export default function Home() {
           hgroup {
             margin: 10vh 0 0 10vw;
             min-height: initial;
-            padding: 10vw;
+            padding: 9vh 10vw 10vh;
             width: 66vw;
           }
         }
@@ -379,7 +398,7 @@ export default function Home() {
           font-size: max(1.5vw, 1.25rem);
           font-weight: normal;
           margin-right: 2vw;
-          margin-top: 2vw;
+          margin-top: 2vh;
           will-change: transform;
         }
 
@@ -393,25 +412,36 @@ export default function Home() {
         .dot {
           background: var(--colorBodyBackground);
           border-radius: 100%;
-          height: 4vmin;
+          height: 4vmax;
           position: absolute;
-          width: 4vmin;
+          width: 4vmax;
         }
         .dotBR {
-          bottom: -2vmin;
-          right: -2vmin;
+          bottom: -2vmax;
+          right: -2vmax;
         }
         .dotBL {
-          bottom: -2vmin;
-          left: -2vmin;
+          bottom: -2vmax;
+          left: -2vmax;
+        }
+        .dotTR,
+        .dotTL {
+          visibility: hidden;
         }
         .dotTR {
-          right: -2vmin;
-          top: -2vmin;
+          right: -2vmax;
+          top: -2vmax;
         }
         .dotTL {
-          left: -2vmin;
-          top: -2vmin;
+          left: -2vmax;
+          top: -2vmax;
+        }
+
+        @media screen and (min-width: ${largeBreakpoint}) {
+          .dotTR,
+          .dotTL {
+            visibility: initial;
+          }
         }
 
         aside {
@@ -419,7 +449,7 @@ export default function Home() {
           font-family: "Bungee Inline", cursive;
           font-size: 1.125rem;
           line-height: 1;
-          padding: 2vh;
+          padding: 6vh 2vh 2vh;
           text-align: center;
         }
 
@@ -440,9 +470,14 @@ export default function Home() {
           position: absolute;
           right: 1rem;
           display: flex;
-          flex-direction: column;
           align-items: flex-end;
           justify-content: initial;
+        }
+
+        @media screen and (min-width: ${largeBreakpoint}) {
+          .legal {
+            flex-direction: column;
+          }
         }
 
         .legal a {
