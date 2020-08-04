@@ -341,6 +341,7 @@ export default function Home(props: { isHiddenInPrint?: boolean }) {
           href="https://fonts.googleapis.com/css2?family=Bungee&family=Bungee+Hairline&family=Bungee+Inline&family=Bungee+Shade&display=swap"
           rel="stylesheet"
         ></link>
+        <link rel="manifest" href="/manifest.webmanifest"></link>
       </Head>
       <ClaimCard />
       <ContactAside />
