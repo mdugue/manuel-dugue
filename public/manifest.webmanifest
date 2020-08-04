@@ -1,5 +1,5 @@
 {
-  "name": "Manuel Dugué – Handcrafting web experiences for everybody",
+  "name": "Manuel Dugué - handcrafted web",
   "short_name": "Manuel Dugué",
   "description": "Teching, analyzing, coding. For consumers, experts & bots. Since 2008",
   "icons": [
@@ -14,7 +14,7 @@
       "type": "image/png"
     }
   ],
-  "theme_color": "hsl(0 55% 62% / 1)",
+  "theme_color": "#d36969",
   "background_color": "#f7f7f7",
   "display": "standalone",
   "start_url": "/"

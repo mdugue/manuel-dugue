@@ -57,11 +57,10 @@ export default function Sheet(props: SheetProps) {
                     }
                   })
               }
-              className="link"
             >
               <Download />
             </div>
-            <Link href="/" className="link">
+            <Link href="/">
               <a title="close" tabIndex={1}>
                 <XCircle />
               </a>
@@ -207,7 +206,7 @@ export function StructuredSheet(props: StructuredSheetProps) {
     <>
       <Sheet title={title}>
         {document.sections.map(section => (
-          <section>
+          <section key={section.sectionTitle}>
             <h1 className="sectionTitle">{section.sectionTitle}</h1>
             {section.entries.map((entry, index) => (
               <div className="sectionEntry" key={index}>
@@ -222,7 +221,7 @@ export function StructuredSheet(props: StructuredSheetProps) {
                       key={link}
                       href={link}
                       target="_blank"
-                      rel="noopener noreferer"
+                      rel="noopener noreferrer"
                     >
                       link
                     </a>

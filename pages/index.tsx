@@ -203,21 +203,21 @@ function ContactAside() {
       <a
         href="https://www.linkedin.com/in/manuel-dugue/"
         target="_blank"
-        rel="noopener noreferer"
+        rel="noopener noreferrer"
       >
         linkedin
       </a>
       <a
         href="https://twitter.com/mdugue"
         target="_blank"
-        rel="noopener noreferer"
+        rel="noopener noreferrer"
       >
         twitter
       </a>
       <a
         href="https://github.com/mdugue"
         target="_blank"
-        rel="noopener noreferer"
+        rel="noopener noreferrer"
       >
         github
       </a>
