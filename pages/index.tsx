@@ -135,7 +135,7 @@ function ClaimCard() {
           transform: props.xy?.interpolate(trans3)
         }}
       >
-        – since 2008 –
+        – since 2008 TODO –
       </animated.small>
       <Headline
         style={{

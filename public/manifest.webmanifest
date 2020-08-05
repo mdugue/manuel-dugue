@@ -2,6 +2,7 @@
   "name": "Manuel Dugué - handcrafted web",
   "short_name": "Manuel Dugué",
   "description": "Teching, analyzing, coding. For consumers, experts & bots. Since 2008",
+  "orientation": "portrait",
   "icons": [
     {
       "src": "/android-chrome-192x192.png",
