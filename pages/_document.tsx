@@ -5,6 +5,11 @@ class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
+          <link
+            rel="preconnect"
+            href="https://fonts.gstatic.com"
+            crossOrigin=""
+          />
           <meta name="theme-color" content="#000000" />
           <meta
             name="Description"
@@ -27,6 +32,11 @@ class MyDocument extends Document {
             sizes="32x32"
           />
           <link href="icon-192x192.png" rel="icon" sizes="192x192" />
+          <link
+            href="icon-192x192.png"
+            rel="apple-touch-icon"
+            sizes="192x192"
+          />
           <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
         </Head>
         <body>
