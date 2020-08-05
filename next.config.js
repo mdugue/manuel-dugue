@@ -8,7 +8,8 @@ runtimeCaching[0].handler = "StaleWhileRevalidate";
 module.exports = withPWA({
   poweredByHeader: false,
   experimental: {
-    modern: true
+    modern: true,
+    reactMode: "concurrent"
   },
   pwa: {
     disable: process.env.NODE_ENV === "development",
