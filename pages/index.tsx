@@ -5,6 +5,7 @@ import { animated, SpringBaseProps, useSpring } from "react-spring";
 import { useMedia } from "react-use";
 // @ts-expect-error
 import Typewriter from "typewriter-effect";
+import useEvaluateServiceWorker from "../src/hooks/useEvaluateServiceWorker";
 
 const translate = (x: number, y: number, multiplier: number) =>
   `translate3d(${multiplier * x}vmin,${multiplier * y}vmin,0)`;
@@ -332,15 +333,12 @@ function ContactFooter() {
 }
 
 export default function Home(props: { isHiddenInPrint?: boolean }) {
+  useEvaluateServiceWorker();
   return (
     <div className="container">
       <Head>
         <title>Manuel Dugué</title>
         <link rel="icon" href="/favicon.ico" />
-        <meta
-          name="Description"
-          content="Manuel Dugué. Handcrafting web experiences since 2008. Teching, analyzing, coding. For consumers, experts & bots."
-        />
         <link
           href="https://fonts.googleapis.com/css2?family=Bungee&family=Bungee+Hairline&family=Bungee+Inline&family=Bungee+Shade&display=swap"
           rel="stylesheet"
