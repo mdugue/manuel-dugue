@@ -23,7 +23,7 @@ const transFooter = (x: number, y: number) => {
   }deg)`;
 };
 
-const largeBreakpoint = "768px";
+export const largeBreakpoint = "768px";
 
 const slow = { mass: 10, tension: 200, friction: 50 };
 function useMaterial(
