@@ -4,6 +4,7 @@ import Router from "next/router";
 import React, { Fragment, ReactNode } from "react";
 import { Download, XCircle } from "react-feather";
 import { useKeyPressEvent } from "react-use";
+import { largeBreakpoint } from "../../pages";
 
 export type SheetProps = {
   title: string;
@@ -115,7 +116,7 @@ export default function Sheet(props: SheetProps) {
             left: 0;
             right: 0;
             bottom: 0;
-            padding: 2rem;
+            padding: 0.5rem;
             overflow: auto;
             pointer-events: none;
           }
@@ -127,20 +128,35 @@ export default function Sheet(props: SheetProps) {
             max-height: 29.6cm;
             max-width: 21cm;
             overflow-y: auto;
-            padding: 6rem 4rem;
+            padding: 1rem;
             color: #000;
             position: relative;
             pointer-events: all;
           }
         }
 
+        @media screen and (min-width: ${largeBreakpoint}) {
+          .sheetContainer {
+            padding: 2rem;
+          }
+
+          .sheet {
+            padding: 6rem 4rem;
+          }
+        }
+
         .sheet nav {
-          visibility: hidden;
           position: absolute;
           color: #206c5f;
           top: 0;
           right: 0;
           display: flex;
+        }
+
+        @media screen and (min-width: ${largeBreakpoint}), @media print {
+          .sheet nav {
+            visibility: hidden;
+          }
         }
 
         .sheet:hover nav {
@@ -238,6 +254,7 @@ export function StructuredSheet(props: StructuredSheetProps) {
             display: flex;
             margin-bottom: 1em;
             page-break-inside: avoid;
+            flex-direction: column;
           }
           @media print {
             .sectionEntry {
@@ -248,8 +265,12 @@ export function StructuredSheet(props: StructuredSheetProps) {
             flex: 0 0 20%;
             margin: 0 2em 0 0;
             font-size: 1em;
-            text-align: right;
             hyphens: auto;
+          }
+          @media screen and (min-width: ${largeBreakpoint}) {
+            .sectionEntry h2 {
+              text-align: right;
+            }
           }
           .entryContent {
             flex: 1 0 0;
