@@ -355,12 +355,16 @@ export default function Home(props: { isHiddenInPrint?: boolean }) {
           color-scheme: light dark;
           --colorBodyBackground: #f7f7f7;
           --colorBodyText: #fff;
+          --secondaryLink: #206c5f;
+          --legalLink: #545454;
         }
 
         @media (prefers-color-scheme: dark) {
           :root {
             --colorBodyBackground: #080808;
             --colorBodyText: #000;
+            --secondaryLink: #fff;
+            --legalLink: #545454;
           }
         }
 
@@ -466,7 +470,7 @@ export default function Home(props: { isHiddenInPrint?: boolean }) {
         }
 
         aside a {
-          color: #206c5f;
+          color: var(--secondaryLink);
           display: inline-block;
           font-family: "Bungee Hairline", cursive;
           font-weight: 700;
@@ -494,6 +498,8 @@ export default function Home(props: { isHiddenInPrint?: boolean }) {
 
         .legal a {
           padding: 1ch 1ch 0;
+          font-weight: bold;
+          color: var(--legalLink);
         }
 
         .highlight-container {

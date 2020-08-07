@@ -67,7 +67,7 @@ export default function Sheet(props: SheetProps) {
               </a>
             </Link>
           </nav>
-          <h1>{title}</h1>
+          <h1 className="sheetTitle">{title}</h1>
           <address>
             Manuel Dugué, Görlitzer Str. 23, 01099 Dresden
             <br />
@@ -92,6 +92,12 @@ export default function Sheet(props: SheetProps) {
           .sheet {
             font-size: 14px;
           }
+        }
+
+        .sheetTitle {
+          padding-right: 7.5rem;
+          word-break: break-word;
+          hyphens: auto;
         }
 
         .sheet h1 {
