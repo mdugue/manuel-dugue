@@ -38,6 +38,10 @@ class MyDocument extends Document {
             sizes="192x192"
           />
           <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
+          <link
+            href="https://fonts.googleapis.com/css2?family=Bungee&family=Bungee+Hairline&family=Bungee+Inline&family=Bungee+Shade&display=swap"
+            rel="stylesheet"
+          ></link>
         </Head>
         <body>
           <Main />

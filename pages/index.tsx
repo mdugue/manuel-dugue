@@ -339,10 +339,6 @@ export default function Home(props: { isHiddenInPrint?: boolean }) {
       <Head>
         <title>Manuel Dugué</title>
         <link rel="icon" href="/favicon.ico" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Bungee&family=Bungee+Hairline&family=Bungee+Inline&family=Bungee+Shade&display=swap"
-          rel="stylesheet"
-        ></link>
         <link rel="manifest" href="/manifest.webmanifest"></link>
       </Head>
       <ClaimCard />
