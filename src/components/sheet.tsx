@@ -135,7 +135,7 @@ export default function Sheet(props: SheetProps) {
           }
         }
 
-        @media screen and (min-width: ${largeBreakpoint}) {
+        @media (min-width: ${largeBreakpoint}) {
           .sheetContainer {
             padding: 2rem;
           }
@@ -153,7 +153,13 @@ export default function Sheet(props: SheetProps) {
           display: flex;
         }
 
-        @media screen and (min-width: ${largeBreakpoint}), @media print {
+        @media (min-width: ${largeBreakpoint}) {
+          .sheet nav {
+            visibility: hidden;
+          }
+        }
+
+        @media print {
           .sheet nav {
             visibility: hidden;
           }
@@ -256,22 +262,33 @@ export function StructuredSheet(props: StructuredSheetProps) {
             page-break-inside: avoid;
             flex-direction: column;
           }
+
+          @media (min-width: ${largeBreakpoint}) {
+            .sectionEntry {
+              flex-direction: row;
+            }
+          }
+
           @media print {
             .sectionEntry {
+              flex-direction: row;
               margin-bottom: 0.5em;
             }
           }
+
           .sectionEntry h2 {
             flex: 0 0 20%;
             margin: 0 2em 0 0;
             font-size: 1em;
             hyphens: auto;
           }
-          @media screen and (min-width: ${largeBreakpoint}) {
+
+          @media (min-width: ${largeBreakpoint}) {
             .sectionEntry h2 {
               text-align: right;
             }
           }
+
           .entryContent {
             flex: 1 0 0;
             page-break-inside: avoid;
@@ -286,6 +303,15 @@ export function StructuredSheet(props: StructuredSheetProps) {
             font-family: "Bungee Hairline", cursive;
             font-weight: bold;
             float: right;
+          }
+
+          @media print {
+            .entryContent a::after {
+              content: ": " attr(href);
+              font-family: Montserrat, sans-serif;
+              font-weight: normal;
+              font-size: 12px;
+            }
           }
         `}
       </style>

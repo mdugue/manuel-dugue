@@ -34,7 +34,7 @@ export default function useEvaluateServiceWorker() {
         // You may want to customize the UI prompt accordingly.
         if (
           confirm(
-            "A newer version of this web app is available, reload to update?"
+            "🚀 An even newer version of this little portfolio is available, reload to update?"
           )
         ) {
           wb.addEventListener("controlling", event => {
