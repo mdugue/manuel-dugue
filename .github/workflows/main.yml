@@ -9,7 +9,7 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: "14.x"
-      - uses: actions/cache@v1
+      - uses: actions/cache@v2
         with:
           path: ~/.npm
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
@@ -17,8 +17,6 @@ jobs:
             ${{ runner.os }}-node-
       - name: install dependencies
         run: npm ci
-      - name: lint
-        run: npm run lint
       - name: check types
         run: npm run tsc
       - name: build app
