@@ -29,6 +29,10 @@ export default function useEvaluateServiceWorker() {
       // NOTE: MUST set skipWaiting to false in next.config.js pwa object
       // https://developers.google.com/web/tools/workbox/guides/advanced-recipes#offer_a_page_reload_for_users
       const promptNewVersionAvailable = event => {
+        console.log(
+          "a newer version is availabe. It will be used automatically load when user open the app next time"
+        );
+        return;
         // `event.wasWaitingBeforeRegister` will be false if this is the first time the updated service worker is waiting.
         // When `event.wasWaitingBeforeRegister` is true, a previously updated service worker is still waiting.
         // You may want to customize the UI prompt accordingly.

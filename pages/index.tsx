@@ -72,8 +72,8 @@ function Headline(props: { children: string; style?: CSSProperties }) {
           position: absolute;
           font-family: "Bungee Shade", cursive;
           content: "${children}";
-          color: #D68585;
-          z-Index: -1;
+          color: #d68585;
+          z-index: -1;
           letter-spacing: 0em;
           transform: translateX(-0.12em);
         }
@@ -352,7 +352,7 @@ export default function Home(props: { isHiddenInPrint?: boolean }) {
           --colorBodyBackground: #f7f7f7;
           --colorBodyText: #fff;
           --secondaryLink: #206c5f;
-          --legalLink: #545454;
+          --legalLink: #bdbdbd;
         }
 
         @media (prefers-color-scheme: dark) {
