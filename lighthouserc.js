@@ -1,5 +1,8 @@
 module.exports = {
   ci: {
+    assert: {
+      preset: "lighthouse:recommended"
+    },
     collect: {
       startServerCommand: "npm run start",
       startServerReadyPattern: "ready on",
