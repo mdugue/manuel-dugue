@@ -25,8 +25,6 @@ jobs:
         uses: treosh/lighthouse-ci-action@v3
         with:
           configPath: "lighthouserc.js"
-          #          budgetPath: ./budget.json # test performance budgets
           uploadArtifacts: true # save results as an action artifacts
-          temporaryPublicStorage: false # upload lighthouse report to the temporary storage
-          serverBaseUrl: "https://manuelfyi-lhci.herokuapp.com/app/projects/manuelfyi-lhci"
+          serverBaseUrl: "https://manuelfyi-lhci.herokuapp.com"
           serverToken: "595cbbe4-555c-44cf-89c6-5ffd2c95fd28"
