@@ -27,6 +27,6 @@ jobs:
           configPath: "lighthouserc.js"
           uploadArtifacts: true # save results as an action artifacts
           serverBaseUrl: "https://manuelfyi-lhci.herokuapp.com"
-          serverToken: "595cbbe4-555c-44cf-89c6-5ffd2c95fd28"
+          serverToken: ${{secrets.LHCI_SERVER_TOKEN}}
         env:
           LHCI_GITHUB_APP_TOKEN: ${{secrets.LHCI_GITHUB_APP_TOKEN}}

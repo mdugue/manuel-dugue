@@ -61,7 +61,8 @@ function Headline(props: { children: string; style?: CSSProperties }) {
         .title {
           display: flex;
           flex-direction: column;
-          font-family: "Bungee Inline", cursive;
+          font-family: "Bungee Inline", "SF Mono", "Ubuntu Mono", Consolas,
+            Menlo, monospace, cursive;
           font-size: max(3vw, 2rem);
           font-weight: 400;
           margin: 0 0 2vh;
@@ -70,7 +71,8 @@ function Headline(props: { children: string; style?: CSSProperties }) {
 
         .title::before {
           position: absolute;
-          font-family: "Bungee Shade", cursive;
+          font-family: "Bungee Shade", "SF Mono", "Ubuntu Mono", Consolas, Menlo,
+            monospace, cursive;
           content: "${children}";
           color: #d68585;
           z-index: -1;
@@ -181,6 +183,12 @@ function ClaimCard() {
               .start();
           }}
         />
+        <noscript>
+          consumers, experts, bots <br />
+          React, GraphQL, A11Y <br />
+          teaching, analyzing, coding <br />
+          arctic code vault contributer <br />
+        </noscript>
       </animated.h2>
       {["BL", "BR", "TL", "TR"].map(dotLocation => (
         <animated.div
@@ -278,7 +286,9 @@ function ContactFooter() {
             color: var(--colorBodyText);
             display: flex;
             flex-direction: column;
-            font-family: "Bungee Inline", cursive;
+            font-family: "Bungee Inline", "SF Mono", "Ubuntu Mono", Consolas,
+              Menlo, monospace, "SF Mono", "Ubuntu Mono", Consolas, Menlo,
+              monospace, cursive;
             font-size: 2vmax;
             height: 23vmax;
             position: fixed;
@@ -401,12 +411,14 @@ export default function Home(props: { isHiddenInPrint?: boolean }) {
 
         small {
           font-size: max(1.5vmin, 1rem);
-          font-family: "Bungee Hairline", cursive;
+          font-family: "Bungee Hairline", "SF Mono", "Ubuntu Mono", Consolas,
+            Menlo, monospace, cursive;
           font-weight: 700;
         }
 
         .tagline {
-          font-family: "Bungee Inline", cursive;
+          font-family: "Bungee Inline", "SF Mono", "Ubuntu Mono", Consolas,
+            Menlo, monospace, cursive;
           font-size: max(1.5vw, 1.25rem);
           font-weight: normal;
           margin-right: 2vw;
@@ -458,7 +470,8 @@ export default function Home(props: { isHiddenInPrint?: boolean }) {
 
         aside {
           color: hsl(47 80% 57% / 1);
-          font-family: "Bungee Inline", cursive;
+          font-family: "Bungee Inline", "SF Mono", "Ubuntu Mono", Consolas,
+            Menlo, monospace, cursive;
           font-size: 1.125rem;
           line-height: 1;
           padding: 6vh 2vh 2vh;
@@ -468,17 +481,20 @@ export default function Home(props: { isHiddenInPrint?: boolean }) {
         aside a {
           color: var(--secondaryLink);
           display: inline-block;
-          font-family: "Bungee Hairline", cursive;
+          font-family: "Bungee Hairline", "SF Mono", "Ubuntu Mono", Consolas,
+            Menlo, monospace, cursive;
           font-weight: 700;
           padding: 1ch;
         }
         aside a:hover {
-          font-family: "Bungee Inline", cursive;
+          font-family: "Bungee Inline", "SF Mono", "Ubuntu Mono", Consolas,
+            Menlo, monospace, cursive;
           font-weight: normal;
         }
 
         .legal {
-          font-family: "Bungee Hairline", cursive;
+          font-family: "Bungee Hairline", "SF Mono", "Ubuntu Mono", Consolas,
+            Menlo, monospace, cursive;
           position: absolute;
           right: 1rem;
           display: flex;

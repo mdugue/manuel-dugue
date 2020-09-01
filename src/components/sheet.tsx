@@ -101,7 +101,8 @@ export default function Sheet(props: SheetProps) {
         }
 
         .sheet h1 {
-          font-family: "Bungee Inline", cursive;
+          font-family: "Bungee Inline", "SF Mono", "Ubuntu Mono", Consolas,
+            Menlo, monospace, cursive;
           font-weight: normal;
           font-size: 2.75em;
           margin: 0;
@@ -110,7 +111,8 @@ export default function Sheet(props: SheetProps) {
         address {
           font-style: normal;
           color: #206c5f;
-          font-family: "Bungee", cursive;
+          font-family: "Bungee", "SF Mono", "Ubuntu Mono", Consolas, Menlo,
+            monospace, cursive;
           font-size: 0.875em;
           padding-bottom: 1em;
         }
@@ -306,7 +308,8 @@ export function StructuredSheet(props: StructuredSheetProps) {
 
           .entryContent a {
             color: #206c5f;
-            font-family: "Bungee Hairline", cursive;
+            font-family: "Bungee Hairline", "SF Mono", "Ubuntu Mono", Consolas,
+              Menlo, monospace, cursive;
             font-weight: bold;
             float: right;
           }
