@@ -4,7 +4,10 @@ module.exports = {
       preset: "lighthouse:recommended",
       assertions: {
         "color-contrast": "off",
-        "uses-http2": "off"
+        "uses-http2": "off",
+        "heading-order": "off",
+        "uses-passive-event-listeners": "off",
+        tabindex: "off"
       }
     },
     collect: {
