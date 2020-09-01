@@ -20,7 +20,7 @@ jobs:
       - name: check types
         run: npm run tsc
       - name: build app
-        run: npm run build
+        run: TEST_SECRET="${{secrets.TEST_SECRET}}" TEST2="This is a simple test" npm run build
       - name: Audit URLs using Lighthouse
         uses: treosh/lighthouse-ci-action@v3
         with:
