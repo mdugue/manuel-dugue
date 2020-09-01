@@ -31,3 +31,4 @@ jobs:
         env:
           LHCI_GITHUB_APP_TOKEN: ${{secrets.LHCI_GITHUB_APP_TOKEN}}
           TEST_SECRET: ${{secrets.TEST_SECRET}}
+          TEST2: This is a simple test
