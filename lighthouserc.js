@@ -1,7 +1,11 @@
 module.exports = {
   ci: {
     assert: {
-      preset: "lighthouse:recommended"
+      preset: "lighthouse:recommended",
+      assertions: {
+        "color-contrast": "off",
+        "uses-http2": "off"
+      }
     },
     collect: {
       startServerCommand: "npm run start",
