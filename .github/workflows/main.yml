@@ -30,3 +30,4 @@ jobs:
           serverToken: ${{secrets.LHCI_SERVER_TOKEN}}
         env:
           LHCI_GITHUB_APP_TOKEN: ${{secrets.LHCI_GITHUB_APP_TOKEN}}
+          TEST_SECRET: ${{secrets.TEST_SECRET}}

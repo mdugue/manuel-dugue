@@ -344,6 +344,8 @@ function ContactFooter() {
 
 export default function Home(props: { isHiddenInPrint?: boolean }) {
   useEvaluateServiceWorker();
+  console.log(process.env.TEST_SECRET);
+  console.log(process.env);
   return (
     <div className="container">
       <Head>
