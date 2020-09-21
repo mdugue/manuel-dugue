@@ -32,7 +32,7 @@ function useMaterial(
 ) {
   const [props, set] = useSpring(() => ({
     xy: [0, 0],
-    config
+    config,
   }));
   const isWide = useMedia(`(min-width: ${largeBreakpoint})`);
   useEffect(() => {
@@ -89,7 +89,7 @@ function ClaimCard() {
   const { props, onMouseMove, onMouseLeave } = useMaterial([-0.9, -0.9], {
     mass: 5,
     tension: 350,
-    friction: 40
+    friction: 40,
   });
   const typewriterRef = useRef<{ pause: () => void; start: () => void }>();
   useEffect(() => {
@@ -112,7 +112,7 @@ function ClaimCard() {
       }}
       style={{
         // @ts-expect-error
-        transform: props.xy?.interpolate(trans1)
+        transform: props.xy?.interpolate(trans1),
       }}
     >
       <div className="highlight-container">
@@ -124,9 +124,9 @@ function ClaimCard() {
               (x: number, y: number) => 0.1 + (Math.abs(x) + Math.abs(y)) / 4
             ),
             // @ts-expect-error
-            left: props.xy?.interpolate(x => (x + 1) * 50 + "%"),
+            left: props.xy?.interpolate((x) => (x + 1) * 50 + "%"),
             // @ts-expect-error
-            top: props.xy?.interpolate((x, y) => (y + 1) * 50 + "%")
+            top: props.xy?.interpolate((x, y) => (y + 1) * 50 + "%"),
           }}
         />
       </div>
@@ -134,7 +134,7 @@ function ClaimCard() {
         style={{
           display: "block",
           // @ts-expect-error
-          transform: props.xy?.interpolate(trans3)
+          transform: props.xy?.interpolate(trans3),
         }}
       >
         – since 2008 –
@@ -142,7 +142,7 @@ function ClaimCard() {
       <Headline
         style={{
           // @ts-expect-error
-          transform: props.xy?.interpolate(trans2)
+          transform: props.xy?.interpolate(trans2),
         }}
       >
         handcrafting web experiences for everybody
@@ -151,14 +151,14 @@ function ClaimCard() {
         className="tagline"
         style={{
           // @ts-expect-error
-          transform: props.xy?.interpolate(trans3)
+          transform: props.xy?.interpolate(trans3),
         }}
       >
         <Typewriter
           options={{
-            loop: true
+            loop: true,
           }}
-          onInit={typewriter => {
+          onInit={(typewriter) => {
             (typewriterRef.current = typewriter)
               .typeString("consumers, experts, bots, ...")
               .changeCursor(" ")
@@ -190,14 +190,14 @@ function ClaimCard() {
           arctic code vault contributer <br />
         </noscript>
       </animated.h2>
-      {["BL", "BR", "TL", "TR"].map(dotLocation => (
+      {["BL", "BR", "TL", "TR"].map((dotLocation) => (
         <animated.div
           key={dotLocation}
           className={`dot dot${dotLocation}`}
           style={{
             willChange: "transform",
             // @ts-expect-error
-            transform: props.xy?.interpolate(trans4)
+            transform: props.xy?.interpolate(trans4),
           }}
         />
       ))}
@@ -251,7 +251,7 @@ function ContactFooter() {
   const { props, onMouseMove, onMouseLeave } = useMaterial([-0.9, -0.9], {
     mass: 1,
     tension: 450,
-    friction: 60
+    friction: 60,
   });
 
   return (
@@ -262,7 +262,7 @@ function ContactFooter() {
         onMouseLeave={onMouseLeave}
         style={{
           // @ts-expect-error
-          transform: props.xy?.interpolate(transFooter)
+          transform: props.xy?.interpolate(transFooter),
         }}
       >
         <Link href="/cv">
@@ -344,10 +344,6 @@ function ContactFooter() {
 
 export default function Home(props: { isHiddenInPrint?: boolean }) {
   useEvaluateServiceWorker();
-  console.log("logging env");
-  console.log(process.env.TEST_SECRET);
-  console.log(process.env.TEST2);
-  console.log(process.env);
   return (
     <div className="container">
       <Head>
