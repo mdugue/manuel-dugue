@@ -1,12 +1,12 @@
 import { GoogleSpreadsheet } from "google-spreadsheet";
 import { GetStaticPaths, GetStaticProps } from "next";
+import dynamic from "next/dynamic";
 import Head from "next/head";
 import Link from "next/link";
 import ClaimCard from "../src/components/ClaimCard";
 import ContactFooter from "../src/components/ContactFooter";
-import useEvaluateServiceWorker from "../src/hooks/useEvaluateServiceWorker";
 import { StructuredSheetProps } from "../src/components/StructuredSheet";
-import dynamic from "next/dynamic";
+import useEvaluateServiceWorker from "../src/hooks/useEvaluateServiceWorker";
 
 const StructuredSheet = dynamic(
   () => import("../src/components/StructuredSheet")

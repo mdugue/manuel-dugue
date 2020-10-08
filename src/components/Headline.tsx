@@ -1,5 +1,5 @@
-import { CSSProperties, MouseEvent, useEffect, useRef, useState } from "react";
-import { animated, SpringBaseProps, useSpring } from "react-spring";
+import { CSSProperties } from "react";
+import { animated } from "react-spring";
 export default function Headline(props: {
   children: string;
   style?: CSSProperties;

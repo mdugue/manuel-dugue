@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Link from "next/link";
 import Router from "next/router";
-import React, { Fragment, ReactNode } from "react";
+import React, { ReactNode } from "react";
 import { Download, XCircle } from "react-feather";
 import { useKeyPressEvent } from "react-use";
 import { largeBreakpoint } from "../../pages/[[...index]]";
