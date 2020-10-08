@@ -4,9 +4,13 @@ import Head from "next/head";
 import Link from "next/link";
 import ClaimCard from "../src/components/ClaimCard";
 import ContactFooter from "../src/components/ContactFooter";
-import { StructuredSheet, StructuredSheetProps } from "../src/components/sheet";
 import useEvaluateServiceWorker from "../src/hooks/useEvaluateServiceWorker";
+import { StructuredSheetProps } from "../src/components/StructuredSheet";
+import dynamic from "next/dynamic";
 
+const StructuredSheet = dynamic(
+  () => import("../src/components/StructuredSheet")
+);
 export const largeBreakpoint = "768px";
 
 function ContactAside() {
@@ -51,11 +55,9 @@ function LegalSection() {
   );
 }
 
-export default function Home(props: {
-  isHiddenInPrint?: boolean; // TODO
-  document?: StructuredSheetProps;
-}) {
-  const { isHiddenInPrint, document } = props;
+export default function Home(props: { document?: StructuredSheetProps }) {
+  const { document } = props;
+  const isContainerHiddenInPrint = document != null;
   useEvaluateServiceWorker();
   return (
     <div className="container">
@@ -95,7 +97,7 @@ export default function Home(props: {
 
         @media print {
           .container {
-            display: ${isHiddenInPrint ? "none" : "flex"};
+            display: ${isContainerHiddenInPrint ? "none" : "flex"};
           }
         }
 
