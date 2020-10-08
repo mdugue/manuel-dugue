@@ -1,4 +1,4 @@
-## manuel fyi
+## MANUEL FYI
 
 **handcrafting web experiences for everybody** – _since 2008_
 
