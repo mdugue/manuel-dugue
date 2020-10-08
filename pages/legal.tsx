@@ -1,6 +1,6 @@
 import Head from "next/head";
 import React from "react";
-import Home from ".";
+import Home from "./[[...index]]";
 import Sheet from "../src/components/sheet";
 export default function Legal() {
   return (

@@ -4,7 +4,7 @@ import Router from "next/router";
 import React, { Fragment, ReactNode } from "react";
 import { Download, XCircle } from "react-feather";
 import { useKeyPressEvent } from "react-use";
-import { largeBreakpoint } from "../../pages";
+import { largeBreakpoint } from "../../pages/[[...index]]";
 
 export type SheetProps = {
   title: string;
@@ -32,13 +32,13 @@ export default function Sheet(props: SheetProps) {
               title="download"
               onClick={() =>
                 fetch("/api/pdf")
-                  .then(async res => ({
+                  .then(async (res) => ({
                     filename: `${title} dugue.pdf`,
-                    blob: await res.blob()
+                    blob: await res.blob(),
                   }))
-                  .then(resObj => {
+                  .then((resObj) => {
                     const newBlob = new Blob([resObj.blob], {
-                      type: "application/pdf"
+                      type: "application/pdf",
                     });
 
                     if (window.navigator && window.navigator.msSaveOrOpenBlob) {
@@ -235,7 +235,7 @@ export function StructuredSheet(props: StructuredSheetProps) {
   return (
     <>
       <Sheet title={title}>
-        {document.sections.map(section => (
+        {document.sections.map((section) => (
           <section key={section.sectionTitle}>
             <h1 className="sectionTitle">{section.sectionTitle}</h1>
             {section.entries.map((entry, index) => (
@@ -243,10 +243,10 @@ export function StructuredSheet(props: StructuredSheetProps) {
                 <h2>{entry.title}</h2>
                 <div className="entryContent">
                   {entry.subtitle && <h4>{entry.subtitle}</h4>}
-                  {entry.description.split("\n").map(item => (
+                  {entry.description.split("\n").map((item) => (
                     <p key={item}>{item}</p>
                   ))}
-                  {entry.links?.map(link => (
+                  {entry.links?.map((link) => (
                     <a
                       key={link}
                       href={link}
