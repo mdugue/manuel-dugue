@@ -1,6 +1,6 @@
 import React from "react";
-import Home from ".";
-import Sheet from "../src/components/sheet";
+import Home from "./[[...index]]";
+import Sheet from "../src/components/Sheet";
 export default function Privacy() {
   return (
     <>

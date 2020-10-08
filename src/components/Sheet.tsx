@@ -1,10 +1,10 @@
 import Head from "next/head";
 import Link from "next/link";
 import Router from "next/router";
-import React, { Fragment, ReactNode } from "react";
+import React, { ReactNode } from "react";
 import { Download, XCircle } from "react-feather";
 import { useKeyPressEvent } from "react-use";
-import { largeBreakpoint } from "../../pages";
+import { largeBreakpoint } from "../../pages/[[...index]]";
 
 export type SheetProps = {
   title: string;
@@ -32,13 +32,13 @@ export default function Sheet(props: SheetProps) {
               title="download"
               onClick={() =>
                 fetch("/api/pdf")
-                  .then(async res => ({
+                  .then(async (res) => ({
                     filename: `${title} dugue.pdf`,
-                    blob: await res.blob()
+                    blob: await res.blob(),
                   }))
-                  .then(resObj => {
+                  .then((resObj) => {
                     const newBlob = new Blob([resObj.blob], {
-                      type: "application/pdf"
+                      type: "application/pdf",
                     });
 
                     if (window.navigator && window.navigator.msSaveOrOpenBlob) {
@@ -211,119 +211,6 @@ export default function Sheet(props: SheetProps) {
           margin: 0;
         }
       `}</style>
-    </>
-  );
-}
-
-export type StructuredSheetProps = {
-  title: string;
-  document: {
-    sections: {
-      sectionTitle: string;
-      entries: {
-        title: string;
-        subtitle?: string;
-        description: string;
-        links?: string[];
-      }[];
-    }[];
-  };
-};
-
-export function StructuredSheet(props: StructuredSheetProps) {
-  const { document, title } = props;
-  return (
-    <>
-      <Sheet title={title}>
-        {document.sections.map(section => (
-          <section key={section.sectionTitle}>
-            <h1 className="sectionTitle">{section.sectionTitle}</h1>
-            {section.entries.map((entry, index) => (
-              <div className="sectionEntry" key={index}>
-                <h2>{entry.title}</h2>
-                <div className="entryContent">
-                  {entry.subtitle && <h4>{entry.subtitle}</h4>}
-                  {entry.description.split("\n").map(item => (
-                    <p key={item}>{item}</p>
-                  ))}
-                  {entry.links?.map(link => (
-                    <a
-                      key={link}
-                      href={link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      link
-                    </a>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </section>
-        ))}
-      </Sheet>
-      <style jsx global>
-        {`
-          .sectionEntry {
-            display: flex;
-            margin-bottom: 1em;
-            page-break-inside: avoid;
-            flex-direction: column;
-          }
-
-          @media (min-width: ${largeBreakpoint}) {
-            .sectionEntry {
-              flex-direction: row;
-            }
-          }
-
-          @media print {
-            .sectionEntry {
-              flex-direction: row;
-              margin-bottom: 0.5em;
-            }
-          }
-
-          .sectionEntry h2 {
-            flex: 0 0 20%;
-            margin: 0 2em 0 0;
-            font-size: 1em;
-            hyphens: auto;
-          }
-
-          @media (min-width: ${largeBreakpoint}) {
-            .sectionEntry h2 {
-              text-align: right;
-            }
-          }
-
-          .entryContent {
-            flex: 1 0 0;
-            page-break-inside: avoid;
-          }
-
-          .entryContent p {
-            margin: 0;
-          }
-
-          .entryContent a {
-            color: #206c5f;
-            font-family: "Bungee Hairline", "SF Mono", "Ubuntu Mono", Consolas,
-              Menlo, monospace, cursive;
-            font-weight: bold;
-            float: right;
-          }
-
-          @media print {
-            .entryContent a::after {
-              content: ": " attr(href);
-              font-family: Montserrat, sans-serif;
-              font-weight: normal;
-              font-size: 12px;
-            }
-          }
-        `}
-      </style>
     </>
   );
 }
