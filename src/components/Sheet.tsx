@@ -4,6 +4,7 @@ import Router from "next/router";
 import React, { ReactNode } from "react";
 import { Download, XCircle } from "react-feather";
 import { useKeyPressEvent } from "react-use";
+
 import { largeBreakpoint } from "../../pages/[[...index]]";
 
 export type SheetProps = {
@@ -19,7 +20,7 @@ export default function Sheet(props: SheetProps) {
   return (
     <>
       <Head>
-        <link
+        <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" as="style" /><link
           href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap"
           rel="stylesheet"
         ></link>

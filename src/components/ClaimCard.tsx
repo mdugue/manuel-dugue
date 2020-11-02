@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import { animated } from "react-spring";
-// @ts-expect-error
+// @ts-expect-error no type definitions available
 import Typewriter from "typewriter-effect";
+
 import useMaterial from "../hooks/useMaterial";
 import Headline from "./Headline";
 
@@ -44,7 +45,7 @@ export default function ClaimCard() {
         onMouseLeave();
       }}
       style={{
-        // @ts-expect-error
+        // @ts-expect-error looks like I do not fully understands react-spring typings 🤔
         transform: props.xy?.interpolate(trans1),
       }}
     >
@@ -53,12 +54,12 @@ export default function ClaimCard() {
           className="highlight"
           style={{
             opacity: props.xy?.interpolate(
-              // @ts-expect-error
+              // @ts-expect-error looks like I do not fully understands react-spring typings 🤔
               (x: number, y: number) => 0.1 + (Math.abs(x) + Math.abs(y)) / 4
             ),
-            // @ts-expect-error
+            // @ts-expect-error looks like I do not fully understands react-spring typings 🤔
             left: props.xy?.interpolate((x) => (x + 1) * 50 + "%"),
-            // @ts-expect-error
+            // @ts-expect-error looks like I do not fully understands react-spring typings 🤔
             top: props.xy?.interpolate((x, y) => (y + 1) * 50 + "%"),
           }}
         />
@@ -66,7 +67,7 @@ export default function ClaimCard() {
       <animated.small
         style={{
           display: "block",
-          // @ts-expect-error
+          // @ts-expect-error looks like I do not fully understands react-spring typings 🤔
           transform: props.xy?.interpolate(trans3),
         }}
       >
@@ -74,7 +75,7 @@ export default function ClaimCard() {
       </animated.small>
       <Headline
         style={{
-          // @ts-expect-error
+          // @ts-expect-error looks like I do not fully understands react-spring typings 🤔
           transform: props.xy?.interpolate(trans2),
         }}
       >
@@ -83,7 +84,7 @@ export default function ClaimCard() {
       <animated.h2
         className="tagline"
         style={{
-          // @ts-expect-error
+          // @ts-expect-error looks like I do not fully understands react-spring typings 🤔
           transform: props.xy?.interpolate(trans3),
         }}
       >
@@ -129,7 +130,7 @@ export default function ClaimCard() {
           className={`dot dot${dotLocation}`}
           style={{
             willChange: "transform",
-            // @ts-expect-error
+            // @ts-expect-error looks like I do not fully understands react-spring typings 🤔
             transform: props.xy?.interpolate(trans4),
           }}
         />

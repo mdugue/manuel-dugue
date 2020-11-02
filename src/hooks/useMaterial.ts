@@ -7,17 +7,17 @@ export const largeBreakpoint = "768px";
 const slow = { mass: 10, tension: 200, friction: 50 };
 
 export default function useMaterial(
-  defaultPosition: [number, number],
+  defaultPosition: [x: number, y: number],
   config: SpringBaseProps["config"]
 ) {
   const [props, set] = useSpring(() => ({
-    xy: [0, 0],
+    xy: [0, 0] as [x: number, y: number],
     config,
   }));
   const isWide = useMedia(`(min-width: ${largeBreakpoint})`);
   useEffect(() => {
     set({ xy: isWide ? defaultPosition : [0, 0], config: slow });
-  }, [isWide, set]);
+  }, [defaultPosition, isWide, set]);
 
   function onMouseMove(event: MouseEvent) {
     const rect = (event.currentTarget as HTMLElement).getBoundingClientRect();

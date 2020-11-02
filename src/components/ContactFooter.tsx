@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { animated } from "react-spring";
+
 import useMaterial from "../hooks/useMaterial";
 
 export const largeBreakpoint = "768px";
@@ -23,7 +24,7 @@ export default function ContactFooter() {
         onMouseMove={onMouseMove}
         onMouseLeave={onMouseLeave}
         style={{
-          // @ts-expect-error
+          // @ts-expect-error looks like I do not fully understands react-spring typings 🤔
           transform: props.xy?.interpolate(transFooter),
         }}
       >

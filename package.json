@@ -6,11 +6,24 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "tsc": "tsc"
+    "tsc": "tsc",
+    "lint": "eslint src/ --ext .jsx,.js,.tsx,.ts --fix"
   },
   "devDependencies": {
+    "@next/eslint-plugin-next": "^10.0.0",
     "@types/puppeteer-core": "^2.0.0",
-    "@vercel/node": "^1.8.4"
+    "@typescript-eslint/eslint-plugin": "^4.6.0",
+    "@typescript-eslint/parser": "^4.6.0",
+    "@vercel/node": "^1.8.4",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.12.1",
+    "eslint-config-react-app": "^6.0.0",
+    "eslint-plugin-flowtype": "^5.2.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-react": "^7.21.5",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "eslint-plugin-simple-import-sort": "^5.0.3"
   },
   "dependencies": {
     "@types/google-spreadsheet": "^3.0.2",
@@ -29,5 +42,45 @@
     "react-use": "^15.3.4",
     "typescript": "^4.0.5",
     "typewriter-effect": "^2.13.1"
+  },
+  "eslintConfig": {
+    "plugins": [
+      "@next/next",
+      "simple-import-sort"
+    ],
+    "extends": [
+      "plugin:@typescript-eslint/recommended",
+      "react-app",
+      "plugin:@next/next/recommended"
+    ],
+    "rules": {
+      "simple-import-sort/sort": "error",
+      "jsx-a11y/anchor-is-valid": [
+        "error",
+        {
+          "components": [
+            "Link"
+          ],
+          "specialLink": [
+            "hrefLeft",
+            "hrefRight"
+          ],
+          "aspects": [
+            "invalidHref",
+            "preferButton"
+          ]
+        }
+      ],
+      "@typescript-eslint/explicit-module-boundary-types": "off"
+    },
+    "overrides": [
+      {
+        "files": "next.config.js",
+        "rules": {
+          "simple-import-sort/sort": "off",
+          "@typescript-eslint/no-var-requires": "off"
+        }
+      }
+    ]
   }
 }

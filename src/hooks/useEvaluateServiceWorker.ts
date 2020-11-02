@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { useEffect } from "react";
 
 export default function useEvaluateServiceWorker() {
@@ -28,7 +29,7 @@ export default function useEvaluateServiceWorker() {
       // A common UX pattern for progressive web apps is to show a banner when a service worker has updated and waiting to install.
       // NOTE: MUST set skipWaiting to false in next.config.js pwa object
       // https://developers.google.com/web/tools/workbox/guides/advanced-recipes#offer_a_page_reload_for_users
-      const promptNewVersionAvailable = event => {
+      const promptNewVersionAvailable = (event) => {
         console.log(
           "a newer version is availabe. It will be used automatically load when user open the app next time"
         );
@@ -41,7 +42,7 @@ export default function useEvaluateServiceWorker() {
             "🚀 An even newer version of this little portfolio is available, reload to update?"
           )
         ) {
-          wb.addEventListener("controlling", event => {
+          wb.addEventListener("controlling", (event) => {
             window.location.reload();
           });
 
