@@ -1,4 +1,3 @@
-import React from "react";
 import Home from "./[[...index]]";
 import Sheet from "../src/components/Sheet";
 export default function Privacy() {

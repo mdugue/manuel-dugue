@@ -10,34 +10,34 @@
     "lint": "eslint src/ --ext .jsx,.js,.tsx,.ts --fix"
   },
   "devDependencies": {
-    "@next/eslint-plugin-next": "^10.0.0",
+    "@next/eslint-plugin-next": "^10.0.2",
     "@types/puppeteer-core": "^2.0.0",
-    "@typescript-eslint/eslint-plugin": "^4.6.0",
-    "@typescript-eslint/parser": "^4.6.0",
-    "@vercel/node": "^1.8.4",
+    "@typescript-eslint/eslint-plugin": "^4.8.1",
+    "@typescript-eslint/parser": "^4.8.1",
+    "@vercel/node": "^1.8.5",
     "babel-eslint": "^10.1.0",
-    "eslint": "^7.12.1",
+    "eslint": "^7.13.0",
     "eslint-config-react-app": "^6.0.0",
     "eslint-plugin-flowtype": "^5.2.0",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-react": "^7.21.5",
     "eslint-plugin-react-hooks": "^4.2.0",
-    "eslint-plugin-simple-import-sort": "^5.0.3"
+    "eslint-plugin-simple-import-sort": "^6.0.0"
   },
   "dependencies": {
     "@types/google-spreadsheet": "^3.0.2",
-    "@types/node": "^14.14.6",
-    "@types/react": "^16.9.55",
+    "@types/node": "^14.14.8",
+    "@types/react": "^16.9.56",
     "chrome-aws-lambda": "^5.3.1",
     "google-spreadsheet": "^3.0.13",
-    "next": "^10.0.0",
+    "next": "^10.0.2",
     "next-pwa": "^3.1.5",
-    "puppeteer": "^5.4.1",
-    "puppeteer-core": "^5.4.1",
+    "puppeteer": "^5.5.0",
+    "puppeteer-core": "^5.5.0",
     "react": "0.0.0-experimental-4ead6b530",
     "react-dom": "0.0.0-experimental-4ead6b530",
-    "react-feather": "^2.0.8",
+    "react-feather": "^2.0.9",
     "react-spring": "^8.0.27",
     "react-use": "^15.3.4",
     "typescript": "^4.0.5",
@@ -54,7 +54,7 @@
       "plugin:@next/next/recommended"
     ],
     "rules": {
-      "simple-import-sort/sort": "error",
+      "simple-import-sort/imports": "error",
       "jsx-a11y/anchor-is-valid": [
         "error",
         {
@@ -77,7 +77,7 @@
       {
         "files": "next.config.js",
         "rules": {
-          "simple-import-sort/sort": "off",
+          "simple-import-sort/imports": "off",
           "@typescript-eslint/no-var-requires": "off"
         }
       }
