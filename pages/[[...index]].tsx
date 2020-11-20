@@ -46,10 +46,10 @@ function ContactAside() {
 function LegalSection() {
   return (
     <nav className="legal">
-      <Link href="/legal">
+      <Link href="/legal" prefetch={false}>
         <a>legal note</a>
       </Link>
-      <Link href="/privacy">
+      <Link href="/privacy" prefetch={false}>
         <a>privacy</a>
       </Link>
     </nav>
