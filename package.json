@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "tsc": "tsc",
-    "lint": "eslint src/ --ext .jsx,.js,.tsx,.ts --fix"
+    "lint": "eslint src/ pages/ --ext .jsx,.js,.tsx,.ts --fix"
   },
   "devDependencies": {
     "@next/eslint-plugin-next": "^10.0.2",
@@ -23,11 +23,11 @@
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-react": "^7.21.5",
     "eslint-plugin-react-hooks": "^4.2.0",
-    "eslint-plugin-simple-import-sort": "^6.0.0"
+    "eslint-plugin-simple-import-sort": "^6.0.1"
   },
   "dependencies": {
     "@types/google-spreadsheet": "^3.0.2",
-    "@types/node": "^14.14.8",
+    "@types/node": "^14.14.9",
     "@types/react": "^16.9.56",
     "chrome-aws-lambda": "^5.3.1",
     "google-spreadsheet": "^3.0.13",
@@ -40,7 +40,7 @@
     "react-feather": "^2.0.9",
     "react-spring": "^8.0.27",
     "react-use": "^15.3.4",
-    "typescript": "^4.0.5",
+    "typescript": "^4.1.2",
     "typewriter-effect": "^2.13.1"
   },
   "eslintConfig": {

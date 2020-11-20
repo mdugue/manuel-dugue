@@ -1,11 +1,11 @@
-import chrome from "chrome-aws-lambda";
 import { NowRequest, NowResponse } from "@vercel/node";
+import chrome from "chrome-aws-lambda";
 
 async function getScreenshot(url: string) {
   const browser = await chrome.puppeteer.launch({
     args: chrome.args,
     executablePath: await chrome.executablePath,
-    headless: true
+    headless: true,
   });
 
   const page = await browser.newPage();
@@ -15,12 +15,12 @@ async function getScreenshot(url: string) {
   return file;
 }
 
-export default async (request: NowRequest, response: NowResponse) => {
+const pdfHandler = async (request: NowRequest, response: NowResponse) => {
   const url =
     request.headers.referer ||
     `http://${request.headers.host}/${request.query.url}`;
   if (
-    !["http://localhost:3000/", "https://manuel.fyi/"].some(allowedDomain =>
+    !["http://localhost:3000/", "https://manuel.fyi/"].some((allowedDomain) =>
       url.startsWith(allowedDomain)
     )
   ) {
@@ -48,3 +48,5 @@ export default async (request: NowRequest, response: NowResponse) => {
     console.error(e.message);
   }
 };
+
+export default pdfHandler;

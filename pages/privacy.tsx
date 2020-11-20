@@ -1,5 +1,5 @@
-import Home from "./[[...index]]";
 import Sheet from "../src/components/Sheet";
+import Home from "./[[...index]]";
 export default function Privacy() {
   return (
     <>

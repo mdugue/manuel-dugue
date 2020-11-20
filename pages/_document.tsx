@@ -1,4 +1,4 @@
-import Document, { Html, Head, Main, NextScript } from "next/document";
+import Document, { Head, Html, Main, NextScript } from "next/document";
 
 class MyDocument extends Document {
   render() {
@@ -39,9 +39,19 @@ class MyDocument extends Document {
           />
           <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
           <link
+            rel="preload"
+            href="https://fonts.googleapis.com/css2?family=Bungee&family=Bungee+Hairline&family=Bungee+Inline&family=Bungee+Shade&display=swap"
+            as="style"
+          />
+          <link
             href="https://fonts.googleapis.com/css2?family=Bungee&family=Bungee+Hairline&family=Bungee+Inline&family=Bungee+Shade&display=swap"
             rel="stylesheet"
-          ></link>
+          />
+          <link
+            rel="preconnect"
+            href="https://vitals.vercel-analytics.com/"
+            crossOrigin=""
+          />
         </Head>
         <body>
           <Main />
