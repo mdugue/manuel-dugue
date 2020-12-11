@@ -43,7 +43,7 @@ export default function ContactFooter() {
         {`
           .contact {
             align-items: flex-end;
-            background: hsl(47 80% 57% / 1);
+            background: #fbbf24;
             border-radius: 100%;
             bottom: -10vmax;
             color: var(--colorBodyText);

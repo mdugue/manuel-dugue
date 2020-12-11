@@ -9,7 +9,6 @@ module.exports = withPWA({
   poweredByHeader: false,
   experimental: {
     optimizeFonts: true,
-    modern: true,
     reactMode: "concurrent",
   },
   pwa: {

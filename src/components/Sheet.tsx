@@ -20,7 +20,12 @@ export default function Sheet(props: SheetProps) {
   return (
     <>
       <Head>
-        <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" as="style" /><link
+        <link
+          rel="preload"
+          href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap"
+          as="style"
+        />
+        <link
           href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap"
           rel="stylesheet"
         ></link>
@@ -205,7 +210,7 @@ export default function Sheet(props: SheetProps) {
           font-size: 1.375em;
           grid-column: 1 / -1;
           margin: 0 0 1em;
-          color: hsl(47 80% 75% / 1);
+          color: #fcd34d;
         }
 
         .sheet h4 {

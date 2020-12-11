@@ -76,7 +76,7 @@ export default function Home(props: { document?: StructuredSheetProps }) {
         <style jsx global>{`
           :root {
             color-scheme: light dark;
-            --colorBodyBackground: #f7f7f7;
+            --colorBodyBackground: #f9fafb;
             --colorBodyText: #fff;
             --secondaryLink: #206c5f;
             --legalLink: #bdbdbd;
@@ -110,7 +110,7 @@ export default function Home(props: { document?: StructuredSheetProps }) {
           }
 
           hgroup {
-            background: hsl(0 55% 62% / 1);
+            background: #b91c1c;
             color: var(--colorBodyText);
             padding: 10vmax 2vmax;
             min-height: 55vh;
@@ -145,7 +145,7 @@ export default function Home(props: { document?: StructuredSheetProps }) {
 
           @media screen and (min-width: ${largeBreakpoint}) {
             .tagline {
-              color: hsl(47 80% 75% / 1);
+              color: #fde68a;
               font-size: 1.5vw;
             }
           }
@@ -186,7 +186,7 @@ export default function Home(props: { document?: StructuredSheetProps }) {
           }
 
           aside {
-            color: hsl(47 80% 57% / 1);
+            color: #fbbf24;
             font-family: "Bungee Inline", "SF Mono", "Ubuntu Mono", Consolas,
               Menlo, monospace, cursive;
             font-size: 1.125rem;
