@@ -17,7 +17,7 @@ export const largeBreakpoint = "768px";
 function ContactAside() {
   return (
     <aside>
-      <div>Manuel Dugué</div>
+      <div>Manuel Dugué – 🎄 merry xmas</div>
       <a
         href="https://www.linkedin.com/in/manuel-dugue/"
         target="_blank"
@@ -64,7 +64,7 @@ export default function Home(props: { document?: StructuredSheetProps }) {
     <>
       <div className="container">
         <Head>
-          <title>Manuel Dugué – 🎄 merry christmas</title>
+          <title>Manuel Dugué – 🎄 merry xmas</title>
           <link rel="icon" href="/favicon.ico" />
           <link rel="manifest" href="/manifest.webmanifest"></link>
         </Head>
