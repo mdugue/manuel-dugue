@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from "react";
 import { animated } from "react-spring";
-// @ts-expect-error no type definitions available
 import Typewriter from "typewriter-effect";
 
 import useMaterial from "../hooks/useMaterial";
@@ -95,6 +94,7 @@ export default function ClaimCard() {
           onInit={(typewriter) => {
             (typewriterRef.current = typewriter)
               .typeString("consumers, experts, bots, ...")
+              // @ts-expect-error ts definition does not seem complete yet
               .changeCursor(" ")
               .pauseFor(2500)
               .changeCursor("|")
