@@ -64,7 +64,7 @@ export default function Home(props: { document?: StructuredSheetProps }) {
     <>
       <div className="container">
         <Head>
-          <title>Manuel Dugué</title>
+          <title>Manuel Dugué – 🎄 merry christmas</title>
           <link rel="icon" href="/favicon.ico" />
           <link rel="manifest" href="/manifest.webmanifest"></link>
         </Head>
