@@ -93,18 +93,8 @@ export default function ClaimCard() {
           }}
           onInit={(typewriter) => {
             (typewriterRef.current = typewriter)
-              .typeString("merry xmas to everybody 🎄")
-              // @ts-expect-error ts definition does not seem complete yet
-              .changeCursor(" ")
-              .pauseFor(2500)
-              .changeCursor("|")
-              .deleteAll()
-              .typeString("Looking forward to 2021 with:")
-              .changeCursor(" ")
-              .pauseFor(2500)
-              .changeCursor("|")
-              .deleteAll()
               .typeString("consumers, experts, bots, ...")
+              // @ts-expect-error ts definition does not seem complete yet
               .changeCursor(" ")
               .pauseFor(2500)
               .changeCursor("|")

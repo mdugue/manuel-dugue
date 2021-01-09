@@ -17,7 +17,7 @@ export const largeBreakpoint = "768px";
 function ContactAside() {
   return (
     <aside>
-      <div>Manuel Dugué – 🎄 merry xmas</div>
+      <div>Manuel Dugué</div>
       <a
         href="https://www.linkedin.com/in/manuel-dugue/"
         target="_blank"
@@ -64,7 +64,7 @@ export default function Home(props: { document?: StructuredSheetProps }) {
     <>
       <div className="container">
         <Head>
-          <title>Manuel Dugué – 🎄 merry xmas</title>
+          <title>Manuel Dugué</title>
           <link rel="icon" href="/favicon.ico" />
           <link rel="manifest" href="/manifest.webmanifest"></link>
         </Head>
@@ -110,7 +110,7 @@ export default function Home(props: { document?: StructuredSheetProps }) {
           }
 
           hgroup {
-            background: #b91c1c;
+            background: #84b7bf;
             color: var(--colorBodyText);
             padding: 10vmax 2vmax;
             min-height: 55vh;
@@ -145,7 +145,7 @@ export default function Home(props: { document?: StructuredSheetProps }) {
 
           @media screen and (min-width: ${largeBreakpoint}) {
             .tagline {
-              color: #fde68a;
+              color: #ffd569;
               font-size: 1.5vw;
             }
           }

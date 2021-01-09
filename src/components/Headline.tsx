@@ -27,7 +27,7 @@ export default function Headline(props: {
           font-family: "Bungee Shade", "SF Mono", "Ubuntu Mono", Consolas, Menlo,
             monospace, cursive;
           content: "${children}";
-          color: #991b1b;
+          color: #6b9aa2;
           z-index: -1;
           letter-spacing: 0em;
           transform: translateX(-0.12em);
