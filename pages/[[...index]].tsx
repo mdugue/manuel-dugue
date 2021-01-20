@@ -207,6 +207,7 @@ export default function Home(props: { document?: StructuredSheetProps }) {
             font-family: "Bungee Inline", "SF Mono", "Ubuntu Mono", Consolas,
               Menlo, monospace, cursive;
             font-weight: normal;
+            color: #6b9aa2;
           }
 
           .legal {

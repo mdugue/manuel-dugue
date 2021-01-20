@@ -75,7 +75,7 @@ export default function ContactFooter() {
           }
 
           .contact a:hover {
-            color: #cb6666;
+            color: #6b9aa2;
           }
 
           @media screen and (min-width: ${largeBreakpoint}) {
