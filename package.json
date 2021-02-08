@@ -10,7 +10,7 @@
     "lint": "eslint src/ pages/ --ext .jsx,.js,.tsx,.ts --fix"
   },
   "devDependencies": {
-    "@next/eslint-plugin-next": "^10.0.5",
+    "@next/eslint-plugin-next": "^10.0.6",
     "@types/puppeteer-core": "^5.4.0",
     "@typescript-eslint/eslint-plugin": "^4.14.0",
     "@typescript-eslint/parser": "^4.14.0",
