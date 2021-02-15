@@ -9,3 +9,10 @@ updates:
     # Raise all npm pull requests with custom labels
     labels:
       - "npm dependencies"
+    ignore:
+      - match:
+      # targets react & react dom
+        dependency_name: "*experimental*"
+      - match:
+        dependency_name: "next"
+        versions: ["10.0.6"]
