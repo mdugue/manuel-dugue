@@ -5,11 +5,6 @@ class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
-          <link
-            rel="preconnect"
-            href="https://fonts.gstatic.com"
-            crossOrigin=""
-          />
           <meta
             name="Description"
             content="Manuel Dugué. Handcrafting web experiences since 2008. Teching, analyzing, coding. For consumers, experts & bots."
@@ -46,12 +41,10 @@ class MyDocument extends Document {
           <meta name="theme-color" content="#6b9aa2" />
           <link
             rel="preload"
-            href="https://fonts.googleapis.com/css2?family=Bungee&family=Bungee+Hairline&family=Bungee+Inline&family=Bungee+Shade&display=swap"
-            as="style"
-          />
-          <link
-            href="https://fonts.googleapis.com/css2?family=Bungee&family=Bungee+Hairline&family=Bungee+Inline&family=Bungee+Shade&display=swap"
-            rel="stylesheet"
+            href="/fonts/bungee.woff2"
+            as="font"
+            type="font/woff2"
+            crossOrigin="anonymous"
           />
           <link
             rel="preconnect"
