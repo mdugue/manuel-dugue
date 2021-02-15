@@ -3,7 +3,7 @@ import { animated } from "react-spring";
 
 import useMaterial from "../hooks/useMaterial";
 
-export const largeBreakpoint = "768px";
+const largeBreakpoint = "768px"; // TODO
 
 const transFooter = (x: number, y: number) => {
   return `perspective(60vmin) rotateX(${4 * (y - 1)}deg) rotateY(${
@@ -20,7 +20,7 @@ export default function ContactFooter() {
   return (
     <>
       <animated.footer
-        className="contact"
+        className="bg-gradient-to-tr from-yellow-500 to-yellow-300 contact shadow-lg rounded-full text-yellow-50"
         onMouseMove={onMouseMove}
         onMouseLeave={onMouseLeave}
         style={{
@@ -29,10 +29,10 @@ export default function ContactFooter() {
         }}
       >
         <Link href="/cv">
-          <a>CV</a>
+          <a className="hover:text-yellow-700">CV</a>
         </Link>
         <Link href="/skill-profile">
-          <a>
+          <a className="hover:text-yellow-700">
             skill
             <br />
             profile
@@ -43,10 +43,7 @@ export default function ContactFooter() {
         {`
           .contact {
             align-items: flex-end;
-            background: #fbbf24;
-            border-radius: 100%;
             bottom: -10vmax;
-            color: var(--colorBodyText);
             display: flex;
             flex-direction: column;
             font-family: "Bungee Inline", "SF Mono", "Ubuntu Mono", Consolas,
@@ -72,10 +69,6 @@ export default function ContactFooter() {
 
           .contact a:last-child {
             padding-bottom: 4vmax;
-          }
-
-          .contact a:hover {
-            color: #6b9aa2;
           }
 
           @media screen and (min-width: ${largeBreakpoint}) {

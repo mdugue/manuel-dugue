@@ -5,7 +5,7 @@ import { ReactNode } from "react";
 import { Download, XCircle } from "react-feather";
 import { useKeyPressEvent } from "react-use";
 
-import { largeBreakpoint } from "../../pages/[[...index]]";
+const largeBreakpoint = "768px"; // TODO
 
 export type SheetProps = {
   title: string;
@@ -36,11 +36,12 @@ export default function Sheet(props: SheetProps) {
         />
       </Head>
       <div className="sheetContainer">
-        <main className="sheet">
-          <nav>
+        <main className="sheet shadow-2xl">
+          <nav className="absolute right-0 top-0 flex print:hidden text-gray-400 m-1">
             <div
               tabIndex={1}
               title="download"
+              className="bg-gradient-to-tr hover:from-teal-50 hover:to-yellow-50 hover:text-teal-600 rounded-md py-4 px-4 cursor-pointer flex items-center"
               onClick={() =>
                 fetch("/api/pdf")
                   .then(async (res) => ({
@@ -70,16 +71,50 @@ export default function Sheet(props: SheetProps) {
                   })
               }
             >
-              <Download />
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                className="mr-2"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+                />
+              </svg>
+              download
             </div>
             <Link href="/">
-              <a title="close" tabIndex={1}>
-                <XCircle />
+              <a
+                title="close"
+                tabIndex={1}
+                className="bg-gradient-to-tr hover:from-gray-50 hover:to-yellow-50 hover:text-gray-500 rounded-md py-4 px-4"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
+                </svg>
               </a>
             </Link>
           </nav>
           <h1 className="sheetTitle">{title}</h1>
-          <address>
+          <address className="font-display not-italic text-gradient bg-gradient-to-r from-teal-700 to-green-400 mb-4">
             Manuel Dugué, Görlitzer Str. 23, 01099 Dresden
             <br />
             <a href="tel:0049 151 58791155">+49 151 58791155</a>{" "}
@@ -132,23 +167,6 @@ export default function Sheet(props: SheetProps) {
           hyphens: auto;
         }
 
-        .sheet h1 {
-          font-family: "Bungee Inline", "SF Mono", "Ubuntu Mono", Consolas,
-            Menlo, monospace, cursive;
-          font-weight: normal;
-          font-size: 2.75em;
-          margin: 0;
-        }
-
-        address {
-          font-style: normal;
-          color: #206c5f;
-          font-family: "Bungee", "SF Mono", "Ubuntu Mono", Consolas, Menlo,
-            monospace, cursive;
-          font-size: 0.875em;
-          padding-bottom: 1em;
-        }
-
         @media screen {
           .sheetContainer {
             position: absolute;
@@ -162,7 +180,6 @@ export default function Sheet(props: SheetProps) {
           }
 
           .sheet {
-            box-shadow: 0 0 1rem #0000001c;
             height: 100%;
             margin: auto;
             max-height: 29.6cm;
@@ -185,58 +202,12 @@ export default function Sheet(props: SheetProps) {
           }
         }
 
-        .sheet nav {
-          position: absolute;
-          color: #206c5f;
-          top: 0;
-          right: 0;
-          display: flex;
-        }
-
-        @media (min-width: ${largeBreakpoint}) {
-          .sheet nav {
-            visibility: hidden;
-          }
-        }
-
-        @media print {
-          .sheet nav {
-            visibility: hidden;
-          }
-        }
-
-        .sheet:hover nav {
-          visibility: visible;
-        }
-
-        .sheet nav > * {
-          padding: 1rem;
-          display: inline-block;
-        }
-
-        .sheet nav > *:hover,
-        .sheet nav > *:focus {
-          background: var(--colorBodyBackground);
-        }
-
-        .sheet::-webkit-scrollbar-thumb {
-          background: #00000000;
-          transition: background 1s;
-        }
-
-        .sheet:hover::-webkit-scrollbar-thumb {
-          background: #e9c237;
-        }
-
         .sheet section {
           padding: 1em 0;
         }
 
         .sheet section h1 {
-          font-size: 1.375em;
           grid-column: 1 / -1;
-          margin: 0 0 1em;
-          color: #fcd34d;
         }
 
         .sheet h4 {

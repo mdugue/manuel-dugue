@@ -12,12 +12,14 @@ import useEvaluateServiceWorker from "../src/hooks/useEvaluateServiceWorker";
 const StructuredSheet = dynamic(
   () => import("../src/components/StructuredSheet")
 );
-export const largeBreakpoint = "768px";
+const largeBreakpoint = "768px";
 
 function ContactAside() {
   return (
     <aside>
-      <div>Manuel Dugué</div>
+      <div className="text-gradient bg-gradient-to-tr from-green-500 to-indigo-400 font-display">
+        Manuel Dugué
+      </div>
       <a
         href="https://www.linkedin.com/in/manuel-dugue/"
         target="_blank"
@@ -74,64 +76,6 @@ export default function Home(props: { document?: StructuredSheetProps }) {
         <ContactFooter />
 
         <style jsx global>{`
-          :root {
-            color-scheme: light dark;
-            --colorBodyBackground: #f9fafb;
-            --colorBodyText: #fff;
-            --secondaryLink: #206c5f;
-            --legalLink: #bdbdbd;
-          }
-
-          @font-face {
-            font-family: "Bungee";
-            font-style: normal;
-            font-weight: 400;
-            font-display: swap; /* TODO font-display: optional; */
-            src: url(/fonts/bungee.woff2) format("woff2");
-            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
-              U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191,
-              U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-          }
-          @font-face {
-            font-family: "Bungee Hairline";
-            font-style: normal;
-            font-weight: 400;
-            font-display: swap; /* TODO font-display: optional; */
-            src: url(/fonts/bungee-hairline.woff2) format("woff2");
-            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
-              U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191,
-              U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-          }
-          @font-face {
-            font-family: "Bungee Inline";
-            font-style: normal;
-            font-weight: 400;
-            font-display: swap; /* TODO font-display: optional; */
-            src: url(/fonts/bungee-inline.woff2) format("woff2");
-            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
-              U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191,
-              U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-          }
-          @font-face {
-            font-family: "Bungee Shade";
-            font-style: normal;
-            font-weight: 400;
-            font-display: swap; /* TODO font-display: optional; */
-            src: url(/fonts/bungee-shade.woff2) format("woff2");
-            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
-              U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191,
-              U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-          }
-
-          @media (prefers-color-scheme: dark) {
-            :root {
-              --colorBodyBackground: #080808;
-              --colorBodyText: #000;
-              --secondaryLink: #fff;
-              --legalLink: #545454;
-            }
-          }
-
           .container {
             display: flex;
             flex-direction: column;
@@ -151,7 +95,6 @@ export default function Home(props: { document?: StructuredSheetProps }) {
           }
 
           hgroup {
-            background: #84b7bf;
             color: var(--colorBodyText);
             padding: 10vmax 2vmax;
             min-height: 55vh;
@@ -167,32 +110,7 @@ export default function Home(props: { document?: StructuredSheetProps }) {
             }
           }
 
-          small {
-            font-size: max(1.5vmin, 1rem);
-            font-family: "Bungee Hairline", "SF Mono", "Ubuntu Mono", Consolas,
-              Menlo, monospace, cursive;
-            font-weight: 700;
-          }
-
-          .tagline {
-            font-family: "Bungee Inline", "SF Mono", "Ubuntu Mono", Consolas,
-              Menlo, monospace, cursive;
-            font-size: max(1.5vw, 1.25rem);
-            font-weight: normal;
-            margin-right: 2vw;
-            margin-top: 2vh;
-            will-change: transform;
-          }
-
-          @media screen and (min-width: ${largeBreakpoint}) {
-            .tagline {
-              color: #ffd569;
-              font-size: 1.5vw;
-            }
-          }
-
           .dot {
-            background: var(--colorBodyBackground);
             border-radius: 100%;
             height: 4vmax;
             position: absolute;
@@ -224,31 +142,6 @@ export default function Home(props: { document?: StructuredSheetProps }) {
             .dotTL {
               visibility: initial;
             }
-          }
-
-          aside {
-            color: #fbbf24;
-            font-family: "Bungee Inline", "SF Mono", "Ubuntu Mono", Consolas,
-              Menlo, monospace, cursive;
-            font-size: 1.125rem;
-            line-height: 1;
-            padding: 6vh 2vh 2vh;
-            text-align: center;
-          }
-
-          aside a {
-            color: var(--secondaryLink);
-            display: inline-block;
-            font-family: "Bungee Hairline", "SF Mono", "Ubuntu Mono", Consolas,
-              Menlo, monospace, cursive;
-            font-weight: 700;
-            padding: 1ch;
-          }
-          aside a:hover {
-            font-family: "Bungee Inline", "SF Mono", "Ubuntu Mono", Consolas,
-              Menlo, monospace, cursive;
-            font-weight: normal;
-            color: #6b9aa2;
           }
 
           .legal {
@@ -289,14 +182,13 @@ export default function Home(props: { document?: StructuredSheetProps }) {
             background: white;
             position: absolute;
             margin: -15vmin;
-            filter: blur(40vmin);
+            filter: blur(100px);
             willchange: left, top;
             transform: translate3d(0, 0, 0);
           }
 
           html,
           body {
-            background: var(--colorBodyBackground);
             padding: 0;
             margin: 0;
             font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
@@ -319,21 +211,6 @@ export default function Home(props: { document?: StructuredSheetProps }) {
 
           * {
             box-sizing: border-box;
-          }
-
-          ::-webkit-scrollbar {
-            width: 0.75rem;
-          }
-
-          ::-webkit-scrollbar-track {
-            background: #ffffff00;
-          }
-          ::-webkit-scrollbar-track:hover {
-            background: var(--colorBodyBackground);
-          }
-
-          ::-webkit-scrollbar-thumb {
-            border-radius: 2px;
           }
         `}</style>
       </div>

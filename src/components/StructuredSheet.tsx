@@ -1,5 +1,6 @@
-import { largeBreakpoint } from "../../pages/[[...index]]";
 import Sheet from "./Sheet";
+
+const largeBreakpoint = "768px"; // TODO
 
 export type StructuredSheetProps = {
   title: string;
@@ -23,7 +24,9 @@ export default function StructuredSheet(props: StructuredSheetProps) {
       <Sheet title={title}>
         {document.sections.map((section) => (
           <section key={section.sectionTitle}>
-            <h1 className="sectionTitle">{section.sectionTitle}</h1>
+            <h1 className="text-lg font-inline text-gradient bg-gradient-to-tr from-yellow-400 to-yellow-200">
+              {section.sectionTitle}
+            </h1>
             {section.entries.map((entry, index) => (
               <div className="sectionEntry" key={index}>
                 <h2>{entry.title}</h2>

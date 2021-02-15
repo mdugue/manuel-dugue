@@ -1,0 +1,35 @@
+const { fontFamily } = require("tailwindcss/defaultTheme");
+const colors = require("tailwindcss/colors");
+const BungeeFallbacks = [
+  "Bungee",
+  "SF Mono",
+  "Ubuntu Mono",
+  "Consolas",
+  ...fontFamily.serif,
+];
+
+module.exports = {
+  purge: ["./pages/**/*.{js,ts,jsx,tsx}", "./components/**/*.{js,ts,jsx,tsx}"],
+  darkMode: "media",
+  theme: {
+    fontFamily: {
+      body: ["Montserrat", ...fontFamily.sans],
+      display: ["Bungee", ...BungeeFallbacks],
+      inline: ["Bungee Inline", ...BungeeFallbacks],
+      shade: ["Bungee Shade", ...BungeeFallbacks],
+      hairline: ["Bungee Hairline", ...BungeeFallbacks],
+    },
+    extend: {
+      screens: {
+        print: { raw: "print" },
+      },
+      colors: {
+        teal: colors.teal,
+      },
+    },
+  },
+  variants: {
+    extend: {},
+  },
+  plugins: [],
+};

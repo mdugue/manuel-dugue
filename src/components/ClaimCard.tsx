@@ -15,8 +15,6 @@ const trans2 = (x: number, y: number) => translate(x, y, -1);
 const trans3 = (x: number, y: number) => translate(x, y, -0.6);
 const trans4 = (x: number, y: number) => translate(x, y, -0.4);
 
-export const largeBreakpoint = "768px";
-
 export default function ClaimCard() {
   const [isHovered, setIsHovered] = useState(false);
   const { props, onMouseMove, onMouseLeave } = useMaterial([-0.9, -0.9], {
@@ -47,6 +45,7 @@ export default function ClaimCard() {
         // @ts-expect-error looks like I do not fully understands react-spring typings 🤔
         transform: props.xy?.interpolate(trans1),
       }}
+      className="bg-gradient-to-tr from-teal-400 to-green-300 text-white"
     >
       <div className="highlight-container">
         <animated.div
@@ -64,8 +63,8 @@ export default function ClaimCard() {
         />
       </div>
       <animated.small
+        className="font-hairline text-lg"
         style={{
-          display: "block",
           // @ts-expect-error looks like I do not fully understands react-spring typings 🤔
           transform: props.xy?.interpolate(trans3),
         }}
@@ -81,7 +80,7 @@ export default function ClaimCard() {
         handcrafting web experiences for everybody
       </Headline>
       <animated.h2
-        className="tagline"
+        className="font-inline text-gradient text-lg bg-gradient-to-tr from-yellow-50 to-yellow-200"
         style={{
           // @ts-expect-error looks like I do not fully understands react-spring typings 🤔
           transform: props.xy?.interpolate(trans3),
@@ -127,7 +126,7 @@ export default function ClaimCard() {
       {["BL", "BR", "TL", "TR"].map((dotLocation) => (
         <animated.div
           key={dotLocation}
-          className={`dot dot${dotLocation}`}
+          className={`dot dot${dotLocation} bg-gray-50 dark:bg-gray-900`}
           style={{
             willChange: "transform",
             // @ts-expect-error looks like I do not fully understands react-spring typings 🤔

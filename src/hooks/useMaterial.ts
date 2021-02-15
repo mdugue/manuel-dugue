@@ -2,7 +2,7 @@ import { MouseEvent, useEffect } from "react";
 import { SpringBaseProps, useSpring } from "react-spring";
 import { useMedia } from "react-use";
 
-export const largeBreakpoint = "768px";
+const largeBreakpoint = "768px"; // TODO
 
 const slow = { mass: 10, tension: 200, friction: 50 };
 
