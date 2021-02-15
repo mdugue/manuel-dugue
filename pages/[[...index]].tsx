@@ -86,7 +86,7 @@ export default function Home(props: { document?: StructuredSheetProps }) {
             font-family: "Bungee";
             font-style: normal;
             font-weight: 400;
-            font-display: optional;
+            font-display: swap; /* TODO font-display: optional; */
             src: url(/fonts/bungee.woff2) format("woff2");
             unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
               U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191,
@@ -96,7 +96,7 @@ export default function Home(props: { document?: StructuredSheetProps }) {
             font-family: "Bungee Hairline";
             font-style: normal;
             font-weight: 400;
-            font-display: optional;
+            font-display: swap; /* TODO font-display: optional; */
             src: url(/fonts/bungee-hairline.woff2) format("woff2");
             unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
               U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191,
@@ -106,7 +106,7 @@ export default function Home(props: { document?: StructuredSheetProps }) {
             font-family: "Bungee Inline";
             font-style: normal;
             font-weight: 400;
-            font-display: optional;
+            font-display: swap; /* TODO font-display: optional; */
             src: url(/fonts/bungee-inline.woff2) format("woff2");
             unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
               U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191,
@@ -116,7 +116,7 @@ export default function Home(props: { document?: StructuredSheetProps }) {
             font-family: "Bungee Shade";
             font-style: normal;
             font-weight: 400;
-            font-display: optional;
+            font-display: swap; /* TODO font-display: optional; */
             src: url(/fonts/bungee-shade.woff2) format("woff2");
             unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
               U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191,
