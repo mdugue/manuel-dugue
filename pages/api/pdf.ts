@@ -10,7 +10,7 @@ async function getScreenshot(url: string) {
 
   const page = await browser.newPage();
   await page.goto(url);
-  const file = await page.pdf({ format: "A4" });
+  const file = await page.pdf({ format: "a4" });
   await browser.close();
   return file;
 }
