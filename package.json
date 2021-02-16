@@ -30,7 +30,7 @@
     "@types/react": "^17.0.2",
     "chrome-aws-lambda": "^7.0.0",
     "google-spreadsheet": "^3.1.15",
-    "next": "10.0.5",
+    "next": "10.0.7",
     "next-pwa": "^5.0.5",
     "next-seo": "^4.19.0",
     "puppeteer": "^7.1.0",
