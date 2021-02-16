@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { animated } from "react-spring";
+import { animated, interpolate } from "react-spring";
 import Typewriter from "typewriter-effect";
 
 import useMaterial from "../hooks/useMaterial";
@@ -17,7 +17,11 @@ const trans4 = (x: number, y: number) => translate(x, y, -0.4);
 
 export default function ClaimCard() {
   const [isHovered, setIsHovered] = useState(false);
-  const { props, onMouseMove, onMouseLeave } = useMaterial([-0.9, -0.9], {
+  const {
+    props: { xy },
+    onMouseMove,
+    onMouseLeave,
+  } = useMaterial([-0.9, -0.9], {
     mass: 5,
     tension: 350,
     friction: 40,
@@ -42,48 +46,37 @@ export default function ClaimCard() {
         onMouseLeave();
       }}
       style={{
-        // @ts-expect-error looks like I do not fully understands react-spring typings 🤔
-        transform: props.xy?.interpolate(trans1),
+        transform: interpolate(xy, trans1),
       }}
-      className="bg-gradient-to-tr from-teal-400 to-green-300 text-white"
+      className="bg-gradient-to-tr from-teal-400 to-green-300 text-white px-24 py-12 self-start mt-20 ml-20 shadow-xl"
     >
-      <div className="highlight-container">
+      <div className="inset-0 absolute overflow-hidden">
         <animated.div
-          className="highlight"
+          className="bg-teal-100 opacity-75 absolute top-1/4 left-1/4 w-1/2 h-1/2"
           style={{
-            opacity: props.xy?.interpolate(
-              // @ts-expect-error looks like I do not fully understands react-spring typings 🤔
-              (x: number, y: number) => 0.1 + (Math.abs(x) + Math.abs(y)) / 4
+            filter: "blur(100px)",
+            transform: interpolate(
+              xy,
+              (x, y) => `translate3d(${x * 75 + "%"}, ${y * 75 + "%"}, 0)`
             ),
-            // @ts-expect-error looks like I do not fully understands react-spring typings 🤔
-            left: props.xy?.interpolate((x) => (x + 1) * 50 + "%"),
-            // @ts-expect-error looks like I do not fully understands react-spring typings 🤔
-            top: props.xy?.interpolate((x, y) => (y + 1) * 50 + "%"),
           }}
         />
       </div>
       <animated.small
-        className="font-hairline text-lg"
-        style={{
-          // @ts-expect-error looks like I do not fully understands react-spring typings 🤔
-          transform: props.xy?.interpolate(trans3),
-        }}
+        className="font-hairline text-lg font-bold"
+        style={{ transform: interpolate(xy, trans3) }}
       >
         – since 2008 –
       </animated.small>
-      <Headline
-        style={{
-          // @ts-expect-error looks like I do not fully understands react-spring typings 🤔
-          transform: props.xy?.interpolate(trans2),
-        }}
-      >
-        handcrafting web experiences for everybody
+      <Headline style={{ transform: interpolate(xy, trans2) }}>
+        handcrafting <br />
+        web experiences <br />
+        for everybody
       </Headline>
       <animated.h2
         className="font-inline text-gradient text-lg bg-gradient-to-tr from-yellow-50 to-yellow-200"
         style={{
-          // @ts-expect-error looks like I do not fully understands react-spring typings 🤔
-          transform: props.xy?.interpolate(trans3),
+          transform: interpolate(xy, trans3),
         }}
       >
         <Typewriter
@@ -126,11 +119,10 @@ export default function ClaimCard() {
       {["BL", "BR", "TL", "TR"].map((dotLocation) => (
         <animated.div
           key={dotLocation}
-          className={`dot dot${dotLocation} bg-gray-50 dark:bg-gray-900`}
+          className={`bg-gray-50 dark:bg-gray-900 rounded-full w-10 h-10 absolute`}
           style={{
             willChange: "transform",
-            // @ts-expect-error looks like I do not fully understands react-spring typings 🤔
-            transform: props.xy?.interpolate(trans4),
+            transform: interpolate(xy, trans4),
           }}
         />
       ))}

@@ -1,3 +1,4 @@
+import { Github, Linkedin, Twitter } from "@icons-pack/react-simple-icons";
 import { GoogleSpreadsheet } from "google-spreadsheet";
 import { GetStaticPaths, GetStaticProps } from "next";
 import dynamic from "next/dynamic";
@@ -12,42 +13,43 @@ import useEvaluateServiceWorker from "../src/hooks/useEvaluateServiceWorker";
 const StructuredSheet = dynamic(
   () => import("../src/components/StructuredSheet")
 );
-const largeBreakpoint = "768px";
 
 function ContactAside() {
   return (
-    <aside>
-      <div className="text-gradient bg-gradient-to-tr from-green-500 to-indigo-400 font-display">
+    <aside className="absolute bottom-4 left-20 flex items-center">
+      <div className="text-gradient bg-gradient-to-tr from-indigo-500 to-green-500 font-display">
         Manuel Dugué
       </div>
-      <a
-        href="https://www.linkedin.com/in/manuel-dugue/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        linkedin
-      </a>
-      <a
-        href="https://twitter.com/mdugue"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        twitter
-      </a>
-      <a
-        href="https://github.com/mdugue"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        github
-      </a>
+      <div className="flex text-gray-400">
+        <a
+          href="https://www.linkedin.com/in/manuel-dugue/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Linkedin size={16} />
+        </a>
+        <a
+          href="https://twitter.com/mdugue"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Twitter size={16} />
+        </a>
+        <a
+          href="https://github.com/mdugue"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Github size={16} />
+        </a>
+      </div>
     </aside>
   );
 }
 
 function LegalSection() {
   return (
-    <nav className="legal">
+    <nav className="font-hairline text-gray-300 absolute top-4 right-4 flex flex-col text-right font-bold">
       <Link href="/legal" prefetch={false}>
         <a>legal note</a>
       </Link>
@@ -60,11 +62,13 @@ function LegalSection() {
 
 export default function Home(props: { document?: StructuredSheetProps }) {
   const { document } = props;
-  const isContainerHiddenInPrint = document != null;
+  const isShowingADocument = document != null;
   useEvaluateServiceWorker();
   return (
     <>
-      <div className="container">
+      <div
+        className={`flex flex-col ${isShowingADocument ? "print:hidden" : ""}`}
+      >
         <Head>
           <title>Manuel Dugué</title>
           <link rel="icon" href="/favicon.ico" />
@@ -74,148 +78,8 @@ export default function Home(props: { document?: StructuredSheetProps }) {
         <ContactAside />
         <LegalSection />
         <ContactFooter />
-
-        <style jsx global>{`
-          .container {
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-          }
-
-          @media print {
-            .container {
-              display: ${isContainerHiddenInPrint ? "none" : "flex"};
-            }
-          }
-
-          @media screen and (min-width: ${largeBreakpoint}) {
-            .container {
-              justify-content: space-between;
-            }
-          }
-
-          hgroup {
-            color: var(--colorBodyText);
-            padding: 10vmax 2vmax;
-            min-height: 55vh;
-            will-change: transform;
-          }
-
-          @media screen and (min-width: ${largeBreakpoint}) {
-            hgroup {
-              margin: 10vh 0 0 10vw;
-              min-height: initial;
-              padding: 9vh 10vw 10vh;
-              width: 66vw;
-            }
-          }
-
-          .dot {
-            border-radius: 100%;
-            height: 4vmax;
-            position: absolute;
-            width: 4vmax;
-          }
-          .dotBR {
-            bottom: -2vmax;
-            right: -2vmax;
-          }
-          .dotBL {
-            bottom: -2vmax;
-            left: -2vmax;
-          }
-          .dotTR,
-          .dotTL {
-            visibility: hidden;
-          }
-          .dotTR {
-            right: -2vmax;
-            top: -2vmax;
-          }
-          .dotTL {
-            left: -2vmax;
-            top: -2vmax;
-          }
-
-          @media screen and (min-width: ${largeBreakpoint}) {
-            .dotTR,
-            .dotTL {
-              visibility: initial;
-            }
-          }
-
-          .legal {
-            font-family: "Bungee Hairline", "SF Mono", "Ubuntu Mono", Consolas,
-              Menlo, monospace, cursive;
-            position: absolute;
-            right: 1rem;
-            display: flex;
-            align-items: flex-end;
-            justify-content: initial;
-          }
-
-          @media screen and (min-width: ${largeBreakpoint}) {
-            .legal {
-              flex-direction: column;
-            }
-          }
-
-          .legal a {
-            padding: 1ch 1ch 0;
-            font-weight: bold;
-            color: var(--legalLink);
-          }
-
-          .highlight-container {
-            bottom: 0;
-            left: 0;
-            overflow: hidden;
-            position: absolute;
-            right: 0;
-            top: 0;
-            zindex: -1;
-          }
-
-          .highlight {
-            width: 30vmin;
-            height: 30vmin;
-            background: white;
-            position: absolute;
-            margin: -15vmin;
-            filter: blur(100px);
-            willchange: left, top;
-            transform: translate3d(0, 0, 0);
-          }
-
-          html,
-          body {
-            padding: 0;
-            margin: 0;
-            font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-              Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
-              sans-serif;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            line-height: 1.25;
-            overflow: hidden;
-          }
-
-          svg {
-            stroke-width: 1.5px;
-          }
-
-          a {
-            text-decoration: none;
-            color: inherit;
-          }
-
-          * {
-            box-sizing: border-box;
-          }
-        `}</style>
       </div>
       {document != null && (
-        /* TODO: Lazy load */
         <StructuredSheet title={document.title} document={document.document} />
       )}
     </>

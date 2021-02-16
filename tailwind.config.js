@@ -1,5 +1,6 @@
 const { fontFamily } = require("tailwindcss/defaultTheme");
 const colors = require("tailwindcss/colors");
+
 const BungeeFallbacks = [
   "Bungee",
   "SF Mono",
@@ -26,10 +27,13 @@ module.exports = {
       colors: {
         teal: colors.teal,
       },
+      margin: {
+        "-1/4": "-25%",
+      },
     },
   },
   variants: {
     extend: {},
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/aspect-ratio")],
 };

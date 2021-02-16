@@ -2,7 +2,6 @@ import Head from "next/head";
 import Link from "next/link";
 import Router from "next/router";
 import { ReactNode } from "react";
-import { Download, XCircle } from "react-feather";
 import { useKeyPressEvent } from "react-use";
 
 const largeBreakpoint = "768px"; // TODO
@@ -36,7 +35,7 @@ export default function Sheet(props: SheetProps) {
         />
       </Head>
       <div className="sheetContainer">
-        <main className="sheet shadow-2xl">
+        <main className="sheet shadow-2xl print:shadow-none print:text-xs font-body bg-white">
           <nav className="absolute right-0 top-0 flex print:hidden text-gray-400 m-1">
             <div
               tabIndex={1}
@@ -113,13 +112,15 @@ export default function Sheet(props: SheetProps) {
               </a>
             </Link>
           </nav>
-          <h1 className="sheetTitle">{title}</h1>
-          <address className="font-display not-italic text-gradient bg-gradient-to-r from-teal-700 to-green-400 mb-4">
-            Manuel Dugué, Görlitzer Str. 23, 01099 Dresden
-            <br />
-            <a href="tel:0049 151 58791155">+49 151 58791155</a>{" "}
-            <a href="mailto:post@manueldugue.de">post@manueldugue.de</a>
-          </address>
+          <div className="text-gradient bg-gradient-to-r from-teal-700 to-green-400 mb-4">
+            <h1 className="font-inline text-5xl mb-1">{title}</h1>
+            <address className="font-display not-italic text-sm">
+              Manuel Dugué, Görlitzer Str. 23, 01099 Dresden
+              <br />
+              <a href="tel:0049 151 58791155">+49 151 58791155</a>{" "}
+              <a href="mailto:post@manueldugue.de">post@manueldugue.de</a>
+            </address>
+          </div>
           {children}
         </main>
       </div>
@@ -148,23 +149,6 @@ export default function Sheet(props: SheetProps) {
         @page {
           size: A4 portrait;
           margin: 1.75cm;
-        }
-
-        .sheet {
-          font-family: "Montserrat", sans-serif;
-          background: white;
-        }
-
-        @media print {
-          .sheet {
-            font-size: 14px;
-          }
-        }
-
-        .sheetTitle {
-          padding-right: 7.5rem;
-          word-break: break-word;
-          hyphens: auto;
         }
 
         @media screen {
@@ -202,16 +186,8 @@ export default function Sheet(props: SheetProps) {
           }
         }
 
-        .sheet section {
-          padding: 1em 0;
-        }
-
         .sheet section h1 {
           grid-column: 1 / -1;
-        }
-
-        .sheet h4 {
-          margin: 0;
         }
       `}</style>
     </>

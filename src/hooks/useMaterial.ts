@@ -10,7 +10,7 @@ export default function useMaterial(
   defaultPosition: [x: number, y: number],
   config: SpringBaseProps["config"]
 ) {
-  const [props, set] = useSpring(() => ({
+  const [props, set] = useSpring<{ xy: [number, number] }>(() => ({
     xy: [0, 0] as [x: number, y: number],
     config,
   }));
