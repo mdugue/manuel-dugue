@@ -95,14 +95,6 @@ export default function StructuredSheet(props: StructuredSheetProps) {
             margin: 0;
           }
 
-          .entryContent a {
-            color: #206c5f;
-            font-family: "Bungee Hairline", "SF Mono", "Ubuntu Mono", Consolas,
-              Menlo, monospace, cursive;
-            font-weight: bold;
-            float: right;
-          }
-
           @media print {
             .entryContent a::after {
               content: ": " attr(href);
