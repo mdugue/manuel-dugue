@@ -18,7 +18,6 @@ module.exports = {
       display: ["Bungee", ...BungeeFallbacks],
       inline: ["Bungee Inline", ...BungeeFallbacks],
       shade: ["Bungee Shade", ...BungeeFallbacks],
-      hairline: ["Bungee Hairline", ...BungeeFallbacks],
     },
     extend: {
       screens: {
@@ -35,5 +34,5 @@ module.exports = {
   variants: {
     extend: {},
   },
-  plugins: [require("@tailwindcss/aspect-ratio")],
+  plugins: [require("tailwind-filter-utilities")],
 };

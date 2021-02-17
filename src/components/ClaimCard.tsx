@@ -36,87 +36,90 @@ export default function ClaimCard() {
   }, [isHovered]);
 
   return (
-    <animated.hgroup
-      onMouseMove={onMouseMove}
-      onMouseOver={() => {
-        setIsHovered(true);
-      }}
-      onMouseLeave={() => {
-        setIsHovered(false);
-        onMouseLeave();
-      }}
-      style={{
-        transform: interpolate(xy, trans1),
-      }}
-      className="bg-gradient-to-tr from-teal-400 to-green-300 text-white px-24 py-12 self-start mt-20 ml-20 shadow-xl"
-    >
-      <div className="inset-0 absolute overflow-hidden">
-        <animated.div
-          className="bg-teal-100 opacity-75 absolute top-1/4 left-1/4 w-1/2 h-1/2"
-          style={{
-            filter: "blur(100px)",
-            transform: interpolate(
-              xy,
-              (x, y) => `translate3d(${x * 75 + "%"}, ${y * 75 + "%"}, 0)`
-            ),
-          }}
-        />
-      </div>
-      <animated.small
-        className="font-hairline text-lg font-bold"
-        style={{ transform: interpolate(xy, trans3) }}
-      >
-        – since 2008 –
-      </animated.small>
-      <Headline style={{ transform: interpolate(xy, trans2) }}>
-        handcrafting <br />
-        web experiences <br />
-        for everybody
-      </Headline>
-      <animated.h2
-        className="font-inline text-gradient text-lg bg-gradient-to-tr from-yellow-50 to-yellow-200"
-        style={{
-          transform: interpolate(xy, trans3),
+    <div className="drop-shadow-xl self-start mt-20 ml-20">
+      <animated.hgroup
+        onMouseMove={onMouseMove}
+        onMouseOver={() => {
+          setIsHovered(true);
         }}
+        onMouseLeave={() => {
+          setIsHovered(false);
+          onMouseLeave();
+        }}
+        style={{
+          transform: interpolate(xy, trans1),
+          clipPath: "polygon(3% 9%, 17% 8%, 21% 2%, 98% 8%, 89% 95%, 9% 96%)",
+        }}
+        className="bg-gradient-to-tr from-teal-400 to-green-300 text-white px-24 py-12"
       >
-        <Typewriter
-          options={{
-            loop: true,
+        <div className="inset-0 absolute overflow-hidden">
+          <animated.div
+            className="bg-teal-100 opacity-75 absolute top-1/4 left-1/4 w-1/2 h-1/2"
+            style={{
+              zIndex: -1,
+              filter: "blur(100px)",
+              transform: interpolate(
+                xy,
+                (x, y) => `translate3d(${x * 75 + "%"}, ${y * 75 + "%"}, 0)`
+              ),
+            }}
+          />
+        </div>
+        <animated.small
+          className="font-display text-lg text-teal-400"
+          style={{ transform: interpolate(xy, trans3) }}
+        >
+          – since 2008 –
+        </animated.small>
+        <Headline style={{ transform: interpolate(xy, trans2) }}>
+          handcrafting <br />
+          web experiences <br />
+          for everybody
+        </Headline>
+        <animated.h2
+          className="font-inline text-gradient text-lg bg-gradient-to-tr from-yellow-50 to-yellow-200"
+          style={{
+            transform: interpolate(xy, trans3),
           }}
-          onInit={(typewriter) => {
-            (typewriterRef.current = typewriter)
-              .typeString("consumers, experts, bots, ...")
-              // @ts-expect-error ts definition does not seem complete yet
-              .changeCursor(" ")
-              .pauseFor(2500)
-              .changeCursor("|")
-              .deleteAll()
-              .typeString("React, GraphQL, A11Y, ...")
-              .changeCursor(" ")
-              .pauseFor(2500)
-              .changeCursor("|")
-              .deleteAll()
-              .typeString("teaching, analyzing, coding, ...")
-              .changeCursor(" ")
-              .pauseFor(2500)
-              .changeCursor("|")
-              .deleteAll()
-              .typeString("arctic code vault contributer")
-              .changeCursor(" ")
-              .pauseFor(2500)
-              .changeCursor("|")
-              .deleteAll()
-              .start();
-          }}
-        />
-        <noscript>
-          consumers, experts, bots <br />
-          React, GraphQL, A11Y <br />
-          teaching, analyzing, coding <br />
-          arctic code vault contributer <br />
-        </noscript>
-      </animated.h2>
-      {["BL", "BR", "TL", "TR"].map((dotLocation) => (
+        >
+          <Typewriter
+            options={{
+              loop: true,
+            }}
+            onInit={(typewriter) => {
+              (typewriterRef.current = typewriter)
+                .typeString("consumers, experts, bots, ...")
+                // @ts-expect-error ts definition does not seem complete yet
+                .changeCursor(" ")
+                .pauseFor(2500)
+                .changeCursor("|")
+                .deleteAll()
+                .typeString("React, GraphQL, A11Y, ...")
+                .changeCursor(" ")
+                .pauseFor(2500)
+                .changeCursor("|")
+                .deleteAll()
+                .typeString("teaching, analyzing, coding, ...")
+                .changeCursor(" ")
+                .pauseFor(2500)
+                .changeCursor("|")
+                .deleteAll()
+                .typeString("arctic code vault contributer")
+                .changeCursor(" ")
+                .pauseFor(2500)
+                .changeCursor("|")
+                .deleteAll()
+                .start();
+            }}
+          />
+          <noscript>
+            consumers, experts, bots <br />
+            React, GraphQL, A11Y <br />
+            teaching, analyzing, coding <br />
+            arctic code vault contributer <br />
+          </noscript>
+        </animated.h2>
+        {/* {["BL", "BR", "TL", "TR"].map((dotLocation) => (
         <animated.div
           key={dotLocation}
           className={`bg-gray-50 dark:bg-gray-900 rounded-full w-10 h-10 absolute`}
@@ -125,7 +128,8 @@ export default function ClaimCard() {
             transform: interpolate(xy, trans4),
           }}
         />
-      ))}
-    </animated.hgroup>
+      ))} */}
+      </animated.hgroup>
+    </div>
   );
 }

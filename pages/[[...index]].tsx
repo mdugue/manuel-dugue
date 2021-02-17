@@ -49,7 +49,7 @@ function ContactAside() {
 
 function LegalSection() {
   return (
-    <nav className="font-hairline text-gray-300 absolute top-4 right-4 flex flex-col text-right font-bold">
+    <nav className="font-display  absolute top-4 right-4 flex flex-col text-right text-gray-200 ">
       <Link href="/legal" prefetch={false}>
         <a>legal note</a>
       </Link>
