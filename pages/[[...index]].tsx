@@ -16,32 +16,35 @@ const StructuredSheet = dynamic(
 
 function ContactAside() {
   return (
-    <aside className="absolute bottom-4 left-20 flex items-center">
-      <div className="text-gradient bg-gradient-to-tr from-indigo-500 to-green-500 font-display">
-        Manuel Dugué
-      </div>
-      <div className="flex text-gray-400">
+    <aside className="absolute bottom-12 left-20 flex flex-col">
+      <div className="flex text-gray-300 mb-2">
         <a
+          className="px-1 hover:text-teal-400"
           href="https://www.linkedin.com/in/manuel-dugue/"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <Linkedin size={16} />
+          <Linkedin />
         </a>
         <a
+          className="px-1 hover:text-teal-400"
           href="https://twitter.com/mdugue"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <Twitter size={16} />
+          <Twitter />
         </a>
         <a
+          className="px-1 hover:text-teal-400"
           href="https://github.com/mdugue"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <Github size={16} />
+          <Github />
         </a>
+      </div>
+      <div className="text-gradient bg-gradient-to-tr from-indigo-500 to-green-500 font-display text-2xl">
+        Manuel Dugué
       </div>
     </aside>
   );

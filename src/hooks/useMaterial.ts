@@ -2,8 +2,6 @@ import { MouseEvent, useEffect } from "react";
 import { SpringBaseProps, useSpring } from "react-spring";
 import { useMedia } from "react-use";
 
-const largeBreakpoint = "768px"; // TODO
-
 const slow = { mass: 10, tension: 200, friction: 50 };
 
 export default function useMaterial(
@@ -14,7 +12,7 @@ export default function useMaterial(
     xy: [0, 0] as [x: number, y: number],
     config,
   }));
-  const isWide = useMedia(`(min-width: ${largeBreakpoint})`);
+  const isWide = useMedia(`(min-width: 768px)`);
   useEffect(() => {
     set({ xy: isWide ? defaultPosition : [0, 0], config: slow });
   }, [defaultPosition, isWide, set]);

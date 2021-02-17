@@ -22,11 +22,11 @@
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-react": "^7.22.0",
     "eslint-plugin-react-hooks": "^4.2.0",
-    "eslint-plugin-simple-import-sort": "^7.0.0",
-    "tailwind-filter-utilities": "^2.0.0"
+    "eslint-plugin-simple-import-sort": "^7.0.0"
   },
   "dependencies": {
     "@icons-pack/react-simple-icons": "^4.0.0",
+    "@tailwindcss/line-clamp": "^0.2.0",
     "@types/google-spreadsheet": "^3.0.2",
     "@types/node": "^14.14.28",
     "@types/react": "^17.0.2",

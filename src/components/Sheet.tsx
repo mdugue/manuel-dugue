@@ -4,8 +4,6 @@ import Router from "next/router";
 import { ReactNode } from "react";
 import { useKeyPressEvent } from "react-use";
 
-const largeBreakpoint = "768px"; // TODO
-
 export type SheetProps = {
   title: string;
   children: ReactNode;
@@ -34,8 +32,16 @@ export default function Sheet(props: SheetProps) {
           crossOrigin="anonymous"
         />
       </Head>
-      <div className="sheetContainer">
-        <main className="sheet shadow-2xl print:shadow-none print:text-xs font-body bg-white">
+      <div className="p-2 lg:p-8 absolute inset-0">
+        <main
+          className="sheet shadow-2xl print:shadow-none print:text-xs font-body bg-white p-1 lg:py-20 lg:px-14 m-auto overflow-y-auto relative"
+          style={{
+            maxHeight: "29.6cm",
+            maxWidth: "21cm",
+            height: "100%",
+            pointerEvents: "all",
+          }}
+        >
           <nav className="absolute right-0 top-0 flex print:hidden text-gray-400 m-1">
             <div
               tabIndex={1}
@@ -129,7 +135,7 @@ export default function Sheet(props: SheetProps) {
           font-family: "Montserrat";
           font-style: normal;
           font-weight: 400;
-          font-display: swap; /* TODO font-display: optional; */
+          font-display: optional;
           src: url(/fonts/montserrat-400.woff2) format("woff2");
           unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
             U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193,
@@ -139,7 +145,7 @@ export default function Sheet(props: SheetProps) {
           font-family: "Montserrat";
           font-style: normal;
           font-weight: 600;
-          font-display: swap; /* TODO font-display: optional; */
+          font-display: optional;
           src: url(/fonts/montserrat-600.woff2) format("woff2");
           unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
             U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193,
@@ -149,45 +155,6 @@ export default function Sheet(props: SheetProps) {
         @page {
           size: A4 portrait;
           margin: 1.75cm;
-        }
-
-        @media screen {
-          .sheetContainer {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            padding: 0.5rem;
-            overflow: auto;
-            pointer-events: none;
-          }
-
-          .sheet {
-            height: 100%;
-            margin: auto;
-            max-height: 29.6cm;
-            max-width: 21cm;
-            overflow-y: auto;
-            padding: 1rem;
-            color: #000;
-            position: relative;
-            pointer-events: all;
-          }
-        }
-
-        @media (min-width: ${largeBreakpoint}) {
-          .sheetContainer {
-            padding: 2rem;
-          }
-
-          .sheet {
-            padding: 6rem 4rem;
-          }
-        }
-
-        .sheet section h1 {
-          grid-column: 1 / -1;
         }
       `}</style>
     </>
