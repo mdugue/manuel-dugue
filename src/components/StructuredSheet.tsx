@@ -23,7 +23,7 @@ export default function StructuredSheet(props: StructuredSheetProps) {
         {document.sections.map((section) => (
           <section
             key={section.sectionTitle}
-            className="py-4 flex flex-col"
+            className="py-4"
             style={{ orphans: 10, widows: 10 }}
           >
             <h1 className="text-lg font-inline text-gradient bg-gradient-to-tr from-yellow-500 to-yellow-300 print:text-yellow-400 mb-2 self-start">
