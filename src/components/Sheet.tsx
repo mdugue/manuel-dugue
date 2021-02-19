@@ -1,13 +1,84 @@
 import Head from "next/head";
 import Link from "next/link";
 import Router from "next/router";
-import { ReactNode } from "react";
+import { ComponentProps, HTMLProps, ReactNode, useState } from "react";
 import { useKeyPressEvent } from "react-use";
 
 export type SheetProps = {
   title: string;
   children: ReactNode;
 };
+
+function PrintButton(props: { title: string } & HTMLProps<HTMLButtonElement>) {
+  const { title, ...rest } = props;
+  const [isWaiting, setIsWaiting] = useState(false);
+  return (
+    <button
+      {...rest}
+      type="button"
+      tabIndex={1}
+      title="download"
+      className={`bg-gradient-to-tr hover:from-teal-50 hover:to-yellow-50 hover:text-teal-600 rounded-md py-4 px-4 cursor-pointer flex items-center ${
+        isWaiting ? "animate-pulse" : ""
+      }`}
+      onClick={() => {
+        setIsWaiting(true);
+        fetch("/api/pdf")
+          .then(async (res) => ({
+            filename: `${title} dugue.pdf`,
+            blob: await res.blob(),
+          }))
+          .then((resObj) => {
+            const newBlob = new Blob([resObj.blob], {
+              type: "application/pdf",
+            });
+
+            if (window.navigator && window.navigator.msSaveOrOpenBlob) {
+              window.navigator.msSaveOrOpenBlob(newBlob);
+            } else {
+              const objUrl = window.URL.createObjectURL(newBlob);
+
+              const link = document.createElement("a");
+              link.href = objUrl;
+              link.download = resObj.filename;
+              link.click();
+
+              // For Firefox it is necessary to delay revoking the ObjectURL.
+              setTimeout(() => {
+                window.URL.revokeObjectURL(objUrl);
+                setIsWaiting(false);
+              }, 250);
+            }
+          });
+      }}
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        className={`mr-2 h-5 w-5 ${isWaiting ? "animate-spin" : ""}`}
+      >
+        {isWaiting ? (
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
+          />
+        ) : (
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+          />
+        )}
+      </svg>
+      {isWaiting ? "pdf …" : "pdf"}
+    </button>
+  );
+}
 
 export default function Sheet(props: SheetProps) {
   const { title, children } = props;
@@ -43,57 +114,8 @@ export default function Sheet(props: SheetProps) {
           }}
         >
           <nav className="absolute right-0 top-0 flex print:hidden text-gray-400 m-1">
-            <div
-              tabIndex={1}
-              title="download"
-              className="bg-gradient-to-tr hover:from-teal-50 hover:to-yellow-50 hover:text-teal-600 rounded-md py-4 px-4 cursor-pointer flex items-center"
-              onClick={() =>
-                fetch("/api/pdf")
-                  .then(async (res) => ({
-                    filename: `${title} dugue.pdf`,
-                    blob: await res.blob(),
-                  }))
-                  .then((resObj) => {
-                    const newBlob = new Blob([resObj.blob], {
-                      type: "application/pdf",
-                    });
+            <PrintButton title={title} />
 
-                    if (window.navigator && window.navigator.msSaveOrOpenBlob) {
-                      window.navigator.msSaveOrOpenBlob(newBlob);
-                    } else {
-                      const objUrl = window.URL.createObjectURL(newBlob);
-
-                      const link = document.createElement("a");
-                      link.href = objUrl;
-                      link.download = resObj.filename;
-                      link.click();
-
-                      // For Firefox it is necessary to delay revoking the ObjectURL.
-                      setTimeout(() => {
-                        window.URL.revokeObjectURL(objUrl);
-                      }, 250);
-                    }
-                  })
-              }
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                className="mr-2"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
-                />
-              </svg>
-              download
-            </div>
             <Link href="/">
               <a
                 title="close"
@@ -103,8 +125,7 @@ export default function Sheet(props: SheetProps) {
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
-                  width="20"
-                  height="20"
+                  className="h-5 w-5"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
                 >
@@ -118,7 +139,13 @@ export default function Sheet(props: SheetProps) {
               </a>
             </Link>
           </nav>
-          <div className="text-gradient bg-gradient-to-r from-teal-700 to-green-400 mb-4">
+          <div
+            className="text-gradient bg-gradient-to-r from-teal-700 to-green-400 mb-4"
+            style={{
+              WebkitPrintColorAdjust: "exact",
+              WebkitTextFillColor: "transparent",
+            }}
+          >
             <h1 className="font-inline text-5xl mb-1">{title}</h1>
             <address className="font-display not-italic text-sm">
               Manuel Dugué, Görlitzer Str. 23, 01099 Dresden

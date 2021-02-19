@@ -8,13 +8,13 @@ export default function Headline(props: ComponentProps<typeof animated.h1>) {
       className="mb-8"
       style={{ fontSize: "max(3vw, 2rem)", ...style }}
     >
-      <div className="absolute font-shade text-gradient bg-gradient-to-tr from-teal-600 to-teal-500">
+      <div
+        className="absolute font-shade text-gradient bg-gradient-to-tr from-teal-600 to-teal-500"
+        style={{ transform: "translateX(-0.12em)" }}
+      >
         {children}
       </div>
-      <div
-        className="font-inline transform translate-x-1.5"
-        style={{ letterSpacing: "0.1em" }}
-      >
+      <div className="font-inline transform" style={{ letterSpacing: "0.1em" }}>
         {children}
       </div>
     </animated.h1>

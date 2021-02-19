@@ -22,7 +22,7 @@ export default function StructuredSheet(props: StructuredSheetProps) {
       <Sheet title={title}>
         {document.sections.map((section) => (
           <section key={section.sectionTitle} className="py-4">
-            <h1 className="text-lg font-inline text-gradient bg-gradient-to-tr from-yellow-400 to-yellow-200">
+            <h1 className="text-lg font-inline text-gradient bg-gradient-to-tr from-yellow-400 to-yellow-200 print:text-yellow-400">
               {section.sectionTitle}
             </h1>
             {section.entries.map((entry, index) => (
@@ -31,7 +31,7 @@ export default function StructuredSheet(props: StructuredSheetProps) {
                 key={index}
                 style={{ pageBreakInside: "avoid" }}
               >
-                <h2 className="text-right font-bold text-gray-700 text-gradient bg-gradient-to-tr from-green-800 to-teal-600 justify-self-end">
+                <h2 className="text-right font-bold text-gradient bg-gradient-to-tr from-green-800 to-teal-600 print:text-teal-700 justify-self-end">
                   {entry.title}
                 </h2>
                 <div
@@ -39,7 +39,7 @@ export default function StructuredSheet(props: StructuredSheetProps) {
                   style={{ pageBreakInside: "avoid" }}
                 >
                   {entry.subtitle && (
-                    <h4 className="font-bold text-gray-700 text-gradient bg-gradient-to-tr from-teal-600 to-yellow-600 justify-self-end">
+                    <h4 className="font-bold text-gray-700 text-gradient bg-gradient-to-tr from-teal-600 to-yellow-600 print:text-teal-800 justify-self-end">
                       {entry.subtitle}
                     </h4>
                   )}
