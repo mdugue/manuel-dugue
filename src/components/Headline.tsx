@@ -5,8 +5,8 @@ export default function Headline(props: ComponentProps<typeof animated.h1>) {
   return (
     <animated.h1
       {...rest}
-      className="mb-8"
-      style={{ fontSize: "max(3vw, 2rem)", ...style }}
+      className="mb-8 text-3xl lg:text-5xl leading-tight lg:leading-tight"
+      style={{ ...style }}
     >
       <div
         className="absolute font-shade text-gradient bg-gradient-to-tr from-teal-600 to-teal-500"

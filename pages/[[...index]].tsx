@@ -16,7 +16,7 @@ const StructuredSheet = dynamic(
 
 function ContactAside() {
   return (
-    <aside className="absolute bottom-12 left-20 flex flex-col">
+    <aside className="lg:absolute ml-1 mt-16 lg:ml-20 lg:bottom-12 lg:left-0 flex flex-col">
       <div className="flex text-gray-300 mb-2">
         <a
           className="px-1 hover:text-teal-400"
@@ -52,7 +52,7 @@ function ContactAside() {
 
 function LegalSection() {
   return (
-    <nav className="font-display  absolute top-4 right-4 flex flex-col text-right text-gray-200 ">
+    <nav className="font-display absolute bottom-2 left-2 lg:bottom-auto lg:left-auto lg:top-4 lg:right-4 flex flex-col lg:text-right text-gray-200 ">
       <Link href="/legal" prefetch={false}>
         <a>legal note</a>
       </Link>
