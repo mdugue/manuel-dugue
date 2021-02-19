@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Link from "next/link";
 import Router from "next/router";
-import { ComponentProps, HTMLProps, ReactNode, useState } from "react";
+import { HTMLProps, ReactNode, useState } from "react";
 import { useKeyPressEvent } from "react-use";
 
 export type SheetProps = {
@@ -103,15 +103,10 @@ export default function Sheet(props: SheetProps) {
           crossOrigin="anonymous"
         />
       </Head>
-      <div className="p-2 lg:p-8 absolute inset-0">
+      <div className="p-2 lg:p-8 print:p-0 absolute inset-0">
         <main
-          className="sheet shadow-2xl print:shadow-none print:text-xs font-body bg-white p-1 lg:py-20 lg:px-14 m-auto overflow-y-auto relative"
-          style={{
-            maxHeight: "29.6cm",
-            maxWidth: "21cm",
-            height: "100%",
-            pointerEvents: "all",
-          }}
+          className="shadow-2xl print:shadow-none print:text-xs font-body bg-white p-1 lg:py-20 lg:px-14 m-auto overflow-y-auto overflow-x-hidden print:overflow-visible relative rounded-sm max-h-full"
+          style={{ aspectRatio: "2 / 3" }}
         >
           <nav className="absolute right-0 top-0 flex print:hidden text-gray-400 m-1">
             <PrintButton title={title} />
