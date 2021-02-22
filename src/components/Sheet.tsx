@@ -23,7 +23,7 @@ function PrintButton(props: { title: string } & HTMLProps<HTMLButtonElement>) {
       }`}
       onClick={() => {
         setIsWaiting(true);
-        fetch(`/api/pdf`)
+        fetch(`/api/pdf?cache=${encodeURI(title)}`)
           .then(async (res) => ({
             filename: `${title} dugue.pdf`,
             blob: await res.blob(),
