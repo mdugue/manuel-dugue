@@ -37,7 +37,7 @@
     "next": "^10.0.7",
     "next-seo": "^4.20.0",
     "postcss": "^8.2.6",
-    "puppeteer-core": "^7.1.0",
+    "puppeteer": "^7.1.0",
     "react": "0.0.0-experimental-8af27aeed",
     "react-dom": "0.0.0-experimental-8af27aeed",
     "react-spring": "^8.0.27",
