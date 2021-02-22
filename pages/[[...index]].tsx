@@ -6,7 +6,7 @@ import Head from "next/head";
 import Link from "next/link";
 
 import ClaimCard from "../src/components/ClaimCard";
-import ContactFooter from "../src/components/ContactFooter";
+import DocumentsNavigation from "../src/components/DocumentsNavigation";
 import { StructuredSheetProps } from "../src/components/StructuredSheet";
 import useEvaluateServiceWorker from "../src/hooks/useEvaluateServiceWorker";
 
@@ -17,7 +17,7 @@ const StructuredSheet = dynamic(
 function ContactAside() {
   return (
     <aside className="lg:absolute ml-1 mt-16 lg:ml-20 lg:bottom-12 lg:left-0 flex flex-col">
-      <div className="flex text-gray-300 mb-2">
+      <div className="flex text-gray-300 dark:text-gray-500 mb-2">
         <a
           className="px-1 hover:text-teal-400"
           href="https://www.linkedin.com/in/manuel-dugue/"
@@ -52,7 +52,7 @@ function ContactAside() {
 
 function LegalSection() {
   return (
-    <nav className="font-display absolute bottom-2 left-2 lg:bottom-auto lg:left-auto lg:top-4 lg:right-4 flex flex-col lg:text-right text-gray-200 ">
+    <nav className="font-display absolute bottom-2 left-2 lg:bottom-auto lg:left-auto lg:top-4 lg:right-4 flex flex-col lg:text-right text-gray-200 dark:text-gray-500">
       <Link href="/legal" prefetch={false}>
         <a>legal note</a>
       </Link>
@@ -80,7 +80,7 @@ export default function Home(props: { document?: StructuredSheetProps }) {
         <ClaimCard />
         <ContactAside />
         <LegalSection />
-        <ContactFooter />
+        <DocumentsNavigation />
       </div>
       {document != null && (
         <StructuredSheet title={document.title} document={document.document} />

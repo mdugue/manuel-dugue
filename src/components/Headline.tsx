@@ -9,7 +9,7 @@ export default function Headline(props: ComponentProps<typeof animated.h1>) {
       style={{ ...style }}
     >
       <div
-        className="absolute font-shade text-gradient bg-gradient-to-tr from-teal-600 to-teal-500"
+        className="absolute font-shade text-gradient bg-gradient-to-tr from-teal-600 to-teal-500 dark:from-teal-800 dark:to-teal-600"
         style={{ transform: "translateX(-0.12em)" }}
       >
         {children}

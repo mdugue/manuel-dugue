@@ -146,7 +146,7 @@ export default function Sheet(props: SheetProps) {
               Manuel Dugué, Görlitzer Str. 23, 01099 Dresden
               <br />
               <a href="tel:0049 151 58791155">+49 151 58791155</a>{" "}
-              <a href="mailto:post@manueldugue.de">post@manueldugue.de</a>
+              <a href="mailto:mail@manuel.fyi">mail@manuel.fyi</a>
             </address>
           </div>
           {children}

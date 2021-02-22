@@ -47,9 +47,9 @@ export default function ClaimCard() {
       style={{
         transform: interpolate(xy, trans1),
       }}
-      className="lg:text-xl bg-gradient-to-tr from-teal-400 to-green-300 text-white px-4 py-8 m-1 lg:px-24 lg:py-12 rounded-lg lg:rounded-3xl shadow-xl self-start lg:mt-20 lg:ml-20"
+      className="lg:text-xl bg-gradient-to-tr from-teal-400 to-green-300 dark:from-teal-700 dark:to-green-600 text-white dark:text-gray-900 px-4 py-8 m-1 lg:px-24 lg:py-12 rounded-lg lg:rounded-3xl shadow-xl self-start lg:mt-20 lg:ml-20"
     >
-      <div className="inset-0 absolute overflow-hidden">
+      <div className="inset-0 absolute overflow-hidden rounded-lg lg:rounded-3xl">
         <animated.div
           className="bg-teal-100 opacity-75 absolute top-1/4 left-1/4 w-1/2 h-1/2"
           style={{
@@ -63,7 +63,7 @@ export default function ClaimCard() {
         />
       </div>
       <animated.small
-        className="font-display text-teal-400"
+        className="font-display text-teal-400 dark:text-teal-700"
         style={{ transform: interpolate(xy, trans3) }}
       >
         – since 2008 –
@@ -74,7 +74,7 @@ export default function ClaimCard() {
         for everybody
       </Headline>
       <animated.h2
-        className="font-inline text-gradient bg-gradient-to-tr from-yellow-50 to-yellow-200"
+        className="font-inline text-gradient bg-gradient-to-tr from-yellow-50 to-yellow-200 dark:from-teal-900 dark:to-teal-700"
         style={{
           transform: interpolate(xy, trans3),
         }}
