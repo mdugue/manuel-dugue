@@ -10,7 +10,7 @@
       ]
     },
     {
-      "source": "/api/(.*)",
+      "source": "/api/pdf/(.*)",
       "headers": [
         {
           "key": "Cache-Control",

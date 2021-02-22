@@ -1,4 +1,3 @@
-import { largeBreakpoint } from "../../pages/[[...index]]";
 import Sheet from "./Sheet";
 
 export type StructuredSheetProps = {
@@ -22,13 +21,32 @@ export default function StructuredSheet(props: StructuredSheetProps) {
     <>
       <Sheet title={title}>
         {document.sections.map((section) => (
-          <section key={section.sectionTitle}>
-            <h1 className="sectionTitle">{section.sectionTitle}</h1>
+          <section
+            key={section.sectionTitle}
+            className="py-4"
+            style={{ orphans: 10, widows: 10 }}
+          >
+            <h1 className="text-lg font-inline text-gradient bg-gradient-to-tr from-yellow-500 to-yellow-300 print:text-yellow-400 mb-2 self-start">
+              {section.sectionTitle}
+            </h1>
             {section.entries.map((entry, index) => (
-              <div className="sectionEntry" key={index}>
-                <h2>{entry.title}</h2>
-                <div className="entryContent">
-                  {entry.subtitle && <h4>{entry.subtitle}</h4>}
+              <div
+                className="mb-4 print:mb-2 grid grid-cols-4 gap-4"
+                key={index}
+                style={{ pageBreakInside: "avoid" }}
+              >
+                <h2 className="text-right font-bold text-gradient bg-gradient-to-tr from-green-800 to-teal-600 print:text-teal-700 justify-self-end">
+                  {entry.title}
+                </h2>
+                <div
+                  className="col-span-3 flex items-start flex-col"
+                  style={{ pageBreakInside: "avoid" }}
+                >
+                  {entry.subtitle && (
+                    <h4 className="font-bold text-gray-700 text-gradient bg-gradient-to-tr from-teal-600 to-yellow-500 print:text-teal-800 justify-self-end">
+                      {entry.subtitle}
+                    </h4>
+                  )}
                   {entry.description.split("\n").map((item) => (
                     <p key={item}>{item}</p>
                   ))}
@@ -37,9 +55,10 @@ export default function StructuredSheet(props: StructuredSheetProps) {
                       key={link}
                       href={link}
                       target="_blank"
+                      className="text-gray-500 text-sm print:text-xs line-clamp-1 print:line-clamp-none"
                       rel="noopener noreferrer"
                     >
-                      link
+                      {link.replace("https://", "").replace("www.", "")}
                     </a>
                   ))}
                 </div>
@@ -48,68 +67,6 @@ export default function StructuredSheet(props: StructuredSheetProps) {
           </section>
         ))}
       </Sheet>
-      <style jsx global>
-        {`
-          .sectionEntry {
-            display: flex;
-            margin-bottom: 1em;
-            page-break-inside: avoid;
-            flex-direction: column;
-          }
-
-          @media (min-width: ${largeBreakpoint}) {
-            .sectionEntry {
-              flex-direction: row;
-            }
-          }
-
-          @media print {
-            .sectionEntry {
-              flex-direction: row;
-              margin-bottom: 0.5em;
-            }
-          }
-
-          .sectionEntry h2 {
-            flex: 0 0 20%;
-            margin: 0 2em 0 0;
-            font-size: 1em;
-            hyphens: auto;
-          }
-
-          @media (min-width: ${largeBreakpoint}) {
-            .sectionEntry h2 {
-              text-align: right;
-            }
-          }
-
-          .entryContent {
-            flex: 1 0 0;
-            page-break-inside: avoid;
-          }
-
-          .entryContent p {
-            margin: 0;
-          }
-
-          .entryContent a {
-            color: #206c5f;
-            font-family: "Bungee Hairline", "SF Mono", "Ubuntu Mono", Consolas,
-              Menlo, monospace, cursive;
-            font-weight: bold;
-            float: right;
-          }
-
-          @media print {
-            .entryContent a::after {
-              content: ": " attr(href);
-              font-family: Montserrat, sans-serif;
-              font-weight: normal;
-              font-size: 12px;
-            }
-          }
-        `}
-      </style>
     </>
   );
 }

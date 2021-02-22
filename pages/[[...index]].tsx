@@ -1,3 +1,4 @@
+import { Github, Linkedin, Twitter } from "@icons-pack/react-simple-icons";
 import { GoogleSpreadsheet } from "google-spreadsheet";
 import { GetStaticPaths, GetStaticProps } from "next";
 import dynamic from "next/dynamic";
@@ -5,47 +6,53 @@ import Head from "next/head";
 import Link from "next/link";
 
 import ClaimCard from "../src/components/ClaimCard";
-import ContactFooter from "../src/components/ContactFooter";
+import DocumentsNavigation from "../src/components/DocumentsNavigation";
 import { StructuredSheetProps } from "../src/components/StructuredSheet";
 import useEvaluateServiceWorker from "../src/hooks/useEvaluateServiceWorker";
 
 const StructuredSheet = dynamic(
   () => import("../src/components/StructuredSheet")
 );
-export const largeBreakpoint = "768px";
 
 function ContactAside() {
   return (
-    <aside>
-      <div>Manuel Dugué</div>
-      <a
-        href="https://www.linkedin.com/in/manuel-dugue/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        linkedin
-      </a>
-      <a
-        href="https://twitter.com/mdugue"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        twitter
-      </a>
-      <a
-        href="https://github.com/mdugue"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        github
-      </a>
+    <aside className="lg:absolute ml-1 mt-16 lg:ml-20 lg:bottom-12 lg:left-0 flex flex-col">
+      <div className="flex text-gray-300 dark:text-gray-500 mb-2">
+        <a
+          className="px-1 hover:text-teal-400"
+          href="https://www.linkedin.com/in/manuel-dugue/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Linkedin />
+        </a>
+        <a
+          className="px-1 hover:text-teal-400"
+          href="https://twitter.com/mdugue"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Twitter />
+        </a>
+        <a
+          className="px-1 hover:text-teal-400"
+          href="https://github.com/mdugue"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Github />
+        </a>
+      </div>
+      <div className="text-gradient bg-gradient-to-tr from-indigo-500 to-green-500 font-display text-2xl">
+        Manuel Dugué
+      </div>
     </aside>
   );
 }
 
 function LegalSection() {
   return (
-    <nav className="legal">
+    <nav className="font-display absolute bottom-2 left-2 lg:bottom-auto lg:left-auto lg:top-4 lg:right-4 flex flex-col lg:text-right text-gray-200 dark:text-gray-500">
       <Link href="/legal" prefetch={false}>
         <a>legal note</a>
       </Link>
@@ -58,11 +65,13 @@ function LegalSection() {
 
 export default function Home(props: { document?: StructuredSheetProps }) {
   const { document } = props;
-  const isContainerHiddenInPrint = document != null;
+  const isShowingADocument = document != null;
   useEvaluateServiceWorker();
   return (
     <>
-      <div className="container">
+      <div
+        className={`flex flex-col ${isShowingADocument ? "print:hidden" : ""}`}
+      >
         <Head>
           <title>Manuel Dugué</title>
           <link rel="icon" href="/favicon.ico" />
@@ -71,274 +80,9 @@ export default function Home(props: { document?: StructuredSheetProps }) {
         <ClaimCard />
         <ContactAside />
         <LegalSection />
-        <ContactFooter />
-
-        <style jsx global>{`
-          :root {
-            color-scheme: light dark;
-            --colorBodyBackground: #f9fafb;
-            --colorBodyText: #fff;
-            --secondaryLink: #206c5f;
-            --legalLink: #bdbdbd;
-          }
-
-          @font-face {
-            font-family: "Bungee";
-            font-style: normal;
-            font-weight: 400;
-            font-display: swap; /* TODO font-display: optional; */
-            src: url(/fonts/bungee.woff2) format("woff2");
-            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
-              U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191,
-              U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-          }
-          @font-face {
-            font-family: "Bungee Hairline";
-            font-style: normal;
-            font-weight: 400;
-            font-display: swap; /* TODO font-display: optional; */
-            src: url(/fonts/bungee-hairline.woff2) format("woff2");
-            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
-              U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191,
-              U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-          }
-          @font-face {
-            font-family: "Bungee Inline";
-            font-style: normal;
-            font-weight: 400;
-            font-display: swap; /* TODO font-display: optional; */
-            src: url(/fonts/bungee-inline.woff2) format("woff2");
-            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
-              U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191,
-              U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-          }
-          @font-face {
-            font-family: "Bungee Shade";
-            font-style: normal;
-            font-weight: 400;
-            font-display: swap; /* TODO font-display: optional; */
-            src: url(/fonts/bungee-shade.woff2) format("woff2");
-            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
-              U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191,
-              U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-          }
-
-          @media (prefers-color-scheme: dark) {
-            :root {
-              --colorBodyBackground: #080808;
-              --colorBodyText: #000;
-              --secondaryLink: #fff;
-              --legalLink: #545454;
-            }
-          }
-
-          .container {
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-          }
-
-          @media print {
-            .container {
-              display: ${isContainerHiddenInPrint ? "none" : "flex"};
-            }
-          }
-
-          @media screen and (min-width: ${largeBreakpoint}) {
-            .container {
-              justify-content: space-between;
-            }
-          }
-
-          hgroup {
-            background: #84b7bf;
-            color: var(--colorBodyText);
-            padding: 10vmax 2vmax;
-            min-height: 55vh;
-            will-change: transform;
-          }
-
-          @media screen and (min-width: ${largeBreakpoint}) {
-            hgroup {
-              margin: 10vh 0 0 10vw;
-              min-height: initial;
-              padding: 9vh 10vw 10vh;
-              width: 66vw;
-            }
-          }
-
-          small {
-            font-size: max(1.5vmin, 1rem);
-            font-family: "Bungee Hairline", "SF Mono", "Ubuntu Mono", Consolas,
-              Menlo, monospace, cursive;
-            font-weight: 700;
-          }
-
-          .tagline {
-            font-family: "Bungee Inline", "SF Mono", "Ubuntu Mono", Consolas,
-              Menlo, monospace, cursive;
-            font-size: max(1.5vw, 1.25rem);
-            font-weight: normal;
-            margin-right: 2vw;
-            margin-top: 2vh;
-            will-change: transform;
-          }
-
-          @media screen and (min-width: ${largeBreakpoint}) {
-            .tagline {
-              color: #ffd569;
-              font-size: 1.5vw;
-            }
-          }
-
-          .dot {
-            background: var(--colorBodyBackground);
-            border-radius: 100%;
-            height: 4vmax;
-            position: absolute;
-            width: 4vmax;
-          }
-          .dotBR {
-            bottom: -2vmax;
-            right: -2vmax;
-          }
-          .dotBL {
-            bottom: -2vmax;
-            left: -2vmax;
-          }
-          .dotTR,
-          .dotTL {
-            visibility: hidden;
-          }
-          .dotTR {
-            right: -2vmax;
-            top: -2vmax;
-          }
-          .dotTL {
-            left: -2vmax;
-            top: -2vmax;
-          }
-
-          @media screen and (min-width: ${largeBreakpoint}) {
-            .dotTR,
-            .dotTL {
-              visibility: initial;
-            }
-          }
-
-          aside {
-            color: #fbbf24;
-            font-family: "Bungee Inline", "SF Mono", "Ubuntu Mono", Consolas,
-              Menlo, monospace, cursive;
-            font-size: 1.125rem;
-            line-height: 1;
-            padding: 6vh 2vh 2vh;
-            text-align: center;
-          }
-
-          aside a {
-            color: var(--secondaryLink);
-            display: inline-block;
-            font-family: "Bungee Hairline", "SF Mono", "Ubuntu Mono", Consolas,
-              Menlo, monospace, cursive;
-            font-weight: 700;
-            padding: 1ch;
-          }
-          aside a:hover {
-            font-family: "Bungee Inline", "SF Mono", "Ubuntu Mono", Consolas,
-              Menlo, monospace, cursive;
-            font-weight: normal;
-            color: #6b9aa2;
-          }
-
-          .legal {
-            font-family: "Bungee Hairline", "SF Mono", "Ubuntu Mono", Consolas,
-              Menlo, monospace, cursive;
-            position: absolute;
-            right: 1rem;
-            display: flex;
-            align-items: flex-end;
-            justify-content: initial;
-          }
-
-          @media screen and (min-width: ${largeBreakpoint}) {
-            .legal {
-              flex-direction: column;
-            }
-          }
-
-          .legal a {
-            padding: 1ch 1ch 0;
-            font-weight: bold;
-            color: var(--legalLink);
-          }
-
-          .highlight-container {
-            bottom: 0;
-            left: 0;
-            overflow: hidden;
-            position: absolute;
-            right: 0;
-            top: 0;
-            zindex: -1;
-          }
-
-          .highlight {
-            width: 30vmin;
-            height: 30vmin;
-            background: white;
-            position: absolute;
-            margin: -15vmin;
-            filter: blur(40vmin);
-            willchange: left, top;
-            transform: translate3d(0, 0, 0);
-          }
-
-          html,
-          body {
-            background: var(--colorBodyBackground);
-            padding: 0;
-            margin: 0;
-            font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-              Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
-              sans-serif;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            line-height: 1.25;
-            overflow: hidden;
-          }
-
-          svg {
-            stroke-width: 1.5px;
-          }
-
-          a {
-            text-decoration: none;
-            color: inherit;
-          }
-
-          * {
-            box-sizing: border-box;
-          }
-
-          ::-webkit-scrollbar {
-            width: 0.75rem;
-          }
-
-          ::-webkit-scrollbar-track {
-            background: #ffffff00;
-          }
-          ::-webkit-scrollbar-track:hover {
-            background: var(--colorBodyBackground);
-          }
-
-          ::-webkit-scrollbar-thumb {
-            border-radius: 2px;
-          }
-        `}</style>
+        <DocumentsNavigation />
       </div>
       {document != null && (
-        /* TODO: Lazy load */
         <StructuredSheet title={document.title} document={document.document} />
       )}
     </>

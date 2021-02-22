@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { animated } from "react-spring";
+import { animated, interpolate } from "react-spring";
 import Typewriter from "typewriter-effect";
 
 import useMaterial from "../hooks/useMaterial";
@@ -13,13 +13,14 @@ const trans1 = (x: number, y: number) =>
   ${translate(x, y, 0.5)}`;
 const trans2 = (x: number, y: number) => translate(x, y, -1);
 const trans3 = (x: number, y: number) => translate(x, y, -0.6);
-const trans4 = (x: number, y: number) => translate(x, y, -0.4);
-
-export const largeBreakpoint = "768px";
 
 export default function ClaimCard() {
   const [isHovered, setIsHovered] = useState(false);
-  const { props, onMouseMove, onMouseLeave } = useMaterial([-0.9, -0.9], {
+  const {
+    props: { xy },
+    onMouseMove,
+    onMouseLeave,
+  } = useMaterial([-0.9, -0.9], {
     mass: 5,
     tension: 350,
     friction: 40,
@@ -44,47 +45,38 @@ export default function ClaimCard() {
         onMouseLeave();
       }}
       style={{
-        // @ts-expect-error looks like I do not fully understands react-spring typings 🤔
-        transform: props.xy?.interpolate(trans1),
+        transform: interpolate(xy, trans1),
       }}
+      className="lg:text-xl bg-gradient-to-tr from-teal-400 to-green-300 dark:from-teal-700 dark:to-green-600 text-white dark:text-gray-900 px-4 py-8 m-1 lg:px-24 lg:py-12 rounded-lg lg:rounded-3xl shadow-xl self-start lg:mt-20 lg:ml-20"
     >
-      <div className="highlight-container">
+      <div className="inset-0 absolute overflow-hidden rounded-lg lg:rounded-3xl">
         <animated.div
-          className="highlight"
+          className="bg-teal-100 opacity-75 absolute top-1/4 left-1/4 w-1/2 h-1/2"
           style={{
-            opacity: props.xy?.interpolate(
-              // @ts-expect-error looks like I do not fully understands react-spring typings 🤔
-              (x: number, y: number) => 0.1 + (Math.abs(x) + Math.abs(y)) / 4
+            zIndex: -1,
+            filter: "blur(100px)",
+            transform: interpolate(
+              xy,
+              (x, y) => `translate3d(${x * 75 + "%"}, ${y * 75 + "%"}, 0)`
             ),
-            // @ts-expect-error looks like I do not fully understands react-spring typings 🤔
-            left: props.xy?.interpolate((x) => (x + 1) * 50 + "%"),
-            // @ts-expect-error looks like I do not fully understands react-spring typings 🤔
-            top: props.xy?.interpolate((x, y) => (y + 1) * 50 + "%"),
           }}
         />
       </div>
       <animated.small
-        style={{
-          display: "block",
-          // @ts-expect-error looks like I do not fully understands react-spring typings 🤔
-          transform: props.xy?.interpolate(trans3),
-        }}
+        className="font-display text-teal-400 dark:text-teal-700"
+        style={{ transform: interpolate(xy, trans3) }}
       >
         – since 2008 –
       </animated.small>
-      <Headline
-        style={{
-          // @ts-expect-error looks like I do not fully understands react-spring typings 🤔
-          transform: props.xy?.interpolate(trans2),
-        }}
-      >
-        handcrafting web experiences for everybody
+      <Headline style={{ transform: interpolate(xy, trans2) }}>
+        handcrafting <br />
+        web experiences <br />
+        for everybody
       </Headline>
       <animated.h2
-        className="tagline"
+        className="font-inline text-gradient bg-gradient-to-tr from-yellow-50 to-yellow-200 dark:from-teal-900 dark:to-teal-700"
         style={{
-          // @ts-expect-error looks like I do not fully understands react-spring typings 🤔
-          transform: props.xy?.interpolate(trans3),
+          transform: interpolate(xy, trans3),
         }}
       >
         <Typewriter
@@ -124,17 +116,6 @@ export default function ClaimCard() {
           arctic code vault contributer <br />
         </noscript>
       </animated.h2>
-      {["BL", "BR", "TL", "TR"].map((dotLocation) => (
-        <animated.div
-          key={dotLocation}
-          className={`dot dot${dotLocation}`}
-          style={{
-            willChange: "transform",
-            // @ts-expect-error looks like I do not fully understands react-spring typings 🤔
-            transform: props.xy?.interpolate(trans4),
-          }}
-        />
-      ))}
     </animated.hgroup>
   );
 }
