@@ -1,7 +1,7 @@
 name: Lighthouse CI
 on: push
 jobs:
-  lighthouse:
+  types:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -19,6 +19,22 @@ jobs:
         run: npm ci
       - name: check types
         run: npm run tsc
+  lighthouse:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: "15.x"
+      - uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+      - name: install dependencies
+        run: npm ci
       - name: build app
         run: TEST_SECRET="${{secrets.TEST_SECRET}}" TEST2="This is a simple test" npm run build
         env:
@@ -26,7 +42,7 @@ jobs:
           GOOGLE_SHEET_CV_ID: ${{secrets.GOOGLE_SHEET_CV_ID}}
           GOOGLE_SHEET_SKILL_PROFILE_ID: ${{secrets.GOOGLE_SHEET_SKILL_PROFILE_ID}}
       - name: Audit URLs using Lighthouse
-        uses: treosh/lighthouse-ci-action@v3
+        uses: treosh/lighthouse-ci-action@v7
         with:
           configPath: "lighthouserc.js"
           uploadArtifacts: true # save results as an action artifacts
