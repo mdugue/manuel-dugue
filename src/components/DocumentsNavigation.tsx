@@ -23,12 +23,12 @@ export default function DocumentsNavigation() {
       onMouseLeave={onMouseLeave}
       style={{ transform: interpolate(props.xy, transFooter) }}
     >
-      <Link href="/cv">
+      <Link href="/cv" prefetch={false}>
         <a className="hover:text-yellow-700 dark:hover:text-yellow-900 pt-7">
           CV
         </a>
       </Link>
-      <Link href="/skill-profile">
+      <Link href="/skill-profile" prefetch={false}>
         <a className="hover:text-yellow-700 dark:hover:text-yellow-900 pb-7">
           skill
           <br />
