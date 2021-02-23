@@ -13,7 +13,7 @@ module.exports = {
     },
     collect: {
       settings: {
-        emulatedFormFactor: "mobile",
+        formFactor: "mobile",
       },
       startServerCommand: "npm run start",
       startServerReadyPattern: "ready on",
