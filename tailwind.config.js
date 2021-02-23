@@ -22,6 +22,7 @@ module.exports = {
     extend: {
       screens: {
         print: { raw: "print" },
+        coarse: { raw: "(pointer: coarse)" },
       },
       colors: {
         teal: colors.teal,

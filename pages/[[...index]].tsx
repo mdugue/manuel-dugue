@@ -19,28 +19,28 @@ function ContactAside() {
     <aside className="lg:absolute ml-1 mt-16 lg:ml-20 lg:bottom-12 lg:left-0 flex flex-col">
       <div className="flex text-gray-300 dark:text-gray-500 mb-2">
         <a
-          className="px-1 hover:text-teal-400"
+          className="mr-2 hover:text-teal-400"
           href="https://www.linkedin.com/in/manuel-dugue/"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <Linkedin />
+          <Linkedin className="coarse:w-12 coarse:h-12 w-8 h-8" />
         </a>
         <a
-          className="px-1 hover:text-teal-400"
+          className="mr-2 hover:text-teal-400"
           href="https://twitter.com/mdugue"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <Twitter />
+          <Twitter className="coarse:w-12 coarse:h-12 w-8 h-8" />
         </a>
         <a
-          className="px-1 hover:text-teal-400"
+          className="mr-2 hover:text-teal-400"
           href="https://github.com/mdugue"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <Github />
+          <Github className="coarse:w-12 coarse:h-12 w-8 h-8" />
         </a>
       </div>
       <div className="text-gradient bg-gradient-to-tr from-indigo-500 to-green-500 font-display text-2xl">
@@ -54,10 +54,10 @@ function LegalSection() {
   return (
     <nav className="font-display absolute bottom-2 left-2 lg:bottom-auto lg:left-auto lg:top-4 lg:right-4 flex flex-col lg:text-right text-gray-200 dark:text-gray-500">
       <Link href="/legal" prefetch={false}>
-        <a>legal note</a>
+        <a className="coarse:h-12 mb-2">legal note</a>
       </Link>
       <Link href="/privacy" prefetch={false}>
-        <a>privacy</a>
+        <a className="coarse:h-12 mb-2">privacy</a>
       </Link>
     </nav>
   );
