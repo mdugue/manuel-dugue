@@ -8,9 +8,13 @@ module.exports = {
         "heading-order": "off",
         "uses-passive-event-listeners": "off",
         tabindex: "off",
+        "tap-targets": "off",
       },
     },
     collect: {
+      settings: {
+        emulatedFormFactor: "mobile",
+      },
       startServerCommand: "npm run start",
       startServerReadyPattern: "ready on",
       url: [
