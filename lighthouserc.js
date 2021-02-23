@@ -3,12 +3,7 @@ module.exports = {
     assert: {
       preset: "lighthouse:no-pwa",
       assertions: {
-        "color-contrast": "off",
         "uses-http2": "off",
-        "heading-order": "off",
-        "uses-passive-event-listeners": "off",
-        tabindex: "off",
-        "tap-targets": "off",
       },
     },
     collect: {
