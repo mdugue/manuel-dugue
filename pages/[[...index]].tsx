@@ -90,7 +90,6 @@ export default function Home(props: { document?: StructuredSheetProps }) {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  console.log("static paths…");
   return {
     fallback: false,
     paths: [
