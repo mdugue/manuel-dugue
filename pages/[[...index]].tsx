@@ -70,7 +70,9 @@ export default function Home(props: { document?: StructuredSheetProps }) {
   return (
     <>
       <div
-        className={`flex flex-col ${isShowingADocument ? "print:hidden" : ""}`}
+        className={`flex flex-col min-h-screen transform-gpu ${
+          isShowingADocument ? "print:hidden" : ""
+        } `}
       >
         <Head>
           <title>Manuel Dugué</title>
