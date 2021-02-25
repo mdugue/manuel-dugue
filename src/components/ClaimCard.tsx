@@ -14,17 +14,21 @@ const trans1 = (x: number, y: number) =>
 const trans2 = (x: number, y: number) => translate(x, y, -1);
 const trans3 = (x: number, y: number) => translate(x, y, -0.6);
 
+const materialConfig = {
+  mass: 5,
+  tension: 350,
+  friction: 40,
+};
+
+const materialDefaultPosition = [-0.9, -0.9] as [number, number];
+
 export default function ClaimCard() {
   const [isHovered, setIsHovered] = useState(false);
   const {
     props: { xy },
     onMouseMove,
     onMouseLeave,
-  } = useMaterial([-0.9, -0.9], {
-    mass: 5,
-    tension: 350,
-    friction: 40,
-  });
+  } = useMaterial(materialDefaultPosition, materialConfig);
   const typewriterRef = useRef<{ pause: () => void; start: () => void }>();
   useEffect(() => {
     if (isHovered) {
