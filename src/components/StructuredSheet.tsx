@@ -43,9 +43,9 @@ export default function StructuredSheet(props: StructuredSheetProps) {
                   style={{ pageBreakInside: "avoid" }}
                 >
                   {entry.subtitle && (
-                    <h4 className="font-bold text-gray-700 text-gradient bg-gradient-to-tr from-teal-600 to-yellow-500 print:text-teal-800 justify-self-end">
+                    <h3 className="font-bold text-gray-700 text-gradient bg-gradient-to-tr from-teal-600 to-yellow-500 print:text-teal-800 justify-self-end">
                       {entry.subtitle}
-                    </h4>
+                    </h3>
                   )}
                   {entry.description.split("\n").map((item) => (
                     <p key={item}>{item}</p>

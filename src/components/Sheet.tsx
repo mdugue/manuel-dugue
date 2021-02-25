@@ -16,7 +16,7 @@ function PrintButton(props: { title: string } & HTMLProps<HTMLButtonElement>) {
     <button
       {...rest}
       type="button"
-      tabIndex={1}
+      tabIndex={0}
       title="download"
       className={`bg-gradient-to-tr hover:from-teal-50 hover:to-yellow-50 hover:text-teal-600 rounded-md py-4 px-4 cursor-pointer flex items-center ${
         isWaiting ? "animate-pulse" : ""
@@ -114,7 +114,7 @@ export default function Sheet(props: SheetProps) {
             <Link href="/">
               <a
                 title="close"
-                tabIndex={1}
+                tabIndex={0}
                 className="bg-gradient-to-tr hover:from-gray-50 hover:to-yellow-50 hover:text-gray-500 rounded-md py-4 px-4"
               >
                 <svg
