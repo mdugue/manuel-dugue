@@ -52,12 +52,12 @@ function ContactAside() {
 
 function LegalSection() {
   return (
-    <nav className="font-display absolute bottom-2 left-2 lg:bottom-auto lg:left-auto lg:top-4 lg:right-4 flex flex-col lg:text-right text-gray-200 dark:text-gray-500">
+    <nav className="font-display absolute bottom-2 left-2 lg:bottom-auto lg:left-auto lg:top-4 lg:right-4 flex flex-col lg:text-right text-gray-300 dark:text-gray-500">
       <Link href="/legal" prefetch={false}>
-        <a className="coarse:h-12 mb-2">legal note</a>
+        <a className="coarse:h-12 mb-2 hover:text-gray-400">legal note</a>
       </Link>
       <Link href="/privacy" prefetch={false}>
-        <a className="coarse:h-12 mb-2">privacy</a>
+        <a className="coarse:h-12 mb-2 hover:text-gray-400">privacy</a>
       </Link>
     </nav>
   );
