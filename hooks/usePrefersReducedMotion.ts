@@ -12,13 +12,10 @@ export default function usePrefersReducedMotion() {
   );
   useEffect(() => {
     const mediaQueryList = window.matchMedia(QUERY);
-    const listener = (event) => {
+    const listener = (event: MediaQueryListEvent) =>
       setPrefersReducedMotion(event.matches);
-    };
     mediaQueryList.addEventListener("change", listener);
-    return () => {
-      mediaQueryList.addEventListener("change", listener);
-    };
+    return () => mediaQueryList.removeEventListener("change", listener);
   }, []);
   return prefersReducedMotion;
 }

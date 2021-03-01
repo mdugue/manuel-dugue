@@ -110,7 +110,15 @@ export const getStaticProps: GetStaticProps<
     index?: ("cv" | "skill-profile")[];
   }
 > = async (context) => {
-  const index = context.params.index?.[0];
+  const index = context.params?.index?.[0];
+  if (
+    process.env.GOOGLE_SHEET_CV_ID == null ||
+    process.env.GOOGLE_SHEETS_AUTH == null ||
+    process.env.GOOGLE_SHEET_SKILL_PROFILE_ID == null
+  )
+    throw new Error(
+      "GOOGLE_SHEET_CV_ID, GOOGLE_SHEETS_AUTH or GOOGLE_SHEET_SKILL_PROFILE_ID not properly initialized"
+    );
   if (index === "cv") {
     const doc = new GoogleSpreadsheet(process.env.GOOGLE_SHEET_CV_ID);
     const creds = JSON.parse(
