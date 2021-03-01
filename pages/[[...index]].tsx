@@ -86,6 +86,12 @@ export default function Home(props: { document?: StructuredSheetProps }) {
               lastName: "Dugué",
               username: "mdugue",
             },
+            images: [
+              {
+                url:
+                  "https://og-image.vercel.app/**Manuel%20Dugu%C3%A9**%20%E2%80%93%20handcrafting%20web%20experiences.png?theme=light&md=1&fontSize=100px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg",
+              },
+            ],
           }}
         />
       )}
