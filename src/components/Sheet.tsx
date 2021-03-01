@@ -20,7 +20,7 @@ function PrintButton(props: { title: string } & HTMLProps<HTMLButtonElement>) {
       title="download"
       className={`bg-gradient-to-tr hover:from-teal-50 hover:to-yellow-50 hover:text-teal-600 rounded-md py-4 px-4 cursor-pointer flex items-center ${
         isWaiting ? "animate-pulse" : ""
-      }`}
+      } focus:outline-none focus:ring-2 focus:ring-teal-600`}
       onClick={() => {
         setIsWaiting(true);
         fetch(`/api/pdf?cache=${encodeURI(title)}`)
@@ -115,7 +115,7 @@ export default function Sheet(props: SheetProps) {
               <a
                 title="close"
                 tabIndex={0}
-                className="bg-gradient-to-tr hover:from-gray-50 hover:to-yellow-50 hover:text-gray-500 rounded-md py-4 px-4"
+                className="bg-gradient-to-tr hover:from-gray-50 hover:to-yellow-50 hover:text-gray-500 rounded-md py-4 px-4 focus:outline-none focus:ring-2 focus:ring-teal-600"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
