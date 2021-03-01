@@ -1,18 +1,16 @@
 import { Github, Linkedin, Twitter } from "@icons-pack/react-simple-icons";
+import ClaimCard from "components/ClaimCard";
+import DocumentsNavigation from "components/DocumentsNavigation";
+import { StructuredSheetProps } from "components/StructuredSheet";
 import { GoogleSpreadsheet } from "google-spreadsheet";
+import useEvaluateServiceWorker from "hooks/useEvaluateServiceWorker";
 import { GetStaticPaths, GetStaticProps } from "next";
 import dynamic from "next/dynamic";
 import Head from "next/head";
 import Link from "next/link";
+import { NextSeo } from "next-seo";
 
-import ClaimCard from "../src/components/ClaimCard";
-import DocumentsNavigation from "../src/components/DocumentsNavigation";
-import { StructuredSheetProps } from "../src/components/StructuredSheet";
-import useEvaluateServiceWorker from "../src/hooks/useEvaluateServiceWorker";
-
-const StructuredSheet = dynamic(
-  () => import("../src/components/StructuredSheet")
-);
+const StructuredSheet = dynamic(() => import("components/StructuredSheet"));
 
 function ContactAside() {
   return (
@@ -69,6 +67,10 @@ export default function Home(props: { document?: StructuredSheetProps }) {
   useEvaluateServiceWorker();
   return (
     <>
+      <NextSeo
+        title="Simple Usage Example"
+        description="A short description goes here."
+      />
       <div
         className={`flex flex-col min-h-screen transform-gpu ${
           isShowingADocument ? "print:hidden" : ""

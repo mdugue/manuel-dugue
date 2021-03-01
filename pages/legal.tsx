@@ -1,7 +1,6 @@
+import Sheet from "components/Sheet";
 import Head from "next/head";
-
-import Sheet from "../src/components/Sheet";
-import Home from "./[[...index]]";
+import Home from "pages/[[...index]]";
 
 export default function Legal() {
   return (

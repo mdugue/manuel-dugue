@@ -1,4 +1,4 @@
-import Sheet from "./Sheet";
+import Sheet from "components/Sheet";
 
 export type StructuredSheetProps = {
   title: string;
