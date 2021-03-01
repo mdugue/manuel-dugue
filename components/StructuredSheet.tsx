@@ -18,20 +18,24 @@ export type StructuredSheetProps = {
 
 const completeTitleMap: { [key: string]: string | undefined } = {
   cv: "curriculum vitae",
-  "skill-profile": "skill profile",
+  "skill profile": "skill profile",
 };
 
 export default function StructuredSheet(props: StructuredSheetProps) {
   const { document, title } = props;
-  console.log("document", document);
   return (
     <>
       {
         <NextSeo
+          title={completeTitleMap[title]}
           openGraph={{
             locale: "en_EN",
             title: completeTitleMap[title] || title,
             type: "article",
+            article: {
+              authors: ["https://manuel.fyi/"],
+              publishedTime: "2008-01-01T00:00:00Z",
+            },
             description: `Manuel Dugués ${
               completeTitleMap[title] || "document"
             }`,

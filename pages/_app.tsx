@@ -1,12 +1,11 @@
 import "styles/global.css";
 
 import type { AppProps } from "next/app";
-import { Container } from "next/app";
 import { DefaultSeo } from "next-seo";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <Container>
+    <>
       <DefaultSeo
         titleTemplate="Manuel Dugué – %s"
         title="freelance web developer"
@@ -29,7 +28,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         }}
       />
       <Component {...pageProps} />;
-    </Container>
+    </>
   );
 }
 

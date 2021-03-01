@@ -14,6 +14,18 @@ const StructuredSheet = dynamic(() => import("components/StructuredSheet"));
 function ContactAside() {
   return (
     <aside className="lg:absolute ml-1 mt-16 lg:ml-20 lg:bottom-12 lg:left-0 flex flex-col">
+      <SocialProfileJsonLd
+        type="Person"
+        name="Manuel Dugué"
+        url="https://manuel.fyi/"
+        sameAs={[
+          "https://www.linkedin.com/in/mdugue",
+          "https://www.xing.com/profile/Manuel_Dugue",
+          "https://github.com/mdugue",
+          "https://www.instagram.com/manuel.dugue/",
+          "https://www.facebook.com/manuel.dugue/",
+        ]}
+      />
       <div className="flex text-gray-300 dark:text-gray-500 mb-2">
         <a
           className="mr-2 hover:text-teal-400"
@@ -65,28 +77,18 @@ export default function Home(props: { document?: StructuredSheetProps }) {
   const isShowingADocument = document != null;
   return (
     <>
-      <NextSeo
-        title={document?.title}
-        openGraph={{
-          type: "profile",
-          profile: {
-            firstName: "Manuel",
-            lastName: "Dugué",
-            username: "mdugue",
-          },
-        }}
-      />
-      <SocialProfileJsonLd
-        type="Person"
-        name="Manuel Dugué"
-        url="https://manuel.fyi/"
-        sameAs={[
-          "https://www.linkedin.com/in/mdugue",
-          "https://www.xing.com/profile/Manuel_Dugue",
-          "https://www.instagram.com/manuel.dugue/",
-          "https://www.facebook.com/manuel.dugue/",
-        ]}
-      />
+      {document == null && (
+        <NextSeo
+          openGraph={{
+            type: "profile",
+            profile: {
+              firstName: "Manuel",
+              lastName: "Dugué",
+              username: "mdugue",
+            },
+          }}
+        />
+      )}
       <div
         className={`flex flex-col min-h-screen transform-gpu ${
           isShowingADocument ? "print:hidden" : ""
