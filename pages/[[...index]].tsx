@@ -3,7 +3,6 @@ import ClaimCard from "components/ClaimCard";
 import DocumentsNavigation from "components/DocumentsNavigation";
 import { StructuredSheetProps } from "components/StructuredSheet";
 import { GoogleSpreadsheet } from "google-spreadsheet";
-import useEvaluateServiceWorker from "hooks/useEvaluateServiceWorker";
 import { GetStaticPaths, GetStaticProps } from "next";
 import dynamic from "next/dynamic";
 import Head from "next/head";
@@ -64,7 +63,6 @@ function LegalSection() {
 export default function Home(props: { document?: StructuredSheetProps }) {
   const { document } = props;
   const isShowingADocument = document != null;
-  useEvaluateServiceWorker();
   return (
     <>
       <NextSeo

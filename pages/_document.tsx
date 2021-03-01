@@ -6,10 +6,6 @@ class MyDocument extends Document {
       <Html lang="en">
         <Head>
           <meta
-            name="Description"
-            content="Manuel Dugué. Handcrafting web experiences since 2008. Teching, analyzing, coding. For consumers, experts & bots."
-          />
-          <meta
             name="keywords"
             content="Manuel Dugue, web development, react, typescript"
           ></meta>
