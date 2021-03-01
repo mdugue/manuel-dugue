@@ -10,7 +10,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <DefaultSeo
         titleTemplate="Manuel Dugué – %s"
         title="freelance web developer"
-        description="Handcrafting web experiences since 2008. Teching, analyzing, coding. For consumers, experts & bots."
+        description="Handcrafting web experiences since 2008. Teaching, analyzing, coding. For consumers, experts & bots."
         openGraph={{
           locale: "en_EN",
           url: "https://manuel.fyi/",

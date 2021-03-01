@@ -16,19 +16,28 @@ export type StructuredSheetProps = {
   };
 };
 
+const completeTitleMap: { [key: string]: string | undefined } = {
+  cv: "curriculum vitae",
+  "skill-profile": "skill profile",
+};
+
 export default function StructuredSheet(props: StructuredSheetProps) {
   const { document, title } = props;
+  console.log("document", document);
   return (
     <>
       {
         <NextSeo
           openGraph={{
             locale: "en_EN",
+            title: completeTitleMap[title] || title,
+            type: "article",
+            description: `Manuel Dugués ${
+              completeTitleMap[title] || "document"
+            }`,
             images: [
               {
-                url: `https://og-image.vercel.app/**Manuel%20Dugu%C3%A9**%20%E2%80%93%20${
-                  title === "cv" ? "curriculum vitae" : title
-                }.png?theme=light&md=1&fontSize=100px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg`,
+                url: `https://og-image.vercel.app/**Manuel%20Dugu%C3%A9**%20%E2%80%93%20${completeTitleMap[title]}.png?theme=light&md=1&fontSize=100px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg`,
               },
             ],
           }}
