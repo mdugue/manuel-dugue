@@ -1,11 +1,13 @@
 import Sheet from "components/Sheet";
 import Head from "next/head";
+import { NextSeo } from "next-seo";
 import Home from "pages/[[...index]]";
 
 export default function Legal() {
   return (
     <>
       <Home />
+      <NextSeo nofollow noindex />
       <Head>
         <title>legal notice – Manuel Dugué</title>
       </Head>

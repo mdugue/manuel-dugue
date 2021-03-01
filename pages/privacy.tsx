@@ -1,9 +1,12 @@
 import Sheet from "components/Sheet";
+import { NextSeo } from "next-seo";
 import Home from "pages/[[...index]]";
+
 export default function Privacy() {
   return (
     <>
       <Home />
+      <NextSeo nofollow={true} noindex={true} />
       <Sheet title="Datenschutzerklärung">
         <div>
           <p>
