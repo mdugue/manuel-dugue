@@ -1,22 +1,31 @@
 import { Github, Linkedin, Twitter } from "@icons-pack/react-simple-icons";
+import ClaimCard from "components/ClaimCard";
+import DocumentsNavigation from "components/DocumentsNavigation";
+import { StructuredSheetProps } from "components/StructuredSheet";
 import { GoogleSpreadsheet } from "google-spreadsheet";
 import { GetStaticPaths, GetStaticProps } from "next";
 import dynamic from "next/dynamic";
 import Head from "next/head";
 import Link from "next/link";
+import { NextSeo, SocialProfileJsonLd } from "next-seo";
 
-import ClaimCard from "../src/components/ClaimCard";
-import DocumentsNavigation from "../src/components/DocumentsNavigation";
-import { StructuredSheetProps } from "../src/components/StructuredSheet";
-import useEvaluateServiceWorker from "../src/hooks/useEvaluateServiceWorker";
-
-const StructuredSheet = dynamic(
-  () => import("../src/components/StructuredSheet")
-);
+const StructuredSheet = dynamic(() => import("components/StructuredSheet"));
 
 function ContactAside() {
   return (
     <aside className="lg:absolute ml-1 mt-16 lg:ml-20 lg:bottom-12 lg:left-0 flex flex-col">
+      <SocialProfileJsonLd
+        type="Person"
+        name="Manuel Dugué"
+        url="https://manuel.fyi/"
+        sameAs={[
+          "https://www.linkedin.com/in/mdugue",
+          "https://www.xing.com/profile/Manuel_Dugue",
+          "https://github.com/mdugue",
+          "https://www.instagram.com/manuel.dugue/",
+          "https://www.facebook.com/manuel.dugue/",
+        ]}
+      />
       <div className="flex text-gray-300 dark:text-gray-500 mb-2">
         <a
           className="mr-2 hover:text-teal-400"
@@ -66,16 +75,32 @@ function LegalSection() {
 export default function Home(props: { document?: StructuredSheetProps }) {
   const { document } = props;
   const isShowingADocument = document != null;
-  useEvaluateServiceWorker();
   return (
     <>
+      {document == null && (
+        <NextSeo
+          openGraph={{
+            type: "profile",
+            profile: {
+              firstName: "Manuel",
+              lastName: "Dugué",
+              username: "mdugue",
+            },
+            images: [
+              {
+                url:
+                  "https://og-image.vercel.app/**Manuel%20Dugu%C3%A9**%20%E2%80%93%20handcrafting%20web%20experiences.png?theme=light&md=1&fontSize=100px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg",
+              },
+            ],
+          }}
+        />
+      )}
       <div
         className={`flex flex-col min-h-screen transform-gpu ${
           isShowingADocument ? "print:hidden" : ""
         } `}
       >
         <Head>
-          <title>Manuel Dugué</title>
           <link rel="icon" href="/favicon.ico" />
           <link rel="manifest" href="/manifest.webmanifest"></link>
         </Head>
@@ -108,7 +133,15 @@ export const getStaticProps: GetStaticProps<
     index?: ("cv" | "skill-profile")[];
   }
 > = async (context) => {
-  const index = context.params.index?.[0];
+  const index = context.params?.index?.[0];
+  if (
+    process.env.GOOGLE_SHEET_CV_ID == null ||
+    process.env.GOOGLE_SHEETS_AUTH == null ||
+    process.env.GOOGLE_SHEET_SKILL_PROFILE_ID == null
+  )
+    throw new Error(
+      "GOOGLE_SHEET_CV_ID, GOOGLE_SHEETS_AUTH or GOOGLE_SHEET_SKILL_PROFILE_ID not properly initialized"
+    );
   if (index === "cv") {
     const doc = new GoogleSpreadsheet(process.env.GOOGLE_SHEET_CV_ID);
     const creds = JSON.parse(

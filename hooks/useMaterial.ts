@@ -11,7 +11,6 @@ export default function useMaterial(
   config: SpringBaseProps["config"]
 ) {
   const prefersReducedMotion = usePrefersReducedMotion();
-  console.log("prefersReducedMotion", prefersReducedMotion);
   const [props, set] = useSpring<{ xy: [number, number] }>(() => ({
     xy: [0, 0] as [x: number, y: number],
     config,
