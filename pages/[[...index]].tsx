@@ -8,7 +8,7 @@ import { GetStaticPaths, GetStaticProps } from "next";
 import dynamic from "next/dynamic";
 import Head from "next/head";
 import Link from "next/link";
-import { NextSeo } from "next-seo";
+import { NextSeo, SocialProfileJsonLd } from "next-seo";
 
 const StructuredSheet = dynamic(() => import("components/StructuredSheet"));
 
@@ -68,8 +68,26 @@ export default function Home(props: { document?: StructuredSheetProps }) {
   return (
     <>
       <NextSeo
-        title="Simple Usage Example"
-        description="A short description goes here."
+        title={document?.title}
+        openGraph={{
+          type: "profile",
+          profile: {
+            firstName: "Manuel",
+            lastName: "Dugué",
+            username: "mdugue",
+          },
+        }}
+      />
+      <SocialProfileJsonLd
+        type="Person"
+        name="Manuel Dugué"
+        url="https://manuel.fyi/"
+        sameAs={[
+          "https://www.linkedin.com/in/mdugue",
+          "https://www.xing.com/profile/Manuel_Dugue",
+          "https://www.instagram.com/manuel.dugue/",
+          "https://www.facebook.com/manuel.dugue/",
+        ]}
       />
       <div
         className={`flex flex-col min-h-screen transform-gpu ${
@@ -77,7 +95,6 @@ export default function Home(props: { document?: StructuredSheetProps }) {
         } `}
       >
         <Head>
-          <title>Manuel Dugué</title>
           <link rel="icon" href="/favicon.ico" />
           <link rel="manifest" href="/manifest.webmanifest"></link>
         </Head>
