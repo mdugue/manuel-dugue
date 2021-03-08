@@ -39,7 +39,7 @@
     "next-seo": "^4.20.0",
     "postcss": "^8.2.7",
     "preact": "^10.5.12",
-    "preact-render-to-string": "^5.1.12",
+    "preact-render-to-string": "^5.1.13",
     "puppeteer": "^8.0.0",
     "react": "npm:@preact/compat@0.0.4",
     "react-dom": "npm:@preact/compat@0.0.4",
