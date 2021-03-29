@@ -35,7 +35,7 @@
     "chrome-aws-lambda": "^7.0.0",
     "google-spreadsheet": "^3.1.15",
     "next": "^10.0.9",
-    "next-plugin-preact": "^3.0.3",
+    "next-plugin-preact": "^3.0.4",
     "next-seo": "^4.23.0",
     "postcss": "^8.2.8",
     "preact": "^10.5.13",
