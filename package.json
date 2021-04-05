@@ -32,7 +32,7 @@
     "@types/node": "^14.14.35",
     "@types/react": "^17.0.3",
     "autoprefixer": "^10.2.5",
-    "chrome-aws-lambda": "^7.0.0",
+    "chrome-aws-lambda": "^8.0.2",
     "google-spreadsheet": "^3.1.15",
     "next": "^10.0.9",
     "next-plugin-preact": "^3.0.3",
