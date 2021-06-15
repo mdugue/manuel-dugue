@@ -99,8 +99,8 @@ export default function Legal() {
             Auf unseren Seiten sind Plugins des sozialen Netzwerks Facebook,
             1601 South California Avenue, Palo Alto, CA 94304, USA integriert.
             Die Facebook-Plugins erkennen Sie an dem Facebook-Logo oder dem
-            "Like-Button" ("Gefällt mir“) auf unserer Seite. Eine Übersicht über
-            die Facebook-Plugins finden Sie hier:
+            &quot;Like-Button&quot; (&quot;Gefällt mir&quot;) auf unserer Seite.
+            Eine Übersicht über die Facebook-Plugins finden Sie hier:
             http://developers.facebook.com/docs/plugins/ Wenn Sie unsere Seiten
             besuchen, wird über das Plugin eine direkte Verbindung zwischen
             Ihrem Browser und dem Facebook-Server hergestellt. Facebook erhält

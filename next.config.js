@@ -6,6 +6,7 @@ withBundleAnalyzer({});
 
 module.exports = withPreact(
   withBundleAnalyzer({
+    webpack5: false,
     poweredByHeader: false,
     experimental: {
       optimizeFonts: true,
