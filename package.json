@@ -28,7 +28,7 @@
     "@icons-pack/react-simple-icons": "^4.4.0",
     "@next/bundle-analyzer": "^11.0.0",
     "@tailwindcss/line-clamp": "^0.2.1",
-    "@types/google-spreadsheet": "^3.1.2",
+    "@types/google-spreadsheet": "^3.2.1",
     "@types/node": "^15.12.2",
     "@types/react": "^17.0.11",
     "autoprefixer": "^10.2.6",
