@@ -85,100 +85,98 @@ export default function Sheet(props: SheetProps) {
   useKeyPressEvent("Escape", () => {
     Router.push("/");
   });
-  return (
-    <>
-      <Head>
-        <link
-          rel="preload"
-          href="/fonts/montserrat-400.woff2"
-          as="font"
-          type="font/woff2"
-          crossOrigin="anonymous"
-        />
-        <link
-          rel="preload"
-          href="/fonts/montserrat-600.woff2"
-          as="font"
-          type="font/woff2"
-          crossOrigin="anonymous"
-        />
-      </Head>
-      <div className="p-2 lg:p-8 print:p-0 absolute inset-0">
-        <main
-          className="shadow-2xl print:shadow-none print:text-xs font-body bg-white p-1 lg:py-20 lg:px-14 m-auto overflow-y-auto overflow-x-hidden print:overflow-visible relative rounded-sm max-h-full"
-          style={{ aspectRatio: "2 / 3" }}
-        >
-          <nav className="absolute right-0 top-0 flex print:hidden text-gray-400 m-1">
-            <PrintButton title={title} />
+  return <>
+    <Head>
+      <link
+        rel="preload"
+        href="/fonts/montserrat-400.woff2"
+        as="font"
+        type="font/woff2"
+        crossOrigin="anonymous"
+      />
+      <link
+        rel="preload"
+        href="/fonts/montserrat-600.woff2"
+        as="font"
+        type="font/woff2"
+        crossOrigin="anonymous"
+      />
+    </Head>
+    <div className="p-2 lg:p-8 print:p-0 absolute inset-0">
+      <main
+        className="shadow-2xl print:shadow-none print:text-xs font-body bg-white p-1 lg:py-20 lg:px-14 m-auto overflow-y-auto overflow-x-hidden print:overflow-visible relative rounded-sm max-h-full"
+        style={{ aspectRatio: "2 / 3" }}
+      >
+        <nav className="absolute right-0 top-0 flex print:hidden text-gray-400 m-1">
+          <PrintButton title={title} />
 
-            <Link href="/">
-              <a
-                title="close"
-                tabIndex={0}
-                className="bg-gradient-to-tr hover:from-gray-50 hover:to-yellow-50 hover:text-gray-500 rounded-md py-4 px-4 focus:outline-none focus:ring-2 focus:ring-teal-600"
+          <Link href="/" legacyBehavior>
+            <a
+              title="close"
+              tabIndex={0}
+              className="bg-gradient-to-tr hover:from-gray-50 hover:to-yellow-50 hover:text-gray-500 rounded-md py-4 px-4 focus:outline-none focus:ring-2 focus:ring-teal-600"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                className="h-5 w-5"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
               >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  className="h-5 w-5"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
-                  />
-                </svg>
-              </a>
-            </Link>
-          </nav>
-          <div
-            className="text-gradient bg-gradient-to-r from-teal-700 to-green-400 mb-4"
-            style={{
-              WebkitPrintColorAdjust: "exact",
-              WebkitTextFillColor: "transparent",
-            }}
-          >
-            <h1 className="font-inline text-5xl mb-1">{title}</h1>
-            <address className="font-display not-italic text-sm">
-              Manuel Dugué, Görlitzer Str. 23, 01099 Dresden
-              <br />
-              <a href="tel:0049 151 58791155">+49 151 58791155</a>{" "}
-              <a href="mailto:mail@manuel.fyi">mail@manuel.fyi</a>
-            </address>
-          </div>
-          {children}
-        </main>
-      </div>
-      <style jsx global>{`
-        @font-face {
-          font-family: "Montserrat";
-          font-style: normal;
-          font-weight: 400;
-          font-display: optional;
-          src: url(/fonts/montserrat-400.woff2) format("woff2");
-          unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
-            U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193,
-            U+2212, U+2215, U+FEFF, U+FFFD;
-        }
-        @font-face {
-          font-family: "Montserrat";
-          font-style: normal;
-          font-weight: 600;
-          font-display: optional;
-          src: url(/fonts/montserrat-600.woff2) format("woff2");
-          unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
-            U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193,
-            U+2212, U+2215, U+FEFF, U+FFFD;
-        }
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+            </a>
+          </Link>
+        </nav>
+        <div
+          className="text-gradient bg-gradient-to-r from-teal-700 to-green-400 mb-4"
+          style={{
+            WebkitPrintColorAdjust: "exact",
+            WebkitTextFillColor: "transparent",
+          }}
+        >
+          <h1 className="font-inline text-5xl mb-1">{title}</h1>
+          <address className="font-display not-italic text-sm">
+            Manuel Dugué, Görlitzer Str. 23, 01099 Dresden
+            <br />
+            <a href="tel:0049 151 58791155">+49 151 58791155</a>{" "}
+            <a href="mailto:mail@manuel.fyi">mail@manuel.fyi</a>
+          </address>
+        </div>
+        {children}
+      </main>
+    </div>
+    <style jsx global>{`
+      @font-face {
+        font-family: "Montserrat";
+        font-style: normal;
+        font-weight: 400;
+        font-display: optional;
+        src: url(/fonts/montserrat-400.woff2) format("woff2");
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
+          U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193,
+          U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+      @font-face {
+        font-family: "Montserrat";
+        font-style: normal;
+        font-weight: 600;
+        font-display: optional;
+        src: url(/fonts/montserrat-600.woff2) format("woff2");
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
+          U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193,
+          U+2212, U+2215, U+FEFF, U+FFFD;
+      }
 
-        @page {
-          size: A4 portrait;
-          margin: 1.75cm;
-        }
-      `}</style>
-    </>
-  );
+      @page {
+        size: A4 portrait;
+        margin: 1.75cm;
+      }
+    `}</style>
+  </>;
 }
