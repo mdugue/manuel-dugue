@@ -36,13 +36,6 @@ class MyDocument extends Document {
 					<meta name="msapplication-TileColor" content="#6b9aa2" />
 					<meta name="theme-color" content="#6b9aa2" />
 					<link
-						rel="preload"
-						href="/fonts/bungee.woff2"
-						as="font"
-						type="font/woff2"
-						crossOrigin="anonymous"
-					/>
-					<link
 						rel="preconnect"
 						href="https://vitals.vercel-analytics.com/"
 						crossOrigin=""
