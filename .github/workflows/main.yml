@@ -8,7 +8,7 @@ jobs:
       - name: Use Node.js
         uses: actions/setup-node@v1
         with:
-          node-version: "15.x"
+          node-version: '18.x'
       - uses: actions/cache@v2
         with:
           path: ~/.npm
@@ -16,9 +16,9 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
       - name: install dependencies
-        run: npm ci
+        run: pnpm i --frozen-lockfile
       - name: check types
-        run: npm run tsc
+        run: pnpm run tsc
   lighthouse:
     runs-on: ubuntu-latest
     steps:
@@ -26,7 +26,7 @@ jobs:
       - name: Use Node.js
         uses: actions/setup-node@v1
         with:
-          node-version: "15.x"
+          node-version: '18.x'
       - uses: actions/cache@v2
         with:
           path: ~/.npm
@@ -34,9 +34,9 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
       - name: install dependencies
-        run: npm ci
+        run: pnpm i --frozen-lockfile
       - name: build app
-        run: TEST_SECRET="${{secrets.TEST_SECRET}}" TEST2="This is a simple test" npm run build
+        run: TEST_SECRET="${{secrets.TEST_SECRET}}" TEST2="This is a simple test" pnpm run build
         env:
           GOOGLE_SHEETS_AUTH: ${{secrets.GOOGLE_SHEETS_AUTH}}
           GOOGLE_SHEET_CV_ID: ${{secrets.GOOGLE_SHEET_CV_ID}}
@@ -44,9 +44,9 @@ jobs:
       - name: Audit URLs using Lighthouse
         uses: treosh/lighthouse-ci-action@v7
         with:
-          configPath: "lighthouserc.js"
+          configPath: 'lighthouserc.js'
           uploadArtifacts: true # save results as an action artifacts
-          serverBaseUrl: "https://manuelfyi-lhci.herokuapp.com"
+          serverBaseUrl: 'https://manuelfyi-lhci.herokuapp.com'
           serverToken: ${{secrets.LHCI_SERVER_TOKEN}}
         env:
           GOOGLE_SHEETS_AUTH: ${{secrets.GOOGLE_SHEETS_AUTH}}
