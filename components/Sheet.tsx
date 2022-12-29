@@ -25,7 +25,6 @@ function PrintButton(
 		'content'
 	>,
 ) {
-	console.log('PrintButton props', props)
 	const { title, ...rest } = props.content
 
 	return (
@@ -48,12 +47,12 @@ export default function Sheet(props: SheetProps) {
 		Router.push('/')
 	})
 	return (
-		<div className="p-2 lg:p-8 print:p-0 absolute inset-0">
+		<div className="p-2 lg:p-8 absolute inset-0">
 			<main
-				className="shadow-2xl print:shadow-none print:text-xs font-body bg-white p-1 lg:py-20 lg:px-14 m-auto overflow-y-auto overflow-x-hidden print:overflow-visible relative rounded-sm max-h-full"
+				className="shadow-2xl font-body bg-white p-1 lg:py-20 lg:px-14 m-auto overflow-y-auto overflow-x-hidden relative rounded-sm max-h-full"
 				style={{ aspectRatio: '2 / 3' }}
 			>
-				<nav className="absolute right-0 top-0 flex print:hidden text-gray-400 m-1">
+				<nav className="absolute right-0 top-0 flex text-gray-400 m-1">
 					{props.content && <PrintButton content={props.content} />}
 
 					<Link href="/" legacyBehavior>
@@ -66,13 +65,7 @@ export default function Sheet(props: SheetProps) {
 						</a>
 					</Link>
 				</nav>
-				<div
-					className="text-gradient bg-gradient-to-r from-teal-700 to-green-400 mb-4"
-					style={{
-						WebkitPrintColorAdjust: 'exact',
-						WebkitTextFillColor: 'transparent',
-					}}
-				>
+				<div className="text-gradient bg-gradient-to-r from-teal-700 to-green-400 mb-4">
 					<h1 className="font-inline text-5xl mb-1">{title}</h1>
 					<address className="font-display not-italic text-sm">
 						Manuel Dugué, Görlitzer Str. 23, 01099 Dresden

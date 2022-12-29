@@ -54,16 +54,16 @@ export default function StructuredSheet(props: StructuredSheetProps) {
 						className="py-4"
 						style={{ orphans: 10, widows: 10 }}
 					>
-						<h1 className="text-lg font-inline text-gradient bg-gradient-to-tr from-yellow-500 to-yellow-300 print:text-yellow-400 mb-2 self-start">
+						<h1 className="text-lg font-inline text-gradient bg-gradient-to-tr from-yellow-500 to-yellow-300 mb-2 self-start">
 							{section.sectionTitle}
 						</h1>
 						{section.entries.map((entry, index) => (
 							<div
-								className="mb-4 print:mb-2 grid grid-cols-4 gap-4"
+								className="mb-4 grid grid-cols-4 gap-4"
 								key={index}
 								style={{ pageBreakInside: 'avoid' }}
 							>
-								<h2 className="text-right font-bold text-gradient bg-gradient-to-tr from-green-800 to-teal-600 print:text-teal-700 justify-self-end">
+								<h2 className="text-right font-bold text-gradient bg-gradient-to-tr from-green-800 to-teal-600 justify-self-end">
 									{entry.title}
 								</h2>
 								<div
@@ -71,7 +71,7 @@ export default function StructuredSheet(props: StructuredSheetProps) {
 									style={{ pageBreakInside: 'avoid' }}
 								>
 									{entry.subtitle && (
-										<h3 className="font-bold text-gray-700 text-gradient bg-gradient-to-tr from-teal-600 to-yellow-500 print:text-teal-800 justify-self-end">
+										<h3 className="font-bold text-gray-700 text-gradient bg-gradient-to-tr from-teal-600 to-yellow-500 justify-self-end">
 											{entry.subtitle}
 										</h3>
 									)}
@@ -83,7 +83,7 @@ export default function StructuredSheet(props: StructuredSheetProps) {
 											key={link}
 											href={link}
 											target="_blank"
-											className="text-gray-500 text-sm print:text-xs line-clamp-1 print:line-clamp-none"
+											className="text-gray-500 text-sm line-clamp-1"
 											rel="noopener noreferrer"
 										>
 											{link.replace('https://', '').replace('www.', '')}

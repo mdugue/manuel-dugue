@@ -102,11 +102,7 @@ export default function Home(props: { document?: StructuredSheetProps }) {
 					}}
 				/>
 			)}
-			<div
-				className={`flex flex-col min-h-screen transform-gpu ${
-					isShowingADocument ? 'print:hidden' : ''
-				} `}
-			>
+			<div className={`flex flex-col min-h-screen transform-gpu`}>
 				<Head>
 					<link rel="icon" href="/favicon.ico" />
 					<link rel="manifest" href="/manifest.webmanifest"></link>
