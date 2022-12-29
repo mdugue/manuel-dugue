@@ -1,6 +1,9 @@
-import { ComponentProps } from 'react'
+import { ComponentProps, ReactNode } from 'react'
 import { animated } from 'react-spring'
-export default function Headline(props: ComponentProps<typeof animated.h1>) {
+
+export default function Headline(
+	props: ComponentProps<typeof animated.h1> & { children: ReactNode },
+) {
 	const { children, style, ...rest } = props
 	return (
 		<animated.h1

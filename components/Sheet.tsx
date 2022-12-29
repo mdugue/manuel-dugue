@@ -19,16 +19,6 @@ export type SheetProps = {
 	content?: StructuredSheetProps
 }
 
-function ErrorFallback({ error, resetErrorBoundary }) {
-	return (
-		<div role="alert">
-			<p>Something went wrong:</p>
-			<pre>{JSON.stringify(error)}</pre>
-			<button onClick={resetErrorBoundary}>Try again</button>
-		</div>
-	)
-}
-
 function PrintButton(
 	props: { content: StructuredSheetProps } & Omit<
 		HTMLProps<HTMLButtonElement>,
@@ -53,7 +43,7 @@ function PrintButton(
 
 export default function Sheet(props: SheetProps) {
 	const { title, children } = props
-	console.log('props', props)
+
 	useKeyPressEvent('Escape', () => {
 		Router.push('/')
 	})
@@ -64,14 +54,7 @@ export default function Sheet(props: SheetProps) {
 				style={{ aspectRatio: '2 / 3' }}
 			>
 				<nav className="absolute right-0 top-0 flex print:hidden text-gray-400 m-1">
-					<ErrorBoundary
-						FallbackComponent={ErrorFallback}
-						onReset={() => {
-							// reset the state of your app so the error doesn't happen again
-						}}
-					>
-						{props.content && <PrintButton content={props.content} />}
-					</ErrorBoundary>
+					{props.content && <PrintButton content={props.content} />}
 
 					<Link href="/" legacyBehavior>
 						<a

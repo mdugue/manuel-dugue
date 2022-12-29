@@ -1,5 +1,5 @@
 import { MouseEvent, useCallback, useEffect } from 'react'
-import { SpringBaseProps, useSpring } from 'react-spring'
+import { SpringProps, useSpring } from 'react-spring'
 import { useMedia } from 'react-use'
 
 import usePrefersReducedMotion from './usePrefersReducedMotion'
@@ -8,7 +8,7 @@ const slow = { mass: 10, tension: 200, friction: 50 }
 
 export default function useMaterial(
 	defaultPosition: [x: number, y: number],
-	config: SpringBaseProps['config'],
+	config: SpringProps['config'],
 ) {
 	const prefersReducedMotion = usePrefersReducedMotion()
 	const [props, set] = useSpring<{ xy: [number, number] }>(() => ({
