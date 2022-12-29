@@ -38,18 +38,32 @@ const styles = StyleSheet.create({
 		paddingRight: '2cm',
 		fontFamily: 'Montserrat-Regular',
 	},
+	header: {
+		paddingBottom: 25,
+	},
+	pageTitle: {
+		fontFamily: 'Bungee-Inline',
+		fontSize: 35,
+		color: '#0f766e',
+	},
+	pageSubTitle: {
+		fontFamily: 'Bungee',
+		fontSize: 10,
+		color: '#0f766e',
+	},
 	section: {
 		paddingBottom: '20pt',
 	},
 	row: {
 		flexDirection: 'row',
-		fontSize: '12pt',
+		fontSize: 10,
 		lineHeight: 1.5,
-		paddingBottom: '8pt',
+		paddingBottom: 6,
 	},
 	sectionTitle: {
 		fontFamily: 'Bungee-Inline',
 		color: '#eab308',
+		paddingBottom: 6,
 	},
 	title: {
 		fontFamily: 'Montserrat-Semibold',
@@ -67,14 +81,22 @@ const styles = StyleSheet.create({
 	},
 })
 
-// Create Document Component
 // TODO: Orphans and widows
-// TODO: Clasnames
+// TODO: Links
 const PDFDocument = (props: StructuredSheetProps) => {
 	const { document, title } = props
 	return (
-		<Document>
+		<Document title={title} author="Manuel Dugué">
 			<Page size="A4" style={styles.page} orientation="portrait">
+				<View style={styles.header}>
+					<Text style={styles.pageTitle}>{title}</Text>
+					<Text style={styles.pageSubTitle}>
+						Manuel Dugué, Görlitzer Str. 23, 01099 Dresden
+					</Text>
+					<Text style={styles.pageSubTitle}>
+						+49 151 58791155 mail@manuel.fyi
+					</Text>
+				</View>
 				{document.sections.map((section) => (
 					<View style={styles.section} key={section.sectionTitle}>
 						<Text style={styles.sectionTitle}>{section.sectionTitle}</Text>
@@ -98,11 +120,6 @@ const PDFDocument = (props: StructuredSheetProps) => {
 						))}
 					</View>
 				))}
-
-				<View style={styles.section}>
-					<Text style={styles.title}>Manuel Dugué</Text>
-					<Text>Section #1</Text>
-				</View>
 			</Page>
 		</Document>
 	)

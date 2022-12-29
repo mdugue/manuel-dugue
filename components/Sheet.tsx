@@ -1,87 +1,59 @@
-import Head from 'next/head'
+import { ErrorBoundary } from 'react-error-boundary'
+import { ArrowDownTrayIcon, XCircleIcon } from '@heroicons/react/20/solid'
+import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import Router from 'next/router'
-import { HTMLProps, ReactNode, useState } from 'react'
+import { HTMLProps, ReactNode, Suspense } from 'react'
 import { useKeyPressEvent } from 'react-use'
+import { StructuredSheetProps } from './StructuredSheet'
+import PDFDocument from './PDFDocument'
+
+const PDFDownloadLink = dynamic(
+	() => import('@react-pdf/renderer').then((e) => e.PDFDownloadLink),
+	{ ssr: false },
+)
 
 export type SheetProps = {
 	title: string
 	children: ReactNode
+	content?: StructuredSheetProps
 }
 
-function PrintButton(props: { title: string } & HTMLProps<HTMLButtonElement>) {
-	const { title, ...rest } = props
-	const [isWaiting, setIsWaiting] = useState(false)
+function ErrorFallback({ error, resetErrorBoundary }) {
 	return (
-		<button
-			{...rest}
-			type="button"
-			tabIndex={0}
-			title="download"
-			className={`bg-gradient-to-tr hover:from-teal-50 hover:to-yellow-50 hover:text-teal-600 rounded-md py-4 px-4 cursor-pointer flex items-center ${
-				isWaiting ? 'animate-pulse' : ''
-			} focus:outline-none focus:ring-2 focus:ring-teal-600`}
-			onClick={() => {
-				setIsWaiting(true)
-				fetch(`/api/pdf?cache=${encodeURI(title)}`)
-					.then(async (res) => ({
-						filename: `${title} dugue.pdf`,
-						blob: await res.blob(),
-					}))
-					.then((resObj) => {
-						const newBlob = new Blob([resObj.blob], {
-							type: 'application/pdf',
-						})
+		<div role="alert">
+			<p>Something went wrong:</p>
+			<pre>{JSON.stringify(error)}</pre>
+			<button onClick={resetErrorBoundary}>Try again</button>
+		</div>
+	)
+}
 
-						if (window.navigator && window.navigator.msSaveOrOpenBlob) {
-							window.navigator.msSaveOrOpenBlob(newBlob)
-						} else {
-							const objUrl = window.URL.createObjectURL(newBlob)
+function PrintButton(
+	props: { content: StructuredSheetProps } & Omit<
+		HTMLProps<HTMLButtonElement>,
+		'content'
+	>,
+) {
+	console.log('PrintButton props', props)
+	const { title, ...rest } = props.content
 
-							const link = document.createElement('a')
-							link.href = objUrl
-							link.download = resObj.filename
-							link.click()
-
-							// For Firefox it is necessary to delay revoking the ObjectURL.
-							setTimeout(() => {
-								window.URL.revokeObjectURL(objUrl)
-								setIsWaiting(false)
-							}, 250)
-						}
-					})
-			}}
-		>
-			<svg
-				xmlns="http://www.w3.org/2000/svg"
-				fill="none"
-				viewBox="0 0 24 24"
-				stroke="currentColor"
-				className={`mr-2 h-5 w-5 ${isWaiting ? 'animate-spin' : ''}`}
+	return (
+		<>
+			<PDFDownloadLink
+				className={`bg-gradient-to-tr hover:from-teal-50 hover:to-yellow-50 hover:text-teal-600 rounded-md py-4 px-4 cursor-pointer flex items-center focus:outline-none focus:ring-2 focus:ring-teal-600`}
+				document={<PDFDocument {...props.content} />}
+				fileName={`${title} dugue.pdf`}
 			>
-				{isWaiting ? (
-					<path
-						strokeLinecap="round"
-						strokeLinejoin="round"
-						strokeWidth={2}
-						d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
-					/>
-				) : (
-					<path
-						strokeLinecap="round"
-						strokeLinejoin="round"
-						strokeWidth={2}
-						d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
-					/>
-				)}
-			</svg>
-			{isWaiting ? 'pdf …' : 'pdf'}
-		</button>
+				<ArrowDownTrayIcon className="h-5 w-5 mr-2" /> pdf
+			</PDFDownloadLink>
+		</>
 	)
 }
 
 export default function Sheet(props: SheetProps) {
 	const { title, children } = props
+	console.log('props', props)
 	useKeyPressEvent('Escape', () => {
 		Router.push('/')
 	})
@@ -92,7 +64,14 @@ export default function Sheet(props: SheetProps) {
 				style={{ aspectRatio: '2 / 3' }}
 			>
 				<nav className="absolute right-0 top-0 flex print:hidden text-gray-400 m-1">
-					<PrintButton title={title} />
+					<ErrorBoundary
+						FallbackComponent={ErrorFallback}
+						onReset={() => {
+							// reset the state of your app so the error doesn't happen again
+						}}
+					>
+						{props.content && <PrintButton content={props.content} />}
+					</ErrorBoundary>
 
 					<Link href="/" legacyBehavior>
 						<a
@@ -100,20 +79,7 @@ export default function Sheet(props: SheetProps) {
 							tabIndex={0}
 							className="bg-gradient-to-tr hover:from-gray-50 hover:to-yellow-50 hover:text-gray-500 rounded-md py-4 px-4 focus:outline-none focus:ring-2 focus:ring-teal-600"
 						>
-							<svg
-								xmlns="http://www.w3.org/2000/svg"
-								fill="none"
-								className="h-5 w-5"
-								viewBox="0 0 24 24"
-								stroke="currentColor"
-							>
-								<path
-									strokeLinecap="round"
-									strokeLinejoin="round"
-									strokeWidth={2}
-									d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
-								/>
-							</svg>
+							<XCircleIcon className="h-4 w-4" />
 						</a>
 					</Link>
 				</nav>

@@ -47,7 +47,7 @@ export default function StructuredSheet(props: StructuredSheetProps) {
 					}}
 				/>
 			}
-			<Sheet title={title}>
+			<Sheet title={title} content={props}>
 				{document.sections.map((section) => (
 					<section
 						key={section.sectionTitle}
