@@ -17,7 +17,7 @@ const pdfHandler = async (
 		!['http://localhost:3000/', 'https://manuel.fyi/'].some((allowedDomain) =>
 			url.startsWith(allowedDomain),
 		)
-	) */ {
+	) {
 		response.statusCode = 403
 		response.setHeader('Content-Type', 'text/html')
 		response.end(
@@ -25,7 +25,7 @@ const pdfHandler = async (
       <a href="/">back</a>`,
 		)
 		return
-	}
+	} */
 	try {
 		const index = 'skill-profile'
 		if (
