@@ -1,6 +1,5 @@
 import {
 	Document,
-	Font,
 	Link,
 	Page,
 	StyleSheet,
@@ -8,38 +7,9 @@ import {
 	View,
 } from '@react-pdf/renderer'
 import { StructuredSheetProps } from 'components/StructuredSheet'
-import path from 'path'
-import { promises as fs } from 'fs'
-
-async function logFiles(directoryPath: string) {
-	console.log('directoryPath', directoryPath)
-	try {
-		const fileNames = await fs.readdir(directoryPath, { withFileTypes: true })
-
-		//listing all files using forEach
-		fileNames.forEach(function (file) {
-			// Do whatever you want to do with the file
-			console.log(directoryPath, file)
-		})
-	} catch (err) {
-		console.log('err', err)
-	}
-}
 
 // TODO: Links
 const PDFDocument = (props: StructuredSheetProps) => {
-	console.log('cwd')
-	logFiles(process.cwd())
-
-	console.log('cwd/public')
-	logFiles(path.resolve(process.cwd(), 'public'))
-
-	console.log('cwd/fonts')
-	logFiles(path.resolve(process.cwd(), 'fonts'))
-
-	console.log('cwd/public/fonts')
-	logFiles(path.resolve(process.cwd(), 'public', 'fonts'))
-
 	/* Font.register({
 		family: 'Bungee',
 		src: path.resolve(process.cwd(), 'fonts/Bungee-Regular.ttf'),
@@ -60,7 +30,7 @@ const PDFDocument = (props: StructuredSheetProps) => {
 	// Create styles
 	const styles = StyleSheet.create({
 		link: {
-			fontFamily: 'Montserrat-Regular',
+			/* fontFamily: 'Montserrat-Regular', */
 			fontSize: 10,
 			color: 'black',
 			textDecoration: 'none',
@@ -73,7 +43,7 @@ const PDFDocument = (props: StructuredSheetProps) => {
 			paddingBottom: '1.7cm',
 			paddingLeft: '2.4cm',
 			paddingRight: '2cm',
-			fontFamily: 'Montserrat-Regular',
+			/* fontFamily: 'Montserrat-Regular', */
 		},
 		header: {
 			paddingBottom: 25,
@@ -84,7 +54,7 @@ const PDFDocument = (props: StructuredSheetProps) => {
 			color: '#0f766e',
 		},
 		pageSubTitle: {
-			fontFamily: 'Bungee',
+			/* fontFamily: 'Bungee', */
 			fontSize: 10,
 			color: '#0f766e',
 		},
@@ -98,12 +68,12 @@ const PDFDocument = (props: StructuredSheetProps) => {
 			paddingBottom: 6,
 		},
 		sectionTitle: {
-			fontFamily: 'Bungee-Inline',
+			/* fontFamily: 'Bungee-Inline', */
 			color: '#eab308',
 			paddingBottom: 6,
 		},
 		title: {
-			fontFamily: 'Montserrat-Semibold',
+			/* fontFamily: 'Montserrat-Semibold', */
 			textAlign: 'right',
 			paddingRight: '10pt',
 			flexGrow: 0,
@@ -112,7 +82,7 @@ const PDFDocument = (props: StructuredSheetProps) => {
 		},
 		entryColumn: { flexGrow: 1 },
 		subTitle: {
-			fontFamily: 'Montserrat-Semibold',
+			/* fontFamily: 'Montserrat-Semibold', */
 			color: '#0f766e',
 		},
 	})

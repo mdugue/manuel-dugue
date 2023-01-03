@@ -3,6 +3,23 @@ import PDFDocument from 'components/PDFDocument'
 import { StructuredSheetProps } from 'components/StructuredSheet'
 import { GoogleSpreadsheet } from 'google-spreadsheet'
 import type { NextApiRequest, NextApiResponse } from 'next'
+import path from 'path'
+import { promises as fs } from 'fs'
+
+async function logFiles(directoryPath: string) {
+	console.log('directoryPath', directoryPath)
+	try {
+		const fileNames = await fs.readdir(directoryPath, { withFileTypes: true })
+
+		//listing all files using forEach
+		fileNames.forEach(function (file) {
+			// Do whatever you want to do with the file
+			console.log(directoryPath, file)
+		})
+	} catch (err) {
+		console.log('err', err)
+	}
+}
 
 // TODO: Stream the PDF to the client
 const pdfHandler = async (
@@ -27,6 +44,17 @@ const pdfHandler = async (
 		return
 	} */
 	try {
+		console.log('cwd')
+		logFiles(process.cwd())
+
+		console.log('cwd/public')
+		logFiles(path.resolve(process.cwd(), 'public'))
+
+		console.log('cwd/fonts')
+		logFiles(path.resolve(process.cwd(), 'fonts'))
+
+		console.log('cwd/public/fonts')
+		logFiles(path.resolve(process.cwd(), 'public', 'fonts'))
 		const index = 'skill-profile'
 		if (
 			process.env.GOOGLE_SHEET_CV_ID == null ||
