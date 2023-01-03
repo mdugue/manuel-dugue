@@ -30,6 +30,14 @@ Font.register({
 
 // Create styles
 const styles = StyleSheet.create({
+	link: {
+		fontFamily: 'Montserrat-Regular',
+		fontSize: 10,
+		color: 'black',
+		textDecoration: 'none',
+		alignSelf: 'flex-end',
+		justifySelf: 'flex-end',
+	},
 	page: {
 		flexDirection: 'column',
 		paddingTop: '1.7cm',
@@ -74,7 +82,6 @@ const styles = StyleSheet.create({
 		color: '#0f766e',
 	},
 	entryColumn: { flexGrow: 1 },
-
 	subTitle: {
 		fontFamily: 'Montserrat-Semibold',
 		color: '#0f766e',
@@ -99,9 +106,11 @@ const PDFDocument = (props: StructuredSheetProps) => {
 				</View>
 				{document.sections.map((section) => (
 					<View style={styles.section} key={section.sectionTitle}>
-						<Text style={styles.sectionTitle}>{section.sectionTitle}</Text>
+						<Text style={styles.sectionTitle} minPresenceAhead={40}>
+							{section.sectionTitle}
+						</Text>
 						{section.entries.map((entry, index) => (
-							<View key={index} style={styles.row}>
+							<View key={index} style={styles.row} wrap={false}>
 								<Text style={styles.title}>{entry.title}</Text>
 								<View style={styles.entryColumn}>
 									{entry.subtitle && (
@@ -110,11 +119,19 @@ const PDFDocument = (props: StructuredSheetProps) => {
 									{entry.description.split('\n').map((item) => (
 										<Text key={item}>{item}</Text>
 									))}
-									{entry.links?.map((link) => (
-										<Link key={link} src={link}>
-											{link.replace('https://', '').replace('www.', '')}
-										</Link>
-									))}
+									<Text>
+										{entry.links?.map((link) => (
+											<Link
+												key={link}
+												src={'https://' + link}
+												/* src="https://www.spiegel.de" */
+												style={styles.link}
+											>
+												Link:
+												{link.replace('https://', '').replace('www.', '')}
+											</Link>
+										))}
+									</Text>
 								</View>
 							</View>
 						))}
