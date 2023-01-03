@@ -26,7 +26,6 @@ const bungeeShade = Bungee_Shade({
 
 /* TODO: Move to other pages */
 const montserrat = Montserrat({
-	weight: ['400', '600'],
 	subsets: ['latin'],
 	variable: '--font-montserrat',
 })
