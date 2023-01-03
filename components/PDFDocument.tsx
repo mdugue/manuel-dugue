@@ -14,20 +14,26 @@ import path from 'path'
 const PDFDocument = (props: StructuredSheetProps) => {
 	Font.register({
 		family: 'Bungee',
-		src: path.resolve(process.cwd(), 'public/fonts/Bungee-Regular.ttf'),
+		src: path.resolve(process.cwd(), 'fonts/Bungee-Regular.ttf'),
 	})
 	Font.register({
 		family: 'Bungee-Inline',
-		src: path.resolve(process.cwd(), 'public/fonts/BungeeInline-Regular.ttf'),
+		src: path.resolve(process.cwd(), 'fonts/BungeeInline-Regular.ttf'),
 	})
 	Font.register({
 		family: 'Montserrat-Semibold',
-		src: path.resolve(process.cwd(), 'public/fonts/Montserrat-Semibold.ttf'),
+		src: path.resolve(process.cwd(), 'fonts/Montserrat-Semibold.ttf'),
 	})
 	Font.register({
 		family: 'Montserrat-Regular',
-		src: path.resolve(process.cwd(), 'public/fonts/Montserrat-Regular.ttf'),
+		src: path.resolve(process.cwd(), 'fonts/Montserrat-Regular.ttf'),
 	})
+
+	console.log(
+		'paths',
+		path.resolve(process.cwd(), 'fonts/Bungee-Regular.ttf'),
+		path.join(process.cwd(), 'fonts/Bungee-Regular.ttf'),
+	)
 
 	// Create styles
 	const styles = StyleSheet.create({

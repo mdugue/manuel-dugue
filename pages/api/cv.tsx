@@ -13,7 +13,7 @@ const pdfHandler = async (
 	const url =
 		request.headers.referer ||
 		`http://${request.headers.host}/${request.query.url}`
-	/* TODO if (
+	/* TODO VERCEL_URL if (
 		!['http://localhost:3000/', 'https://manuel.fyi/'].some((allowedDomain) =>
 			url.startsWith(allowedDomain),
 		)
