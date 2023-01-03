@@ -1,40 +1,32 @@
-import React from 'react'
 import {
-	Page,
-	Text,
-	View,
 	Document,
-	StyleSheet,
 	Font,
 	Link,
+	Page,
+	StyleSheet,
+	Text,
+	View,
 } from '@react-pdf/renderer'
 import { StructuredSheetProps } from 'components/StructuredSheet'
-import path, { join } from 'path'
-
-const publicDirectory = path.join(process.cwd(), 'public')
-
-console.log('publicDirectory', publicDirectory)
 
 // TODO: Links
 const PDFDocument = (props: StructuredSheetProps) => {
 	Font.register({
 		family: 'Bungee',
-		src: path.resolve(process.cwd(), 'public/fonts/Bungee-Regular.ttf'),
+		src: 'public/fonts/Bungee-Regular.ttf',
 	})
 	Font.register({
 		family: 'Bungee-Inline',
-		src: path.resolve(process.cwd(), 'public/fonts/BungeeInline-Regular.ttf'),
+		src: 'public/fonts/BungeeInline-Regular.ttf',
 	})
 	Font.register({
 		family: 'Montserrat-Semibold',
-		src: path.resolve(process.cwd(), 'public/fonts/Montserrat-Semibold.ttf'),
+		src: 'public/fonts/Montserrat-Semibold.ttf',
 	})
 	Font.register({
 		family: 'Montserrat-Regular',
-		src: path.resolve(process.cwd(), 'public/fonts/Montserrat-Regular.ttf'),
+		src: 'public/fonts/Montserrat-Regular.ttf',
 	})
-
-	const p = path.resolve(process.cwd(), 'public/fonts/Montserrat-Regular.ttf')
 
 	// Create styles
 	const styles = StyleSheet.create({
@@ -58,7 +50,7 @@ const PDFDocument = (props: StructuredSheetProps) => {
 			paddingBottom: 25,
 		},
 		pageTitle: {
-			/* fontFamily: 'Bungee-Inline', */
+			fontFamily: 'Bungee-Inline',
 			fontSize: 35,
 			color: '#0f766e',
 		},
@@ -77,7 +69,7 @@ const PDFDocument = (props: StructuredSheetProps) => {
 			paddingBottom: 6,
 		},
 		sectionTitle: {
-			/* fontFamily: 'Bungee-Inline', */
+			fontFamily: 'Bungee-Inline',
 			color: '#eab308',
 			paddingBottom: 6,
 		},
