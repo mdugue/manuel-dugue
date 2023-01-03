@@ -2,37 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-  font-family: "Bungee";
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url(/fonts/bungee.woff2) format("woff2");
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
-    U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
-    U+FEFF, U+FFFD;
-}
-@font-face {
-  font-family: "Bungee Inline";
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url(/fonts/bungee-inline.woff2) format("woff2");
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
-    U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
-    U+FEFF, U+FFFD;
-}
-@font-face {
-  font-family: "Bungee Shade";
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url(/fonts/bungee-shade.woff2) format("woff2");
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
-    U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
-    U+FEFF, U+FFFD;
-}
-
 @layer utilities {
   .text-gradient {
     background-clip: text;
@@ -43,10 +12,4 @@
       -webkit-text-fill-color: inherit;
     }
   }
-}
-
-html,
-body {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }

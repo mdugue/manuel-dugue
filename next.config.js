@@ -1,15 +1,10 @@
-const withPreact = require("next-plugin-preact");
-const withBundleAnalyzer = require("@next/bundle-analyzer")({
-  enabled: process.env.ANALYZE === "true",
-});
-withBundleAnalyzer({});
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+	reactStrictMode: true, // Recommended for the `pages` directory, default in `app`.
+	experimental: {
+		// Required:
+		appDir: true,
+	},
+}
 
-module.exports = withPreact(
-  withBundleAnalyzer({
-    webpack5: false,
-    poweredByHeader: false,
-    experimental: {
-      optimizeFonts: true,
-    },
-  })
-);
+module.exports = nextConfig
