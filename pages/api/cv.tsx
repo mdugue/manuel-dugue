@@ -3,37 +3,25 @@ import PDFDocument from 'components/PDFDocument'
 import { StructuredSheetProps } from 'components/StructuredSheet'
 import { GoogleSpreadsheet } from 'google-spreadsheet'
 import type { NextApiRequest, NextApiResponse } from 'next'
-import path from 'path'
-import { promises as fs } from 'fs'
-
-async function logFiles(directoryPath: string) {
-	console.log('directoryPath', directoryPath)
-	try {
-		const fileNames = await fs.readdir(directoryPath, { withFileTypes: true })
-
-		//listing all files using forEach
-		fileNames.forEach(function (file) {
-			// Do whatever you want to do with the file
-			console.log(directoryPath, file)
-		})
-	} catch (err) {
-		console.log('err', err)
-	}
-}
+import notEmpty from 'util/notEmpty'
 
 // TODO: Stream the PDF to the client
 const pdfHandler = async (
 	request: NextApiRequest,
 	response: NextApiResponse,
 ) => {
-	console.log('1')
 	const url =
 		request.headers.referer ||
 		`http://${request.headers.host}/${request.query.url}`
-	/* TODO VERCEL_URL if (
-		!['http://localhost:3000/', 'https://manuel.fyi/'].some((allowedDomain) =>
-			url.startsWith(allowedDomain),
-		)
+	console.log(
+		'process.env.VERCEL_URL',
+		process.env.VERCEL_URL,
+		url.startsWith(process.env.VERCEL_URL || ''),
+	)
+	if (
+		!['http://localhost:3000/', 'https://manuel.fyi/', process.env.VERCEL_URL]
+			.filter(notEmpty)
+			.some((allowedDomain) => url.startsWith(allowedDomain))
 	) {
 		response.statusCode = 403
 		response.setHeader('Content-Type', 'text/html')
@@ -42,19 +30,8 @@ const pdfHandler = async (
       <a href="/">back</a>`,
 		)
 		return
-	} */
+	}
 	try {
-		console.log('cwd')
-		logFiles(process.cwd())
-
-		console.log('cwd/public')
-		logFiles(path.resolve(process.cwd(), 'public'))
-
-		console.log('cwd/fonts')
-		logFiles(path.resolve(process.cwd(), 'fonts'))
-
-		console.log('cwd/public/fonts')
-		logFiles(path.resolve(process.cwd(), 'public', 'fonts'))
 		const index = 'skill-profile'
 		if (
 			process.env.GOOGLE_SHEET_CV_ID == null ||
@@ -66,14 +43,13 @@ const pdfHandler = async (
 			)
 
 		const doc = new GoogleSpreadsheet(process.env.GOOGLE_SHEET_SKILL_PROFILE_ID)
-		console.log('2')
 		const creds = JSON.parse(
 			process.env.GOOGLE_SHEETS_AUTH.replace(/(\r\n|\n|\r)/gm, '\\n'),
 		)
-		console.log('3')
+
 		await doc.useServiceAccountAuth(creds)
 		await doc.loadInfo()
-		console.log('4')
+
 		const sections = await Promise.all(
 			doc.sheetsByIndex.map(async (sheet) => {
 				const rows = await sheet.getRows()
@@ -96,8 +72,6 @@ const pdfHandler = async (
 		const fileStream = await ReactPDF.renderToStream(
 			<PDFDocument {...document} />,
 		)
-		console.log('5')
-		console.log('fileStream', fileStream)
 
 		response.statusCode = 200
 		response.setHeader('Content-Type', `application/pdf`)
