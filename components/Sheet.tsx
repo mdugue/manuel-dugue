@@ -66,7 +66,7 @@ export default function Sheet(props: SheetProps) {
 	return (
 		<div className="p-2 lg:p-8 absolute inset-0">
 			<main
-				className="shadow-2xl font-body bg-white p-1 lg:py-20 lg:px-14 m-auto overflow-y-auto overflow-x-hidden relative rounded-sm max-h-full"
+				className="shadow-2xl font-sans bg-white p-1 lg:py-20 lg:px-14 m-auto overflow-y-auto overflow-x-hidden relative rounded-sm max-h-full"
 				style={{ aspectRatio: '2 / 3' }}
 			>
 				<nav className="absolute right-0 top-0 flex text-gray-400 m-1 gap-1">

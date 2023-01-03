@@ -9,7 +9,7 @@ module.exports = {
 	darkMode: 'media',
 	theme: {
 		fontFamily: {
-			body: ['var(--font-montserrat)', ...fontFamily.sans],
+			sans: ['var(--font-montserrat)', ...fontFamily.sans],
 			display: ['var(--font-bungee)', ...fontFamily.sans],
 			inline: ['var(--font-bungee-inline)', ...fontFamily.sans],
 			shade: ['var(--font-bungee-shade)', ...fontFamily.sans],
