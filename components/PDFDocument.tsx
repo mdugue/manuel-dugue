@@ -9,12 +9,12 @@ import {
 } from '@react-pdf/renderer'
 import { StructuredSheetProps } from 'components/StructuredSheet'
 import path from 'path'
-import fs from 'fs'
+import { promises as fs } from 'fs'
 
-function logFiles(directoryPath: string) {
+async function logFiles(directoryPath: string) {
 	console.log('directoryPath', directoryPath)
 	try {
-		const fileNames = fs.readdirSync(directoryPath, { withFileTypes: true })
+		const fileNames = await fs.readdir(directoryPath, { withFileTypes: true })
 
 		//listing all files using forEach
 		fileNames.forEach(function (file) {
@@ -27,18 +27,18 @@ function logFiles(directoryPath: string) {
 }
 
 // TODO: Links
-const PDFDocument = (props: StructuredSheetProps) => {
+const PDFDocument = async (props: StructuredSheetProps) => {
 	console.log('cwd')
-	logFiles(process.cwd())
+	await logFiles(process.cwd())
 
 	console.log('cwd/public')
-	logFiles(path.resolve(process.cwd(), 'public'))
+	await logFiles(path.resolve(process.cwd(), 'public'))
 
 	console.log('cwd/fonts')
-	logFiles(path.resolve(process.cwd(), 'fonts'))
+	await logFiles(path.resolve(process.cwd(), 'fonts'))
 
 	console.log('cwd/public/fonts')
-	logFiles(path.resolve(process.cwd(), 'public', 'fonts'))
+	await logFiles(path.resolve(process.cwd(), 'public', 'fonts'))
 
 	Font.register({
 		family: 'Bungee',
