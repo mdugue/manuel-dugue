@@ -26,6 +26,7 @@ Font.register({
 	family: 'Montserrat-Regular',
 	src: path.resolve(process.cwd(), 'public/fonts/Montserrat-Regular.ttf'),
 })
+Font.registerHyphenationCallback((word) => [word])
 
 // Create styles
 const styles = StyleSheet.create({
@@ -79,9 +80,11 @@ const styles = StyleSheet.create({
 		flexGrow: 0,
 		flexBasis: '120pt',
 		color: '#0f766e',
+		textTransform: 'capitalize',
 	},
 	entryColumn: { flexGrow: 1 },
 	subTitle: {
+		textTransform: 'capitalize',
 		fontFamily: 'Montserrat-Semibold',
 		color: '#0f766e',
 	},

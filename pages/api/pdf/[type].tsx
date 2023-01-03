@@ -5,19 +5,25 @@ import { GoogleSpreadsheet } from 'google-spreadsheet'
 import type { NextApiRequest, NextApiResponse } from 'next'
 import notEmpty from 'util/notEmpty'
 
-// TODO: Stream the PDF to the client
-const pdfHandler = async (
+type SupportedType = 'cv' | 'skill profile'
+
+function checkType(t: string): asserts t is SupportedType {
+	if (t !== 'cv' && t !== 'skill profile') throw new Error('invalid type')
+}
+
+export default async function pdfHandler(
 	request: NextApiRequest,
 	response: NextApiResponse,
-) => {
+) {
+	const type =
+		typeof request.query.type === 'string'
+			? decodeURI(request.query.type || '')
+			: ''
+	checkType(type)
+
 	const url =
 		request.headers.referer ||
 		`http://${request.headers.host}/${request.query.url}`
-	console.log(
-		'process.env.VERCEL_URL',
-		`https://${process.env.VERCEL_URL}`,
-		url.startsWith(`https://${process.env.VERCEL_URL}`),
-	)
 	if (
 		![
 			'http://localhost:3000/',
@@ -35,18 +41,17 @@ const pdfHandler = async (
 		)
 		return
 	}
+	const googleSheetId =
+		type === 'cv'
+			? process.env.GOOGLE_SHEET_CV_ID
+			: process.env.GOOGLE_SHEET_SKILL_PROFILE_ID
 	try {
-		const index = 'skill-profile'
-		if (
-			process.env.GOOGLE_SHEET_CV_ID == null ||
-			process.env.GOOGLE_SHEETS_AUTH == null ||
-			process.env.GOOGLE_SHEET_SKILL_PROFILE_ID == null
-		)
+		if (googleSheetId == null || process.env.GOOGLE_SHEETS_AUTH == null)
 			throw new Error(
 				'GOOGLE_SHEET_CV_ID, GOOGLE_SHEETS_AUTH or GOOGLE_SHEET_SKILL_PROFILE_ID not properly initialized',
 			)
 
-		const doc = new GoogleSpreadsheet(process.env.GOOGLE_SHEET_SKILL_PROFILE_ID)
+		const doc = new GoogleSpreadsheet(googleSheetId)
 		const creds = JSON.parse(
 			process.env.GOOGLE_SHEETS_AUTH.replace(/(\r\n|\n|\r)/gm, '\\n'),
 		)
@@ -70,7 +75,7 @@ const pdfHandler = async (
 		)
 		const document: StructuredSheetProps = {
 			document: { sections },
-			title: 'skill profile',
+			title: type,
 		}
 
 		const fileStream = await ReactPDF.renderToStream(
@@ -91,5 +96,3 @@ const pdfHandler = async (
 		)
 	}
 }
-
-export default pdfHandler

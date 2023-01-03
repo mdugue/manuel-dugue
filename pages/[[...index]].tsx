@@ -82,7 +82,7 @@ function LegalSection() {
 
 export default function Home(props: { document?: StructuredSheetProps }) {
 	const { document } = props
-	const isShowingADocument = document != null
+
 	return (
 		<>
 			{document == null && (

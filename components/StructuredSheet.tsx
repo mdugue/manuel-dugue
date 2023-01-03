@@ -2,7 +2,7 @@ import Sheet from 'components/Sheet'
 import { NextSeo } from 'next-seo'
 
 export type StructuredSheetProps = {
-	title: string
+	title: 'cv' | 'skill profile'
 	document: {
 		sections: {
 			sectionTitle: string
@@ -47,7 +47,7 @@ export default function StructuredSheet(props: StructuredSheetProps) {
 					}}
 				/>
 			}
-			<Sheet title={title} content={props}>
+			<Sheet title={title}>
 				{document.sections.map((section) => (
 					<section
 						key={section.sectionTitle}
@@ -58,20 +58,13 @@ export default function StructuredSheet(props: StructuredSheetProps) {
 							{section.sectionTitle}
 						</h1>
 						{section.entries.map((entry, index) => (
-							<div
-								className="mb-4 grid grid-cols-4 gap-4"
-								key={index}
-								style={{ pageBreakInside: 'avoid' }}
-							>
-								<h2 className="text-right font-bold text-gradient bg-gradient-to-tr from-green-800 to-teal-600 justify-self-end">
+							<div className="mb-4 grid grid-cols-4 gap-4" key={index}>
+								<h2 className="text-right font-bold text-gradient bg-gradient-to-tr from-green-800 to-teal-600 justify-self-end capitalize">
 									{entry.title}
 								</h2>
-								<div
-									className="col-span-3 flex items-start flex-col"
-									style={{ pageBreakInside: 'avoid' }}
-								>
+								<div className="col-span-3 flex items-start flex-col">
 									{entry.subtitle && (
-										<h3 className="font-bold text-gray-700 text-gradient bg-gradient-to-tr from-teal-600 to-yellow-500 justify-self-end">
+										<h3 className="font-bold text-gray-700 text-gradient bg-gradient-to-tr from-teal-600 to-yellow-500 justify-self-end capitalize">
 											{entry.subtitle}
 										</h3>
 									)}
