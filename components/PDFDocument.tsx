@@ -1,5 +1,6 @@
 import {
 	Document,
+	Font,
 	Link,
 	Page,
 	StyleSheet,
@@ -7,14 +8,15 @@ import {
 	View,
 } from '@react-pdf/renderer'
 import { StructuredSheetProps } from 'components/StructuredSheet'
+import path from 'path'
 
 // TODO: Links
 const PDFDocument = (props: StructuredSheetProps) => {
-	/* Font.register({
-		family: 'Bungee',
-		src: path.resolve(process.cwd(), 'fonts/Bungee-Regular.ttf'),
-	})
 	Font.register({
+		family: 'Bungee',
+		src: path.resolve(process.cwd(), 'public/fonts/Bungee-Regular.ttf'),
+	})
+	/*Font.register({
 		family: 'Bungee-Inline',
 		src: path.resolve(process.cwd(), 'fonts/BungeeInline-Regular.ttf'),
 	})
@@ -54,7 +56,7 @@ const PDFDocument = (props: StructuredSheetProps) => {
 			color: '#0f766e',
 		},
 		pageSubTitle: {
-			/* fontFamily: 'Bungee', */
+			fontFamily: 'Bungee',
 			fontSize: 10,
 			color: '#0f766e',
 		},
