@@ -9,88 +9,96 @@ import {
 	Link,
 } from '@react-pdf/renderer'
 import { StructuredSheetProps } from 'components/StructuredSheet'
+import path, { join } from 'path'
+import { readFileSync } from 'fs'
 
-Font.register({ family: 'Bungee', src: '/fonts/Bungee-Regular.ttf' })
-Font.register({
-	family: 'Bungee-Inline',
-	src: '/fonts/BungeeInline-Regular.ttf',
-})
-Font.register({
-	family: 'Montserrat-Medium',
-	src: '/fonts/Montserrat-Medium.ttf',
-})
-Font.register({
-	family: 'Montserrat-Semibold',
-	src: '/fonts/Montserrat-Semibold.ttf',
-})
-Font.register({
-	family: 'Montserrat-Regular',
-	src: '/fonts/Montserrat-Regular.ttf',
-})
+const publicDirectory = path.join(process.cwd(), 'public')
 
-// Create styles
-const styles = StyleSheet.create({
-	link: {
-		fontFamily: 'Montserrat-Regular',
-		fontSize: 10,
-		color: 'black',
-		textDecoration: 'none',
-		alignSelf: 'flex-end',
-		justifySelf: 'flex-end',
-	},
-	page: {
-		flexDirection: 'column',
-		paddingTop: '1.7cm',
-		paddingBottom: '1.7cm',
-		paddingLeft: '2.4cm',
-		paddingRight: '2cm',
-		fontFamily: 'Montserrat-Regular',
-	},
-	header: {
-		paddingBottom: 25,
-	},
-	pageTitle: {
-		fontFamily: 'Bungee-Inline',
-		fontSize: 35,
-		color: '#0f766e',
-	},
-	pageSubTitle: {
-		fontFamily: 'Bungee',
-		fontSize: 10,
-		color: '#0f766e',
-	},
-	section: {
-		paddingBottom: '20pt',
-	},
-	row: {
-		flexDirection: 'row',
-		fontSize: 10,
-		lineHeight: 1.5,
-		paddingBottom: 6,
-	},
-	sectionTitle: {
-		fontFamily: 'Bungee-Inline',
-		color: '#eab308',
-		paddingBottom: 6,
-	},
-	title: {
-		fontFamily: 'Montserrat-Semibold',
-		textAlign: 'right',
-		paddingRight: '10pt',
-		flexGrow: 0,
-		flexBasis: '120pt',
-		color: '#0f766e',
-	},
-	entryColumn: { flexGrow: 1 },
-	subTitle: {
-		fontFamily: 'Montserrat-Semibold',
-		color: '#0f766e',
-	},
-})
+console.log('publicDirectory', publicDirectory)
 
-// TODO: Orphans and widows
 // TODO: Links
 const PDFDocument = (props: StructuredSheetProps) => {
+	Font.register({
+		family: 'Bungee',
+		src: path.resolve(process.cwd(), 'public/fonts/Bungee-Regular.ttf'),
+	})
+	Font.register({
+		family: 'Bungee-Inline',
+		src: path.resolve(process.cwd(), 'public/fonts/BungeeInline-Regular.ttf'),
+	})
+	Font.register({
+		family: 'Montserrat-Semibold',
+		src: path.resolve(process.cwd(), 'public/fonts/Montserrat-Semibold.ttf'),
+	})
+	Font.register({
+		family: 'Montserrat-Regular',
+		src: path.resolve(process.cwd(), 'public/fonts/Montserrat-Regular.ttf'),
+	})
+
+	const p = path.resolve(process.cwd(), 'public/fonts/Montserrat-Regular.ttf')
+	const value = readFileSync(p, { encoding: 'utf-8' })
+	console.log('value', value)
+
+	// Create styles
+	const styles = StyleSheet.create({
+		link: {
+			/* fontFamily: 'Montserrat-Regular', */
+			fontSize: 10,
+			color: 'black',
+			textDecoration: 'none',
+			alignSelf: 'flex-end',
+			justifySelf: 'flex-end',
+		},
+		page: {
+			flexDirection: 'column',
+			paddingTop: '1.7cm',
+			paddingBottom: '1.7cm',
+			paddingLeft: '2.4cm',
+			paddingRight: '2cm',
+			/* fontFamily: 'Montserrat-Regular', */
+		},
+		header: {
+			paddingBottom: 25,
+		},
+		pageTitle: {
+			/* fontFamily: 'Bungee-Inline', */
+			fontSize: 35,
+			color: '#0f766e',
+		},
+		pageSubTitle: {
+			fontFamily: 'Bungee',
+			fontSize: 10,
+			color: '#0f766e',
+		},
+		section: {
+			paddingBottom: '20pt',
+		},
+		row: {
+			flexDirection: 'row',
+			fontSize: 10,
+			lineHeight: 1.5,
+			paddingBottom: 6,
+		},
+		sectionTitle: {
+			/* fontFamily: 'Bungee-Inline', */
+			color: '#eab308',
+			paddingBottom: 6,
+		},
+		title: {
+			/* fontFamily: 'Montserrat-Semibold', */
+			textAlign: 'right',
+			paddingRight: '10pt',
+			flexGrow: 0,
+			flexBasis: '120pt',
+			color: '#0f766e',
+		},
+		entryColumn: { flexGrow: 1 },
+		subTitle: {
+			/* fontFamily: 'Montserrat-Semibold', */
+			color: '#0f766e',
+		},
+	})
+
 	const { document, title } = props
 	return (
 		<Document title={title} author="Manuel Dugué">
