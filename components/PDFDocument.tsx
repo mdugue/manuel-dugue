@@ -19,7 +19,7 @@ async function logFiles(directoryPath: string) {
 		//listing all files using forEach
 		fileNames.forEach(function (file) {
 			// Do whatever you want to do with the file
-			console.log(file)
+			console.log(directoryPath, file)
 		})
 	} catch (err) {
 		console.log('err', err)
@@ -27,20 +27,20 @@ async function logFiles(directoryPath: string) {
 }
 
 // TODO: Links
-const PDFDocument = async (props: StructuredSheetProps) => {
+const PDFDocument = (props: StructuredSheetProps) => {
 	console.log('cwd')
-	await logFiles(process.cwd())
+	logFiles(process.cwd())
 
 	console.log('cwd/public')
-	await logFiles(path.resolve(process.cwd(), 'public'))
+	logFiles(path.resolve(process.cwd(), 'public'))
 
 	console.log('cwd/fonts')
-	await logFiles(path.resolve(process.cwd(), 'fonts'))
+	logFiles(path.resolve(process.cwd(), 'fonts'))
 
 	console.log('cwd/public/fonts')
-	await logFiles(path.resolve(process.cwd(), 'public', 'fonts'))
+	logFiles(path.resolve(process.cwd(), 'public', 'fonts'))
 
-	Font.register({
+	/* Font.register({
 		family: 'Bungee',
 		src: path.resolve(process.cwd(), 'fonts/Bungee-Regular.ttf'),
 	})
@@ -55,13 +55,7 @@ const PDFDocument = async (props: StructuredSheetProps) => {
 	Font.register({
 		family: 'Montserrat-Regular',
 		src: path.resolve(process.cwd(), 'fonts/Montserrat-Regular.ttf'),
-	})
-
-	console.log(
-		'paths',
-		path.resolve(process.cwd(), 'fonts/Bungee-Regular.ttf'),
-		path.join(process.cwd(), 'fonts/Bungee-Regular.ttf'),
-	)
+	}) */
 
 	// Create styles
 	const styles = StyleSheet.create({
