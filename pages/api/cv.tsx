@@ -9,6 +9,7 @@ const pdfHandler = async (
 	request: NextApiRequest,
 	response: NextApiResponse,
 ) => {
+	console.log('1')
 	const url =
 		request.headers.referer ||
 		`http://${request.headers.host}/${request.query.url}`
@@ -37,11 +38,14 @@ const pdfHandler = async (
 			)
 
 		const doc = new GoogleSpreadsheet(process.env.GOOGLE_SHEET_SKILL_PROFILE_ID)
+		console.log('2')
 		const creds = JSON.parse(
 			process.env.GOOGLE_SHEETS_AUTH.replace(/(\r\n|\n|\r)/gm, '\\n'),
 		)
+		console.log('3')
 		await doc.useServiceAccountAuth(creds)
 		await doc.loadInfo()
+		console.log('4')
 		const sections = await Promise.all(
 			doc.sheetsByIndex.map(async (sheet) => {
 				const rows = await sheet.getRows()
@@ -64,8 +68,10 @@ const pdfHandler = async (
 		const fileStream = await ReactPDF.renderToStream(
 			<PDFDocument {...document} />,
 		)
+		console.log('5')
+		console.log('fileStream', fileStream)
 
-		//response.statusCode = 200
+		response.statusCode = 200
 		response.setHeader('Content-Type', `application/pdf`)
 		fileStream.pipe(response)
 		fileStream.on('end', () => console.log('Done streaming, response sent.'))
