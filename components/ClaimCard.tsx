@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { animated, interpolate } from 'react-spring'
+import { animated, to } from 'react-spring'
 import Typewriter from 'typewriter-effect'
 
 import useMaterial from '../hooks/useMaterial'
@@ -49,7 +49,7 @@ export default function ClaimCard() {
 				onMouseLeave()
 			}}
 			style={{
-				transform: interpolate(xy, trans1),
+				transform: to(xy, trans1),
 			}}
 			className="lg:text-xl bg-gradient-to-tr from-teal-400 to-green-300 dark:from-teal-700 dark:to-green-600 text-white dark:text-gray-900 px-4 py-8 m-1 lg:px-24 lg:py-12 rounded-lg lg:rounded-3xl shadow-xl self-start lg:mt-20 lg:ml-20"
 		>
@@ -59,7 +59,7 @@ export default function ClaimCard() {
 					style={{
 						zIndex: -1,
 						filter: 'blur(100px)',
-						transform: interpolate(
+						transform: to(
 							xy,
 							(x, y) => `translate3d(${x * 75 + '%'}, ${y * 75 + '%'}, 0)`,
 						),
@@ -68,11 +68,11 @@ export default function ClaimCard() {
 			</div>
 			<animated.small
 				className="font-display text-teal-400 dark:text-teal-700"
-				style={{ transform: interpolate(xy, trans3) }}
+				style={{ transform: to(xy, trans3) }}
 			>
 				– since 2008 –
 			</animated.small>
-			<Headline style={{ transform: interpolate(xy, trans2) }}>
+			<Headline style={{ transform: to(xy, trans2) }}>
 				handcrafting <br />
 				web experiences <br />
 				for everybody
@@ -80,7 +80,7 @@ export default function ClaimCard() {
 			<animated.h2
 				className="font-inline text-gradient bg-gradient-to-tr from-yellow-50 to-yellow-200 dark:from-teal-900 dark:to-teal-700"
 				style={{
-					transform: interpolate(xy, trans3),
+					transform: to(xy, trans3),
 				}}
 			>
 				<Typewriter
