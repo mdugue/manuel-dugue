@@ -13,11 +13,11 @@ const pdfHandler = async (
 	const url =
 		request.headers.referer ||
 		`http://${request.headers.host}/${request.query.url}`
-	if (
+	/* TODO if (
 		!['http://localhost:3000/', 'https://manuel.fyi/'].some((allowedDomain) =>
 			url.startsWith(allowedDomain),
 		)
-	) {
+	) */ {
 		response.statusCode = 403
 		response.setHeader('Content-Type', 'text/html')
 		response.end(
