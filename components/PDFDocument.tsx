@@ -10,7 +10,6 @@ import {
 } from '@react-pdf/renderer'
 import { StructuredSheetProps } from 'components/StructuredSheet'
 import path, { join } from 'path'
-import { readFileSync } from 'fs'
 
 const publicDirectory = path.join(process.cwd(), 'public')
 
@@ -36,8 +35,6 @@ const PDFDocument = (props: StructuredSheetProps) => {
 	})
 
 	const p = path.resolve(process.cwd(), 'public/fonts/Montserrat-Regular.ttf')
-	const value = readFileSync(p, { encoding: 'utf-8' })
-	console.log('value', value)
 
 	// Create styles
 	const styles = StyleSheet.create({
