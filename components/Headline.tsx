@@ -17,7 +17,10 @@ export default function Headline(
 			>
 				{children}
 			</div>
-			<div className="font-inline transform" style={{ letterSpacing: '0.1em' }}>
+			<div
+				className="font-inline transform"
+				style={{ letterSpacing: '0.1em', textRendering: 'geometricPrecision' }}
+			>
 				{children}
 			</div>
 		</animated.h1>
