@@ -15,11 +15,15 @@ const pdfHandler = async (
 		`http://${request.headers.host}/${request.query.url}`
 	console.log(
 		'process.env.VERCEL_URL',
-		process.env.VERCEL_URL,
-		url.startsWith(process.env.VERCEL_URL || ''),
+		`https://${process.env.VERCEL_URL}`,
+		url.startsWith(`https://${process.env.VERCEL_URL}`),
 	)
 	if (
-		!['http://localhost:3000/', 'https://manuel.fyi/', process.env.VERCEL_URL]
+		![
+			'http://localhost:3000/',
+			'https://manuel.fyi/',
+			`https://${process.env.VERCEL_URL}`,
+		]
 			.filter(notEmpty)
 			.some((allowedDomain) => url.startsWith(allowedDomain))
 	) {
