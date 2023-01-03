@@ -69,16 +69,14 @@ const pdfHandler = async (
 		response.setHeader('Content-Type', `application/pdf`)
 		fileStream.pipe(response)
 		fileStream.on('end', () => console.log('Done streaming, response sent.'))
-	} catch (e) {
+	} catch (e: unknown) {
 		response.statusCode = 500
 		response.setHeader('Content-Type', 'text/html')
 		response.end(
 			`<h1>Server Error</h1><p>Sorry, there was a problem</p><code>${JSON.stringify(
-				e.message,
+				e,
 			)}</code>`,
 		)
-		console.error('Error!!!')
-		console.error(e.message)
 	}
 }
 
