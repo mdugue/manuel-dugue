@@ -81,12 +81,10 @@ jobs:
           GOOGLE_SHEET_CV_ID: ${{secrets.GOOGLE_SHEET_CV_ID}}
           GOOGLE_SHEET_SKILL_PROFILE_ID: ${{secrets.GOOGLE_SHEET_SKILL_PROFILE_ID}}
       - name: Audit URLs using Lighthouse
-        uses: treosh/lighthouse-ci-action@v7
+        uses: treosh/lighthouse-ci-action@v9
         with:
           configPath: 'lighthouserc.js'
           uploadArtifacts: true # save results as an action artifacts
-          serverBaseUrl: 'https://manuelfyi-lhci.herokuapp.com'
-          serverToken: ${{secrets.LHCI_SERVER_TOKEN}}
         env:
           GOOGLE_SHEETS_AUTH: ${{secrets.GOOGLE_SHEETS_AUTH}}
           GOOGLE_SHEET_CV_ID: ${{secrets.GOOGLE_SHEET_CV_ID}}
