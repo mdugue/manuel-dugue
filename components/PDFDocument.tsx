@@ -16,23 +16,23 @@ const PDFDocument = (props: StructuredSheetProps) => {
 		family: 'Bungee',
 		src: path.resolve(process.cwd(), 'public/fonts/Bungee-Regular.ttf'),
 	})
-	/*Font.register({
+	Font.register({
 		family: 'Bungee-Inline',
-		src: path.resolve(process.cwd(), 'fonts/BungeeInline-Regular.ttf'),
+		src: path.resolve(process.cwd(), 'public/fonts/BungeeInline-Regular.ttf'),
 	})
 	Font.register({
 		family: 'Montserrat-Semibold',
-		src: path.resolve(process.cwd(), 'fonts/Montserrat-Semibold.ttf'),
+		src: path.resolve(process.cwd(), 'public/fonts/Montserrat-Semibold.ttf'),
 	})
 	Font.register({
 		family: 'Montserrat-Regular',
-		src: path.resolve(process.cwd(), 'fonts/Montserrat-Regular.ttf'),
-	}) */
+		src: path.resolve(process.cwd(), 'public/fonts/Montserrat-Regular.ttf'),
+	})
 
 	// Create styles
 	const styles = StyleSheet.create({
 		link: {
-			/* fontFamily: 'Montserrat-Regular', */
+			fontFamily: 'Montserrat-Regular',
 			fontSize: 10,
 			color: 'black',
 			textDecoration: 'none',
@@ -45,13 +45,13 @@ const PDFDocument = (props: StructuredSheetProps) => {
 			paddingBottom: '1.7cm',
 			paddingLeft: '2.4cm',
 			paddingRight: '2cm',
-			/* fontFamily: 'Montserrat-Regular', */
+			fontFamily: 'Montserrat-Regular',
 		},
 		header: {
 			paddingBottom: 25,
 		},
 		pageTitle: {
-			/* fontFamily: 'Bungee-Inline', */
+			fontFamily: 'Bungee-Inline',
 			fontSize: 35,
 			color: '#0f766e',
 		},
@@ -70,12 +70,12 @@ const PDFDocument = (props: StructuredSheetProps) => {
 			paddingBottom: 6,
 		},
 		sectionTitle: {
-			/* fontFamily: 'Bungee-Inline', */
+			fontFamily: 'Bungee-Inline',
 			color: '#eab308',
 			paddingBottom: 6,
 		},
 		title: {
-			/* fontFamily: 'Montserrat-Semibold', */
+			fontFamily: 'Montserrat-Semibold',
 			textAlign: 'right',
 			paddingRight: '10pt',
 			flexGrow: 0,
@@ -84,7 +84,7 @@ const PDFDocument = (props: StructuredSheetProps) => {
 		},
 		entryColumn: { flexGrow: 1 },
 		subTitle: {
-			/* fontFamily: 'Montserrat-Semibold', */
+			fontFamily: 'Montserrat-Semibold',
 			color: '#0f766e',
 		},
 	})
