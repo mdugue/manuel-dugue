@@ -20,10 +20,10 @@ const PDFDocument = (props: StructuredSheetProps) => {
 		family: 'Bungee-Inline',
 		src: path.resolve(process.cwd(), 'public/fonts/BungeeInline-Regular.ttf'),
 	})
-	Font.register({
+	/* Font.register({
 		family: 'Montserrat-Semibold',
 		src: path.resolve(process.cwd(), 'public/fonts/Montserrat-Semibold.ttf'),
-	})
+	}) */
 	Font.register({
 		family: 'Montserrat-Regular',
 		src: path.resolve(process.cwd(), 'public/fonts/Montserrat-Regular.ttf'),
