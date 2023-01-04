@@ -4,6 +4,10 @@ import getGoogleSheetsData from 'util/getGoogleSheetsData'
 
 export const revalidate = 60
 
+export async function generateStaticParams() {
+	return []
+}
+
 export default async function Page({ params }: { params: { sheet: string } }) {
 	const { sheet } = params
 	const type = sheet.replaceAll('-', ' ')
