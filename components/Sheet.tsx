@@ -1,8 +1,15 @@
 import { XMarkIcon } from '@heroicons/react/20/solid'
+import { Montserrat } from '@next/font/google'
 import BackOnEsc from 'components/BackOnEsc'
 import Link from 'next/link'
 import { ReactNode } from 'react'
 import DownloadButton from './DownloadButton'
+
+/* TODO: Move to other pages */
+const montserrat = Montserrat({
+	subsets: ['latin'],
+	variable: '--font-montserrat',
+})
 
 export type SheetProps = {
 	title?: string
@@ -12,7 +19,9 @@ export default function Sheet(props: SheetProps) {
 	const { title, children } = props
 
 	return (
-		<div className="p-2 lg:p-8 absolute inset-0">
+		<div
+			className={`${montserrat.variable} font-sans p-2 lg:p-8 absolute inset-0`}
+		>
 			<BackOnEsc />
 			<main
 				className="shadow-2xl font-sans bg-white p-1 lg:py-20 lg:px-14 m-auto overflow-y-auto overflow-x-hidden relative rounded-sm max-h-full"

@@ -1,12 +1,7 @@
 import { Github, Linkedin, Twitter } from '@icons-pack/react-simple-icons'
 import ClaimCard from 'components/ClaimCard'
 import DocumentsNavigation from 'components/DocumentsNavigation'
-import {
-	Bungee,
-	Bungee_Inline,
-	Bungee_Shade,
-	Montserrat,
-} from '@next/font/google'
+import { Bungee, Bungee_Inline, Bungee_Shade } from '@next/font/google'
 import { SocialProfileJsonLd } from 'next-seo'
 import Link from 'next/link'
 import './globals.css'
@@ -27,17 +22,11 @@ const bungeeShade = Bungee_Shade({
 	variable: '--font-bungee-shade',
 })
 
-/* TODO: Move to other pages */
-const montserrat = Montserrat({
-	subsets: ['latin'],
-	variable: '--font-montserrat',
-})
-
 export default function MyApp({ children }: { children: React.ReactNode }) {
 	return (
 		<html
 			lang="en"
-			className={`${bungee.variable} ${bungeeInline.variable} ${bungeeShade.variable} ${montserrat.variable} font-sans`}
+			className={`${bungee.variable} ${bungeeInline.variable} ${bungeeShade.variable}`}
 		>
 			<body>
 				<div className={`flex flex-col min-h-screen transform-gpu`}>

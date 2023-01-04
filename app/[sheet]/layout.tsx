@@ -1,8 +1,6 @@
 import Sheet from 'components/Sheet'
 import { NextSeo } from 'next-seo'
 
-export const runtime = 'experimental-edge'
-
 export type StructuredSheetProps = {
 	title: 'cv' | 'skill profile'
 	document: {
