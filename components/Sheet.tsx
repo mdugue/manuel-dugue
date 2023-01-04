@@ -1,70 +1,28 @@
-import {
-	ArrowDownTrayIcon,
-	ArrowPathIcon,
-	XMarkIcon,
-} from '@heroicons/react/20/solid'
+import { XMarkIcon } from '@heroicons/react/20/solid'
+import { Montserrat } from '@next/font/google'
+import BackOnEsc from 'components/BackOnEsc'
 import Link from 'next/link'
-import Router from 'next/router'
-import { ReactNode, useState } from 'react'
-import { useKeyPressEvent } from 'react-use'
+import { ReactNode } from 'react'
+import DownloadButton from './DownloadButton'
 
-/**
- * Downloads a responses blob as a file with the given name.
- * Uses a hidden anchor element to trigger the download, as required by most browsers 🤷‍♂️
- */
-async function downloadResponse(response: Response, name: string) {
-	const blob = await response.blob()
-	const blobUrl = URL.createObjectURL(blob)
-
-	const anchor = document.createElement('a')
-	anchor.href = blobUrl
-	anchor.download = name
-
-	document.body.appendChild(anchor)
-	anchor.click()
-	document.body.removeChild(anchor)
-
-	URL.revokeObjectURL(blobUrl)
-}
+/* TODO: Move to other pages */
+const montserrat = Montserrat({
+	subsets: ['latin'],
+	variable: '--font-montserrat',
+})
 
 export type SheetProps = {
-	title: string
+	title?: string
 	children: ReactNode
 }
-
-function DownloadButton(props: { type: 'cv' | 'skill profile' }) {
-	const { type } = props
-	const [isWaiting, setIsWaiting] = useState(false)
-
-	return (
-		<button
-			className={`bg-gradient-to-tr hover:from-teal-50 hover:to-yellow-50 hover:text-teal-600 rounded-md py-4 px-4 cursor-pointer flex items-center focus:outline-none focus:ring-2 focus:ring-teal-600 text-sm`}
-			onClick={async () => {
-				setIsWaiting(true)
-				await fetch(`/api/pdf/${encodeURI(type)}`).then((res) =>
-					downloadResponse(res, `${type} Dugue.pdf`),
-				)
-				setIsWaiting(false)
-			}}
-		>
-			{isWaiting ? (
-				<ArrowPathIcon className="h-5 w-5 mr-2 animate-spin" />
-			) : (
-				<ArrowDownTrayIcon className="h-5 w-5 mr-2" />
-			)}
-			Download PDF
-		</button>
-	)
-}
-
 export default function Sheet(props: SheetProps) {
 	const { title, children } = props
 
-	useKeyPressEvent('Escape', () => {
-		Router.push('/')
-	})
 	return (
-		<div className="p-2 lg:p-8 absolute inset-0">
+		<div
+			className={`${montserrat.variable} font-sans p-2 lg:p-8 absolute inset-0`}
+		>
+			<BackOnEsc />
 			<main
 				className="shadow-2xl font-sans bg-white p-1 lg:py-20 lg:px-14 m-auto overflow-y-auto overflow-x-hidden relative rounded-sm max-h-full"
 				style={{ aspectRatio: '2 / 3' }}
@@ -74,18 +32,16 @@ export default function Sheet(props: SheetProps) {
 						<DownloadButton type={title} />
 					)}
 
-					<Link href="/" legacyBehavior>
-						<a
-							title="close"
-							tabIndex={0}
-							className="bg-gradient-to-tr hover:from-gray-50 hover:to-yellow-50 hover:text-gray-500 rounded-md py-4 px-4 focus:outline-none focus:ring-2 focus:ring-teal-600"
-						>
-							<XMarkIcon className="h-5 w-5" />
-						</a>
+					<Link
+						href="/"
+						title="close"
+						className="hover:bg-gradient-to-tr hover:from-teal-100 hover:to-teal-50 hover:text-teal-600 rounded-md py-4 px-4 cursor-pointer flex items-center focus:outline-none focus:ring-2 focus:ring-teal-600 text-sm"
+					>
+						<XMarkIcon className="h-5 w-5" />
 					</Link>
 				</nav>
-				<div className="text-gradient bg-gradient-to-r from-teal-700 to-green-400 mb-4">
-					<h1 className="font-inline text-5xl mb-1">{title}</h1>
+				<div className="text-gradient bg-gradient-to-r from-teal-700 to-teal-400 mb-4">
+					{title && <h1 className="font-inline text-5xl mb-1">{title}</h1>}
 					<address className="font-display not-italic text-sm">
 						Manuel Dugué, Görlitzer Str. 23, 01099 Dresden
 						<br />

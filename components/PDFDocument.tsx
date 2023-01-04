@@ -7,8 +7,9 @@ import {
 	Text,
 	View,
 } from '@react-pdf/renderer'
-import { StructuredSheetProps } from 'components/StructuredSheet'
+
 import path from 'path'
+import { StructuredSheetProps } from './StructuredSheetContent'
 
 Font.register({
 	family: 'Bungee',
