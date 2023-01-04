@@ -23,10 +23,7 @@ export default function Sheet(props: SheetProps) {
 			className={`${montserrat.variable} font-sans p-2 lg:p-8 absolute inset-0`}
 		>
 			<BackOnEsc />
-			<main
-				className="shadow-2xl font-sans bg-white p-1 lg:py-20 lg:px-14 m-auto overflow-y-auto overflow-x-hidden relative rounded-sm max-h-full"
-				style={{ aspectRatio: '2 / 3' }}
-			>
+			<main className="shadow-2xl font-sans bg-white p-1 py-10 px-8 lg:py-20 lg:px-14 m-auto overflow-y-auto overflow-x-hidden relative rounded-sm max-h-full md:aspect-[2/3]">
 				<nav className="absolute right-0 top-0 flex text-gray-400 m-1 gap-1">
 					{(title === 'cv' || title === 'skill profile') && (
 						<DownloadButton type={title} />

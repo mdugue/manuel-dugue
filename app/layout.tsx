@@ -43,7 +43,7 @@ export default function MyApp({ children }: { children: React.ReactNode }) {
 
 function ContactAside() {
 	return (
-		<aside className="lg:absolute ml-1 mt-16 lg:ml-20 lg:bottom-12 lg:left-0 flex flex-col">
+		<aside className="md:absolute ml-1  md:ml-20 md:bottom-12 md:left-0 flex flex-col">
 			<SocialProfileJsonLd
 				useAppDir
 				type="Person"
@@ -92,18 +92,18 @@ function ContactAside() {
 
 function LegalSection() {
 	return (
-		<nav className="font-display absolute bottom-2 left-2 lg:bottom-auto lg:left-auto lg:top-4 lg:right-4 flex flex-col lg:text-right text-gray-300 dark:text-gray-500">
+		<nav className="font-display md:absolute bottom-2 md:bottom-auto md:left-auto md:top-4 md:right-4 flex md:flex-col md:text-right text-gray-300 dark:text-gray-500">
 			<Link
 				href="/legal"
 				prefetch={false}
-				className="coarse:h-12 mb-2 hover:text-gray-400"
+				className="mb-2 hover:text-gray-400 mx-2"
 			>
 				legal note
 			</Link>
 			<Link
 				href="/privacy"
 				prefetch={false}
-				className="coarse:h-12 mb-2 hover:text-gray-400"
+				className="mb-2 hover:text-gray-400 mx-2"
 			>
 				privacy
 			</Link>

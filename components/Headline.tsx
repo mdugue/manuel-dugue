@@ -8,7 +8,7 @@ export default function Headline(
 	return (
 		<animated.h1
 			{...rest}
-			className="mb-8 text-3xl lg:text-5xl leading-tight lg:leading-tight"
+			className="mb-8 text-3xl md:text-5xl leading-tight md:leading-tight"
 			style={{ ...style }}
 		>
 			<div

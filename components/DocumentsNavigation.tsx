@@ -20,7 +20,7 @@ export default function DocumentsNavigation() {
 
 	return (
 		<animated.nav
-			className="fixed bottom-4 right-4 flex flex-col bg-gradient-to-tl from-amber-500 to-yellow-300 dark:from-amber-800 dark:to-yellow-500 contact shadow-lg rounded-full text-amber-50 font-inline text-xl px-6"
+			className="md:fixed bottom-4 right-4 flex flex-col bg-gradient-to-tl from-amber-500 to-yellow-300 dark:from-amber-800 dark:to-yellow-500 contact shadow-lg rounded-full text-amber-50 font-inline text-xl px-6"
 			onMouseMove={onMouseMove}
 			onMouseLeave={onMouseLeave}
 			style={{ transform: to(props.xy, transFooter) }}
