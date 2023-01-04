@@ -29,7 +29,7 @@ export default function DownloadButton(props: {
 
 	return (
 		<button
-			className={`bg-gradient-to-tr hover:from-teal-50 hover:to-yellow-50 hover:text-teal-600 rounded-md py-4 px-4 cursor-pointer flex items-center focus:outline-none focus:ring-2 focus:ring-teal-600 text-sm`}
+			className="hover:bg-gradient-to-tr hover:from-teal-100 hover:to-teal-50 hover:text-teal-600 rounded-md py-4 px-4 cursor-pointer flex items-center focus:outline-none focus:ring-2 focus:ring-teal-600 text-sm"
 			onClick={async () => {
 				setIsWaiting(true)
 				await fetch(`/api/pdf/${encodeURI(type)}`).then((res) =>

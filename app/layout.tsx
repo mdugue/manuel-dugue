@@ -28,7 +28,7 @@ export default function MyApp({ children }: { children: React.ReactNode }) {
 			lang="en"
 			className={`${bungee.variable} ${bungeeInline.variable} ${bungeeShade.variable}`}
 		>
-			<body className="dark:bg-gray-900 bg-gray-50">
+			<body className="dark:from-black dark:to-gray-800 bg-gradient-to-b from-gray-200 to-white">
 				<div className={`flex flex-col min-h-screen transform-gpu`}>
 					<ClaimCard />
 					<ContactAside />
@@ -83,7 +83,7 @@ function ContactAside() {
 					<Github className="coarse:w-12 coarse:h-12 w-8 h-8" />
 				</a>
 			</div>
-			<div className="text-gradient bg-gradient-to-tr from-indigo-500 to-green-500 font-display text-2xl">
+			<div className="text-gradient bg-gradient-to-tr from-indigo-500 to-teal-400 font-display text-2xl">
 				Manuel Dugué
 			</div>
 		</aside>

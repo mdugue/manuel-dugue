@@ -14,7 +14,9 @@ const trans1 = (x: number, y: number) =>
 	`perspective(60vmin) rotateX(${3 * y}deg) rotateY(${-3 * x}deg) 
   ${translate(x, y, 0.5)}`
 const trans2 = (x: number, y: number) => translate(x, y, -1)
-const trans3 = (x: number, y: number) => translate(x, y, -0.6)
+// used for "since 2008" & typewriter
+const trans3 = (x: number, y: number) => translate(x, y, 0.6)
+const trans4 = (x: number, y: number) => translate(x, y, -0.4)
 
 const materialConfig = {
 	mass: 5,
@@ -53,7 +55,7 @@ export default function ClaimCard() {
 			style={{
 				transform: to(xy, trans1),
 			}}
-			className="lg:text-xl bg-gradient-to-tr from-teal-400 to-green-300 dark:from-teal-700 dark:to-green-600 text-white dark:text-gray-900 px-4 py-8 m-1 lg:px-24 lg:py-12 rounded-lg lg:rounded-3xl shadow-xl self-start lg:mt-20 lg:ml-20"
+			className="lg:text-xl bg-gradient-to-tr from-teal-500 to-teal-200 dark:from-teal-700 dark:to-teal-600 text-white dark:text-gray-900 px-4 py-8 m-1 lg:px-24 lg:py-12 rounded-lg lg:rounded-3xl shadow-xl self-start lg:m-auto text-center"
 		>
 			<div className="inset-0 absolute overflow-hidden rounded-lg lg:rounded-3xl">
 				<animated.div
@@ -69,8 +71,8 @@ export default function ClaimCard() {
 				/>
 			</div>
 			<animated.small
-				className="font-display text-teal-400 dark:text-teal-700"
-				style={{ transform: to(xy, trans3) }}
+				className="font-display text-teal-500 dark:text-teal-700 block"
+				style={{ transform: to(xy, trans4) }}
 			>
 				– since 2008 –
 			</animated.small>
@@ -80,7 +82,7 @@ export default function ClaimCard() {
 				for everybody
 			</Headline>
 			<animated.h2
-				className="font-inline text-gradient bg-gradient-to-tr from-yellow-50 to-yellow-200 dark:from-teal-900 dark:to-teal-700"
+				className="font-inline text-gradient bg-gradient-to-bl from-amber-100 to-amber-200 dark:from-teal-900 dark:to-teal-700"
 				style={{
 					transform: to(xy, trans3),
 				}}

@@ -6,6 +6,8 @@ export async function generateStaticParams() {
 	return ['cv', 'skill-profile'].map((sheet) => ({ sheet }))
 }
 
+export const revalidate = 10
+
 export default async function Page({ params }: { params: { sheet: string } }) {
 	const { sheet } = params
 	const type = sheet.replaceAll('-', ' ')

@@ -32,17 +32,15 @@ export default function Sheet(props: SheetProps) {
 						<DownloadButton type={title} />
 					)}
 
-					<Link href="/" legacyBehavior>
-						<a
-							title="close"
-							tabIndex={0}
-							className="bg-gradient-to-tr hover:from-gray-50 hover:to-yellow-50 hover:text-gray-500 rounded-md py-4 px-4 focus:outline-none focus:ring-2 focus:ring-teal-600"
-						>
-							<XMarkIcon className="h-5 w-5" />
-						</a>
+					<Link
+						href="/"
+						title="close"
+						className="hover:bg-gradient-to-tr hover:from-teal-100 hover:to-teal-50 hover:text-teal-600 rounded-md py-4 px-4 cursor-pointer flex items-center focus:outline-none focus:ring-2 focus:ring-teal-600 text-sm"
+					>
+						<XMarkIcon className="h-5 w-5" />
 					</Link>
 				</nav>
-				<div className="text-gradient bg-gradient-to-r from-teal-700 to-green-400 mb-4">
+				<div className="text-gradient bg-gradient-to-r from-teal-700 to-teal-400 mb-4">
 					{title && <h1 className="font-inline text-5xl mb-1">{title}</h1>}
 					<address className="font-display not-italic text-sm">
 						Manuel Dugué, Görlitzer Str. 23, 01099 Dresden

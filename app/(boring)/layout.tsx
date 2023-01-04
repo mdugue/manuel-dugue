@@ -10,7 +10,7 @@ export default function BoringLayout({
 		<>
 			<NextSeo nofollow noindex useAppDir />
 			<Sheet>
-				<div className="prose lg:prose-lg prose-headings:font-display prose-headings:text-yellow-500">
+				<div className="prose lg:prose-lg prose-headings:font-display prose-headings:text-amber-500">
 					{children}
 				</div>
 			</Sheet>
