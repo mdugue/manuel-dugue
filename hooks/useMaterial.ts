@@ -15,7 +15,7 @@ export default function useMaterial(
 		xy: [0, 0] as [x: number, y: number],
 		config,
 	}))
-	const isWide = useMedia(`(min-width: 768px)`)
+	const isWide = useMedia(`(min-width: 768px)`, false)
 	useEffect(() => {
 		if (prefersReducedMotion) return
 		set({ xy: isWide ? defaultPosition : [0, 0], config: slow })

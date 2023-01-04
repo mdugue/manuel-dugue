@@ -1,15 +1,9 @@
 import ReactPDF from '@react-pdf/renderer'
 import PDFDocument from 'components/PDFDocument'
-import { StructuredSheetProps } from 'components/StructuredSheet'
-import { GoogleSpreadsheet } from 'google-spreadsheet'
 import type { NextApiRequest, NextApiResponse } from 'next'
+import checkCVSPType from 'util/checkCVSPType'
+import getGoogleSheetsData from 'util/getGoogleSheetsData'
 import notEmpty from 'util/notEmpty'
-
-type SupportedType = 'cv' | 'skill profile'
-
-function checkType(t: string): asserts t is SupportedType {
-	if (t !== 'cv' && t !== 'skill profile') throw new Error('invalid type')
-}
 
 export default async function pdfHandler(
 	request: NextApiRequest,
@@ -19,7 +13,7 @@ export default async function pdfHandler(
 		typeof request.query.type === 'string'
 			? decodeURI(request.query.type || '')
 			: ''
-	checkType(type)
+	checkCVSPType(type)
 
 	const url =
 		request.headers.referer ||
@@ -41,42 +35,9 @@ export default async function pdfHandler(
 		)
 		return
 	}
-	const googleSheetId =
-		type === 'cv'
-			? process.env.GOOGLE_SHEET_CV_ID
-			: process.env.GOOGLE_SHEET_SKILL_PROFILE_ID
+
 	try {
-		if (googleSheetId == null || process.env.GOOGLE_SHEETS_AUTH == null)
-			throw new Error(
-				'GOOGLE_SHEET_CV_ID, GOOGLE_SHEETS_AUTH or GOOGLE_SHEET_SKILL_PROFILE_ID not properly initialized',
-			)
-
-		const doc = new GoogleSpreadsheet(googleSheetId)
-		const creds = JSON.parse(
-			process.env.GOOGLE_SHEETS_AUTH.replace(/(\r\n|\n|\r)/gm, '\\n'),
-		)
-
-		await doc.useServiceAccountAuth(creds)
-		await doc.loadInfo()
-
-		const sections = await Promise.all(
-			doc.sheetsByIndex.map(async (sheet) => {
-				const rows = await sheet.getRows()
-				return {
-					sectionTitle: sheet.title,
-					entries: rows.map((row) => ({
-						title: row.title,
-						subtitle: row.subtitle || null,
-						description: row.description,
-						links: row.links?.split(',') || null,
-					})),
-				}
-			}),
-		)
-		const document: StructuredSheetProps = {
-			document: { sections },
-			title: type,
-		}
+		const document = await getGoogleSheetsData(type)
 
 		const fileStream = await ReactPDF.renderToStream(
 			<PDFDocument {...document} />,

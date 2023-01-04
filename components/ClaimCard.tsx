@@ -1,3 +1,5 @@
+'use client'
+
 import { useEffect, useRef, useState } from 'react'
 import { animated, to } from 'react-spring'
 import Typewriter from 'typewriter-effect'
