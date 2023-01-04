@@ -1,7 +1,9 @@
 export default function PrivacyPage() {
 	return (
 		<>
-			<h1>Datenschutzerklärung</h1>
+			<h1 style={{ hyphens: 'auto' }} lang="de">
+				Datenschutzerklärung
+			</h1>
 			<p>
 				Datenschutz hat einen besonders hohen Stellenwert für Manuel Dugué. Eine
 				Nutzung der Internetseiten vonManuel Dugué ist grundsätzlich ohne jede

@@ -1,7 +1,9 @@
 export default function LegalPage() {
 	return (
 		<>
-			<h1>Impressum</h1>
+			<h1 style={{ hyphens: 'auto' }} lang="de">
+				Impressum
+			</h1>
 			<h2>Hinweis nach § 5 TMG</h2>
 
 			<p>
