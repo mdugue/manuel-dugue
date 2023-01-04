@@ -2,10 +2,8 @@ import StructuredSheetContent from 'components/StructuredSheetContent'
 import checkCVSPType from 'util/checkCVSPType'
 import getGoogleSheetsData from 'util/getGoogleSheetsData'
 
-export const revalidate = 60
-
 export async function generateStaticParams() {
-	return []
+	return ['cv', 'skill-profile'].map((sheet) => ({ sheet }))
 }
 
 export default async function Page({ params }: { params: { sheet: string } }) {
