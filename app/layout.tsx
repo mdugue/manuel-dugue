@@ -28,7 +28,7 @@ export default function MyApp({ children }: { children: React.ReactNode }) {
 			lang="en"
 			className={`${bungee.variable} ${bungeeInline.variable} ${bungeeShade.variable}`}
 		>
-			<body>
+			<body className="dark:bg-gray-900 bg-gray-50">
 				<div className={`flex flex-col min-h-screen transform-gpu`}>
 					<ClaimCard />
 					<ContactAside />

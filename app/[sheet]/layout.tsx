@@ -1,6 +1,8 @@
 import Sheet from 'components/Sheet'
 import { NextSeo } from 'next-seo'
 
+export const revalidate = 60
+
 export type StructuredSheetProps = {
 	title: 'cv' | 'skill profile'
 	document: {
