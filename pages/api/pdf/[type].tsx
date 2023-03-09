@@ -57,7 +57,3 @@ export default async function pdfHandler(
 		)
 	}
 }
-
-export const config = {
-	runtime: 'edge',
-}
