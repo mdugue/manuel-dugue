@@ -1,7 +1,7 @@
 import { SiGithub, SiLinkedin, SiTwitter } from '@icons-pack/react-simple-icons'
 import ClaimCard from 'components/ClaimCard'
 import DocumentsNavigation from 'components/DocumentsNavigation'
-import { Bungee, Bungee_Inline, Bungee_Shade } from "next/font/google"
+import { Bungee, Bungee_Inline, Bungee_Shade } from 'next/font/google'
 import { SocialProfileJsonLd } from 'next-seo'
 import Link from 'next/link'
 import './globals.css'
@@ -109,4 +109,20 @@ function LegalSection() {
 			</Link>
 		</nav>
 	)
+}
+
+export const metadata = {
+	title: 'Manuel Dugué – freelance web developer',
+	description:
+		'Handcrafting web experiences since 2008. Teaching, analyzing, coding. For consumers, experts & bots.',
+	openGraph: {
+		locale: 'en_EN',
+		url: 'https://manuel.fyi/',
+		site_name: 'Manuel Dugué – freelance web developer',
+	},
+	twitter: {
+		handle: '@mdugue',
+		site: '@mdugue',
+		cardType: 'summary_large_image',
+	},
 }
