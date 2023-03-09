@@ -1,5 +1,5 @@
 import { XMarkIcon } from '@heroicons/react/20/solid'
-import { Montserrat } from '@next/font/google'
+import { Montserrat } from "next/font/google"
 import BackOnEsc from 'components/BackOnEsc'
 import Link from 'next/link'
 import { ReactNode } from 'react'

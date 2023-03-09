@@ -1,7 +1,7 @@
-import { Github, Linkedin, Twitter } from '@icons-pack/react-simple-icons'
+import { SiGithub, SiLinkedin, SiTwitter } from '@icons-pack/react-simple-icons'
 import ClaimCard from 'components/ClaimCard'
 import DocumentsNavigation from 'components/DocumentsNavigation'
-import { Bungee, Bungee_Inline, Bungee_Shade } from '@next/font/google'
+import { Bungee, Bungee_Inline, Bungee_Shade } from 'next/font/google'
 import { SocialProfileJsonLd } from 'next-seo'
 import Link from 'next/link'
 import './globals.css'
@@ -64,7 +64,7 @@ function ContactAside() {
 					target="_blank"
 					rel="noopener noreferrer"
 				>
-					<Linkedin className="coarse:w-12 coarse:h-12 w-8 h-8" />
+					<SiLinkedin className="coarse:w-12 coarse:h-12 w-8 h-8" />
 				</a>
 				<a
 					className="mr-2 hover:text-teal-400"
@@ -72,7 +72,7 @@ function ContactAside() {
 					target="_blank"
 					rel="noopener noreferrer"
 				>
-					<Twitter className="coarse:w-12 coarse:h-12 w-8 h-8" />
+					<SiTwitter className="coarse:w-12 coarse:h-12 w-8 h-8" />
 				</a>
 				<a
 					className="mr-2 hover:text-teal-400"
@@ -80,7 +80,7 @@ function ContactAside() {
 					target="_blank"
 					rel="noopener noreferrer"
 				>
-					<Github className="coarse:w-12 coarse:h-12 w-8 h-8" />
+					<SiGithub className="coarse:w-12 coarse:h-12 w-8 h-8" />
 				</a>
 			</div>
 			<div className="text-gradient bg-gradient-to-tr from-indigo-500 to-teal-400 font-display text-2xl">
@@ -109,4 +109,20 @@ function LegalSection() {
 			</Link>
 		</nav>
 	)
+}
+
+export const metadata = {
+	title: 'Manuel Dugué – freelance web developer',
+	description:
+		'Handcrafting web experiences since 2008. Teaching, analyzing, coding. For consumers, experts & bots.',
+	openGraph: {
+		locale: 'en_EN',
+		url: 'https://manuel.fyi/',
+		site_name: 'Manuel Dugué – freelance web developer',
+	},
+	twitter: {
+		handle: '@mdugue',
+		site: '@mdugue',
+		cardType: 'summary_large_image',
+	},
 }
