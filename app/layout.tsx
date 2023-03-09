@@ -1,7 +1,7 @@
 import { SiGithub, SiLinkedin, SiTwitter } from '@icons-pack/react-simple-icons'
 import ClaimCard from 'components/ClaimCard'
 import DocumentsNavigation from 'components/DocumentsNavigation'
-import { Bungee, Bungee_Inline, Bungee_Shade } from '@next/font/google'
+import { Bungee, Bungee_Inline, Bungee_Shade } from "next/font/google"
 import { SocialProfileJsonLd } from 'next-seo'
 import Link from 'next/link'
 import './globals.css'

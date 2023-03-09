@@ -4,7 +4,6 @@ specifiers:
   '@heroicons/react': ^2.0.16
   '@icons-pack/react-simple-icons': 7.1.0
   '@next/bundle-analyzer': ^13.2.3
-  '@next/font': ^13.2.3
   '@react-pdf/renderer': 3.0.2
   '@tailwindcss/line-clamp': ^0.4.2
   '@tailwindcss/typography': ^0.5.9
@@ -45,7 +44,6 @@ dependencies:
   '@heroicons/react': 2.0.16_react@18.2.0
   '@icons-pack/react-simple-icons': 7.1.0_react@18.2.0
   '@next/bundle-analyzer': 13.2.3
-  '@next/font': 13.2.3
   '@react-pdf/renderer': 3.0.2_react@18.2.0
   '@tailwindcss/line-clamp': 0.4.2_tailwindcss@3.2.7
   '@types/google-spreadsheet': 3.3.1
@@ -1638,10 +1636,6 @@ packages:
     dependencies:
       glob: 7.1.7
     dev: true
-
-  /@next/font/13.2.3:
-    resolution: {integrity: sha512-7EHzk0f7FVYICLUZTpyPk93IfcTUao++Xt1Sgb+Zk5dVOCYHabqLtlF5ywSoXIqyFlo0qlshEBxsrzHAGTWkDw==}
-    dev: false
 
   /@next/swc-android-arm-eabi/13.2.3:
     resolution: {integrity: sha512-mykdVaAXX/gm+eFO2kPeVjnOCKwanJ9mV2U0lsUGLrEdMUifPUjiXKc6qFAIs08PvmTMOLMNnUxqhGsJlWGKSw==}

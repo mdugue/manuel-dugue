@@ -32,7 +32,6 @@
 		"@heroicons/react": "^2.0.16",
 		"@icons-pack/react-simple-icons": "7.1.0",
 		"@next/bundle-analyzer": "^13.2.3",
-		"@next/font": "^13.2.3",
 		"@react-pdf/renderer": "3.0.2",
 		"@tailwindcss/line-clamp": "^0.4.2",
 		"@types/google-spreadsheet": "^3.3.1",
