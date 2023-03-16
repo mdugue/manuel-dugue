@@ -4,6 +4,7 @@ import { GoogleSpreadsheet } from 'google-spreadsheet'
 export default async function getGoogleSheetsData(
 	type: 'cv' | 'skill profile',
 ) {
+	console.log('start google sheet')
 	const googleSheetId =
 		type === 'cv'
 			? process.env.GOOGLE_SHEET_CV_ID
@@ -42,5 +43,6 @@ export default async function getGoogleSheetsData(
 		document: { sections },
 		title: type,
 	}
+	console.log('end google sheet')
 	return document
 }
