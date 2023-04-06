@@ -42,7 +42,7 @@ export default function MyApp({ children }: { children: React.ReactNode }) {
 						<ClaimCard />
 						<LandingPageQuote />
 					</div>
-					<div className="flex justify-between items-end p-4 lg:p-10">
+					<div className="flex justify-between items-end p-4 lg:px-6">
 						<ContactAside />
 						<DocumentsNavigation />
 					</div>
@@ -104,7 +104,7 @@ function ContactAside() {
 
 function LegalSection() {
 	return (
-		<nav className="font-display md:left-auto md:top-4 flex md:flex-col md:text-right text-gray-300 dark:text-gray-500 p-4 lg:p-10">
+		<nav className="font-display md:left-auto md:top-4 flex md:flex-col md:text-right text-gray-300 dark:text-gray-500 p-4">
 			<Link
 				href="/legal"
 				prefetch={false}
