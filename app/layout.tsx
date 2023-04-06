@@ -1,10 +1,17 @@
 import { SiGithub, SiLinkedin, SiTwitter } from '@icons-pack/react-simple-icons'
 import ClaimCard from 'components/ClaimCard'
+import LandingPageQuote from 'components/LandingPageQuote'
 import DocumentsNavigation from 'components/DocumentsNavigation'
 import { Bungee, Bungee_Inline, Bungee_Shade } from 'next/font/google'
 import { SocialProfileJsonLd } from 'next-seo'
 import Link from 'next/link'
 import './globals.css'
+import { Montserrat } from 'next/font/google'
+
+const montserrat = Montserrat({
+	subsets: ['latin'],
+	variable: '--font-montserrat',
+})
 
 const bungee = Bungee({
 	weight: '400',
@@ -26,14 +33,19 @@ export default function MyApp({ children }: { children: React.ReactNode }) {
 	return (
 		<html
 			lang="en"
-			className={`${bungee.variable} ${bungeeInline.variable} ${bungeeShade.variable}`}
+			className={`${bungee.variable} ${bungeeInline.variable} ${bungeeShade.variable} ${montserrat.variable}`}
 		>
 			<body className="dark:from-black dark:to-gray-800 bg-gradient-to-b from-gray-200 to-white">
-				<div className={`flex flex-col min-h-screen transform-gpu`}>
-					<ClaimCard />
-					<ContactAside />
+				<div className="flex flex-col min-h-screen transform-gpu">
 					<LegalSection />
-					<DocumentsNavigation />
+					<div className="m-auto flex items-start pb-32 lg:pb-12 flex-col lg:flex-row">
+						<ClaimCard />
+						<LandingPageQuote />
+					</div>
+					<div className="flex justify-between items-end p-4 lg:px-6">
+						<ContactAside />
+						<DocumentsNavigation />
+					</div>
 				</div>
 				{children}
 			</body>
@@ -43,7 +55,7 @@ export default function MyApp({ children }: { children: React.ReactNode }) {
 
 function ContactAside() {
 	return (
-		<aside className="md:absolute ml-1  md:ml-20 md:bottom-12 md:left-0 flex flex-col">
+		<aside className="md:bottom-12 md:left-0 flex flex-col">
 			<SocialProfileJsonLd
 				useAppDir
 				type="Person"
@@ -92,7 +104,7 @@ function ContactAside() {
 
 function LegalSection() {
 	return (
-		<nav className="font-display md:absolute bottom-2 md:bottom-auto md:left-auto md:top-4 md:right-4 flex md:flex-col md:text-right text-gray-300 dark:text-gray-500">
+		<nav className="font-display md:left-auto md:top-4 flex md:flex-col md:text-right text-gray-300 dark:text-gray-500 p-4">
 			<Link
 				href="/legal"
 				prefetch={false}
