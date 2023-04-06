@@ -1,10 +1,17 @@
 import { SiGithub, SiLinkedin, SiTwitter } from '@icons-pack/react-simple-icons'
 import ClaimCard from 'components/ClaimCard'
+import LandingPageQuote from 'components/LandingPageQuote'
 import DocumentsNavigation from 'components/DocumentsNavigation'
 import { Bungee, Bungee_Inline, Bungee_Shade } from 'next/font/google'
 import { SocialProfileJsonLd } from 'next-seo'
 import Link from 'next/link'
 import './globals.css'
+import { Montserrat } from 'next/font/google'
+
+const montserrat = Montserrat({
+	subsets: ['latin'],
+	variable: '--font-montserrat',
+})
 
 const bungee = Bungee({
 	weight: '400',
@@ -26,11 +33,14 @@ export default function MyApp({ children }: { children: React.ReactNode }) {
 	return (
 		<html
 			lang="en"
-			className={`${bungee.variable} ${bungeeInline.variable} ${bungeeShade.variable}`}
+			className={`${bungee.variable} ${bungeeInline.variable} ${bungeeShade.variable} ${montserrat.variable}`}
 		>
 			<body className="dark:from-black dark:to-gray-800 bg-gradient-to-b from-gray-200 to-white">
-				<div className={`flex flex-col min-h-screen transform-gpu`}>
-					<ClaimCard />
+				<div className="flex flex-col min-h-screen transform-gpu">
+					<div className="m-auto flex items-start pb-20">
+						<ClaimCard />
+						<LandingPageQuote />
+					</div>
 					<ContactAside />
 					<LegalSection />
 					<DocumentsNavigation />
