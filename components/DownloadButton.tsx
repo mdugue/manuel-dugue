@@ -22,14 +22,14 @@ async function downloadResponse(response: Response, name: string) {
 }
 
 export default function DownloadButton(props: {
-	type: 'cv' | 'skill profile'
+	type: 'Cv' | 'Skill Profile'
 }) {
 	const { type } = props
 	const [isWaiting, setIsWaiting] = useState(false)
 
 	return (
 		<button
-			className="hover:bg-gradient-to-tr hover:from-teal-100 hover:to-teal-50 hover:text-teal-600 rounded-md py-4 px-4 cursor-pointer flex items-center focus:outline-none focus:ring-2 focus:ring-teal-600 text-sm"
+			className="hover:bg-gradient-to-tr hover:from-fuchsia-100 hover:to-pink-50 hover:text-fuchsia-600 rounded-md py-4 px-4 cursor-pointer flex items-center focus:outline-none focus:ring-2 focus:ring-teal-600 text-sm"
 			onClick={async () => {
 				setIsWaiting(true)
 				await fetch(`/api/pdf/${encodeURI(type)}`).then((res) =>

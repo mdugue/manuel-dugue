@@ -11,8 +11,8 @@ dependencies:
     specifier: ^13.3.0
     version: 13.3.0
   '@react-pdf/renderer':
-    specifier: 3.1.9
-    version: 3.1.9(react@18.2.0)
+    specifier: 3.0.2
+    version: 3.0.2(react@18.2.0)
   '@types/google-spreadsheet':
     specifier: ^3.3.1
     version: 3.3.1
@@ -3343,10 +3343,10 @@ packages:
       svg-arc-to-cubic-bezier: 3.2.0
     dev: false
 
-  /@react-pdf/renderer@3.1.9(react@18.2.0):
-    resolution: {integrity: sha512-kfEH7O+Jy7aihbUqrT9Ej1gx8/twRWvFMfHlACr29QsN+s+w0XzWpHCvbjkinVFABYcvsenluiirik6mf4qwRQ==}
+  /@react-pdf/renderer@3.0.2(react@18.2.0):
+    resolution: {integrity: sha512-lrYZWEZzt0P0Cdz6/My03+gDs//g++LeHjWzBM8dZYCad3HBa3EFFDZjosD+jyq3VYvetGN9bqzwTg+ODhx+8g==}
     peerDependencies:
-      react: ^16.8.6 || ^17.0.0 || ^18.0.0
+      react: ^16.8.6 || ^17.0.0
     dependencies:
       '@babel/runtime': 7.21.0
       '@react-pdf/font': 2.3.4
@@ -3355,11 +3355,9 @@ packages:
       '@react-pdf/primitives': 3.0.1
       '@react-pdf/render': 3.2.4
       '@react-pdf/types': 2.3.1
-      events: 3.3.0
-      object-assign: 4.1.1
-      prop-types: 15.8.1
       queue: 6.0.2
       react: 18.2.0
+      react-reconciler: 0.23.0(react@18.2.0)
       scheduler: 0.17.0
     transitivePeerDependencies:
       - encoding
@@ -5982,11 +5980,6 @@ packages:
   /event-target-shim@5.0.1:
     resolution: {integrity: sha512-i/2XbnSz/uxRCU6+NdVJgKWDTM427+MqYbkQzD321DuCQJUqOuJKIA0IM2+W2xtYHdKOmZ4dR6fExsd4SXL+WQ==}
     engines: {node: '>=6'}
-    dev: false
-
-  /events@3.3.0:
-    resolution: {integrity: sha512-mQw+2fkQbALzQ7V0MY0IqdnXNOeTtP4r0lN9z7AAawCXgqea7bDii20AYrIBrFd/Hx0M2Ocz6S111CaFkUcb0Q==}
-    engines: {node: '>=0.8.x'}
     dev: false
 
   /execa@1.0.0:
@@ -8854,6 +8847,19 @@ packages:
       prop-types: 15.8.1
       react: 18.2.0
       scheduler: 0.13.6
+    dev: false
+
+  /react-reconciler@0.23.0(react@18.2.0):
+    resolution: {integrity: sha512-vV0KlLimP9a/NuRcM6GRVakkmT6MKSzhfo8K72fjHMnlXMOhz9GlPe+/tCp5CWBkg+lsMUt/CR1nypJBTPfwuw==}
+    engines: {node: '>=0.10.0'}
+    peerDependencies:
+      react: ^16.0.0
+    dependencies:
+      loose-envify: 1.4.0
+      object-assign: 4.1.1
+      prop-types: 15.8.1
+      react: 18.2.0
+      scheduler: 0.17.0
     dev: false
 
   /react-reconciler@0.27.0(react@18.2.0):
