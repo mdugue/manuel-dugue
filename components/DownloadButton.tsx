@@ -39,7 +39,7 @@ export default function DownloadButton(props: {
 			}}
 		>
 			{isWaiting ? (
-				<ArrowPathIcon className="h-5 w-5 mr-2 animate-spin" />
+				<ArrowPathIcon className="h-5 w-5 mr-2 motion-safe:animate-spin" />
 			) : (
 				<ArrowDownTrayIcon className="h-5 w-5 mr-2" />
 			)}

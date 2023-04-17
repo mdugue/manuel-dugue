@@ -1,6 +1,3 @@
-import Sheet from 'components/Sheet'
-import { NextSeo } from 'next-seo'
-
 export type StructuredSheetProps = {
 	title: 'cv' | 'skill profile'
 	document: {
@@ -14,11 +11,6 @@ export type StructuredSheetProps = {
 			}[]
 		}[]
 	}
-}
-
-const completeTitleMap: { [key: string]: string | undefined } = {
-	cv: 'curriculum vitae',
-	'skill profile': 'skill profile',
 }
 
 export default function StructuredSheetContent(props: StructuredSheetProps) {

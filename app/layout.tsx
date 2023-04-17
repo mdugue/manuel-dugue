@@ -7,6 +7,7 @@ import { SocialProfileJsonLd } from 'next-seo'
 import Link from 'next/link'
 import './globals.css'
 import { Montserrat } from 'next/font/google'
+import { Metadata } from 'next'
 
 const montserrat = Montserrat({
 	subsets: ['latin'],
@@ -123,18 +124,34 @@ function LegalSection() {
 	)
 }
 
-export const metadata = {
-	title: 'Manuel Dugué – freelance web developer',
+export const metadata: Metadata = {
+	title: {
+		template: '%s – Manuel Dugué',
+		default: 'Manuel Dugué – Freelance Web Development',
+	},
+	alternates: { canonical: `https://manuel.fyi/` },
 	description:
 		'Handcrafting web experiences since 2008. Teaching, analyzing, coding. For consumers, experts & bots.',
 	openGraph: {
-		locale: 'en_EN',
 		url: 'https://manuel.fyi/',
-		site_name: 'Manuel Dugué – freelance web developer',
+		title: "default: 'Manuel Dugué – Freelance Web Development",
+		siteName: 'Manuel Dugué – freelance web developer',
 	},
 	twitter: {
-		handle: '@mdugue',
+		creator: '@mdugue',
 		site: '@mdugue',
-		cardType: 'summary_large_image',
+		card: 'summary_large_image',
 	},
+	applicationName: 'Portfolio of Manuel Dugué',
+	referrer: 'origin-when-cross-origin',
+	keywords: [
+		'Web Development',
+		'React',
+		'Next.js',
+		'TypeScript',
+		'SEO',
+		'Accessibility',
+		'Performance',
+		'Design',
+	],
 }
