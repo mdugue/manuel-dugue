@@ -1,13 +1,16 @@
 import { SiGithub, SiLinkedin, SiTwitter } from '@icons-pack/react-simple-icons'
 import ClaimCard from 'components/ClaimCard'
-import LandingPageQuote from 'components/LandingPageQuote'
 import DocumentsNavigation from 'components/DocumentsNavigation'
-import { Bungee, Bungee_Inline, Bungee_Shade } from 'next/font/google'
-import { SocialProfileJsonLd } from 'next-seo'
+import LandingPageQuote from 'components/LandingPageQuote'
+import { Metadata } from 'next'
+import {
+	Bungee,
+	Bungee_Inline,
+	Bungee_Shade,
+	Montserrat,
+} from 'next/font/google'
 import Link from 'next/link'
 import './globals.css'
-import { Montserrat } from 'next/font/google'
-import { Metadata } from 'next'
 
 const montserrat = Montserrat({
 	subsets: ['latin'],
@@ -57,18 +60,9 @@ export default function MyApp({ children }: { children: React.ReactNode }) {
 function ContactAside() {
 	return (
 		<aside className="md:bottom-12 md:left-0 flex flex-col">
-			<SocialProfileJsonLd
-				useAppDir
-				type="Person"
-				name="Manuel Dugué"
-				url="https://manuel.fyi/"
-				sameAs={[
-					'https://www.linkedin.com/in/mdugue',
-					'https://www.xing.com/profile/Manuel_Dugue',
-					'https://github.com/mdugue',
-					'https://www.instagram.com/manuel.dugue/',
-					'https://www.facebook.com/manuel.dugue/',
-				]}
+			<script
+				type="application/ld+json"
+				dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
 			/>
 			<div className="flex text-gray-300 dark:text-gray-500 mb-2">
 				<a
@@ -122,6 +116,86 @@ function LegalSection() {
 			</Link>
 		</nav>
 	)
+}
+
+import { Person, WithContext } from 'schema-dts'
+
+const jsonLd: WithContext<Person> = {
+	'@context': 'https://schema.org',
+	'@type': 'Person',
+	name: 'Manuel Dugué',
+	birthDate: '1981-09-12',
+	birthPlace: {
+		'@type': 'City',
+		name: 'Berlin',
+	},
+	nationality: ['German', 'French'],
+	email: 'mail@manuel.fyi',
+	url: 'https://manuel.fyi',
+	brand: 'Handcrafting Web Experiences for Everybody',
+	sameAs: [
+		'https://www.linkedin.com/in/mdugue',
+		'https://www.xing.com/profile/Manuel_Dugue',
+		'https://github.com/mdugue',
+		'https://www.instagram.com/manuel.dugue/',
+		'https://www.facebook.com/manuel.dugue/',
+	],
+	address: {
+		'@type': 'PostalAddress',
+		addressLocality: 'Dresden',
+		postalCode: '01099',
+		addressCountry: 'Germany',
+	},
+	knowsLanguage: [
+		'German',
+		'French',
+		'English',
+		'Spanish',
+		'Portuguese',
+		'Dutch',
+	],
+	knowsAbout: [
+		'TypeScript',
+		'JavaScript',
+		'React',
+		'Next.js',
+		'Svelte',
+		'GraphQL',
+		'InfoVis',
+		'Maps',
+		'GEO',
+		'SVG',
+		'JSON',
+		'CSS',
+		'LESS',
+		'SASS',
+		'WebGL',
+		'XML',
+		'XSLT',
+	],
+	hasOccupation: {
+		'@type': 'Occupation',
+		name: 'Media Computer Scientist',
+		occupationLocation: {
+			'@type': 'Country',
+			name: ['Germany', 'France', 'Spain', 'England', 'Portugal'],
+		},
+	},
+	disambiguatingDescription: 'Media Computer Scientist',
+	hasCredential: {
+		'@type': 'EducationalOccupationalCredential',
+		credentialCategory: 'Diploma',
+	},
+	alumniOf: {
+		'@type': 'EducationalOrganization',
+		name: 'TU Dresden',
+		sameAs: ['https://tu-dresden.de', 'https://wikipedia.org/wiki/TU_Dresden'],
+	},
+	award: [
+		'Arctic Code Vault Contributor',
+		"2nd Place Photo Competition 'Go-Out Studying'",
+		'1st Price Logo Pitch at Microcomputer Chair',
+	],
 }
 
 export const metadata: Metadata = {
