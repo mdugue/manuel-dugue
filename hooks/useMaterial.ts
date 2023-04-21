@@ -1,5 +1,5 @@
 import { MouseEvent, useCallback, useEffect } from 'react'
-import { SpringProps, useSpring } from 'react-spring'
+import { SpringProps, useSpring } from '@react-spring/web'
 import { useMedia } from 'react-use'
 
 import usePrefersReducedMotion from './usePrefersReducedMotion'
@@ -11,15 +11,18 @@ export default function useMaterial(
 	config: SpringProps['config'],
 ) {
 	const prefersReducedMotion = usePrefersReducedMotion()
-	const [props, set] = useSpring<{ xy: [number, number] }>(() => ({
-		xy: [0, 0] as [x: number, y: number],
-		config,
-	}))
+	const [props, api] = useSpring<{ xy: [number, number] }>(
+		() => ({
+			xy: [0, 0] as [x: number, y: number],
+			config,
+		}),
+		[],
+	)
 	const isWide = useMedia(`(min-width: 768px)`, false)
 	useEffect(() => {
 		if (prefersReducedMotion) return
-		set({ xy: isWide ? defaultPosition : [0, 0], config: slow })
-	}, [defaultPosition, isWide, prefersReducedMotion, set])
+		api.start({ xy: isWide ? defaultPosition : [0, 0], config: slow })
+	}, [defaultPosition, isWide, prefersReducedMotion, api])
 
 	const onMouseMove = useCallback(
 		(event: MouseEvent) => {
@@ -27,14 +30,14 @@ export default function useMaterial(
 			const rect = (event.currentTarget as HTMLElement).getBoundingClientRect()
 			const relativeX = (2 * (event.clientX - rect.left)) / rect.width - 1
 			const relativeY = (2 * (event.clientY - rect.top)) / rect.height - 1
-			set({ xy: [relativeX, relativeY], config })
+			api.start({ xy: [relativeX, relativeY] })
 		},
-		[config, prefersReducedMotion, set],
+		[prefersReducedMotion, api],
 	)
 
 	const onMouseLeave = useCallback(() => {
 		if (prefersReducedMotion) return
-		set({ xy: defaultPosition })
-	}, [defaultPosition, prefersReducedMotion, set])
+		api.start({ xy: defaultPosition })
+	}, [defaultPosition, prefersReducedMotion, api])
 	return { props, onMouseMove, onMouseLeave }
 }

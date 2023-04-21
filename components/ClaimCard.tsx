@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
-import { animated, to } from 'react-spring'
+import { animated, to } from '@react-spring/web'
 import Typewriter from 'typewriter-effect'
 
 import useMaterial from '../hooks/useMaterial'

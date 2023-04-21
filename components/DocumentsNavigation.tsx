@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { animated, to } from 'react-spring'
+import { animated, to } from '@react-spring/web'
 
 import useMaterial from '../hooks/useMaterial'
 

@@ -1,5 +1,5 @@
 import { ComponentProps, ReactNode } from 'react'
-import { animated } from 'react-spring'
+import { animated } from '@react-spring/web'
 
 export default function Headline(
 	props: ComponentProps<typeof animated.h1> & { children: ReactNode },
