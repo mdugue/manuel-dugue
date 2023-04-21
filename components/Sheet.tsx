@@ -14,7 +14,7 @@ export default function Sheet(props: SheetProps) {
 
 	return (
 		<div
-			className="font-sans p-2 lg:p-8 absolute inset-0"
+			className="font-sans p-2 lg:p-8 absolute inset-0 z-10"
 			role="dialog"
 			aria-labelledby="dialog-title"
 			aria-describedby="dialog-content"
@@ -36,7 +36,10 @@ export default function Sheet(props: SheetProps) {
 				</nav>
 				<div className="text-gradient bg-gradient-to-r from-teal-700 to-teal-400 mb-4">
 					{title && (
-						<h1 className="font-inline text-5xl mb-1" id="dialog-title">
+						<h1
+							className="font-inline text-5xl mb-1 hyphens-auto break-words"
+							id="dialog-title"
+						>
 							{title}
 						</h1>
 					)}
