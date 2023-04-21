@@ -39,17 +39,15 @@ export default function MyApp({ children }: { children: React.ReactNode }) {
 			lang="en"
 			className={`${bungee.variable} ${bungeeInline.variable} ${bungeeShade.variable} ${montserrat.variable}`}
 		>
-			<body className="dark:from-black dark:to-gray-800 bg-gradient-to-b from-gray-200 to-white">
-				<div className="flex flex-col min-h-screen transform-gpu">
-					<LegalSection />
-					<div className="m-auto flex items-start pb-32 lg:pb-12 flex-col lg:flex-row">
-						<ClaimCard />
-						<LandingPageQuote />
-					</div>
-					<div className="flex justify-between items-end p-4 lg:px-6">
-						<ContactAside />
-						<DocumentsNavigation />
-					</div>
+			<body className="dark:from-black dark:to-gray-800 bg-gradient-to-b from-gray-200 to-white min-h-screen flex flex-col pb-40">
+				<LegalSection />
+				<div className="m-auto flex items-start flex-col lg:flex-row">
+					<ClaimCard />
+					<LandingPageQuote />
+				</div>
+				<DocumentsNavigation />
+				<div className="lg:fixed bottom-0 left-0 mb-4 ml-6">
+					<ContactAside />
 				</div>
 				{children}
 			</body>
