@@ -10,10 +10,15 @@ export type SheetProps = {
 	children: ReactNode
 }
 export default function Sheet(props: SheetProps) {
-	const { title, children } = props
+	const { title = 'loading …', children } = props
 
 	return (
-		<div className="font-sans p-2 lg:p-8 absolute inset-0">
+		<div
+			className="font-sans p-2 lg:p-8 absolute inset-0"
+			role="dialog"
+			aria-labelledby="dialog-title"
+			aria-describedby="dialog-content"
+		>
 			<BackOnEsc />
 			<main className="shadow-2xl font-sans bg-white p-1 py-10 px-8 lg:py-20 lg:px-14 m-auto overflow-y-auto overflow-x-hidden relative rounded-sm max-h-full md:aspect-[2/3]">
 				<nav className="absolute right-0 top-0 flex text-gray-400 m-1 gap-1">
@@ -30,7 +35,11 @@ export default function Sheet(props: SheetProps) {
 					</Link>
 				</nav>
 				<div className="text-gradient bg-gradient-to-r from-teal-700 to-teal-400 mb-4">
-					{title && <h1 className="font-inline text-5xl mb-1">{title}</h1>}
+					{title && (
+						<h1 className="font-inline text-5xl mb-1" id="dialog-title">
+							{title}
+						</h1>
+					)}
 					<address className="font-display not-italic text-sm">
 						Manuel Dugué, Görlitzer Str. 23, 01099 Dresden
 						<br />
@@ -38,7 +47,7 @@ export default function Sheet(props: SheetProps) {
 						<a href="mailto:mail@manuel.fyi">mail@manuel.fyi</a>
 					</address>
 				</div>
-				{children}
+				<div id="dialog-content">{children}</div>
 			</main>
 		</div>
 	)
