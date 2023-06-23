@@ -1,9 +1,17 @@
+import { kv } from '@vercel/kv'
 import { StructuredSheetProps } from 'components/StructuredSheetContent'
 import { GoogleSpreadsheet } from 'google-spreadsheet'
 
 export default async function getGoogleSheetsData(
 	type: 'cv' | 'skill profile',
 ) {
+	const cache = await kv.get<StructuredSheetProps>(type)
+	if (cache) {
+		console.log(type, 'cache hit')
+		return cache
+	}
+	console.log(type, 'cache miss')
+
 	const googleSheetId =
 		type === 'cv'
 			? process.env.GOOGLE_SHEET_CV_ID
@@ -42,5 +50,6 @@ export default async function getGoogleSheetsData(
 		document: { sections },
 		title: type,
 	}
+	await kv.set(type, document, { ex: 120 }) // cache for 2 minutes
 	return document
 }
