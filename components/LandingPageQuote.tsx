@@ -1,7 +1,61 @@
 /* eslint-disable react/no-unescaped-entities */
+import kv from '@vercel/kv'
 import Link from 'next/link'
+import { ChatCompletionRequestMessage, Configuration, OpenAIApi } from 'openai'
+import getGoogleSheetsData from 'util/getGoogleSheetsData'
+import xss from 'xss'
 
-export default function LandingPageQuote() {
+// Set the runtime to edge for best performance
+export const runtime = 'edge'
+
+const config = new Configuration({
+	apiKey: process.env.OPENAI_API_KEY,
+})
+const openai = new OpenAIApi(config)
+
+export default async function LandingPageQuote() {
+	// Ask OpenAI for a streaming completion given the prompt
+	const skillProfile = await getGoogleSheetsData('skill profile')
+
+	const formattedSkillProfile = `
+Title: Skill Profile from Manuel Dugué
+Subtitle: handcrafting web experiences for everybody
+
+${skillProfile?.document.sections
+	.map(
+		(section, index) => `Section ${index + 1}: ${section.sectionTitle}
+
+${section.entries
+	.map(
+		(entry, entryIndex) => `Subsection ${entryIndex + 1}: ${entry.title} ${
+			entry.subtitle ? ` (${entry.subtitle})` : ''
+		}
+${entry.description}
+`,
+	)
+	.join(`\n`)}`,
+	)
+	.join(`\n\n`)}`
+
+	const response = await cachedChatCompletion([
+		{
+			role: 'system',
+			content:
+				'you are a creative engineer, that is passionate about product development and has a strong technical background. Your answers are short, entertaining and never contain more than 50 words. Your responses are formatted as html `<p>` paragraphs with some `<strong>` tags.',
+		},
+		{
+			role: 'user',
+			content: `Write a short summary about yourself in the first person perspective, based on the following skill profile: 
+
+
+${formattedSkillProfile}
+				
+
+Please use a professional style, don't use the word "skill profile". The content should emphasize soft skills as well as technical terms.
+				`,
+		},
+	])
+
 	return (
 		<figure
 			className="font-sans"
@@ -10,38 +64,12 @@ export default function LandingPageQuote() {
 					'perspective(60vmin) rotateX(3deg) rotateY(-4deg) rotateZ(3deg)',
 			}}
 		>
-			<blockquote className="bg-gradient-to-tl border border-pink-500 from-fuchsia-500 to-pink-400 dark:from-amber-800 dark:to-yellow-500 contact shadow-lg text-amber-50 px-10 py-9 rounded-3xl max-w-xl md:mx-auto prose mx-4 lg:-ml-12 font-medium">
-				<p>
-					Hey there! I'm Manuel, a media computer scientist born in Berlin with
-					German and French roots. I'm passionate about sports, music,
-					photography, typography, architecture, and cooking. I'm a language
-					enthusiast too, fluent in German, French, English, and Spanish, with
-					basic knowledge of Portuguese and Dutch.
-				</p>
-
-				<p>
-					I've got mad programming skills in TypeScript, JavaScript, HTML, and
-					more, and I love working with frameworks like React, D3.js, and
-					Next.js. I've had an exciting career working on projects like digital
-					exhibitions, family trees, and even an online shop for garden culture!
-					I've also done some cool stuff with Android tablets for seniors and
-					interactive presentation films.
-				</p>
-
-				<p>
-					I've got a diploma in Media Informatics from TU Dresden and even had a
-					research thesis on "materiality and interaction." Oh, and I've won
-					some awards too, like the arctic code vault contributor and a couple
-					of photo competitions.
-				</p>
-
-				<p>
-					So, if you need a tech-savvy, creative, and multilingual guy, I'm your
-					man!
-				</p>
-			</blockquote>
+			<blockquote
+				className="bg-gradient-to-tl border border-pink-500 from-fuchsia-500 to-pink-400 dark:from-amber-800 dark:to-yellow-500 contact shadow-lg text-amber-50 px-10 py-9 rounded-3xl max-w-xl md:mx-auto prose prose-strong:font-bold mx-4 lg:-ml-12 font-medium prose-headings:text-amber-100"
+				dangerouslySetInnerHTML={{ __html: xss(response || '') }}
+			></blockquote>
 			<figcaption className="text-gray-400 ml-auto text-right text-sm mt-2 mr-5">
-				– says GPT after reading my{' '}
+				– GPT after reading my{' '}
 				<Link
 					href="/skill-profile"
 					prefetch={false}
@@ -52,4 +80,31 @@ export default function LandingPageQuote() {
 			</figcaption>
 		</figure>
 	)
+}
+
+async function cachedChatCompletion(messages: ChatCompletionRequestMessage[]) {
+	const kvKey = `GPTQuote:${process.env.NODE_ENV}:${JSON.stringify(messages)}`
+	const cachedCompletion = await kv.get<string>(kvKey)
+
+	if (cachedCompletion) {
+		console.log('GPT cache hit')
+		return cachedCompletion
+	}
+	console.log('GPT cache miss')
+
+	const response = await openai
+		.createChatCompletion({
+			model: 'gpt-4',
+			temperature: 0.6,
+			max_tokens: 256,
+			stream: false,
+			messages,
+		})
+		.then((response) => {
+			return response.data.choices[response.data.choices.length - 1].message
+				?.content
+		})
+
+	kv.set(kvKey, response, { ex: 60 * 5 })
+	return response
 }
