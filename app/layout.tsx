@@ -10,6 +10,8 @@ import {
 	Montserrat,
 } from 'next/font/google'
 import Link from 'next/link'
+import { Suspense } from 'react'
+import { Person, WithContext } from 'schema-dts'
 import './globals.css'
 
 const montserrat = Montserrat({
@@ -43,7 +45,15 @@ export default function MyApp({ children }: { children: React.ReactNode }) {
 				<LegalSection />
 				<div className="m-auto flex items-start flex-col lg:flex-row">
 					<ClaimCard />
-					<LandingPageQuote />
+					<Suspense
+						fallback={
+							<div className="text-gray-400 font-display">
+								Loading GPT Quote...
+							</div>
+						}
+					>
+						<LandingPageQuote />
+					</Suspense>
 				</div>
 				<DocumentsNavigation />
 				<div className="lg:fixed bottom-0 left-0 mb-4 ml-6">
@@ -115,8 +125,6 @@ function LegalSection() {
 		</nav>
 	)
 }
-
-import { Person, WithContext } from 'schema-dts'
 
 const jsonLd: WithContext<Person> = {
 	'@context': 'https://schema.org',
