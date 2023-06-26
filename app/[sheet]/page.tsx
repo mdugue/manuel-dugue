@@ -1,5 +1,5 @@
 import StructuredSheetContent from 'components/StructuredSheetContent'
-import { Article, Person, WithContext } from 'schema-dts'
+import { Article, WithContext } from 'schema-dts'
 import checkCVSPType from 'util/checkCVSPType'
 import getGoogleSheetsData from 'util/getGoogleSheetsData'
 
