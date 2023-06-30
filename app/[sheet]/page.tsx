@@ -4,6 +4,8 @@ import { gql, request } from 'graphql-request'
 import { Article, WithContext } from 'schema-dts'
 import checkCVSPType from 'util/checkCVSPType'
 
+export const runtime = 'edge'
+
 const pageQuery = gql`
 	query AllInOnePage($slug: String!) {
 		allInOnePageCollection(limit: 1, where: { slug: $slug }) {
@@ -29,6 +31,8 @@ export async function generateStaticParams() {
 }
 
 export const revalidate = 10
+
+// TODO: Edge?
 
 export default async function Page({ params }: { params: { sheet: string } }) {
 	const { sheet } = params
