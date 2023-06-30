@@ -1,26 +1,27 @@
-import StructuredSheetContent from 'components/StructuredSheetContent'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
-
+import { AllInOnePageQuery } from 'gql/graphql'
+import { gql, request } from 'graphql-request'
 import { Article, WithContext } from 'schema-dts'
 import checkCVSPType from 'util/checkCVSPType'
 
-const Query = `query {
-  allInOnePageCollection(limit: 10) {
-    total
-    items {
-      sys {
-        id
-      }
-      slug
-      __typename
+const pageQuery = gql`
+	query AllInOnePage($slug: String!) {
+		allInOnePageCollection(limit: 1, where: { slug: $slug }) {
+			total
+			items {
+				sys {
+					id
+				}
+				slug
+				__typename
 
-      title
-      content {
-        json
-      }
-    }
-  }
-}
+				title
+				content {
+					json
+				}
+			}
+		}
+	}
 `
 
 export async function generateStaticParams() {
@@ -34,17 +35,12 @@ export default async function Page({ params }: { params: { sheet: string } }) {
 	const type = sheet.replaceAll('-', ' ')
 	checkCVSPType(type)
 
-	const contentfulResult = await fetch(
+	const { allInOnePageCollection } = await request<AllInOnePageQuery>(
 		`https://graphql.contentful.com/content/v1/spaces/${process.env.CONTENTFUL_SPACE_ID}`,
-		{
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json',
-				Authorization: `Bearer ${process.env.CONTENTFUL_ACCESS_TOKEN}`,
-			},
-			body: JSON.stringify({ query: Query }),
-		},
-	).then((response) => response.json())
+		pageQuery,
+		{ slug: sheet },
+		{ Authorization: `Bearer ${process.env.CONTENTFUL_ACCESS_TOKEN}` },
+	)
 
 	return (
 		<>
@@ -62,7 +58,7 @@ export default async function Page({ params }: { params: { sheet: string } }) {
 				`}
 			>
 				{documentToReactComponents(
-					contentfulResult.data.allInOnePageCollection.items[0].content.json,
+					allInOnePageCollection?.items[0]?.content?.json,
 				)}
 			</div>
 

@@ -52,7 +52,7 @@ export default function MyApp({ children }: { children: React.ReactNode }) {
 							</div>
 						}
 					>
-						<LandingPageQuote />
+						{/* <LandingPageQuote /> */}
 					</Suspense>
 				</div>
 				<DocumentsNavigation />
