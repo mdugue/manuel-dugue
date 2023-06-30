@@ -4,7 +4,7 @@ import { gql, request } from 'graphql-request'
 import { Article, WithContext } from 'schema-dts'
 import checkCVSPType from 'util/checkCVSPType'
 
-export const runtime = 'edge'
+// TODO export const runtime = 'edge'
 
 const pageQuery = gql`
 	query AllInOnePage($slug: String!) {
