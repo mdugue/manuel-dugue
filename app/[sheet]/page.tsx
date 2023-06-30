@@ -1,7 +1,27 @@
 import StructuredSheetContent from 'components/StructuredSheetContent'
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
+
 import { Article, WithContext } from 'schema-dts'
 import checkCVSPType from 'util/checkCVSPType'
-import getGoogleSheetsData from 'util/getGoogleSheetsData'
+
+const Query = `query {
+  allInOnePageCollection(limit: 10) {
+    total
+    items {
+      sys {
+        id
+      }
+      slug
+      __typename
+
+      title
+      content {
+        json
+      }
+    }
+  }
+}
+`
 
 export async function generateStaticParams() {
 	return ['cv', 'skill-profile'].map((sheet) => ({ sheet }))
@@ -14,10 +34,38 @@ export default async function Page({ params }: { params: { sheet: string } }) {
 	const type = sheet.replaceAll('-', ' ')
 	checkCVSPType(type)
 
-	const data = await getGoogleSheetsData(type)
+	const contentfulResult = await fetch(
+		`https://graphql.contentful.com/content/v1/spaces/${process.env.CONTENTFUL_SPACE_ID}`,
+		{
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+				Authorization: `Bearer ${process.env.CONTENTFUL_ACCESS_TOKEN}`,
+			},
+			body: JSON.stringify({ query: Query }),
+		},
+	).then((response) => response.json())
+
 	return (
 		<>
-			<StructuredSheetContent {...data} />
+			<div
+				className={`
+				leading-6
+				whitespace-pre-line
+				md:grid grid-cols-4 gap-x-4 prose 
+				prose-h1:pt-4 prose-h1:text-lg prose-h1:font-inline prose-h1:text-gradient prose-h1:bg-gradient-to-tr prose-h1:from-amber-500 prose-h1:to-amber-300 prose-h1:mb-2 prose-h1:self-start	prose-h1:col-span-4
+				prose-h3:col-start-2 prose-h3:col-span-3 prose-p:col-start-2 prose-p:col-span-3
+				md:prose-h2:text-right prose-h2:font-bold prose-h2:text-gradient prose-h2:bg-gradient-to-tr prose-h2:from-teal-500 prose-h2:to-teal-600 md:prose-h2:justify-self-end prose-h2:capitalize prose-h2:text-base prose-h2:mb-0 prose-h2:mt-1
+				prose-h3:font-bold prose-h3:text-gray-700 prose-h3:text-gradient prose-h3:bg-gradient-to-tr prose-h3:from-teal-700 prose-h3:to-teal-600 prose-h3:capitalize prose-h3:mb-0 prose-h3:text-base prose-h3:mt-1
+				prose-p:mt-0 prose-p:mb-2 prose-p:text-gray-800
+				prose-a:text-fuchsia-500 prose-a:font-light prose-a:no-underline hover:prose-a:underline 
+				`}
+			>
+				{documentToReactComponents(
+					contentfulResult.data.allInOnePageCollection.items[0].content.json,
+				)}
+			</div>
+
 			{sheet === 'skill-profile' && (
 				<script
 					type="application/ld+json"
