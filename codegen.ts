@@ -16,6 +16,7 @@ const config: CodegenConfig = {
 	documents: ['./**/*.tsx'],
 	generates: {
 		'./gql/': {
+			// TODO: Generated!
 			preset: 'client',
 		},
 	},

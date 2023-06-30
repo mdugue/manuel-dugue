@@ -23,6 +23,7 @@
 		"@vercel/node": "^2.15.3",
 		"babel-eslint": "^10.1.0",
 		"dotenv": "^16.3.1",
+		"encoding": "^0.1.13",
 		"eslint": "^8.43.0",
 		"eslint-config-next": "^13.4.7",
 		"eslint-config-react-app": "^7.0.1",
