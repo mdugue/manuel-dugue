@@ -100,6 +100,9 @@ devDependencies:
   '@graphql-codegen/client-preset':
     specifier: ^4.0.1
     version: 4.0.1(encoding@0.1.13)(graphql@16.7.1)
+  '@graphql-typed-document-node/core':
+    specifier: ^3.2.0
+    version: 3.2.0(graphql@16.7.1)
   '@tailwindcss/typography':
     specifier: ^0.5.9
     version: 0.5.9(tailwindcss@3.3.2)
