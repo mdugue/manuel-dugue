@@ -1,9 +1,7 @@
 import { XMarkIcon } from '@heroicons/react/20/solid'
-
 import BackOnEsc from 'components/BackOnEsc'
 import Link from 'next/link'
 import { ReactNode } from 'react'
-import DownloadButton from './DownloadButton'
 
 export default function Sheet(props: { children: ReactNode }) {
 	return (
@@ -27,9 +25,6 @@ export function SheetContent(props: { title?: string; children?: ReactNode }) {
 	return (
 		<>
 			<nav className="absolute right-0 top-0 flex text-gray-400 m-1 gap-1">
-				{(title === 'Cv' || title === 'Skill Profile') && (
-					<DownloadButton type={title} />
-				)}
 				{/* TODO: Localization */}
 				<Link
 					href="/de"

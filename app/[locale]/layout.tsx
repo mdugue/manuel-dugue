@@ -18,6 +18,8 @@ import { LocalePageType } from './LocalePageType'
 import './globals.css'
 import LandingPageQuote from 'components/LandingPageQuote'
 
+export const revalidate = 60 * 60 * 24 // 1 day
+
 const montserrat = Montserrat({
 	subsets: ['latin'],
 	variable: '--font-montserrat',
@@ -57,7 +59,7 @@ export default function MyApp({
 					<Suspense
 						fallback={
 							<div className="text-gray-400 font-display">
-								Loading GPT Quote...
+								GPT reading my Skill Profile …
 							</div>
 						}
 					>
