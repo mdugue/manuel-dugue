@@ -1,7 +1,7 @@
 import { SiGithub, SiLinkedin, SiTwitter } from '@icons-pack/react-simple-icons'
 import ClaimCard from 'components/ClaimCard'
 import DocumentsNavigation from 'components/DocumentsNavigation'
-import LandingPageQuote from 'components/LandingPageQuote'
+import LandingPageQuote from 'components/LandingPageQuoteContainer'
 import { Metadata } from 'next'
 import {
 	Bungee,

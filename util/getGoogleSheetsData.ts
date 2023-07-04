@@ -5,12 +5,12 @@ import { GoogleSpreadsheet } from 'google-spreadsheet'
 export default async function getGoogleSheetsData(
 	type: 'cv' | 'skill profile',
 ) {
-	const cache = await kv.get<StructuredSheetProps>(type)
+	/* const cache = await kv.get<StructuredSheetProps>(type)
 	if (cache) {
 		console.log(type, 'cache hit')
 		return cache
 	}
-	console.log(type, 'cache miss')
+	console.log(type, 'cache miss') */
 
 	const googleSheetId =
 		type === 'cv'
@@ -22,12 +22,13 @@ export default async function getGoogleSheetsData(
 			'GOOGLE_SHEET_CV_ID, GOOGLE_SHEETS_AUTH or GOOGLE_SHEET_SKILL_PROFILE_ID not properly initialized',
 		)
 
-	const doc = new GoogleSpreadsheet(googleSheetId)
 	const creds = JSON.parse(
 		process.env.GOOGLE_SHEETS_AUTH.replace(/(\r\n|\n|\r)/gm, '\\n'),
 	)
+	const doc = new GoogleSpreadsheet(googleSheetId, {
+		apiKey: 'AIzaSyDMlp8gLiHrVAtEevfWZ7yCFYemaEzvy4c',
+	})
 
-	await doc.useServiceAccountAuth(creds)
 	await doc.loadInfo()
 
 	const sections = await Promise.all(
@@ -36,10 +37,10 @@ export default async function getGoogleSheetsData(
 			return {
 				sectionTitle: sheet.title,
 				entries: rows.map((row) => ({
-					title: row.title,
-					subtitle: row.subtitle || null,
-					description: row.description,
-					links: row.links?.split(',') || null,
+					title: row.get('title'),
+					subtitle: row.get('subtitle') || null,
+					description: row.get('description'),
+					links: row.get('links')?.split(',') || null,
 				})),
 			}
 		}),
