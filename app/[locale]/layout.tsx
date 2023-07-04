@@ -58,12 +58,12 @@ export default function MyApp({
 					<ClaimCard />
 					<Suspense
 						fallback={
-							<div className="text-gray-400 font-display">
+							<div className="text-gray-400 font-display animate-pulse">
 								GPT reading my Skill Profile …
 							</div>
 						}
 					>
-						<LandingPageQuote />
+						<LandingPageQuote locale={locale} />
 					</Suspense>
 				</div>
 				<DocumentsNavigation />
