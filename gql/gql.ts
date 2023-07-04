@@ -13,7 +13,7 @@ import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/
  * Therefore it is highly recommended to use the babel or swc plugin for production.
  */
 const documents = {
-    "\n\tquery AllInOnePage($slug: String!) {\n\t\tallInOnePageCollection(limit: 1, where: { slug: $slug }) {\n\t\t\ttotal\n\t\t\titems {\n\t\t\t\tsys {\n\t\t\t\t\tid\n\t\t\t\t}\n\t\t\t\tslug\n\t\t\t\t__typename\n\n\t\t\t\ttitle\n\t\t\t\tcontent {\n\t\t\t\t\tjson\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n": types.AllInOnePageDocument,
+    "\n\tquery AllInOnePage($slug: String!, $locale: String) {\n\t\tallInOnePageCollection(limit: 1, where: { slug: $slug }) {\n\t\t\ttotal\n\t\t\titems {\n\t\t\t\tsys {\n\t\t\t\t\tid\n\t\t\t\t}\n\t\t\t\tslug\n\t\t\t\t__typename\n\n\t\t\t\ttitle(locale: $locale)\n\t\t\t\tcontent(locale: $locale) {\n\t\t\t\t\tjson\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n": types.AllInOnePageDocument,
 };
 
 /**
@@ -33,7 +33,7 @@ export function graphql(source: string): unknown;
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function graphql(source: "\n\tquery AllInOnePage($slug: String!) {\n\t\tallInOnePageCollection(limit: 1, where: { slug: $slug }) {\n\t\t\ttotal\n\t\t\titems {\n\t\t\t\tsys {\n\t\t\t\t\tid\n\t\t\t\t}\n\t\t\t\tslug\n\t\t\t\t__typename\n\n\t\t\t\ttitle\n\t\t\t\tcontent {\n\t\t\t\t\tjson\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n"): (typeof documents)["\n\tquery AllInOnePage($slug: String!) {\n\t\tallInOnePageCollection(limit: 1, where: { slug: $slug }) {\n\t\t\ttotal\n\t\t\titems {\n\t\t\t\tsys {\n\t\t\t\t\tid\n\t\t\t\t}\n\t\t\t\tslug\n\t\t\t\t__typename\n\n\t\t\t\ttitle\n\t\t\t\tcontent {\n\t\t\t\t\tjson\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n"];
+export function graphql(source: "\n\tquery AllInOnePage($slug: String!, $locale: String) {\n\t\tallInOnePageCollection(limit: 1, where: { slug: $slug }) {\n\t\t\ttotal\n\t\t\titems {\n\t\t\t\tsys {\n\t\t\t\t\tid\n\t\t\t\t}\n\t\t\t\tslug\n\t\t\t\t__typename\n\n\t\t\t\ttitle(locale: $locale)\n\t\t\t\tcontent(locale: $locale) {\n\t\t\t\t\tjson\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n"): (typeof documents)["\n\tquery AllInOnePage($slug: String!, $locale: String) {\n\t\tallInOnePageCollection(limit: 1, where: { slug: $slug }) {\n\t\t\ttotal\n\t\t\titems {\n\t\t\t\tsys {\n\t\t\t\t\tid\n\t\t\t\t}\n\t\t\t\tslug\n\t\t\t\t__typename\n\n\t\t\t\ttitle(locale: $locale)\n\t\t\t\tcontent(locale: $locale) {\n\t\t\t\t\tjson\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n"];
 
 export function graphql(source: string) {
   return (documents as any)[source] ?? {};

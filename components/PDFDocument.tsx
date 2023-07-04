@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import {
 	Document,
 	Font,
@@ -9,7 +11,6 @@ import {
 } from '@react-pdf/renderer'
 
 import path from 'path'
-import { StructuredSheetProps } from './StructuredSheetContent'
 
 Font.register({
 	family: 'Bungee',
@@ -92,7 +93,7 @@ const styles = StyleSheet.create({
 })
 
 // TODO: Links
-const PDFDocument = (props: StructuredSheetProps) => {
+const PDFDocument = (props) => {
 	const { document, title } = props
 	return (
 		<Document title={title} author="Manuel Dugué">

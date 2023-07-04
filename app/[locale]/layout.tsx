@@ -1,7 +1,9 @@
 import { SiGithub, SiLinkedin, SiTwitter } from '@icons-pack/react-simple-icons'
 import ClaimCard from 'components/ClaimCard'
 import DocumentsNavigation from 'components/DocumentsNavigation'
-import LandingPageQuote from 'components/LandingPageQuote'
+import LocaleSwitcher from 'components/locale-switcher'
+import { getDictionary } from 'get-dictionary'
+import { Locale } from 'i18n-config'
 import { Metadata } from 'next'
 import {
 	Bungee,
@@ -12,9 +14,8 @@ import {
 import Link from 'next/link'
 import { Suspense } from 'react'
 import { Person, WithContext } from 'schema-dts'
+import { LocalePageType } from './LocalePageType'
 import './globals.css'
-import { getDictionary } from 'get-dictionary'
-import { Locale } from 'i18n-config'
 
 const montserrat = Montserrat({
 	subsets: ['latin'],
@@ -40,9 +41,8 @@ const bungeeShade = Bungee_Shade({
 export default function MyApp({
 	children,
 	params: { locale },
-}: {
+}: LocalePageType & {
 	children: React.ReactNode
-	params: { locale: Locale }
 }) {
 	return (
 		<html
@@ -117,20 +117,20 @@ async function LegalSection(props: { locale: Locale }) {
 	const { locale } = props
 	const dictionary = await getDictionary(locale)
 	return (
-		<nav className="font-display md:left-auto md:top-4 flex md:flex-col md:text-right text-gray-300 dark:text-gray-500 p-4">
+		<nav className="font-display md:left-auto md:top-4 flex md:flex-col md:text-right md:items-end text-gray-300 dark:text-gray-500 p-4  mx-2">
+			<LocaleSwitcher className="flex gap-1" currentLocale={locale} />
 			<Link
-				href="/legal"
+				href={`${locale}/legal`}
 				prefetch={false}
-				locale={locale}
-				className="mb-2 hover:text-gray-400 mx-2"
+				className=" hover:text-gray-400"
 			>
 				{dictionary.legal}
 			</Link>
 			<Link
-				href="/privacy"
+				href={`${locale}/privacy`}
 				prefetch={false}
 				locale={locale}
-				className="mb-2 hover:text-gray-400 mx-2"
+				className=" hover:text-gray-400"
 			>
 				{dictionary.privacy}
 			</Link>

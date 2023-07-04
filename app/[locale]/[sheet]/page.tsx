@@ -1,13 +1,14 @@
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
+import { SheetContent } from 'components/Sheet'
 import { AllInOnePageQuery } from 'gql/graphql'
 import { gql, request } from 'graphql-request'
 import { Article, WithContext } from 'schema-dts'
-import checkCVSPType from 'util/checkCVSPType'
+import { LocalePageType } from '../LocalePageType'
 
 // TODO export const runtime = 'edge'
 
-const pageQuery = gql`
-	query AllInOnePage($slug: String!) {
+export const pageQuery = gql`
+	query AllInOnePage($slug: String!, $locale: String) {
 		allInOnePageCollection(limit: 1, where: { slug: $slug }) {
 			total
 			items {
@@ -17,8 +18,8 @@ const pageQuery = gql`
 				slug
 				__typename
 
-				title
-				content {
+				title(locale: $locale)
+				content(locale: $locale) {
 					json
 				}
 			}
@@ -34,20 +35,20 @@ export const revalidate = 10
 
 // TODO: Edge?
 
-export default async function Page({ params }: { params: { sheet: string } }) {
-	const { sheet } = params
-	const type = sheet.replaceAll('-', ' ')
-	checkCVSPType(type)
+export default async function Page({
+	params,
+}: LocalePageType<{ sheet: string }>) {
+	const { sheet, locale } = params
 
 	const { allInOnePageCollection } = await request<AllInOnePageQuery>(
 		`https://graphql.contentful.com/content/v1/spaces/${process.env.CONTENTFUL_SPACE_ID}`,
 		pageQuery,
-		{ slug: sheet },
+		{ slug: sheet, locale },
 		{ Authorization: `Bearer ${process.env.CONTENTFUL_ACCESS_TOKEN}` },
 	)
 
 	return (
-		<>
+		<SheetContent title={allInOnePageCollection?.items[0]?.title || ''}>
 			<div
 				className={`
 				leading-6
@@ -58,9 +59,10 @@ export default async function Page({ params }: { params: { sheet: string } }) {
 				md:prose-h2:text-right prose-h2:font-bold prose-h2:text-gradient prose-h2:bg-gradient-to-tr prose-h2:from-teal-500 prose-h2:to-teal-600 md:prose-h2:justify-self-end prose-h2:capitalize prose-h2:text-base prose-h2:mb-0 prose-h2:mt-1
 				prose-h3:font-bold prose-h3:text-gray-700 prose-h3:text-gradient prose-h3:bg-gradient-to-tr prose-h3:from-teal-700 prose-h3:to-teal-600 prose-h3:capitalize prose-h3:mb-0 prose-h3:text-base prose-h3:mt-1
 				prose-p:mt-0 prose-p:mb-2 prose-p:text-gray-800
-				prose-a:text-fuchsia-500 prose-a:font-light prose-a:no-underline hover:prose-a:underline 
+				prose-a:text-fuchsia-400 prose-a:font-medium prose-a:no-underline hover:prose-a:underline 
 				`}
 			>
+				{/* TODO: links to _blank */}
 				{documentToReactComponents(
 					allInOnePageCollection?.items[0]?.content?.json,
 				)}
@@ -72,7 +74,7 @@ export default async function Page({ params }: { params: { sheet: string } }) {
 					dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
 				/>
 			)}
-		</>
+		</SheetContent>
 	)
 }
 

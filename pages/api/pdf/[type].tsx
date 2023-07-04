@@ -1,8 +1,6 @@
 import ReactPDF from '@react-pdf/renderer'
 import PDFDocument from 'components/PDFDocument'
 import type { NextApiRequest, NextApiResponse } from 'next'
-import checkCVSPType from 'util/checkCVSPType'
-import getGoogleSheetsData from 'util/getGoogleSheetsData'
 import notEmpty from 'util/notEmpty'
 
 export default async function pdfHandler(
@@ -13,7 +11,6 @@ export default async function pdfHandler(
 		typeof request.query.type === 'string'
 			? decodeURI(request.query.type || '')
 			: ''
-	checkCVSPType(type)
 
 	const url =
 		request.headers.referer ||
@@ -37,7 +34,7 @@ export default async function pdfHandler(
 	}
 
 	try {
-		const document = await getGoogleSheetsData(type)
+		const document = {} // TODO await getGoogleSheetsData(type)
 
 		const fileStream = await ReactPDF.renderToStream(
 			<PDFDocument {...document} />,
