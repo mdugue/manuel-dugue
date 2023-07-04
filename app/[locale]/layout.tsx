@@ -13,6 +13,8 @@ import Link from 'next/link'
 import { Suspense } from 'react'
 import { Person, WithContext } from 'schema-dts'
 import './globals.css'
+import { getDictionary } from 'get-dictionary'
+import { Locale } from 'i18n-config'
 
 const montserrat = Montserrat({
 	subsets: ['latin'],
@@ -35,14 +37,20 @@ const bungeeShade = Bungee_Shade({
 	variable: '--font-bungee-shade',
 })
 
-export default function MyApp({ children }: { children: React.ReactNode }) {
+export default function MyApp({
+	children,
+	params: { locale },
+}: {
+	children: React.ReactNode
+	params: { locale: Locale }
+}) {
 	return (
 		<html
-			lang="en"
+			lang={locale}
 			className={`${bungee.variable} ${bungeeInline.variable} ${bungeeShade.variable} ${montserrat.variable}`}
 		>
 			<body className="dark:from-black dark:to-gray-800 bg-gradient-to-b from-gray-200 to-white min-h-screen flex flex-col pb-40">
-				<LegalSection />
+				<LegalSection locale={locale} />
 				<div className="m-auto flex items-start flex-col lg:flex-row">
 					<ClaimCard />
 					<Suspense
@@ -105,22 +113,26 @@ function ContactAside() {
 	)
 }
 
-function LegalSection() {
+async function LegalSection(props: { locale: Locale }) {
+	const { locale } = props
+	const dictionary = await getDictionary(locale)
 	return (
 		<nav className="font-display md:left-auto md:top-4 flex md:flex-col md:text-right text-gray-300 dark:text-gray-500 p-4">
 			<Link
 				href="/legal"
 				prefetch={false}
+				locale={locale}
 				className="mb-2 hover:text-gray-400 mx-2"
 			>
-				legal note
+				{dictionary.legal}
 			</Link>
 			<Link
 				href="/privacy"
 				prefetch={false}
+				locale={locale}
 				className="mb-2 hover:text-gray-400 mx-2"
 			>
-				privacy
+				{dictionary.privacy}
 			</Link>
 		</nav>
 	)
