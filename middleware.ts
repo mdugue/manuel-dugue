@@ -22,6 +22,7 @@ function getLocale(request: NextRequest): string | undefined {
 	return locale
 }
 
+// TODO: update to https://nextjs.org/docs/app/building-your-application/routing/internationalization
 export function middleware(request: NextRequest) {
 	const pathname = request.nextUrl.pathname
 

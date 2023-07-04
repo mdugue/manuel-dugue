@@ -16,6 +16,7 @@ import { Suspense } from 'react'
 import { Person, WithContext } from 'schema-dts'
 import { LocalePageType } from './LocalePageType'
 import './globals.css'
+import LandingPageQuote from 'components/LandingPageQuote'
 
 const montserrat = Montserrat({
 	subsets: ['latin'],
@@ -60,7 +61,7 @@ export default function MyApp({
 							</div>
 						}
 					>
-						{/* <LandingPageQuote /> */}
+						<LandingPageQuote />
 					</Suspense>
 				</div>
 				<DocumentsNavigation />
