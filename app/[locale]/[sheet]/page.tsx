@@ -1,31 +1,12 @@
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import { SheetContent } from 'components/Sheet'
 import { AllInOnePageQuery } from 'gql/graphql'
-import { gql, request } from 'graphql-request'
+import { request } from 'graphql-request'
 import { Article, WithContext } from 'schema-dts'
 import { LocalePageType } from '../LocalePageType'
+import { pageQuery } from '../pageQuery'
 
 // TODO export const runtime = 'edge'
-
-export const pageQuery = gql`
-	query AllInOnePage($slug: String!, $locale: String) {
-		allInOnePageCollection(limit: 1, where: { slug: $slug }) {
-			total
-			items {
-				sys {
-					id
-				}
-				slug
-				__typename
-
-				title(locale: $locale)
-				content(locale: $locale) {
-					json
-				}
-			}
-		}
-	}
-`
 
 export async function generateStaticParams() {
 	return ['cv', 'skill-profile'].map((sheet) => ({ sheet }))
