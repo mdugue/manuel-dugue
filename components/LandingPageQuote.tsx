@@ -8,6 +8,7 @@ import { Locale } from 'i18n-config'
 import Link from 'next/link'
 import { Configuration, OpenAIApi } from 'openai-edge'
 import { Suspense } from 'react'
+import GPTTooltip from './GPTTooltip'
 
 export const runtime = 'edge'
 
@@ -109,30 +110,33 @@ function Container({
 			<blockquote className="bg-gradient-to-tl border border-pink-500 from-fuchsia-500 to-pink-400 dark:from-amber-800 dark:to-yellow-500 contact shadow-lg text-amber-50 px-10 py-9 rounded-3xl max-w-xl md:mx-auto prose prose-strong:font-bold mx-4 lg:-ml-12 font-medium prose-headings:text-amber-100 whitespace-break-spaces">
 				{children}
 			</blockquote>
-			<figcaption className="text-gray-400 ml-auto text-right text-sm mt-2 mr-5">
-				{locale === 'de' ? (
-					<>
-						– GPT zu meinem{' '}
-						<Link
-							href="/de/skill-profile"
-							prefetch={false}
-							className="text-indigo-400 hover:text-indigo-600 hover:underline dark:hover:text-amber-900 pb-7"
-						>
-							Skill Profile
-						</Link>
-					</>
-				) : (
-					<>
-						– GPT after reading my{' '}
-						<Link
-							href="/en/skill-profile"
-							prefetch={false}
-							className="text-indigo-400 hover:text-indigo-600 hover:underline dark:hover:text-amber-900 pb-7"
-						>
-							Skill Profile
-						</Link>
-					</>
-				)}
+			<figcaption className="text-gray-400 ml-auto text-right text-sm mt-2 mr-1 flex items-center gap-1 justify-end">
+				<span>
+					{locale === 'de' ? (
+						<>
+							– GPT zu meinem{' '}
+							<Link
+								href="/de/skill-profile"
+								prefetch={false}
+								className="text-indigo-400 hover:text-indigo-600 hover:underline dark:hover:text-amber-900 pb-7"
+							>
+								Skill Profile
+							</Link>
+						</>
+					) : (
+						<>
+							– GPT after reading my{' '}
+							<Link
+								href="/en/skill-profile"
+								prefetch={false}
+								className="text-indigo-400 hover:text-indigo-600 hover:underline dark:hover:text-amber-900 pb-7"
+							>
+								Skill Profile
+							</Link>
+						</>
+					)}
+				</span>
+				<GPTTooltip />
 			</figcaption>
 		</figure>
 	)
