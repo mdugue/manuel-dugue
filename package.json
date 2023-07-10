@@ -42,6 +42,7 @@
 	"dependencies": {
 		"@contentful/rich-text-html-renderer": "^16.1.0",
 		"@contentful/rich-text-react-renderer": "^15.17.0",
+		"@contentful/rich-text-types": "^16.2.0",
 		"@formatjs/intl-localematcher": "^0.4.0",
 		"@heroicons/react": "^2.0.18",
 		"@icons-pack/react-simple-icons": "8.0.1",

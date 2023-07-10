@@ -9,8 +9,6 @@ import Link from 'next/link'
 import { Configuration, OpenAIApi } from 'openai-edge'
 import { Suspense } from 'react'
 
-// Optional, but recommended: run on the edge runtime.
-// See https://vercel.com/docs/concepts/functions/edge-functions
 export const runtime = 'edge'
 
 const apiConfig = new Configuration({
@@ -103,7 +101,6 @@ function Container({
 }) {
 	return (
 		<figure
-			className="font-sans"
 			style={{
 				transform:
 					'perspective(60vmin) rotateX(3deg) rotateY(-4deg) rotateZ(3deg)',
