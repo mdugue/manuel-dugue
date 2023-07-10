@@ -16,7 +16,7 @@ import { Suspense } from 'react'
 import { Person, WithContext } from 'schema-dts'
 import { LocalePageType } from './LocalePageType'
 import './globals.css'
-import LandingPageQuote from 'components/LandingPageQuote'
+/* import LandingPageQuote from 'components/LandingPageQuote' */
 
 export const revalidate = 60 * 60 * 24 // 1 day
 
@@ -63,7 +63,7 @@ export default function MyApp({
 							</div>
 						}
 					>
-						<LandingPageQuote locale={locale} />
+						{/* <LandingPageQuote locale={locale} /> */}
 					</Suspense>
 				</div>
 				<DocumentsNavigation />
