@@ -4,7 +4,7 @@ import DocumentsNavigation from 'components/DocumentsNavigation'
 import LandingPageQuote from 'components/LandingPageQuote'
 import LocaleSwitcher from 'components/locale-switcher'
 import { getDictionary } from 'get-dictionary'
-import { Locale } from 'i18n-config'
+import { Locale, i18n } from 'i18n-config'
 import { Metadata } from 'next'
 import {
 	Bungee,
@@ -220,34 +220,43 @@ const jsonLd: WithContext<Person> = {
 	],
 }
 
-export const metadata: Metadata = {
-	title: {
-		template: '%s – Manuel Dugué',
-		default: 'Manuel Dugué – Freelance Web Development',
-	},
-	alternates: { canonical: `https://manuel.fyi/` },
-	description:
-		'Handcrafting web experiences since 2008. Teaching, analyzing, coding. For consumers, experts & bots.',
-	openGraph: {
-		url: 'https://manuel.fyi/',
-		title: "default: 'Manuel Dugué – Freelance Web Development",
-		siteName: 'Manuel Dugué – freelance web developer',
-	},
-	twitter: {
-		creator: '@mdugue',
-		site: '@mdugue',
-		card: 'summary_large_image',
-	},
-	applicationName: 'Portfolio of Manuel Dugué',
-	referrer: 'origin-when-cross-origin',
-	keywords: [
-		'Web Development',
-		'React',
-		'Next.js',
-		'TypeScript',
-		'SEO',
-		'Accessibility',
-		'Performance',
-		'Design',
-	],
+export async function generateMetadata({
+	params,
+}: LocalePageType): Promise<Metadata> {
+	return {
+		title: {
+			template: '%s – Manuel Dugué',
+			default: 'Manuel Dugué – Freelance Web Development',
+		},
+		alternates: {
+			canonical: `https://manuel.fyi/${params.locale}`,
+			languages: Object.fromEntries(
+				i18n.locales.map((locale) => [locale, `https://manuel.fyi/${locale}`]),
+			),
+		},
+		description:
+			'Handcrafting web experiences since 2008. Teaching, analyzing, coding. For consumers, experts & bots.',
+		openGraph: {
+			url: 'https://manuel.fyi/',
+			title: "default: 'Manuel Dugué – Freelance Web Development",
+			siteName: 'Manuel Dugué – freelance web developer',
+		},
+		twitter: {
+			creator: '@mdugue',
+			site: '@mdugue',
+			card: 'summary_large_image',
+		},
+		applicationName: 'Portfolio of Manuel Dugué',
+		referrer: 'origin-when-cross-origin',
+		keywords: [
+			'Web Development',
+			'React',
+			'Next.js',
+			'TypeScript',
+			'SEO',
+			'Accessibility',
+			'Performance',
+			'Design',
+		],
+	}
 }
