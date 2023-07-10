@@ -1,12 +1,12 @@
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
+import { graphqlClient } from 'app/graphQlClient'
 import { SheetContent } from 'components/Sheet'
 import { AllInOnePageQuery } from 'gql/graphql'
-import { GraphQLClient } from 'graphql-request'
 import { Article, WithContext } from 'schema-dts'
 import { LocalePageType } from '../LocalePageType'
 import { pageQuery } from '../pageQuery'
 
-const client = new GraphQLClient(`https://graphql.contentful.com/content/v1/spaces/${process.env.CONTENTFUL_SPACE_ID}`, { fetch: fetch, headers: { Authorization: `Bearer ${process.env.CONTENTFUL_ACCESS_TOKEN}` }	 });
+
 
 export const runtime = 'edge'
 
@@ -23,7 +23,7 @@ export default async function Page({
 }: LocalePageType<{ sheet: string }>) {
 	const { sheet, locale } = params
 
-	const { allInOnePageCollection } = await client.request<AllInOnePageQuery>(
+	const { allInOnePageCollection } = await graphqlClient.request<AllInOnePageQuery>(
 		pageQuery,
 		{ slug: sheet, locale },
 	)
