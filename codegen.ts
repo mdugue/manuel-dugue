@@ -13,7 +13,7 @@ const config: CodegenConfig = {
 			},
 		},
 	},
-	documents: ['./**/*.tsx'],
+	documents: ['./**/*.tsx', './**/*.ts'],
 	generates: {
 		'./gql/': {
 			// TODO: Generated!
