@@ -1,13 +1,12 @@
 import Sheet from 'components/Sheet'
+import { i18n } from 'i18n-config'
 import { Metadata } from 'next'
+import { LocalePageType } from '../LocalePageType'
 
 export const runtime = 'edge'
 export const revalidate = 60
 
-type Props = {
-	children: React.ReactNode
-	params: { sheet: string }
-}
+type Props = { children: React.ReactNode }
 
 export default function SheetLayout({ children }: Props) {
 	return <Sheet>{children}</Sheet>
@@ -16,17 +15,22 @@ export default function SheetLayout({ children }: Props) {
 // TODO: Check
 export async function generateMetadata({
 	params,
-	...rest
-}: Props): Promise<Metadata> {
-	console.log('rest', rest)
-	console.log('params', params)
-	const { sheet } = params
+}: LocalePageType<{ sheet: string }>): Promise<Metadata> {
+	const { sheet, locale } = params
 	const title = createTitle(sheet)
 	return {
 		title,
-		alternates: { canonical: `https://manuel.fyi/${sheet}` },
+		alternates: {
+			canonical: `https://manuel.fyi/${locale}/${sheet}`,
+			languages: Object.fromEntries(
+				i18n.locales.map((locale) => [
+					locale,
+					`https://manuel.fyi/${locale}/${sheet}`,
+				]),
+			),
+		},
 		openGraph: {
-			url: `https://manuel.fyi/${sheet}`,
+			url: `https://manuel.fyi/${locale}/${sheet}`,
 			type: 'article',
 			title: `${title} | Manuel Dugué – Freelance Web Development`,
 			description:
