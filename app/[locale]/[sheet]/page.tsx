@@ -6,7 +6,7 @@ import { Article, WithContext } from 'schema-dts'
 import { LocalePageType } from '../LocalePageType'
 import { pageQuery } from '../pageQuery'
 
-// TODO export const runtime = 'edge'
+export const runtime = 'edge'
 
 export async function generateStaticParams() {
 	return ['cv', 'skill-profile'].map((sheet) => ({ sheet }))
