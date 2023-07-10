@@ -6,8 +6,6 @@ import { Article, WithContext } from 'schema-dts'
 import { LocalePageType } from '../LocalePageType'
 import { pageQuery } from '../pageQuery'
 
-
-
 export const runtime = 'edge'
 
 export async function generateStaticParams() {
@@ -15,8 +13,6 @@ export async function generateStaticParams() {
 }
 
 export const revalidate = 10
-
-// TODO: Edge?
 
 export default async function Page({
 	params,

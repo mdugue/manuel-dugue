@@ -1,6 +1,7 @@
 import { SiGithub, SiLinkedin, SiTwitter } from '@icons-pack/react-simple-icons'
 import ClaimCard from 'components/ClaimCard'
 import DocumentsNavigation from 'components/DocumentsNavigation'
+import LandingPageQuote from 'components/LandingPageQuote'
 import LocaleSwitcher from 'components/locale-switcher'
 import { getDictionary } from 'get-dictionary'
 import { Locale } from 'i18n-config'
@@ -16,8 +17,8 @@ import { Suspense } from 'react'
 import { Person, WithContext } from 'schema-dts'
 import { LocalePageType } from './LocalePageType'
 import './globals.css'
-/* import LandingPageQuote from 'components/LandingPageQuote' */
 
+export const runtime = 'edge'
 export const revalidate = 60 * 60 * 24 // 1 day
 
 const montserrat = Montserrat({
@@ -63,7 +64,7 @@ export default function MyApp({
 							</div>
 						}
 					>
-						{/* <LandingPageQuote locale={locale} /> */}
+						<LandingPageQuote locale={locale} />
 					</Suspense>
 				</div>
 				<DocumentsNavigation />

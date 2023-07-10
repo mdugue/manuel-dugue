@@ -1,10 +1,12 @@
-import { Configuration, OpenAIApi } from 'openai-edge'
-import { OpenAIStream } from 'ai'
-import { Suspense } from 'react'
-import Link from 'next/link'
-import { pageQuery } from 'app/[locale]/pageQuery'
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer'
+import { OpenAIStream } from 'ai'
+import { pageQuery } from 'app/[locale]/pageQuery'
+import { graphqlClient } from 'app/graphQlClient'
+import { AllInOnePageQuery } from 'gql/graphql'
 import { Locale } from 'i18n-config'
+import Link from 'next/link'
+import { Configuration, OpenAIApi } from 'openai-edge'
+import { Suspense } from 'react'
 
 // Optional, but recommended: run on the edge runtime.
 // See https://vercel.com/docs/concepts/functions/edge-functions
@@ -20,21 +22,12 @@ const langauges = { de: 'german', en: 'english' }
 
 export default async function Quote(props: { locale: Locale }) {
 	const { locale } = props
-	const cmsResponse = await fetch(
-		`https://graphql.contentful.com/content/v1/spaces/${process.env.CONTENTFUL_SPACE_ID}`,
-		{
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json',
-				Authorization: `Bearer ${process.env.CONTENTFUL_ACCESS_TOKEN}`,
-			},
-			body: JSON.stringify({
-				query: pageQuery,
-				variables: { slug: 'skill-profile', locale: 'en' },
-			}),
-		},
+	const {allInOnePageCollection} = await graphqlClient.request<AllInOnePageQuery>(
+		
+				pageQuery,
+				 { slug: 'skill-profile', locale: 'en' },
+			
 	)
-	const { data } = await cmsResponse.json()
 
 	// Request the OpenAI API for the response based on the prompt
 	const response = await openai.createChatCompletion({
@@ -45,7 +38,7 @@ export default async function Quote(props: { locale: Locale }) {
 			{
 				role: 'system',
 				content: `You are a physically existing creative engineer called Manuel, who is passionate about product development and has a academic technical background with lots of experience in the field. Your answers are short and entertaining. Your responses are formatted as plain text, using \n for new lines. Don't use html tags. Write a short summary about yourself in the first person perspective, based on the following skill profile: 
-${documentToHtmlString(data.allInOnePageCollection?.items[0]?.content?.json)}
+${documentToHtmlString(allInOnePageCollection?.items[0]?.content?.json)}
 				
 Use a professional style, don't use the word "skill profile". The content should emphasize soft skills and drop some technical terms. Don't use more than 100 words in total and split the text at least into 2 paragraphs.
 Use ${langauges[locale]} language

@@ -1,6 +1,7 @@
 import Sheet from 'components/Sheet'
 import { Metadata } from 'next'
 
+export const runtime = 'edge'
 export const revalidate = 60
 
 type Props = {
