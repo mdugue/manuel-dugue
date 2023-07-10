@@ -1,6 +1,7 @@
 import Sheet from 'components/Sheet'
 import { Metadata } from 'next'
 
+export const runtime = 'edge'
 export const revalidate = 60
 
 type Props = {
@@ -8,12 +9,11 @@ type Props = {
 	params: { sheet: string }
 }
 
-export default function SheetLayout({ children, params }: Props) {
-	const { sheet } = params
-	const title = createTitle(sheet)
-	return <Sheet title={title}>{children}</Sheet>
+export default function SheetLayout({ children }: Props) {
+	return <Sheet>{children}</Sheet>
 }
 
+// TODO: Check
 export async function generateMetadata({
 	params,
 	...rest

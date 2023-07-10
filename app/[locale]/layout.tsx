@@ -2,6 +2,9 @@ import { SiGithub, SiLinkedin, SiTwitter } from '@icons-pack/react-simple-icons'
 import ClaimCard from 'components/ClaimCard'
 import DocumentsNavigation from 'components/DocumentsNavigation'
 import LandingPageQuote from 'components/LandingPageQuote'
+import LocaleSwitcher from 'components/locale-switcher'
+import { getDictionary } from 'get-dictionary'
+import { Locale } from 'i18n-config'
 import { Metadata } from 'next'
 import {
 	Bungee,
@@ -12,7 +15,11 @@ import {
 import Link from 'next/link'
 import { Suspense } from 'react'
 import { Person, WithContext } from 'schema-dts'
+import { LocalePageType } from './LocalePageType'
 import './globals.css'
+
+export const runtime = 'edge'
+export const revalidate = 60 * 60 * 24 // 1 day
 
 const montserrat = Montserrat({
 	subsets: ['latin'],
@@ -35,27 +42,32 @@ const bungeeShade = Bungee_Shade({
 	variable: '--font-bungee-shade',
 })
 
-export default function MyApp({ children }: { children: React.ReactNode }) {
+export default function MyApp({
+	children,
+	params: { locale },
+}: LocalePageType & {
+	children: React.ReactNode
+}) {
 	return (
 		<html
-			lang="en"
+			lang={locale}
 			className={`${bungee.variable} ${bungeeInline.variable} ${bungeeShade.variable} ${montserrat.variable}`}
 		>
 			<body className="dark:from-black dark:to-gray-800 bg-gradient-to-b from-gray-200 to-white min-h-screen flex flex-col pb-40">
-				<LegalSection />
+				<LegalSection locale={locale} />
 				<div className="m-auto flex items-start flex-col lg:flex-row">
 					<ClaimCard />
 					<Suspense
 						fallback={
-							<div className="text-gray-400 font-display">
-								Loading GPT Quote...
+							<div className="text-gray-400 font-display animate-pulse">
+								GPT reading my Skill Profile …
 							</div>
 						}
 					>
-						<LandingPageQuote />
+						<LandingPageQuote locale={locale} />
 					</Suspense>
 				</div>
-				<DocumentsNavigation />
+				<DocumentsNavigation locale={locale} />
 				<div className="lg:fixed bottom-0 left-0 mb-4 ml-6">
 					<ContactAside />
 				</div>
@@ -105,22 +117,26 @@ function ContactAside() {
 	)
 }
 
-function LegalSection() {
+async function LegalSection(props: { locale: Locale }) {
+	const { locale } = props
+	const dictionary = await getDictionary(locale)
 	return (
-		<nav className="font-display md:left-auto md:top-4 flex md:flex-col md:text-right text-gray-300 dark:text-gray-500 p-4">
+		<nav className="font-display md:left-auto md:top-4 flex md:flex-col md:text-right md:items-end text-gray-300 dark:text-gray-500 p-4  mx-2">
+			<LocaleSwitcher className="flex gap-1" currentLocale={locale} />
 			<Link
-				href="/legal"
+				href={`${locale}/legal`}
 				prefetch={false}
-				className="mb-2 hover:text-gray-400 mx-2"
+				className=" hover:text-gray-400"
 			>
-				legal note
+				{dictionary.legal}
 			</Link>
 			<Link
-				href="/privacy"
+				href={`${locale}/privacy`}
 				prefetch={false}
-				className="mb-2 hover:text-gray-400 mx-2"
+				locale={locale}
+				className=" hover:text-gray-400"
 			>
-				privacy
+				{dictionary.privacy}
 			</Link>
 		</nav>
 	)
