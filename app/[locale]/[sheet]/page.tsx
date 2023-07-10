@@ -5,11 +5,14 @@ import { AllInOnePageQuery } from 'gql/graphql'
 import { Article, WithContext } from 'schema-dts'
 import { LocalePageType } from '../LocalePageType'
 import { pageQuery } from '../pageQuery'
+import { i18n } from 'i18n-config'
 
 export const runtime = 'edge'
 
 export async function generateStaticParams() {
-	return ['cv', 'skill-profile'].map((sheet) => ({ sheet }))
+	return ['cv', 'skill-profile'].flatMap((sheet) =>
+		i18n.locales.map((locale) => ({ sheet, locale })),
+	)
 }
 
 export const revalidate = 10
@@ -19,10 +22,11 @@ export default async function Page({
 }: LocalePageType<{ sheet: string }>) {
 	const { sheet, locale } = params
 
-	const { allInOnePageCollection } = await graphqlClient.request<AllInOnePageQuery>(
-		pageQuery,
-		{ slug: sheet, locale },
-	)
+	const { allInOnePageCollection } =
+		await graphqlClient.request<AllInOnePageQuery>(pageQuery, {
+			slug: sheet,
+			locale,
+		})
 
 	return (
 		<SheetContent title={allInOnePageCollection?.items[0]?.title || ''}>

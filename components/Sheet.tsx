@@ -25,9 +25,8 @@ export function SheetContent(props: { title?: string; children?: ReactNode }) {
 	return (
 		<>
 			<nav className="absolute right-0 top-0 flex text-gray-400 m-1 gap-1">
-				{/* TODO: Localization */}
 				<Link
-					href="/de"
+					href="."
 					title="close"
 					className="hover:bg-gradient-to-tr hover:from-teal-100 hover:to-teal-50 hover:text-teal-600 rounded-md py-4 px-4 cursor-pointer flex items-center focus:outline-none focus:ring-2 focus:ring-teal-600 text-sm"
 				>
