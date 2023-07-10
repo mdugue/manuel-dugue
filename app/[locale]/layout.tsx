@@ -67,7 +67,7 @@ export default function MyApp({
 						<LandingPageQuote locale={locale} />
 					</Suspense>
 				</div>
-				<DocumentsNavigation />
+				<DocumentsNavigation locale={locale} />
 				<div className="lg:fixed bottom-0 left-0 mb-4 ml-6">
 					<ContactAside />
 				</div>

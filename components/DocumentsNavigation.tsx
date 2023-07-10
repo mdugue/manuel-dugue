@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { animated, to } from '@react-spring/web'
 
 import useMaterial from '../hooks/useMaterial'
+import { Locale } from 'i18n-config'
 
 const transFooter = (x: number, y: number) => {
 	return `translateZ(20px) perspective(60vmin) rotateX(${
@@ -11,7 +12,7 @@ const transFooter = (x: number, y: number) => {
 	}deg) rotateY(${15 * (x - 1)}deg)`
 }
 
-export default function DocumentsNavigation() {
+export default function DocumentsNavigation({locale}: {locale: Locale}) {
 	const { props, onMouseMove, onMouseLeave } = useMaterial([-0.9, -0.9], {
 		mass: 1,
 		tension: 450,
@@ -26,14 +27,14 @@ export default function DocumentsNavigation() {
 			style={{ transform: to(props.xy, transFooter) }}
 		>
 			<Link
-				href="/cv"
+				href={`/${locale}/cv`}
 				prefetch={false}
 				className="hover:text-teal-500 dark:hover:text-amber-900 pt-7"
 			>
 				CV
 			</Link>
 			<Link
-				href="/skill-profile"
+				href={`/${locale}/skill-profile`}
 				prefetch={false}
 				className="hover:text-fuchsia-500 dark:hover:text-amber-900 pb-7"
 			>
