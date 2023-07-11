@@ -17,7 +17,7 @@ export async function generateStaticParams() {
 	)
 }
 
-export const revalidate = 10
+export const revalidate = 60 * 60 * 24
 
 export default async function Page({
 	params,

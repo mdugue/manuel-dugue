@@ -12,7 +12,7 @@ const transFooter = (x: number, y: number) => {
 	}deg) rotateY(${15 * (x - 1)}deg)`
 }
 
-export default function DocumentsNavigation({locale}: {locale: Locale}) {
+export default function DocumentsNavigation({ locale }: { locale: Locale }) {
 	const { props, onMouseMove, onMouseLeave } = useMaterial([-0.9, -0.9], {
 		mass: 1,
 		tension: 450,
@@ -21,7 +21,7 @@ export default function DocumentsNavigation({locale}: {locale: Locale}) {
 
 	return (
 		<animated.nav
-			className="flex flex-col bg-gradient-to-tl from-amber-500 to-yellow-300 hover:from-amber-400  hover:to-yellow-300 dark:from-amber-800 dark:to-yellow-500 contact shadow-lg rounded-full text-amber-50 font-inline text-xl px-6 fixed bottom-4 self-end transform-gpu right-6 z-50"
+			className="flex flex-col bg-gradient-to-tl from-amber-500 to-yellow-300 hover:from-amber-400  hover:to-yellow-300 dark:from-amber-800 dark:to-yellow-500 contact shadow-lg rounded-full text-amber-50 font-inline text-xl px-6 fixed bottom-4 self-end transform-gpu right-6 z-50 belowMd:!transform-none"
 			onMouseMove={onMouseMove}
 			onMouseLeave={onMouseLeave}
 			style={{ transform: to(props.xy, transFooter) }}

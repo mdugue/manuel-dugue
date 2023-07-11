@@ -6,10 +6,11 @@ import { ReactNode } from 'react'
 export default function Sheet(props: { children: ReactNode }) {
 	return (
 		<div
-			className="font-sans p-2 lg:p-8 absolute inset-0 z-10"
+			className="font-sans p-2 lg:p-8 inset-0 z-20 fixed"
 			role="dialog"
 			aria-labelledby="dialog-title"
 			aria-describedby="dialog-content"
+			style={{ transform: 'translateZ(10px)' }}
 		>
 			<BackOnEsc />
 			<main className="shadow-2xl font-sans bg-white p-1 py-10 px-8 lg:py-20 lg:px-14 m-auto overflow-y-auto overflow-x-hidden relative rounded-sm max-h-full md:aspect-[2/3]">

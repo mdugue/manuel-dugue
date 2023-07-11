@@ -102,12 +102,13 @@ function Container({
 }) {
 	return (
 		<figure
+			className="belowMd:!transform-none mb-8"
 			style={{
 				transform:
 					'perspective(60vmin) rotateX(3deg) rotateY(-4deg) rotateZ(3deg)',
 			}}
 		>
-			<blockquote className="bg-gradient-to-tl border border-pink-500 from-fuchsia-500 to-pink-400 dark:from-amber-800 dark:to-yellow-500 contact shadow-lg text-amber-50 px-10 py-9 rounded-3xl max-w-xl md:mx-auto prose prose-strong:font-bold mx-4 lg:-ml-12 font-medium prose-headings:text-amber-100 whitespace-break-spaces">
+			<blockquote className="bg-gradient-to-tl border border-pink-500 from-fuchsia-500 to-pink-400 dark:from-amber-800 dark:to-yellow-500 contact shadow-xl text-amber-50 px-6 md:px-10 py-5 md:py-9 rounded-lg md:rounded-3xl max-w-xl md:mx-auto prose prose-strong:font-bold mx-2 lg:-ml-12 font-medium prose-headings:text-amber-100 whitespace-break-spaces">
 				{children}
 			</blockquote>
 			<figcaption className="text-gray-400 ml-auto text-right text-sm mt-2 mr-1 flex items-center gap-1 justify-end">

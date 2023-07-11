@@ -55,7 +55,7 @@ export default function ClaimCard() {
 			style={{
 				transform: to(xy, trans1),
 			}}
-			className="md:text-xl bg-gradient-to-tr border border-teal-300 from-teal-500 to-teal-200 dark:from-teal-700 dark:to-teal-600 text-white dark:text-gray-900 px-4 py-8 md:px-24 md:py-12 rounded-lg md:rounded-3xl shadow-xl self-start mx-2 text-center z-10 my-auto"
+			className="md:text-xl bg-gradient-to-tr border border-teal-300 from-teal-500 to-teal-200 dark:from-teal-700 dark:to-teal-600 text-white dark:text-gray-900 px-4 py-8 md:px-24 md:py-12 rounded-lg md:rounded-3xl shadow-xl self-start mx-2 text-center z-10 my-auto belowMd:!transform-none relative"
 		>
 			<div className="inset-0 absolute overflow-hidden rounded-lg md:rounded-3xl">
 				<animated.div

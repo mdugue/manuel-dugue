@@ -55,7 +55,7 @@ export default function MyApp({
 		>
 			<body className="dark:from-black dark:to-gray-800 bg-gradient-to-b from-gray-200 to-white min-h-screen flex flex-col pb-40">
 				<LegalSection locale={locale} />
-				<div className="m-auto flex items-start flex-col lg:flex-row">
+				<div className="m-auto flex items-start flex-col lg:flex-row gap-2">
 					<ClaimCard />
 					<Suspense
 						fallback={
@@ -121,8 +121,8 @@ async function LegalSection(props: { locale: Locale }) {
 	const { locale } = props
 	const dictionary = await getDictionary(locale)
 	return (
-		<nav className="font-display md:left-auto md:top-4 flex md:flex-col md:text-right md:items-end text-gray-300 dark:text-gray-500 p-4  mx-2">
-			<LocaleSwitcher className="flex gap-1" currentLocale={locale} />
+		<nav className="font-display md:left-auto md:top-4 flex gap-x-2 md:flex-col md:text-right md:items-end text-gray-300 dark:text-gray-500 p-4 mx-2 coarse:text-lg">
+			<LocaleSwitcher className="flex gap-2" currentLocale={locale} />
 			<Link
 				href={`${locale}/legal`}
 				prefetch={false}

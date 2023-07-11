@@ -14,6 +14,7 @@ module.exports = {
 		extend: {
 			screens: {
 				coarse: { raw: '(pointer: coarse)' },
+				belowMd: { max: '639px' },
 			},
 			colors: {
 				teal: colors.teal,

@@ -27,7 +27,7 @@ export default function LocaleSwitcher(props: {
 								href={redirectedPathName(locale)}
 								className={`${
 									currentLocale === locale
-										? 'text-indigo-300'
+										? 'text-teal-500'
 										: 'hover:text-gray-400'
 								}`}
 							>
