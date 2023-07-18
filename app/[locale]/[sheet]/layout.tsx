@@ -4,7 +4,7 @@ import { Metadata } from 'next'
 import { LocalePageType } from '../LocalePageType'
 
 export const runtime = 'edge'
-export const revalidate = 60 * 60 * 24
+export const revalidate = 60 * 60 * 24 * 7 // 7 days
 
 type Props = { children: React.ReactNode }
 

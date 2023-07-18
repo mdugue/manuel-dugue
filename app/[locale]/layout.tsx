@@ -19,7 +19,7 @@ import { LocalePageType } from './LocalePageType'
 import './globals.css'
 
 export const runtime = 'edge'
-export const revalidate = 60 * 60 * 24 // 1 day
+export const revalidate = 60 * 60 * 24 * 7 // 7 days
 
 const montserrat = Montserrat({
 	subsets: ['latin'],
