@@ -10,13 +10,13 @@ import { Configuration, OpenAIApi } from 'openai-edge'
 import { Suspense } from 'react'
 import GPTTooltip from './GPTTooltip'
 
-export const runtime = 'edge'
-
 const apiConfig = new Configuration({
 	apiKey: process.env.OPENAI_API_KEY!,
 })
 
-const openai = new OpenAIApi(apiConfig)
+const openai = new OpenAIApi(apiConfig, undefined, (i, init) =>
+	fetch(i, { ...init, next: { revalidate: 60 * 60 * 24 } }),
+)
 
 const langauges = { de: 'german', en: 'english' }
 
