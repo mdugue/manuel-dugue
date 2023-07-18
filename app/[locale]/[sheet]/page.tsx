@@ -10,7 +10,7 @@ import { LocalePageType } from '../LocalePageType'
 import { pageQuery } from '../pageQuery'
 
 export const runtime = 'edge'
-export const revalidate = 60 * 60 * 24
+export const revalidate = 60 // 1 minute
 
 export function generateStaticParams() {
 	return (['cv', 'skill-profile'] as const).flatMap((sheet) =>

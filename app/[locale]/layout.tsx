@@ -19,7 +19,7 @@ import { LocalePageType } from './LocalePageType'
 import './globals.css'
 
 export const runtime = 'edge'
-export const revalidate = 60 * 60 * 24 // 1 day
+export const revalidate = 60 // 1 minute
 
 export function generateStaticParams() {
 	return i18n.locales.map((locale) => ({ locale }))

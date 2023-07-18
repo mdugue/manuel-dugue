@@ -15,7 +15,7 @@ const apiConfig = new Configuration({
 })
 
 const openai = new OpenAIApi(apiConfig, undefined, (i, init) =>
-	fetch(i, { ...init, next: { revalidate: 60 * 60 * 24 } }),
+	fetch(i, { ...init, next: { revalidate: 86400 /*1 day: 60 * 60 * 24*/ } }),
 )
 
 const langauges = { de: 'german', en: 'english' }
