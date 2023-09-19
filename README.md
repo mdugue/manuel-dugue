@@ -9,3 +9,9 @@ minimalist & playful portfolio / business card
 ---
 
 [Next.js](https://nextjs.org/), [vercel](https://vercel.com/), [dynamic SSR pdf](https://github.com/alixaxel/chrome-aws-lambda), [google sheets](http://sheets.google.com/)
+
+---
+
+[![Types & Lint](https://github.com/mdugue/manuel-dugue/actions/workflows/main.yml/badge.svg)](https://github.com/mdugue/manuel-dugue/actions/workflows/main.yml)
+
+[![CodeQL](https://github.com/mdugue/manuel-dugue/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/mdugue/manuel-dugue/actions/workflows/codeql-analysis.yml)
