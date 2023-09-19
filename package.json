@@ -52,7 +52,7 @@
     "@react-spring/web": "^9.7.3",
     "@types/node": "^20.6.2",
     "@types/react": "^18.2.22",
-    "@vercel/kv": "^0.2.2",
+    "@vercel/kv": "^0.2.3",
     "ai": "^2.2.12",
     "autoprefixer": "^10.4.15",
     "framer-motion": "^10.16.4",
