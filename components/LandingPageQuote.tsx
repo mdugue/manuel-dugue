@@ -6,17 +6,18 @@ import { graphqlClient } from 'app/graphQlClient'
 import { AllInOnePageQuery } from 'gql/graphql'
 import { Locale } from 'i18n-config'
 import Link from 'next/link'
-import { Configuration, OpenAIApi } from 'openai-edge'
+import OpenAi from 'openai'
 import { Suspense } from 'react'
 import GPTTooltip from './GPTTooltip'
 
-const apiConfig = new Configuration({
+const openai = new OpenAi({
 	apiKey: process.env.OPENAI_API_KEY!,
+	fetch: (input, init) =>
+		fetch(input, {
+			...init,
+			next: { revalidate: 86400 /*1 day: 60 * 60 * 24*/ },
+		}),
 })
-
-const openai = new OpenAIApi(apiConfig, undefined, (i, init) =>
-	fetch(i, { ...init, next: { revalidate: 86400 /*1 day: 60 * 60 * 24*/ } }),
-)
 
 const langauges = { de: 'german', en: 'english' }
 
@@ -38,7 +39,7 @@ export default async function Quote(props: { locale: Locale }) {
 	if (cached && typeof cached === 'string')
 		return <Container locale={locale}>{cached}</Container>
 
-	const response = await openai.createChatCompletion({
+	const response = await openai.chat.completions.create({
 		model: 'gpt-4',
 		stream: true,
 		messages: [

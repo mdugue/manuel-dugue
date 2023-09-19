@@ -5,77 +5,29 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: Set Up Node
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18
-
-      - name: Install PNPM
-        uses: pnpm/action-setup@v2
-        with:
-          version: latest
-
-      - name: Get pnpm store directory
-        id: pnpm-cache
-        shell: bash
-        run: |
-          echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
-
-      - uses: actions/cache@v3
-        name: Setup pnpm cache
-        id: 'pnpm-cache-setup'
-        with:
-          path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
-          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-pnpm-store-
+      - uses: oven-sh/setup-bun@v1
 
       - name: Install Dependencies
-        run: pnpm install --frozen-lockfile
+        run: bun install --frozen-lockfile
 
       - name: check types
-        run: pnpm run tsc
+        run: bun tsc
   lighthouse:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: Install PNPM
-        uses: pnpm/action-setup@v2
-        with:
-          version: latest
-
-      - name: Set Up Node
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18
-          cache: 'pnpm'
-
-      - name: Get pnpm store directory
-        id: pnpm-cache
-        shell: bash
-        run: |
-          echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
-
-      - name: Setup pnpm cache
-        uses: actions/cache@v3
-        with:
-          path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
-          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-pnpm-store-
-
       - name: Install Dependencies
-        run: pnpm install --frozen-lockfile
+        run: bun install --frozen-lockfile
       - name: build app
-        run: TEST_SECRET="${{secrets.TEST_SECRET}}" TEST2="This is a simple test" pnpm run build
+        run: TEST_SECRET="${{secrets.TEST_SECRET}}" TEST2="This is a simple test" bun run build
         env:
           GOOGLE_SHEETS_AUTH: ${{secrets.GOOGLE_SHEETS_AUTH}}
           GOOGLE_SHEET_CV_ID: ${{secrets.GOOGLE_SHEET_CV_ID}}
