@@ -1,4 +1,4 @@
-name: Lighthouse CI
+name: Types & Lint
 on:
   push:
     branches:
@@ -21,3 +21,6 @@ jobs:
 
       - name: check types
         run: bun tsc
+
+      - name: linting
+        run: bun lint
