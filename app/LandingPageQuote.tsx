@@ -9,6 +9,7 @@ import Link from 'next/link'
 import OpenAi from 'openai'
 import { Suspense } from 'react'
 import GPTTooltip from './GPTTooltip'
+import { SiOpenai } from '@icons-pack/react-simple-icons'
 
 const openai = new OpenAi({
 	apiKey: process.env.OPENAI_API_KEY!,
@@ -127,18 +128,19 @@ function Container({
 						</>
 					) : (
 						<>
-							– GPT after reading my{' '}
-							<Link
-								href="/en/skill-profile"
-								prefetch={false}
-								className="text-indigo-400 hover:text-indigo-600 hover:underline dark:hover:text-amber-900 pb-7"
-							>
-								Skill Profile
-							</Link>
+							– <SiOpenai className="inline h-4 w-4" /> GPT after reading my{' '}
+							<GPTTooltip>
+								<Link
+									href="/en/skill-profile"
+									prefetch={false}
+									className="text-indigo-400 hover:text-indigo-600 hover:underline dark:hover:text-amber-900 pb-7"
+								>
+									Skill Profile
+								</Link>
+							</GPTTooltip>
 						</>
 					)}
 				</span>
-				<GPTTooltip />
 			</figcaption>
 		</figure>
 	)
