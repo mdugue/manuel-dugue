@@ -1,4 +1,4 @@
-import { i18n } from 'i18n-config'
+import { i18n } from '../i18n-config'
 
 export const runtime = 'edge'
 export const revalidate = 60 // 1 minute

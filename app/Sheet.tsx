@@ -1,5 +1,5 @@
 import { XMarkIcon } from '@heroicons/react/20/solid'
-import BackOnEsc from 'components/BackOnEsc'
+import BackOnEsc from '@/BackOnEsc'
 import Link from 'next/link'
 import { ReactNode } from 'react'
 

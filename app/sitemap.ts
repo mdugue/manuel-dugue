@@ -1,4 +1,4 @@
-import { i18n } from 'i18n-config'
+import { i18n } from './i18n-config'
 import { MetadataRoute } from 'next'
 
 export const runtime = 'edge'
