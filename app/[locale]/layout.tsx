@@ -1,4 +1,4 @@
-import { SiGithub, SiLinkedin, SiTwitter } from '@icons-pack/react-simple-icons'
+import { SiGithub, SiLinkedin, SiX } from '@icons-pack/react-simple-icons'
 import ClaimCard from '@/ClaimCard'
 import DocumentsNavigation from '@/DocumentsNavigation'
 import LandingPageQuote from '@/LandingPageQuote'
@@ -95,7 +95,7 @@ function ContactAside() {
 					target="_blank"
 					rel="noopener noreferrer"
 				>
-					<SiLinkedin className="coarse:w-12 coarse:h-12 w-8 h-8" />
+					<SiLinkedin className="coarse:w-12 coarse:h-12 w-6 h-6" />
 				</a>
 				<a
 					className="mr-2 hover:text-teal-400"
@@ -103,7 +103,7 @@ function ContactAside() {
 					target="_blank"
 					rel="noopener noreferrer"
 				>
-					<SiTwitter className="coarse:w-12 coarse:h-12 w-8 h-8" />
+					<SiX className="coarse:w-12 coarse:h-12 w-6 h-6" />
 				</a>
 				<a
 					className="mr-2 hover:text-teal-400"
@@ -111,7 +111,7 @@ function ContactAside() {
 					target="_blank"
 					rel="noopener noreferrer"
 				>
-					<SiGithub className="coarse:w-12 coarse:h-12 w-8 h-8" />
+					<SiGithub className="coarse:w-12 coarse:h-12 w-6 h-6" />
 				</a>
 			</div>
 			<div className="text-gradient bg-gradient-to-tr from-indigo-500 to-teal-400 font-display text-2xl">
