@@ -1,5 +1,5 @@
-import Sheet from 'components/Sheet'
-import { i18n } from 'i18n-config'
+import Sheet from '@/Sheet'
+import { i18n } from '../../i18n-config'
 import { Metadata } from 'next'
 import { LocalePageType } from '../LocalePageType'
 

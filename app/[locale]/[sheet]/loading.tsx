@@ -1,4 +1,4 @@
-import { SheetContent } from 'components/Sheet'
+import { SheetContent } from '@/Sheet'
 
 export default function Loading() {
 	return (

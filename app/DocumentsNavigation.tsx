@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { animated, to } from '@react-spring/web'
 
 import useMaterial from '../hooks/useMaterial'
-import { Locale } from 'i18n-config'
+import { Locale } from '../app/i18n-config'
 
 const transFooter = (x: number, y: number) => {
 	return `translateZ(20px) perspective(60vmin) rotateX(${

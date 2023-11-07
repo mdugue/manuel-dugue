@@ -1,10 +1,10 @@
 import { SiGithub, SiLinkedin, SiTwitter } from '@icons-pack/react-simple-icons'
-import ClaimCard from 'components/ClaimCard'
-import DocumentsNavigation from 'components/DocumentsNavigation'
-import LandingPageQuote from 'components/LandingPageQuote'
-import LocaleSwitcher from 'components/locale-switcher'
-import { getDictionary } from 'get-dictionary'
-import { Locale, i18n } from 'i18n-config'
+import ClaimCard from '@/ClaimCard'
+import DocumentsNavigation from '@/DocumentsNavigation'
+import LandingPageQuote from '@/LandingPageQuote'
+import LocaleSwitcher from '@/locale-switcher'
+import { getDictionary } from '../get-dictionary'
+import { Locale, i18n } from '../i18n-config'
 import { Metadata } from 'next'
 import {
 	Bungee,

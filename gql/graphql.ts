@@ -103,6 +103,8 @@ export type AllInOnePageContentLinks = {
 export type AllInOnePageContentResources = {
   __typename?: 'AllInOnePageContentResources';
   block: Array<ResourceLink>;
+  hyperlink: Array<ResourceLink>;
+  inline: Array<ResourceLink>;
 };
 
 export type AllInOnePageFilter = {
