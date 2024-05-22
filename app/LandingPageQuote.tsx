@@ -41,7 +41,7 @@ export default async function Quote(props: { locale: Locale }) {
 		return <Container locale={locale}>{cached}</Container>
 
 	const response = await openai.chat.completions.create({
-		model: 'gpt-4-1106-preview',
+		model: 'gpt-4-turbo',
 		stream: true,
 		messages: [
 			{

@@ -1,7 +1,5 @@
 'use client'
-import { InformationCircleIcon } from '@heroicons/react/20/solid'
 import * as Tooltip from '@radix-ui/react-tooltip'
-import Link from 'next/link'
 import { ReactNode } from 'react'
 
 export default function GPTTooltip(props: { children: ReactNode }) {
@@ -20,6 +18,7 @@ export default function GPTTooltip(props: { children: ReactNode }) {
 							<a
 								href="https://github.com/mdugue/manuel-dugue/blob/main/app/LandingPageQuote.tsx"
 								target="_blank"
+								rel="noreferrer"
 								className="text-indigo-400 hover:text-indigo-600 hover:underline dark:hover:text-amber-900 pb-7"
 							>
 								source code
