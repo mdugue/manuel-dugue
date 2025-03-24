@@ -30,18 +30,36 @@ export default async function Quote(props: { locale: Locale }) {
 			locale: 'en',
 		})
 
-	const message = `You are a physically existing creative engineer called Manuel, who is passionate about product development and has a academic technical background with lots of experience in the field. Your answers are short and entertaining. Your responses are formatted as plain text, using \n for new lines. Don't use html tags. Write a short summary about yourself in the first person perspective, based on the following skill profile: 
-	${documentToHtmlString(allInOnePageCollection?.items[0]?.content?.json)}
-					
-	Use a professional style, don't use the word "skill profile". The content should emphasize soft skills and drop some technical terms. Don't use more than 100 words in total and split the text at least into 2 paragraphs.
-	Use ${langauges[locale]} language.`
+	const message =
+		locale === 'en'
+			? `You are Manuel, a real-life creative engineer passionate about product development, with a strong academic background and extensive field experience. Your responses are concise and sometimes entertaining, formatted as plain text using \n for new lines (avoid HTML tags).
 
-	const cached = await kv.get(message)
+Now, write a brief personal summary in the first person based teasing some projects based on the following content:
+${documentToHtmlString(allInOnePageCollection?.items[0]?.content?.json)}
+
+Emphasize your soft skills and minimize technical jargon. Keep your summary under 100 words and dividing it into at least two paragraphs. Do not use the term “skill profile.”
+
+Avoid generic or clichéd expressions (e.g., “I enjoy cooking” or “I love architecture”)in favor of subtle paraphrases or hints. Also, steer clear of focusing too much on cuisine or cooking jargon.
+
+Maintain a tone that is authentic, genuine, and relatable. While confident in your abilities, be humble and avoid arrogance or sounding like a corporate advertisement.
+`
+			: `Du bist Manuel, ein realer kreativer Ingenieur, der leidenschaftlich an Produktentwicklung arbeitet, mit einem soliden akademischen Hintergrund und umfangreicher Praxiserfahrung. Deine Antworten sind prägnant und auch mal unterhaltsam, formatiert als reiner Text mit \n für Zeilenumbrüche (verwende keine HTML-Tags).
+
+Schreibe nun eine kurze persönliche Zusammenfassung in der Ich-Form, basierend auf folgendem Inhalt und unter Einbeziehung einiger Projekte:
+${documentToHtmlString(allInOnePageCollection?.items[0]?.content?.json)}
+
+Betone deine Soft Skills und vermeide zu viel technischen Jargon. Halte deine Zusammenfassung unter 100 Wörter und gliedere sie in mindestens zwei Absätze. Verwende nicht den Begriff „skill profile.“
+
+Vermeide generische oder klischeehafte Ausdrücke (z. B. „Ich koche gerne“ oder „Ich liebe Architektur“) zugunsten subtiler Paraphrasen oder Andeutungen. Vermeide außerdem, zu sehr auf Kulinarik oder Kochjargon einzugehen.
+
+Bewahre einen authentischen, ehrlichen und nachvollziehbaren Ton. Sei selbstbewusst in deinen Fähigkeiten, aber dennoch demütig und vermeide Arroganz oder den Eindruck einer Unternehmenswerbung.`
+
+	const cached = undefined //await kv.get(message)
 	if (cached && typeof cached === 'string')
 		return <Container locale={locale}>{cached}</Container>
 
 	const response = await openai.chat.completions.create({
-		model: 'gpt-4-turbo',
+		model: 'o3-mini',
 		stream: true,
 		messages: [
 			{
@@ -84,10 +102,15 @@ async function Reader({
 	}
 
 	const text = new TextDecoder().decode(value)
+	const extractedText = text.match(/"([^"]*)"/)?.[1]?.replace(
+		/\\n/g,
+		`
+`,
+	)
 
 	return (
 		<>
-			{text}
+			{extractedText}
 			<Suspense>
 				<Reader reader={reader} />
 			</Suspense>
@@ -117,7 +140,7 @@ function Container({
 				<span>
 					{locale === 'de' ? (
 						<>
-							– GPT zu meinem{' '}
+							– o3 zu meinem{' '}
 							<Link
 								href="/de/skill-profile"
 								prefetch={false}
@@ -128,7 +151,7 @@ function Container({
 						</>
 					) : (
 						<>
-							– <RiOpenaiFill className="inline h-4 w-4" /> GPT after reading my{' '}
+							– <RiOpenaiFill className="inline h-4 w-4" /> o3 after reading my{' '}
 							<GPTTooltip>
 								<Link
 									href="/en/skill-profile"

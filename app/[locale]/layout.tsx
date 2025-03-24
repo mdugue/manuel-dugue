@@ -65,7 +65,7 @@ export default async function MyApp({
 					<Suspense
 						fallback={
 							<div className="text-gray-400 font-display animate-pulse">
-								GPT reading my Skill Profile …
+								o3 reading my Skill Profile …
 							</div>
 						}
 					>
