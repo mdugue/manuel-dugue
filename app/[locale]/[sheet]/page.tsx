@@ -1,10 +1,9 @@
+import { SheetContent } from '@/Sheet'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import { INLINES } from '@contentful/rich-text-types'
 import { ArrowUpRightIcon } from '@heroicons/react/20/solid'
 import { graphqlClient } from 'app/graphQlClient'
-import { SheetContent } from '@/Sheet'
 import { AllInOnePageQuery } from 'gql/graphql'
-import { i18n } from '../../i18n-config'
 import { Article, WithContext } from 'schema-dts'
 import { LocalePageType } from '../LocalePageType'
 import { pageQuery } from '../pageQuery'
@@ -12,16 +11,10 @@ import { pageQuery } from '../pageQuery'
 export const runtime = 'edge'
 export const revalidate = 60 // 1 minute
 
-export function generateStaticParams() {
-	return (['cv', 'skill-profile'] as const).flatMap((sheet) =>
-		i18n.locales.map((locale) => ({ sheet, locale })),
-	)
-}
-
 export default async function Page({
 	params,
-}: LocalePageType<{ sheet: string }>) {
-	const { sheet, locale } = params
+}: LocalePageType<Promise<{ sheet: string }>>) {
+	const { sheet, locale } = await params
 
 	const { allInOnePageCollection } =
 		await graphqlClient.request<AllInOnePageQuery>(pageQuery, {
