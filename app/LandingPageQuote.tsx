@@ -140,19 +140,21 @@ function Container({
 				<span>
 					{locale === 'de' ? (
 						<>
-							– o3 zu meinem{' '}
-							<Link
-								href="/de/skill-profile"
-								prefetch={false}
-								className="text-indigo-400 hover:text-indigo-600 hover:underline dark:hover:text-amber-900 pb-7"
-							>
-								Skill Profile
-							</Link>
+							– <RiOpenaiFill className="inline h-4 w-4" /> o3 zu meinem{' '}
+							<GPTTooltip locale={locale}>
+								<Link
+									href="/de/skill-profile"
+									prefetch={false}
+									className="text-indigo-400 hover:text-indigo-600 hover:underline dark:hover:text-amber-900 pb-7"
+								>
+									Skill Profile
+								</Link>
+							</GPTTooltip>
 						</>
 					) : (
 						<>
 							– <RiOpenaiFill className="inline h-4 w-4" /> o3 after reading my{' '}
-							<GPTTooltip>
+							<GPTTooltip locale={locale}>
 								<Link
 									href="/en/skill-profile"
 									prefetch={false}
