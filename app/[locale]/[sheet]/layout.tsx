@@ -15,8 +15,8 @@ export default function SheetLayout({ children }: Props) {
 // TODO: Check
 export async function generateMetadata({
 	params,
-}: LocalePageType<{ sheet: string }>): Promise<Metadata> {
-	const { sheet, locale } = params
+}: LocalePageType<Promise<{ sheet: string }>>): Promise<Metadata> {
+	const { sheet, locale } = await params
 	const title = createTitle(sheet)
 	return {
 		title,

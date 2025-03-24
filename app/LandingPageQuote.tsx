@@ -9,7 +9,7 @@ import Link from 'next/link'
 import OpenAi from 'openai'
 import { Suspense } from 'react'
 import GPTTooltip from './GPTTooltip'
-import { SiOpenai } from '@icons-pack/react-simple-icons'
+import { RiOpenaiFill } from '@remixicon/react'
 
 const openai = new OpenAi({
 	apiKey: process.env.OPENAI_API_KEY!,
@@ -128,7 +128,7 @@ function Container({
 						</>
 					) : (
 						<>
-							– <SiOpenai className="inline h-4 w-4" /> GPT after reading my{' '}
+							– <RiOpenaiFill className="inline h-4 w-4" /> GPT after reading my{' '}
 							<GPTTooltip>
 								<Link
 									href="/en/skill-profile"

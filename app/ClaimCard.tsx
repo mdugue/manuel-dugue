@@ -33,7 +33,7 @@ export default function ClaimCard() {
 		onMouseMove,
 		onMouseLeave,
 	} = useMaterial(materialDefaultPosition, materialConfig)
-	const typewriterRef = useRef<{ pause: () => void; start: () => void }>()
+	const typewriterRef = useRef<{ pause: () => void; start: () => void }>(null)
 	useEffect(() => {
 		if (isHovered) {
 			typewriterRef.current?.pause()

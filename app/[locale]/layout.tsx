@@ -1,4 +1,8 @@
-import { SiGithub, SiLinkedin, SiX } from '@icons-pack/react-simple-icons'
+import {
+	RiGithubFill,
+	RiLinkedinBoxFill,
+	RiTwitterXFill,
+} from '@remixicon/react'
 import ClaimCard from '@/ClaimCard'
 import DocumentsNavigation from '@/DocumentsNavigation'
 import LandingPageQuote from '@/LandingPageQuote'
@@ -21,10 +25,6 @@ import './globals.css'
 export const runtime = 'edge'
 export const revalidate = 60 // 1 minute
 
-export function generateStaticParams() {
-	return i18n.locales.map((locale) => ({ locale }))
-}
-
 const montserrat = Montserrat({
 	subsets: ['latin'],
 	variable: '--font-montserrat',
@@ -46,12 +46,13 @@ const bungeeShade = Bungee_Shade({
 	variable: '--font-bungee-shade',
 })
 
-export default function MyApp({
+export default async function MyApp({
 	children,
-	params: { locale },
+	params,
 }: LocalePageType & {
 	children: React.ReactNode
 }) {
+	const { locale } = await params
 	return (
 		<html
 			lang={locale}
@@ -95,7 +96,7 @@ function ContactAside() {
 					target="_blank"
 					rel="noopener noreferrer"
 				>
-					<SiLinkedin className="coarse:w-12 coarse:h-12 w-6 h-6" />
+					<RiLinkedinBoxFill className="coarse:w-12 coarse:h-12 w-6 h-6" />
 				</a>
 				<a
 					className="mr-2 hover:text-teal-400"
@@ -103,7 +104,7 @@ function ContactAside() {
 					target="_blank"
 					rel="noopener noreferrer"
 				>
-					<SiX className="coarse:w-12 coarse:h-12 w-6 h-6" />
+					<RiTwitterXFill className="coarse:w-12 coarse:h-12 w-6 h-6" />
 				</a>
 				<a
 					className="mr-2 hover:text-teal-400"
@@ -111,7 +112,7 @@ function ContactAside() {
 					target="_blank"
 					rel="noopener noreferrer"
 				>
-					<SiGithub className="coarse:w-12 coarse:h-12 w-6 h-6" />
+					<RiGithubFill className="coarse:w-12 coarse:h-12 w-6 h-6" />
 				</a>
 			</div>
 			<div className="text-gradient bg-gradient-to-tr from-indigo-500 to-teal-400 font-display text-2xl">
@@ -137,7 +138,6 @@ async function LegalSection(props: { locale: Locale }) {
 			<Link
 				href={`${locale}/privacy`}
 				prefetch={false}
-				locale={locale}
 				className=" hover:text-gray-400"
 			>
 				{dictionary.privacy}
@@ -227,13 +227,14 @@ const jsonLd: WithContext<Person> = {
 export async function generateMetadata({
 	params,
 }: LocalePageType): Promise<Metadata> {
+	const { locale } = await params
 	return {
 		title: {
 			template: '%s – Manuel Dugué',
 			default: 'Manuel Dugué – Freelance Web Development',
 		},
 		alternates: {
-			canonical: `https://manuel.fyi/${params.locale}`,
+			canonical: `https://manuel.fyi/${locale}`,
 			languages: Object.fromEntries(
 				i18n.locales.map((locale) => [locale, `https://manuel.fyi/${locale}`]),
 			),
