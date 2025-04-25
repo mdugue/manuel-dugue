@@ -1,5 +1,8 @@
 import type { NextConfig } from 'next'
 
-const nextConfig: NextConfig = { reactStrictMode: true }
+const nextConfig: NextConfig = {
+	reactStrictMode: true,
+	experimental: { reactCompiler: true },
+}
 
 module.exports = nextConfig

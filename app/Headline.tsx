@@ -12,7 +12,7 @@ export default function Headline(
 			style={{ ...style }}
 		>
 			<div
-				className="absolute font-shade text-gradient bg-gradient-to-tr from-teal-600 to-teal-500 dark:from-teal-800 dark:to-teal-600"
+				className="absolute font-shade text-gradient bg-linear-to-tr from-teal-600 to-teal-500 dark:from-teal-800 dark:to-teal-600"
 				style={{ transform: 'translateX(-0.12em)' }}
 			>
 				{children}
