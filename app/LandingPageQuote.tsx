@@ -20,8 +20,6 @@ const openai = new OpenAi({
 		}),
 })
 
-const langauges = { de: 'german', en: 'english' }
-
 export default async function Quote(props: { locale: Locale }) {
 	const { locale } = props
 	const { allInOnePageCollection } =
@@ -71,6 +69,7 @@ ${documentToHtmlString(allInOnePageCollection?.items[0]?.content?.json)}
 	})
 
 	// Convert the response into a friendly text-stream
+	// @ts-expect-error TODO: migrate to new OpenAIStream API
 	const stream = OpenAIStream(response, {
 		async onCompletion(completion) {
 			console.log('caching: ', completion)
