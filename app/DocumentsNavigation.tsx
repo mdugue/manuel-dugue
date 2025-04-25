@@ -21,7 +21,7 @@ export default function DocumentsNavigation({ locale }: { locale: Locale }) {
 
 	return (
 		<animated.nav
-			className="flex flex-col bg-gradient-to-tl from-amber-500 to-yellow-300 hover:from-amber-400  hover:to-yellow-300 dark:from-amber-800 dark:to-yellow-500 contact shadow-lg rounded-full text-amber-50 font-inline text-xl px-6 fixed bottom-4 self-end transform-gpu right-6 z-50 belowMd:!transform-none"
+			className="flex flex-col bg-linear-to-tl from-amber-500 to-yellow-300 hover:from-amber-400  hover:to-yellow-300 dark:from-amber-800 dark:to-yellow-500 contact shadow-lg rounded-full text-amber-50 font-inline text-xl px-6 fixed bottom-4 self-end transform-gpu right-6 z-50 belowMd:transform-none!"
 			onMouseMove={onMouseMove}
 			onMouseLeave={onMouseLeave}
 			style={{ transform: to(props.xy, transFooter) }}

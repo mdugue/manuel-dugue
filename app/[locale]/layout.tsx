@@ -59,7 +59,7 @@ export default async function MyApp({
 			lang={locale}
 			className={`${bungee.variable} ${bungeeInline.variable} ${bungeeShade.variable} ${montserrat.variable}`}
 		>
-			<body className="dark:from-black dark:to-gray-800 bg-gradient-to-b from-gray-200 to-white min-h-screen flex flex-col pb-40">
+			<body className="dark:from-black dark:to-gray-800 bg-linear-to-b from-gray-100 to-white min-h-screen flex flex-col pb-40">
 				<LegalSection locale={locale} />
 				<div className="m-auto flex items-start flex-col lg:flex-row gap-2">
 					<ClaimCard />
@@ -117,7 +117,7 @@ function ContactAside() {
 					<RiGithubFill className="coarse:w-12 coarse:h-12 w-6 h-6" />
 				</a>
 			</div>
-			<div className="text-gradient bg-gradient-to-tr from-indigo-500 to-teal-400 font-display text-2xl">
+			<div className="text-gradient bg-linear-to-tr from-indigo-500 to-teal-400 font-display text-2xl">
 				Manuel Dugué
 			</div>
 		</aside>
