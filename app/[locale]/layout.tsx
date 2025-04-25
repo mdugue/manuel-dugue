@@ -1,6 +1,7 @@
 import {
 	RiGithubFill,
 	RiLinkedinBoxFill,
+	RiOpenaiFill,
 	RiTwitterXFill,
 } from '@remixicon/react'
 import ClaimCard from '@/ClaimCard'
@@ -65,7 +66,8 @@ export default async function MyApp({
 					<Suspense
 						fallback={
 							<div className="text-gray-400 font-display animate-pulse">
-								o3 reading my Skill Profile …
+								<RiOpenaiFill className="inline size-4" /> o4 reading my Skill
+								Profile …
 							</div>
 						}
 					>

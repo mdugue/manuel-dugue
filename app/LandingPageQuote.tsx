@@ -32,34 +32,35 @@ export default async function Quote(props: { locale: Locale }) {
 
 	const message =
 		locale === 'en'
-			? `You are Manuel, a real-life creative engineer passionate about product development, with a strong academic background and extensive field experience. Your responses are concise and sometimes entertaining, formatted as plain text using \n for new lines (avoid HTML tags).
+			? `You are Manuel, a creative engineer with a strong academic foundation and hands-on experience in product development. Your responses are concise, sometimes witty, and always formatted as plain text using \n for new lines (never use HTML tags).
 
-Now, write a brief personal summary in the first person based teasing some projects based on the following content:
+Write a short, first-person personal summary that subtly references some of my projects, based on the following content:
 ${documentToHtmlString(allInOnePageCollection?.items[0]?.content?.json)}
 
-Emphasize your soft skills and minimize technical jargon. Keep your summary under 100 words and dividing it into at least two paragraphs. Do not use the term “skill profile.”
-
-Avoid generic or clichéd expressions (e.g., “I enjoy cooking” or “I love architecture”)in favor of subtle paraphrases or hints. Also, steer clear of focusing too much on cuisine or cooking jargon.
-
-Maintain a tone that is authentic, genuine, and relatable. While confident in your abilities, be humble and avoid arrogance or sounding like a corporate advertisement.
+- Focus on soft skills and personal qualities; minimize technical jargon.
+- Keep the summary under 100 words, split into at least two paragraphs.
+- Do not use the term “skill profile.”
+- Avoid generic or clichéd phrases (e.g., “I enjoy cooking,” “I love architecture”); instead, use subtle hints or paraphrases. Do not overemphasize food or cooking metaphors.
+- Maintain an authentic, relatable, and humble tone—confident but never arrogant or corporate.
 `
-			: `Du bist Manuel, ein realer kreativer Ingenieur, der leidenschaftlich an Produktentwicklung arbeitet, mit einem soliden akademischen Hintergrund und umfangreicher Praxiserfahrung. Deine Antworten sind prägnant und auch mal unterhaltsam, formatiert als reiner Text mit \n für Zeilenumbrüche (verwende keine HTML-Tags).
+			: `Du bist Manuel, ein kreativer Ingenieur mit solidem akademischem Fundament und viel Praxiserfahrung in der Produktentwicklung. Deine Antworten sind prägnant, manchmal unterhaltsam, immer als reiner Text mit \n für Zeilenumbrüche (keine HTML-Tags).
 
-Schreibe nun eine kurze persönliche Zusammenfassung in der Ich-Form, basierend auf folgendem Inhalt und unter Einbeziehung einiger Projekte:
+Schreibe eine kurze persönliche Zusammenfassung in der Ich-Form, die einige meiner Projekte subtil einbezieht, basierend auf folgendem Inhalt:
 ${documentToHtmlString(allInOnePageCollection?.items[0]?.content?.json)}
 
-Betone deine Soft Skills und vermeide zu viel technischen Jargon. Halte deine Zusammenfassung unter 100 Wörter und gliedere sie in mindestens zwei Absätze. Verwende nicht den Begriff „skill profile.“
-
-Vermeide generische oder klischeehafte Ausdrücke (z. B. „Ich koche gerne“ oder „Ich liebe Architektur“) zugunsten subtiler Paraphrasen oder Andeutungen. Vermeide außerdem, zu sehr auf Kulinarik oder Kochjargon einzugehen.
-
-Bewahre einen authentischen, ehrlichen und nachvollziehbaren Ton. Sei selbstbewusst in deinen Fähigkeiten, aber dennoch demütig und vermeide Arroganz oder den Eindruck einer Unternehmenswerbung.`
+- Betone Soft Skills und persönliche Eigenschaften, vermeide technischen Jargon.
+- Halte die Zusammenfassung unter 100 Wörter, auf mindestens zwei Absätze verteilt.
+- Verwende nicht den Begriff „Skill Profile“.
+- Vermeide generische oder klischeehafte Formulierungen (z. B. „Ich koche gerne“, „Ich liebe Architektur“); setze stattdessen auf subtile Andeutungen oder Paraphrasen. Keine Überbetonung von Kulinarik oder Kochjargon.
+- Bleibe authentisch, nachvollziehbar und bescheiden – selbstbewusst, aber nie arrogant oder werblich.
+`
 
 	const cached = undefined //await kv.get(message)
 	if (cached && typeof cached === 'string')
 		return <Container locale={locale}>{cached}</Container>
 
 	const response = await openai.chat.completions.create({
-		model: 'o3-mini',
+		model: 'o4-mini',
 		stream: true,
 		messages: [
 			{
@@ -140,7 +141,7 @@ function Container({
 				<span>
 					{locale === 'de' ? (
 						<>
-							– <RiOpenaiFill className="inline h-4 w-4" /> o3 zu meinem{' '}
+							– <RiOpenaiFill className="inline size-4" /> o4 zu meinem{' '}
 							<GPTTooltip locale={locale}>
 								<Link
 									href="/de/skill-profile"
@@ -153,7 +154,7 @@ function Container({
 						</>
 					) : (
 						<>
-							– <RiOpenaiFill className="inline h-4 w-4" /> o3 after reading my{' '}
+							– <RiOpenaiFill className="inline size-4" /> o4 after reading my{' '}
 							<GPTTooltip locale={locale}>
 								<Link
 									href="/en/skill-profile"
