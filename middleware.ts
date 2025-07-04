@@ -36,16 +36,18 @@ export function middleware(request: NextRequest) {
       '/sitemap.xml',
       '/site.webmanifest',
     ].includes(pathname)
-  )
+  ) {
     return;
+  }
   if (
     pathname.startsWith('/android-') ||
     pathname.startsWith('/apple-') ||
     pathname.startsWith('/mstile-') ||
     pathname.startsWith('/safari-') ||
     pathname.startsWith('/favicon')
-  )
+  ) {
     return;
+  }
 
   // Check if there is any supported locale in the pathname
   const pathnameIsMissingLocale = i18n.locales.every(

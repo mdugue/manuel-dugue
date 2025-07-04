@@ -65,7 +65,7 @@ export default function ClaimCard() {
             filter: 'blur(100px)',
             transform: to(
               xy,
-              (x, y) => `translate3d(${x * 75 + '%'}, ${y * 75 + '%'}, 0)`
+              (x, y) => `translate3d(${`${x * 75}%`}, ${`${y * 75}%`}, 0)`
             ),
           }}
         />

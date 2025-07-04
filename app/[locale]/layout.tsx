@@ -23,7 +23,6 @@ import { getDictionary } from '../get-dictionary';
 import { i18n, type Locale } from '../i18n-config';
 import type { LocalePageType } from './LocalePageType';
 import './globals.css';
-import { RiCupLine } from '@remixicon/react';
 import { ErrorBoundary } from 'react-error-boundary';
 
 export const runtime = 'edge';

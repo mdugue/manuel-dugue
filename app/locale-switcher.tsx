@@ -11,7 +11,9 @@ export default function LocaleSwitcher(props: {
   const { currentLocale } = props;
   const pathName = usePathname();
   const redirectedPathName = (locale: string) => {
-    if (!pathName) return '/';
+    if (!pathName) {
+      return '/';
+    }
     const segments = pathName.split('/');
     segments[1] = locale;
     return segments.join('/');

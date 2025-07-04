@@ -54,8 +54,9 @@ ${documentToHtmlString(allInOnePageCollection?.items[0]?.content?.json)}
 `;
 
   const cached = undefined; //await kv.get(message)
-  if (cached && typeof cached === 'string')
+  if (cached && typeof cached === 'string') {
     return <Container locale={locale}>{cached}</Container>;
+  }
 
   const response = await openai.chat.completions.create({
     model: 'gpt-4.1-mini',
@@ -72,7 +73,6 @@ ${documentToHtmlString(allInOnePageCollection?.items[0]?.content?.json)}
   // @ts-expect-error TODO: migrate to new OpenAIStream API
   const stream = OpenAIStream(response, {
     async onCompletion(completion) {
-      console.log('caching: ', completion);
       await kv.set(message, completion);
       await kv.expire(message, 60 * 60);
     },

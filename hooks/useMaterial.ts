@@ -20,13 +20,17 @@ export default function useMaterial(
   );
   const isWide = useMedia('(min-width: 768px)', false);
   useEffect(() => {
-    if (prefersReducedMotion) return;
+    if (prefersReducedMotion) {
+      return;
+    }
     api.start({ xy: isWide ? defaultPosition : [0, 0], config: slow });
   }, [defaultPosition, isWide, prefersReducedMotion, api]);
 
   const onMouseMove = useCallback(
     (event: MouseEvent) => {
-      if (prefersReducedMotion) return;
+      if (prefersReducedMotion) {
+        return;
+      }
       const rect = (event.currentTarget as HTMLElement).getBoundingClientRect();
       const relativeX = (2 * (event.clientX - rect.left)) / rect.width - 1;
       const relativeY = (2 * (event.clientY - rect.top)) / rect.height - 1;
@@ -36,7 +40,9 @@ export default function useMaterial(
   );
 
   const onMouseLeave = useCallback(() => {
-    if (prefersReducedMotion) return;
+    if (prefersReducedMotion) {
+      return;
+    }
     api.start({ xy: defaultPosition });
   }, [defaultPosition, prefersReducedMotion, api]);
   return { props, onMouseMove, onMouseLeave };
