@@ -1,23 +1,23 @@
-import Sheet from '@/Sheet'
-import { i18n } from '../../i18n-config'
-import { Metadata } from 'next'
-import { LocalePageType } from '../LocalePageType'
+import type { Metadata } from 'next';
+import Sheet from '@/Sheet';
+import { i18n } from '../../i18n-config';
+import type { LocalePageType } from '../locale-page-type';
 
-export const runtime = 'edge'
-export const revalidate = 60 // 1 minute
+export const runtime = 'edge';
+export const revalidate = 60; // 1 minute
 
-type Props = { children: React.ReactNode }
+type Props = { children: React.ReactNode };
 
 export default function SheetLayout({ children }: Props) {
-	return <Sheet>{children}</Sheet>
+	return <Sheet>{children}</Sheet>;
 }
 
 // TODO: Check
 export async function generateMetadata({
 	params,
 }: LocalePageType<Promise<{ sheet: string }>>): Promise<Metadata> {
-	const { sheet, locale } = await params
-	const title = createTitle(sheet)
+	const { sheet, locale } = await params;
+	const title = createTitle(sheet);
 	return {
 		title,
 		alternates: {
@@ -26,7 +26,7 @@ export async function generateMetadata({
 				i18n.locales.map((locale) => [
 					locale,
 					`https://manuel.fyi/${locale}/${sheet}`,
-				]),
+				])
 			),
 		},
 		openGraph: {
@@ -43,11 +43,11 @@ export async function generateMetadata({
 				},
 			],
 		},
-	}
+	};
 }
 
 const createTitle = (sheet: string) =>
 	sheet
 		.split('-')
 		.map((word) => word[0].toUpperCase() + word.slice(1))
-		.join(' ')
+		.join(' ');

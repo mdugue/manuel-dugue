@@ -1,77 +1,76 @@
-'use client'
+'use client';
+import { animated, to } from '@react-spring/web';
+import { useEffect, useRef, useState } from 'react';
+import Typewriter from 'typewriter-effect';
 
-import { useEffect, useRef, useState } from 'react'
-import { animated, to } from '@react-spring/web'
-import Typewriter from 'typewriter-effect'
-
-import useMaterial from '../hooks/useMaterial'
-import Headline from './Headline'
+import useMaterial from '../hooks/use-material';
+import Headline from './Headline';
 
 const translate = (x: number, y: number, multiplier: number) =>
-	`translate3d(${multiplier * x}vmin,${multiplier * y}vmin,0)`
+	`translate3d(${multiplier * x}vmin,${multiplier * y}vmin,0)`;
 
 const trans1 = (x: number, y: number) =>
 	`perspective(60vmin) rotateX(${3 * y}deg) rotateY(${-4 * x}deg) rotateZ(-2deg)
-  ${translate(x, y, 0.5)}`
-const trans2 = (x: number, y: number) => translate(x, y, -1)
+  ${translate(x, y, 0.5)}`;
+const trans2 = (x: number, y: number) => translate(x, y, -1);
 // used for "since 2008" & typewriter
-const trans3 = (x: number, y: number) => translate(x, y, 0.6)
-const trans4 = (x: number, y: number) => translate(x, y, -0.4)
+const trans3 = (x: number, y: number) => translate(x, y, 0.6);
+const trans4 = (x: number, y: number) => translate(x, y, -0.4);
 
 const materialConfig = {
 	mass: 5,
 	tension: 350,
 	friction: 40,
-}
+};
 
-const materialDefaultPosition = [-0.9, -0.9] as [number, number]
+const materialDefaultPosition = [-0.9, -0.9] as [number, number];
 
 export default function ClaimCard() {
-	const [isHovered, setIsHovered] = useState(false)
+	const [isHovered, setIsHovered] = useState(false);
 	const {
 		props: { xy },
 		onMouseMove,
 		onMouseLeave,
-	} = useMaterial(materialDefaultPosition, materialConfig)
-	const typewriterRef = useRef<{ pause: () => void; start: () => void }>(null)
+	} = useMaterial(materialDefaultPosition, materialConfig);
+	const typewriterRef = useRef<{ pause: () => void; start: () => void }>(null);
 	useEffect(() => {
 		if (isHovered) {
-			typewriterRef.current?.pause()
+			typewriterRef.current?.pause();
 		} else {
-			typewriterRef.current?.start()
+			typewriterRef.current?.start();
 		}
-	}, [isHovered])
+	}, [isHovered]);
 
 	return (
 		<animated.hgroup
+			className="belowMd:transform-none! relative z-10 mx-2 my-auto self-start rounded-lg border border-teal-300 bg-linear-to-tr from-teal-500 to-teal-200 px-4 py-8 text-center text-white shadow-xl md:rounded-3xl md:px-24 md:py-12 md:text-xl dark:from-teal-700 dark:to-teal-600 dark:text-gray-900"
+			onMouseLeave={() => {
+				setIsHovered(false);
+				onMouseLeave();
+			}}
 			onMouseMove={onMouseMove}
 			onMouseOver={() => {
-				setIsHovered(true)
-			}}
-			onMouseLeave={() => {
-				setIsHovered(false)
-				onMouseLeave()
+				setIsHovered(true);
 			}}
 			style={{
 				transform: to(xy, trans1),
 			}}
-			className="md:text-xl bg-linear-to-tr border border-teal-300 from-teal-500 to-teal-200 dark:from-teal-700 dark:to-teal-600 text-white dark:text-gray-900 px-4 py-8 md:px-24 md:py-12 rounded-lg md:rounded-3xl shadow-xl self-start mx-2 text-center z-10 my-auto belowMd:transform-none! relative"
 		>
-			<div className="inset-0 absolute overflow-hidden rounded-lg md:rounded-3xl">
+			<div className="absolute inset-0 overflow-hidden rounded-lg md:rounded-3xl">
 				<animated.div
-					className="bg-teal-100 opacity-75 absolute top-1/4 left-1/4 w-1/2 h-1/2"
+					className="absolute top-1/4 left-1/4 h-1/2 w-1/2 bg-teal-100 opacity-75"
 					style={{
 						zIndex: -1,
 						filter: 'blur(100px)',
 						transform: to(
 							xy,
-							(x, y) => `translate3d(${x * 75 + '%'}, ${y * 75 + '%'}, 0)`,
+							(x, y) => `translate3d(${`${x * 75}%`}, ${`${y * 75}%`}, 0)`
 						),
 					}}
 				/>
 			</div>
 			<animated.small
-				className="font-display text-teal-500 dark:text-teal-700 block"
+				className="block font-display text-teal-500 dark:text-teal-700"
 				style={{ transform: to(xy, trans4) }}
 			>
 				– since 2008 –
@@ -82,17 +81,14 @@ export default function ClaimCard() {
 				for everybody
 			</Headline>
 			<animated.h2
-				className="font-inline text-gradient bg-linear-to-bl from-amber-100 to-amber-200 dark:from-teal-900 dark:to-teal-700"
+				className="bg-linear-to-bl from-amber-100 to-amber-200 font-inline text-gradient dark:from-teal-900 dark:to-teal-700"
 				style={{
 					transform: to(xy, trans3),
 				}}
 			>
 				<Typewriter
-					options={{
-						loop: true,
-					}}
 					onInit={(typewriter) => {
-						;(typewriterRef.current = typewriter)
+						(typewriterRef.current = typewriter)
 							.typeString('consumers, experts, bots, ...')
 							// @ts-expect-error ts definition does not seem complete yet
 							.changeCursor(' ')
@@ -114,7 +110,10 @@ export default function ClaimCard() {
 							.pauseFor(2500)
 							.changeCursor('|')
 							.deleteAll()
-							.start()
+							.start();
+					}}
+					options={{
+						loop: true,
 					}}
 				/>
 				<noscript>
@@ -125,5 +124,5 @@ export default function ClaimCard() {
 				</noscript>
 			</animated.h2>
 		</animated.hgroup>
-	)
+	);
 }

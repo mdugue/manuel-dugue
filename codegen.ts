@@ -1,9 +1,10 @@
-import type { CodegenConfig } from '@graphql-codegen/cli'
+import type { CodegenConfig } from '@graphql-codegen/cli';
 
-import dotenv from 'dotenv'
-dotenv.config()
+import dotenv from 'dotenv';
 
-const url = `https://graphql.contentful.com/content/v1/spaces/${process.env.CONTENTFUL_SPACE_ID}`
+dotenv.config();
+
+const url = `https://graphql.contentful.com/content/v1/spaces/${process.env.CONTENTFUL_SPACE_ID}`;
 
 const config: CodegenConfig = {
 	schema: {
@@ -19,5 +20,5 @@ const config: CodegenConfig = {
 			preset: 'client',
 		},
 	},
-}
-export default config
+};
+export default config;

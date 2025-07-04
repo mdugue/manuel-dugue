@@ -1,52 +1,56 @@
 if (!self.define) {
 	const e = (e) => {
-			'require' !== e && (e += '.js')
-			let s = Promise.resolve()
+			e !== 'require' && (e += '.js');
+			let s = Promise.resolve();
 			return (
 				a[e] ||
 					(s = new Promise(async (s) => {
 						if ('document' in self) {
-							const a = document.createElement('script')
-							;(a.src = e), document.head.appendChild(a), (a.onload = s)
-						} else importScripts(e), s()
+							const a = document.createElement('script');
+							(a.src = e), document.head.appendChild(a), (a.onload = s);
+						} else {
+							importScripts(e), s();
+						}
 					})),
 				s.then(() => {
-					if (!a[e]) throw new Error(`Module ${e} didn’t register its module`)
-					return a[e]
+					if (!a[e]) {
+						throw new Error(`Module ${e} didn’t register its module`);
+					}
+					return a[e];
 				})
-			)
+			);
 		},
 		s = (s, a) => {
-			Promise.all(s.map(e)).then((e) => a(1 === e.length ? e[0] : e))
+			Promise.all(s.map(e)).then((e) => a(e.length === 1 ? e[0] : e));
 		},
-		a = { require: Promise.resolve(s) }
+		a = { require: Promise.resolve(s) };
 	self.define = (s, c, n) => {
 		a[s] ||
 			(a[s] = Promise.resolve().then(() => {
-				let a = {}
-				const r = { uri: location.origin + s.slice(1) }
+				const a = {};
+				const r = { uri: location.origin + s.slice(1) };
 				return Promise.all(
 					c.map((s) => {
 						switch (s) {
 							case 'exports':
-								return a
+								return a;
 							case 'module':
-								return r
+								return r;
 							default:
-								return e(s)
+								return e(s);
 						}
-					}),
+					})
 				).then((e) => {
-					const s = n(...e)
-					return a.default || (a.default = s), a
-				})
-			}))
-	}
+					const s = n(...e);
+					return a.default || (a.default = s), a;
+				});
+			}));
+	};
 }
-define('./sw.js', ['./workbox-234fc267'], function (e) {
+define('./sw.js', ['./workbox-234fc267'], (e) => {
 	importScripts(),
 		self.addEventListener('message', (e) => {
-			e.data && 'SKIP_WAITING' === e.data.type && self.skipWaiting()
+			e.data && e.data.type === 'SKIP_WAITING' && self.skipWaiting();
 		}),
 		e.clientsClaim(),
 		e.precacheAndRoute(
@@ -133,7 +137,7 @@ define('./sw.js', ['./workbox-234fc267'], function (e) {
 					revision: 'dc0968becf1abf34b07007db461f7515',
 				},
 			],
-			{ ignoreURLParametersMatching: [] },
+			{ ignoreURLParametersMatching: [] }
 		),
 		e.cleanupOutdatedCaches(),
 		e.registerRoute(
@@ -143,12 +147,12 @@ define('./sw.js', ['./workbox-234fc267'], function (e) {
 				plugins: [
 					new e.ExpirationPlugin({
 						maxEntries: 1,
-						maxAgeSeconds: 86400,
+						maxAgeSeconds: 86_400,
 						purgeOnQuotaError: !0,
 					}),
 				],
 			}),
-			'GET',
+			'GET'
 		),
 		e.registerRoute(
 			/^https:\/\/fonts\.(?:googleapis|gstatic)\.com\/.*/i,
@@ -157,12 +161,12 @@ define('./sw.js', ['./workbox-234fc267'], function (e) {
 				plugins: [
 					new e.ExpirationPlugin({
 						maxEntries: 4,
-						maxAgeSeconds: 31536e3,
+						maxAgeSeconds: 31_536e3,
 						purgeOnQuotaError: !0,
 					}),
 				],
 			}),
-			'GET',
+			'GET'
 		),
 		e.registerRoute(
 			/\.(?:eot|otf|ttc|ttf|woff|woff2|font.css)$/i,
@@ -171,12 +175,12 @@ define('./sw.js', ['./workbox-234fc267'], function (e) {
 				plugins: [
 					new e.ExpirationPlugin({
 						maxEntries: 4,
-						maxAgeSeconds: 604800,
+						maxAgeSeconds: 604_800,
 						purgeOnQuotaError: !0,
 					}),
 				],
 			}),
-			'GET',
+			'GET'
 		),
 		e.registerRoute(
 			/\.(?:jpg|jpeg|gif|png|svg|ico|webp)$/i,
@@ -185,12 +189,12 @@ define('./sw.js', ['./workbox-234fc267'], function (e) {
 				plugins: [
 					new e.ExpirationPlugin({
 						maxEntries: 64,
-						maxAgeSeconds: 86400,
+						maxAgeSeconds: 86_400,
 						purgeOnQuotaError: !0,
 					}),
 				],
 			}),
-			'GET',
+			'GET'
 		),
 		e.registerRoute(
 			/\.(?:js)$/i,
@@ -199,12 +203,12 @@ define('./sw.js', ['./workbox-234fc267'], function (e) {
 				plugins: [
 					new e.ExpirationPlugin({
 						maxEntries: 32,
-						maxAgeSeconds: 86400,
+						maxAgeSeconds: 86_400,
 						purgeOnQuotaError: !0,
 					}),
 				],
 			}),
-			'GET',
+			'GET'
 		),
 		e.registerRoute(
 			/\.(?:css|less)$/i,
@@ -213,12 +217,12 @@ define('./sw.js', ['./workbox-234fc267'], function (e) {
 				plugins: [
 					new e.ExpirationPlugin({
 						maxEntries: 32,
-						maxAgeSeconds: 86400,
+						maxAgeSeconds: 86_400,
 						purgeOnQuotaError: !0,
 					}),
 				],
 			}),
-			'GET',
+			'GET'
 		),
 		e.registerRoute(
 			/\.(?:json|xml|csv)$/i,
@@ -227,12 +231,12 @@ define('./sw.js', ['./workbox-234fc267'], function (e) {
 				plugins: [
 					new e.ExpirationPlugin({
 						maxEntries: 32,
-						maxAgeSeconds: 86400,
+						maxAgeSeconds: 86_400,
 						purgeOnQuotaError: !0,
 					}),
 				],
 			}),
-			'GET',
+			'GET'
 		),
 		e.registerRoute(
 			/\/api\/.*$/i,
@@ -242,12 +246,12 @@ define('./sw.js', ['./workbox-234fc267'], function (e) {
 				plugins: [
 					new e.ExpirationPlugin({
 						maxEntries: 16,
-						maxAgeSeconds: 86400,
+						maxAgeSeconds: 86_400,
 						purgeOnQuotaError: !0,
 					}),
 				],
 			}),
-			'GET',
+			'GET'
 		),
 		e.registerRoute(
 			/.*/i,
@@ -257,11 +261,11 @@ define('./sw.js', ['./workbox-234fc267'], function (e) {
 				plugins: [
 					new e.ExpirationPlugin({
 						maxEntries: 32,
-						maxAgeSeconds: 86400,
+						maxAgeSeconds: 86_400,
 						purgeOnQuotaError: !0,
 					}),
 				],
 			}),
-			'GET',
-		)
-})
+			'GET'
+		);
+});

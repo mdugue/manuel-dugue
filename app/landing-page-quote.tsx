@@ -1,32 +1,32 @@
-import { documentToHtmlString } from '@contentful/rich-text-html-renderer'
-import { kv } from '@vercel/kv'
-import { OpenAIStream } from 'ai'
-import { pageQuery } from 'app/[locale]/pageQuery'
-import { graphqlClient } from 'app/graphQlClient'
-import { AllInOnePageQuery } from 'gql/graphql'
-import { Locale } from '../app/i18n-config'
-import Link from 'next/link'
-import OpenAi from 'openai'
-import { Suspense } from 'react'
-import GPTTooltip from './GPTTooltip'
-import { RiOpenaiFill } from '@remixicon/react'
+import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
+import { RiOpenaiFill } from '@remixicon/react';
+import { kv } from '@vercel/kv';
+import { OpenAIStream } from 'ai';
+import type { AllInOnePageQuery } from 'gql/graphql';
+import Link from 'next/link';
+import OpenAi from 'openai';
+import { Suspense } from 'react';
+import { pageQuery } from '@/[locale]/page-query';
+import GPTTooltip from '@/gpt-tooltip';
+import { graphqlClient } from '@/graphql-client';
+import type { Locale } from '@/i18n-config';
 
 const openai = new OpenAi({
-	apiKey: process.env.OPENAI_API_KEY!,
+	apiKey: process.env.OPENAI_API_KEY,
 	fetch: (input, init) =>
 		fetch(input, {
 			...init,
-			next: { revalidate: 86400 /*1 day: 60 * 60 * 24*/ },
+			next: { revalidate: 86_400 /*1 day: 60 * 60 * 24*/ },
 		}),
-})
+});
 
 export default async function Quote(props: { locale: Locale }) {
-	const { locale } = props
+	const { locale } = props;
 	const { allInOnePageCollection } =
 		await graphqlClient.request<AllInOnePageQuery>(pageQuery, {
 			slug: 'skill-profile',
 			locale: 'en',
-		})
+		});
 
 	const message =
 		locale === 'en'
@@ -51,14 +51,15 @@ ${documentToHtmlString(allInOnePageCollection?.items[0]?.content?.json)}
 - Verwende nicht den Begriff „Skill Profile“.
 - Vermeide generische oder klischeehafte Formulierungen (z. B. „Ich koche gerne“, „Ich liebe Architektur“); setze stattdessen auf subtile Andeutungen oder Paraphrasen. Keine Überbetonung von Kulinarik oder Kochjargon.
 - Bleibe authentisch, nachvollziehbar und bescheiden – selbstbewusst, aber nie arrogant oder werblich.
-`
+`;
 
-	const cached = undefined //await kv.get(message)
-	if (cached && typeof cached === 'string')
-		return <Container locale={locale}>{cached}</Container>
+	const cached = undefined; //await kv.get(message)
+	if (cached && typeof cached === 'string') {
+		return <Container locale={locale}>{cached}</Container>;
+	}
 
 	const response = await openai.chat.completions.create({
-		model: 'o4-mini',
+		model: 'gpt-4.1-mini',
 		stream: true,
 		messages: [
 			{
@@ -66,19 +67,18 @@ ${documentToHtmlString(allInOnePageCollection?.items[0]?.content?.json)}
 				content: message,
 			},
 		],
-	})
+	});
 
 	// Convert the response into a friendly text-stream
 	// @ts-expect-error TODO: migrate to new OpenAIStream API
 	const stream = OpenAIStream(response, {
 		async onCompletion(completion) {
-			console.log('caching: ', completion)
-			await kv.set(message, completion)
-			await kv.expire(message, 60 * 60)
+			await kv.set(message, completion);
+			await kv.expire(message, 60 * 60);
 		},
-	})
+	});
 
-	const reader = stream.getReader()
+	const reader = stream.getReader();
 
 	// We recursively render the stream as it comes in
 	return (
@@ -87,26 +87,26 @@ ${documentToHtmlString(allInOnePageCollection?.items[0]?.content?.json)}
 				<Reader reader={reader} />
 			</Suspense>
 		</Container>
-	)
+	);
 }
 
 async function Reader({
 	reader,
 }: {
-	reader: ReadableStreamDefaultReader<any>
+	reader: ReadableStreamDefaultReader<any>;
 }) {
-	const { done, value } = await reader.read()
+	const { done, value } = await reader.read();
 
 	if (done) {
-		return null
+		return null;
 	}
 
-	const text = new TextDecoder().decode(value)
+	const text = new TextDecoder().decode(value);
 	const extractedText = text.match(/"([^"]*)"/)?.[1]?.replace(
 		/\\n/g,
 		`
-`,
-	)
+`
+	);
 
 	return (
 		<>
@@ -115,15 +115,15 @@ async function Reader({
 				<Reader reader={reader} />
 			</Suspense>
 		</>
-	)
+	);
 }
 
 function Container({
 	children,
 	locale,
 }: {
-	children: React.ReactNode
-	locale: Locale
+	children: React.ReactNode;
+	locale: Locale;
 }) {
 	return (
 		<figure
@@ -133,19 +133,19 @@ function Container({
 					'perspective(60vmin) rotateX(3deg) rotateY(-4deg) rotateZ(3deg)',
 			}}
 		>
-			<blockquote className="bg-linear-to-tl border border-pink-500 from-fuchsia-500 to-pink-400 dark:from-amber-800 dark:to-yellow-500 contact shadow-xl text-amber-50 px-6 md:px-10 py-5 md:py-9 rounded-lg md:rounded-3xl max-w-xl md:mx-auto prose prose-strong:font-bold mx-2 lg:-ml-12 font-medium prose-headings:text-amber-100 whitespace-break-spaces">
+			<blockquote className="contact prose lg:-ml-12 mx-2 max-w-xl whitespace-break-spaces rounded-lg border border-pink-500 bg-linear-to-tl from-fuchsia-500 to-pink-400 px-6 py-5 font-medium prose-strong:font-bold prose-headings:text-amber-100 text-amber-50 shadow-xl md:mx-auto md:rounded-3xl md:px-10 md:py-9 dark:from-amber-800 dark:to-yellow-500">
 				{children}
 			</blockquote>
-			<figcaption className="text-gray-400 ml-auto text-right text-sm mt-2 mr-1 flex items-center gap-1 justify-end">
+			<figcaption className="mt-2 mr-1 ml-auto flex items-center justify-end gap-1 text-right text-gray-400 text-sm">
 				<span>
 					{locale === 'de' ? (
 						<>
-							– <RiOpenaiFill className="inline size-4" /> o4 zu meinem{' '}
+							– <RiOpenaiFill className="inline size-4" /> GPT 4.1 zu meinem{' '}
 							<GPTTooltip locale={locale}>
 								<Link
+									className="pb-7 text-indigo-400 hover:text-indigo-600 hover:underline dark:hover:text-amber-900"
 									href="/de/skill-profile"
 									prefetch={false}
-									className="text-indigo-400 hover:text-indigo-600 hover:underline dark:hover:text-amber-900 pb-7"
 								>
 									Skill Profile
 								</Link>
@@ -153,12 +153,13 @@ function Container({
 						</>
 					) : (
 						<>
-							– <RiOpenaiFill className="inline size-4" /> o4 after reading my{' '}
+							– <RiOpenaiFill className="inline size-4" /> GPT 4.1 after reading
+							my{' '}
 							<GPTTooltip locale={locale}>
 								<Link
+									className="pb-7 text-indigo-400 hover:text-indigo-600 hover:underline dark:hover:text-amber-900"
 									href="/en/skill-profile"
 									prefetch={false}
-									className="text-indigo-400 hover:text-indigo-600 hover:underline dark:hover:text-amber-900 pb-7"
 								>
 									Skill Profile
 								</Link>
@@ -168,5 +169,5 @@ function Container({
 				</span>
 			</figcaption>
 		</figure>
-	)
+	);
 }
