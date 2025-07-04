@@ -1,4 +1,4 @@
 /* eslint-disable */
 interface Window {
-	workbox: any
+  workbox: any;
 }

@@ -3,5 +3,5 @@
  * navigating between sub-pages, such as opening sheets
  */
 export default function Layout({ children }: { children: React.ReactNode }) {
-	return <>{children}</>
+  return <>{children}</>;
 }

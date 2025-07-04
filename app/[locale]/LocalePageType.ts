@@ -1,4 +1,4 @@
-import { Locale } from '../i18n-config'
+import type { Locale } from '../i18n-config';
 export type LocalePageType<Params extends {} = {}> = {
-	params: Promise<{ locale: Locale }> & Params
-}
+  params: Promise<{ locale: Locale }> & Params;
+};
