@@ -37,7 +37,8 @@
     "eslint-plugin-react-hooks": "6.0.0-rc.1",
     "eslint-plugin-simple-import-sort": "^12.1.1",
     "typescript": "^5.8.3",
-    "ultracite": "5.0.32"
+    "ultracite": "5.0.32",
+    "@types/bun": "latest"
   },
   "dependencies": {
     "@contentful/rich-text-html-renderer": "^17.0.1",
