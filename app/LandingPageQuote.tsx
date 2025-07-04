@@ -3,8 +3,8 @@ import { kv } from '@vercel/kv'
 import { OpenAIStream } from 'ai'
 import { pageQuery } from 'app/[locale]/pageQuery'
 import { graphqlClient } from 'app/graphQlClient'
-import { AllInOnePageQuery } from 'gql/graphql'
-import { Locale } from '../app/i18n-config'
+import type { AllInOnePageQuery } from 'gql/graphql'
+import type { Locale } from '../app/i18n-config'
 import Link from 'next/link'
 import OpenAi from 'openai'
 import { Suspense } from 'react'
@@ -12,7 +12,7 @@ import GPTTooltip from './GPTTooltip'
 import { RiOpenaiFill } from '@remixicon/react'
 
 const openai = new OpenAi({
-	apiKey: process.env.OPENAI_API_KEY!,
+	apiKey: process.env.OPENAI_API_KEY,
 	fetch: (input, init) =>
 		fetch(input, {
 			...init,
@@ -58,7 +58,7 @@ ${documentToHtmlString(allInOnePageCollection?.items[0]?.content?.json)}
 		return <Container locale={locale}>{cached}</Container>
 
 	const response = await openai.chat.completions.create({
-		model: 'o4-mini',
+		model: 'gpt-4.1-mini',
 		stream: true,
 		messages: [
 			{
@@ -140,7 +140,7 @@ function Container({
 				<span>
 					{locale === 'de' ? (
 						<>
-							– <RiOpenaiFill className="inline size-4" /> o4 zu meinem{' '}
+							– <RiOpenaiFill className="inline size-4" /> GPT 4.1 zu meinem{' '}
 							<GPTTooltip locale={locale}>
 								<Link
 									href="/de/skill-profile"
@@ -153,7 +153,8 @@ function Container({
 						</>
 					) : (
 						<>
-							– <RiOpenaiFill className="inline size-4" /> o4 after reading my{' '}
+							– <RiOpenaiFill className="inline size-4" /> GPT 4.1 after reading
+							my{' '}
 							<GPTTooltip locale={locale}>
 								<Link
 									href="/en/skill-profile"
