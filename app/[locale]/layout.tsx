@@ -1,4 +1,5 @@
 import {
+	RiCupFill,
 	RiGithubFill,
 	RiLinkedinBoxFill,
 	RiOpenaiFill,
@@ -22,6 +23,8 @@ import { Suspense } from 'react'
 import { Person, WithContext } from 'schema-dts'
 import { LocalePageType } from './LocalePageType'
 import './globals.css'
+import { ErrorBoundary } from 'react-error-boundary'
+import { RiCupLine } from '@remixicon/react'
 
 export const runtime = 'edge'
 export const revalidate = 60 // 1 minute
@@ -66,12 +69,42 @@ export default async function MyApp({
 					<Suspense
 						fallback={
 							<div className="text-gray-400 font-display animate-pulse">
-								<RiOpenaiFill className="inline size-4" /> o4 reading my Skill
-								Profile …
+								<RiOpenaiFill className="inline size-4" /> GPT 4.1 reading my
+								Skill Profile …
 							</div>
 						}
 					>
-						<LandingPageQuote locale={locale} />
+						<ErrorBoundary
+							fallback={
+								<div
+									className="belowMd:transform-none! mb-8 bg-linear-to-tl border border-pink-500 from-fuchsia-500 to-pink-400 dark:from-amber-800 dark:to-yellow-500 contact shadow-xl text-amber-50 px-6 md:px-10 py-5 md:py-9 rounded-lg md:rounded-3xl max-w-xl md:mx-auto prose prose-strong:font-bold mx-2 lg:-ml-12 font-medium prose-headings:text-amber-100 whitespace-break-spaces"
+									style={{
+										transform:
+											'perspective(60vmin) rotateX(3deg) rotateY(-4deg) rotateZ(3deg)',
+									}}
+								>
+									<div>ohhhhhh noooooo</div>
+									<h2 className="font-display flex items-center gap-2">
+										<RiCupFill /> What's the deal?
+									</h2>
+									<p>
+										We've likely reached our conversation limit with our AI
+										assistant. This typically refreshes within 24 hours, but
+										feel free to try again in a few minutes – sometimes these
+										limits reset sooner than expected!
+									</p>
+									<p>
+										Or{' '}
+										<a href="mailto:mail@manuel.fyi" className="text-inherit">
+											contact me directly
+										</a>{' '}
+										to get a personal summary.
+									</p>
+								</div>
+							}
+						>
+							<LandingPageQuote locale={locale} />
+						</ErrorBoundary>
 					</Suspense>
 				</div>
 				<DocumentsNavigation locale={locale} />
