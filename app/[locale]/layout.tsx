@@ -4,58 +4,58 @@ import {
 	RiLinkedinBoxFill,
 	RiOpenaiFill,
 	RiTwitterXFill,
-} from '@remixicon/react'
-import type { Metadata } from 'next'
+} from '@remixicon/react';
+import type { Metadata } from 'next';
 import {
 	Bungee,
 	Bungee_Inline,
 	Bungee_Shade,
 	Montserrat,
-} from 'next/font/google'
-import Link from 'next/link'
-import { Suspense } from 'react'
-import type { Person, WithContext } from 'schema-dts'
-import ClaimCard from '@/ClaimCard'
-import DocumentsNavigation from '@/DocumentsNavigation'
-import LandingPageQuote from '@/LandingPageQuote'
-import LocaleSwitcher from '@/locale-switcher'
-import { getDictionary } from '../get-dictionary'
-import { i18n, type Locale } from '../i18n-config'
-import type { LocalePageType } from './LocalePageType'
-import './globals.css'
-import { ErrorBoundary } from 'react-error-boundary'
+} from 'next/font/google';
+import Link from 'next/link';
+import { Suspense } from 'react';
+import type { Person, WithContext } from 'schema-dts';
+import type { LocalePageType } from '@/[locale]/locale-page-type';
+import ClaimCard from '@/claim-card';
+import DocumentsNavigation from '@/documents-navigation';
+import { getDictionary } from '@/get-dictionary';
+import { i18n, type Locale } from '@/i18n-config';
+import LandingPageQuote from '@/landing-page-quote';
+import LocaleSwitcher from '@/locale-switcher';
+import './globals.css';
+import { ErrorBoundary } from 'react-error-boundary';
 
-export const runtime = 'edge'
-export const revalidate = 60 // 1 minute
+export const runtime = 'edge';
+export const revalidate = 60; // 1 minute
 
 const montserrat = Montserrat({
 	subsets: ['latin'],
 	variable: '--font-montserrat',
-})
+});
 
 const bungee = Bungee({
 	weight: '400',
 	subsets: ['latin'],
 	variable: '--font-bungee',
-})
+});
 const bungeeInline = Bungee_Inline({
 	weight: '400',
 	subsets: ['latin'],
 	variable: '--font-bungee-inline',
-})
+});
 const bungeeShade = Bungee_Shade({
 	weight: '400',
 	subsets: ['latin'],
 	variable: '--font-bungee-shade',
-})
+});
 
 export default async function MyApp({
 	children,
 	params,
 }: LocalePageType & {
-	children: React.ReactNode
+	children: React.ReactNode;
 }) {
-	const { locale } = await params
+	const { locale } = await params;
 	return (
 		<html
 			className={`${bungee.variable} ${bungeeInline.variable} ${bungeeShade.variable} ${montserrat.variable}`}
@@ -113,7 +113,7 @@ export default async function MyApp({
 				{children}
 			</body>
 		</html>
-	)
+	);
 }
 
 function ContactAside() {
@@ -153,12 +153,12 @@ function ContactAside() {
 				Manuel Dugué
 			</div>
 		</aside>
-	)
+	);
 }
 
 async function LegalSection(props: { locale: Locale }) {
-	const { locale } = props
-	const dictionary = await getDictionary(locale)
+	const { locale } = props;
+	const dictionary = await getDictionary(locale);
 	return (
 		<nav className="mx-2 flex gap-x-2 p-4 font-display coarse:text-lg text-gray-300 md:top-4 md:left-auto md:flex-col md:items-end md:text-right dark:text-gray-500">
 			<LocaleSwitcher className="flex gap-2" currentLocale={locale} />
@@ -177,7 +177,7 @@ async function LegalSection(props: { locale: Locale }) {
 				{dictionary.privacy}
 			</Link>
 		</nav>
-	)
+	);
 }
 
 const jsonLd: WithContext<Person> = {
@@ -256,12 +256,12 @@ const jsonLd: WithContext<Person> = {
 		"2nd Place Photo Competition 'Go-Out Studying'",
 		'1st Price Logo Pitch at Microcomputer Chair',
 	],
-}
+};
 
 export async function generateMetadata({
 	params,
 }: LocalePageType): Promise<Metadata> {
-	const { locale } = await params
+	const { locale } = await params;
 	return {
 		title: {
 			template: '%s – Manuel Dugué',
@@ -270,7 +270,7 @@ export async function generateMetadata({
 		alternates: {
 			canonical: `https://manuel.fyi/${locale}`,
 			languages: Object.fromEntries(
-				i18n.locales.map((locale) => [locale, `https://manuel.fyi/${locale}`]),
+				i18n.locales.map((locale) => [locale, `https://manuel.fyi/${locale}`])
 			),
 		},
 		description:
@@ -297,5 +297,5 @@ export async function generateMetadata({
 			'Performance',
 			'Design',
 		],
-	}
+	};
 }
