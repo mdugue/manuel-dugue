@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import Typewriter from 'typewriter-effect';
 
 import useMaterial from '../hooks/use-material';
-import Headline from './Headline';
+import AnimatedHeadline from './animated-headline';
 
 const translate = (x: number, y: number, multiplier: number) =>
 	`translate3d(${multiplier * x}vmin,${multiplier * y}vmin,0)`;
@@ -75,11 +75,11 @@ export default function ClaimCard() {
 			>
 				– since 2008 –
 			</animated.small>
-			<Headline style={{ transform: to(xy, trans2) }}>
+			<AnimatedHeadline style={{ transform: to(xy, trans2) }}>
 				handcrafting <br />
 				web experiences <br />
 				for everybody
-			</Headline>
+			</AnimatedHeadline>
 			<animated.h2
 				className="bg-linear-to-bl from-amber-100 to-amber-200 font-inline text-gradient dark:from-teal-900 dark:to-teal-700"
 				style={{
@@ -88,7 +88,8 @@ export default function ClaimCard() {
 			>
 				<Typewriter
 					onInit={(typewriter) => {
-						(typewriterRef.current = typewriter)
+						typewriterRef.current = typewriter;
+						typewriter
 							.typeString('consumers, experts, bots, ...')
 							// @ts-expect-error ts definition does not seem complete yet
 							.changeCursor(' ')

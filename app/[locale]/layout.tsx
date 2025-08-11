@@ -68,8 +68,18 @@ export default async function MyApp({
 					<Suspense
 						fallback={
 							<div className="animate-pulse font-display text-gray-400">
-								<RiOpenaiFill className="inline size-4" /> GPT 4.1 reading my
-								Skill Profile …
+								<RiOpenaiFill className="inline size-4" />{' '}
+								{locale === 'en' ? (
+									<>
+										GPT 5 reading my{' '}
+										<Link href="/en/skill-profile">Skill Profile</Link> …
+									</>
+								) : (
+									<>
+										GPT 5 liest mein{' '}
+										<Link href="/de/skill-profile">Skill Profile</Link> …
+									</>
+								)}
 							</div>
 						}
 					>
@@ -163,14 +173,14 @@ async function LegalSection(props: { locale: Locale }) {
 		<nav className="mx-2 flex gap-x-2 p-4 font-display coarse:text-lg text-gray-300 md:top-4 md:left-auto md:flex-col md:items-end md:text-right dark:text-gray-500">
 			<LocaleSwitcher className="flex gap-2" currentLocale={locale} />
 			<Link
-				className=" hover:text-gray-400"
+				className="hover:text-gray-400"
 				href={`${locale}/legal`}
 				prefetch={false}
 			>
 				{dictionary.legal}
 			</Link>
 			<Link
-				className=" hover:text-gray-400"
+				className="hover:text-gray-400"
 				href={`${locale}/privacy`}
 				prefetch={false}
 			>

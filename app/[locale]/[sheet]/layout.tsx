@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import Sheet from '@/Sheet';
+import DocumentSheet from '@/document-sheet';
 import { i18n } from '../../i18n-config';
 import type { LocalePageType } from '../locale-page-type';
 
@@ -9,7 +9,7 @@ export const revalidate = 60; // 1 minute
 type Props = { children: React.ReactNode };
 
 export default function SheetLayout({ children }: Props) {
-	return <Sheet>{children}</Sheet>;
+	return <DocumentSheet>{children}</DocumentSheet>;
 }
 
 // TODO: Check

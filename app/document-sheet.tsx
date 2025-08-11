@@ -3,7 +3,7 @@ import Link from 'next/link';
 import type { ReactNode } from 'react';
 import BackOnEsc from '@/back-on-esc';
 
-export default function Sheet(props: { children: ReactNode }) {
+export default function DocumentSheet(props: { children: ReactNode }) {
 	return (
 		<div
 			aria-describedby="dialog-content"
@@ -20,7 +20,10 @@ export default function Sheet(props: { children: ReactNode }) {
 	);
 }
 
-export function SheetContent(props: { title?: string; children?: ReactNode }) {
+export function DocumentSheetContent(props: {
+	title?: string;
+	children?: ReactNode;
+}) {
 	const { title = 'loading …', children } = props;
 
 	return (
