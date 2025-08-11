@@ -31,7 +31,7 @@ export default function GPTTooltip(props: {
 								source code
 							</a>
 						</p>
-						<Tooltip.Arrow className="fill-white/75 " />
+						<Tooltip.Arrow className="fill-white/75" />
 					</Tooltip.Content>
 				</Tooltip.Portal>
 			</Tooltip.Root>

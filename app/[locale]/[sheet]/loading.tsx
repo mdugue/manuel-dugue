@@ -1,9 +1,9 @@
-import { SheetContent } from '@/Sheet';
+import { DocumentSheetContent } from '@/document-sheet';
 
 export default function Loading() {
 	return (
 		<div className="animate-pulse">
-			<SheetContent title="Loading…" />
+			<DocumentSheetContent title="Loading…" />
 		</div>
 	);
 }
