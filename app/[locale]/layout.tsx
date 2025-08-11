@@ -68,8 +68,18 @@ export default async function MyApp({
 					<Suspense
 						fallback={
 							<div className="animate-pulse font-display text-gray-400">
-								<RiOpenaiFill className="inline size-4" /> GPT 4.1 reading my
-								Skill Profile …
+								<RiOpenaiFill className="inline size-4" />{' '}
+								{locale === 'en' ? (
+									<>
+										GPT 5 reading my{' '}
+										<Link href="/en/skill-profile">Skill Profile</Link> …
+									</>
+								) : (
+									<>
+										GPT 5 liest mein{' '}
+										<Link href="/de/skill-profile">Skill Profile</Link> …
+									</>
+								)}
 							</div>
 						}
 					>

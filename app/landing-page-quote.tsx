@@ -16,7 +16,10 @@ const openai = new OpenAi({
 	fetch: (input, init) =>
 		fetch(input, {
 			...init,
-			next: { revalidate: 86_400 /*1 day: 60 * 60 * 24*/ },
+			next: {
+				/*1 day: 60 * 60 * 24*/
+				revalidate: 86_400,
+			},
 		}),
 });
 
@@ -28,38 +31,49 @@ export default async function Quote(props: { locale: Locale }) {
 			locale: 'en',
 		});
 
+	const stringifiedDocument = documentToHtmlString(
+		allInOnePageCollection?.items[0]?.content?.json
+	);
+
 	const message =
 		locale === 'en'
-			? `You are Manuel, a creative engineer with a strong academic foundation and hands-on experience in product development. Your responses are concise, sometimes witty, and always formatted as plain text using \n for new lines (never use HTML tags).
+			? `You are Manuel, a creative engineer with a strong academic foundation and hands-on product experience. Write in plain text only. Use real line breaks for paragraphs; do not write "\n". No HTML or Markdown.
 
-Write a short, first-person personal summary that subtly references some of my projects, based on the following content:
-${documentToHtmlString(allInOnePageCollection?.items[0]?.content?.json)}
+Task
+Start with a brief greeting on its own line without your name (e.g., Hi.). Then write a short first-person summary that subtly references one or two projects from the input.
 
-- Focus on soft skills and personal qualities; minimize technical jargon.
-- Keep the summary under 100 words, split into at least two paragraphs.
-- Do not use the term “skill profile.”
-- Avoid generic or clichéd phrases (e.g., “I enjoy cooking,” “I love architecture”); instead, use subtle hints or paraphrases. Do not overemphasize food or cooking metaphors.
-- Maintain an authentic, relatable, and humble tone—confident but never arrogant or corporate.
-`
-			: `Du bist Manuel, ein kreativer Ingenieur mit solidem akademischem Fundament und viel Praxiserfahrung in der Produktentwicklung. Deine Antworten sind prägnant, manchmal unterhaltsam, immer als reiner Text mit \n für Zeilenumbrüche (keine HTML-Tags).
+Input
+${stringifiedDocument}
 
-Schreibe eine kurze persönliche Zusammenfassung in der Ich-Form, die einige meiner Projekte subtil einbezieht, basierend auf folgendem Inhalt:
-${documentToHtmlString(allInOnePageCollection?.items[0]?.content?.json)}
+Hard rules
+- Total ≤120 words including the greeting. After the greeting, exactly two paragraphs; 1–2 sentences per paragraph.
+- Do not start any paragraph other than the greeting with “I am Manuel” or “My name is Manuel,” and do not repeat your name after the greeting.
+- Emphasize soft skills, values, and collaboration; minimize technical jargon. Avoid clichés/buzzwords. No emojis, no exclamation marks, no lists.
+- Mention clients/organizations only if present in the input. Prefer well-known names when available; otherwise, add a neutral type label before lesser-known names using information in the input (e.g., research institute). Refer to them casually as one of several (e.g., including work with …).
+- Reference only facts from the input; if details are missing, stay generic; do not invent names.
+- Characters: no special symbols (# @ /  * ~ ^ | < > [ ] { } _ = + % " ’). Use only letters (incl. diacritics), numbers, spaces, commas, and periods.`
+			: `Du bist Manuel, ein kreativer Ingenieur mit solidem akademischem Fundament und praktischer Produkterfahrung. Schreibe ausschließlich als Reintext. Verwende echte Zeilenumbrüche; schreibe „\n“ nicht wörtlich. Kein HTML oder Markdown.
 
-- Betone Soft Skills und persönliche Eigenschaften, vermeide technischen Jargon.
-- Halte die Zusammenfassung unter 100 Wörter, auf mindestens zwei Absätze verteilt.
-- Verwende nicht den Begriff „Skill Profile“.
-- Vermeide generische oder klischeehafte Formulierungen (z. B. „Ich koche gerne“, „Ich liebe Architektur“); setze stattdessen auf subtile Andeutungen oder Paraphrasen. Keine Überbetonung von Kulinarik oder Kochjargon.
-- Bleibe authentisch, nachvollziehbar und bescheiden – selbstbewusst, aber nie arrogant oder werblich.
-`;
+Aufgabe
+Beginne mit einer kurzen Begrüßung in einer eigenen Zeile ohne Namensnennung (z. B. Hallo.). Danach eine kurze Ich-Zusammenfassung, die ein bis zwei Projekte aus dem Input subtil anspielt.
 
-	const cached = undefined; //await kv.get(message)
+Input
+${stringifiedDocument}
+
+Strikte Regeln
+- Insgesamt ≤120 Wörter inklusive Begrüßung. Nach der Begrüßung genau zwei Absätze; pro Absatz 1–2 Sätze.
+- Betone Soft Skills, Werte und Zusammenarbeit; technischen Jargon minimal halten. Floskeln/Buzzwords vermeiden. Keine Emojis, keine Ausrufezeichen, keine Listen.
+- Kunden/Organisationen nur nennen, wenn sie im Input stehen. Bevorzuge bekannte Namen; andernfalls füge vor weniger bekannten Namen eine neutrale Typbezeichnung aus dem Input hinzu (z. B. Forschungseinrichtung). Erwähne sie beiläufig als einen von mehreren (z. B. unter anderem bei …).
+- Nur belegte Fakten aus dem Input; fehlen Details, allgemein bleiben; keine Namen erfinden.
+- Zeichen: keine Sonderzeichen (# @ /  * ~ ^ | < > [ ] { } _ = + % " ’). Verwende nur Buchstaben (inkl. Umlaute), Zahlen, Leerzeichen, Kommas und Punkte. Vermeide ae, oe, ue etc. wenn stattdessen ä,ö,ü etc. verwendet werden können.`;
+
+	const cached = await kv.get(message + 'gpt-5-mini' + locale);
 	if (cached && typeof cached === 'string') {
 		return <Container locale={locale}>{cached}</Container>;
 	}
 
 	const response = await openai.chat.completions.create({
-		model: 'gpt-4.1-mini',
+		model: 'gpt-5-mini',
 		stream: true,
 		messages: [
 			{
@@ -140,7 +154,7 @@ function Container({
 				<span>
 					{locale === 'de' ? (
 						<>
-							– <RiOpenaiFill className="inline size-4" /> GPT 4.1 zu meinem{' '}
+							– <RiOpenaiFill className="inline size-4" /> GPT 5 zu meinem{' '}
 							<GPTTooltip locale={locale}>
 								<Link
 									className="pb-7 text-indigo-400 hover:text-indigo-600 hover:underline dark:hover:text-amber-900"
@@ -153,7 +167,7 @@ function Container({
 						</>
 					) : (
 						<>
-							– <RiOpenaiFill className="inline size-4" /> GPT 4.1 after reading
+							– <RiOpenaiFill className="inline size-4" /> GPT 5 after reading
 							my{' '}
 							<GPTTooltip locale={locale}>
 								<Link
