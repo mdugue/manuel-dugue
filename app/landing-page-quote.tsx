@@ -1,7 +1,6 @@
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 import { RiOpenaiFill } from '@remixicon/react';
 import { kv } from '@vercel/kv';
-import { OpenAIStream } from 'ai';
 import type { AllInOnePageQuery } from 'gql/graphql';
 import Link from 'next/link';
 import OpenAi from 'openai';
@@ -67,10 +66,11 @@ Strikte Regeln
 - Nur belegte Fakten aus dem Input; fehlen Details, allgemein bleiben; keine Namen erfinden.
 - Zeichen: keine Sonderzeichen (# @ /  * ~ ^ | < > [ ] { } _ = + % " ’). Verwende nur Buchstaben (inkl. Umlaute), Zahlen, Leerzeichen, Kommas und Punkte. Vermeide ae, oe, ue etc. wenn stattdessen ä,ö,ü etc. verwendet werden können.`;
 
-	const cached = await kv.get(message + 'gpt-5-mini' + locale);
-	if (cached && typeof cached === 'string') {
-		return <Container locale={locale}>{cached}</Container>;
-	}
+        const cacheKey = `${locale}-gpt-5-mini-${message}`;
+        const cached = await kv.get(cacheKey);
+        if (cached && typeof cached === 'string') {
+                return <Container locale={locale}>{cached}</Container>;
+        }
 
 	const response = await openai.chat.completions.create({
 		model: 'gpt-5-mini',
@@ -83,14 +83,46 @@ Strikte Regeln
 		],
 	});
 
-	// Convert the response into a friendly text-stream
-	// @ts-expect-error TODO: migrate to new OpenAIStream API
-	const stream = OpenAIStream(response, {
-		async onCompletion(completion) {
-			await kv.set(message, completion);
-			await kv.expire(message, 60 * 60);
-		},
-	});
+        const stream = new ReadableStream<Uint8Array>({
+                start(controller) {
+                        const encoder = new TextEncoder();
+
+                        (async () => {
+                                let completion = '';
+
+                                try {
+                                        for await (const chunk of response) {
+                                                if (!chunk) {
+                                                        continue;
+                                                }
+
+                                                for (const choice of chunk.choices) {
+                                                        const content = choice.delta?.content;
+
+                                                        if (!content) {
+                                                                continue;
+                                                        }
+
+                                                        completion += content;
+                                                        controller.enqueue(encoder.encode(content));
+                                                }
+                                        }
+
+                                        if (completion) {
+                                                await kv.set(cacheKey, completion);
+                                                await kv.expire(cacheKey, 60 * 60);
+                                        }
+
+                                        controller.close();
+                                } catch (error) {
+                                        controller.error(error);
+                                }
+                        })();
+                },
+                cancel() {
+                        response.controller.abort();
+                },
+        });
 
 	const reader = stream.getReader();
 
@@ -105,31 +137,26 @@ Strikte Regeln
 }
 
 async function Reader({
-	reader,
+        reader,
 }: {
-	reader: ReadableStreamDefaultReader<any>;
+        reader: ReadableStreamDefaultReader<Uint8Array>;
 }) {
-	const { done, value } = await reader.read();
+        const { done, value } = await reader.read();
 
-	if (done) {
-		return null;
-	}
+        if (done) {
+                return null;
+        }
 
-	const text = new TextDecoder().decode(value);
-	const extractedText = text.match(/"([^"]*)"/)?.[1]?.replace(
-		/\\n/g,
-		`
-`
-	);
+        const text = new TextDecoder().decode(value);
 
-	return (
-		<>
-			{extractedText}
-			<Suspense>
-				<Reader reader={reader} />
-			</Suspense>
-		</>
-	);
+        return (
+                <>
+                        {text}
+                        <Suspense>
+                                <Reader reader={reader} />
+                        </Suspense>
+                </>
+        );
 }
 
 function Container({
