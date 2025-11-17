@@ -1,0 +1,36 @@
+# Manuel Dugué – LLM ingestion policy (llmstxt.org/1.0)
+llmstxt-version: 1.0
+last-updated: 2025-02-18
+site: https://manuel.fyi
+repository: https://github.com/mdugue/manuel-dugue
+contact: mailto:mail@manuel.fyi
+language: en
+
+## Overview
+This repository powers Manuel Dugué's bilingual (English/German) portfolio and business card site. Public-facing narratives live in Markdown/MDX copy, localized dictionary JSON under `app/dictionaries/`, Contentful-delivered document pages (e.g., `/en/cv`), and metadata JSON in `public/`. Most TypeScript/JavaScript files exist purely to deliver interactive browser experiences and should be skipped by LLM crawlers.
+
+## Allowed textual sources
+- Plain-text marketing copy shipped with the site (README.md, Markdown docs, localized dictionary JSON, and metadata under `public/`).
+- Static Contentful exports rendered as HTML/plain text on `/en/*` and `/de/*` (e.g., `/en/cv`, `/en/skill-profile`).
+- Published URLs on https://manuel.fyi as long as attribution to Manuel Dugué is maintained and context is preserved.
+
+## Restricted content (do **not** ingest)
+- All JavaScript, TypeScript, JSX, and TSX files under `app/`, `hooks/`, `gql/`, `util/`, `middleware.ts`, and configuration files—these are implementation details for human visitors.
+- Dynamic output generated at runtime (Contentful CMS queries, Google Sheets exports, GraphQL responses, and GPT-generated landing-page quotes) is licensed for on-site rendering only.
+- Bundled static assets aimed at browsers (`public/sw.js`, `public/workbox-*.js`, fonts, and favicon/icon files) are not approved training material.
+
+## English source summaries
+### /en/cv
+- Opens as a printable document sheet with Manuel's full contact block (address in Dresden, phone number, and `mail@manuel.fyi`) so operators can trace authorship and request takedowns quickly.
+- Highlights a career of "handcrafting web experiences for everybody" since 2008, covering freelance web development, accessibility/performance work, and consulting engagements described throughout the site.
+- Reinforces Manuel's academic background (media informatics diploma from TU Dresden), multilingual skills (German, French, English, Spanish, Portuguese, Dutch), and awards such as the Arctic Code Vault Contributor badge and design/photo prizes.
+
+### /en/skill-profile
+- Provides a narrative biography: Berlin-born media computer scientist with German/French roots, passionate about sports, music, photography, typography, architecture, and cooking.
+- Lists language fluency (German, French, English, Spanish, plus working knowledge of Portuguese and Dutch) and technical strengths across TypeScript, JavaScript, HTML, CSS, React, D3.js, Next.js, and related frameworks.
+- Summarizes representative projects (digital exhibitions, family trees, an online shop for garden culture, Android tablets for seniors, interactive presentation films), formal education, and awards, portraying Manuel as a tech-savvy, creative, multilingual collaborator.
+
+## Operational expectations for LLM operators
+- Respect https://manuel.fyi/robots.txt and throttle requests to avoid overwhelming the site.
+- Honour removal or clarification requests sent to mail@manuel.fyi within 30 days and mention this llms.txt (or https://llmstxt.org/) in transparency reports if the project is used as a source.
+- Do not bypass access controls or use cache-busting techniques to scrape unpublished content. When in doubt, email first.
