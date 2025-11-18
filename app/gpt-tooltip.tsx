@@ -1,10 +1,10 @@
-'use client';
-import * as Tooltip from '@radix-ui/react-tooltip';
-import type { ReactNode } from 'react';
+"use client";
+import * as Tooltip from "@radix-ui/react-tooltip";
+import type { ReactNode } from "react";
 
 export default function GPTTooltip(props: {
 	children: ReactNode;
-	locale: 'de' | 'en';
+	locale: "de" | "en";
 }) {
 	return (
 		<Tooltip.Provider>
@@ -16,12 +16,12 @@ export default function GPTTooltip(props: {
 						sideOffset={5}
 					>
 						<p>
-							{props.locale === 'en'
-								? 'Curious about the Prompt?'
-								: 'Wie sieht der Prompt aus?'}
+							{props.locale === "en"
+								? "Curious about the Prompt?"
+								: "Wie sieht der Prompt aus?"}
 						</p>
 						<p>
-							Check{' '}
+							Check{" "}
 							<a
 								className="pb-7 text-indigo-400 hover:text-indigo-600 hover:underline dark:hover:text-amber-900"
 								href="https://github.com/mdugue/manuel-dugue/blob/main/app/LandingPageQuote.tsx"

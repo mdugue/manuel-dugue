@@ -1,19 +1,10 @@
 {
   "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
-  "extends": [
-    "ultracite",
-    "ultracite/core",
-    "ultracite/react",
-    "ultracite/next"
-  ],
+  "extends": ["ultracite/core", "ultracite/react", "ultracite/next"],
   "formatter": {
     "indentStyle": "tab"
   },
   "files": {
-    "includes": [
-      "**",
-      "!gql/**",
-      "!public/**"
-    ]
+    "includes": ["**", "!gql/**", "!public/**"]
   }
 }

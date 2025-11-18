@@ -1,13 +1,13 @@
-import { type SpringProps, useSpring } from '@react-spring/web';
-import { type MouseEvent, useCallback, useEffect } from 'react';
-import { useMedia } from 'react-use';
-import usePrefersReducedMotion from './use-prefers-reduced-motion';
+import { type SpringProps, useSpring } from "@react-spring/web";
+import { type MouseEvent, useCallback, useEffect } from "react";
+import { useMedia } from "react-use";
+import usePrefersReducedMotion from "./use-prefers-reduced-motion";
 
 const slow = { mass: 10, tension: 200, friction: 50 };
 
 export default function useMaterial(
 	defaultPosition: [x: number, y: number],
-	config: SpringProps['config']
+	config: SpringProps["config"]
 ) {
 	const prefersReducedMotion = usePrefersReducedMotion();
 	const [props, api] = useSpring<{ xy: [number, number] }>(
@@ -17,7 +17,7 @@ export default function useMaterial(
 		}),
 		[]
 	);
-	const isWide = useMedia('(min-width: 768px)', false);
+	const isWide = useMedia("(min-width: 768px)", false);
 	useEffect(() => {
 		if (prefersReducedMotion) {
 			return;

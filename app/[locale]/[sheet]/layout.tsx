@@ -1,9 +1,8 @@
-import type { Metadata } from 'next';
-import DocumentSheet from '@/document-sheet';
-import { i18n } from '../../i18n-config';
-import type { LocalePageType } from '../locale-page-type';
-import { cacheLife } from 'next/cache';
-
+import type { Metadata } from "next";
+import DocumentSheet from "@/document-sheet";
+import { i18n } from "../../i18n-config";
+import type { LocalePageType } from "../locale-page-type";
+import { cacheLife } from "next/cache";
 
 type Props = { children: React.ReactNode };
 
@@ -15,7 +14,7 @@ export default function SheetLayout({ children }: Props) {
 export async function generateMetadata({
 	params,
 }: LocalePageType<Promise<{ sheet: string }>>): Promise<Metadata> {
-	'use cache';
+	"use cache";
 	cacheLife("minutes");
 	const { sheet, locale } = await params;
 	const title = createTitle(sheet);
@@ -32,12 +31,12 @@ export async function generateMetadata({
 		},
 		openGraph: {
 			url: `https://manuel.fyi/${locale}/${sheet}`,
-			type: 'article',
+			type: "article",
 			title: `${title} | Manuel Dugué – Freelance Web Development`,
 			description:
 				"Hey there! I'm Manuel, a media computer scientist born in Berlin with German and French roots.",
-			authors: 'https://manuel.fyi/',
-			modifiedTime: '2023-17-04T00:00:00Z',
+			authors: "https://manuel.fyi/",
+			modifiedTime: "2023-17-04T00:00:00Z",
 			images: [
 				{
 					url: `https://og-image.vercel.app/**Manuel%20Dugu%C3%A9**%20%E2%80%93%20${title}.png?theme=light&md=1&fontSize=100px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg`,
@@ -49,6 +48,6 @@ export async function generateMetadata({
 
 const createTitle = (sheet: string) =>
 	sheet
-		.split('-')
+		.split("-")
 		.map((word) => word[0].toUpperCase() + word.slice(1))
-		.join(' ');
+		.join(" ");
