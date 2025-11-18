@@ -49,6 +49,7 @@ export default async function Page({
 			</div>
 			{sheet === "skill-profile" && (
 				<script
+					// biome-ignore lint/security/noDangerouslySetInnerHtml: This is needed for the JSON-LD schema
 					dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
 					type="application/ld+json"
 				/>

@@ -67,7 +67,7 @@ Strikte Regeln
 - Nur belegte Fakten aus dem Input; fehlen Details, allgemein bleiben; keine Namen erfinden.
 - Zeichen: keine Sonderzeichen (# @ /  * ~ ^ | < > [ ] { } _ = + % " ’). Verwende nur Buchstaben (inkl. Umlaute), Zahlen, Leerzeichen, Kommas und Punkte. Vermeide ae, oe, ue etc. wenn stattdessen ä,ö,ü etc. verwendet werden können.`;
 
-	const cached = await kv.get(message + "gpt-5-mini" + locale);
+	const cached = await kv.get(`${message}gpt-5-mini${locale}`);
 	if (cached && typeof cached === "string") {
 		return <Container locale={locale}>{cached}</Container>;
 	}
@@ -104,9 +104,11 @@ Strikte Regeln
 	);
 }
 
+const extractTextRegex = /"([^"]*)"/;
 async function Reader({
 	reader,
 }: {
+	// biome-ignore lint/suspicious/noExplicitAny: TODO: Fix this
 	reader: ReadableStreamDefaultReader<any>;
 }) {
 	const { done, value } = await reader.read();
@@ -116,7 +118,7 @@ async function Reader({
 	}
 
 	const text = new TextDecoder().decode(value);
-	const extractedText = text.match(/"([^"]*)"/)?.[1]?.replace(
+	const extractedText = text.match(extractTextRegex)?.[1]?.replace(
 		/\\n/g,
 		`
 `

@@ -5,6 +5,11 @@
     "indentStyle": "tab"
   },
   "files": {
-    "includes": ["**"]
+    "includes": ["**", "!gql", "!public"]
+  },
+  "linter": {
+    "rules": {
+      "suspicious": { "useAwait": "off" }
+    }
   }
 }
