@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import DocumentSheet from '@/document-sheet';
-import { i18n } from '../../i18n-config';
+import { ensureLocale, i18n } from '../../i18n-config';
 import type { LocalePageType } from '../locale-page-type';
 
 export const runtime = 'edge';
@@ -14,9 +14,11 @@ export default function SheetLayout({ children }: Props) {
 
 // TODO: Check
 export async function generateMetadata({
-	params,
-}: LocalePageType<Promise<{ sheet: string }>>): Promise<Metadata> {
-	const { sheet, locale } = await params;
+        params,
+}: LocalePageType<{ sheet: string }>): Promise<Metadata> {
+        const resolvedParams = await params;
+        const locale = ensureLocale(resolvedParams.locale);
+        const { sheet } = resolvedParams;
 	const title = createTitle(sheet);
 	return {
 		title,

@@ -6,6 +6,7 @@ import {
 	RiTwitterXFill,
 } from '@remixicon/react';
 import type { Metadata } from 'next';
+import { cacheLife } from 'next/cache';
 import {
 	Bungee,
 	Bungee_Inline,
@@ -19,7 +20,7 @@ import type { LocalePageType } from '@/[locale]/locale-page-type';
 import ClaimCard from '@/claim-card';
 import DocumentsNavigation from '@/documents-navigation';
 import { getDictionary } from '@/get-dictionary';
-import { i18n, type Locale } from '@/i18n-config';
+import { ensureLocale, i18n, type Locale } from '@/i18n-config';
 import LandingPageQuote from '@/landing-page-quote';
 import LocaleSwitcher from '@/locale-switcher';
 import './globals.css';
@@ -50,13 +51,17 @@ const bungeeShade = Bungee_Shade({
 });
 
 export default async function MyApp({
-	children,
-	params,
+        children,
+        params,
 }: LocalePageType & {
-	children: React.ReactNode;
+        children: React.ReactNode;
 }) {
-	const { locale } = await params;
-	return (
+        'use cache';
+
+        cacheLife('hours');
+        const resolvedParams = await params;
+        const locale = ensureLocale(resolvedParams.locale);
+        return (
 		<html
 			className={`${bungee.variable} ${bungeeInline.variable} ${bungeeShade.variable} ${montserrat.variable}`}
 			lang={locale}
@@ -167,8 +172,11 @@ function ContactAside() {
 }
 
 async function LegalSection(props: { locale: Locale }) {
-	const { locale } = props;
-	const dictionary = await getDictionary(locale);
+        'use cache';
+
+        cacheLife('minutes');
+        const { locale } = props;
+        const dictionary = await getDictionary(locale);
 	return (
 		<nav className="mx-2 flex gap-x-2 p-4 font-display coarse:text-lg text-gray-300 md:top-4 md:left-auto md:flex-col md:items-end md:text-right dark:text-gray-500">
 			<LocaleSwitcher className="flex gap-2" currentLocale={locale} />
@@ -269,9 +277,10 @@ const jsonLd: WithContext<Person> = {
 };
 
 export async function generateMetadata({
-	params,
+        params,
 }: LocalePageType): Promise<Metadata> {
-	const { locale } = await params;
+        const resolvedParams = await params;
+        const locale = ensureLocale(resolvedParams.locale);
 	return {
 		title: {
 			template: '%s – Manuel Dugué',
