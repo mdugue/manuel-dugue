@@ -5,6 +5,6 @@
     "indentStyle": "tab"
   },
   "files": {
-    "includes": ["**", "!gql/**", "!public/**"]
+    "includes": ["**"]
   }
 }

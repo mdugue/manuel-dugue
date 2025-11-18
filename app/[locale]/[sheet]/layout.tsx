@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
+import { cacheLife } from "next/cache";
 import DocumentSheet from "@/document-sheet";
 import { i18n } from "../../i18n-config";
 import type { LocalePageType } from "../locale-page-type";
-import { cacheLife } from "next/cache";
 
 type Props = { children: React.ReactNode };
 

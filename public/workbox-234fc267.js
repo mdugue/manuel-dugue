@@ -1,6 +1,6 @@
-define('./workbox-234fc267.js', ['exports'], (t) => {
+define("./workbox-234fc267.js", ["exports"], (t) => {
 	try {
-		self['workbox:core:5.1.4'] && _();
+		self["workbox:core:5.1.4"] && _();
 	} catch (_t) {}
 	const e = (t, ...e) => {
 		let s = t;
@@ -12,11 +12,11 @@ define('./workbox-234fc267.js', ['exports'], (t) => {
 		}
 	}
 	try {
-		self['workbox:routing:5.1.4'] && _();
+		self["workbox:routing:5.1.4"] && _();
 	} catch (_t) {}
-	const n = (t) => (t && typeof t === 'object' ? t : { handle: t });
+	const n = (t) => (t && typeof t === "object" ? t : { handle: t });
 	class i {
-		constructor(t, e, s = 'GET') {
+		constructor(t, e, s = "GET") {
 			(this.handler = n(e)), (this.match = t), (this.method = s);
 		}
 	}
@@ -37,7 +37,7 @@ define('./workbox-234fc267.js', ['exports'], (t) => {
 	const a = (t) =>
 		new URL(String(t), location.href).href.replace(
 			new RegExp(`^${location.origin}`),
-			''
+			""
 		);
 	class c {
 		constructor() {
@@ -47,19 +47,19 @@ define('./workbox-234fc267.js', ['exports'], (t) => {
 			return this.t;
 		}
 		addFetchListener() {
-			self.addEventListener('fetch', (t) => {
+			self.addEventListener("fetch", (t) => {
 				const { request: e } = t,
 					s = this.handleRequest({ request: e, event: t });
 				s && t.respondWith(s);
 			});
 		}
 		addCacheListener() {
-			self.addEventListener('message', (t) => {
-				if (t.data && t.data.type === 'CACHE_URLS') {
+			self.addEventListener("message", (t) => {
+				if (t.data && t.data.type === "CACHE_URLS") {
 					const { payload: e } = t.data,
 						s = Promise.all(
 							e.urlsToCache.map((t) => {
-								typeof t === 'string' && (t = [t]);
+								typeof t === "string" && (t = [t]);
 								const e = new Request(...t);
 								return this.handleRequest({ request: e });
 							})
@@ -71,7 +71,7 @@ define('./workbox-234fc267.js', ['exports'], (t) => {
 		}
 		handleRequest({ request: t, event: e }) {
 			const s = new URL(t.url, location.href);
-			if (!s.protocol.startsWith('http')) {
+			if (!s.protocol.startsWith("http")) {
 				return;
 			}
 			const { params: n, route: i } = this.findMatchingRoute({
@@ -107,7 +107,7 @@ define('./workbox-234fc267.js', ['exports'], (t) => {
 						(n = r),
 						((Array.isArray(r) && r.length === 0) ||
 							(r.constructor === Object && Object.keys(r).length === 0) ||
-							typeof r === 'boolean') &&
+							typeof r === "boolean") &&
 							(n = void 0),
 						{ route: i, params: n }
 					);
@@ -127,13 +127,13 @@ define('./workbox-234fc267.js', ['exports'], (t) => {
 		}
 		unregisterRoute(t) {
 			if (!this.t.has(t.method)) {
-				throw new s('unregister-route-but-not-found-with-method', {
+				throw new s("unregister-route-but-not-found-with-method", {
 					method: t.method,
 				});
 			}
 			const e = this.t.get(t.method).indexOf(t);
 			if (!(e > -1)) {
-				throw new s('unregister-route-route-not-registered');
+				throw new s("unregister-route-route-not-registered");
 			}
 			this.t.get(t.method).splice(e, 1);
 		}
@@ -143,14 +143,14 @@ define('./workbox-234fc267.js', ['exports'], (t) => {
 		o || ((o = new c()), o.addFetchListener(), o.addCacheListener()), o
 	);
 	const u = {
-			googleAnalytics: 'googleAnalytics',
-			precache: 'precache-v2',
-			prefix: 'workbox',
-			runtime: 'runtime',
-			suffix: typeof registration !== 'undefined' ? registration.scope : '',
+			googleAnalytics: "googleAnalytics",
+			precache: "precache-v2",
+			prefix: "workbox",
+			runtime: "runtime",
+			suffix: typeof registration !== "undefined" ? registration.scope : "",
 		},
 		l = (t) =>
-			[u.prefix, t, u.suffix].filter((t) => t && t.length > 0).join('-'),
+			[u.prefix, t, u.suffix].filter((t) => t && t.length > 0).join("-"),
 		f = (t) => t || l(u.precache),
 		w = (t) => t || l(u.runtime);
 	function p(t) {
@@ -175,14 +175,14 @@ define('./workbox-234fc267.js', ['exports'], (t) => {
 						let s = !1;
 						setTimeout(() => {
 							(s = !0),
-								e(new Error('The open request was blocked and timed out'));
+								e(new Error("The open request was blocked and timed out"));
 						}, this.OPEN_TIMEOUT);
 						const n = indexedDB.open(this.h, this.u);
 						(n.onerror = () => e(n.error)),
 							(n.onupgradeneeded = (t) => {
 								s
 									? (n.transaction.abort(), n.result.close())
-									: typeof this.l === 'function' && this.l(t);
+									: typeof this.l === "function" && this.l(t);
 							}),
 							(n.onsuccess = () => {
 								const e = n.result;
@@ -209,12 +209,12 @@ define('./workbox-234fc267.js', ['exports'], (t) => {
 			{
 				index: e,
 				query: s = null,
-				direction: n = 'next',
+				direction: n = "next",
 				count: i,
 				includeKeys: r = !1,
 			} = {}
 		) {
-			return await this.transaction([t], 'readonly', (a, c) => {
+			return await this.transaction([t], "readonly", (a, c) => {
 				const o = a.objectStore(t),
 					h = e ? o.index(e) : o,
 					u = [],
@@ -252,8 +252,8 @@ define('./workbox-234fc267.js', ['exports'], (t) => {
 	}
 	y.prototype.OPEN_TIMEOUT = 2e3;
 	const g = {
-		readonly: ['get', 'count', 'getKey', 'getAll', 'getAllKeys'],
-		readwrite: ['add', 'put', 'clear', 'delete'],
+		readonly: ["get", "count", "getKey", "getAll", "getAllKeys"],
+		readwrite: ["add", "put", "clear", "delete"],
 	};
 	for (const [t, e] of Object.entries(g)) {
 		for (const s of e) {
@@ -264,25 +264,25 @@ define('./workbox-234fc267.js', ['exports'], (t) => {
 		}
 	}
 	try {
-		self['workbox:expiration:5.1.4'] && _();
+		self["workbox:expiration:5.1.4"] && _();
 	} catch (_t) {}
 	const m = (t) => {
 		const e = new URL(t, location.href);
-		return (e.hash = ''), e.href;
+		return (e.hash = ""), e.href;
 	};
 	class q {
 		constructor(t) {
 			(this.m = t),
-				(this.o = new y('workbox-expiration', 1, {
+				(this.o = new y("workbox-expiration", 1, {
 					onupgradeneeded: (t) => this.q(t),
 				}));
 		}
 		q(t) {
-			const e = t.target.result.createObjectStore('cache-entries', {
-				keyPath: 'id',
+			const e = t.target.result.createObjectStore("cache-entries", {
+				keyPath: "id",
 			});
-			e.createIndex('cacheName', 'cacheName', { unique: !1 }),
-				e.createIndex('timestamp', 'timestamp', { unique: !1 }),
+			e.createIndex("cacheName", "cacheName", { unique: !1 }),
+				e.createIndex("timestamp", "timestamp", { unique: !1 }),
 				(async (t) => {
 					await new Promise((e, s) => {
 						const n = indexedDB.deleteDatabase(t);
@@ -290,7 +290,7 @@ define('./workbox-234fc267.js', ['exports'], (t) => {
 							s(n.error);
 						}),
 							(n.onblocked = () => {
-								s(new Error('Delete blocked'));
+								s(new Error("Delete blocked"));
 							}),
 							(n.onsuccess = () => {
 								e();
@@ -305,20 +305,20 @@ define('./workbox-234fc267.js', ['exports'], (t) => {
 				cacheName: this.m,
 				id: this.v(t),
 			};
-			await this.o.put('cache-entries', s);
+			await this.o.put("cache-entries", s);
 		}
 		async getTimestamp(t) {
-			return (await this.o.get('cache-entries', this.v(t))).timestamp;
+			return (await this.o.get("cache-entries", this.v(t))).timestamp;
 		}
 		async expireEntries(t, e) {
 			const s = await this.o.transaction(
-					'cache-entries',
-					'readwrite',
+					"cache-entries",
+					"readwrite",
 					(s, n) => {
 						const i = s
-								.objectStore('cache-entries')
-								.index('timestamp')
-								.openCursor(null, 'prev'),
+								.objectStore("cache-entries")
+								.index("timestamp")
+								.openCursor(null, "prev"),
 							r = [];
 						let a = 0;
 						i.onsuccess = () => {
@@ -338,7 +338,7 @@ define('./workbox-234fc267.js', ['exports'], (t) => {
 				),
 				n = [];
 			for (const t of s) {
-				await this.o.delete('cache-entries', t.id), n.push(t.url);
+				await this.o.delete("cache-entries", t.id), n.push(t.url);
 			}
 			return n;
 		}
@@ -383,11 +383,11 @@ define('./workbox-234fc267.js', ['exports'], (t) => {
 	}
 	const R = (t, e) => t.filter((t) => e in t),
 		U = async ({ request: t, mode: e, plugins: s = [] }) => {
-			const n = R(s, 'cacheKeyWillBeUsed');
+			const n = R(s, "cacheKeyWillBeUsed");
 			let i = t;
 			for (const t of n) {
 				(i = await t.cacheKeyWillBeUsed.call(t, { mode: e, request: i })),
-					typeof i === 'string' && (i = new Request(i));
+					typeof i === "string" && (i = new Request(i));
 			}
 			return i;
 		},
@@ -399,10 +399,10 @@ define('./workbox-234fc267.js', ['exports'], (t) => {
 			plugins: i = [],
 		}) => {
 			const r = await self.caches.open(t),
-				a = await U({ plugins: i, request: e, mode: 'read' });
+				a = await U({ plugins: i, request: e, mode: "read" });
 			let c = await r.match(a, n);
 			for (const e of i) {
-				if ('cachedResponseWillBeUsed' in e) {
+				if ("cachedResponseWillBeUsed" in e) {
 					const i = e.cachedResponseWillBeUsed;
 					c = await i.call(e, {
 						cacheName: t,
@@ -423,9 +423,9 @@ define('./workbox-234fc267.js', ['exports'], (t) => {
 			plugins: r = [],
 			matchOptions: c,
 		}) => {
-			const o = await U({ plugins: r, request: e, mode: 'write' });
+			const o = await U({ plugins: r, request: e, mode: "write" });
 			if (!n) {
-				throw new s('cache-put-with-no-response', { url: a(o.url) });
+				throw new s("cache-put-with-no-response", { url: a(o.url) });
 			}
 			const h = await (async ({
 				request: t,
@@ -436,7 +436,7 @@ define('./workbox-234fc267.js', ['exports'], (t) => {
 				let i = e,
 					r = !1;
 				for (const e of n) {
-					if ('cacheWillUpdate' in e) {
+					if ("cacheWillUpdate" in e) {
 						r = !0;
 						const n = e.cacheWillUpdate;
 						if (
@@ -452,7 +452,7 @@ define('./workbox-234fc267.js', ['exports'], (t) => {
 				return;
 			}
 			const u = await self.caches.open(t),
-				l = R(r, 'cacheDidUpdate'),
+				l = R(r, "cacheDidUpdate"),
 				f =
 					l.length > 0
 						? await L({ cacheName: t, matchOptions: c, request: o })
@@ -461,7 +461,7 @@ define('./workbox-234fc267.js', ['exports'], (t) => {
 				await u.put(o, h);
 			} catch (t) {
 				throw (
-					(t.name === 'QuotaExceededError' &&
+					(t.name === "QuotaExceededError" &&
 						(await (async () => {
 							for (const t of d) {
 								await t();
@@ -483,7 +483,7 @@ define('./workbox-234fc267.js', ['exports'], (t) => {
 		N = L,
 		b = async ({ request: t, fetchOptions: e, event: n, plugins: i = [] }) => {
 			if (
-				(typeof t === 'string' && (t = new Request(t)),
+				(typeof t === "string" && (t = new Request(t)),
 				n instanceof FetchEvent && n.preloadResponse)
 			) {
 				const t = await n.preloadResponse;
@@ -491,25 +491,25 @@ define('./workbox-234fc267.js', ['exports'], (t) => {
 					return t;
 				}
 			}
-			const r = R(i, 'fetchDidFail'),
+			const r = R(i, "fetchDidFail"),
 				a = r.length > 0 ? t.clone() : null;
 			try {
 				for (const e of i) {
-					if ('requestWillFetch' in e) {
+					if ("requestWillFetch" in e) {
 						const s = e.requestWillFetch,
 							i = t.clone();
 						t = await s.call(e, { request: i, event: n });
 					}
 				}
 			} catch (t) {
-				throw new s('plugin-error-request-will-fetch', { thrownError: t });
+				throw new s("plugin-error-request-will-fetch", { thrownError: t });
 			}
 			const c = t.clone();
 			try {
 				let s;
-				s = t.mode === 'navigate' ? await fetch(t) : await fetch(t, e);
+				s = t.mode === "navigate" ? await fetch(t) : await fetch(t, e);
 				for (const t of i) {
-					'fetchDidSucceed' in t &&
+					"fetchDidSucceed" in t &&
 						(s = await t.fetchDidSucceed.call(t, {
 							event: n,
 							request: c,
@@ -530,7 +530,7 @@ define('./workbox-234fc267.js', ['exports'], (t) => {
 			}
 		};
 	try {
-		self['workbox:strategies:5.1.4'] && _();
+		self["workbox:strategies:5.1.4"] && _();
 	} catch (_t) {}
 	const O = {
 		cacheWillUpdate: async ({ response: t }) =>
@@ -547,8 +547,8 @@ define('./workbox-234fc267.js', ['exports'], (t) => {
 			i = e ? e(n) : n,
 			r = (() => {
 				if (void 0 === E) {
-					const t = new Response('');
-					if ('body' in t) {
+					const t = new Response("");
+					if ("body" in t) {
 						try {
 							new Response(t.body), (E = !0);
 						} catch (_t) {
@@ -564,19 +564,19 @@ define('./workbox-234fc267.js', ['exports'], (t) => {
 		return new Response(r, i);
 	}
 	try {
-		self['workbox:precaching:5.1.4'] && _();
+		self["workbox:precaching:5.1.4"] && _();
 	} catch (_t) {}
 	function M(t) {
 		if (!t) {
-			throw new s('add-to-cache-list-unexpected-type', { entry: t });
+			throw new s("add-to-cache-list-unexpected-type", { entry: t });
 		}
-		if (typeof t === 'string') {
+		if (typeof t === "string") {
 			const e = new URL(t, location.href);
 			return { cacheKey: e.href, url: e.href };
 		}
 		const { revision: e, url: n } = t;
 		if (!n) {
-			throw new s('add-to-cache-list-unexpected-type', { entry: t });
+			throw new s("add-to-cache-list-unexpected-type", { entry: t });
 		}
 		if (!e) {
 			const t = new URL(n, location.href);
@@ -585,7 +585,7 @@ define('./workbox-234fc267.js', ['exports'], (t) => {
 		const i = new URL(n, location.href),
 			r = new URL(n, location.href);
 		return (
-			i.searchParams.set('__WB_REVISION__', e),
+			i.searchParams.set("__WB_REVISION__", e),
 			{ cacheKey: i.href, url: r.href }
 		);
 	}
@@ -599,20 +599,20 @@ define('./workbox-234fc267.js', ['exports'], (t) => {
 		addToCacheList(t) {
 			const e = [];
 			for (const n of t) {
-				typeof n === 'string'
+				typeof n === "string"
 					? e.push(n)
 					: n && void 0 === n.revision && e.push(n.url);
 				const { cacheKey: t, url: i } = M(n),
-					r = typeof n !== 'string' && n.revision ? 'reload' : 'default';
+					r = typeof n !== "string" && n.revision ? "reload" : "default";
 				if (this.O.has(i) && this.O.get(i) !== t) {
-					throw new s('add-to-cache-list-conflicting-entries', {
+					throw new s("add-to-cache-list-conflicting-entries", {
 						firstEntry: this.O.get(i),
 						secondEntry: t,
 					});
 				}
-				if (typeof n !== 'string' && n.integrity) {
+				if (typeof n !== "string" && n.integrity) {
 					if (this.M.has(t) && this.M.get(t) !== n.integrity) {
-						throw new s('add-to-cache-list-conflicting-integrities', {
+						throw new s("add-to-cache-list-conflicting-integrities", {
 							url: i,
 						});
 					}
@@ -620,7 +620,7 @@ define('./workbox-234fc267.js', ['exports'], (t) => {
 				}
 				if ((this.O.set(i, t), this.K.set(i, r), e.length > 0)) {
 					const _t = `Workbox is precaching URLs without revision info: ${e.join(
-						', '
+						", "
 					)}\nThis is generally NOT safe. Learn more at https://bit.ly/wb-precache`;
 				}
 			}
@@ -670,19 +670,19 @@ define('./workbox-234fc267.js', ['exports'], (t) => {
 			const c = new Request(e, {
 				integrity: a,
 				cache: n,
-				credentials: 'same-origin',
+				credentials: "same-origin",
 			});
 			let o,
 				h = await b({ event: i, plugins: r, request: c });
 			for (const t of r || []) {
-				'cacheWillUpdate' in t && (o = t);
+				"cacheWillUpdate" in t && (o = t);
 			}
 			if (
 				!(o
 					? await o.cacheWillUpdate({ event: i, request: c, response: h })
 					: h.status < 400)
 			) {
-				throw new s('bad-precaching-response', { url: e, status: h.status });
+				throw new s("bad-precaching-response", { url: e, status: h.status });
 			}
 			h.redirected && (h = await K(h)),
 				await x({
@@ -718,7 +718,7 @@ define('./workbox-234fc267.js', ['exports'], (t) => {
 					if (t) {
 						return t;
 					}
-					throw new s('missing-precache-entry', {
+					throw new s("missing-precache-entry", {
 						cacheName: this.m,
 						url: e instanceof Request ? e.url : e,
 					});
@@ -732,7 +732,7 @@ define('./workbox-234fc267.js', ['exports'], (t) => {
 		}
 		createHandlerBoundToURL(t, e = !0) {
 			if (!this.getCacheKeyForURL(t)) {
-				throw new s('non-precached-url', { url: t });
+				throw new s("non-precached-url", { url: t });
 			}
 			const n = this.createHandler(e),
 				i = new Request(t);
@@ -753,20 +753,20 @@ define('./workbox-234fc267.js', ['exports'], (t) => {
 			} = {}
 		) {
 			const r = new URL(t, location.href);
-			(r.hash = ''), yield r.href;
+			(r.hash = ""), yield r.href;
 			const a = ((t, e = []) => {
 				for (const s of [...t.searchParams.keys()]) {
 					e.some((t) => t.test(s)) && t.searchParams.delete(s);
 				}
 				return t;
 			})(r, e);
-			if ((yield a.href, s && a.pathname.endsWith('/'))) {
+			if ((yield a.href, s && a.pathname.endsWith("/"))) {
 				const t = new URL(a.href);
 				(t.pathname += s), yield t.href;
 			}
 			if (n) {
 				const t = new URL(a.href);
-				(t.pathname += '.html'), yield t.href;
+				(t.pathname += ".html"), yield t.href;
 			}
 			if (i) {
 				const t = i({ url: r });
@@ -786,12 +786,12 @@ define('./workbox-234fc267.js', ['exports'], (t) => {
 		C ||
 			((({
 				ignoreURLParametersMatching: t = [/^utm_/],
-				directoryIndex: e = 'index.html',
+				directoryIndex: e = "index.html",
 				cleanURLs: s = !0,
 				urlManipulation: n,
 			} = {}) => {
 				const i = f();
-				self.addEventListener('fetch', (r) => {
+				self.addEventListener("fetch", (r) => {
 					const a = k(r.request.url, {
 						cleanURLs: s,
 						directoryIndex: e,
@@ -838,7 +838,7 @@ define('./workbox-234fc267.js', ['exports'], (t) => {
 				(this.k = t.matchOptions);
 		}
 		async handle({ event: t, request: e }) {
-			typeof e === 'string' && (e = new Request(e));
+			typeof e === "string" && (e = new Request(e));
 			let n,
 				i = await N({
 					cacheName: this.m,
@@ -855,7 +855,7 @@ define('./workbox-234fc267.js', ['exports'], (t) => {
 				}
 			}
 			if (!i) {
-				throw new s('no-response', { url: e.url, error: n });
+				throw new s("no-response", { url: e.url, error: n });
 			}
 			return i;
 		}
@@ -917,7 +917,7 @@ define('./workbox-234fc267.js', ['exports'], (t) => {
 			}
 			S(t) {
 				if (t === w()) {
-					throw new s('expire-custom-caches-only');
+					throw new s("expire-custom-caches-only");
 				}
 				let e = this.I.get(t);
 				return e || ((e = new v(t, this.F)), this.I.set(t, e)), e;
@@ -933,10 +933,10 @@ define('./workbox-234fc267.js', ['exports'], (t) => {
 				return e >= Date.now() - 1e3 * this.N;
 			}
 			W(t) {
-				if (!t.headers.has('date')) {
+				if (!t.headers.has("date")) {
 					return null;
 				}
-				const e = t.headers.get('date'),
+				const e = t.headers.get("date"),
 					s = new Date(e).getTime();
 				return Number.isNaN(s) ? null : s;
 			}
@@ -961,7 +961,7 @@ define('./workbox-234fc267.js', ['exports'], (t) => {
 			}
 			async handle({ event: t, request: e }) {
 				const n = [];
-				typeof e === 'string' && (e = new Request(e));
+				typeof e === "string" && (e = new Request(e));
 				const i = [];
 				let r;
 				if (this.B) {
@@ -976,7 +976,7 @@ define('./workbox-234fc267.js', ['exports'], (t) => {
 				i.push(a);
 				let c = await Promise.race(i);
 				if ((c || (c = await a), !c)) {
-					throw new s('no-response', { url: e.url });
+					throw new s("no-response", { url: e.url });
 				}
 				return c;
 			}
@@ -1045,7 +1045,7 @@ define('./workbox-234fc267.js', ['exports'], (t) => {
 				(this.D = t.fetchOptions), (this.k = t.matchOptions);
 			}
 			async handle({ event: t, request: e }) {
-				typeof e === 'string' && (e = new Request(e));
+				typeof e === "string" && (e = new Request(e));
 				const n = this.C({ request: e, event: t });
 				let i,
 					r = await N({
@@ -1069,7 +1069,7 @@ define('./workbox-234fc267.js', ['exports'], (t) => {
 					}
 				}
 				if (!r) {
-					throw new s('no-response', { url: e.url, error: i });
+					throw new s("no-response", { url: e.url, error: i });
 				}
 				return r;
 			}
@@ -1096,10 +1096,10 @@ define('./workbox-234fc267.js', ['exports'], (t) => {
 			}
 		}),
 		(t.cleanupOutdatedCaches = () => {
-			self.addEventListener('activate', (t) => {
+			self.addEventListener("activate", (t) => {
 				const e = f();
 				t.waitUntil(
-					(async (t, e = '-precache-') => {
+					(async (t, e = "-precache-") => {
 						const s = (await self.caches.keys()).filter(
 							(s) =>
 								s.includes(e) && s.includes(self.registration.scope) && s !== t
@@ -1110,32 +1110,32 @@ define('./workbox-234fc267.js', ['exports'], (t) => {
 			});
 		}),
 		(t.clientsClaim = () => {
-			self.addEventListener('activate', () => self.clients.claim());
+			self.addEventListener("activate", () => self.clients.claim());
 		}),
 		(t.precacheAndRoute = (t, e) => {
 			!((t) => {
 				D().addToCacheList(t),
 					t.length > 0 &&
-						(self.addEventListener('install', I),
-						self.addEventListener('activate', W));
+						(self.addEventListener("install", I),
+						self.addEventListener("activate", W));
 			})(t),
 				A(e);
 		}),
 		(t.registerRoute = (t, e, n) => {
 			let a;
-			if (typeof t === 'string') {
+			if (typeof t === "string") {
 				const s = new URL(t, location.href);
 				a = new i(({ url: t }) => t.href === s.href, e, n);
 			} else if (t instanceof RegExp) {
 				a = new r(t, e, n);
-			} else if (typeof t === 'function') {
+			} else if (typeof t === "function") {
 				a = new i(t, e, n);
 			} else {
 				if (!(t instanceof i)) {
-					throw new s('unsupported-route-type', {
-						moduleName: 'workbox-routing',
-						funcName: 'registerRoute',
-						paramName: 'capture',
+					throw new s("unsupported-route-type", {
+						moduleName: "workbox-routing",
+						funcName: "registerRoute",
+						paramName: "capture",
 					});
 				}
 				a = t;

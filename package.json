@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "tsc": "tsc --noEmit",
-    "lint": "eslint .",
+    "lint": "bun lint:eslint && bun lint:biome",
+    "lint:eslint": "eslint .",
+    "lint:biome": "biome check",
     "format": "biome format --write",
     "generate": "graphql-codegen"
   },

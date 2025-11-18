@@ -1,5 +1,10 @@
 import nextConfig from "eslint-config-next";
 
-const config = [...nextConfig];
+const config = [
+	...nextConfig,
+	{
+		ignores: ["gql/**"],
+	},
+];
 
 export default config;
