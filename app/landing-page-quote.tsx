@@ -1,15 +1,15 @@
-import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
-import { RiOpenaiFill } from '@remixicon/react';
-import { kv } from '@vercel/kv';
-import { OpenAIStream } from 'ai';
-import type { AllInOnePageQuery } from 'gql/graphql';
-import Link from 'next/link';
-import OpenAi from 'openai';
-import { Suspense } from 'react';
-import { pageQuery } from '@/[locale]/page-query';
-import GPTTooltip from '@/gpt-tooltip';
-import { graphqlClient } from '@/graphql-client';
-import type { Locale } from '@/i18n-config';
+import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
+import { RiOpenaiFill } from "@remixicon/react";
+import { kv } from "@vercel/kv";
+import { OpenAIStream } from "ai";
+import type { AllInOnePageQuery } from "gql/graphql";
+import Link from "next/link";
+import OpenAi from "openai";
+import { Suspense } from "react";
+import { pageQuery } from "@/[locale]/page-query";
+import GPTTooltip from "@/gpt-tooltip";
+import { graphqlClient } from "@/graphql-client";
+import type { Locale } from "@/i18n-config";
 
 const openai = new OpenAi({
 	apiKey: process.env.OPENAI_API_KEY,
@@ -27,8 +27,8 @@ export default async function Quote(props: { locale: Locale }) {
 	const { locale } = props;
 	const { allInOnePageCollection } =
 		await graphqlClient.request<AllInOnePageQuery>(pageQuery, {
-			slug: 'skill-profile',
-			locale: 'en',
+			slug: "skill-profile",
+			locale: "en",
 		});
 
 	const stringifiedDocument = documentToHtmlString(
@@ -36,7 +36,7 @@ export default async function Quote(props: { locale: Locale }) {
 	);
 
 	const message =
-		locale === 'en'
+		locale === "en"
 			? `You are Manuel, a creative engineer with a strong academic foundation and hands-on product experience. Write in plain text only. Use real line breaks for paragraphs; do not write "\n". No HTML or Markdown.
 
 Task
@@ -67,17 +67,17 @@ Strikte Regeln
 - Nur belegte Fakten aus dem Input; fehlen Details, allgemein bleiben; keine Namen erfinden.
 - Zeichen: keine Sonderzeichen (# @ /  * ~ ^ | < > [ ] { } _ = + % " ’). Verwende nur Buchstaben (inkl. Umlaute), Zahlen, Leerzeichen, Kommas und Punkte. Vermeide ae, oe, ue etc. wenn stattdessen ä,ö,ü etc. verwendet werden können.`;
 
-	const cached = await kv.get(message + 'gpt-5-mini' + locale);
-	if (cached && typeof cached === 'string') {
+	const cached = await kv.get(`${message}gpt-5-mini${locale}`);
+	if (cached && typeof cached === "string") {
 		return <Container locale={locale}>{cached}</Container>;
 	}
 
 	const response = await openai.chat.completions.create({
-		model: 'gpt-5-mini',
+		model: "gpt-5-mini",
 		stream: true,
 		messages: [
 			{
-				role: 'system',
+				role: "system",
 				content: message,
 			},
 		],
@@ -104,9 +104,11 @@ Strikte Regeln
 	);
 }
 
+const extractTextRegex = /"([^"]*)"/;
 async function Reader({
 	reader,
 }: {
+	// biome-ignore lint/suspicious/noExplicitAny: TODO: Fix this
 	reader: ReadableStreamDefaultReader<any>;
 }) {
 	const { done, value } = await reader.read();
@@ -116,7 +118,7 @@ async function Reader({
 	}
 
 	const text = new TextDecoder().decode(value);
-	const extractedText = text.match(/"([^"]*)"/)?.[1]?.replace(
+	const extractedText = text.match(extractTextRegex)?.[1]?.replace(
 		/\\n/g,
 		`
 `
@@ -144,17 +146,17 @@ function Container({
 			className="belowMd:transform-none! mb-8"
 			style={{
 				transform:
-					'perspective(60vmin) rotateX(3deg) rotateY(-4deg) rotateZ(3deg)',
+					"perspective(60vmin) rotateX(3deg) rotateY(-4deg) rotateZ(3deg)",
 			}}
 		>
-			<blockquote className="contact prose lg:-ml-12 mx-2 max-w-xl whitespace-break-spaces rounded-lg border border-pink-500 bg-linear-to-tl from-fuchsia-500 to-pink-400 px-6 py-5 font-medium prose-strong:font-bold prose-headings:text-amber-100 text-amber-50 shadow-xl md:mx-auto md:rounded-3xl md:px-10 md:py-9 dark:from-amber-800 dark:to-yellow-500">
+			<blockquote className="contact prose lg:-ml-12 mx-2 max-w-xl whitespace-break-spaces rounded-lg border border-pink-500 bg-linear-to-tl from-fuchsia-500 to-pink-400 px-6 py-5 font-medium prose-strong:font-bold prose-headings:text-amber-100 text-amber-50 shadow-xl md:mx-auto md:rounded-3xl md:px-10 md:py-9 dark:border-amber-700 dark:from-amber-800 dark:to-yellow-500">
 				{children}
 			</blockquote>
 			<figcaption className="mt-2 mr-1 ml-auto flex items-center justify-end gap-1 text-right text-gray-400 text-sm">
 				<span>
-					{locale === 'de' ? (
+					{locale === "de" ? (
 						<>
-							– <RiOpenaiFill className="inline size-4" /> GPT 5 zu meinem{' '}
+							– <RiOpenaiFill className="inline size-4" /> GPT 5 zu meinem{" "}
 							<GPTTooltip locale={locale}>
 								<Link
 									className="pb-7 text-indigo-400 hover:text-indigo-600 hover:underline dark:hover:text-amber-900"
@@ -168,7 +170,7 @@ function Container({
 					) : (
 						<>
 							– <RiOpenaiFill className="inline size-4" /> GPT 5 after reading
-							my{' '}
+							my{" "}
 							<GPTTooltip locale={locale}>
 								<Link
 									className="pb-7 text-indigo-400 hover:text-indigo-600 hover:underline dark:hover:text-amber-900"

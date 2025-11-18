@@ -1,4 +1,4 @@
-import { gql } from 'graphql-request';
+import { gql } from "graphql-request";
 
 export const pageQuery = gql`
 	query AllInOnePage($slug: String!, $locale: String) {

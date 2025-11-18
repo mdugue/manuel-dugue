@@ -1,6 +1,6 @@
-import type { CodegenConfig } from '@graphql-codegen/cli';
+import type { CodegenConfig } from "@graphql-codegen/cli";
 
-import dotenv from 'dotenv';
+import dotenv from "dotenv";
 
 dotenv.config();
 
@@ -14,10 +14,10 @@ const config: CodegenConfig = {
 			},
 		},
 	},
-	documents: ['./**/*.tsx', './**/*.ts'],
+	documents: ["./**/*.tsx", "./**/*.ts"],
 	generates: {
-		'./gql/': {
-			preset: 'client',
+		"./gql/": {
+			preset: "client",
 		},
 	},
 };
