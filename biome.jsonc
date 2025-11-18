@@ -10,10 +10,11 @@
     "indentStyle": "tab"
   },
   "files": {
-    "includes": [
-      "**",
-      "!gql/**",
-      "!public/**"
-    ]
+    "includes": ["**", "!gql", "!public"]
+  },
+  "linter": {
+    "rules": {
+      "suspicious": { "useAwait": "off" }
+    }
   }
 }

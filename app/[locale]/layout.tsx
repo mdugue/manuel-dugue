@@ -130,6 +130,7 @@ function ContactAside() {
 	return (
 		<aside className="flex flex-col md:bottom-12 md:left-0">
 			<script
+				// biome-ignore lint/security/noDangerouslySetInnerHtml: This is needed for the JSON-LD schema
 				dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
 				type="application/ld+json"
 			/>
@@ -280,7 +281,10 @@ export async function generateMetadata({
 		alternates: {
 			canonical: `https://manuel.fyi/${locale}`,
 			languages: Object.fromEntries(
-				i18n.locales.map((locale) => [locale, `https://manuel.fyi/${locale}`])
+				i18n.locales.map((availableLocale) => [
+					availableLocale,
+					`https://manuel.fyi/${availableLocale}`,
+				])
 			),
 		},
 		description:

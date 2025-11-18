@@ -23,9 +23,9 @@ export async function generateMetadata({
 		alternates: {
 			canonical: `https://manuel.fyi/${locale}/${sheet}`,
 			languages: Object.fromEntries(
-				i18n.locales.map((locale) => [
-					locale,
-					`https://manuel.fyi/${locale}/${sheet}`,
+				i18n.locales.map((availableLocale) => [
+					availableLocale,
+					`https://manuel.fyi/${availableLocale}/${sheet}`,
 				])
 			),
 		},
