@@ -23,7 +23,7 @@ function getLocale(request: NextRequest): string | undefined {
 }
 
 // TODO: update to https://nextjs.org/docs/app/building-your-application/routing/internationalization
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
 	const pathname = request.nextUrl.pathname;
 
 	// `/_next/` and `/api/` are ignored by the watcher, but we need to ignore files in `public` manually.

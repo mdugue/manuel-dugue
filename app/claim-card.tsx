@@ -90,7 +90,7 @@ export default function ClaimCard() {
 					onInit={(typewriter) => {
 						typewriterRef.current = typewriter;
 						typewriter
-							.typeString('consumers, experts, bots, ...')
+							.typeString('consumers, experts, agents, bots, ...')
 							// @ts-expect-error ts definition does not seem complete yet
 							.changeCursor(' ')
 							.pauseFor(2500)
