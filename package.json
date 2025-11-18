@@ -12,11 +12,12 @@
     "generate": "graphql-codegen"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.1.4",
+    "@biomejs/biome": "2.3.6",
     "@graphql-codegen/cli": "^5.0.7",
     "@graphql-codegen/client-preset": "^4.8.3",
     "@graphql-typed-document-node/core": "^3.2.0",
     "@tailwindcss/typography": "^0.5.16",
+    "@types/bun": "latest",
     "@types/negotiator": "^0.6.4",
     "@types/react-dom": "^19.1.7",
     "@typescript-eslint/eslint-plugin": "^8.39.0",
@@ -37,8 +38,7 @@
     "eslint-plugin-react-hooks": "6.0.0-rc.1",
     "eslint-plugin-simple-import-sort": "^12.1.1",
     "typescript": "^5.9.2",
-    "ultracite": "5.1.2",
-    "@types/bun": "latest"
+    "ultracite": "6.3.4"
   },
   "dependencies": {
     "@contentful/rich-text-html-renderer": "^17.1.0",
