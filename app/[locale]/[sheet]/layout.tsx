@@ -1,21 +1,17 @@
 import type { Metadata } from "next";
 import DocumentSheet from "@/document-sheet";
 import { i18n } from "../../i18n-config";
-import type { LocalePageType } from "../locale-page-type";
 
 export const runtime = "edge";
 export const revalidate = 60; // 1 minute
 
-type Props = { children: React.ReactNode };
+type Props = LayoutProps<"/[locale]/[sheet]">;
 
 export default function SheetLayout({ children }: Props) {
 	return <DocumentSheet>{children}</DocumentSheet>;
 }
 
-// TODO: Check
-export async function generateMetadata({
-	params,
-}: LocalePageType<Promise<{ sheet: string }>>): Promise<Metadata> {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
 	const { sheet, locale } = await params;
 	const title = createTitle(sheet);
 	return {
