@@ -20,7 +20,7 @@ import type { LocalePageType } from '@/[locale]/locale-page-type';
 import ClaimCard from '@/claim-card';
 import DocumentsNavigation from '@/documents-navigation';
 import { getDictionary } from '@/get-dictionary';
-import { i18n, type Locale } from '@/i18n-config';
+import { ensureLocale, i18n, type Locale } from '@/i18n-config';
 import LandingPageQuote from '@/landing-page-quote';
 import LocaleSwitcher from '@/locale-switcher';
 import './globals.css';
@@ -59,7 +59,8 @@ export default async function MyApp({
         'use cache';
 
         cacheLife('hours');
-        const { locale } = await params;
+        const resolvedParams = await params;
+        const locale = ensureLocale(resolvedParams.locale);
         return (
 		<html
 			className={`${bungee.variable} ${bungeeInline.variable} ${bungeeShade.variable} ${montserrat.variable}`}
@@ -276,9 +277,10 @@ const jsonLd: WithContext<Person> = {
 };
 
 export async function generateMetadata({
-	params,
+        params,
 }: LocalePageType): Promise<Metadata> {
-	const { locale } = await params;
+        const resolvedParams = await params;
+        const locale = ensureLocale(resolvedParams.locale);
 	return {
 		title: {
 			template: '%s – Manuel Dugué',

@@ -6,6 +6,7 @@ import type { Article, WithContext } from 'schema-dts';
 import { cacheLife } from 'next/cache';
 import { DocumentSheetContent } from '@/document-sheet';
 import { graphqlClient } from '@/graphql-client';
+import { ensureLocale } from '@/i18n-config';
 import type { LocalePageType } from '../locale-page-type';
 import { pageQuery } from '../page-query';
 
@@ -14,11 +15,13 @@ export const revalidate = 60; // 1 minute
 
 export default async function Page({
         params,
-}: LocalePageType<Promise<{ sheet: string }>>) {
+}: LocalePageType<{ sheet: string }>) {
         'use cache';
 
         cacheLife('minutes');
-        const { sheet, locale } = await params;
+        const resolvedParams = await params;
+        const locale = ensureLocale(resolvedParams.locale);
+        const { sheet } = resolvedParams;
 
         const { allInOnePageCollection } =
 		await graphqlClient.request<AllInOnePageQuery>(pageQuery, {
