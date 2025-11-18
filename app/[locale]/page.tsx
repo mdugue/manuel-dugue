@@ -1,6 +1,9 @@
-export const runtime = 'edge';
-export const revalidate = 60; // 1 minute
+import { cacheLife } from "next/cache";
 
-export default function Page() {
+
+
+export default async function Page(): Promise<void> {
+	'use cache';
+	cacheLife("minutes");
 	return;
 }

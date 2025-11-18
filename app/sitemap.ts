@@ -1,10 +1,11 @@
 import type { MetadataRoute } from 'next';
 import { i18n } from './i18n-config';
+import { cacheLife } from 'next/cache';
 
-export const runtime = 'edge';
-export const revalidate = 86_400; // 60 * 60 * 24 1 day
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+	'use cache';
+	cacheLife("days");
 	return i18n.locales.flatMap((locale) => [
 		{ url: `https://manuel.fyi/${locale}`, lastModified: new Date() },
 		{

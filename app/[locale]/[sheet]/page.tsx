@@ -7,13 +7,15 @@ import { DocumentSheetContent } from '@/document-sheet';
 import { graphqlClient } from '@/graphql-client';
 import type { LocalePageType } from '../locale-page-type';
 import { pageQuery } from '../page-query';
+import { cacheLife } from 'next/cache';
 
-export const runtime = 'edge';
-export const revalidate = 60; // 1 minute
+
 
 export default async function Page({
 	params,
 }: LocalePageType<Promise<{ sheet: string }>>) {
+	'use cache';
+	cacheLife("minutes");	
 	const { sheet, locale } = await params;
 
 	const { allInOnePageCollection } =
