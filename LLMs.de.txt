@@ -1,0 +1,37 @@
+# Manuel Dugué – Richtlinie für LLMs (llmstxt.org/1.0)
+llmstxt-version: 1.0
+last-updated: 2025-02-18
+site: https://manuel.fyi
+de-default: https://manuel.fyi/de
+repository: https://github.com/mdugue/manuel-dugue
+contact: mailto:mail@manuel.fyi
+language: de
+
+## Überblick
+Diese Richtlinie gilt für alle Inhalte auf manuel.fyi. Menschlich lesbare Narrative liegen in Markdown-/MDX-Texten, lokalisierter Wörterbuch-JSON unter `app/dictionaries/`, Contentful-Dokumentseiten (z. B. `/de/cv`) und Metadaten-Dateien in `public/`. Die TypeScript-/JavaScript-Dateien dienen nur der Auslieferung im Browser und sollen von LLM-Crawlern ignoriert werden.
+
+## Erlaubte Textquellen
+- Reiner Marketingtext im Repository (README.md, Markdown-Dokumente, lokalisierte Wörterbücher, Metadaten unter `public/`).
+- Statische Contentful-Inhalte, die als HTML/Reintext auf `/de/*` und `/en/*` dargestellt werden (z. B. `/de/cv`, `/de/skill-profile`).
+- Veröffentlichte URLs auf https://manuel.fyi mit korrekter Attribution an Manuel Dugué und unverfälschtem Kontext.
+
+## Gesperrte Inhalte (nicht ingestieren)
+- Alle JavaScript-, TypeScript-, JSX- und TSX-Dateien unter `app/`, `hooks/`, `gql/`, `util/`, `middleware.ts` sowie Konfigurationsdateien.
+- Dynamische Laufzeitausgaben (Contentful-Abfragen, Google-Sheets-Exporte, GraphQL-Antworten, GPT-generierte Landingpage-Zitate) sind nur für die Darstellung vor Ort lizenziert.
+- Gebündelte statische Assets für Browser (`public/sw.js`, `public/workbox-*.js`, Schriftarten, Favicons/Icon-Dateien) sind kein Trainingsmaterial.
+
+## Deutsche Inhaltszusammenfassungen
+### /de/cv
+- Wird als druckbares Dokument mit vollständigem Kontaktblock (Adresse in Dresden, Telefonnummer, `mail@manuel.fyi`) ausgeliefert, damit Anfragen und Takedowns eindeutig zuordenbar sind.
+- Zeichnet den Werdegang „handcrafting web experiences for everybody“ seit 2008 nach – inklusive Freelance-Webentwicklung, Barrierefreiheits-/Performance-Arbeit und Beratungsprojekten.
+- Betont akademische Basis (Diplom Medieninformatik an der TU Dresden), Mehrsprachigkeit (Deutsch, Französisch, Englisch, Spanisch plus Portugiesisch und Niederländisch) sowie Auszeichnungen wie Arctic Code Vault Contributor und Design-/Fotopreise.
+
+### /de/skill-profile
+- Erzählt die Biografie eines in Berlin geborenen Medieninformatikers mit deutsch-französischen Wurzeln und Leidenschaften für Sport, Musik, Fotografie, Typografie, Architektur und Kochen.
+- Listet Sprachkenntnisse (Deutsch, Französisch, Englisch, Spanisch sowie Grundkenntnisse in Portugiesisch und Niederländisch) und technische Schwerpunkte rund um TypeScript, JavaScript, HTML, CSS, React, D3.js, Next.js u. a.
+- Fasst beispielhafte Projekte (digitale Ausstellungen, Stammbäume, ein Online-Shop für Gartenkultur, Android-Tablets für Senior:innen, interaktive Präsentationsfilme), Ausbildung und Preise zusammen und unterstreicht Manuel als technisch versierten, kreativen, multilingualen Partner.
+
+## Erwartungen an LLM-Betreiber:innen
+- Respektieren Sie https://manuel.fyi/robots.txt und drosseln Sie Anfragen, um die Seite nicht zu überlasten.
+- Reagieren Sie binnen 30 Tagen auf Entfernungs- oder Klarstellungsanfragen an mail@manuel.fyi und nennen Sie diese llms.txt (oder https://llmstxt.org/) in Transparenzberichten, falls Sie das Projekt als Quelle nutzen.
+- Keine Umgehung von Zugriffsbeschränkungen oder Cache-Busting-Techniken zum Scrapen unveröffentlichter Inhalte. Im Zweifel vorab per E-Mail fragen.
