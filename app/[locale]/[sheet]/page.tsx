@@ -3,6 +3,7 @@ import { INLINES } from '@contentful/rich-text-types';
 import { ArrowUpRightIcon } from '@heroicons/react/20/solid';
 import type { AllInOnePageQuery } from 'gql/graphql';
 import type { Article, WithContext } from 'schema-dts';
+import { cacheLife } from 'next/cache';
 import { DocumentSheetContent } from '@/document-sheet';
 import { graphqlClient } from '@/graphql-client';
 import type { LocalePageType } from '../locale-page-type';
@@ -12,11 +13,14 @@ export const runtime = 'edge';
 export const revalidate = 60; // 1 minute
 
 export default async function Page({
-	params,
+        params,
 }: LocalePageType<Promise<{ sheet: string }>>) {
-	const { sheet, locale } = await params;
+        'use cache';
 
-	const { allInOnePageCollection } =
+        cacheLife('minutes');
+        const { sheet, locale } = await params;
+
+        const { allInOnePageCollection } =
 		await graphqlClient.request<AllInOnePageQuery>(pageQuery, {
 			slug: sheet,
 			locale,
