@@ -16,11 +16,10 @@ import {
 import Link from "next/link";
 import { Suspense } from "react";
 import type { Person, WithContext } from "schema-dts";
-import type { LocalePageType } from "@/[locale]/locale-page-type";
 import ClaimCard from "@/claim-card";
 import DocumentsNavigation from "@/documents-navigation";
 import { getDictionary } from "@/get-dictionary";
-import { i18n, type Locale } from "@/i18n-config";
+import { assertLocale, i18n, type Locale } from "@/i18n-config";
 import LandingPageQuote from "@/landing-page-quote";
 import LocaleSwitcher from "@/locale-switcher";
 import "./globals.css";
@@ -50,12 +49,11 @@ const bungeeShade = Bungee_Shade({
 export default async function MyApp({
 	children,
 	params,
-}: LocalePageType & {
-	children: React.ReactNode;
-}) {
+}: LayoutProps<"/[locale]">) {
 	"use cache";
 	cacheLife("minutes");
 	const { locale } = await params;
+	assertLocale(locale);
 	return (
 		<html
 			className={`${bungee.variable} ${bungeeInline.variable} ${bungeeShade.variable} ${montserrat.variable}`}
@@ -271,7 +269,9 @@ const jsonLd: WithContext<Person> = {
 
 export async function generateMetadata({
 	params,
-}: LocalePageType): Promise<Metadata> {
+}: {
+	params: Promise<{ locale: Locale }>;
+}): Promise<Metadata> {
 	const { locale } = await params;
 	return {
 		title: {

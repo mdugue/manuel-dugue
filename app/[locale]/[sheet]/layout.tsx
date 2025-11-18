@@ -2,18 +2,14 @@ import type { Metadata } from "next";
 import { cacheLife } from "next/cache";
 import DocumentSheet from "@/document-sheet";
 import { i18n } from "../../i18n-config";
-import type { LocalePageType } from "../locale-page-type";
 
-type Props = { children: React.ReactNode };
+type Props = LayoutProps<"/[locale]/[sheet]">;
 
 export default function SheetLayout({ children }: Props) {
 	return <DocumentSheet>{children}</DocumentSheet>;
 }
 
-// TODO: Check
-export async function generateMetadata({
-	params,
-}: LocalePageType<Promise<{ sheet: string }>>): Promise<Metadata> {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
 	"use cache";
 	cacheLife("minutes");
 	const { sheet, locale } = await params;
