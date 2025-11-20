@@ -1,7 +1,6 @@
 import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
 import { RiOpenaiFill } from "@remixicon/react";
 import { kv } from "@vercel/kv";
-import { OpenAIStream } from "ai";
 import type { AllInOnePageQuery } from "gql/graphql";
 import Link from "next/link";
 import OpenAi from "openai";
@@ -84,12 +83,26 @@ Strikte Regeln
 		],
 	});
 
-	// Convert the response into a friendly text-stream
-	// @ts-expect-error TODO: migrate to new OpenAIStream API
-	const stream = OpenAIStream(response, {
-		async onCompletion(completion) {
-			await kv.set(cacheKey, completion);
-			await kv.expire(cacheKey, 60 * 60);
+	// Convert OpenAI stream to ReadableStream and handle completion callback
+	let fullCompletion = "";
+	const stream = new ReadableStream({
+		async start(controller) {
+			try {
+				for await (const chunk of response) {
+					const content = chunk.choices[0]?.delta?.content;
+					if (content) {
+						fullCompletion += content;
+						const encoder = new TextEncoder();
+						controller.enqueue(encoder.encode(content));
+					}
+				}
+				// Cache the full completion when stream ends
+				await kv.set(cacheKey, fullCompletion);
+				await kv.expire(cacheKey, 60 * 60);
+				controller.close();
+			} catch (error) {
+				controller.error(error);
+			}
 		},
 	});
 
@@ -105,7 +118,6 @@ Strikte Regeln
 	);
 }
 
-const extractTextRegex = /"([^"]*)"/;
 async function Reader({
 	reader,
 }: {
@@ -119,15 +131,10 @@ async function Reader({
 	}
 
 	const text = new TextDecoder().decode(value);
-	const extractedText = text.match(extractTextRegex)?.[1]?.replace(
-		/\\n/g,
-		`
-`
-	);
 
 	return (
 		<>
-			{extractedText}
+			{text}
 			<Suspense>
 				<Reader reader={reader} />
 			</Suspense>
