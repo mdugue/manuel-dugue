@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import { animated, to } from '@react-spring/web';
-import Link from 'next/link';
-import type { Locale } from '../app/i18n-config';
-import useMaterial from '../hooks/use-material';
+import { animated, to } from "@react-spring/web";
+import Link from "next/link";
+import type { Locale } from "../app/i18n-config";
+import useMaterial from "../hooks/use-material";
 
 const transFooter = (x: number, y: number) => {
 	return `translateZ(20px) perspective(60vmin) rotateX(${

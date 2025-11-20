@@ -1,8 +1,8 @@
-import { match } from '@formatjs/intl-localematcher';
-import Negotiator from 'negotiator';
-import type { NextRequest } from 'next/server';
-import { NextResponse } from 'next/server';
-import { i18n } from './app/i18n-config';
+import { match } from "@formatjs/intl-localematcher";
+import Negotiator from "negotiator";
+import type { NextRequest } from "next/server";
+import { NextResponse } from "next/server";
+import { i18n } from "./app/i18n-config";
 
 function getLocale(request: NextRequest): string | undefined {
 	// Negotiator expects plain object so we need to transform headers
@@ -30,21 +30,21 @@ export function proxy(request: NextRequest) {
 	// If you have one
 	if (
 		[
-			'/manifest.json',
-			'/favicon.ico',
-			'/robots.txt',
-			'/sitemap.xml',
-			'/site.webmanifest',
+			"/manifest.json",
+			"/favicon.ico",
+			"/robots.txt",
+			"/sitemap.xml",
+			"/site.webmanifest",
 		].includes(pathname)
 	) {
 		return;
 	}
 	if (
-		pathname.startsWith('/android-') ||
-		pathname.startsWith('/apple-') ||
-		pathname.startsWith('/mstile-') ||
-		pathname.startsWith('/safari-') ||
-		pathname.startsWith('/favicon')
+		pathname.startsWith("/android-") ||
+		pathname.startsWith("/apple-") ||
+		pathname.startsWith("/mstile-") ||
+		pathname.startsWith("/safari-") ||
+		pathname.startsWith("/favicon")
 	) {
 		return;
 	}
@@ -68,5 +68,5 @@ export function proxy(request: NextRequest) {
 
 export const config = {
 	// Matcher ignoring `/_next/` and `/api/`
-	matcher: ['/((?!api|_next/static|_next/image|favicon.ico).*)'],
+	matcher: ["/((?!api|_next/static|_next/image|favicon.ico).*)"],
 };
