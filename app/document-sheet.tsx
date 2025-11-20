@@ -1,7 +1,7 @@
-import { XMarkIcon } from '@heroicons/react/20/solid';
-import Link from 'next/link';
-import type { ReactNode } from 'react';
-import BackOnEsc from '@/back-on-esc';
+import { XMarkIcon } from "@heroicons/react/20/solid";
+import Link from "next/link";
+import type { ReactNode } from "react";
+import BackOnEsc from "@/back-on-esc";
 
 export default function DocumentSheet(props: { children: ReactNode }) {
 	return (
@@ -10,7 +10,7 @@ export default function DocumentSheet(props: { children: ReactNode }) {
 			aria-labelledby="dialog-title"
 			className="fixed inset-0 z-20 p-2 font-sans lg:p-8"
 			role="dialog"
-			style={{ transform: 'translateZ(10px)' }}
+			style={{ transform: "translateZ(10px)" }}
 		>
 			<BackOnEsc />
 			<main className="relative m-auto max-h-full overflow-y-auto overflow-x-hidden rounded-xs bg-white p-1 px-8 py-10 font-sans shadow-2xl md:aspect-2/3 lg:px-14 lg:py-20">
@@ -24,7 +24,7 @@ export function DocumentSheetContent(props: {
 	title?: string;
 	children?: ReactNode;
 }) {
-	const { title = 'loading …', children } = props;
+	const { title = "loading …", children } = props;
 
 	return (
 		<>
@@ -49,7 +49,7 @@ export function DocumentSheetContent(props: {
 				<address className="font-display text-sm not-italic">
 					Manuel Dugué, Görlitzer Str. 23, 01099 Dresden
 					<br />
-					<a href="tel:0049 151 58791155">+49 151 58791155</a>{' '}
+					<a href="tel:0049 151 58791155">+49 151 58791155</a>{" "}
 					<a href="mailto:mail@manuel.fyi">mail@manuel.fyi</a>
 				</address>
 			</div>

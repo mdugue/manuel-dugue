@@ -1,8 +1,15 @@
 {
-  "$schema": "https://biomejs.dev/schemas/2.1.4/schema.json",
-  "extends": ["ultracite"],
-  "formatter": { "indentStyle": "tab" },
+  "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
+  "extends": ["ultracite/core", "ultracite/react", "ultracite/next"],
+  "formatter": {
+    "indentStyle": "tab"
+  },
   "files": {
-    "includes": ["**", "!gql/**", "!public/**"]
+    "includes": ["**", "!gql", "!public"]
+  },
+  "linter": {
+    "rules": {
+      "suspicious": { "useAwait": "off" }
+    }
   }
 }

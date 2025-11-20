@@ -1,10 +1,10 @@
-'use client';
-import { animated, to } from '@react-spring/web';
-import { useEffect, useRef, useState } from 'react';
-import Typewriter from 'typewriter-effect';
+"use client";
+import { animated, to } from "@react-spring/web";
+import { useEffect, useRef, useState } from "react";
+import Typewriter from "typewriter-effect";
 
-import useMaterial from '../hooks/use-material';
-import AnimatedHeadline from './animated-headline';
+import useMaterial from "../hooks/use-material";
+import AnimatedHeadline from "./animated-headline";
 
 const translate = (x: number, y: number, multiplier: number) =>
 	`translate3d(${multiplier * x}vmin,${multiplier * y}vmin,0)`;
@@ -61,7 +61,7 @@ export default function ClaimCard() {
 					className="absolute top-1/4 left-1/4 h-1/2 w-1/2 bg-teal-100 opacity-75"
 					style={{
 						zIndex: -1,
-						filter: 'blur(100px)',
+						filter: "blur(100px)",
 						transform: to(
 							xy,
 							(x, y) => `translate3d(${`${x * 75}%`}, ${`${y * 75}%`}, 0)`
@@ -90,26 +90,26 @@ export default function ClaimCard() {
 					onInit={(typewriter) => {
 						typewriterRef.current = typewriter;
 						typewriter
-							.typeString('consumers, experts, bots, ...')
+							.typeString("consumers, experts, agents, bots, ...")
 							// @ts-expect-error ts definition does not seem complete yet
-							.changeCursor(' ')
+							.changeCursor(" ")
 							.pauseFor(2500)
-							.changeCursor('|')
+							.changeCursor("|")
 							.deleteAll()
-							.typeString('React, GraphQL, A11Y, ...')
-							.changeCursor(' ')
+							.typeString("React, GraphQL, A11Y, ...")
+							.changeCursor(" ")
 							.pauseFor(2500)
-							.changeCursor('|')
+							.changeCursor("|")
 							.deleteAll()
-							.typeString('teaching, analyzing, coding, ...')
-							.changeCursor(' ')
+							.typeString("teaching, analyzing, coding, ...")
+							.changeCursor(" ")
 							.pauseFor(2500)
-							.changeCursor('|')
+							.changeCursor("|")
 							.deleteAll()
-							.typeString('arctic code vault contributer')
-							.changeCursor(' ')
+							.typeString("arctic code vault contributer")
+							.changeCursor(" ")
 							.pauseFor(2500)
-							.changeCursor('|')
+							.changeCursor("|")
 							.deleteAll()
 							.start();
 					}}

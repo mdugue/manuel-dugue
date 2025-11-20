@@ -1,8 +1,8 @@
-import type { NextConfig } from 'next';
+import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
 	reactStrictMode: true,
-	experimental: { reactCompiler: true },
+	reactCompiler: true,
 };
 
 module.exports = nextConfig;

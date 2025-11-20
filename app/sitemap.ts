@@ -1,7 +1,7 @@
-import type { MetadataRoute } from 'next';
-import { i18n } from './i18n-config';
+import type { MetadataRoute } from "next";
+import { i18n } from "./i18n-config";
 
-export const runtime = 'edge';
+export const runtime = "edge";
 export const revalidate = 86_400; // 60 * 60 * 24 1 day
 
 export default function sitemap(): MetadataRoute.Sitemap {

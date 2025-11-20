@@ -1,4 +1,4 @@
-import { DocumentSheetContent } from '@/document-sheet';
+import { DocumentSheetContent } from "@/document-sheet";
 
 export default function Loading() {
 	return (
