@@ -22,22 +22,20 @@ export default function LocaleSwitcher(props: {
 	return (
 		<div>
 			<ul className={props.className}>
-				{i18n.locales.map((locale) => {
-					return (
-						<li key={locale}>
-							<Link
-								className={`${
-									currentLocale === locale
-										? "text-teal-500"
-										: "hover:text-gray-400"
-								}`}
-								href={redirectedPathName(locale)}
-							>
-								{locale}
-							</Link>
-						</li>
-					);
-				})}
+				{i18n.locales.map((locale) => (
+					<li key={locale}>
+						<Link
+							className={`${
+								currentLocale === locale
+									? "text-teal-500"
+									: "hover:text-gray-400"
+							}`}
+							href={redirectedPathName(locale)}
+						>
+							{locale}
+						</Link>
+					</li>
+				))}
 			</ul>
 		</div>
 	);

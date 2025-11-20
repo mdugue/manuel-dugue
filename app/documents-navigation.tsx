@@ -5,11 +5,10 @@ import Link from "next/link";
 import type { Locale } from "../app/i18n-config";
 import useMaterial from "../hooks/use-material";
 
-const transFooter = (x: number, y: number) => {
-	return `translateZ(20px) perspective(60vmin) rotateX(${
+const transFooter = (x: number, y: number) =>
+	`translateZ(20px) perspective(60vmin) rotateX(${
 		4 * (y - 1)
 	}deg) rotateY(${15 * (x - 1)}deg)`;
-};
 
 export default function DocumentsNavigation({ locale }: { locale: Locale }) {
 	const { props, onMouseMove, onMouseLeave } = useMaterial([-0.9, -0.9], {

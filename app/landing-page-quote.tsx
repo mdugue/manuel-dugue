@@ -149,7 +149,7 @@ function Container({
 					"perspective(60vmin) rotateX(3deg) rotateY(-4deg) rotateZ(3deg)",
 			}}
 		>
-			<blockquote className="contact prose lg:-ml-12 mx-2 max-w-xl whitespace-break-spaces rounded-lg border border-pink-500 dark:border-amber-700 bg-linear-to-tl from-fuchsia-500 to-pink-400 px-6 py-5 font-medium prose-strong:font-bold prose-headings:text-amber-100 text-amber-50 shadow-xl md:mx-auto md:rounded-3xl md:px-10 md:py-9 dark:from-amber-800 dark:to-yellow-500">
+			<blockquote className="contact prose lg:-ml-12 mx-2 max-w-xl whitespace-break-spaces rounded-lg border border-pink-500 bg-linear-to-tl from-fuchsia-500 to-pink-400 px-6 py-5 font-medium prose-strong:font-bold prose-headings:text-amber-100 text-amber-50 shadow-xl md:mx-auto md:rounded-3xl md:px-10 md:py-9 dark:border-amber-700 dark:from-amber-800 dark:to-yellow-500">
 				{children}
 			</blockquote>
 			<figcaption className="mt-2 mr-1 ml-auto flex items-center justify-end gap-1 text-right text-gray-400 text-sm">

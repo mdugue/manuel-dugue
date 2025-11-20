@@ -11,8 +11,6 @@ export const runtime = "edge";
 export const revalidate = 60; // 1 minute
 
 export default async function Page({ params }: PageProps<"/[locale]/[sheet]">) {
-	"use cache";
-	cacheLife("minutes");
 	const { sheet, locale } = await params;
 
 	const { allInOnePageCollection } =
