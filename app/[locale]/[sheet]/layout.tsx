@@ -1,13 +1,13 @@
+"use cache";
 import type { Metadata } from "next";
+import { cacheLife } from "next/cache";
 import DocumentSheet from "@/document-sheet";
 import { i18n } from "../../i18n-config";
 
-export const runtime = "edge";
-export const revalidate = 60; // 1 minute
-
 type Props = LayoutProps<"/[locale]/[sheet]">;
 
-export default function SheetLayout({ children }: Props) {
+export default async function SheetLayout({ children }: Props) {
+	cacheLife("hours");
 	return <DocumentSheet>{children}</DocumentSheet>;
 }
 
@@ -47,3 +47,10 @@ const createTitle = (sheet: string) =>
 		.split("-")
 		.map((word) => word[0].toUpperCase() + word.slice(1))
 		.join(" ");
+
+export async function generateStaticParams() {
+	const sheets = ["skill-profile", "cv", "legal", "privacy"] as const;
+	return i18n.locales.flatMap((locale) =>
+		sheets.map((sheet) => ({ locale, sheet }))
+	);
+}

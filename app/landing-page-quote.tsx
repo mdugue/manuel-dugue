@@ -1,7 +1,9 @@
+"use cache";
 import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
 import { RiOpenaiFill } from "@remixicon/react";
 import { kv } from "@vercel/kv";
 import type { AllInOnePageQuery } from "gql/graphql";
+import { cacheLife } from "next/cache";
 import Link from "next/link";
 import OpenAi from "openai";
 import { Suspense } from "react";
@@ -12,17 +14,10 @@ import type { Locale } from "@/i18n-config";
 
 const openai = new OpenAi({
 	apiKey: process.env.OPENAI_API_KEY,
-	fetch: (input, init) =>
-		fetch(input, {
-			...init,
-			next: {
-				/*1 day: 60 * 60 * 24*/
-				revalidate: 86_400,
-			},
-		}),
 });
 
 export default async function Quote(props: { locale: Locale }) {
+	cacheLife("days");
 	const { locale } = props;
 	const { allInOnePageCollection } =
 		await graphqlClient.request<AllInOnePageQuery>(pageQuery, {
