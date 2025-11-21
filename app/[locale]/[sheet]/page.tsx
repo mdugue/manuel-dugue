@@ -81,7 +81,7 @@ const jsonLd: WithContext<Article> = {
 
 export async function generateStaticParams() {
 	const sheets = ["skill-profile", "cv", "legal", "privacy"] as const;
-	return i18n.locales.map((locale) =>
+	return i18n.locales.flatMap((locale) =>
 		sheets.map((sheet) => ({ locale, sheet }))
 	);
 }
