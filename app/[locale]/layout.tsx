@@ -173,14 +173,14 @@ async function LegalSection(props: { locale: Locale }) {
 			<LocaleSwitcher className="flex gap-2" currentLocale={locale} />
 			<Link
 				className="hover:text-gray-400"
-				href={`${locale}/legal`}
+				href={`/${locale}/legal`}
 				prefetch={false}
 			>
 				{dictionary.legal}
 			</Link>
 			<Link
 				className="hover:text-gray-400"
-				href={`${locale}/privacy`}
+				href={`/${locale}/privacy`}
 				prefetch={false}
 			>
 				{dictionary.privacy}

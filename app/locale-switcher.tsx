@@ -1,5 +1,6 @@
 "use client";
 
+import type { Route } from "next";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { i18n, type Locale } from "../app/i18n-config";
@@ -10,13 +11,16 @@ export default function LocaleSwitcher(props: {
 }) {
 	const { currentLocale } = props;
 	const pathName = usePathname();
-	const redirectedPathName = (locale: string) => {
-		if (!pathName) {
-			return "/";
+
+	const redirectedPathName = (locale: Locale): Route => {
+		const segments = pathName?.split("/").filter(Boolean) ?? [];
+		const [, sheet] = segments;
+
+		if (sheet) {
+			return `/${locale}/${sheet}` as Route;
 		}
-		const segments = pathName.split("/");
-		segments[1] = locale;
-		return segments.join("/");
+
+		return `/${locale}` as Route;
 	};
 
 	return (

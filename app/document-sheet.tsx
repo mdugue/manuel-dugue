@@ -1,7 +1,10 @@
 import { XMarkIcon } from "@heroicons/react/20/solid";
+import type { Route } from "next";
 import Link from "next/link";
 import type { ReactNode } from "react";
 import BackOnEsc from "@/back-on-esc";
+import type { Locale } from "./i18n-config";
+import { i18n } from "./i18n-config";
 
 export default function DocumentSheet(props: { children: ReactNode }) {
 	return (
@@ -23,15 +26,19 @@ export default function DocumentSheet(props: { children: ReactNode }) {
 export function DocumentSheetContent(props: {
 	title?: string;
 	children?: ReactNode;
+	locale?: Locale;
 }) {
-	const { title = "loading …", children } = props;
+	const { title = "loading …", children, locale } = props;
+
+	const resolvedLocale = locale ?? i18n.defaultLocale;
+	const closeHref = `/${resolvedLocale}` as Route;
 
 	return (
 		<>
 			<nav className="absolute top-0 right-0 m-1 flex gap-1 text-gray-400">
 				<Link
 					className="flex cursor-pointer items-center rounded-md px-4 py-4 text-sm hover:bg-linear-to-tr hover:from-teal-100 hover:to-teal-50 hover:text-teal-600 focus:outline-hidden focus:ring-2 focus:ring-teal-600"
-					href="."
+					href={closeHref}
 					title="close"
 				>
 					<XMarkIcon className="h-5 w-5" />
