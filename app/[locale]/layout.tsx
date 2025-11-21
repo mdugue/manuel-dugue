@@ -1,3 +1,4 @@
+"use cache";
 import {
 	RiCupFill,
 	RiGithubFill,
@@ -6,6 +7,7 @@ import {
 	RiTwitterXFill,
 } from "@remixicon/react";
 import type { Metadata } from "next";
+import { cacheLife } from "next/cache";
 import {
 	Bungee,
 	Bungee_Inline,
@@ -23,9 +25,6 @@ import LandingPageQuote from "@/landing-page-quote";
 import LocaleSwitcher from "@/locale-switcher";
 import "./globals.css";
 import { ErrorBoundary } from "react-error-boundary";
-
-export const runtime = "edge";
-export const revalidate = 60; // 1 minute
 
 const montserrat = Montserrat({
 	subsets: ["latin"],
@@ -52,6 +51,7 @@ export default async function MyApp({
 	children,
 	params,
 }: LayoutProps<"/[locale]">) {
+	cacheLife("hours");
 	const { locale } = await params;
 	assertLocale(locale);
 	return (
@@ -312,4 +312,8 @@ export async function generateMetadata({
 			"Design",
 		],
 	};
+}
+
+export async function generateStaticParams() {
+	return i18n.locales.map((locale) => ({ locale }));
 }

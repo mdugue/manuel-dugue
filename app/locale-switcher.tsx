@@ -1,7 +1,4 @@
-"use client";
-
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { i18n, type Locale } from "../app/i18n-config";
 
 export default function LocaleSwitcher(props: {
@@ -9,15 +6,6 @@ export default function LocaleSwitcher(props: {
 	currentLocale: Locale;
 }) {
 	const { currentLocale } = props;
-	const pathName = usePathname();
-	const redirectedPathName = (locale: string) => {
-		if (!pathName) {
-			return "/";
-		}
-		const segments = pathName.split("/");
-		segments[1] = locale;
-		return segments.join("/");
-	};
 
 	return (
 		<div>
@@ -30,7 +18,7 @@ export default function LocaleSwitcher(props: {
 									? "text-teal-500"
 									: "hover:text-gray-400"
 							}`}
-							href={redirectedPathName(locale)}
+							href={`/${locale}`}
 						>
 							{locale}
 						</Link>
