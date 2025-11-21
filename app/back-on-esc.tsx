@@ -5,7 +5,9 @@ import { useKeyPressEvent } from "react-use";
 export default function BackOnEsc() {
 	const router = useRouter();
 
-	useKeyPressEvent("Escape", () => router.push("."));
+	useKeyPressEvent("Escape", () => {
+		router.back();
+	});
 
 	return null;
 }
