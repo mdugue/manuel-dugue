@@ -19,6 +19,7 @@ import Link from "next/link";
 import { Suspense } from "react";
 import { ErrorBoundary } from "react-error-boundary";
 import type { Person, WithContext } from "schema-dts";
+import { AuroraText } from "@/aurora-text";
 import ClaimCard from "@/claim-card";
 import { getDictionary } from "@/get-dictionary";
 import { assertLocale, i18n, type Locale } from "@/i18n-config";
@@ -26,6 +27,7 @@ import LandingPageQuote from "@/landing-page-quote";
 import LocaleSwitcher from "@/locale-switcher";
 import SkillsSection from "@/skills-section";
 import SocialProof from "@/social-proof";
+import { AnimatedThemeToggler } from "@/theme-toggler";
 import "./globals.css";
 
 const montserrat = Montserrat({
@@ -61,86 +63,89 @@ export default async function MyApp({
 			className={`${bungee.variable} ${bungeeInline.variable} ${bungeeShade.variable} ${montserrat.variable} scroll-smooth`}
 			lang={locale}
 		>
-			<body
-				className="min-h-screen bg-linear-to-b from-gray-50 to-white font-sans dark:from-gray-950 dark:to-gray-900"
-				data-vaul-drawer-wrapper=""
-			>
-				<StickyNav locale={locale} />
+			<body className="min-h-screen bg-linear-to-b from-gray-50 to-white font-sans dark:from-gray-950 dark:to-gray-900">
+				<div data-vaul-drawer-wrapper="">
+					<StickyNav locale={locale} />
 
-				{/* Hero Section */}
-				<section className="flex min-h-[100svh] flex-col items-center justify-center px-4 pt-16 pb-8">
-					<ClaimCard />
-				</section>
+					{/* Hero Section */}
+					<section className="flex min-h-[100svh] flex-col items-center justify-center px-4 pt-16 pb-8">
+						<ClaimCard />
+					</section>
 
-				{/* AI Quote Section */}
-				<section className="px-4 py-8 md:py-16">
-					<div className="mx-auto max-w-2xl">
-						<Suspense
-							fallback={
-								<div className="animate-pulse text-center font-display text-gray-400">
-									<RiOpenaiFill className="inline size-4" />{" "}
-									{locale === "en" ? (
-										<>
-											GPT 5 reading my{" "}
-											<Link href="/en/skill-profile">Skill Profile</Link> …
-										</>
-									) : (
-										<>
-											GPT 5 liest mein{" "}
-											<Link href="/de/skill-profile">Skill Profile</Link> …
-										</>
-									)}
-								</div>
-							}
-						>
-							<ErrorBoundary
+					{/* AI Quote Section */}
+					<section className="px-4 py-8 md:py-16">
+						<div className="mx-auto max-w-2xl">
+							<Suspense
 								fallback={
-									<div
-										className="belowMd:transform-none! prose mx-auto max-w-xl rounded-2xl border border-pink-500 bg-linear-to-tl from-fuchsia-500 to-pink-400 px-6 py-5 font-medium prose-strong:font-bold prose-headings:text-amber-100 text-amber-50 shadow-xl md:rounded-3xl md:px-10 md:py-9 dark:from-amber-800 dark:to-yellow-500"
-										style={{
-											transform:
-												"perspective(60vmin) rotateX(3deg) rotateY(-4deg) rotateZ(3deg)",
-										}}
-									>
-										<div>ohhhhhh noooooo</div>
-										<h2 className="flex items-center gap-2 font-display">
-											<RiCupFill /> What&apos;s the deal?
-										</h2>
-										<p>
-											We&apos;ve likely reached our conversation limit with our
-											AI assistant. This typically refreshes within 24 hours,
-											but feel free to try again in a few minutes – sometimes
-											these limits reset sooner than expected!
-										</p>
-										<p>
-											Or{" "}
-											<a className="text-inherit" href="mailto:mail@manuel.fyi">
-												contact me directly
-											</a>{" "}
-											to get a personal summary.
-										</p>
+									<div className="animate-pulse text-center font-display text-gray-400">
+										<RiOpenaiFill className="inline size-4" />{" "}
+										{locale === "en" ? (
+											<>
+												GPT 5 reading my{" "}
+												<Link href="/en/skill-profile">Skill Profile</Link> …
+											</>
+										) : (
+											<>
+												GPT 5 liest mein{" "}
+												<Link href="/de/skill-profile">Skill Profile</Link> …
+											</>
+										)}
 									</div>
 								}
 							>
-								<LandingPageQuote locale={locale} />
-							</ErrorBoundary>
-						</Suspense>
-					</div>
-				</section>
+								<ErrorBoundary
+									fallback={
+										<div
+											className="belowMd:transform-none! prose mx-auto max-w-xl rounded-2xl border border-pink-500 bg-linear-to-tl from-fuchsia-500 to-pink-400 px-6 py-5 font-medium prose-strong:font-bold prose-headings:text-amber-100 text-amber-50 shadow-xl md:rounded-3xl md:px-10 md:py-9 dark:from-amber-800 dark:to-yellow-500"
+											style={{
+												transform:
+													"perspective(60vmin) rotateX(3deg) rotateY(-4deg) rotateZ(3deg)",
+											}}
+										>
+											<div>ohhhhhh noooooo</div>
+											<h2 className="flex items-center gap-2 font-display">
+												<RiCupFill /> What&apos;s the deal?
+											</h2>
+											<p>
+												We&apos;ve likely reached our conversation limit with
+												our AI assistant. This typically refreshes within 24
+												hours, but feel free to try again in a few minutes –
+												sometimes these limits reset sooner than expected!
+											</p>
+											<p>
+												Or{" "}
+												<a
+													className="text-inherit"
+													href="mailto:mail@manuel.fyi"
+												>
+													contact me directly
+												</a>{" "}
+												to get a personal summary.
+											</p>
+										</div>
+									}
+								>
+									<LandingPageQuote locale={locale} />
+								</ErrorBoundary>
+							</Suspense>
+						</div>
+					</section>
 
-				{/* Social Proof */}
-				<SocialProof />
+					{/* Social Proof */}
+					<SocialProof />
 
-				{/* Skills */}
-				<SkillsSection />
+					{/* Skills */}
+					<SkillsSection />
 
-				{/* Contact */}
-				<ContactSection />
+					{/* Contact */}
+					<ContactSection />
 
-				{/* Footer */}
-				<Footer locale={locale} />
+					{/* Footer */}
+					<Footer locale={locale} />
+				</div>
 
-				{/* Drawer overlays (sheet routes render here) */}
+				{/* Drawer overlays render outside the wrapper so Vaul's
+				    scale-background transform doesn't break position:fixed */}
 				{children}
 
 				<script
@@ -157,11 +162,13 @@ function StickyNav({ locale }: { locale: Locale }) {
 	return (
 		<nav className="fixed top-0 right-0 left-0 z-50 border-gray-200/50 border-b bg-white/80 backdrop-blur-md dark:border-gray-800/50 dark:bg-gray-950/80">
 			<div className="mx-auto flex max-w-5xl items-center justify-between px-4 py-3 md:px-6">
-				<Link
-					className="bg-linear-to-tr from-indigo-500 to-teal-400 font-display text-gradient text-lg md:text-xl"
-					href={`/${locale}`}
-				>
-					Manuel Dugué
+				<Link className="font-display text-lg md:text-xl" href={`/${locale}`}>
+					<AuroraText
+						colors={["#6366f1", "#2dd4bf", "#0d9488", "#818cf8"]}
+						speed={0.5}
+					>
+						Manuel Dugué
+					</AuroraText>
 				</Link>
 				<div className="flex items-center gap-3 text-sm md:gap-5">
 					<Link
@@ -182,6 +189,7 @@ function StickyNav({ locale }: { locale: Locale }) {
 						className="flex gap-1.5 font-display text-xs"
 						currentLocale={locale}
 					/>
+					<AnimatedThemeToggler />
 				</div>
 			</div>
 		</nav>
@@ -192,10 +200,13 @@ function ContactSection() {
 	return (
 		<section className="px-6 py-16 md:py-24">
 			<div className="mx-auto max-w-md text-center">
-				<h2 className="mb-6 font-display text-2xl text-gray-800 md:text-3xl dark:text-gray-200">
-					<span className="bg-linear-to-r from-teal-600 to-teal-400 text-gradient">
+				<h2 className="mb-6 font-display text-2xl md:text-3xl">
+					<AuroraText
+						colors={["#0d9488", "#2dd4bf", "#6366f1", "#38bdf8"]}
+						speed={0.4}
+					>
 						Get in touch
-					</span>
+					</AuroraText>
 				</h2>
 				<p className="mb-8 text-gray-500 dark:text-gray-400">
 					Based in Dresden, Germany. Available for freelance projects worldwide.

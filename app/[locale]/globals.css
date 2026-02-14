@@ -43,3 +43,43 @@
 		transform 0.5s cubic-bezier(0.32, 0.72, 0, 1),
 		border-radius 0.5s cubic-bezier(0.32, 0.72, 0, 1);
 }
+
+/* Aurora Text animation */
+@theme {
+	--animate-aurora: aurora 8s ease-in-out infinite alternate;
+}
+
+@keyframes aurora {
+	0% {
+		background-position: 0% 50%;
+		transform: rotate(-5deg) scale(0.9);
+	}
+	25% {
+		background-position: 50% 100%;
+		transform: rotate(5deg) scale(1.1);
+	}
+	50% {
+		background-position: 100% 50%;
+		transform: rotate(-3deg) scale(0.95);
+	}
+	75% {
+		background-position: 50% 0%;
+		transform: rotate(3deg) scale(1.05);
+	}
+	100% {
+		background-position: 0% 50%;
+		transform: rotate(-5deg) scale(0.9);
+	}
+}
+
+/* View Transitions for theme toggler */
+/* biome-ignore lint/correctness/noUnknownTypeSelector: view-transition pseudo-elements */
+::view-transition-old(root) {
+	animation: none;
+	mix-blend-mode: normal;
+}
+/* biome-ignore lint/correctness/noUnknownTypeSelector: view-transition pseudo-elements */
+::view-transition-new(root) {
+	animation: none;
+	mix-blend-mode: normal;
+}
