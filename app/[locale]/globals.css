@@ -27,3 +27,19 @@
 		-webkit-text-fill-color: inherit;
 	}
 }
+
+@keyframes marquee {
+	from {
+		transform: translateX(0);
+	}
+	to {
+		transform: translateX(calc(-100% - 2rem));
+	}
+}
+
+/* Vaul drawer background scaling */
+[data-vaul-drawer-wrapper] {
+	transition:
+		transform 0.5s cubic-bezier(0.32, 0.72, 0, 1),
+		border-radius 0.5s cubic-bezier(0.32, 0.72, 0, 1);
+}

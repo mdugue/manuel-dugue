@@ -1,19 +1,18 @@
 "use client";
 import { animated, to } from "@react-spring/web";
-import { useEffect, useRef, useState } from "react";
-import Typewriter from "typewriter-effect";
+import { useState } from "react";
 
 import useMaterial from "../hooks/use-material";
 import AnimatedHeadline from "./animated-headline";
+import TypingAnimation from "./typing-animation";
 
 const translate = (x: number, y: number, multiplier: number) =>
-	`translate3d(${multiplier * x}vmin,${multiplier * y}vmin,0)`;
+	`translate3d(${String(multiplier * x)}vmin,${String(multiplier * y)}vmin,0)`;
 
 const trans1 = (x: number, y: number) =>
-	`perspective(60vmin) rotateX(${3 * y}deg) rotateY(${-4 * x}deg) rotateZ(-2deg)
+	`perspective(60vmin) rotateX(${String(3 * y)}deg) rotateY(${String(-4 * x)}deg) rotateZ(-2deg)
   ${translate(x, y, 0.5)}`;
 const trans2 = (x: number, y: number) => translate(x, y, -1);
-// used for "since 2008" & typewriter
 const trans3 = (x: number, y: number) => translate(x, y, 0.6);
 const trans4 = (x: number, y: number) => translate(x, y, -0.4);
 
@@ -25,25 +24,24 @@ const materialConfig = {
 
 const materialDefaultPosition = [-0.9, -0.9] as [number, number];
 
+const typingPhrases = [
+	"consumers, experts, agents, bots, ...",
+	"React, GraphQL, A11Y, ...",
+	"teaching, analyzing, coding, ...",
+	"arctic code vault contributer",
+];
+
 export default function ClaimCard() {
-	const [isHovered, setIsHovered] = useState(false);
+	const [_isHovered, setIsHovered] = useState(false);
 	const {
 		props: { xy },
 		onMouseMove,
 		onMouseLeave,
 	} = useMaterial(materialDefaultPosition, materialConfig);
-	const typewriterRef = useRef<{ pause: () => void; start: () => void }>(null);
-	useEffect(() => {
-		if (isHovered) {
-			typewriterRef.current?.pause();
-		} else {
-			typewriterRef.current?.start();
-		}
-	}, [isHovered]);
 
 	return (
 		<animated.hgroup
-			className="belowMd:transform-none! relative z-10 mx-2 my-auto self-start rounded-lg border border-teal-300 bg-linear-to-tr from-teal-500 to-teal-200 px-4 py-8 text-center text-white shadow-xl md:rounded-3xl md:px-24 md:py-12 md:text-xl dark:from-teal-700 dark:to-teal-600 dark:text-gray-900"
+			className="belowMd:transform-none! relative z-10 mx-auto w-full max-w-2xl rounded-2xl border border-teal-300/50 bg-linear-to-tr from-teal-500 to-teal-200 px-6 py-10 text-center text-white shadow-2xl md:rounded-3xl md:px-24 md:py-16 md:text-xl dark:from-teal-700 dark:to-teal-600 dark:text-gray-900"
 			onMouseLeave={() => {
 				setIsHovered(false);
 				onMouseLeave();
@@ -56,7 +54,7 @@ export default function ClaimCard() {
 				transform: to(xy, trans1),
 			}}
 		>
-			<div className="absolute inset-0 overflow-hidden rounded-lg md:rounded-3xl">
+			<div className="absolute inset-0 overflow-hidden rounded-2xl md:rounded-3xl">
 				<animated.div
 					className="absolute top-1/4 left-1/4 h-1/2 w-1/2 bg-teal-100 opacity-75"
 					style={{
@@ -64,13 +62,13 @@ export default function ClaimCard() {
 						filter: "blur(100px)",
 						transform: to(
 							xy,
-							(x, y) => `translate3d(${`${x * 75}%`}, ${`${y * 75}%`}, 0)`
+							(x, y) => `translate3d(${String(x * 75)}%, ${String(y * 75)}%, 0)`
 						),
 					}}
 				/>
 			</div>
 			<animated.small
-				className="block font-display text-teal-500 dark:text-teal-700"
+				className="block font-display text-teal-500/80 dark:text-teal-700"
 				style={{ transform: to(xy, trans4) }}
 			>
 				– since 2008 –
@@ -80,50 +78,18 @@ export default function ClaimCard() {
 				web experiences <br />
 				for everybody
 			</AnimatedHeadline>
-			<animated.h2
+			<animated.p
 				className="bg-linear-to-bl from-amber-100 to-amber-200 font-inline text-gradient dark:from-teal-900 dark:to-teal-700"
 				style={{
 					transform: to(xy, trans3),
 				}}
 			>
-				<Typewriter
-					onInit={(typewriter) => {
-						typewriterRef.current = typewriter;
-						typewriter
-							.typeString("consumers, experts, agents, bots, ...")
-							// @ts-expect-error ts definition does not seem complete yet
-							.changeCursor(" ")
-							.pauseFor(2500)
-							.changeCursor("|")
-							.deleteAll()
-							.typeString("React, GraphQL, A11Y, ...")
-							.changeCursor(" ")
-							.pauseFor(2500)
-							.changeCursor("|")
-							.deleteAll()
-							.typeString("teaching, analyzing, coding, ...")
-							.changeCursor(" ")
-							.pauseFor(2500)
-							.changeCursor("|")
-							.deleteAll()
-							.typeString("arctic code vault contributer")
-							.changeCursor(" ")
-							.pauseFor(2500)
-							.changeCursor("|")
-							.deleteAll()
-							.start();
-					}}
-					options={{
-						loop: true,
-					}}
+				<TypingAnimation
+					phrases={typingPhrases}
+					startOnView={false}
+					typeDuration={70}
 				/>
-				<noscript>
-					consumers, experts, bots <br />
-					React, GraphQL, A11Y <br />
-					teaching, analyzing, coding <br />
-					arctic code vault contributer <br />
-				</noscript>
-			</animated.h2>
+			</animated.p>
 		</animated.hgroup>
 	);
 }
