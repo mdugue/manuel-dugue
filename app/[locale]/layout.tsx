@@ -1,10 +1,8 @@
 "use cache";
 import {
-	RiCupFill,
 	RiGithubFill,
 	RiLinkedinBoxFill,
 	RiMailLine,
-	RiOpenaiFill,
 	RiTwitterXFill,
 } from "@remixicon/react";
 import type { Metadata } from "next";
@@ -16,14 +14,12 @@ import {
 	Montserrat,
 } from "next/font/google";
 import Link from "next/link";
-import { Suspense } from "react";
-import { ErrorBoundary } from "react-error-boundary";
 import type { Person, WithContext } from "schema-dts";
+import AIQuoteStack from "@/ai-quote-stack";
 import { AuroraText } from "@/aurora-text";
 import ClaimCard from "@/claim-card";
 import { getDictionary } from "@/get-dictionary";
 import { assertLocale, i18n, type Locale } from "@/i18n-config";
-import LandingPageQuote from "@/landing-page-quote";
 import LocaleSwitcher from "@/locale-switcher";
 import SkillsSection from "@/skills-section";
 import SocialProof from "@/social-proof";
@@ -62,8 +58,15 @@ export default async function MyApp({
 		<html
 			className={`${bungee.variable} ${bungeeInline.variable} ${bungeeShade.variable} ${montserrat.variable} scroll-smooth`}
 			lang={locale}
+			suppressHydrationWarning
 		>
 			<body className="min-h-screen bg-linear-to-b from-gray-50 to-white font-sans dark:from-gray-950 dark:to-gray-900">
+				<script
+					// biome-ignore lint/security/noDangerouslySetInnerHtml: theme init must run before paint
+					dangerouslySetInnerHTML={{
+						__html: `(function(){var t=localStorage.getItem('theme');if(t==='dark'||(!t&&matchMedia('(prefers-color-scheme:dark)').matches))document.documentElement.classList.add('dark')})()`,
+					}}
+				/>
 				<div data-vaul-drawer-wrapper="">
 					<StickyNav locale={locale} />
 
@@ -74,61 +77,7 @@ export default async function MyApp({
 
 					{/* AI Quote Section */}
 					<section className="px-4 py-8 md:py-16">
-						<div className="mx-auto max-w-2xl">
-							<Suspense
-								fallback={
-									<div className="animate-pulse text-center font-display text-gray-400">
-										<RiOpenaiFill className="inline size-4" />{" "}
-										{locale === "en" ? (
-											<>
-												GPT 5 reading my{" "}
-												<Link href="/en/skill-profile">Skill Profile</Link> …
-											</>
-										) : (
-											<>
-												GPT 5 liest mein{" "}
-												<Link href="/de/skill-profile">Skill Profile</Link> …
-											</>
-										)}
-									</div>
-								}
-							>
-								<ErrorBoundary
-									fallback={
-										<div
-											className="belowMd:transform-none! prose mx-auto max-w-xl rounded-2xl border border-pink-500 bg-linear-to-tl from-fuchsia-500 to-pink-400 px-6 py-5 font-medium prose-strong:font-bold prose-headings:text-amber-100 text-amber-50 shadow-xl md:rounded-3xl md:px-10 md:py-9 dark:from-amber-800 dark:to-yellow-500"
-											style={{
-												transform:
-													"perspective(60vmin) rotateX(3deg) rotateY(-4deg) rotateZ(3deg)",
-											}}
-										>
-											<div>ohhhhhh noooooo</div>
-											<h2 className="flex items-center gap-2 font-display">
-												<RiCupFill /> What&apos;s the deal?
-											</h2>
-											<p>
-												We&apos;ve likely reached our conversation limit with
-												our AI assistant. This typically refreshes within 24
-												hours, but feel free to try again in a few minutes –
-												sometimes these limits reset sooner than expected!
-											</p>
-											<p>
-												Or{" "}
-												<a
-													className="text-inherit"
-													href="mailto:mail@manuel.fyi"
-												>
-													contact me directly
-												</a>{" "}
-												to get a personal summary.
-											</p>
-										</div>
-									}
-								>
-									<LandingPageQuote locale={locale} />
-								</ErrorBoundary>
-							</Suspense>
-						</div>
+						<AIQuoteStack locale={locale} />
 					</section>
 
 					{/* Social Proof */}
@@ -209,7 +158,7 @@ function ContactSection() {
 					</AuroraText>
 				</h2>
 				<p className="mb-8 text-gray-500 dark:text-gray-400">
-					Based in Dresden, Germany. Available for freelance projects worldwide.
+					Based in Dresden, Germany. Available for projects worldwide.
 				</p>
 				<a
 					className="mb-10 inline-flex items-center gap-2 rounded-full bg-linear-to-r from-teal-500 to-teal-400 px-8 py-3 font-display text-white shadow-lg transition-shadow hover:shadow-xl dark:from-teal-600 dark:to-teal-500"

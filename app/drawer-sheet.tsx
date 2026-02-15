@@ -1,9 +1,9 @@
 "use client";
 
-import { XMarkIcon } from "@heroicons/react/20/solid";
+import { ArrowDownTrayIcon, XMarkIcon } from "@heroicons/react/20/solid";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import type { ReactNode } from "react";
+import { type ReactNode, useCallback } from "react";
 import { Drawer } from "vaul";
 
 export default function DrawerSheet({ children }: { children: ReactNode }) {
@@ -21,8 +21,8 @@ export default function DrawerSheet({ children }: { children: ReactNode }) {
 		>
 			<Drawer.Portal>
 				<Drawer.Overlay className="fixed inset-0 z-30 bg-black/60 backdrop-blur-xs" />
-				<Drawer.Content className="fixed inset-x-0 bottom-0 z-40 mt-24 flex max-h-[96vh] flex-col rounded-t-2xl bg-white shadow-2xl outline-none md:inset-x-auto md:right-0 md:left-auto md:m-4 md:max-h-[calc(100vh-2rem)] md:w-[min(680px,calc(100vw-2rem))] md:rounded-2xl">
-					<div className="mx-auto mt-3 mb-2 h-1.5 w-12 shrink-0 rounded-full bg-gray-300 md:hidden" />
+				<Drawer.Content className="fixed inset-x-0 bottom-0 z-40 mt-24 flex max-h-[96vh] flex-col rounded-t-2xl bg-white shadow-2xl outline-none md:inset-x-auto md:right-0 md:left-auto md:m-4 md:max-h-[calc(100vh-2rem)] md:w-[min(680px,calc(100vw-2rem))] md:rounded-2xl dark:bg-gray-900">
+					<div className="mx-auto mt-3 mb-2 h-1.5 w-12 shrink-0 rounded-full bg-gray-300 md:hidden dark:bg-gray-600" />
 					<Drawer.Title className="sr-only">Document</Drawer.Title>
 					<div className="overflow-y-auto px-6 pt-4 pb-10 md:px-12 md:py-10">
 						{children}
@@ -40,11 +40,23 @@ export function DrawerSheetContent({
 	title?: string;
 	children?: ReactNode;
 }) {
+	const handleDownload = useCallback(() => {
+		window.print();
+	}, []);
+
 	return (
 		<>
-			<nav className="absolute top-3 right-3 z-10 md:top-4 md:right-4">
+			<nav className="absolute top-3 right-3 z-10 flex gap-1 md:top-4 md:right-4">
+				<button
+					className="flex items-center rounded-full p-2 text-gray-400 transition-colors hover:bg-teal-50 hover:text-teal-600 focus:outline-none focus:ring-2 focus:ring-teal-500 dark:hover:bg-teal-900/30 dark:hover:text-teal-400"
+					onClick={handleDownload}
+					title="Download as PDF"
+					type="button"
+				>
+					<ArrowDownTrayIcon className="h-5 w-5" />
+				</button>
 				<Link
-					className="flex items-center rounded-full p-2 text-gray-400 transition-colors hover:bg-teal-50 hover:text-teal-600 focus:outline-none focus:ring-2 focus:ring-teal-500"
+					className="flex items-center rounded-full p-2 text-gray-400 transition-colors hover:bg-teal-50 hover:text-teal-600 focus:outline-none focus:ring-2 focus:ring-teal-500 dark:hover:bg-teal-900/30 dark:hover:text-teal-400"
 					href="."
 					title="close"
 				>

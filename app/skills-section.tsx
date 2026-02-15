@@ -1,9 +1,13 @@
+"use client";
+
 import {
 	RiEarthFill,
 	RiGroupFill,
 	RiHeart2Fill,
 	RiTimerFlashFill,
 } from "@remixicon/react";
+
+import AnimatedOnView from "@/animated-on-view";
 
 const highlights = [
 	{
@@ -32,12 +36,14 @@ export default function SkillsSection() {
 	return (
 		<section className="mx-auto max-w-4xl px-6 py-16 md:py-24">
 			<div className="grid gap-8 sm:grid-cols-2">
-				{highlights.map((item) => (
+				{highlights.map((item, index) => (
 					<div
 						className="group rounded-2xl border border-gray-100 bg-white/60 p-6 transition-colors hover:border-teal-200 hover:bg-teal-50/40 dark:border-gray-800 dark:bg-gray-900/60 dark:hover:border-teal-800 dark:hover:bg-teal-900/20"
 						key={item.title}
 					>
-						<item.icon className="mb-3 size-6 text-teal-500 transition-transform group-hover:scale-110 dark:text-teal-400" />
+						<AnimatedOnView delay={index * 0.1}>
+							<item.icon className="mb-3 size-6 text-teal-500 dark:text-teal-400" />
+						</AnimatedOnView>
 						<h3 className="mb-2 font-inline text-gray-800 text-lg dark:text-gray-200">
 							{item.title}
 						</h3>

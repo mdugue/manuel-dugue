@@ -145,46 +145,23 @@ function Container({
 	locale: Locale;
 }) {
 	return (
-		<figure
-			className="belowMd:transform-none! mb-8"
-			style={{
-				transform:
-					"perspective(60vmin) rotateX(3deg) rotateY(-4deg) rotateZ(3deg)",
-			}}
-		>
-			<blockquote className="contact prose lg:-ml-12 mx-2 max-w-xl whitespace-break-spaces rounded-lg border border-pink-500 bg-linear-to-tl from-fuchsia-500 to-pink-400 px-6 py-5 font-medium prose-strong:font-bold prose-headings:text-amber-100 text-amber-50 shadow-xl md:mx-auto md:rounded-3xl md:px-10 md:py-9 dark:border-amber-700 dark:from-amber-800 dark:to-yellow-500">
+		<figure className="h-full">
+			<blockquote className="whitespace-break-spaces rounded-2xl border border-pink-500 bg-linear-to-tl from-fuchsia-500 to-pink-400 px-6 py-5 font-medium text-amber-50 shadow-xl md:rounded-3xl md:px-10 md:py-8 dark:border-amber-700 dark:from-amber-800 dark:to-yellow-500">
 				{children}
 			</blockquote>
-			<figcaption className="mt-2 mr-1 ml-auto flex items-center justify-end gap-1 text-right text-gray-400 text-sm">
+			<figcaption className="mt-2 mr-1 ml-auto flex items-center justify-end gap-1 text-right text-sm text-white/70">
 				<span>
-					{locale === "de" ? (
-						<>
-							– <RiOpenaiFill className="inline size-4" /> GPT 5 zu meinem{" "}
-							<GPTTooltip locale={locale}>
-								<Link
-									className="pb-7 text-indigo-400 hover:text-indigo-600 hover:underline dark:hover:text-amber-900"
-									href="/de/skill-profile"
-									prefetch={false}
-								>
-									Skill Profile
-								</Link>
-							</GPTTooltip>
-						</>
-					) : (
-						<>
-							– <RiOpenaiFill className="inline size-4" /> GPT 5 after reading
-							my{" "}
-							<GPTTooltip locale={locale}>
-								<Link
-									className="pb-7 text-indigo-400 hover:text-indigo-600 hover:underline dark:hover:text-amber-900"
-									href="/en/skill-profile"
-									prefetch={false}
-								>
-									Skill Profile
-								</Link>
-							</GPTTooltip>
-						</>
-					)}
+					– <RiOpenaiFill className="inline size-4" />{" "}
+					{locale === "de" ? "GPT 5 zu meinem " : "GPT 5 after reading my "}
+					<GPTTooltip locale={locale}>
+						<Link
+							className="underline decoration-white/40 hover:decoration-white"
+							href={`/${locale}/skill-profile`}
+							prefetch={false}
+						>
+							Skill Profile
+						</Link>
+					</GPTTooltip>
 				</span>
 			</figcaption>
 		</figure>

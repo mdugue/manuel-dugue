@@ -83,3 +83,20 @@
 	animation: none;
 	mix-blend-mode: normal;
 }
+
+/* Print styles for PDF download */
+@media print {
+	body > div[data-vaul-drawer-wrapper] {
+		display: none;
+	}
+	nav,
+	[data-vaul-overlay] {
+		display: none;
+	}
+	[data-vaul-drawer] {
+		position: static;
+		max-height: none;
+		border-radius: 0;
+		box-shadow: none;
+	}
+}
