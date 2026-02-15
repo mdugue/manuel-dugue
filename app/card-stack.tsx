@@ -49,7 +49,7 @@ function CardRotate({
 
 	return (
 		<motion.div
-			className="absolute h-full w-full cursor-grab"
+			className="cursor-grab [grid-area:1/1]"
 			drag
 			dragConstraints={{ top: 0, right: 0, bottom: 0, left: 0 }}
 			dragElastic={0.6}
@@ -119,7 +119,7 @@ export default function CardStack({
 		// biome-ignore lint/a11y/noStaticElementInteractions: hover pause for autoplay
 		// biome-ignore lint/a11y/noNoninteractiveElementInteractions: hover pause for autoplay
 		<div
-			className="relative h-full w-full"
+			className="grid w-full"
 			onBlur={handleMouseLeave}
 			onFocus={handleMouseEnter}
 			onMouseEnter={handleMouseEnter}
@@ -138,7 +138,7 @@ export default function CardStack({
 							scale: 1 + index * 0.06 - stack.length * 0.06,
 							transformOrigin: "90% 90%",
 						}}
-						className="flex h-full w-full items-center justify-center overflow-hidden rounded-2xl"
+						className="flex w-full items-center justify-center overflow-hidden rounded-2xl"
 						initial={false}
 						onClick={() => sendToBackOnClick && sendToBack(card.id)}
 						transition={{

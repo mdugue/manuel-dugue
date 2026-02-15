@@ -1,3 +1,4 @@
+import type { Locale } from "@/i18n-config";
 import Marquee from "@/marquee";
 
 const companies = [
@@ -11,11 +12,16 @@ const companies = [
 	"JoDDiD",
 ] as const;
 
-export default function SocialProof() {
+const headings = {
+	en: "Working with",
+	de: "Zusammenarbeit mit",
+} as const;
+
+export default function SocialProof({ locale }: { locale: Locale }) {
 	return (
 		<section className="py-16 md:py-24">
 			<p className="mb-8 text-center font-display text-gray-400 text-sm uppercase tracking-widest">
-				Working with
+				{headings[locale]}
 			</p>
 			<Marquee duration="40s">
 				{companies.map((name) => (

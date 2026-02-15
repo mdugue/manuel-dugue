@@ -81,13 +81,13 @@ export default async function MyApp({
 					</section>
 
 					{/* Social Proof */}
-					<SocialProof />
+					<SocialProof locale={locale} />
 
 					{/* Skills */}
-					<SkillsSection />
+					<SkillsSection locale={locale} />
 
 					{/* Contact */}
-					<ContactSection />
+					<ContactSection locale={locale} />
 
 					{/* Footer */}
 					<Footer locale={locale} />
@@ -145,7 +145,7 @@ function StickyNav({ locale }: { locale: Locale }) {
 	);
 }
 
-function ContactSection() {
+function ContactSection({ locale }: { locale: Locale }) {
 	return (
 		<section className="px-6 py-16 md:py-24">
 			<div className="mx-auto max-w-md text-center">
@@ -154,11 +154,13 @@ function ContactSection() {
 						colors={["#0d9488", "#2dd4bf", "#6366f1", "#38bdf8"]}
 						speed={0.4}
 					>
-						Get in touch
+						{locale === "de" ? "Kontakt" : "Get in touch"}
 					</AuroraText>
 				</h2>
 				<p className="mb-8 text-gray-500 dark:text-gray-400">
-					Based in Dresden, Germany. Available for projects worldwide.
+					{locale === "de"
+						? "Ansässig in Dresden. Verfügbar für Projekte weltweit."
+						: "Based in Dresden, Germany. Available for projects worldwide."}
 				</p>
 				<a
 					className="mb-10 inline-flex items-center gap-2 rounded-full bg-linear-to-r from-teal-500 to-teal-400 px-8 py-3 font-display text-white shadow-lg transition-shadow hover:shadow-xl dark:from-teal-600 dark:to-teal-500"

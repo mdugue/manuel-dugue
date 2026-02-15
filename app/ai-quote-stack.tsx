@@ -107,7 +107,7 @@ export default async function AIQuoteStack({ locale }: { locale: Locale }) {
 	);
 
 	return (
-		<div className="mx-auto h-[320px] max-w-xl md:h-[280px]">
+		<div className="mx-auto max-w-xl">
 			<QuoteStackClient cards={[gptCard, claudeCard, geminiCard]} />
 		</div>
 	);
