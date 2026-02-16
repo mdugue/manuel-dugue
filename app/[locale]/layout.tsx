@@ -1,10 +1,6 @@
 "use cache";
-import {
-	RiGithubFill,
-	RiLinkedinBoxFill,
-	RiMailLine,
-	RiTwitterXFill,
-} from "@remixicon/react";
+import { Github, Linkedin, Mail } from "lucide-react";
+import { XTwitterIcon } from "@/brand-icons";
 import type { Metadata } from "next";
 import { cacheLife } from "next/cache";
 import {
@@ -166,7 +162,7 @@ function ContactSection({ locale }: { locale: Locale }) {
 					className="mb-10 inline-flex items-center gap-2 rounded-full bg-linear-to-r from-teal-500 to-teal-400 px-8 py-3 font-display text-white shadow-lg transition-shadow hover:shadow-xl dark:from-teal-600 dark:to-teal-500"
 					href="mailto:mail@manuel.fyi"
 				>
-					<RiMailLine className="size-5" />
+					<Mail className="size-5" />
 					mail@manuel.fyi
 				</a>
 				<div className="flex justify-center gap-4 text-gray-300 dark:text-gray-600">
@@ -176,7 +172,7 @@ function ContactSection({ locale }: { locale: Locale }) {
 						rel="noopener noreferrer"
 						target="_blank"
 					>
-						<RiLinkedinBoxFill className="coarse:h-10 h-6 coarse:w-10 w-6" />
+						<Linkedin className="coarse:h-10 h-6 coarse:w-10 w-6" />
 					</a>
 					<a
 						className="rounded-full p-3 transition-colors hover:bg-teal-50 hover:text-teal-500 dark:hover:bg-teal-900/20 dark:hover:text-teal-400"
@@ -184,7 +180,7 @@ function ContactSection({ locale }: { locale: Locale }) {
 						rel="noopener noreferrer"
 						target="_blank"
 					>
-						<RiTwitterXFill className="coarse:h-10 h-6 coarse:w-10 w-6" />
+						<XTwitterIcon className="coarse:h-10 h-6 coarse:w-10 w-6" />
 					</a>
 					<a
 						className="rounded-full p-3 transition-colors hover:bg-teal-50 hover:text-teal-500 dark:hover:bg-teal-900/20 dark:hover:text-teal-400"
@@ -192,7 +188,7 @@ function ContactSection({ locale }: { locale: Locale }) {
 						rel="noopener noreferrer"
 						target="_blank"
 					>
-						<RiGithubFill className="coarse:h-10 h-6 coarse:w-10 w-6" />
+						<Github className="coarse:h-10 h-6 coarse:w-10 w-6" />
 					</a>
 				</div>
 			</div>

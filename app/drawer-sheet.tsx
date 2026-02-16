@@ -1,9 +1,9 @@
 "use client";
 
-import { ArrowDownTrayIcon, XMarkIcon } from "@heroicons/react/20/solid";
+import { Download, X } from "lucide-react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
-import { type ReactNode, useCallback, useRef, useState } from "react";
+import { useParams, useRouter } from "next/navigation";
+import { type ReactNode, useCallback, useState } from "react";
 import { Drawer } from "vaul";
 
 export default function DrawerSheet({ children }: { children: ReactNode }) {
@@ -40,55 +40,35 @@ export function DrawerSheetContent({
 	title?: string;
 	children?: ReactNode;
 }) {
-	const contentRef = useRef<HTMLDivElement>(null);
 	const [isGenerating, setIsGenerating] = useState(false);
+	const params = useParams<{ locale: string; sheet: string }>();
 
 	const handleDownload = useCallback(async () => {
-		const el = contentRef.current;
-		if (!el || isGenerating) {
+		if (isGenerating) {
 			return;
 		}
 
 		setIsGenerating(true);
 		try {
-			const [{ default: html2canvas }, { jsPDF }] = await Promise.all([
-				import("html2canvas-pro"),
-				import("jspdf"),
-			]);
-
-			const canvas = await html2canvas(el, {
-				scale: 2,
-				useCORS: true,
-				backgroundColor: "#ffffff",
-			});
-
-			const imgData = canvas.toDataURL("image/png");
-			const pdf = new jsPDF("p", "mm", "a4");
-			const pageWidth = pdf.internal.pageSize.getWidth();
-			const pageHeight = pdf.internal.pageSize.getHeight();
-			const margin = 10;
-			const contentWidth = pageWidth - margin * 2;
-			const imgHeight = (canvas.height * contentWidth) / canvas.width;
-
-			let heightLeft = imgHeight;
-			let yOffset = margin;
-
-			pdf.addImage(imgData, "PNG", margin, yOffset, contentWidth, imgHeight);
-			heightLeft -= pageHeight - margin * 2;
-
-			while (heightLeft > 0) {
-				pdf.addPage();
-				yOffset = margin - (imgHeight - heightLeft);
-				pdf.addImage(imgData, "PNG", margin, yOffset, contentWidth, imgHeight);
-				heightLeft -= pageHeight - margin * 2;
+			const response = await fetch(
+				`/api/pdf/${params.sheet}?locale=${params.locale}`,
+			);
+			if (!response.ok) {
+				throw new Error("PDF generation failed");
 			}
-
-			const safeName = title.replaceAll(/[^\w\s-]/g, "").trim() || "document";
-			pdf.save(`${safeName}.pdf`);
+			const blob = await response.blob();
+			const url = URL.createObjectURL(blob);
+			const a = document.createElement("a");
+			a.href = url;
+			const safeName =
+				title.replaceAll(/[^\w\s-]/g, "").trim() || "document";
+			a.download = `${safeName}.pdf`;
+			a.click();
+			URL.revokeObjectURL(url);
 		} finally {
 			setIsGenerating(false);
 		}
-	}, [title, isGenerating]);
+	}, [title, isGenerating, params.sheet, params.locale]);
 
 	return (
 		<>
@@ -100,7 +80,7 @@ export function DrawerSheetContent({
 					title="Download as PDF"
 					type="button"
 				>
-					<ArrowDownTrayIcon
+					<Download
 						className={`h-5 w-5 ${isGenerating ? "animate-pulse" : ""}`}
 					/>
 				</button>
@@ -109,10 +89,10 @@ export function DrawerSheetContent({
 					href="."
 					title="close"
 				>
-					<XMarkIcon className="h-5 w-5" />
+					<X className="h-5 w-5" />
 				</Link>
 			</nav>
-			<div ref={contentRef}>
+			<div>
 				<div className="mb-6 bg-linear-to-r from-teal-700 to-teal-400 text-gradient">
 					{title && (
 						<h2 className="mb-1 hyphens-auto break-words font-inline text-3xl md:text-5xl">

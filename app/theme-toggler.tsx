@@ -1,6 +1,6 @@
 "use client";
 
-import { RiMoonFill, RiSunFill } from "@remixicon/react";
+import { Moon, Sun } from "lucide-react";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { flushSync } from "react-dom";
 
@@ -88,9 +88,9 @@ export function AnimatedThemeToggler({
 			type="button"
 		>
 			{isDark ? (
-				<RiSunFill className="size-4" />
+				<Sun className="size-4" />
 			) : (
-				<RiMoonFill className="size-4" />
+				<Moon className="size-4" />
 			)}
 			<span className="sr-only">Toggle theme</span>
 		</button>

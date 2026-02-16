@@ -1,11 +1,7 @@
 "use cache";
 
-import {
-	RiCupFill,
-	RiGoogleFill,
-	RiOpenaiFill,
-	RiSparklingFill,
-} from "@remixicon/react";
+import { Coffee, Sparkles } from "lucide-react";
+import { GoogleIcon, OpenAiIcon } from "@/brand-icons";
 import { cacheLife } from "next/cache";
 import Link from "next/link";
 import { Suspense } from "react";
@@ -26,7 +22,7 @@ export default async function AIQuoteStack({ locale }: { locale: Locale }) {
 						gradient="from-fuchsia-500 to-pink-400 dark:from-amber-800 dark:to-yellow-500"
 					>
 						<div className="animate-pulse font-display text-amber-100/60">
-							<RiOpenaiFill className="inline size-4" />{" "}
+							<OpenAiIcon className="inline size-4" />{" "}
 							{locale === "en"
 								? "GPT 5 reading my Skill Profile …"
 								: "GPT 5 liest mein Skill Profile …"}
@@ -63,7 +59,7 @@ export default async function AIQuoteStack({ locale }: { locale: Locale }) {
 				</blockquote>
 				<figcaption className="mt-3 flex items-center gap-1 text-right text-sm text-white/70">
 					<span className="ml-auto flex items-center gap-1">
-						– <RiSparklingFill className="inline size-4" />{" "}
+						– <Sparkles className="inline size-4" />{" "}
 						{locale === "de" ? "Claude zu meinem " : "Claude after reading my "}
 						<Link
 							className="underline decoration-white/40 hover:decoration-white"
@@ -91,7 +87,7 @@ export default async function AIQuoteStack({ locale }: { locale: Locale }) {
 				</blockquote>
 				<figcaption className="mt-3 flex items-center gap-1 text-right text-sm text-white/70">
 					<span className="ml-auto flex items-center gap-1">
-						– <RiGoogleFill className="inline size-4" />{" "}
+						– <GoogleIcon className="inline size-4" />{" "}
 						{locale === "de" ? "Gemini zu meinem " : "Gemini after reading my "}
 						<Link
 							className="underline decoration-white/40 hover:decoration-white"
@@ -136,7 +132,7 @@ function QuoteError() {
 		<div className="text-amber-50">
 			<p className="mb-2">ohhhhhh noooooo</p>
 			<p className="flex items-center gap-2 font-display text-sm">
-				<RiCupFill className="size-4" /> Conversation limit reached. Try again
+				<Coffee className="size-4" /> Conversation limit reached. Try again
 				later or{" "}
 				<a className="underline" href="mailto:mail@manuel.fyi">
 					contact me directly
