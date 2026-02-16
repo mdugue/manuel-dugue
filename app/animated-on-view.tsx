@@ -3,11 +3,11 @@
 import { motion, useInView } from "motion/react";
 import { type ReactNode, useRef } from "react";
 
-type AnimatedOnViewProps = {
+interface AnimatedOnViewProps {
 	children: ReactNode;
 	className?: string;
 	delay?: number;
-};
+}
 
 export default function AnimatedOnView({
 	children,

@@ -8,7 +8,7 @@ import {
 } from "motion/react";
 import { type ReactNode, useCallback, useEffect, useState } from "react";
 
-type CardStackProps = {
+interface CardStackProps {
 	cards: ReactNode[];
 	sendToBackOnClick?: boolean;
 	autoplay?: boolean;
@@ -16,7 +16,7 @@ type CardStackProps = {
 	pauseOnHover?: boolean;
 	sensitivity?: number;
 	animationConfig?: { stiffness: number; damping: number };
-};
+}
 
 function CardRotate({
 	children,

@@ -2,12 +2,12 @@
 
 import { memo } from "react";
 
-type AuroraTextProps = {
+interface AuroraTextProps {
 	children: React.ReactNode;
 	className?: string;
 	colors?: string[];
 	speed?: number;
-};
+}
 
 export const AuroraText = memo(
 	({

@@ -2,14 +2,14 @@
 
 import { useEffect, useRef, useState } from "react";
 
-type TypingAnimationProps = {
+interface TypingAnimationProps {
 	phrases: string[];
 	typeDuration?: number;
 	deleteDuration?: number;
 	pauseDuration?: number;
 	className?: string;
 	startOnView?: boolean;
-};
+}
 
 /**
  * A cycling typing animation component based on MagicUI's TypingAnimation.

@@ -1,12 +1,12 @@
 import type { ReactNode } from "react";
 
-type MarqueeProps = {
+interface MarqueeProps {
 	children: ReactNode;
 	className?: string;
 	reverse?: boolean;
 	pauseOnHover?: boolean;
 	duration?: string;
-};
+}
 
 export default function Marquee({
 	children,

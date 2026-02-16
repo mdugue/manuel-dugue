@@ -73,12 +73,11 @@
 }
 
 /* View Transitions for theme toggler */
-/* biome-ignore lint/correctness/noUnknownTypeSelector: view-transition pseudo-elements */
 ::view-transition-old(root) {
 	animation: none;
 	mix-blend-mode: normal;
 }
-/* biome-ignore lint/correctness/noUnknownTypeSelector: view-transition pseudo-elements */
+
 ::view-transition-new(root) {
 	animation: none;
 	mix-blend-mode: normal;
