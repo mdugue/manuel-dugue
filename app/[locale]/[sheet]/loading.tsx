@@ -1,9 +1,9 @@
-import { DocumentSheetContent } from "@/document-sheet";
+import { DrawerSheetContent } from "@/drawer-sheet";
 
 export default function Loading() {
 	return (
 		<div className="animate-pulse">
-			<DocumentSheetContent title="Loading…" />
+			<DrawerSheetContent title="Loading…" />
 		</div>
 	);
 }

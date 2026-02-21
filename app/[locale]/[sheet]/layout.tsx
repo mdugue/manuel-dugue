@@ -1,14 +1,14 @@
 "use cache";
 import type { Metadata } from "next";
 import { cacheLife } from "next/cache";
-import DocumentSheet from "@/document-sheet";
+import DrawerSheet from "@/drawer-sheet";
 import { i18n } from "../../i18n-config";
 
 type Props = LayoutProps<"/[locale]/[sheet]">;
 
 export default async function SheetLayout({ children }: Props) {
 	cacheLife("hours");
-	return <DocumentSheet>{children}</DocumentSheet>;
+	return <DrawerSheet>{children}</DrawerSheet>;
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {

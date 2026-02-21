@@ -1,50 +1,27 @@
 "use cache";
-import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
-import { INLINES } from "@contentful/rich-text-types";
-import { ArrowUpRightIcon } from "@heroicons/react/20/solid";
-import type { AllInOnePageQuery } from "gql/graphql";
 import { cacheLife } from "next/cache";
+import { notFound } from "next/navigation";
 import type { Article, WithContext } from "schema-dts";
-import { DocumentSheetContent } from "@/document-sheet";
-import { graphqlClient } from "@/graphql-client";
-import { i18n } from "@/i18n-config";
-import { pageQuery } from "../page-query";
+import contentMap, { getSheetTitle } from "@/content";
+import { DrawerSheetContent } from "@/drawer-sheet";
+import { i18n, type Locale } from "@/i18n-config";
+import Sheet from "@/sheet";
 
 export default async function Page({ params }: PageProps<"/[locale]/[sheet]">) {
 	cacheLife("hours");
 	const { sheet, locale } = await params;
 
-	const { allInOnePageCollection } =
-		await graphqlClient.request<AllInOnePageQuery>(pageQuery, {
-			slug: sheet,
-			locale,
-		});
+	const localizedContent = contentMap[sheet];
+	if (!localizedContent) {
+		notFound();
+	}
+
+	const title = getSheetTitle(sheet, locale as Locale);
+	const content = localizedContent[locale as Locale];
 
 	return (
-		<DocumentSheetContent title={allInOnePageCollection?.items[0]?.title || ""}>
-			<div
-				className={
-					"prose prose-h1:col-span-4 prose-h3:col-span-3 prose-p:col-span-3 prose-ul:col-span-3 prose-h3:col-start-2 prose-p:col-start-2 prose-ul:col-start-2 prose-h2:mt-0 prose-h3:mt-0 prose-p:mt-0 prose-h1:mb-2 prose-h2:mb-2 prose-h3:mb-0 prose-p:mb-2 grid-cols-4 gap-x-4 prose-h1:self-start prose-h2:hyphens-auto whitespace-pre-line prose-h1:bg-linear-to-tr prose-h2:bg-linear-to-tr prose-h3:bg-linear-to-tr prose-h1:from-amber-500 prose-h2:from-teal-500 prose-h3:from-teal-700 prose-h1:to-amber-300 prose-h2:to-teal-600 prose-h3:to-teal-600 prose-h1:pt-4 prose-a:font-medium prose-h1:font-inline prose-h2:font-bold prose-h3:font-bold prose-a:text-fuchsia-400 prose-h1:text-gradient prose-h1:text-lg prose-h2:text-base prose-h2:text-gradient prose-h3:text-base prose-h3:text-gradient prose-h3:text-gray-700 prose-p:text-gray-800 prose-h2:capitalize prose-h3:capitalize leading-6 prose-a:no-underline prose-a:hover:underline md:grid md:prose-h2:justify-self-end md:prose-h2:text-right"
-				}
-			>
-				{documentToReactComponents(
-					allInOnePageCollection?.items[0]?.content?.json,
-					{
-						renderNode: {
-							[INLINES.HYPERLINK]: (node, children) => (
-								<a
-									className="group inline-flex items-center"
-									href={node.data.uri}
-									target="_blank"
-								>
-									<ArrowUpRightIcon className="h-4 w-4 opacity-75 group-hover:opacity-100" />{" "}
-									{children}
-								</a>
-							),
-						},
-					}
-				)}
-			</div>
+		<DrawerSheetContent title={title}>
+			<Sheet content={content} />
 			{sheet === "skill-profile" && (
 				<script
 					// biome-ignore lint/security/noDangerouslySetInnerHtml: This is needed for the JSON-LD schema
@@ -52,7 +29,7 @@ export default async function Page({ params }: PageProps<"/[locale]/[sheet]">) {
 					type="application/ld+json"
 				/>
 			)}
-		</DocumentSheetContent>
+		</DrawerSheetContent>
 	);
 }
 

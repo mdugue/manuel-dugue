@@ -27,3 +27,75 @@
 		-webkit-text-fill-color: inherit;
 	}
 }
+
+@keyframes marquee {
+	from {
+		transform: translateX(0);
+	}
+	to {
+		transform: translateX(calc(-100% - 2rem));
+	}
+}
+
+/* Vaul drawer background scaling */
+[data-vaul-drawer-wrapper] {
+	transition:
+		transform 0.5s cubic-bezier(0.32, 0.72, 0, 1),
+		border-radius 0.5s cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+/* Aurora Text animation */
+@theme {
+	--animate-aurora: aurora 8s ease-in-out infinite alternate;
+}
+
+@keyframes aurora {
+	0% {
+		background-position: 0% 50%;
+		transform: rotate(-5deg) scale(0.9);
+	}
+	25% {
+		background-position: 50% 100%;
+		transform: rotate(5deg) scale(1.1);
+	}
+	50% {
+		background-position: 100% 50%;
+		transform: rotate(-3deg) scale(0.95);
+	}
+	75% {
+		background-position: 50% 0%;
+		transform: rotate(3deg) scale(1.05);
+	}
+	100% {
+		background-position: 0% 50%;
+		transform: rotate(-5deg) scale(0.9);
+	}
+}
+
+/* View Transitions for theme toggler */
+::view-transition-old(root) {
+	animation: none;
+	mix-blend-mode: normal;
+}
+
+::view-transition-new(root) {
+	animation: none;
+	mix-blend-mode: normal;
+}
+
+/* Print styles for PDF download */
+@media print {
+	body > div[data-vaul-drawer-wrapper] {
+		display: none;
+	}
+	nav,
+	[data-vaul-overlay] {
+		display: none;
+	}
+	[data-vaul-drawer] {
+		position: static;
+		max-height: none;
+		border-radius: 0;
+		box-shadow: none;
+	}
+}
