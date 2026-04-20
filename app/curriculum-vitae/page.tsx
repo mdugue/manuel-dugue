@@ -13,7 +13,7 @@ export default async function Page({
 }) {
   'use cache'
   /* const { slug } = await params */
-  const file = path.join(process.cwd(), 'public', 'skill-profile') + '.md'
+  const file = path.join(process.cwd(), 'public', 'curriculum-vitae') + '.md'
   /* const file = path.join(process.cwd(), 'public', ...slug) + '.md' */
 
   let raw: string
@@ -23,7 +23,9 @@ export default async function Page({
     notFound()
   }
 
-  const html = String(await remark().use(remarkGfm).use(remarkHtml).process(raw))
+  const html = String(
+    await remark().use(remarkGfm).use(remarkHtml).process(raw),
+  )
   return <article dangerouslySetInnerHTML={{ __html: html }} />
 }
 
