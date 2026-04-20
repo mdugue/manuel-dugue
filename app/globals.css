@@ -12,7 +12,6 @@
   --rule-soft: oklch(0.92 0.006 70);
   --paper: oklch(0.99 0 0);
   --accent: oklch(0.4216 0.112 263.9);
-  --ai-bg: oklch(0.975 0.01 85);
   --pad-x: clamp(24px, 5vw, 72px);
   isolation: isolate;
 }
@@ -29,7 +28,6 @@
     --rule: oklch(0.3 0.012 70);
     --rule-soft: oklch(0.24 0.01 70);
     --paper: oklch(0.2 0.01 70);
-    --ai-bg: oklch(0.21 0.01 70);
   }
 }
 

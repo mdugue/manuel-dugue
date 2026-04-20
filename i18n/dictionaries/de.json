@@ -9,8 +9,8 @@
         "Zwanzig Jahre",
         "gestalten, bauen,",
         "ausliefern —",
-        "und immer",
-        "<em>noch neugierig.</em>"
+        "immer",
+        "<em>neugierig.</em>"
       ],
       "lede": "Manuel Dugué · freiberuflicher Techniker aus Dresden. Produkt, Engineering, Strategie; meistens an der Nahtstelle dazwischen.",
       "facts": [
@@ -24,14 +24,14 @@
       "label": "Selbstvorstellung",
       "heading": "Ein paar Worte über mich",
       "sub": "Geschrieben von einem Modell, das meinen Lebenslauf sorgfältiger gelesen hat als die meisten Recruiter.",
-      "tag": "Vom LLM erzeugt · Halluzinationen möglich",
+      "tag": "Vom LLM erzeugt · leicht beaufsichtigt von Manuel",
       "cycle": "Neu generieren",
       "errorRetry": "Das hat nicht geklappt. Nochmal versuchen?"
     },
     "docs": {
       "label": "Dokumente",
       "heading": "Die offiziellen Dokumente",
-      "sub": "Ein Lebenslauf und ein Katalog der Dinge, die ich gegen Geld tue.",
+      "sub": "Lebenslauf und ein Katalog der Dinge, die ich gegen Geld tue.",
       "cv": {
         "num": "01",
         "title": "Lebenslauf",
@@ -62,8 +62,7 @@
     "proof": {
       "label": "Social Proof",
       "heading": "Was modellgenerierte Klienten sagen",
-      "sub": "Vollständig synthetisch, auf Abruf erzeugt. Glaubwürdigkeit schwankt.",
-      "tag": "Vom LLM erzeugt · leicht beaufsichtigt von Manuel",
+      "sub": "Vollständig synthetisch, auf Abruf erzeugt. Glaubwürdigkeit … schwankt.",
       "cycle": "Neu generieren",
       "errorRetry": "Das hat nicht geklappt. Nochmal versuchen?",
       "banner": "Alle obigen Zitate stammen von einem Sprachmodell. Sie wurden von keinem Kunden abgesegnet, denn es wurde keiner gefragt. Die Ähnlichkeit zu echtem Lob ist beabsichtigt."
@@ -80,7 +79,7 @@
       }
     },
     "footer": {
-      "word": ["<em>Reden</em>", "wir."],
+      "word": ["Lasst uns", "<em>reden</em>."],
       "sayHello": "Hallo sagen",
       "elsewhere": "Sonst wo",
       "legal": "Rechtliches",

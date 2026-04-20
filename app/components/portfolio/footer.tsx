@@ -100,14 +100,14 @@ export function SiteFooter({
           </h5>
           <ul className="list-none p-0 m-0 flex flex-col gap-2">
             <li>
-              <a href="#imprint" className={footerLink}>
+              <Link href={`/${lang}/imprint` as Route} className={footerLink}>
                 {footer.imprint}
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#privacy" className={footerLink}>
+              <Link href={`/${lang}/privacy` as Route} className={footerLink}>
                 {footer.privacy}
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
