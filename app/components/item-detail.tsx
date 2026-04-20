@@ -1,5 +1,5 @@
 import { Dialog } from '@base-ui/react'
-import type { Item } from '@/app/items/data'
+import type { Item } from '@/app/[lang]/items/data'
 
 export function ItemDetail({ item, asDialog }: { item: Item; asDialog: boolean }) {
   const Title = asDialog ? Dialog.Title : 'h1'

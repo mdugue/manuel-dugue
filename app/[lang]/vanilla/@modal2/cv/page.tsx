@@ -1,6 +1,13 @@
 import Link from 'next/link'
+import type { Route } from 'next'
 
-export default function SettingsModal() {
+export default async function SettingsModal({
+  params,
+}: {
+  params: Promise<{ lang: string }>
+}) {
+  const { lang } = await params
+  const homeHref = `/${lang}` as Route
   return (
     <div
       className="relative z-50"
@@ -10,7 +17,7 @@ export default function SettingsModal() {
     >
       {/* Backdrop: clicking it navigates "back" to the home page */}
       <Link
-        href="/"
+        href={homeHref}
         className="fixed inset-0 bg-black/50 transition-opacity"
         aria-label="Close modal background"
       />
@@ -27,7 +34,7 @@ export default function SettingsModal() {
 
             <div className="flex justify-end">
               <Link
-                href="/"
+                href={homeHref}
                 className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
               >
                 Close

@@ -2,12 +2,19 @@ import { notFound } from 'next/navigation'
 import { remark } from 'remark'
 import remarkGfm from 'remark-gfm'
 import remarkHtml from 'remark-html'
+import type { Locale } from '@/i18n/config'
 import { readMarkdown } from './markdown-source'
 
-export async function MarkdownPage({ slug }: { slug: string }) {
+export async function MarkdownPage({
+  slug,
+  lang,
+}: {
+  slug: string
+  lang: Locale
+}) {
   let raw: string
   try {
-    raw = await readMarkdown(slug)
+    raw = await readMarkdown(slug, lang)
   } catch {
     notFound()
   }

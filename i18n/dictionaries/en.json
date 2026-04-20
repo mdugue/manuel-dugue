@@ -1,0 +1,16 @@
+{
+  "common": {},
+  "home": {
+    "instructions": "To get started, edit the page.tsx file.",
+    "lookingForPrefix": "Looking for a starting point or more instructions? Head over to ",
+    "templates": "Templates",
+    "or": " or the ",
+    "learning": "Learning",
+    "centerSuffix": " center.",
+    "deployNow": "Deploy Now",
+    "documentation": "Documentation",
+    "submit": "Submit",
+    "modalsTitle": "URL-driven modals",
+    "modalsHint": "Click an item to open it as a modal — the URL updates and the browser back button closes it. Refresh or share the URL and the modal appears over this same page."
+  }
+}

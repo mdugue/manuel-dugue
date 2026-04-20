@@ -3,6 +3,7 @@ import type { NextConfig } from 'next'
 const nextConfig: NextConfig = {
   cacheComponents: true,
   typedRoutes: true,
+  transpilePackages: ['@react-pdf/renderer'],
   experimental: {
     viewTransition: true,
   },

@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__next-devtools__nextjs_docs",
+      "mcp__next-devtools__init",
+      "Bash(bun run tsc)",
+      "Bash(bun run test)",
+      "Bash(bun test)",
+      "Bash(bun test *)"
+    ]
+  }
+}

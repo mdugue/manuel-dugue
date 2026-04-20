@@ -1,0 +1,16 @@
+{
+  "common": {},
+  "home": {
+    "instructions": "Para empezar, edita el archivo page.tsx.",
+    "lookingForPrefix": "¿Buscas un punto de partida o más instrucciones? Echa un vistazo a las ",
+    "templates": "Templates",
+    "or": " o al centro ",
+    "learning": "Learning",
+    "centerSuffix": ".",
+    "deployNow": "Desplegar ahora",
+    "documentation": "Documentación",
+    "submit": "Enviar",
+    "modalsTitle": "Modales controlados por URL",
+    "modalsHint": "Haz clic en un elemento para abrirlo como modal — la URL se actualiza y el botón atrás del navegador lo cierra. Recarga o comparte la URL y el modal aparecerá sobre esta misma página."
+  }
+}

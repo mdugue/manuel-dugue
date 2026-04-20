@@ -8,9 +8,11 @@ import {
   StyleSheet,
   renderToBuffer,
 } from '@react-pdf/renderer'
+import { notFound } from 'next/navigation'
 import { remark } from 'remark'
 import remarkGfm from 'remark-gfm'
 import type { Root, RootContent, PhrasingContent } from 'mdast'
+import { hasLocale, type Locale } from '@/i18n/config'
 import { readMarkdown } from './markdown-source'
 
 const styles = StyleSheet.create({
@@ -183,25 +185,21 @@ function renderBlock(node: RootContent, key: number): React.ReactNode {
   }
 }
 
-export type MarkdownDocumentMeta = {
-  title: string
-  author?: string
-  language?: string
-}
+export type LocalizedString = Record<Locale, string>
 
 function MarkdownDocument({
   tree,
-  meta,
+  title,
+  author,
+  language,
 }: {
   tree: Root
-  meta: MarkdownDocumentMeta
+  title: string
+  author?: string
+  language: Locale
 }) {
   return (
-    <Document
-      title={meta.title}
-      author={meta.author}
-      language={meta.language}
-    >
+    <Document title={title} author={author} language={language}>
       <Page size="A4" style={styles.page}>
         {tree.children.map((node, i) => renderBlock(node, i))}
         <Text
@@ -216,26 +214,39 @@ function MarkdownDocument({
   )
 }
 
-export type MarkdownPdfRouteConfig = MarkdownDocumentMeta & {
+export type MarkdownPdfRouteConfig = {
   slug: string
-  filename: string
+  filenameBase: string
+  titles: LocalizedString
+  author?: string
 }
 
 export function createMarkdownPdfRoute(config: MarkdownPdfRouteConfig) {
-  const { slug, filename, ...meta } = config
+  const { slug, filenameBase, titles, author } = config
 
-  return async function GET() {
-    const raw = await readMarkdown(slug)
+  return async function GET(
+    _request: Request,
+    { params }: { params: Promise<{ lang: string }> },
+  ) {
+    const { lang } = await params
+    if (!hasLocale(lang)) notFound()
+
+    const raw = await readMarkdown(slug, lang)
     const tree = remark().use(remarkGfm).parse(raw) as Root
     const buffer = await renderToBuffer(
-      <MarkdownDocument tree={tree} meta={meta} />,
+      <MarkdownDocument
+        tree={tree}
+        title={titles[lang]}
+        author={author}
+        language={lang}
+      />,
     )
 
     return new Response(new Uint8Array(buffer), {
       status: 200,
       headers: {
         'Content-Type': 'application/pdf',
-        'Content-Disposition': `inline; filename="${filename}"`,
+        'Content-Disposition': `inline; filename="${filenameBase}.${lang}.pdf"`,
         'Cache-Control': 'public, max-age=0, must-revalidate',
       },
     })

@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation'
 import { ItemDetail } from '@/app/components/item-detail'
 import { Modal } from '@/app/components/modal'
-import { getItem, items } from '@/app/items/data'
+import { getItem, items } from '@/app/[lang]/items/data'
 
 export function generateStaticParams() {
   return items.map((item) => ({ id: item.id }))

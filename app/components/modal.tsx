@@ -1,11 +1,12 @@
 'use client'
 
 import { Dialog } from '@base-ui/react'
-import { useRouter } from 'next/navigation'
+import { useParams, useRouter } from 'next/navigation'
 import { useCallback } from 'react'
 
 export function Modal({ children }: { children: React.ReactNode }) {
   const router = useRouter()
+  const { lang } = useParams<{ lang: string }>()
 
   const handleOpenChange = useCallback(
     (open: boolean) => {
@@ -14,10 +15,10 @@ export function Modal({ children }: { children: React.ReactNode }) {
       if (typeof idx === 'number' && idx > 0) {
         router.back()
       } else {
-        router.push('/')
+        router.push(`/${lang}`)
       }
     },
-    [router],
+    [router, lang],
   )
 
   return (
