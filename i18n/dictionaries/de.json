@@ -61,8 +61,8 @@
     },
     "proof": {
       "label": "Social Proof",
-      "heading": "Was modellgenerierte Klienten sagen",
-      "sub": "Vollständig synthetisch, auf Abruf erzeugt. Glaubwürdigkeit … schwankt.",
+      "heading": "Was Klienten vermutlich sagten",
+      "sub": "Vollständig synthetisch, fake Stimmen, echte Projekte.",
       "cycle": "Neu generieren",
       "errorRetry": "Das hat nicht geklappt. Nochmal versuchen?",
       "banner": "Alle obigen Zitate stammen von einem Sprachmodell. Sie wurden von keinem Kunden abgesegnet, denn es wurde keiner gefragt. Die Ähnlichkeit zu echtem Lob ist beabsichtigt."
