@@ -49,10 +49,23 @@
         "sheetSubtitle": "Katalog der Dinge, die ich gegen Geld tue."
       }
     },
+    "legal": {
+      "imprint": {
+        "sheetTitle": "Impressum",
+        "sheetSubtitle": "Angaben gemäß § 5 TMG"
+      },
+      "privacy": {
+        "sheetTitle": "Datenschutz",
+        "sheetSubtitle": "Wie diese Seite mit deinen Daten umgeht"
+      }
+    },
     "proof": {
       "label": "Social Proof",
       "heading": "Was modellgenerierte Klienten sagen",
       "sub": "Vollständig synthetisch, auf Abruf erzeugt. Glaubwürdigkeit schwankt.",
+      "tag": "Vom LLM erzeugt · leicht beaufsichtigt von Manuel",
+      "cycle": "Neu generieren",
+      "errorRetry": "Das hat nicht geklappt. Nochmal versuchen?",
       "banner": "Alle obigen Zitate stammen von einem Sprachmodell. Sie wurden von keinem Kunden abgesegnet, denn es wurde keiner gefragt. Die Ähnlichkeit zu echtem Lob ist beabsichtigt."
     },
     "now": {

@@ -48,10 +48,23 @@
         "sheetSubtitle": "Catálogo de cosas que hago por dinero."
       }
     },
+    "legal": {
+      "imprint": {
+        "sheetTitle": "Aviso legal",
+        "sheetSubtitle": "Información legal conforme al § 5 TMG"
+      },
+      "privacy": {
+        "sheetTitle": "Privacidad",
+        "sheetSubtitle": "Cómo este sitio trata tus datos"
+      }
+    },
     "proof": {
       "label": "Testimonios",
       "heading": "Lo que dicen los clientes generados",
       "sub": "Totalmente sintéticos, producidos bajo demanda. Plausibilidad variable.",
+      "tag": "Generado por LLM · ligeramente supervisado por Manuel",
+      "cycle": "Regenerar",
+      "errorRetry": "No ha funcionado. ¿Intentarlo de nuevo?",
       "banner": "Todos los testimonios anteriores fueron producidos por un modelo de lenguaje. Ningún cliente real fue consultado. El parecido con elogios reales es una característica, no una afirmación."
     },
     "now": {
