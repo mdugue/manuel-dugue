@@ -4,10 +4,5 @@ export const GET = createMarkdownPdfRoute({
   slug: 'curriculum-vitae',
   filenameBase: 'curriculum-vitae-manuel-dugue',
   author: 'Manuel Dugué',
-  titles: {
-    en: 'Curriculum Vitae — Manuel Dugué',
-    de: 'Lebenslauf — Manuel Dugué',
-    fr: 'Curriculum Vitae — Manuel Dugué',
-    es: 'Currículum Vitae — Manuel Dugué',
-  },
+  getDocMeta: (dict) => dict.portfolio.docs.cv,
 })

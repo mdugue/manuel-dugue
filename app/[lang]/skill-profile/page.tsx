@@ -1,6 +1,8 @@
 import { notFound } from 'next/navigation'
-import { hasLocale } from '@/i18n/config'
+import { hasLocale, type Locale } from '@/i18n/config'
+import { getDictionary } from '@/i18n/dictionaries'
 import { MarkdownPage } from '@/app/components/markdown-page'
+import { DocSheetPage } from '@/app/components/doc-sheet-page'
 
 export default async function Page({
   params,
@@ -10,5 +12,21 @@ export default async function Page({
   'use cache'
   const { lang } = await params
   if (!hasLocale(lang)) notFound()
-  return <MarkdownPage slug="skill-profile" lang={lang} />
+  const locale: Locale = lang
+  const dict = await getDictionary(locale)
+  const portfolio = dict.portfolio
+
+  return (
+    <DocSheetPage
+      lang={locale}
+      kicker={portfolio.docs.profile.kicker}
+      title={portfolio.docs.profile.sheetTitle}
+      subtitle={portfolio.docs.profile.sheetSubtitle}
+      contact={portfolio.contact}
+      pdfHref={`/${locale}/skill-profile/pdf`}
+      modalLabels={portfolio.modal}
+    >
+      <MarkdownPage slug="skill-profile" lang={locale} />
+    </DocSheetPage>
+  )
 }

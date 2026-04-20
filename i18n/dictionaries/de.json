@@ -1,16 +1,91 @@
 {
   "common": {},
-  "home": {
-    "instructions": "Um loszulegen, bearbeite die Datei page.tsx.",
-    "lookingForPrefix": "Suchst du einen Startpunkt oder weitere Anleitungen? Schau bei den ",
-    "templates": "Templates",
-    "or": " oder im ",
-    "learning": "Learning",
-    "centerSuffix": "-Bereich vorbei.",
-    "deployNow": "Jetzt deployen",
-    "documentation": "Dokumentation",
-    "submit": "Abschicken",
-    "modalsTitle": "URL-gesteuerte Modale",
-    "modalsHint": "Klicke auf einen Eintrag, um ihn als Modal zu öffnen — die URL aktualisiert sich und der Zurück-Button schließt es wieder. Lade die URL neu oder teile sie, und das Modal erscheint über derselben Seite."
+  "portfolio": {
+    "spine": "freischaffender techniker · dresden",
+    "contact": ["Manuel Dugué", "mail@manuel.fyi", "+49 · REDACTED", "Dresden / Remote"],
+    "hero": {
+      "eyebrow": "Freiberufler · seit ca. 2004",
+      "title": [
+        "Zwanzig Jahre",
+        "gestalten, bauen,",
+        "ausliefern —",
+        "und immer",
+        "<em>noch neugierig.</em>"
+      ],
+      "lede": "Manuel Dugué · freiberuflicher Techniker aus Dresden. Produkt, Engineering, Strategie; meistens an der Nahtstelle dazwischen.",
+      "facts": [
+        ["Basis", "Dresden / Remote"],
+        ["Offen ab", "Q3 2026 →"],
+        ["Sprachen", "DE · EN · FR · ES"],
+        ["Seite", "manuel.fyi"]
+      ]
+    },
+    "self": {
+      "label": "Selbstvorstellung",
+      "heading": "Ein paar Worte über mich",
+      "sub": "Geschrieben von einem Modell, das meinen Lebenslauf sorgfältiger gelesen hat als die meisten Recruiter.",
+      "tag": "Vom LLM erzeugt · Halluzinationen möglich",
+      "cycle": "Neu generieren",
+      "model": "model: local · temp 0.7",
+      "seed": "seed"
+    },
+    "docs": {
+      "label": "Dokumente",
+      "heading": "Die offiziellen Dokumente",
+      "sub": "Ein Lebenslauf und ein Katalog der Dinge, die ich gegen Geld tue.",
+      "cv": {
+        "num": "01",
+        "title": "Lebenslauf",
+        "desc": "Zwanzig Jahre, auf einer Seite. Übertreibungen im Rahmen.",
+        "cta": "Dokument öffnen",
+        "kicker": "Dokument 01 · Lebenslauf",
+        "sheetTitle": "Manuel Dugué",
+        "sheetSubtitle": "Freiberuflicher Techniker — Produkt, Engineering, Strategie."
+      },
+      "profile": {
+        "num": "02",
+        "title": "Kompetenzprofil",
+        "desc": "Sortiert nach Anfragenhäufigkeit. Inklusive der Dinge, die ich höflich ablehne.",
+        "cta": "Dokument öffnen",
+        "kicker": "Dokument 02 · Kompetenzprofil",
+        "sheetTitle": "Katalog der Dinge, die ich gegen Geld tue.",
+        "sheetSubtitle": "Sortiert nach Häufigkeit der Anfragen."
+      }
+    },
+    "proof": {
+      "label": "Social Proof",
+      "heading": "Was modellgenerierte Klienten sagen",
+      "sub": "Vollständig synthetisch, auf Abruf erzeugt. Glaubwürdigkeit schwankt.",
+      "banner": "Alle obigen Zitate stammen von einem Sprachmodell. Sie wurden von keinem Kunden abgesegnet, denn es wurde keiner gefragt. Die Ähnlichkeit zu echtem Lob ist beabsichtigt."
+    },
+    "now": {
+      "label": "Jetzt",
+      "status": {
+        "h": "Aktuell",
+        "t": "Zwei lange Mandate enden, der Kalender für Q3 öffnet sich langsam. Abends: Knuth."
+      },
+      "elsewhere": {
+        "h": "Sonst so",
+        "t": "Schreibe zu wenig. Laufe mehr als erwartet. Lebe in Dresden, arbeite mit EU- und einigen US-West-Teams."
+      }
+    },
+    "footer": {
+      "word": ["<em>Reden</em>", "wir."],
+      "sayHello": "Hallo sagen",
+      "elsewhere": "Sonst wo",
+      "legal": "Rechtliches",
+      "imprint": "Impressum",
+      "privacy": "Datenschutz",
+      "colophon": "Kolophon",
+      "meta": "© 2026 Manuel Dugué · gesetzt in EB Garamond & Inter · von Hand in HTML"
+    },
+    "modal": {
+      "watermark": "KI-gerenderte Vorschau · nicht das echte PDF",
+      "download": "PDF herunterladen",
+      "print": "Drucken",
+      "close": "Schließen",
+      "escHint": "Esc zum Schließen",
+      "page": "Seite 1 / 1"
+    }
   }
 }

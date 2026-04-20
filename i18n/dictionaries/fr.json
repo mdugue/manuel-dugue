@@ -1,16 +1,90 @@
 {
   "common": {},
-  "home": {
-    "instructions": "Pour commencer, modifiez le fichier page.tsx.",
-    "lookingForPrefix": "Vous cherchez un point de départ ou plus d'instructions ? Rendez-vous sur les ",
-    "templates": "Templates",
-    "or": " ou dans le centre ",
-    "learning": "Learning",
-    "centerSuffix": ".",
-    "deployNow": "Déployer",
-    "documentation": "Documentation",
-    "submit": "Envoyer",
-    "modalsTitle": "Modales pilotées par l'URL",
-    "modalsHint": "Cliquez sur un élément pour l'ouvrir en modal — l'URL se met à jour et le bouton retour du navigateur le ferme. Actualisez ou partagez l'URL et le modal apparaît au-dessus de cette même page."
+  "portfolio": {
+    "spine": "technologue indépendant · dresde",
+    "contact": ["Manuel Dugué", "mail@manuel.fyi", "+49 · REDACTED", "Dresde / Remote"],
+    "hero": {
+      "eyebrow": "Praticien indépendant · depuis ~2004",
+      "title": [
+        "Vingt ans à",
+        "concevoir, bâtir,",
+        "livrer — et",
+        "<em>toujours curieux.</em>"
+      ],
+      "lede": "Manuel Dugué · technologue indépendant basé à Dresde. Produit, ingénierie, stratégie ; souvent là où les trois se rencontrent.",
+      "facts": [
+        ["Base", "Dresde / Remote"],
+        ["Dispo", "T3 2026 →"],
+        ["Langues", "DE · EN · FR · ES"],
+        ["Site", "manuel.fyi"]
+      ]
+    },
+    "self": {
+      "label": "Présentation",
+      "heading": "Quelques mots sur moi",
+      "sub": "Rédigé par un modèle qui a lu mon CV avec plus d'attention que la plupart des recruteurs.",
+      "tag": "Généré par LLM · hallucinations possibles",
+      "cycle": "Régénérer",
+      "model": "model: local · temp 0.7",
+      "seed": "seed"
+    },
+    "docs": {
+      "label": "Documents",
+      "heading": "Les documents officiels",
+      "sub": "Un CV et un catalogue des choses que je fais contre rémunération.",
+      "cv": {
+        "num": "01",
+        "title": "Curriculum Vitae",
+        "desc": "Vingt ans, condensés sur une page. Exagérations maintenues au minimum.",
+        "cta": "Ouvrir le document",
+        "kicker": "Document 01 · Curriculum Vitae",
+        "sheetTitle": "Manuel Dugué",
+        "sheetSubtitle": "Technologue indépendant — produit, ingénierie, stratégie."
+      },
+      "profile": {
+        "num": "02",
+        "title": "Profil de compétences",
+        "desc": "Classé par fréquence des demandes. Inclut les refus polis.",
+        "cta": "Ouvrir le document",
+        "kicker": "Document 02 · Profil de compétences",
+        "sheetTitle": "Catalogue des choses que je fais contre rémunération.",
+        "sheetSubtitle": "Classé par fréquence des demandes."
+      }
+    },
+    "proof": {
+      "label": "Témoignages",
+      "heading": "Ce que disent les clients générés",
+      "sub": "Entièrement synthétiques, produits à la demande. Plausibilité variable.",
+      "banner": "Tous les témoignages ci-dessus ont été produits par un modèle de langage. Aucun client réel n'a été consulté. La ressemblance avec de vraies louanges est un trait, non une revendication."
+    },
+    "now": {
+      "label": "Maintenant",
+      "status": {
+        "h": "Actuellement",
+        "t": "Deux longs mandats se terminent, le calendrier du T3 s'ouvre doucement. Le soir, je relis Knuth."
+      },
+      "elsewhere": {
+        "h": "Ailleurs",
+        "t": "J'écris moins que je ne devrais. Je cours plus que prévu. Basé à Dresde, je travaille avec l'UE et quelques équipes US-West."
+      }
+    },
+    "footer": {
+      "word": ["<em>Parlons-</em>", "en."],
+      "sayHello": "Dire bonjour",
+      "elsewhere": "Ailleurs",
+      "legal": "Mentions",
+      "imprint": "Mentions légales",
+      "privacy": "Confidentialité",
+      "colophon": "Colophon",
+      "meta": "© 2026 Manuel Dugué · composé en EB Garamond & Inter · écrit à la main en HTML"
+    },
+    "modal": {
+      "watermark": "Aperçu rendu par IA · pas le vrai PDF",
+      "download": "Télécharger le PDF",
+      "print": "Imprimer",
+      "close": "Fermer",
+      "escHint": "Échap pour fermer",
+      "page": "Page 1 / 1"
+    }
   }
 }

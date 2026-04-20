@@ -22,5 +22,7 @@ export async function MarkdownPage({
   const html = String(
     await remark().use(remarkGfm).use(remarkHtml).process(raw),
   )
-  return <article dangerouslySetInnerHTML={{ __html: html }} />
+  return (
+    <div className="doc-prose" dangerouslySetInnerHTML={{ __html: html }} />
+  )
 }

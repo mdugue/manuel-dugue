@@ -1,16 +1,90 @@
 {
   "common": {},
-  "home": {
-    "instructions": "Para empezar, edita el archivo page.tsx.",
-    "lookingForPrefix": "¿Buscas un punto de partida o más instrucciones? Echa un vistazo a las ",
-    "templates": "Templates",
-    "or": " o al centro ",
-    "learning": "Learning",
-    "centerSuffix": ".",
-    "deployNow": "Desplegar ahora",
-    "documentation": "Documentación",
-    "submit": "Enviar",
-    "modalsTitle": "Modales controlados por URL",
-    "modalsHint": "Haz clic en un elemento para abrirlo como modal — la URL se actualiza y el botón atrás del navegador lo cierra. Recarga o comparte la URL y el modal aparecerá sobre esta misma página."
+  "portfolio": {
+    "spine": "tecnólogo independiente · dresde",
+    "contact": ["Manuel Dugué", "mail@manuel.fyi", "+49 · REDACTED", "Dresde / Remoto"],
+    "hero": {
+      "eyebrow": "Profesional independiente · desde ~2004",
+      "title": [
+        "Veinte años",
+        "diseñando, creando",
+        "y entregando —",
+        "<em>aún curioso.</em>"
+      ],
+      "lede": "Manuel Dugué · tecnólogo independiente con base en Dresde. Producto, ingeniería, estrategia; casi siempre donde las tres se rozan.",
+      "facts": [
+        ["Base", "Dresde / Remoto"],
+        ["Disponible", "Q3 2026 →"],
+        ["Idiomas", "DE · EN · FR · ES"],
+        ["Web", "manuel.fyi"]
+      ]
+    },
+    "self": {
+      "label": "Presentación",
+      "heading": "Unas palabras sobre mí",
+      "sub": "Escrito por un modelo que ha leído mi CV con más cuidado que la mayoría de los reclutadores.",
+      "tag": "Generado por LLM · posibles alucinaciones",
+      "cycle": "Regenerar",
+      "model": "model: local · temp 0.7",
+      "seed": "seed"
+    },
+    "docs": {
+      "label": "Documentos",
+      "heading": "Los documentos formales",
+      "sub": "Un currículum y un catálogo de cosas que hago por dinero.",
+      "cv": {
+        "num": "01",
+        "title": "Currículum Vitae",
+        "desc": "Veinte años, condensados en una página. Exageraciones al mínimo.",
+        "cta": "Abrir documento",
+        "kicker": "Documento 01 · Currículum Vitae",
+        "sheetTitle": "Manuel Dugué",
+        "sheetSubtitle": "Tecnólogo independiente — producto, ingeniería, estrategia."
+      },
+      "profile": {
+        "num": "02",
+        "title": "Perfil de habilidades",
+        "desc": "Ordenado por frecuencia de peticiones. Incluye lo que rechazo con educación.",
+        "cta": "Abrir documento",
+        "kicker": "Documento 02 · Perfil de habilidades",
+        "sheetTitle": "Catálogo de cosas que hago por dinero.",
+        "sheetSubtitle": "Ordenado por frecuencia de las peticiones."
+      }
+    },
+    "proof": {
+      "label": "Testimonios",
+      "heading": "Lo que dicen los clientes generados",
+      "sub": "Totalmente sintéticos, producidos bajo demanda. Plausibilidad variable.",
+      "banner": "Todos los testimonios anteriores fueron producidos por un modelo de lenguaje. Ningún cliente real fue consultado. El parecido con elogios reales es una característica, no una afirmación."
+    },
+    "now": {
+      "label": "Ahora",
+      "status": {
+        "h": "En curso",
+        "t": "Terminando dos mandatos largos y abriendo poco a poco el calendario para Q3. Por las noches, Knuth."
+      },
+      "elsewhere": {
+        "h": "Por otro lado",
+        "t": "Escribo menos de lo que debería. Corro más de lo previsto. Vivo en Dresde, trabajo con la UE y algunos equipos US-West."
+      }
+    },
+    "footer": {
+      "word": ["<em>Hablemos.</em>"],
+      "sayHello": "Saludar",
+      "elsewhere": "Por ahí",
+      "legal": "Legal",
+      "imprint": "Aviso legal",
+      "privacy": "Privacidad",
+      "colophon": "Colofón",
+      "meta": "© 2026 Manuel Dugué · compuesto en EB Garamond & Inter · escrito a mano en HTML"
+    },
+    "modal": {
+      "watermark": "Vista previa generada por IA · no es el PDF real",
+      "download": "Descargar PDF",
+      "print": "Imprimir",
+      "close": "Cerrar",
+      "escHint": "Esc para cerrar",
+      "page": "Página 1 / 1"
+    }
   }
 }

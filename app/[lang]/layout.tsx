@@ -1,22 +1,35 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import { Geist, Geist_Mono } from 'next/font/google'
+import { EB_Garamond, Inter, JetBrains_Mono } from 'next/font/google'
 import { hasLocale, localeParams } from '@/i18n/config'
 import '../globals.css'
 
-const geistSans = Geist({
-  variable: '--font-geist-sans',
+const ebGaramond = EB_Garamond({
+  variable: '--font-display',
   subsets: ['latin'],
+  style: ['normal', 'italic'],
+  weight: ['400', '500', '600'],
+  display: 'swap',
 })
 
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
+const inter = Inter({
+  variable: '--font-body',
   subsets: ['latin'],
+  weight: ['300', '400', '500', '600'],
+  display: 'swap',
+})
+
+const jetBrainsMono = JetBrains_Mono({
+  variable: '--font-mono',
+  subsets: ['latin'],
+  weight: ['400', '500'],
+  display: 'swap',
 })
 
 export const metadata: Metadata = {
-  title: 'Manuel Dugué',
-  description: 'Skill profile and curriculum vitae of Manuel Dugué.',
+  title: 'manuel.fyi — Manuel Dugué',
+  description:
+    'Manuel Dugué — freelance technologist. Product, engineering, strategy; most often at the seam between them.',
 }
 
 export function generateStaticParams() {
@@ -38,10 +51,10 @@ export default async function RootLayout({
   return (
     <html
       lang={lang}
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${ebGaramond.variable} ${inter.variable} ${jetBrainsMono.variable} antialiased`}
     >
-      <body className="min-h-full flex flex-col">
-        <div className="root">{children}</div>
+      <body>
+        {children}
         {modal}
       </body>
     </html>

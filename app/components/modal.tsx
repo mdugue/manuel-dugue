@@ -4,7 +4,32 @@ import { Dialog } from '@base-ui/react'
 import { useParams, useRouter } from 'next/navigation'
 import { useCallback } from 'react'
 
-export function Modal({ children }: { children: React.ReactNode }) {
+type Labels = {
+  close: string
+  watermark: string
+  page: string
+  download: string
+  print: string
+  escHint: string
+}
+
+export function DocSheetModal({
+  kicker,
+  title,
+  subtitle,
+  contact,
+  pdfHref,
+  labels,
+  children,
+}: {
+  kicker: string
+  title: string
+  subtitle: string
+  contact: readonly string[]
+  pdfHref: string
+  labels: Labels
+  children: React.ReactNode
+}) {
   const router = useRouter()
   const { lang } = useParams<{ lang: string }>()
 
@@ -24,28 +49,61 @@ export function Modal({ children }: { children: React.ReactNode }) {
   return (
     <Dialog.Root open onOpenChange={handleOpenChange}>
       <Dialog.Portal>
-        <Dialog.Backdrop className="fixed inset-0 z-40 bg-black/40 backdrop-blur-sm transition-opacity duration-200 data-[ending-style]:opacity-0 data-[starting-style]:opacity-0" />
-        <Dialog.Popup
-          className="fixed left-1/2 top-1/2 z-50 w-[min(calc(100vw-2rem),32rem)] -translate-x-1/2 -translate-y-1/2 rounded-2xl border border-zinc-200 bg-white p-6 shadow-xl outline-none transition-[opacity,transform] duration-200 data-[ending-style]:scale-95 data-[ending-style]:opacity-0 data-[starting-style]:scale-95 data-[starting-style]:opacity-0 dark:border-zinc-800 dark:bg-zinc-950"
-          finalFocus={false}
-        >
-          {children}
-          <Dialog.Close
-            aria-label="Close"
-            className="absolute right-3 top-3 inline-flex h-8 w-8 items-center justify-center rounded-md text-zinc-500 hover:bg-zinc-100 focus-visible:outline-2 focus-visible:outline-blue-700 dark:text-zinc-400 dark:hover:bg-zinc-800"
-          >
-            <svg
-              aria-hidden="true"
-              viewBox="0 0 16 16"
-              className="h-4 w-4"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="1.75"
-              strokeLinecap="round"
-            >
-              <path d="M4 4l8 8M12 4l-8 8" />
-            </svg>
+        <Dialog.Backdrop className="doc-backdrop" />
+        <Dialog.Popup className="doc-scroll" finalFocus={false}>
+          <Dialog.Close className="doc-close" aria-label={labels.close}>
+            ×
           </Dialog.Close>
+          <article className="doc-sheet">
+            <header className="doc-letterhead">
+              <div>
+                <div className="doc-letterhead-url">
+                  manuel<span className="tld">.fyi</span>
+                </div>
+                <Dialog.Title render={<h2 />} className="doc-letterhead-name">
+                  Manuel <span>Dugué</span>
+                </Dialog.Title>
+              </div>
+              <address
+                className="doc-letterhead-contact"
+                style={{ fontStyle: 'normal' }}
+              >
+                {contact.map((l, i) => (
+                  <div key={i}>{l}</div>
+                ))}
+              </address>
+            </header>
+
+            <div className="doc-title-block">
+              <div className="doc-title-kicker">{kicker}</div>
+              <Dialog.Description
+                render={<p />}
+                className="doc-title-main"
+              >
+                {title}
+              </Dialog.Description>
+              <div className="doc-title-sub">{subtitle}</div>
+            </div>
+
+            {children}
+
+            <div className="doc-footer">
+              <span>Manuel Dugué · mail@manuel.fyi</span>
+              <span>{labels.page}</span>
+            </div>
+
+            <div className="doc-watermark">{labels.watermark}</div>
+
+            <div className="doc-actions">
+              <button type="button" onClick={() => window.print()}>
+                {labels.print}
+              </button>
+              <span className="hint">{labels.escHint}</span>
+              <a href={pdfHref} target="_blank" rel="noopener noreferrer">
+                {labels.download}
+              </a>
+            </div>
+          </article>
         </Dialog.Popup>
       </Dialog.Portal>
     </Dialog.Root>

@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation'
-import { hasLocale } from '@/i18n/config'
+import { hasLocale, type Locale } from '@/i18n/config'
 import { getDictionary } from '@/i18n/dictionaries'
-import { HomeContent } from '@/app/components/home-content'
+import { Portfolio } from '@/app/components/portfolio/portfolio'
 
 export default async function Home({
   params,
@@ -10,7 +10,7 @@ export default async function Home({
 }) {
   const { lang } = await params
   if (!hasLocale(lang)) notFound()
-
-  const dict = await getDictionary(lang)
-  return <HomeContent lang={lang} dict={dict.home} />
+  const locale: Locale = lang
+  const dict = await getDictionary(locale)
+  return <Portfolio lang={locale} dict={dict.portfolio} />
 }
