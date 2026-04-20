@@ -1,26 +1,23 @@
 # Profil de compétences
 
-Manuel Dugué, Görlitzer Str. 23, 01099 Dresde
-+49 151 58791155 · mail@manuel.fyi
-
 ## À propos
 
-|                           |                                                                                                                                              |
-| ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Titre**                 | Diplôme d'informatique des médias (Dipl.-Medieninformatiker)                                                                                 |
-| **Né·e**                  | 12.09.1981 à Berlin, Allemagne                                                                                                               |
-| **Nationalité**           | Allemande et française                                                                                                                       |
-| **Centres d'intérêt**     | Sport, musique, photographie, typographie, architecture, cuisine                                                                             |
-| **Langues**               | Allemand (langue maternelle), Français (langue maternelle), Anglais (courant), Espagnol (courant), Portugais (notions), Néerlandais (notions) |
+|                       |                                                                                                                                               |
+| --------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Titre**             | Diplôme d'informatique des médias (Dipl.-Medieninformatiker)                                                                                  |
+| **Né·e**              | 12.09.1981 à Berlin, Allemagne                                                                                                                |
+| **Nationalité**       | Allemande et française                                                                                                                        |
+| **Centres d'intérêt** | Sport, musique, photographie, typographie, architecture, cuisine                                                                              |
+| **Langues**           | Allemand (langue maternelle), Français (langue maternelle), Anglais (courant), Espagnol (courant), Portugais (notions), Néerlandais (notions) |
 
 ## Centres d'intérêt & spécialités
 
-|                             |                                                                                       |
-| --------------------------- | ------------------------------------------------------------------------------------- |
-| **Langages de programmation** | TypeScript & JavaScript, HTML, SVG, JSON, CSS, LESS, SASS, WebGL, XML, JSON, XSLT   |
-| **Frameworks**              | React, D3.js, Next.js, Three.js, Mapbox GL JS, Tailwind CSS, XState, Svelte, Node.js  |
-| **Outils**                  | VS Code, JetBrains IntelliJ, Android Studio, Git, Webpack, Docker, ChatGPT            |
-| **Thèmes**                  | Expérience utilisateur, performance, SEO, eCommerce, visualisation d'information, …   |
+|                               |                                                                                      |
+| ----------------------------- | ------------------------------------------------------------------------------------ |
+| **Langages de programmation** | TypeScript & JavaScript, HTML, SVG, JSON, CSS, LESS, SASS, WebGL, XML, JSON, XSLT    |
+| **Frameworks**                | React, D3.js, Next.js, Three.js, Mapbox GL JS, Tailwind CSS, XState, Svelte, Node.js |
+| **Outils**                    | VS Code, JetBrains IntelliJ, Android Studio, Git, Webpack, Docker, ChatGPT           |
+| **Thèmes**                    | Expérience utilisateur, performance, SEO, eCommerce, visualisation d'information, …  |
 
 ## Parcours
 
@@ -57,7 +54,7 @@ Conception, développement, intégration & formation.
 Frontend Lead pour l'intranet de Baselworld / Houruniverse.
 Développement, formation & conseil.
 
-[Mch Group](https://mch-group.com) · [Aperto](https://aperto.com)
+[Mch Group](https://mch-group.com) · [Aperto](https://www.ibmix.de/)
 
 ### Estino GmbH
 

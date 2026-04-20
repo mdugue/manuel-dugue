@@ -82,7 +82,7 @@ const styles = StyleSheet.create({
   letterhead: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    alignItems: 'flex-end',
+    alignItems: 'flex-start',
     borderBottomWidth: 1.5,
     borderBottomColor: INK,
     paddingBottom: 12,
@@ -98,8 +98,6 @@ const styles = StyleSheet.create({
     textTransform: 'uppercase',
     marginBottom: 6,
     paddingBottom: 4,
-    borderBottomWidth: 0.5,
-    borderBottomColor: RULE_SOFT,
   },
   letterheadUrlTld: { color: ACCENT, fontWeight: 500 },
   letterheadName: {
@@ -120,14 +118,6 @@ const styles = StyleSheet.create({
   },
 
   titleBlock: { marginBottom: 28 },
-  kicker: {
-    fontFamily: 'Mono',
-    fontSize: 8.5,
-    letterSpacing: 1.8,
-    color: ACCENT,
-    textTransform: 'uppercase',
-    marginBottom: 10,
-  },
   title: {
     fontFamily: 'Garamond',
     fontStyle: 'italic',
@@ -423,7 +413,7 @@ function renderBlock(
   }
 }
 
-type DocMeta = { kicker: string; sheetTitle: string; sheetSubtitle: string }
+type DocMeta = { sheetTitle: string; sheetSubtitle: string }
 
 function MarkdownDocument({
   tree,
@@ -451,9 +441,6 @@ function MarkdownDocument({
             <Text style={styles.letterheadUrl}>
               manuel<Text style={styles.letterheadUrlTld}>.fyi</Text>
             </Text>
-            <Text style={styles.letterheadName}>
-              Manuel <Text style={styles.letterheadNameAccent}>Dugué</Text>
-            </Text>
           </View>
           <View style={styles.letterheadContact}>
             {contact.map((line, i) => (
@@ -463,7 +450,6 @@ function MarkdownDocument({
         </View>
 
         <View style={styles.titleBlock}>
-          <Text style={styles.kicker}>{meta.kicker}</Text>
           <Text style={styles.title}>{meta.sheetTitle}</Text>
           <Text style={styles.subtitle}>{meta.sheetSubtitle}</Text>
         </View>
@@ -504,7 +490,7 @@ export function createMarkdownPdfRoute(config: MarkdownPdfRouteConfig) {
     const dict = await getDictionary(lang)
     const meta = getDocMeta(dict)
     const raw = await readMarkdown(slug, lang)
-    const tree = remark().use(remarkGfm).parse(raw) as Root
+    const tree = remark().use(remarkGfm).parse(raw)
 
     const docTitle = author ? `${meta.sheetTitle} — ${author}` : meta.sheetTitle
     const footerLead = author

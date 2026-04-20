@@ -15,10 +15,14 @@
       "Bash(bun tsc *)",
       "WebFetch(domain:api.anthropic.com)",
       "WebFetch(domain:raw.githubusercontent.com)",
-      "Bash(curl -s https://ai-gateway.vercel.sh/v1/models)"
+      "Bash(curl -s https://ai-gateway.vercel.sh/v1/models)",
+      "Bash(bun --bun run tsc)",
+      "Bash(bun --bun run dev)",
+      "Bash(bun add *)"
     ],
     "additionalDirectories": [
-      "/Users/manueldugue/Projekte/manuel.fyi 2026/app/[lang]/items"
+      "/Users/manueldugue/Projekte/manuel.fyi 2026/app/[lang]/items",
+      "/Users/manueldugue/Projekte/manuel.fyi 2026/app/[lang]/self-presentation"
     ]
   }
 }

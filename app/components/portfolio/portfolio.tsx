@@ -4,7 +4,6 @@ import { Hero } from './hero'
 import { SelfPresentation } from './self-presentation'
 import { Documents } from './documents'
 import { SocialProof } from './social-proof'
-import { Now } from './now'
 import { SiteFooter } from './footer'
 import { SideRail, MobileBar } from './side-rail'
 
@@ -19,12 +18,11 @@ export function Portfolio({
     <>
       <SideRail lang={lang} spine={dict.spine} />
       <MobileBar lang={lang} />
-      <main className="page">
+      <main className="px-(--pad-x) pl-[calc(var(--pad-x)+60px)] max-w-[1380px] mx-auto relative max-[900px]:pl-(--pad-x)">
         <Hero hero={dict.hero} />
         <SelfPresentation lang={lang} self={dict.self} />
         <Documents lang={lang} docs={dict.docs} />
         <SocialProof lang={lang} proof={dict.proof} />
-        <Now now={dict.now} />
       </main>
       <SiteFooter lang={lang} footer={dict.footer} />
     </>

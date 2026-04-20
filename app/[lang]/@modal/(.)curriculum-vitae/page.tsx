@@ -17,7 +17,6 @@ export default async function Page({
 
   return (
     <DocSheetModal
-      kicker={portfolio.docs.cv.kicker}
       title={portfolio.docs.cv.sheetTitle}
       subtitle={portfolio.docs.cv.sheetSubtitle}
       contact={portfolio.contact}

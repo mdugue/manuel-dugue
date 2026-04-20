@@ -2,7 +2,7 @@
   "common": {},
   "portfolio": {
     "spine": "tecnólogo independiente · dresde",
-    "contact": ["Manuel Dugué", "mail@manuel.fyi", "+49 · REDACTED", "Dresde / Remoto"],
+    "contact": ["Manuel Dugué", "mail@manuel.fyi", "Dresde / Remoto"],
     "hero": {
       "eyebrow": "Profesional independiente · desde ~2004",
       "title": [
@@ -25,8 +25,7 @@
       "sub": "Escrito por un modelo que ha leído mi CV con más cuidado que la mayoría de los reclutadores.",
       "tag": "Generado por LLM · posibles alucinaciones",
       "cycle": "Regenerar",
-      "model": "model: local · temp 0.7",
-      "seed": "seed"
+      "errorRetry": "No ha funcionado. ¿Intentarlo de nuevo?"
     },
     "docs": {
       "label": "Documentos",
@@ -37,8 +36,7 @@
         "title": "Currículum Vitae",
         "desc": "Veinte años, condensados en una página. Exageraciones al mínimo.",
         "cta": "Abrir documento",
-        "kicker": "Documento 01 · Currículum Vitae",
-        "sheetTitle": "Manuel Dugué",
+        "sheetTitle": "Curriculum Vitae",
         "sheetSubtitle": "Tecnólogo independiente — producto, ingeniería, estrategia."
       },
       "profile": {
@@ -46,9 +44,8 @@
         "title": "Perfil de habilidades",
         "desc": "Ordenado por frecuencia de peticiones. Incluye lo que rechazo con educación.",
         "cta": "Abrir documento",
-        "kicker": "Documento 02 · Perfil de habilidades",
-        "sheetTitle": "Catálogo de cosas que hago por dinero.",
-        "sheetSubtitle": "Ordenado por frecuencia de las peticiones."
+        "sheetTitle": "Skill Profile",
+        "sheetSubtitle": "Catálogo de cosas que hago por dinero."
       }
     },
     "proof": {
@@ -79,12 +76,10 @@
       "meta": "© 2026 Manuel Dugué · compuesto en EB Garamond & Inter · escrito a mano en HTML"
     },
     "modal": {
-      "watermark": "Vista previa generada por IA · no es el PDF real",
       "download": "Descargar PDF",
       "print": "Imprimir",
       "close": "Cerrar",
-      "escHint": "Esc para cerrar",
-      "page": "Página 1 / 1"
+      "escHint": "Esc para cerrar"
     }
   }
 }

@@ -2,7 +2,7 @@
   "common": {},
   "portfolio": {
     "spine": "freischaffender techniker · dresden",
-    "contact": ["Manuel Dugué", "mail@manuel.fyi", "+49 · REDACTED", "Dresden / Remote"],
+    "contact": ["Manuel Dugué", "mail@manuel.fyi", "Dresden / Remote"],
     "hero": {
       "eyebrow": "Freiberufler · seit ca. 2004",
       "title": [
@@ -26,8 +26,7 @@
       "sub": "Geschrieben von einem Modell, das meinen Lebenslauf sorgfältiger gelesen hat als die meisten Recruiter.",
       "tag": "Vom LLM erzeugt · Halluzinationen möglich",
       "cycle": "Neu generieren",
-      "model": "model: local · temp 0.7",
-      "seed": "seed"
+      "errorRetry": "Das hat nicht geklappt. Nochmal versuchen?"
     },
     "docs": {
       "label": "Dokumente",
@@ -38,8 +37,7 @@
         "title": "Lebenslauf",
         "desc": "Zwanzig Jahre, auf einer Seite. Übertreibungen im Rahmen.",
         "cta": "Dokument öffnen",
-        "kicker": "Dokument 01 · Lebenslauf",
-        "sheetTitle": "Manuel Dugué",
+        "sheetTitle": "Curriculum Vitae",
         "sheetSubtitle": "Freiberuflicher Techniker — Produkt, Engineering, Strategie."
       },
       "profile": {
@@ -47,9 +45,8 @@
         "title": "Kompetenzprofil",
         "desc": "Sortiert nach Anfragenhäufigkeit. Inklusive der Dinge, die ich höflich ablehne.",
         "cta": "Dokument öffnen",
-        "kicker": "Dokument 02 · Kompetenzprofil",
-        "sheetTitle": "Katalog der Dinge, die ich gegen Geld tue.",
-        "sheetSubtitle": "Sortiert nach Häufigkeit der Anfragen."
+        "sheetTitle": "Skill Profile",
+        "sheetSubtitle": "Katalog der Dinge, die ich gegen Geld tue."
       }
     },
     "proof": {
@@ -80,12 +77,10 @@
       "meta": "© 2026 Manuel Dugué · gesetzt in EB Garamond & Inter · von Hand in HTML"
     },
     "modal": {
-      "watermark": "KI-gerenderte Vorschau · nicht das echte PDF",
       "download": "PDF herunterladen",
       "print": "Drucken",
       "close": "Schließen",
-      "escHint": "Esc zum Schließen",
-      "page": "Seite 1 / 1"
+      "escHint": "Esc zum Schließen"
     }
   }
 }

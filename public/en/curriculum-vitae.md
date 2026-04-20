@@ -1,8 +1,5 @@
 # Curriculum Vitae
 
-Manuel Dugué, Görlitzer Str. 23, 01099 Dresden
-+49 151 58791155 · mail@manuel.fyi
-
 ## Experience
 
 ### Consultant
@@ -56,8 +53,8 @@ Supported by an Inwent / GIZ scholarship.
 
 ## Personal skills
 
-|               |                                                                                                                                                              |
-| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **Languages** | German (native), French (native), English (fluent), Spanish (fluent), Portuguese (basic), Dutch (basic)                                                      |
-| **IT**        | Web & software development, OO / component design, HTML, TypeScript, CSS3, React, Redux, Flux, Git, Node.js, Webpack, D3                                     |
-| **Software**  | Adobe Creative Cloud, Figma, Sketch, MS Office, OpenOffice                                                                                                   |
+|               |                                                                                                                          |
+| ------------- | ------------------------------------------------------------------------------------------------------------------------ |
+| **Languages** | German (native), French (native), English (fluent), Spanish (fluent), Portuguese (basic), Dutch (basic)                  |
+| **IT**        | Web & software development, OO / component design, HTML, TypeScript, CSS3, React, Redux, Flux, Git, Node.js, Webpack, D3 |
+| **Software**  | Adobe Creative Cloud, Figma, Sketch, MS Office, OpenOffice                                                               |

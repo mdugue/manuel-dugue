@@ -1,8 +1,5 @@
 # Skill Profile
 
-Manuel Dugué, Görlitzer Str. 23, 01099 Dresden
-+49 151 58791155 · mail@manuel.fyi
-
 ## Über mich
 
 |                            |                                                                                                                                                                   |
@@ -57,7 +54,7 @@ Konzeption, Entwicklung, Integration & Schulung.
 Frontend-Lead für das Intranet von Baselworld / Houruniverse.
 Entwicklung, Schulung & Beratung.
 
-[Mch Group](https://mch-group.com) · [Aperto](https://aperto.com)
+[Mch Group](https://mch-group.com) · [Aperto](https://www.ibmix.de/)
 
 ### Estino GmbH
 

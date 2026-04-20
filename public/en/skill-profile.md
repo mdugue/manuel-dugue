@@ -1,26 +1,23 @@
 # Skill Profile
 
-Manuel Dugué, Görlitzer Str. 23, 01099 Dresden
-+49 151 58791155 · mail@manuel.fyi
-
 ## About me
 
-|                         |                                                                                                         |
-| ----------------------- | ------------------------------------------------------------------------------------------------------- |
-| **Title**               | Dipl.-Medieninformatiker (Diploma in Media Informatics)                                                 |
-| **Born**                | 12.09.1981 in Berlin, Germany                                                                           |
-| **Nationality**         | German & French                                                                                         |
-| **Personal interests**  | Sports, music, photography, typography, architecture, cooking                                           |
-| **Languages**           | German (native), French (native), English (fluent), Spanish (fluent), Portuguese (basic), Dutch (basic) |
+|                        |                                                                                                         |
+| ---------------------- | ------------------------------------------------------------------------------------------------------- |
+| **Title**              | Dipl.-Medieninformatiker (Diploma in Media Informatics)                                                 |
+| **Born**               | 12.09.1981 in Berlin, Germany                                                                           |
+| **Nationality**        | German & French                                                                                         |
+| **Personal interests** | Sports, music, photography, typography, architecture, cooking                                           |
+| **Languages**          | German (native), French (native), English (fluent), Spanish (fluent), Portuguese (basic), Dutch (basic) |
 
 ## Interests & focus areas
 
-|                           |                                                                                     |
-| ------------------------- | ----------------------------------------------------------------------------------- |
-| **Programming languages** | TypeScript & JavaScript, HTML, SVG, JSON, CSS, LESS, SASS, WebGL, XML, JSON, XSLT   |
-| **Frameworks**            | React, D3.js, Next.js, Three.js, Mapbox GL JS, Tailwind CSS, XState, Svelte, Node.js|
-| **Tools**                 | VS Code, JetBrains IntelliJ, Android Studio, Git, Webpack, Docker, ChatGPT          |
-| **Topics**                | User experience, performance, SEO, eCommerce, information visualisation, …         |
+|                           |                                                                                      |
+| ------------------------- | ------------------------------------------------------------------------------------ |
+| **Programming languages** | TypeScript & JavaScript, HTML, SVG, JSON, CSS, LESS, SASS, WebGL, XML, JSON, XSLT    |
+| **Frameworks**            | React, D3.js, Next.js, Three.js, Mapbox GL JS, Tailwind CSS, XState, Svelte, Node.js |
+| **Tools**                 | VS Code, JetBrains IntelliJ, Android Studio, Git, Webpack, Docker, ChatGPT           |
+| **Topics**                | User experience, performance, SEO, eCommerce, information visualisation, …           |
 
 ## Career
 
@@ -57,7 +54,7 @@ Concept, development, integration & training.
 Frontend lead for the intranet of Baselworld / Houruniverse.
 Development, training & consulting.
 
-[Mch Group](https://mch-group.com) · [Aperto](https://aperto.com)
+[Mch Group](https://mch-group.com) · [Aperto](https://www.ibmix.de/)
 
 ### Estino GmbH
 

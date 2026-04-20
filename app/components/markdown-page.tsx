@@ -1,7 +1,6 @@
 import { notFound } from 'next/navigation'
-import { remark } from 'remark'
+import Markdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
-import remarkHtml from 'remark-html'
 import type { Locale } from '@/i18n/config'
 import { readMarkdown } from './markdown-source'
 
@@ -19,10 +18,18 @@ export async function MarkdownPage({
     notFound()
   }
 
-  const html = String(
-    await remark().use(remarkGfm).use(remarkHtml).process(raw),
-  )
   return (
-    <div className="doc-prose" dangerouslySetInnerHTML={{ __html: html }} />
+    <div className="doc-prose">
+      <Markdown
+        remarkPlugins={[remarkGfm]}
+        components={{
+          a: ({ node: _node, ...props }) => (
+            <a {...props} target="_blank" rel="noopener noreferrer" />
+          ),
+        }}
+      >
+        {raw}
+      </Markdown>
+    </div>
   )
 }

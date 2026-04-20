@@ -1,26 +1,23 @@
 # Perfil de competencias
 
-Manuel Dugué, Görlitzer Str. 23, 01099 Dresde
-+49 151 58791155 · mail@manuel.fyi
-
 ## Sobre mí
 
-|                         |                                                                                                                                               |
-| ----------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Titulación**          | Diploma en Informática de Medios (Dipl.-Medieninformatiker)                                                                                   |
-| **Nacimiento**          | 12.09.1981 en Berlín, Alemania                                                                                                                |
-| **Nacionalidad**        | Alemana y francesa                                                                                                                            |
-| **Intereses personales**| Deporte, música, fotografía, tipografía, arquitectura, cocina                                                                                 |
-| **Idiomas**             | Alemán (lengua materna), Francés (lengua materna), Inglés (fluido), Español (fluido), Portugués (nociones), Neerlandés (nociones)             |
+|                          |                                                                                                                                   |
+| ------------------------ | --------------------------------------------------------------------------------------------------------------------------------- |
+| **Titulación**           | Diploma en Informática de Medios (Dipl.-Medieninformatiker)                                                                       |
+| **Nacimiento**           | 12.09.1981 en Berlín, Alemania                                                                                                    |
+| **Nacionalidad**         | Alemana y francesa                                                                                                                |
+| **Intereses personales** | Deporte, música, fotografía, tipografía, arquitectura, cocina                                                                     |
+| **Idiomas**              | Alemán (lengua materna), Francés (lengua materna), Inglés (fluido), Español (fluido), Portugués (nociones), Neerlandés (nociones) |
 
 ## Intereses y áreas principales
 
-|                             |                                                                                     |
-| --------------------------- | ----------------------------------------------------------------------------------- |
-| **Lenguajes de programación** | TypeScript y JavaScript, HTML, SVG, JSON, CSS, LESS, SASS, WebGL, XML, JSON, XSLT |
-| **Frameworks**              | React, D3.js, Next.js, Three.js, Mapbox GL JS, Tailwind CSS, XState, Svelte, Node.js|
-| **Herramientas**            | VS Code, JetBrains IntelliJ, Android Studio, Git, Webpack, Docker, ChatGPT          |
-| **Temas**                   | Experiencia de usuario, rendimiento, SEO, eCommerce, visualización de información, …|
+|                               |                                                                                      |
+| ----------------------------- | ------------------------------------------------------------------------------------ |
+| **Lenguajes de programación** | TypeScript y JavaScript, HTML, SVG, JSON, CSS, LESS, SASS, WebGL, XML, JSON, XSLT    |
+| **Frameworks**                | React, D3.js, Next.js, Three.js, Mapbox GL JS, Tailwind CSS, XState, Svelte, Node.js |
+| **Herramientas**              | VS Code, JetBrains IntelliJ, Android Studio, Git, Webpack, Docker, ChatGPT           |
+| **Temas**                     | Experiencia de usuario, rendimiento, SEO, eCommerce, visualización de información, … |
 
 ## Trayectoria
 
@@ -57,7 +54,7 @@ Conceptualización, desarrollo, integración y formación.
 Frontend Lead para la intranet de Baselworld / Houruniverse.
 Desarrollo, formación y consultoría.
 
-[Mch Group](https://mch-group.com) · [Aperto](https://aperto.com)
+[Mch Group](https://mch-group.com) · [Aperto](https://www.ibmix.de/)
 
 ### Estino GmbH
 

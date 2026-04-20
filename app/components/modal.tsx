@@ -3,18 +3,16 @@
 import { Dialog } from '@base-ui/react'
 import { useParams, useRouter } from 'next/navigation'
 import { useCallback } from 'react'
+import { DocSheetChrome } from './doc-sheet-chrome'
 
 type Labels = {
   close: string
-  watermark: string
-  page: string
   download: string
   print: string
   escHint: string
 }
 
 export function DocSheetModal({
-  kicker,
   title,
   subtitle,
   contact,
@@ -22,7 +20,6 @@ export function DocSheetModal({
   labels,
   children,
 }: {
-  kicker: string
   title: string
   subtitle: string
   contact: readonly string[]
@@ -49,61 +46,45 @@ export function DocSheetModal({
   return (
     <Dialog.Root open onOpenChange={handleOpenChange}>
       <Dialog.Portal>
-        <Dialog.Backdrop className="doc-backdrop" />
-        <Dialog.Popup className="doc-scroll" finalFocus={false}>
-          <Dialog.Close className="doc-close" aria-label={labels.close}>
+        <Dialog.Backdrop className="fixed inset-0 z-[100] bg-[rgba(30,22,14,0.55)] [backdrop-filter:blur(4px)] [-webkit-backdrop-filter:blur(4px)]" />
+        <Dialog.Popup
+          finalFocus={false}
+          className="fixed inset-0 z-[101] flex items-start justify-center p-10 overflow-y-auto overscroll-contain outline-none max-[720px]:p-0"
+        >
+          <Dialog.Close
+            aria-label={labels.close}
+            className="fixed top-5 right-6 z-[101] bg-[rgba(30,22,14,0.6)] border border-white/20 text-white w-9 h-9 rounded-full cursor-pointer text-xl leading-none inline-flex items-center justify-center hover:bg-accent hover:border-accent focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-2"
+          >
             ×
           </Dialog.Close>
-          <article className="doc-sheet">
-            <header className="doc-letterhead">
-              <div>
-                <div className="doc-letterhead-url">
-                  manuel<span className="tld">.fyi</span>
-                </div>
-                <Dialog.Title render={<h2 />} className="doc-letterhead-name">
-                  Manuel <span>Dugué</span>
-                </Dialog.Title>
-              </div>
-              <address
-                className="doc-letterhead-contact"
-                style={{ fontStyle: 'normal' }}
-              >
-                {contact.map((l, i) => (
-                  <div key={i}>{l}</div>
-                ))}
-              </address>
-            </header>
 
-            <div className="doc-title-block">
-              <div className="doc-title-kicker">{kicker}</div>
-              <Dialog.Description
-                render={<p />}
-                className="doc-title-main"
-              >
-                {title}
-              </Dialog.Description>
-              <div className="doc-title-sub">{subtitle}</div>
-            </div>
-
+          <DocSheetChrome
+            title={title}
+            subtitle={subtitle}
+            contact={contact}
+            actions={
+              <>
+                <button
+                  type="button"
+                  onClick={() => window.print()}
+                  className="bg-none border-0 p-0 font-inherit cursor-pointer uppercase tracking-[0.14em] text-accent hover:underline"
+                >
+                  {labels.print}
+                </button>
+                <span className="text-[#888] text-[9px]">{labels.escHint}</span>
+                <a
+                  href={pdfHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="uppercase tracking-[0.14em] text-accent hover:underline"
+                >
+                  {labels.download}
+                </a>
+              </>
+            }
+          >
             {children}
-
-            <div className="doc-footer">
-              <span>Manuel Dugué · mail@manuel.fyi</span>
-              <span>{labels.page}</span>
-            </div>
-
-            <div className="doc-watermark">{labels.watermark}</div>
-
-            <div className="doc-actions">
-              <button type="button" onClick={() => window.print()}>
-                {labels.print}
-              </button>
-              <span className="hint">{labels.escHint}</span>
-              <a href={pdfHref} target="_blank" rel="noopener noreferrer">
-                {labels.download}
-              </a>
-            </div>
-          </article>
+          </DocSheetChrome>
         </Dialog.Popup>
       </Dialog.Portal>
     </Dialog.Root>

@@ -1,8 +1,5 @@
 # Lebenslauf
 
-Manuel Dugué, Görlitzer Str. 23, 01099 Dresden
-+49 151 58791155 · mail@manuel.fyi
-
 ## Erfahrung
 
 ### Consultant

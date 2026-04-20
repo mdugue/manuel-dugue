@@ -1,32 +1,4 @@
-// TODO: Remove
 import type { Locale } from './config'
-
-export const selfVariants: Record<Locale, readonly string[]> = {
-  en: [
-    "Hello. I'm Manuel — a freelance technologist who has been quietly shipping software, products and opinions since approximately the release of the iPod Mini. I work across engineering, product and strategy; I enjoy the unglamorous middle where those three argue with each other, and I tend to be the one in the room who asks what the actual problem is.",
-    'Manuel is a product-minded engineer based in Dresden. He prefers working on small teams solving real problems over large teams solving imaginary ones. He writes TypeScript for a living and serif fonts for pleasure, and considers refactoring a form of meditation.',
-    'By training an engineer, by habit a designer, by accident a consultant: twenty years in, Manuel Dugué still maintains that most software problems are actually organisational problems wearing a technical costume. He charges by the day and thinks in sentences.',
-    "Claude's honest summary: Manuel is the person you call when you need someone to say the quiet part out loud, in a PDF, with citations. He is excellent at shipping and allergic to meetings that could have been documents.",
-  ],
-  de: [
-    'Hallo. Ich bin Manuel — freier Techniker, der seit etwa der Veröffentlichung des iPod Mini still und leise Software, Produkte und Meinungen liefert. Ich arbeite an der Schnittstelle von Engineering, Produkt und Strategie; ich mag den unglamourösen Bereich, in dem diese drei miteinander streiten.',
-    'Manuel ist ein produktnaher Ingenieur in Dresden. Er bevorzugt kleine Teams, die reale Probleme lösen, gegenüber großen Teams, die imaginäre lösen. TypeScript schreibt er zum Broterwerb, Serifenschriften zum Vergnügen.',
-    'Von Ausbildung her Ingenieur, aus Gewohnheit Designer, durch Zufall Berater: Zwanzig Jahre weit hält Manuel die meisten Softwareprobleme noch immer für Organisationsprobleme in technischem Kostüm.',
-    'Ehrliche Zusammenfassung: Manuel ist die Person, die du anrufst, wenn jemand den unausgesprochenen Teil aussprechen soll — in einem PDF, mit Quellenangaben.',
-  ],
-  fr: [
-    "Bonjour. Je suis Manuel — technologue indépendant, je livre discrètement des logiciels, des produits et des opinions depuis à peu près la sortie de l'iPod Mini. Je travaille à la couture entre ingénierie, produit et stratégie ; j'aime le milieu peu glamour où les trois se disputent.",
-    "Manuel est un ingénieur à sensibilité produit basé à Dresde. Il préfère les petites équipes qui résolvent de vrais problèmes aux grandes qui en résolvent d'imaginaires. TypeScript pour vivre, caractères à empattements pour le plaisir.",
-    'Ingénieur par formation, designer par habitude, consultant par accident : vingt ans plus tard, Manuel maintient que la plupart des problèmes logiciels sont en réalité des problèmes organisationnels déguisés.',
-    "Résumé honnête : Manuel est la personne qu'on appelle pour dire à voix haute ce que tout le monde pense tout bas — dans un PDF, avec des sources.",
-  ],
-  es: [
-    'Hola. Soy Manuel — tecnólogo independiente, llevo entregando software, productos y opiniones en silencio desde, más o menos, la salida del iPod Mini. Trabajo en la costura entre ingeniería, producto y estrategia; me gusta el medio poco glamuroso donde los tres discuten.',
-    'Manuel es un ingeniero con mentalidad de producto, con base en Dresde. Prefiere equipos pequeños que resuelven problemas reales a equipos grandes que resuelven imaginarios. TypeScript para vivir, tipografías con serifa por placer.',
-    'Ingeniero de formación, diseñador por costumbre, consultor por accidente: veinte años después, Manuel sigue sosteniendo que la mayoría de los problemas de software son problemas organizacionales disfrazados.',
-    'Resumen honesto: Manuel es a quien llamas cuando hace falta alguien que diga en voz alta lo que todos callan — en un PDF, con referencias.',
-  ],
-}
 
 export type Testimonial = { q: string; name: string; role: string }
 

@@ -19,7 +19,6 @@ export default async function Page({
   return (
     <DocSheetPage
       lang={locale}
-      kicker={portfolio.docs.profile.kicker}
       title={portfolio.docs.profile.sheetTitle}
       subtitle={portfolio.docs.profile.sheetSubtitle}
       contact={portfolio.contact}

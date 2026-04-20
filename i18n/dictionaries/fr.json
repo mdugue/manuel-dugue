@@ -2,7 +2,7 @@
   "common": {},
   "portfolio": {
     "spine": "technologue indépendant · dresde",
-    "contact": ["Manuel Dugué", "mail@manuel.fyi", "+49 · REDACTED", "Dresde / Remote"],
+    "contact": ["Manuel Dugué", "mail@manuel.fyi", "Dresde / Remote"],
     "hero": {
       "eyebrow": "Praticien indépendant · depuis ~2004",
       "title": [
@@ -25,8 +25,7 @@
       "sub": "Rédigé par un modèle qui a lu mon CV avec plus d'attention que la plupart des recruteurs.",
       "tag": "Généré par LLM · hallucinations possibles",
       "cycle": "Régénérer",
-      "model": "model: local · temp 0.7",
-      "seed": "seed"
+      "errorRetry": "Ça n'a pas marché. Réessayer ?"
     },
     "docs": {
       "label": "Documents",
@@ -37,8 +36,7 @@
         "title": "Curriculum Vitae",
         "desc": "Vingt ans, condensés sur une page. Exagérations maintenues au minimum.",
         "cta": "Ouvrir le document",
-        "kicker": "Document 01 · Curriculum Vitae",
-        "sheetTitle": "Manuel Dugué",
+        "sheetTitle": "Curriculum Vitae",
         "sheetSubtitle": "Technologue indépendant — produit, ingénierie, stratégie."
       },
       "profile": {
@@ -46,9 +44,8 @@
         "title": "Profil de compétences",
         "desc": "Classé par fréquence des demandes. Inclut les refus polis.",
         "cta": "Ouvrir le document",
-        "kicker": "Document 02 · Profil de compétences",
-        "sheetTitle": "Catalogue des choses que je fais contre rémunération.",
-        "sheetSubtitle": "Classé par fréquence des demandes."
+        "sheetTitle": "Skill Profile",
+        "sheetSubtitle": "Catalogue des choses que je fais contre rémunération."
       }
     },
     "proof": {
@@ -79,12 +76,10 @@
       "meta": "© 2026 Manuel Dugué · composé en EB Garamond & Inter · écrit à la main en HTML"
     },
     "modal": {
-      "watermark": "Aperçu rendu par IA · pas le vrai PDF",
       "download": "Télécharger le PDF",
       "print": "Imprimer",
       "close": "Fermer",
-      "escHint": "Échap pour fermer",
-      "page": "Page 1 / 1"
+      "escHint": "Échap pour fermer"
     }
   }
 }
