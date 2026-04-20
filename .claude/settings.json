@@ -14,7 +14,8 @@
       "Bash(bun --bun next build --experimental-build-mode=compile)",
       "Bash(bun tsc *)",
       "WebFetch(domain:api.anthropic.com)",
-      "WebFetch(domain:raw.githubusercontent.com)"
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "Bash(curl -s https://ai-gateway.vercel.sh/v1/models)"
     ],
     "additionalDirectories": [
       "/Users/manueldugue/Projekte/manuel.fyi 2026/app/[lang]/items"

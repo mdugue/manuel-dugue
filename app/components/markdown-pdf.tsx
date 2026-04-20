@@ -5,6 +5,7 @@ import {
   Text,
   View,
   Link,
+  Font,
   StyleSheet,
   renderToBuffer,
 } from '@react-pdf/renderer'
@@ -13,65 +14,263 @@ import { remark } from 'remark'
 import remarkGfm from 'remark-gfm'
 import type { Root, RootContent, PhrasingContent } from 'mdast'
 import { hasLocale, type Locale } from '@/i18n/config'
+import { getDictionary, type Dictionary } from '@/i18n/dictionaries'
 import { readMarkdown } from './markdown-source'
+
+const GARAMOND = 'https://fonts.gstatic.com/s/ebgaramond/v32'
+const JETBRAINS = 'https://fonts.gstatic.com/s/jetbrainsmono/v24'
+
+Font.register({
+  family: 'Garamond',
+  fonts: [
+    {
+      src: `${GARAMOND}/SlGDmQSNjdsmc35JDF1K5E55YMjF_7DPuGi-6_RUAw.ttf`,
+      fontWeight: 400,
+    },
+    {
+      src: `${GARAMOND}/SlGFmQSNjdsmc35JDF1K5GRwUjcdlttVFm-rI7e8QI96.ttf`,
+      fontWeight: 400,
+      fontStyle: 'italic',
+    },
+    {
+      src: `${GARAMOND}/SlGDmQSNjdsmc35JDF1K5E55YMjF_7DPuGi-NfNUAw.ttf`,
+      fontWeight: 600,
+    },
+    {
+      src: `${GARAMOND}/SlGFmQSNjdsmc35JDF1K5GRwUjcdlttVFm-rI7diR496.ttf`,
+      fontWeight: 600,
+      fontStyle: 'italic',
+    },
+  ],
+})
+
+Font.register({
+  family: 'Mono',
+  fonts: [
+    {
+      src: `${JETBRAINS}/tDbY2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKxjPQ.ttf`,
+      fontWeight: 400,
+    },
+    {
+      src: `${JETBRAINS}/tDbY2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8-qxjPQ.ttf`,
+      fontWeight: 500,
+    },
+  ],
+})
+
+Font.registerHyphenationCallback((word) => [word])
+
+const INK = '#1a1a1a'
+const INK_SOFT = '#555555'
+const INK_FAINT = '#888888'
+const RULE = '#cccccc'
+const RULE_SOFT = '#e6e0d6'
+const ACCENT = '#2d4a8a'
 
 const styles = StyleSheet.create({
   page: {
     flexDirection: 'column',
-    backgroundColor: '#ffffff',
-    paddingVertical: 48,
+    paddingTop: 54,
+    paddingBottom: 64,
     paddingHorizontal: 56,
-    fontFamily: 'Helvetica',
+    fontFamily: 'Garamond',
     fontSize: 11,
     lineHeight: 1.5,
-    color: '#111111',
+    color: INK,
   },
-  h1: { fontSize: 26, fontWeight: 'bold', marginBottom: 16 },
-  h2: { fontSize: 18, fontWeight: 'bold', marginTop: 20, marginBottom: 8 },
-  h3: { fontSize: 13, fontWeight: 'bold', marginTop: 12, marginBottom: 4 },
-  paragraph: { marginBottom: 8 },
-  strong: { fontWeight: 'bold' },
+
+  letterhead: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'flex-end',
+    borderBottomWidth: 1.5,
+    borderBottomColor: INK,
+    paddingBottom: 12,
+    marginBottom: 28,
+    gap: 24,
+  },
+  letterheadLeft: { flexShrink: 1 },
+  letterheadUrl: {
+    fontFamily: 'Mono',
+    fontSize: 8,
+    letterSpacing: 1.6,
+    color: INK_FAINT,
+    textTransform: 'uppercase',
+    marginBottom: 6,
+    paddingBottom: 4,
+    borderBottomWidth: 0.5,
+    borderBottomColor: RULE_SOFT,
+  },
+  letterheadUrlTld: { color: ACCENT, fontWeight: 500 },
+  letterheadName: {
+    fontFamily: 'Garamond',
+    fontStyle: 'italic',
+    fontSize: 18,
+    fontWeight: 600,
+  },
+  letterheadNameAccent: { color: ACCENT, fontStyle: 'normal' },
+  letterheadContact: {
+    fontFamily: 'Mono',
+    fontSize: 7.5,
+    letterSpacing: 1.1,
+    color: INK_SOFT,
+    textTransform: 'uppercase',
+    textAlign: 'right',
+    lineHeight: 1.7,
+  },
+
+  titleBlock: { marginBottom: 28 },
+  kicker: {
+    fontFamily: 'Mono',
+    fontSize: 8.5,
+    letterSpacing: 1.8,
+    color: ACCENT,
+    textTransform: 'uppercase',
+    marginBottom: 10,
+  },
+  title: {
+    fontFamily: 'Garamond',
+    fontStyle: 'italic',
+    fontSize: 36,
+    lineHeight: 1.02,
+    marginBottom: 8,
+  },
+  subtitle: {
+    fontFamily: 'Garamond',
+    fontStyle: 'italic',
+    fontSize: 13,
+    color: INK_SOFT,
+  },
+
+  h2: {
+    fontFamily: 'Mono',
+    fontSize: 8.5,
+    letterSpacing: 1.8,
+    textTransform: 'uppercase',
+    fontWeight: 500,
+    color: INK,
+    borderTopWidth: 0.5,
+    borderTopColor: RULE_SOFT,
+    paddingTop: 18,
+    marginTop: 22,
+    marginBottom: 12,
+  },
+  h2First: { borderTopWidth: 0, paddingTop: 0, marginTop: 0 },
+  h3: {
+    fontFamily: 'Garamond',
+    fontSize: 12,
+    fontWeight: 600,
+    marginTop: 12,
+    marginBottom: 3,
+  },
+  h4: {
+    fontFamily: 'Garamond',
+    fontStyle: 'italic',
+    fontSize: 11,
+    color: INK_SOFT,
+    marginBottom: 4,
+  },
+
+  paragraph: { marginBottom: 6 },
+  strong: { fontWeight: 600 },
   italic: { fontStyle: 'italic' },
-  link: { color: '#0066cc', textDecoration: 'underline' },
-  list: { marginBottom: 8 },
-  listItem: { flexDirection: 'row', marginBottom: 4 },
-  bullet: { width: 12 },
-  listItemContent: { flex: 1 },
-  hr: {
-    borderBottomWidth: 1,
-    borderBottomColor: '#dddddd',
-    marginVertical: 12,
+  inlineCode: {
+    fontFamily: 'Mono',
+    fontSize: 9.5,
+    color: INK,
   },
-  table: { marginBottom: 8, borderWidth: 1, borderColor: '#dddddd' },
+  link: { color: ACCENT, textDecoration: 'underline' },
+
+  list: { marginBottom: 8, marginTop: 2 },
+  listItem: { flexDirection: 'row', marginBottom: 2 },
+  bullet: { width: 12, color: INK_SOFT },
+  listItemContent: { flex: 1 },
+
+  hr: {
+    borderBottomWidth: 0.5,
+    borderBottomColor: RULE_SOFT,
+    marginVertical: 16,
+  },
+
+  table: { marginTop: 6, marginBottom: 14 },
   tableRow: { flexDirection: 'row' },
   tableCell: {
     flex: 1,
-    padding: 6,
-    borderWidth: 1,
-    borderColor: '#dddddd',
+    paddingVertical: 7,
+    paddingHorizontal: 8,
+    borderBottomWidth: 0.5,
+    borderBottomColor: RULE_SOFT,
+    fontSize: 10.5,
   },
-  tableHeaderCell: { backgroundColor: '#f5f5f5', fontWeight: 'bold' },
+  tableHeaderCell: {
+    fontFamily: 'Mono',
+    fontSize: 8,
+    letterSpacing: 1.1,
+    textTransform: 'uppercase',
+    fontWeight: 500,
+    color: INK_SOFT,
+    borderBottomWidth: 0.75,
+    borderBottomColor: INK,
+  },
+  tableHeaderCellEmpty: {
+    borderBottomWidth: 0.75,
+    borderBottomColor: INK,
+    paddingVertical: 3,
+  },
+
   blockquote: {
-    borderLeftWidth: 2,
-    borderLeftColor: '#cccccc',
-    paddingLeft: 8,
-    marginBottom: 8,
+    borderLeftWidth: 1.5,
+    borderLeftColor: ACCENT,
+    paddingLeft: 10,
+    marginVertical: 8,
+    color: INK_SOFT,
+    fontStyle: 'italic',
   },
-  code: {
-    fontFamily: 'Courier',
-    fontSize: 10,
-    backgroundColor: '#f5f5f5',
-    padding: 6,
-    marginBottom: 8,
+
+  codeBlock: {
+    fontFamily: 'Mono',
+    fontSize: 9.5,
+    marginVertical: 8,
+    paddingLeft: 10,
+    borderLeftWidth: 0.5,
+    borderLeftColor: RULE,
+    color: INK_SOFT,
   },
-  footer: {
+
+  footerRule: {
     position: 'absolute',
-    bottom: 24,
+    bottom: 44,
     left: 56,
     right: 56,
-    textAlign: 'center',
-    fontSize: 9,
-    color: '#888888',
+    borderTopWidth: 0.5,
+    borderTopColor: RULE_SOFT,
+    height: 0,
+  },
+  footerLeft: {
+    position: 'absolute',
+    bottom: 28,
+    left: 56,
+    fontFamily: 'Mono',
+    fontSize: 7.5,
+    letterSpacing: 1.1,
+    textTransform: 'uppercase',
+    color: INK_FAINT,
+  },
+  footerRight: {
+    position: 'absolute',
+    bottom: 28,
+    left: 56,
+    right: 56,
+    fontFamily: 'Mono',
+    fontSize: 7.5,
+    letterSpacing: 1.1,
+    textTransform: 'uppercase',
+    color: INK_FAINT,
+    textAlign: 'right',
+  },
+  footerRightTld: {
+    color: ACCENT,
+    fontWeight: 500,
   },
 })
 
@@ -93,7 +292,11 @@ function renderInline(nodes: PhrasingContent[]): React.ReactNode {
           </Text>
         )
       case 'inlineCode':
-        return <Text key={i}>{node.value}</Text>
+        return (
+          <Text key={i} style={styles.inlineCode}>
+            {node.value}
+          </Text>
+        )
       case 'break':
         return <Text key={i}>{'\n'}</Text>
       case 'link':
@@ -108,13 +311,36 @@ function renderInline(nodes: PhrasingContent[]): React.ReactNode {
   })
 }
 
-function renderBlock(node: RootContent, key: number): React.ReactNode {
+function renderBlock(
+  node: RootContent,
+  key: number,
+  ctx: { isFirstH2: { current: boolean } },
+): React.ReactNode {
   switch (node.type) {
     case 'heading': {
-      const style =
-        node.depth === 1 ? styles.h1 : node.depth === 2 ? styles.h2 : styles.h3
+      if (node.depth === 1) return null
+      if (node.depth === 2) {
+        const first = ctx.isFirstH2.current
+        ctx.isFirstH2.current = false
+        return (
+          <Text
+            key={key}
+            wrap={false}
+            style={first ? [styles.h2, styles.h2First] : styles.h2}
+          >
+            {renderInline(node.children)}
+          </Text>
+        )
+      }
+      if (node.depth === 3) {
+        return (
+          <Text key={key} wrap={false} style={styles.h3}>
+            {renderInline(node.children)}
+          </Text>
+        )
+      }
       return (
-        <Text key={key} style={style}>
+        <Text key={key} wrap={false} style={styles.h4}>
           {renderInline(node.children)}
         </Text>
       )
@@ -135,48 +361,60 @@ function renderBlock(node: RootContent, key: number): React.ReactNode {
               </Text>
               <View style={styles.listItemContent}>
                 {item.children.map((child, j) =>
-                  renderBlock(child as RootContent, j),
+                  renderBlock(child as RootContent, j, ctx),
                 )}
               </View>
             </View>
           ))}
         </View>
       )
-    case 'table':
+    case 'table': {
+      const headerCells = node.children[0]?.children ?? []
+      const headerIsEmpty = headerCells.every(
+        (cell) => cell.children.length === 0,
+      )
       return (
         <View key={key} style={styles.table}>
-          {node.children.map((row, ri) => (
-            <View key={ri} style={styles.tableRow}>
-              {row.children.map((cell, ci) => {
-                const align = node.align?.[ci] ?? undefined
-                return (
-                  <Text
-                    key={ci}
-                    style={[
-                      styles.tableCell,
-                      ri === 0 ? styles.tableHeaderCell : {},
-                      align ? { textAlign: align } : {},
-                    ]}
-                  >
-                    {renderInline(cell.children)}
-                  </Text>
-                )
-              })}
-            </View>
-          ))}
+          {node.children.map((row, ri) => {
+            const isHeader = ri === 0
+            return (
+              <View key={ri} style={styles.tableRow}>
+                {row.children.map((cell, ci) => {
+                  const align = node.align?.[ci] ?? undefined
+                  return (
+                    <Text
+                      key={ci}
+                      style={[
+                        styles.tableCell,
+                        isHeader
+                          ? headerIsEmpty
+                            ? styles.tableHeaderCellEmpty
+                            : styles.tableHeaderCell
+                          : {},
+                        align ? { textAlign: align } : {},
+                      ]}
+                    >
+                      {renderInline(cell.children)}
+                    </Text>
+                  )
+                })}
+              </View>
+            )
+          })}
         </View>
       )
+    }
     case 'thematicBreak':
       return <View key={key} style={styles.hr} />
     case 'blockquote':
       return (
         <View key={key} style={styles.blockquote}>
-          {node.children.map((child, i) => renderBlock(child, i))}
+          {node.children.map((child, i) => renderBlock(child, i, ctx))}
         </View>
       )
     case 'code':
       return (
-        <Text key={key} style={styles.code}>
+        <Text key={key} style={styles.codeBlock}>
           {node.value}
         </Text>
       )
@@ -185,44 +423,76 @@ function renderBlock(node: RootContent, key: number): React.ReactNode {
   }
 }
 
-export type LocalizedString = Record<Locale, string>
+type DocMeta = { kicker: string; sheetTitle: string; sheetSubtitle: string }
 
 function MarkdownDocument({
   tree,
-  title,
+  docTitle,
   author,
   language,
+  meta,
+  contact,
+  footerLead,
 }: {
   tree: Root
-  title: string
+  docTitle: string
   author?: string
   language: Locale
+  meta: DocMeta
+  contact: readonly string[]
+  footerLead: string
 }) {
+  const ctx = { isFirstH2: { current: true } }
   return (
-    <Document title={title} author={author} language={language}>
+    <Document title={docTitle} author={author} language={language}>
       <Page size="A4" style={styles.page}>
-        {tree.children.map((node, i) => renderBlock(node, i))}
-        <Text
-          fixed
-          style={styles.footer}
-          render={({ pageNumber, totalPages }) =>
-            `${pageNumber} / ${totalPages}`
-          }
-        />
+        <View style={styles.letterhead}>
+          <View style={styles.letterheadLeft}>
+            <Text style={styles.letterheadUrl}>
+              manuel<Text style={styles.letterheadUrlTld}>.fyi</Text>
+            </Text>
+            <Text style={styles.letterheadName}>
+              Manuel <Text style={styles.letterheadNameAccent}>Dugué</Text>
+            </Text>
+          </View>
+          <View style={styles.letterheadContact}>
+            {contact.map((line, i) => (
+              <Text key={i}>{line}</Text>
+            ))}
+          </View>
+        </View>
+
+        <View style={styles.titleBlock}>
+          <Text style={styles.kicker}>{meta.kicker}</Text>
+          <Text style={styles.title}>{meta.sheetTitle}</Text>
+          <Text style={styles.subtitle}>{meta.sheetSubtitle}</Text>
+        </View>
+
+        {tree.children.map((node, i) => renderBlock(node, i, ctx))}
+
+        <View fixed style={styles.footerRule} />
+        <Text fixed style={styles.footerLeft}>
+          {footerLead}
+        </Text>
+        <Text fixed style={styles.footerRight}>
+          manuel<Text style={styles.footerRightTld}>.fyi</Text>
+        </Text>
       </Page>
     </Document>
   )
 }
 
+export type LocalizedString = Record<Locale, string>
+
 export type MarkdownPdfRouteConfig = {
   slug: string
   filenameBase: string
-  titles: LocalizedString
   author?: string
+  getDocMeta: (dict: Dictionary) => DocMeta
 }
 
 export function createMarkdownPdfRoute(config: MarkdownPdfRouteConfig) {
-  const { slug, filenameBase, titles, author } = config
+  const { slug, filenameBase, author, getDocMeta } = config
 
   return async function GET(
     _request: Request,
@@ -231,14 +501,25 @@ export function createMarkdownPdfRoute(config: MarkdownPdfRouteConfig) {
     const { lang } = await params
     if (!hasLocale(lang)) notFound()
 
+    const dict = await getDictionary(lang)
+    const meta = getDocMeta(dict)
     const raw = await readMarkdown(slug, lang)
     const tree = remark().use(remarkGfm).parse(raw) as Root
+
+    const docTitle = author ? `${meta.sheetTitle} — ${author}` : meta.sheetTitle
+    const footerLead = author
+      ? `${author} · mail@manuel.fyi`
+      : 'mail@manuel.fyi'
+
     const buffer = await renderToBuffer(
       <MarkdownDocument
         tree={tree}
-        title={titles[lang]}
+        docTitle={docTitle}
         author={author}
         language={lang}
+        meta={meta}
+        contact={dict.portfolio.contact}
+        footerLead={footerLead}
       />,
     )
 
