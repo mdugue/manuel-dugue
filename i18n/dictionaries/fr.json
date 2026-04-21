@@ -62,7 +62,6 @@
       "label": "Témoignages",
       "heading": "Ce que disent les clients générés",
       "sub": "Entièrement synthétiques, produits à la demande. Plausibilité variable.",
-      "tag": "Généré par LLM · légèrement supervisé par Manuel",
       "cycle": "Régénérer",
       "errorRetry": "Ça n'a pas marché. Réessayer ?",
       "banner": "Tous les témoignages ci-dessus ont été produits par un modèle de langage. Aucun client réel n'a été consulté. La ressemblance avec de vraies louanges est un trait, non une revendication."
