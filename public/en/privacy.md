@@ -31,7 +31,22 @@ cookies (e.g. for storing language preferences) are used.
 
 ## 5. Analytics
 
-This website currently does not use any analytics tools for reach analysis.
+This website uses Umami Cloud (operated by Umami Software, Inc., United States)
+for privacy-friendly reach analysis. Umami is cookieless, does not create
+cross-session user profiles, and does not collect personal data such as names
+or email addresses. Only aggregated, non-identifying data is recorded — for
+example the page visited, the referrer, screen size, browser language, and an
+approximate country derived from the IP address. The IP address itself is not
+stored.
+
+Requests to the tracker are routed via the first-party path `/stats` on this
+domain, so your browser does not contact umami.is directly.
+
+The legal basis is Art. 6(1)(f) GDPR (legitimate interest in understanding
+how the website is used). You may object at any time by blocking the `/stats`
+path in your browser or via a content blocker.
+
+More information: <https://umami.is>
 
 ## 6. Your rights
 
@@ -51,4 +66,4 @@ For data-protection questions, please contact mail@manuel.fyi.
 
 ## 8. Version
 
-Last updated: 1 March 2026.
+Last updated: 22 April 2026.

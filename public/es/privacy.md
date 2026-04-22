@@ -33,8 +33,24 @@ técnicamente necesarias (p. ej., para recordar la selección de idioma).
 
 ## 5. Herramientas de análisis
 
-Este sitio no utiliza actualmente ninguna herramienta de análisis de
-audiencia.
+Este sitio utiliza Umami Cloud (operado por Umami Software, Inc., Estados
+Unidos) para un análisis de audiencia respetuoso con la privacidad. Umami
+funciona sin cookies, no crea perfiles de usuario entre sesiones y no recoge
+datos personales como nombres o direcciones de correo. Solo se registran
+datos agregados y no identificativos — por ejemplo la página visitada, el
+referente, el tamaño de pantalla, el idioma del navegador y un país
+aproximado derivado de la dirección IP. La dirección IP en sí no se
+almacena.
+
+Las peticiones al tracker se encaminan a través de la ruta first-party
+`/stats` en este dominio; tu navegador no contacta directamente con
+umami.is.
+
+La base legal es el art. 6(1)(f) RGPD (interés legítimo en medir la
+audiencia). Puedes oponerte en cualquier momento bloqueando la ruta
+`/stats` en tu navegador o mediante un bloqueador de contenido.
+
+Más información: <https://umami.is>
 
 ## 6. Tus derechos
 
@@ -54,4 +70,4 @@ Para cuestiones de protección de datos: mail@manuel.fyi.
 
 ## 8. Versión
 
-Última actualización: 1 de marzo de 2026.
+Última actualización: 22 de abril de 2026.

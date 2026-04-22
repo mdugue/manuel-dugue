@@ -34,7 +34,23 @@ Cookies (z. B. zur Speicherung der Sprachauswahl) kommen zum Einsatz.
 
 ## 5. Analyse-Tools
 
-Diese Website nutzt derzeit keine Analyse-Tools zur Reichweitenanalyse.
+Diese Website nutzt Umami Cloud (betrieben von Umami Software, Inc., USA) zur
+datenschutzfreundlichen Reichweitenanalyse. Umami arbeitet ohne Cookies,
+erstellt keine sitzungsübergreifenden Nutzerprofile und erfasst keine
+personenbezogenen Daten wie Namen oder E-Mail-Adressen. Erhoben werden
+lediglich aggregierte, nicht identifizierende Daten — etwa die aufgerufene
+Seite, der Referrer, die Bildschirmgröße, die Browsersprache und ein aus der
+IP-Adresse abgeleitetes ungefähres Herkunftsland. Die IP-Adresse selbst wird
+nicht gespeichert.
+
+Die Anfragen an den Tracker laufen über den First-Party-Pfad `/stats` auf
+dieser Domain; Ihr Browser kontaktiert umami.is nicht direkt.
+
+Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an
+der Reichweitenmessung). Sie können jederzeit widersprechen, indem Sie den
+Pfad `/stats` in Ihrem Browser oder per Content-Blocker blockieren.
+
+Weitere Informationen: <https://umami.is>
 
 ## 6. Ihre Rechte
 
@@ -54,4 +70,4 @@ Fragen zum Datenschutz richten Sie bitte an mail@manuel.fyi.
 
 ## 8. Stand
 
-Stand dieser Erklärung: 1.3.2026.
+Stand dieser Erklärung: 22.4.2026.
