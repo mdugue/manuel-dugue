@@ -44,7 +44,7 @@
   --font-body: var(--font-body);
   --font-mono: var(--font-mono);
   --animate-blink: blink 1.8s ease-in-out infinite;
-  --animate-caret: caret 1s steps(2) infinite;
+  --animate-pulse-dot: pulse-dot 1.2s ease-in-out infinite;
 }
 
 @keyframes blink {
@@ -56,13 +56,15 @@
     opacity: 0.35;
   }
 }
-@keyframes caret {
+@keyframes pulse-dot {
   0%,
   100% {
     opacity: 1;
+    transform: scale(1);
   }
   50% {
-    opacity: 0;
+    opacity: 0.4;
+    transform: scale(0.55);
   }
 }
 

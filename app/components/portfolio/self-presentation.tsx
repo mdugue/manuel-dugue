@@ -52,7 +52,7 @@ export function SelfPresentation({
           {isLoading && (
             <span
               aria-hidden="true"
-              className="inline-block w-0.5 h-[0.95em] bg-accent ml-0.5 translate-y-0.75 animate-caret motion-reduce:hidden"
+              className="inline-block w-[0.45em] h-[0.45em] rounded-full bg-accent ml-1.5 align-middle animate-pulse-dot motion-reduce:hidden"
             />
           )}
         </p>
