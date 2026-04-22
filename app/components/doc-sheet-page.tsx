@@ -1,8 +1,8 @@
-import Link from 'next/link'
-import type { Route } from 'next'
-import type { Locale } from '@/i18n/config'
-import type { Dictionary } from '@/i18n/dictionaries'
-import { DocSheetChrome } from './doc-sheet-chrome'
+import type { Route } from "next";
+import Link from "next/link";
+import type { Locale } from "@/i18n/config";
+import type { Dictionary } from "@/i18n/dictionaries";
+import { DocSheetChrome } from "./doc-sheet-chrome";
 
 export function DocSheetPage({
   lang,
@@ -13,42 +13,42 @@ export function DocSheetPage({
   modalLabels,
   children,
 }: {
-  lang: Locale
-  title: string
-  subtitle: string
-  contact: readonly string[]
-  pdfHref: string
-  modalLabels: Dictionary['portfolio']['modal']
-  children: React.ReactNode
+  lang: Locale;
+  title: string;
+  subtitle: string;
+  contact: readonly string[];
+  pdfHref: string;
+  modalLabels: Dictionary["portfolio"]["modal"];
+  children: React.ReactNode;
 }) {
   return (
     <main className="flex items-start justify-center p-10 max-[720px]:p-0">
       <DocSheetChrome
-        standalone
-        title={title}
-        subtitle={subtitle}
-        contact={contact}
         actions={
           <>
             <Link
+              className="text-accent uppercase tracking-[0.14em] hover:underline"
               href={`/${lang}` as Route}
-              className="uppercase tracking-[0.14em] text-accent hover:underline"
             >
               ← manuel.fyi
             </Link>
             <a
+              className="text-accent uppercase tracking-[0.14em] hover:underline"
               href={pdfHref}
-              target="_blank"
               rel="noopener noreferrer"
-              className="uppercase tracking-[0.14em] text-accent hover:underline"
+              target="_blank"
             >
               {modalLabels.download}
             </a>
           </>
         }
+        contact={contact}
+        standalone
+        subtitle={subtitle}
+        title={title}
       >
         {children}
       </DocSheetChrome>
     </main>
-  )
+  );
 }

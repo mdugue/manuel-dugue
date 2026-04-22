@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 export function AiControls({
   modelId,
@@ -8,26 +8,26 @@ export function AiControls({
   disabled,
   className,
 }: {
-  modelId: string
-  position: string
-  cycleLabel: string
-  onRegenerate: () => void
-  disabled: boolean
-  className?: string
+  modelId: string;
+  position: string;
+  cycleLabel: string;
+  onRegenerate: () => void;
+  disabled: boolean;
+  className?: string;
 }) {
   return (
     <div
-      className={`flex justify-between items-center font-mono text-[10px] uppercase tracking-[0.14em] text-ink-faint gap-4 flex-wrap ${className}`}
+      className={`flex flex-wrap items-center justify-between gap-4 font-mono text-[10px] text-ink-faint uppercase tracking-[0.14em] ${className}`}
     >
-      <div className="flex gap-[18px] flex-wrap">
+      <div className="flex flex-wrap gap-[18px]">
         <span>model: {modelId}</span>
         <span>{position}</span>
       </div>
       <button
-        type="button"
-        onClick={onRegenerate}
+        className="inline-flex cursor-pointer items-center gap-2 border border-rule bg-none px-3.5 py-2 font-inherit text-ink-soft uppercase tracking-[0.14em] transition-colors hover:border-accent hover:text-accent focus-visible:border-accent focus-visible:text-accent focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 disabled:cursor-not-allowed disabled:opacity-40"
         disabled={disabled}
-        className="bg-none border border-rule text-ink-soft px-3.5 py-2 font-inherit uppercase tracking-[0.14em] cursor-pointer inline-flex items-center gap-2 transition-colors hover:border-accent hover:text-accent focus-visible:border-accent focus-visible:text-accent focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 disabled:opacity-40 disabled:cursor-not-allowed"
+        onClick={onRegenerate}
+        type="button"
       >
         <span aria-hidden="true" className="text-[13px]">
           ↻
@@ -35,5 +35,5 @@ export function AiControls({
         {cycleLabel}
       </button>
     </div>
-  )
+  );
 }

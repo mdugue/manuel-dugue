@@ -1,15 +1,15 @@
-import 'server-only'
-import type { Locale } from './config'
+import "server-only";
+import type { Locale } from "./config";
 
 const languageName: Record<Locale, string> = {
-  en: 'English',
-  de: 'German',
-  fr: 'French',
-  es: 'Spanish',
-}
+  en: "English",
+  de: "German",
+  fr: "French",
+  es: "Spanish",
+};
 
 export function buildSocialProofPrompt(lang: Locale): string {
-  const name = languageName[lang]
+  const name = languageName[lang];
   return `You are writing three short fictional testimonials about Manuel Dugué, a freelance technologist. Each testimonial is spoken by a different invented former client.
 
 Grounding — former engagements (required):
@@ -32,5 +32,5 @@ Attribution — play the bit:
 
 Language: write every q, name and role in ${name}, including the fictional-marker phrasing.
 
-Output exactly three testimonials in the required JSON shape. No preamble, no commentary, no markdown.`
+Output exactly three testimonials in the required JSON shape. No preamble, no commentary, no markdown.`;
 }

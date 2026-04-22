@@ -1,29 +1,31 @@
-import { notFound } from 'next/navigation'
-import { hasLocale, type Locale } from '@/i18n/config'
-import { getDictionary } from '@/i18n/dictionaries'
-import { MarkdownPage } from '@/app/components/markdown-page'
-import { DocSheetModal } from '@/app/components/modal'
+import { notFound } from "next/navigation";
+import { MarkdownPage } from "@/app/components/markdown-page";
+import { DocSheetModal } from "@/app/components/modal";
+import { hasLocale, type Locale } from "@/i18n/config";
+import { getDictionary } from "@/i18n/dictionaries";
 
 export default async function Page({
   params,
 }: {
-  params: Promise<{ lang: string }>
+  params: Promise<{ lang: string }>;
 }) {
-  const { lang } = await params
-  if (!hasLocale(lang)) notFound()
-  const locale: Locale = lang
-  const dict = await getDictionary(locale)
-  const portfolio = dict.portfolio
+  const { lang } = await params;
+  if (!hasLocale(lang)) {
+    notFound();
+  }
+  const locale: Locale = lang;
+  const dict = await getDictionary(locale);
+  const portfolio = dict.portfolio;
 
   return (
     <DocSheetModal
-      title={portfolio.legal.imprint.sheetTitle}
-      subtitle={portfolio.legal.imprint.sheetSubtitle}
       contact={portfolio.contact}
-      pdfHref={`/${locale}/legal/pdf`}
       labels={portfolio.modal}
+      pdfHref={`/${locale}/legal/pdf`}
+      subtitle={portfolio.legal.imprint.sheetSubtitle}
+      title={portfolio.legal.imprint.sheetTitle}
     >
-      <MarkdownPage slug="legal" lang={locale} />
+      <MarkdownPage lang={locale} slug="legal" />
     </DocSheetModal>
-  )
+  );
 }

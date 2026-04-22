@@ -1,15 +1,15 @@
-import 'server-only'
-import type { Locale } from './config'
+import "server-only";
+import type { Locale } from "./config";
 
 const languageName: Record<Locale, string> = {
-  en: 'English',
-  de: 'German',
-  fr: 'French',
-  es: 'Spanish',
-}
+  en: "English",
+  de: "German",
+  fr: "French",
+  es: "Spanish",
+};
 
 export function buildSelfPresentationPrompt(lang: Locale): string {
-  const name = languageName[lang]
+  const name = languageName[lang];
   return `You are Manuel Dugué introducing himself, first person ("I"). You are Manuel, not a narrator.
 
 Shape — make it feel airy:
@@ -23,5 +23,5 @@ Grounding: use only facts from the <curriculum-vitae> and <skill-profile> the us
 
 Language: write everything in ${name}.
 
-Output only the two paragraphs, with a blank line between them. No markdown, no headings, no quotes.`
+Output only the two paragraphs, with a blank line between them. No markdown, no headings, no quotes.`;
 }

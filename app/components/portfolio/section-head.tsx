@@ -3,24 +3,24 @@ export function SectionHead({
   heading,
   sub,
 }: {
-  label: string
-  heading: string
-  sub: string
+  label: string;
+  heading: string;
+  sub: string;
 }) {
   return (
     <>
-      <div className="flex items-center gap-4 font-mono text-[11px] uppercase tracking-[0.16em] text-ink-faint mb-10 pt-6">
+      <div className="mb-10 flex items-center gap-4 pt-6 font-mono text-[11px] text-ink-faint uppercase tracking-[0.16em]">
         <span>{label}</span>
-        <span aria-hidden="true" className="flex-1 h-px bg-rule" />
+        <span aria-hidden="true" className="h-px flex-1 bg-rule" />
       </div>
-      <div className="grid grid-cols-[220px_1fr] gap-12 mb-12 max-[720px]:grid-cols-1 max-[720px]:gap-3">
-        <h2 className="font-display italic text-[22px] font-normal text-ink m-0 mb-2 leading-tight">
+      <div className="mb-12 grid grid-cols-[220px_1fr] gap-12 max-[720px]:grid-cols-1 max-[720px]:gap-3">
+        <h2 className="m-0 mb-2 font-display font-normal text-[22px] text-ink italic leading-tight">
           {heading}
         </h2>
-        <div className="font-mono text-[11px] uppercase tracking-[0.14em] text-ink-faint leading-[1.7]">
+        <div className="font-mono text-[11px] text-ink-faint uppercase leading-[1.7] tracking-[0.14em]">
           {sub}
         </div>
       </div>
     </>
-  )
+  );
 }

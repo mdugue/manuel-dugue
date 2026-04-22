@@ -78,24 +78,20 @@
 }
 html,
 body {
-  margin: 0;
   padding: 0;
+  margin: 0;
 }
 body {
-  background: var(--bg);
-  color: var(--ink);
-  font-family:
-    var(--font-body),
-    -apple-system,
-    system-ui,
-    sans-serif;
+  min-height: 100dvh;
+  overflow-x: hidden;
+  font-family: var(--font-body), -apple-system, system-ui, sans-serif;
   font-size: 16px;
-  line-height: 1.6;
   font-weight: 400;
   -webkit-font-smoothing: antialiased;
+  line-height: 1.6;
+  color: var(--ink);
+  background: var(--bg);
   text-rendering: optimizeLegibility;
-  overflow-x: hidden;
-  min-height: 100dvh;
   transition:
     background 0.35s ease,
     color 0.35s ease;
@@ -105,17 +101,17 @@ a {
   text-decoration: none;
 }
 ::selection {
-  background: var(--accent);
   color: var(--paper);
+  background: var(--accent);
 }
 
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
   *::after {
+    transition-duration: 0.001ms !important;
     animation-duration: 0.001ms !important;
     animation-iteration-count: 1 !important;
-    transition-duration: 0.001ms !important;
   }
 }
 
@@ -133,38 +129,38 @@ a {
   display: none;
 }
 .doc-prose > h2 {
+  padding-top: 24px;
+  margin: 36px 0 16px;
   font-family: var(--font-mono);
   font-size: 10px;
+  font-weight: 500;
+  color: var(--color-ink);
   text-transform: uppercase;
   letter-spacing: 0.2em;
-  color: var(--color-ink);
-  margin: 36px 0 16px;
-  padding-top: 24px;
   border-top: 1px solid var(--color-rule);
-  font-weight: 500;
 }
 .doc-prose > h2:first-child,
 .doc-prose > h2:first-of-type {
-  border-top: 0;
   padding-top: 0;
   margin-top: 0;
+  border-top: 0;
 }
 .doc-prose h3 {
+  margin: 18px 0 4px;
   font-size: 15px;
   font-weight: 600;
   color: var(--color-ink);
-  margin: 18px 0 4px;
 }
 .doc-prose h4 {
+  margin: 0 0 6px;
   font-size: 14px;
   font-style: italic;
   color: #555;
-  margin: 0 0 6px;
 }
 .doc-prose p {
+  margin: 0 0 10px;
   font-size: 14.5px;
   line-height: 1.65;
-  margin: 0 0 10px;
 }
 .doc-prose strong {
   font-weight: 600;
@@ -179,8 +175,8 @@ a {
 }
 .doc-prose ul,
 .doc-prose ol {
-  margin: 4px 0 12px;
   padding: 0 0 0 1.5rem;
+  margin: 4px 0 12px;
   list-style-position: outside;
 }
 /* Tailwind preflight sets list-style: none on ul/ol; restore markers for GFM body copy */
@@ -191,54 +187,54 @@ a {
   list-style-type: decimal;
 }
 .doc-prose li {
+  padding-left: 0.25rem;
+  margin: 2px 0;
   font-size: 14.5px;
   line-height: 1.65;
-  margin: 2px 0;
-  padding-left: 0.25rem;
 }
 /* Softer than body text; still tracks light/dark --ink */
 .doc-prose li::marker {
   color: var(--color-ink-faint);
 }
 .doc-prose hr {
+  margin: 28px 0;
   border: 0;
   border-top: 1px solid #e6e0d6;
-  margin: 28px 0;
 }
 .doc-prose blockquote {
-  border-left: 2px solid var(--accent);
-  margin: 12px 0;
   padding: 4px 0 4px 14px;
+  margin: 12px 0;
   font-style: italic;
   color: #444;
+  border-left: 2px solid var(--accent);
 }
 .doc-prose code {
+  padding: 1px 5px;
   font-family: var(--font-mono);
   font-size: 13px;
   background: #f1ebdf;
-  padding: 1px 5px;
   border-radius: 2px;
 }
 .doc-prose table {
   width: 100%;
-  border-collapse: collapse;
   margin: 12px 0 20px;
   font-size: 13.5px;
+  border-collapse: collapse;
 }
 .doc-prose th,
 .doc-prose td {
-  text-align: left;
   padding: 8px 10px;
-  border-bottom: 1px solid #e6e0d6;
   vertical-align: top;
+  text-align: left;
+  border-bottom: 1px solid #e6e0d6;
 }
 .doc-prose th {
   font-family: var(--font-mono);
   font-size: 10px;
+  font-weight: 500;
+  color: #555;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  color: #555;
-  font-weight: 500;
   border-bottom: 1px solid #1a1a1a;
 }
 .doc-prose tr:last-child td {

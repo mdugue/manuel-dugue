@@ -1,12 +1,12 @@
-import { Fragment } from 'react'
+import { Fragment } from "react";
 
-export type DocSheetChromeProps = {
-  title: string
-  subtitle: string
-  contact: readonly string[]
-  actions: React.ReactNode
-  standalone?: boolean
-  children: React.ReactNode
+export interface DocSheetChromeProps {
+  actions: React.ReactNode;
+  children: React.ReactNode;
+  contact: readonly string[];
+  standalone?: boolean;
+  subtitle: string;
+  title: string;
 }
 
 export function DocSheetChrome({
@@ -18,25 +18,25 @@ export function DocSheetChrome({
   children,
 }: DocSheetChromeProps) {
   const sheetClass = [
-    'bg-paper max-w-[780px] w-full px-18 py-16 font-display relative',
-    'max-[720px]:px-6 max-[720px]:py-12 max-[720px]:pb-16 max-[720px]:min-h-screen',
+    "bg-paper max-w-[780px] w-full px-18 py-16 font-display relative",
+    "max-[720px]:px-6 max-[720px]:py-12 max-[720px]:pb-16 max-[720px]:min-h-screen",
     standalone
-      ? 'my-15 mx-auto shadow-[0_20px_50px_rgba(0,0,0,0.12)] max-[720px]:my-0'
-      : 'shadow-[0_30px_80px_rgba(0,0,0,0.3)]',
-  ].join(' ')
+      ? "my-15 mx-auto shadow-[0_20px_50px_rgba(0,0,0,0.12)] max-[720px]:my-0"
+      : "shadow-[0_30px_80px_rgba(0,0,0,0.3)]",
+  ].join(" ");
 
   return (
     <article className={sheetClass}>
-      <header className="flex justify-between items-start pb-4.5 text-ink border-b-2 border-ink-soft mb-9 gap-4 flex-wrap">
+      <header className="mb-9 flex flex-wrap items-start justify-between gap-4 border-ink-soft border-b-2 pb-4.5 text-ink">
         <div>
-          <div className="font-mono text-[9px] uppercase tracking-[0.22em] text-ink-soft inline-block pr-6 ">
+          <div className="inline-block pr-6 font-mono text-[9px] text-ink-soft uppercase tracking-[0.22em]">
             manuel
-            <span className="text-accent font-semibold">.fyi</span>
+            <span className="font-semibold text-accent">.fyi</span>
           </div>
         </div>
-        <address className="font-mono text-[9px] uppercase tracking-[0.14em] leading-[1.8] text-[#555] text-right not-italic">
-          {contact.map((l, i) => (
-            <Fragment key={i}>
+        <address className="text-right font-mono text-[#555] text-[9px] uppercase not-italic leading-[1.8] tracking-[0.14em]">
+          {contact.map((l) => (
+            <Fragment key={l}>
               <span>{l}</span>
               <br />
             </Fragment>
@@ -45,24 +45,24 @@ export function DocSheetChrome({
       </header>
 
       <div className="mb-8">
-        <p className="font-display text-[46px] italic font-normal leading-[1.02] tracking-[-0.01em] m-0 mb-3 text-accent">
+        <p className="m-0 mb-3 font-display font-normal text-[46px] text-accent italic leading-[1.02] tracking-[-0.01em]">
           {title}
         </p>
 
-        <div className="font-display text-base text-[#555] italic">
+        <div className="font-display text-[#555] text-base italic">
           {subtitle}
         </div>
       </div>
 
       {children}
 
-      <div className="mt-15 pt-5 border-t border-[#d6cfc2] flex justify-between font-mono text-[9px] tracking-[0.14em] uppercase text-[#888]">
+      <div className="mt-15 flex justify-between border-[#d6cfc2] border-t pt-5 font-mono text-[#888] text-[9px] uppercase tracking-[0.14em]">
         <span>Manuel Dugué · mail@manuel.fyi</span>
       </div>
 
-      <div className="mt-10 px-5 py-3 flex justify-between items-center font-mono text-[10px] uppercase tracking-[0.14em] bg-white border border-[#d6cfc2] gap-3 flex-wrap">
+      <div className="mt-10 flex flex-wrap items-center justify-between gap-3 border border-[#d6cfc2] bg-white px-5 py-3 font-mono text-[10px] uppercase tracking-[0.14em]">
         {actions}
       </div>
     </article>
-  )
+  );
 }
