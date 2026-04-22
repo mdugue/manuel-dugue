@@ -1,260 +1,216 @@
 # Profil de compétences
 
-## À propos
+Ingénieur produit — je construis depuis 2008 des produits web orientés utilisateur, pensés pour cohabiter avec des agents. Ancré en React, Next.js et TypeScript ; à l'aise en UX, design d'information, architecture, AI engineering et formation.
+
+## Profil
 
 |                       |                                                                                                                                               |
 | --------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Titre**             | Diplôme d'informatique des médias (Dipl.-Medieninformatiker)                                                                                  |
+| **Titre**             | Dipl.-Medieninformatiker (Diplôme d'informatique des médias)                                                                                  |
 | **Né·e**              | 12.09.1981 à Berlin, Allemagne                                                                                                                |
 | **Nationalité**       | Allemande et française                                                                                                                        |
-| **Centres d'intérêt** | Sport, musique, photographie, typographie, architecture, cuisine                                                                              |
 | **Langues**           | Allemand (langue maternelle), Français (langue maternelle), Anglais (courant), Espagnol (courant), Portugais (notions), Néerlandais (notions) |
+| **Centres d'intérêt** | Sport, musique, photographie, typographie, architecture, cuisine                                                                              |
 
-## Centres d'intérêt & spécialités
+## Ce que je fais
 
-|                               |                                                                                      |
-| ----------------------------- | ------------------------------------------------------------------------------------ |
-| **Langages de programmation** | TypeScript & JavaScript, HTML, SVG, JSON, CSS, LESS, SASS, WebGL, XML, JSON, XSLT    |
-| **Frameworks**                | React, D3.js, Next.js, Three.js, Mapbox GL JS, Tailwind CSS, XState, Svelte, Node.js |
-| **Outils**                    | VS Code, JetBrains IntelliJ, Android Studio, Git, Webpack, Docker, ChatGPT           |
-| **Thèmes**                    | Expérience utilisateur, performance, SEO, eCommerce, visualisation d'information, …  |
+|                    |                                                                                                    |
+| ------------------ | -------------------------------------------------------------------------------------------------- |
+| **Agentic & IA**   | Fonctionnalités basées sur des LLM, agents sur mesure, évals, code pensé pour les agents, MCP & Agent Skills |
+| **Développement**  | Produits web orientés utilisateur, de la première esquisse à un logiciel livré et observable       |
+| **Architecture**   | Typesafety de bout en bout, vitesse d'itération, résilience, tests e2e, CI/CD                      |
+| **Visualisation**  | Design d'information pour jeux de données massifs, signaux, cartes et structures familiales        |
+| **Coaching**       | Formations, ateliers, revues de code, alignement entre ingénierie et métier                        |
 
-## Parcours
+## Stack actuelle
 
-### JoDDiD
+|                       |                                                                                             |
+| --------------------- | ------------------------------------------------------------------------------------------- |
+| **Agentic & IA**      | Vercel AI SDK, OpenRouter, Claude Code, Cursor, Agent Skills, MCP, agents sur mesure, SGLang |
+| **Langages**          | TypeScript, HTML, CSS, SQL, SVG, WebGL / GLSL                                               |
+| **Frameworks**        | Next.js, React, Tailwind, shadcn/ui, Playwright, XState, D3, Mapbox GL, DeckGL, Three.js    |
+| **Runtime & données** | Bun, Node.js, PostgreSQL, Drizzle ORM, GraphQL, SQLite Vector                               |
+| **Pratiques**         | UX, performance, accessibilité, SEO, eCommerce                                              |
+| **Outils**            | VS Code, Cursor, Git, Docker, Figma                                                         |
 
-**2022–2023**
+## Projets
 
-Exposition numérique « einfach gut gemacht – éducation politique en Saxe ».
-Concept, UX, formation & développement.
+### Fraunhofer Heinrich-Hertz-Institut — depuis 2025
 
-Technologies : Svelte, Contentful, GraphQL, Tailwind
+Catalogue pour composants 5G avec gestion du cycle de vie, autorisation fine et vues multi-facettes sur les entités. Les composants 5G ont une vie propre ; le catalogue les accompagne tout du long.
 
-[gut-gemacht.joddid.de](https://gut-gemacht.joddid.de)
+*Rôle :* Audit d'architecture, conception de la refonte, mise en œuvre.
 
-### Vime / Oxolo
+*Approche :* Typesafety de bout en bout, réduction de la complexité, vitesse d'itération ; la base de code est organisée pour un accès agent-first, de sorte que des agents de codage puissent contribuer sans cérémonie.
 
-**2022**
+*Stack :* Next.js, RSC, Drizzle ORM, PostgreSQL, Bun, Playwright, Claude Code, Cursor, Agent Skills.
 
-Conseil UX pour pages d'atterrissage, témoignages et widgets interactifs. Via Millemedia.
+### Barkhausen Institut — depuis 2024
 
-[oxolo.com](https://oxolo.com) · [millemedia.de](https://millemedia.de)
+Portail de gestion des déplacements professionnels pour un institut de recherche.
 
-### Arbre généalogique
+*Rôle :* Conseil, formation, développement de fonctionnalités.
 
-**2020–2021**
+*Approche :* Architectures résilientes, assurance qualité automatisée, réduction de la complexité.
 
-Arbres généalogiques pour deux autres grandes familles allemandes.
-Conception, développement, intégration & formation.
+*Stack :* Nuxt, Vue.js, TypeScript, Sentry, Playwright, Claude Code, Cursor.
 
-### Baselworld
+[barkhauseninstitut.org](https://www.barkhauseninstitut.org)
 
-**2021**
+### Arbres généalogiques — depuis 2020
 
-Frontend Lead pour l'intranet de Baselworld / Houruniverse.
-Développement, formation & conseil.
+Arbres généalogiques pour quatre grandes familles allemandes. Contexte historique et contemporain, prise en compte soignée de la complexité réelle des familles — constellations recomposées, prénoms modifiés ou retrouvés, membres qui apparaissent dans plusieurs branches, et les silences discrets que porte toute famille ancienne.
 
-[Mch Group](https://mch-group.com) · [Aperto](https://www.ibmix.de/)
+*Rôle :* Conception, design, architecture, développement, intégration, formation.
 
-### Estino GmbH
+*Stack :* React, GEDCOM, Figma, Lovable.
 
-**Depuis 2018**
+### Estino GmbH — depuis 2018
 
-Dashboard B2B pour le développement de produits numériques, la visualisation de signaux et la gestion de flotte.
-Conception, UX, formation & développement.
+Tableaux de bord B2B pour le développement de produits techniques : visualisation de signaux, gestion d'entités, conception d'agents. Signaux, machines, cartes — rendre lisible l'intérieur invisible du matériel.
 
-Technologies : Next.js, React, D3, Mapbox, DeckGL, GraphQL, Apollo, Puppeteer, Jest, Playwright, ES6, Node.js, Tailwind, shadcn/ui, Vercel AI SDK
+*Rôle :* Conception, UX, formation, développement.
+
+*Stack :* Next.js, D3, Mapbox, DeckGL, GraphQL, Apollo, Playwright, Bun, Tailwind, shadcn/ui, Vercel AI SDK, SGLang, SQLite Vector.
 
 [estino.de](https://estino.de)
 
-### Franz Haniel & Cie. GmbH, Duisburg
+### Fioscope — 2024
 
-**Depuis 2016**
+Prototype de tableau de bord pour des flux caméra en direct depuis l'intérieur de fours en fonctionnement, avec des métriques tirées des images comme l'avancement de la fusion. Un œil dans le feu — traduit en chiffres que l'opérateur peut lire.
 
-Refonte de la famille numérique existante pour plus de 2 000 membres. Exigences : interface inspirée de l'infovis, optimisation mobile, optimisation de la vitesse et des temps de chargement, mise en relation avec le contexte contemporain.
+*Rôle :* Conception, UX, développement du prototype.
 
-Technologies : React.js, Redux.js, WebGL, Node.js, Karma, Mocha, Webpack, Invision, Sketch.
+[fioscope.de](https://www.fioscope.de)
 
-### Comvel GmbH, Munich
+### Wildstyle Network, Dresde — 2016–2017, 2023
 
-**2016–2020**
+Conseil et mise en œuvre de stratégies QA et CI pour des applications web basées sur des microservices. Mise en place de processus et d'outils de mesure de la qualité logicielle, définition de standards et livraison de déploiements automatisés sur lesquels les équipes peuvent compter.
 
-Relance du portail de réservation Weg.de. Formation de l'équipe frontend à une architecture client à base de composants, conseil sur le transfert de technologies, implémentation exemplaire de composants individuels et revue de code.
+*Stack :* Docker, npm, AWS, TypeScript, Drone CI, Jira, Bitbucket, Three.js, WebGL, Next.js.
 
-Technologies : Next.js, React.js, Redux, Webpack, Jest, ES6, CSSNEXT, Node.js.
+### JoDDiD — 2022–2023
 
-Durée : 24+ mois
+Exposition numérique *« einfach gut gemacht — éducation politique en Saxe »*. De l'éducation politique qui survit au scroll.
 
-### Franz Haniel & Cie. GmbH, Duisburg
+*Rôle :* Conception, UX, formation, développement.
 
-**2018, 2020**
+*Stack :* Svelte, Contentful, GraphQL, Tailwind.
 
-Conception et développement d'une histoire familiale numérique couvrant 350 ans d'histoire familiale et d'entreprise. Sujets : pitches de concepts UX, alignement avec la gestion des actionnaires, tooling, déploiement, QA.
+[gut-gemacht.joddid.de](https://gut-gemacht.joddid.de)
 
-Technologies : React.js, Webpack, Figma, CSS-in-JS, Vercel.
+### Vime / Oxolo — 2022
 
-### Schacht One, Essen
+Conseil UX pour des pages d'atterrissage, des témoignages et des widgets interactifs. Via Millemedia.
 
-**2018**
+[oxolo.com](https://oxolo.com) · [millemedia.de](https://millemedia.de)
 
-Formation des équipes IT et gestion de projet au développement web moderne.
-Objectif : apprendre des techniques de prototypage, évaluer la faisabilité et l'effort de projets existants et à venir. Mise en pratique avec un tooling moderne.
+### Baselworld — 2021
 
-Thèmes : React.js, Node.js, frameworks UI, gestion de formulaires, QA
+Frontend Lead pour l'intranet de Baselworld / Houruniverse (aujourd'hui « Watches and Wonders »). Les montres mesurent le temps, un intranet mesure une entreprise — les deux reposent sur de minuscules rouages qui s'engrènent.
 
-### Wildstyle Network, Dresde
+*Rôle :* Développement, formation, conseil.
 
-**2016–2017, 2023**
-Conseil et mise en œuvre de stratégies QA et CI pour applications web basées sur des microservices. Exigences : mise en place de processus et d'outils de mesure de la qualité logicielle, définition de standards de qualité et garantie de déploiements automatisés de haute qualité.
+[mch-group.com](https://mch-group.com) · [ibmix.de](https://www.ibmix.de)
 
-Technologies : Docker, NPM, Amazon Web Services, TypeScript, Intern, Drone CI, Jira, Bitbucket, Three.js, WebGL, Next.js.
+### Comvel GmbH, Munich — 2016–2020
 
-### SAXOPRINT GmbH, Dresde
+Relance et évolution du portail de réservation Weg.de / lastminute.com. Les vacances devraient ressembler au voyage — même au moment de réserver.
 
-**2016**
+*Rôle :* Formation de l'équipe frontend à une architecture client à base de composants, conseil sur le transfert de technologies, implémentation de composants clés, revues de code.
 
-Développement d'un aperçu d'impression interactif pour le portail Saxoprint.de. Les données d'impression des clients sont présentées sur plus de 600 produits très variés (tentes pliantes, brochures enroulées, livres, emballages, …) avec lesquels on peut interagir selon leurs propriétés (rotation, feuilletage, allumage, …).
+*Stack :* Next.js, React, Redux, Webpack, Jest, ES6, CSSNEXT, Node.js.
 
-Technologies : React.js, Redux.js, ES6/7, CSSNEXT, Jasmine/Jest, Enzyme, Webpack, Node.js, Three.js, WebGL.
+### Franz Haniel & Cie. GmbH, Duisburg — 2018, 2020
 
-### Kti Multimedia GmbH, Hambourg
+Histoire familiale numérique couvrant 350 ans d'histoire familiale et d'entreprise.
 
-**2015–2016**
+*Rôle :* Concept UX et pitchs, alignement avec la direction des actionnaires, tooling, déploiement, QA.
 
-Direction technique de l'appel d'offres pour le portail de jeux de Bundesliga.de, incluant le canal HTML5 Games & Kidscorner. Intégration de Free2Play & jeux mobiles, réseaux sociaux, contenus football et VoD, suivi de mise en ligne et stratégies SEO.
-Client : KTI Multimedia GmbH Hambourg pour DFL/Bundesliga.de.
+*Stack :* React, Webpack, Figma, CSS-in-JS, Vercel.
 
-### HQ Plus GmbH, Berlin
+### Schacht One, Essen — 2018
 
-**2015–2016**
+Formation des équipes IT et gestion de projet au développement web moderne. Prototypage, évaluation de faisabilité et mise en pratique d'un tooling moderne.
 
-Maintenance et portage HTML5 du logiciel B2B hôtelier de HQ Plus.
+*Thèmes :* React, Node.js, frameworks UI, gestion de formulaires, QA.
 
-Technologies : React.js, Redux.js, Flash/Flex
+### Glashaus Till Garten GmbH, Medingen — 2015–2017
 
-### Millemedia GmbH, Hambourg
+Boutique en ligne dédiée à la culture du jardin : accessoires, mobilier, outillage. Transposer l'expérience d'achat du magasin physique vers son pendant e-commerce, élargir la gamme, accroître la visibilité.
 
-**2015–2016**
+*Rôle :* Conception, mise en œuvre technique, direction de design, coordination d'équipe (5 personnes), stratégie sur les réseaux sociaux.
 
-Accompagnement de la conversion de supports publicitaires en annonces HTML5 modernes. Création d'un kit d'animation, développement d'un pipeline de déploiement, optimisation pour des formats publicitaires spécifiques, optimisation des processus de création et formation de l'équipe au développement web moderne.
+*Stack :* Oxid eSales, Google Ads, HTML5, JavaScript.
 
-Technologies : CSS3, Gulp, Node.js, ES6
+[glashaus-gartenkultur.de](https://glashaus-gartenkultur.de)
 
-### Glashaus Till Garten GmbH, Medingen
+### SAXOPRINT GmbH, Dresde — 2016
 
-**2015–2017**
+Aperçu d'impression interactif pour le portail Saxoprint.de. Six cents produits très différents — tentes pliantes, brochures enroulées, livres, emballages — tous prévisualisés via un même modèle d'interaction.
 
-Boutique en ligne dédiée à la culture du jardin : accessoires, mobilier, outillage. Objectif : transposer l'expérience d'achat du magasin physique vers son pendant e-commerce, élargir la gamme et accroître la visibilité. Responsabilités : conception, mise en œuvre technique, direction de design, coordination d'équipe (5 personnes), stratégie sur les réseaux sociaux.
+*Stack :* React, Redux, ES6/7, CSSNEXT, Jest, Enzyme, Webpack, Node.js, Three.js, WebGL.
 
-Technologies : Oxid Esales, HTML5, JavaScript, LESS
+### Kti Multimedia GmbH, Hambourg — 2015–2016
 
-[glashaus-gartenkultur.de](glashaus-gartenkultur.de)
+Direction technique de l'appel d'offres pour le portail de jeux de Bundesliga.de, incluant le canal HTML5 Games et Kidscorner. Intégration de Free2Play et jeux mobiles, réseaux sociaux, contenus football et VoD, suivi de mise en ligne, stratégies SEO. Client : KTI Multimedia GmbH pour DFL / Bundesliga.de.
 
-### Exelonix GmbH, Dresde
+### HQ Plus GmbH, Berlin — 2015–2016
 
-**2013–2014**
+Maintenance et portage Flash-vers-HTML5 du logiciel B2B hôtelier de HQ Plus.
 
-Tablettes Android pour seniors. L'accent est mis sur la simplicité d'utilisation, la maintenance à distance par les proches et l'orientation des applications vers des thématiques pertinentes pour les seniors (santé, communication, sécurité, divertissement).
-Responsabilités : stratégie applicative, design UX et développement d'applications.
+*Stack :* React, Redux, Flash / Flex.
 
-Technologies : Java, Android, HTTP
+### Millemedia GmbH, Hambourg — 2015–2016
 
-### AVANGA Filmproduktion GmbH & Co. KG, Dresde
+Accompagnement de la conversion de supports publicitaires en annonces HTML5 modernes : kit d'animation, pipeline de déploiement, optimisation pour des formats publicitaires spécifiques, fluidification des processus de production, formation d'équipe.
 
-**2012–2013**
+*Stack :* CSS3, Gulp, Node.js, ES6.
 
-Film de présentation interactif pour de grandes entreprises technologiques allemandes, destiné aux salons et à la vente. L'application est conçue comme un film HD interactif haute résolution. Les informations sont encadrées par des boucles filmées ; chaque interaction conduit sans rupture dans un nouveau film.
+### Travaux antérieurs — 2008–2014
 
-### Sandstein Neue Medien, Dresde
-
-**2011–2013**
-
-Développement et conception détaillée de livres virtuels pour les bornes muséales du Militärhistorisches Museum Dresden. Exposition permanente et exposition temporaire à partir de novembre 2012. Exigence : représentation tridimensionnelle fidèle de livres historiques volumineux, intégration dans une architecture client-serveur, utilisation de l'accélération matérielle et interactions gestuelles. Livres virtuels : coordination du développement, des tests et de la maintenance, conception de l'architecture logicielle.
-
-Technologies : Adobe AIR, ActionScript, Greensock TweenLite, Away3D, Drupal, ORM, SQLite
-
-[mhmbw.de](https://mhmbw.de) [sandstein.de](https://sandstein.de)
-
-### T-Systems MMS, Dresde – Arbre généalogique
-
-**2009–2012, 2014**
-
-Responsabilité freelance du design, du périmètre fonctionnel, du développement client, de l'architecture client-serveur et de la gestion de projet. Thème : généalogie, arbre généalogique à grande échelle. Développé à l'origine en Flash, l'arbre a ensuite été porté en HTML5 et JavaScript avec des fonctionnalités étendues. Outre la représentation visuelle intuitive de structures familiales complexes comptant plusieurs milliers de membres, il intègre l'impression PDF, une intégration étroite avec le logiciel Jive, l'usage sur mobile et la recherche et le filtrage en temps réel.
-
-Technologies : HTML5, CoffeeScript / JavaScript, Spine MVC, Raphael.js, JSON, jQuery, Modernizr, React.js
-
-### Chaire Vodafone, TU Dresde
-
-**2008 & 2011**
-
-Gestion de projet, production et motion design pour des vidéos documentaires sur des projets de recherche. Grâce à ces vidéos, la chaire Vodafone a obtenu avec succès des financements européens.
-
-### T-Systems MMS, Dresde – Groupnet
-
-**2010**
-
-Direction du design pour la refonte d'un intranet basé sur SAP Netweaver. Élaboration du concept de design en concertation étroite avec le client et coordination de la mise en œuvre.
-
-Technologies : SAP Netweaver, RFC, CSS
-
-### Visualisation sémantique macro T-Systems MMS, Dresde
-
-**2009**
-
-Conception et développement d'une visualisation d'entreprise interactive. L'objectif était de présenter plus d'un millier de collaborateurs afin de détecter des synergies, répartis en plusieurs centaines de groupes de travail abordant des milliers de sujets.
-
-Technologies : Flash, ActionScript, Atlassian Confluence
-
-### Indépendant
-
-**Depuis 2008**
-
-Travaux sur commande dans le domaine web & mobile, de simples sites CMS à des applications web et Android natives complexes. Accent sur le développement client, l'UX et les interfaces utilisateur. Prestations de conception, de développement et de coordination.
-
-Technologies privilégiées : HTML5, CSS3 / CSSNEXT, ES6 / ES7
+- **T-Systems MMS, Dresde — 2009–2012, 2014.** Produit de généalogie : arbre familial à grande échelle, initialement en Flash, ensuite porté en HTML5 avec impression PDF, intégration Jive, support mobile, recherche et filtrage instantanés. *HTML5, CoffeeScript, Spine MVC, Raphael.js, jQuery, React.*
+- **Exelonix GmbH, Dresde — 2013–2014.** Tablettes Android pour seniors — simplicité d'utilisation, maintenance à distance par les proches, applications santé, communication, sécurité, divertissement. *Java, Android, HTTP.*
+- **AVANGA Filmproduktion, Dresde — 2012–2013.** Application de film HD interactif pour salons et force de vente : chaque interaction conduit sans rupture dans une nouvelle boucle filmée. [avanga.de](https://www.avanga.de)
+- **Sandstein Neue Medien, Dresde — 2011–2013.** Livres virtuels pour les bornes muséales du Militärhistorisches Museum Dresden : représentation tridimensionnelle de livres historiques, interaction gestuelle, accélération matérielle. *Adobe AIR, ActionScript, Away3D, GreenSock, Drupal, ORM, SQLite.* [mhmbw.de](https://mhmbw.de) · [sandstein.de](https://sandstein.de)
+- **Chaire Vodafone, TU Dresde — 2008, 2011.** Gestion de projet, production et motion design pour des vidéos documentaires sur des projets de recherche — un matériau qui a aidé la chaire à obtenir des financements européens.
+- **Groupnet, T-Systems MMS, Dresde — 2010.** Direction de design pour la refonte d'un intranet SAP Netweaver : concept, coordination client, passation à l'implémentation. *SAP Netweaver, RFC, CSS.* [telekom-mms.com](https://www.telekom-mms.com)
+- **Visualisation sémantique macro, T-Systems MMS, Dresde — 2009.** Visualisation interactive d'entreprise, plus de mille collaborateurs répartis en plusieurs centaines de groupes de travail et des milliers de sujets, pensée pour faire émerger les synergies. *Flash, ActionScript, Atlassian Confluence.*
 
 ## Formation
 
-### 2002–2011 Diplôme « Informatique des médias » – TU Dresde, Allemagne
+### 2002–2011 Diplôme « Informatique des médias » — Faculté d'informatique, TU Dresde
 
-« Représentation interactive en deux dimensions du temps vécu à partir des lieux visités »
-Note finale : 1 (équivalent approximatif : A)
-Mémoire sur tu-dresden.de
+*« Représentation interactive en deux dimensions du temps vécu à partir des lieux visités »*
 
-### 2009 Travail de recherche – TU Dresde, Allemagne
+Note finale : 1 (équivalent approximatif : A).
 
-« Matérialité et interaction », non noté
-Travail de recherche sur tu-dresden.de
+### 2009 Travail de recherche — Faculté d'informatique, TU Dresde
 
-### 2002–2009 Matière secondaire « Art & Design » – HfBK & TU Dresde, Allemagne
+*« Matérialité et interaction »*, non noté.
 
-« Approche de l'ornementique contemporaine par le film expérimental »
-Note finale : 1,3 (équivalent approximatif : A)
+### 2002–2009 Matière secondaire « Art & Design » — HfBK & TU Dresde, Allemagne
 
-### 2007–2008
+*« Approche de l'ornementique contemporaine par le film expérimental »*
 
-Stage – Cactus Film & Video, Mexique
-soutenu par une bourse Inwent / GIZ
+Note finale : 1,3 (équivalent approximatif : A).
 
-cactusfilm-mexico.com
+### 2007–2008 Stage — Cactus Film & Video, Mexique
 
-### 2001 Abitur
+Soutenu par une bourse InWEnt / GIZ.
 
-Pestalozzi Gymnasium à Unna, Allemagne
+[cactusfilm-mexico.com](https://www.cactusfilm-mexico.com)
 
-Matières renforcées : mathématiques et sciences sociales
+### 2001 Abitur — Pestalozzi Gymnasium, Unna, Allemagne
+
+Matières renforcées : mathématiques et sciences sociales.
 
 ## Distinctions
 
-### 2020
+### 2020 — Contributeur Arctic Code Vault
 
-Contributeur Arctic Code Vault
-archiveprogram.github.com
+[archiveprogram.github.com](https://archiveprogram.github.com)
 
-### 2008
+### 2008 — 2ᵉ place, concours photo « Go-Out Studying »
 
-2ᵉ place, concours photo « Go-Out Studying »
-
-### 2007
-
-1ᵉʳ prix, pitch logo à la chaire Microcomputer de la TU Dresde
+### 2007 — 1ᵉʳ prix, pitch logo à la chaire Microcomputer de la TU Dresde

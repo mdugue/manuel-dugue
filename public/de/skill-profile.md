@@ -1,260 +1,216 @@
 # Skill Profile
 
-## Über mich
+Product Engineer — baut seit 2008 nutzerzentrierte, agent-freundliche Web-Produkte. Tief in React, Next.js und TypeScript; breit aufgestellt in UX, Informationsdesign, Architektur, AI Engineering und Schulung.
+
+## Profil
 
 |                            |                                                                                                                                                                   |
 | -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Titel**                  | Diplom-Medieninformatiker                                                                                                                                         |
+| **Titel**                  | Dipl.-Medieninformatiker                                                                                                                                          |
 | **Geboren**                | 12.09.1981 in Berlin, Deutschland                                                                                                                                 |
 | **Staatsangehörigkeit**    | Deutsch & Französisch                                                                                                                                             |
-| **Persönliche Interessen** | Sport, Musik, Fotografie, Typografie, Architektur, Kochen                                                                                                         |
 | **Sprachkenntnisse**       | Deutsch (Muttersprache), Französisch (Muttersprache), Englisch (fließend), Spanisch (fließend), Portugiesisch (Grundkenntnisse), Niederländisch (Grundkenntnisse) |
+| **Persönliche Interessen** | Sport, Musik, Fotografie, Typografie, Architektur, Kochen                                                                                                         |
 
-## Interessen & Schwerpunkte
+## Was ich mache
 
-|                         |                                                                                      |
-| ----------------------- | ------------------------------------------------------------------------------------ |
-| **Programmiersprachen** | TypeScript & JavaScript, HTML, SVG, JSON, CSS, LESS, SASS, WebGL, XML, JSON, XSLT    |
-| **Frameworks**          | React, D3.js, Next.js, Three.js, Mapbox GL JS, Tailwind CSS, XState, Svelte, Node.js |
-| **Tools**               | VS Code, JetBrains IntelliJ, Android Studio, Git, Webpack, Docker, ChatGPT           |
-| **Themen**              | User Experience, Performance, SEO, eCommerce, Informationsvisualisierung, …          |
+|                  |                                                                                                 |
+| ---------------- | ----------------------------------------------------------------------------------------------- |
+| **Agentic & KI** | LLM-basierte Features, eigene Agenten, Evals, agent-freundliche Codebasen, MCP & Agent Skills   |
+| **Entwicklung**  | Nutzerzentrierte Web-Produkte von der ersten Skizze bis zur ausgelieferten, beobachtbaren App   |
+| **Architektur**  | Durchgängige Typsicherheit, Iterationsgeschwindigkeit, Resilienz, End-to-End-Tests, CI/CD       |
+| **Visualisierung** | Informationsdesign für große Datenmengen, Signale, Geografien und Familienstrukturen          |
+| **Coaching**     | Schulungen, Workshops, Code Reviews, Stakeholder-Abstimmung zwischen Engineering und Business   |
 
-## Karriere
+## Aktueller Stack
 
-### JoDDiD
+|                        |                                                                                             |
+| ---------------------- | ------------------------------------------------------------------------------------------- |
+| **Agentic & KI**       | Vercel AI SDK, OpenRouter, Claude Code, Cursor, Agent Skills, MCP, eigene Agenten, SGLang   |
+| **Sprachen**           | TypeScript, HTML, CSS, SQL, SVG, WebGL / GLSL                                               |
+| **Frameworks**         | Next.js, React, Tailwind, shadcn/ui, Playwright, XState, D3, Mapbox GL, DeckGL, Three.js    |
+| **Runtime & Daten**    | Bun, Node.js, PostgreSQL, Drizzle ORM, GraphQL, SQLite Vector                               |
+| **Schwerpunkte**       | UX, Performance, Barrierefreiheit, SEO, eCommerce                                           |
+| **Tools**              | VS Code, Cursor, Git, Docker, Figma                                                         |
 
-**2022–2023**
+## Projekte
 
-Digitale Ausstellung "einfach gut gemacht – politische Bildung in Sachsen".
-Konzept, UX, Schulung & Entwicklung.
+### Fraunhofer Heinrich-Hertz-Institut — seit 2025
 
-Technologien: Svelte, Contentful, GraphQL, Tailwind
+Katalog für 5G-Komponenten mit Lebenszyklus-Management, feingranularer Autorisierung und facettenreichen Entitätsansichten. 5G-Komponenten haben ihr eigenes Leben — der Katalog begleitet sie dabei.
+
+*Rolle:* Architektur-Audit, Rewrite-Design, praktische Umsetzung.
+
+*Ansatz:* Durchgängige Typsicherheit, Komplexitätsreduktion, Iterationsgeschwindigkeit; die Codebasis ist auf Agent-First-Zugriff ausgelegt, sodass Coding-Agenten ohne großen Aufwand mitarbeiten können.
+
+*Stack:* Next.js, RSC, Drizzle ORM, PostgreSQL, Bun, Playwright, Claude Code, Cursor, Agent Skills.
+
+### Barkhausen Institut — seit 2024
+
+Portal für Dienstreisen-Management eines Forschungsinstituts.
+
+*Rolle:* Beratung, Schulung, Feature-Entwicklung.
+
+*Ansatz:* Resiliente Architekturen, automatisierte Qualitätssicherung, Komplexitätsreduktion.
+
+*Stack:* Nuxt, Vue.js, TypeScript, Sentry, Playwright, Claude Code, Cursor.
+
+[barkhauseninstitut.org](https://www.barkhauseninstitut.org)
+
+### Stammbäume — seit 2020
+
+Stammbäume für vier große deutsche Familien. Historischer und gegenwärtiger Kontext, sorgsamer Umgang mit der Komplexität realer Familien — Patchwork-Konstellationen, geänderte und zurückgeforderte Namen, Verwandte, die in mehr als einem Zweig auftauchen, und die leisen Kanten, die jede alte Familie mit sich trägt.
+
+*Rolle:* Konzeption, Design, Architektur, Entwicklung, Integration, Schulung.
+
+*Stack:* React, GEDCOM, Figma, Lovable.
+
+### Estino GmbH — seit 2018
+
+B2B-Dashboards für die Entwicklung technischer Produkte: Signalvisualisierung, Entity-Management, Agenten-Design. Signale, Maschinen, Karten — das unsichtbare Innere von Hardware lesbar machen.
+
+*Rolle:* Konzeption, UX, Schulung, Entwicklung.
+
+*Stack:* Next.js, D3, Mapbox, DeckGL, GraphQL, Apollo, Playwright, Bun, Tailwind, shadcn/ui, Vercel AI SDK, SGLang, SQLite Vector.
+
+[estino.de](https://estino.de)
+
+### Fioscope — 2024
+
+Dashboard-Prototyp für Live-Kamera-Streams aus laufenden Öfen, zusammen mit bildbasierten Metriken wie dem Schmelzfortschritt. Ein Blick ins Feuer — übersetzt in Zahlen, mit denen die Bedienung arbeiten kann.
+
+*Rolle:* Konzeption, UX, Prototyp-Entwicklung.
+
+[fioscope.de](https://www.fioscope.de)
+
+### Wildstyle Network, Dresden — 2016–2017, 2023
+
+Beratung und Umsetzung von QA- und CI-Strategien für microservice-basierte Webanwendungen. Prozesse und Werkzeuge zur Messung der Softwarequalität etabliert, Qualitätsstandards definiert und automatisierte Deployments geliefert, auf die sich Teams verlassen können.
+
+*Stack:* Docker, npm, AWS, TypeScript, Drone CI, Jira, Bitbucket, Three.js, WebGL, Next.js.
+
+### JoDDiD — 2022–2023
+
+Digitale Ausstellung *"einfach gut gemacht — politische Bildung in Sachsen"*. Politische Bildung, die das Vorbeiscrollen überlebt.
+
+*Rolle:* Konzeption, UX, Schulung, Entwicklung.
+
+*Stack:* Svelte, Contentful, GraphQL, Tailwind.
 
 [gut-gemacht.joddid.de](https://gut-gemacht.joddid.de)
 
-### Vime / Oxolo
-
-**2022**
+### Vime / Oxolo — 2022
 
 UX-Beratung für Landing Pages, Testimonials und interaktive Widgets. Über Millemedia.
 
 [oxolo.com](https://oxolo.com) · [millemedia.de](https://millemedia.de)
 
-### Stammbaum
+### Baselworld — 2021
 
-**2020–2021**
+Frontend-Lead für das Intranet von Baselworld / Houruniverse (heute "Watches and Wonders"). Uhren messen Zeit; ein Intranet misst ein Unternehmen — beide sind auf ineinandergreifende kleine Zahnräder angewiesen.
 
-Stammbäume für zwei weitere große deutsche Familien.
-Konzeption, Entwicklung, Integration & Schulung.
+*Rolle:* Entwicklung, Schulung, Beratung.
 
-### Baselworld
+[mch-group.com](https://mch-group.com) · [ibmix.de](https://www.ibmix.de)
 
-**2021**
+### Comvel GmbH, München — 2016–2020
 
-Frontend-Lead für das Intranet von Baselworld / Houruniverse.
-Entwicklung, Schulung & Beratung.
+Relaunch und Weiterentwicklung des Buchungsportals Weg.de / lastminute.com. Urlaub sollte sich wie die Reise anfühlen — auch schon im Buchungsprozess.
 
-[Mch Group](https://mch-group.com) · [Aperto](https://www.ibmix.de/)
+*Rolle:* Schulung des Frontend-Teams in komponentenbasierter Client-Architektur, Beratung zum Technologietransfer, Umsetzung von Kernkomponenten, Code Reviews.
 
-### Estino GmbH
+*Stack:* Next.js, React, Redux, Webpack, Jest, ES6, CSSNEXT, Node.js.
 
-**Seit 2018**
+### Franz Haniel & Cie. GmbH, Duisburg — 2018, 2020
 
-B2B-Dashboard für digitale Produktentwicklung, Signalvisualisierung und Flottenmanagement.
-Konzeption, UX, Schulung & Entwicklung.
+Digitale Familiengeschichte über 350 Jahre Familien- und Firmengeschichte.
 
-Technologien: Next.js, React, D3, Mapbox, DeckGL, Graphql, Apollo, Puppeteer, Jest, Playwright, ES6, Nodejs, Tailwind, shadcn/ui, Vercel AI SDK
+*Rolle:* UX-Konzept und Pitches, Abstimmung mit dem Aktionärsmanagement, Tooling, Deployment, QA.
 
-[estino.de](https://estino.de)
+*Stack:* React, Webpack, Figma, CSS-in-JS, Vercel.
 
-### Franz Haniel & Cie. GmbH, Duisburg
+### Schacht One, Essen — 2018
 
-**Seit 2016**
+Schulung von IT- und Projektmanagement-Mitarbeitern in moderner Webentwicklung. Prototyping, Machbarkeitsbewertung und hands-on Anwendung moderner Tools.
 
-Neugestaltung der bestehenden digitalen Familie für> 2.000 Familienmitglieder. Anforderungen: Infovis-inspirierte Benutzeroberfläche, Optimierung von Mobile-UT, Optimierung von Geschwindigkeit und Ladezeiten, Verknüpfung mit dem zeitgenössischen Kontext.
+*Themen:* React, Node.js, UI-Frameworks, Formularhandling, QA.
 
-Technologien: Reactjs, Reduxjs, WebGL, Nodejs, Karma, Mocha, Webpack, Invision, Sketch.
+### Glashaus Till Garten GmbH, Medingen — 2015–2017
 
-### Comvel GmbH, München
+Online-Shop für Gartenkultur: Zubehör, Möbel, Gartengeräte. Das Einkaufserlebnis des physischen Ladens in den E-Commerce übertragen, das Sortiment erweitern, die Sichtbarkeit steigern.
 
-**2016 – 2020**
+*Rolle:* Konzept, technische Umsetzung, Design-Lead, Teamkoordination (5 Personen), Social-Media-Strategie.
 
-Relaunch des Buchungsportals Weg.de. Schulung des Frontend-Teams in komponentenbasierter Client-Architektur, Beratung zum Technologietransfer, exemplarische Umsetzung einzelner Komponenten und Code-Review.
+*Stack:* Oxid eSales, Google Ads, HTML5, JavaScript.
 
-Technologien: NextJs, Reactjs, Redux, Webpack, Jest, ES6, CSSNEXT, NODEJS.
+[glashaus-gartenkultur.de](https://glashaus-gartenkultur.de)
 
-Dauer: +24 Monate
+### SAXOPRINT GmbH, Dresden — 2016
 
-### Franz Haniel & Cie. GmbH, Duisburg
+Interaktive Druckvorschau für das Druckportal Saxoprint.de. Sechshundert sehr unterschiedliche Produkte — Faltzelte, Wickelbroschüren, Bücher, Verpackungen — alle in einem einheitlichen Interaktionsmodell.
 
-**2018, 2020**
+*Stack:* React, Redux, ES6/7, CSSNEXT, Jest, Enzyme, Webpack, Node.js, Three.js, WebGL.
 
-Konzeption & Entwicklung einer digitalen Familiengeschichte über 350 Jahre Familien- und Firmengeschichte. Themen: Pitches von UX-Konzepten, Abstimmung mit dem Aktionärsmanagement, Tooling, Deployment, QA.
+### Kti Multimedia GmbH, Hamburg — 2015–2016
 
-Technologien: Reactjs, Webpack, Figma, Cssinjs, Vercel.
+Technische Leitung bei der Angebotserstellung für das Spiele-Portal von Bundesliga.de, einschließlich HTML5-Games-Channel und Kidscorner. Integration von Free2Play- und Mobile-Games, Social Media, Fußball- und VoD-Inhalten, Go-Live-Tracking, SEO-Strategien. Auftraggeber: KTI Multimedia GmbH für DFL / Bundesliga.de.
 
-### Schacht One, Essen
+### HQ Plus GmbH, Berlin — 2015–2016
 
-**2018**
+Wartung und Flash-zu-HTML5-Portierung der Hotellerie-B2B-Software von HQ Plus.
 
-Schulung von Mitarbeitern aus IT und Projektmanagement in moderner Webentwicklung.
-Ziel: Erlernen von Techniken für Prototyping, Einschätzung von Machbarkeit und Aufwand bestehender und kommender Projekte. Praktische Anwendung mit modernem Tooling.
+*Stack:* React, Redux, Flash / Flex.
 
-Themen: Reactjs, Nodejs, UI-Frameworks, Formularhandling, QA
+### Millemedia GmbH, Hamburg — 2015–2016
 
-### Wildstyle Network, Dresden
+Begleitung der Umstellung von Werbemitteln auf moderne HTML5-Anzeigen: Animation-Kit, Deployment-Pipeline, Optimierung für spezifische Ad-Größenvorgaben, Verschlankung der Produktionsprozesse, Team-Schulungen.
 
-**2016 – 2017, 2023**
-Beratung und Implementierung von QA- und CI-Strategien für mikrodienstbasierte Webanwendungen. Anforderungen: Prozesse und Werkzeuge zur Messung der Softwarequalität einrichten, Qualitätsstandards definieren und hochwertige automatisierte Bereitstellungen sicherstellen.
+*Stack:* CSS3, Gulp, Node.js, ES6.
 
-Technologien: Docker, NPM, Amazon Web Services, Typescript, Intern, Drone CI, Jira, Bitbucket, Threejs, WebGL, Next.js.
+### Frühere Arbeiten — 2008–2014
 
-### SAXOPRINT GmbH, Dresden
-
-**2016**
-
-Entwicklung einer interaktiven Druckvorschau für das Druckportal Saxoprint.de. Die Druckdaten der Kunden werden auf über 600 sehr unterschiedlichen Produkten (Faltzelte, Wickelbroschüren, Bücher, Verpackungen, ...) angezeigt, mit denen interaktiv gemäß ihren Eigenschaften (Drehen, Blättern, Anschalten, ...) interagiert werden kann.
-
-Technologien: Reactjs, Reduxjs, ES6/7, CSSNEXT, JASMINE/JEST, Enzyme, Webpack, Nodejs, Threejs, WebGL.
-
-### Kti Multimedia GmbH, Hamburg
-
-**2015 – 2016**
-
-Technische Leitung bei der Angebotserstellung für das Spiele-Portal von Bundesliga.de, einschließlich HTML5 Games-Channel & Kidscorner. Einbindung von Free2Play & Mobile Games, sozialen Medien, Fußball- und VoD-Inhalten, Golive-Tracking und SEO-Strategien.
-Auftraggeber KTI Multimedia GmbH Hamburg für DFL/Bundesliga.de.
-
-### HQ Plus GmbH, Berlin
-
-**2015 – 2016**
-
-Wartung und HTML5-Portierung der Hotellerie B2B-Software von HQ Plus.
-
-Technologien: Reactjs, Reduxjs, Flash/Flex
-
-### Millemedia GmbH, Hamburg
-
-**2015 – 2016**
-
-Unterstützung bei der Umwandlung von Werbemitteln in moderne HTML5-Anzeigen. Erstellung eines Animation-Kits, Entwicklung einer Deployment-Pipeline, Optimierung für spezifische AD-Größenvorgaben, Optimierung der Erstellungsprozesse und Schulung des Teams in moderner Webentwicklung.
-
-Technologien: CSS3, Gulp, Nodejs, ES6
-
-### Glashaus Till Garten GmbH, Medingen
-
-**2015 – 2017**
-
-Online-Shop für Gartenkultur: Zubehör, Möbel, Gartengeräte. Ziel: Transport des Einkaufserlebnisses des physischen Geschäfts in den E-Commerce-Pendant, Erweiterung des Sortiments und Steigerung der Sichtbarkeit. Verantwortungsbereich: Konzeption, technische Umsetzung, Designführung, Teamkoordination (5 Personen), Social Media Strategie.
-
-Technologien: Oxid Esales, HTML5, JavaScript, Less
-
-[glashaus-gartenkultur.de](glashaus-gartenkultur.de)
-
-### Exelonix GmbH, Dresden
-
-**2013 – 2014**
-
-Android-Tablets für Senioren. Im Fokus steht die Einfachheit der Bedienung, Fernwartung durch Verwandte und die Ausrichtung der Apps auf seniorenrelevante Themen (Gesundheit, Kommunikation, Sicherheit, Unterhaltung).
-Verantwortungsbereich: App-Strategie, UX-Design und App-Entwicklung.
-
-Technologien: Java, Android, http
-
-### AVANGA Filmproduktion GmbH & Co. KG, Dresden
-
-**2012 – 2013**
-
-Interaktiver Präsentationsfilm für führende deutsche Technologieunternehmen zur Verwendung auf Messen und im Vertrieb. Die App ist als hochauflösender interaktiver HD-Film konzipiert. Die Informationen sind von gerenderten Filmloops umschlossen, jede Interaktion führt nahtlos in einen neuen Film.
-
-### Sandstein Neue Medien, Dresden
-
-**2011 – 2013**
-
-Entwicklung und Feinkonzept von virtuellen Büchern für die Museumsterminals des Militärhistorischen Museums Dresden. Dauerausstellung und Wechselausstellung ab November 2012. Anforderung: eine originale dreidimensionale Darstellung umfangreicher historischer Bücher, Einbettung in eine Client-Server-Architektur, Nutzung von Hardwarebeschleunigung und gestenbasierter Interaktion.Virtuelle Bücher: Koordination der Entwicklung, Tests und Pflege, Entwurf der Softwarearchitektur.
-
-Technologien: Adobe Air, ActionScript, Greensock Tweenlite, Away3d, Drupal, Orm, SQLite
-
-[mhmbw.de](https://mhmbw.de) [sandstein.de](https://sandstein.de)
-
-### T-Systems MMS, Dresden – Stammbaum
-
-**2009 – 2012, 2014**
-
-Freiberuflich verantwortlich für das Design, den Funktionsumfang, die Client-Entwicklung, die Client-Server-Architektur und das Projektmanagement. Themenbereich: Genealogie, umfangreicher Stammbaum. Ursprünglich als Flash-Anwendung entwickelt, wurde der Stammbaum später mit erweitertem Funktionsumfang nach HTML5 und JavaScript portiert. Neben der intuitiven visuellen Darstellung komplexer Familienstrukturen mit mehreren tausend Mitgliedern sind PDF-Druckfunktion, enge Integration mit der umgebenden Jive-Software, Nutzung auf mobilen Geräten und Instant-Suche und Filterfunktionen die Funktionen des Stammbaums.
-
-Technologien: HTML5, CoffeeScript / JavaScript, Spine MVC, Raphael.js, JSON, JQUERY, MODENIZR, React.Js
-
-### Vodafone Stiftungslehrstuhl, TU Dresden
-
-**2008 & 2011**
-
-Projektmanagement, Produktion und Motion Design von Dokumentationsvideos zu Forschungsprojekten. Mit Hilfe der Videos erwarb der Vodafone-Stiftungslehrstuhl erfolgreich EU-Fördergelder.
-
-### T-Systems MMS, Dresden – Groupnet
-
-**2010**
-
-Designführung bei der Neugestaltung eines Intranets auf Basis von SAP Netweaver. Erstellung des Designkonzepts in enger Kundenabstimmung und Koordination der Umsetzung.
-
-Technologien: SAP Netweaver, RFC, CSS
-
-### Makro Semantische Visualisierung T-Systems MMS, Dresden
-
-**2009**
-
-Konzeption und Entwicklung von interaktiver Unternehmensvisualisierung. Ziel war es, über tausend Mitarbeiter für Synergieerkennung darzustellen, die sich in mehreren hundert Arbeitsgruppen tausenden von Themen widmen.
-
-Technologien: Flash, ActionScript, Atlassian Confluence
-
-### Selbständigkeit
-
-**Seit 2008**
-
-Auftragsarbeit im Bereich Web & Mobile, von einfachen CMS-Seiten bis hin zu komplexen Web & nativen Android-Apps. Schwerpunkt auf Client-Entwicklung, UX & Benutzeroberflächen. Konzeptions-, Entwicklungs- und Koordinationsdienstleistungen.
-
-Bevorzugte Technologien: HTML5, CSS3 / CSSNEXT, ES6 / ES7
+- **T-Systems MMS, Dresden — 2009–2012, 2014.** Genealogie-Produkt: großer Stammbaum, ursprünglich in Flash, später HTML5-Portierung mit PDF-Druck, Jive-Integration, Mobile-Unterstützung, Instant-Suche und Filterung. *HTML5, CoffeeScript, Spine MVC, Raphael.js, jQuery, React.*
+- **Exelonix GmbH, Dresden — 2013–2014.** Android-Tablets für Seniorinnen und Senioren — Einfachheit der Bedienung, Fernwartung durch Angehörige, Apps für Gesundheit, Kommunikation, Sicherheit, Unterhaltung. *Java, Android, HTTP.*
+- **AVANGA Filmproduktion, Dresden — 2012–2013.** Interaktive HD-Film-App für Messeauftritte und Vertrieb: jede Interaktion geht nahtlos in eine neue Filmsequenz über. [avanga.de](https://www.avanga.de)
+- **Sandstein Neue Medien, Dresden — 2011–2013.** Virtuelle Bücher für die Museumsterminals des Militärhistorischen Museums Dresden: dreidimensionale Darstellung historischer Bücher, gestenbasierte Interaktion, Hardwarebeschleunigung. *Adobe AIR, ActionScript, Away3D, GreenSock, Drupal, ORM, SQLite.* [mhmbw.de](https://mhmbw.de) · [sandstein.de](https://sandstein.de)
+- **Vodafone-Stiftungslehrstuhl, TU Dresden — 2008, 2011.** Projektmanagement, Produktion und Motion Design für Dokumentationsvideos zu Forschungsprojekten — Material, das dem Lehrstuhl half, EU-Fördergelder einzuwerben.
+- **Groupnet, T-Systems MMS, Dresden — 2010.** Design-Lead bei der Neugestaltung eines SAP-Netweaver-Intranets: Konzept, Kundenabstimmung, Umsetzungsübergabe. *SAP Netweaver, RFC, CSS.* [telekom-mms.com](https://www.telekom-mms.com)
+- **Makro-semantische Visualisierung, T-Systems MMS, Dresden — 2009.** Interaktive Unternehmensvisualisierung von über tausend Mitarbeitenden in mehreren hundert Arbeitsgruppen und tausenden Themen, um Synergien sichtbar zu machen. *Flash, ActionScript, Atlassian Confluence.*
 
 ## Ausbildung
 
-### 2002 – 2011 Diplom "Medieninformatik" – TU Dresden, Deutschland
+### 2002–2011 Diplom "Medieninformatik" — Fakultät Informatik, TU Dresden
 
-"interaktive zweidimensionale Darstellung von Erlebniszeit basierend auf besuchten Orten"
-Endnote: 1 (ungefähres Äquivalent: A)
-Diplomarbeit bei tu-dresden.de
+*"Interaktive zweidimensionale Darstellung von Erlebniszeit basierend auf besuchten Orten"*
 
-### 2009 Forschungsarbeit – TU Dresden, Deutschland
+Endnote: 1 (ungefähres Äquivalent: A).
 
-"Materialität und Interaktion", nicht bewertet
-Forschungsarbeit bei tu-dresden.de
+### 2009 Forschungsarbeit — Fakultät Informatik, TU Dresden
 
-### 2002 – 2009 Nebenfach "Kunst & Gestaltung" – HfBK & TU Dresden, Deutschland
+*"Materialität und Interaktion"*, nicht bewertet.
 
-"Annäherung an zeitgenössische Ornamentik mit dem experimentellen Film"
-Endnote: 1.3 (ungefähres Äquivalent: A)
+### 2002–2009 Nebenfach "Kunst & Gestaltung" — HfBK & TU Dresden, Deutschland
 
-### 2007 – 2008
+*"Annäherung an zeitgenössische Ornamentik mit dem experimentellen Film"*
 
-Praktikum – Cactus Film & Video, Mexiko
-unterstützt durch ein Inwent / GIZ Stipendium
+Endnote: 1,3 (ungefähres Äquivalent: A).
 
-cactusfilm-mexico.com
+### 2007–2008 Praktikum — Cactus Film & Video, Mexiko
 
-### 2001 Abitur
+Unterstützt durch ein InWEnt / GIZ-Stipendium.
 
-Pestalozzi Gymnasium in Unna, Deutschland
+[cactusfilm-mexico.com](https://www.cactusfilm-mexico.com)
 
-Leistungskurse in Mathematik und Sozialwissenschaften
+### 2001 Abitur — Pestalozzi-Gymnasium, Unna, Deutschland
+
+Leistungskurse in Mathematik und Sozialwissenschaften.
 
 ## Auszeichnungen
 
-### 2020
+### 2020 — Arctic Code Vault Contributor
 
-Arctic Code Vault Beitragender
-archiveprogram.github.com
+[archiveprogram.github.com](https://archiveprogram.github.com)
 
-### 2008
+### 2008 — 2. Platz, Fotowettbewerb "Go-Out Studieren"
 
-2\. Platz Fotowettbewerb "Go-Out Studieren"
-
-### 2007
-
-1\. Preis Logo-Pitch am Lehrstuhl Mikrocomputer der TU Dresden
+### 2007 — 1. Preis, Logo-Pitch am Lehrstuhl Mikrocomputer der TU Dresden
