@@ -1,6 +1,8 @@
 # Skill Profile
 
-Product Engineer — baut seit 2008 nutzerzentrierte, agent-freundliche Web-Produkte. Tief in React, Next.js und TypeScript; breit aufgestellt in UX, Informationsdesign, Architektur, AI Engineering und Schulung.
+Seit 2008 arbeite ich an nutzerzentrierten Software-Produkten. Tief in Web-Tech; breit in UX, Informationsarchitektur, Agentic-AI-Engineering und Coaching.
+
+Coaching zu Themen wie resiliente End-to-End-Stacks, automatisierte Qualitätssicherung und KI-native Arbeitsabläufe. Integration von LLM-Features und eigenen Agenten in Produktteams mit MCP, Agent Skills, AI-SDKs u. a. Am liebsten an der Schnittstelle zwischen konzeptioneller Strategie und praktischer Umsetzung.
 
 ## Profil
 
@@ -16,20 +18,20 @@ Product Engineer — baut seit 2008 nutzerzentrierte, agent-freundliche Web-Prod
 
 |                  |                                                                                                 |
 | ---------------- | ----------------------------------------------------------------------------------------------- |
-| **Agentic & KI** | LLM-basierte Features, eigene Agenten, Evals, agent-freundliche Codebasen, MCP & Agent Skills   |
+| **Agentic & KI** | Eigene Agenten, MCP, Agent Skills, AI-SDKs, Claude Code, Cursor, OpenRouter, SGLang   |
 | **Entwicklung**  | Nutzerzentrierte Web-Produkte von der ersten Skizze bis zur ausgelieferten, beobachtbaren App   |
-| **Architektur**  | Durchgängige Typsicherheit, Iterationsgeschwindigkeit, Resilienz, End-to-End-Tests, CI/CD       |
-| **Visualisierung** | Informationsdesign für große Datenmengen, Signale, Geografien und Familienstrukturen          |
+| **Architektur**  | End-to-End-Typsicherheit, agent-first-Codestacks, End-to-End-Tests, CI/CD, TypeScript, Next.js, Tailwind, Drizzle ORM       |
+| **Visualisierung** | Informationsdesign für dynamische, komplexe und geografische Daten, D3, Mapbox, DeckGL, Three.js, WebGL          |
 | **Coaching**     | Schulungen, Workshops, Code Reviews, Stakeholder-Abstimmung zwischen Engineering und Business   |
 
 ## Aktueller Stack
 
 |                        |                                                                                             |
 | ---------------------- | ------------------------------------------------------------------------------------------- |
-| **Agentic & KI**       | Vercel AI SDK, OpenRouter, Claude Code, Cursor, Agent Skills, MCP, eigene Agenten, SGLang   |
+| **Agentic & KI**       | AI-SDKs, OpenRouter, Claude Code, Cursor, Agent Skills, MCP, eigene Agenten, SGLang   |
 | **Sprachen**           | TypeScript, HTML, CSS, SQL, SVG, WebGL / GLSL                                               |
 | **Frameworks**         | Next.js, React, Tailwind, shadcn/ui, Playwright, XState, D3, Mapbox GL, DeckGL, Three.js    |
-| **Runtime & Daten**    | Bun, Node.js, PostgreSQL, Drizzle ORM, GraphQL, SQLite Vector                               |
+| **Runtime & Daten**    | Bun, Node.js, PostgreSQL, Drizzle ORM, GraphQL, Vektordatenbanken                               |
 | **Schwerpunkte**       | UX, Performance, Barrierefreiheit, SEO, eCommerce                                           |
 | **Tools**              | VS Code, Cursor, Git, Docker, Figma                                                         |
 
@@ -39,7 +41,7 @@ Product Engineer — baut seit 2008 nutzerzentrierte, agent-freundliche Web-Prod
 
 Katalog für 5G-Komponenten mit Lebenszyklus-Management, feingranularer Autorisierung und facettenreichen Entitätsansichten. 5G-Komponenten haben ihr eigenes Leben — der Katalog begleitet sie dabei.
 
-*Rolle:* Architektur-Audit, Rewrite-Design, praktische Umsetzung.
+*Rolle:* Architektur-Audit, Rewrite-Design, praktische Umsetzung; Beratung von drei Entwicklern, drei Designern und zwei Führungskräften zu Architektur, Delivery und Stakeholder-Abstimmung.
 
 *Ansatz:* Durchgängige Typsicherheit, Komplexitätsreduktion, Iterationsgeschwindigkeit; die Codebasis ist auf Agent-First-Zugriff ausgelegt, sodass Coding-Agenten ohne großen Aufwand mitarbeiten können.
 
@@ -59,7 +61,7 @@ Portal für Dienstreisen-Management eines Forschungsinstituts.
 
 ### Stammbäume — seit 2020
 
-Stammbäume für vier große deutsche Familien. Historischer und gegenwärtiger Kontext, sorgsamer Umgang mit der Komplexität realer Familien — Patchwork-Konstellationen, geänderte und zurückgeforderte Namen, Verwandte, die in mehr als einem Zweig auftauchen, und die leisen Kanten, die jede alte Familie mit sich trägt.
+Stammbäume für vier große deutsche Familien. Sorgfältige und diskrete Abbildung menschlicher und gesellschaftlicher Komplexität — Patchwork-Konstellationen, geänderte und zurückgeforderte Namen, Verwandte, die in mehr als einem Zweig auftauchen, und die leisen Kanten, die jede alte Familie mit sich trägt.
 
 *Rolle:* Konzeption, Design, Architektur, Entwicklung, Integration, Schulung.
 
@@ -67,11 +69,11 @@ Stammbäume für vier große deutsche Familien. Historischer und gegenwärtiger 
 
 ### Estino GmbH — seit 2018
 
-B2B-Dashboards für die Entwicklung technischer Produkte: Signalvisualisierung, Entity-Management, Agenten-Design. Signale, Maschinen, Karten — das unsichtbare Innere von Hardware lesbar machen.
+B2B-Dashboards für die Produktentwicklung von Nutzfahrzeugen: Signalvisualisierung, Entity-Management, Agenten-Design. Signale, Maschinen, Karten — das unsichtbare Innere von Hardware lesbar machen.
 
 *Rolle:* Konzeption, UX, Schulung, Entwicklung.
 
-*Stack:* Next.js, D3, Mapbox, DeckGL, GraphQL, Apollo, Playwright, Bun, Tailwind, shadcn/ui, Vercel AI SDK, SGLang, SQLite Vector.
+*Stack:* Next.js, D3, Mapbox, DeckGL, GraphQL, Apollo, Playwright, Bun, Tailwind, shadcn/ui, Vercel AI SDK, SGLang, Vektordatenbanken.
 
 [estino.de](https://estino.de)
 
@@ -117,7 +119,7 @@ Frontend-Lead für das Intranet von Baselworld / Houruniverse (heute "Watches an
 
 Relaunch und Weiterentwicklung des Buchungsportals Weg.de / lastminute.com. Urlaub sollte sich wie die Reise anfühlen — auch schon im Buchungsprozess.
 
-*Rolle:* Schulung des Frontend-Teams in komponentenbasierter Client-Architektur, Beratung zum Technologietransfer, Umsetzung von Kernkomponenten, Code Reviews.
+*Rolle:* Relaunch des Buchungsportals, Umsetzung der Kernkomponenten, Team-Enablement von zehn Entwicklern und zwei Designern. Weniger Bugs, niedrigere Bounce- und Churn-Raten, schnellere Iteration, Teil der Grundlage für die Übernahme durch lastminute.com.
 
 *Stack:* Next.js, React, Redux, Webpack, Jest, ES6, CSSNEXT, Node.js.
 
@@ -191,7 +193,7 @@ Endnote: 1 (ungefähres Äquivalent: A).
 
 ### 2002–2009 Nebenfach "Kunst & Gestaltung" — HfBK & TU Dresden, Deutschland
 
-*"Annäherung an zeitgenössische Ornamentik mit dem experimentellen Film"*
+*"Experimentalfilmische Annäherung an zeitgenössische Ornamentik"*
 
 Endnote: 1,3 (ungefähres Äquivalent: A).
 
@@ -211,6 +213,6 @@ Leistungskurse in Mathematik und Sozialwissenschaften.
 
 [archiveprogram.github.com](https://archiveprogram.github.com)
 
-### 2008 — 2. Platz, Fotowettbewerb "Go-Out Studieren"
+### 2008 — Platzierung beim Fotowettbewerb „Go-Out Studying"
 
-### 2007 — 1. Preis, Logo-Pitch am Lehrstuhl Mikrocomputer der TU Dresden
+### 2007 — Preisträger des Logo-Pitchs am Lehrstuhl Mikrocomputer der TU Dresden

@@ -1,60 +1,38 @@
 # Curriculum Vitae
 
-## Expérience
+## Profil
 
-### Consultant
+Ingénieur produit centré sur les logiciels orientés utilisateur depuis 2008. Profond en web tech ; large en UX, architecture de l'information, ingénierie AI agentique et coaching.
 
-#### **Développement UI en freelance, depuis 2008**
+Tissage de fonctionnalités LLM et d'agents sur mesure dans les équipes produit via MCP, Agent Skills et les AI SDKs. Accompagnement sur des stacks end-to-end résilientes, assurance qualité automatisée et workflows AI-native. À l'aise là où la stratégie conceptuelle rencontre l'orchestration concrète.
 
-Architecture et développement d'applications web d'envergure côté frontend. Accompagnement de marques internationales telles que lastminute.com, weg.de, T-Systems et Siemens ainsi que d'agences locales. Focus sur les technologies et le design les plus récents.
+## Missions sélectionnées
 
-### Frontend Lead
-
-**Exelonix Asina, 2013–2014**
-
-Tablettes Android pour seniors : concept, direction du design, gestion de projet, développement client.
-
-### Production audiovisuelle
-
-**Divers, 2008–2011**
-
-Tournage et production de courts-métrages, par exemple pour Dell Mexique, la chaire Vodafone à la TU Dresde, un spot publicitaire pour le festival artistique Ostrale, des tutoriels vidéo pour T-Systems.
-
-### Distinctions
-
-- Contributeur GitHub Arctic Code Vault, 2020
-- 2ᵉ place, concours photo « Go-Out Studying », 2008
-- 1ᵉʳ prix, pitch logo à la chaire Microcomputer de la TU Dresde, 2007
-
-### Divers
-
-Assistant et photographe au Goethe-Institut de Dresde.
-Bénévolat à l'école maternelle Cocolores.
+- **Estino GmbH, depuis 2018.** Tableaux de bord B2B pour l'ingénierie automobile : visualisation de signaux, gestion d'entités, conception d'agents. Rythme de startup agile : contact client direct, écoute, priorisation, livraison des bonnes fonctionnalités.
+- **weg.de (désormais groupe lastminute.com), 2016–2020.** Refonte du portail de réservation, composants clés, accompagnement d'une équipe de dix ingénieurs et deux designers. Moins de bugs, rebond et churn en baisse, itération plus rapide, base préparant le rachat par lastminute.com.
+- **Barkhausen Institut, depuis 2024.** Architecture résiliente et assurance qualité automatisée pour le portail interne d'un institut de recherche.
+- **Arbres généalogiques, depuis 2020.** Plateforme pour quatre grandes dynasties allemandes. Prise en compte soignée et discrète de la complexité humaine et sociale.
+- **Fraunhofer Heinrich-Hertz-Institut, depuis 2025.** Catalogue agent-first pour composants 5G avec gestion du cycle de vie et autorisations fines. Conseil auprès de trois ingénieurs, trois designers et deux responsables côté produit : architecture, livraison, alignement des parties prenantes.
 
 ## Formation
 
-### 2011 Diplôme en « Informatique des médias » – TU Dresde, Allemagne
+- **2002–2011 Diplôme en « Informatique des médias » à la Faculté d'informatique, TU Dresde.** *« Représentation interactive en deux dimensions du temps vécu à partir des lieux visités »*, Note finale : 1 (≈ A).
+- **2009 Travail de recherche à la Faculté d'informatique, TU Dresde.** *« Matérialité et interaction »*, non noté.
+- **2002–2009 Matière secondaire « Art & Design » à HfBK & TU Dresde.** *« Approche en film expérimental de l'ornementique contemporaine »*, Note finale : 1,3 (≈ A).
+- **2007–2008 Stage chez Cactus Film & Video, Mexique.** Soutenu par une bourse InWEnt / GIZ.
 
-« Représentation interactive en deux dimensions du temps vécu à partir des lieux visités »
-Note finale : 1 (équivalent approximatif : A)
+## Compétences
 
-### 2009 Travail de recherche – TU Dresde, Allemagne
+- **Agentic & IA.** Agents sur mesure, MCP, Agent Skills, AI SDKs, Claude Code, Cursor, OpenRouter, SGLang.
+- **Architecture.** Typesafety de bout en bout, codebases agent-first, tests e2e, CI/CD. TypeScript, Next.js, React, Tailwind, Drizzle ORM.
+- **Visualisation.** Design d'information pour des données dynamiques, complexes et géographiques, D3, Mapbox GL, DeckGL, Three.js, WebGL.
+- **Runtime & données.** Bun, Node.js, PostgreSQL, GraphQL, bases de données vectorielles.
+- **Coaching.** Ateliers, revues de code, alignement entre ingénierie et métier.
 
-« Matérialité et interaction », non noté
+## Langues
 
-### 2009 Matière secondaire « Art & Design » – HfBK & TU Dresde, Allemagne
+Allemand et français (langue maternelle), anglais et espagnol (courant), portugais et néerlandais (notions).
 
-« Approche de l'ornementique contemporaine par le film expérimental »
-Note finale : 1,3 (équivalent approximatif : A)
+## À côté
 
-### 2007–2008 Stage – Cactus Film & Video, Mexique
-
-Soutenu par une bourse Inwent / GIZ.
-
-## Compétences personnelles
-
-|               |                                                                                                                                               |
-| ------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Langues**   | Allemand (langue maternelle), Français (langue maternelle), Anglais (courant), Espagnol (courant), Portugais (notions), Néerlandais (notions) |
-| **IT**        | Développement web & logiciel, conception OO / composants, HTML, TypeScript, CSS3, React, Redux, Flux, Git, Node.js, Webpack, D3               |
-| **Logiciels** | Adobe Creative Cloud, Figma, Sketch, MS Office, OpenOffice                                                                                    |
+Contributeur GitHub Arctic Code Vault, lauréat d'un pitch logo à la chaire Microcomputer de la TU Dresde, classé au concours photo « Go-Out Studying ». Plus tôt, courts-métrages pour Dell Mexique, la chaire Vodafone (TU Dresde), le festival Ostrale et T-Systems.

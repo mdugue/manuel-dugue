@@ -1,4 +1,4 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
 /* ──────────────────────────────────────────────────────────────
  *  Editorial (light) — default
@@ -180,12 +180,25 @@ a {
 .doc-prose ul,
 .doc-prose ol {
   margin: 4px 0 12px;
-  padding: 0 0 0 18px;
+  padding: 0 0 0 1.5rem;
+  list-style-position: outside;
+}
+/* Tailwind preflight sets list-style: none on ul/ol; restore markers for GFM body copy */
+.doc-prose ul {
+  list-style-type: disc;
+}
+.doc-prose ol {
+  list-style-type: decimal;
 }
 .doc-prose li {
   font-size: 14.5px;
   line-height: 1.65;
   margin: 2px 0;
+  padding-left: 0.25rem;
+}
+/* Softer than body text; still tracks light/dark --ink */
+.doc-prose li::marker {
+  color: var(--color-ink-faint);
 }
 .doc-prose hr {
   border: 0;

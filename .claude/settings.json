@@ -19,10 +19,6 @@
       "Bash(bun --bun run tsc)",
       "Bash(bun --bun run dev)",
       "Bash(bun add *)"
-    ],
-    "additionalDirectories": [
-      "/Users/manueldugue/Projekte/manuel.fyi 2026/app/[lang]/items",
-      "/Users/manueldugue/Projekte/manuel.fyi 2026/app/[lang]/self-presentation"
     ]
   }
 }

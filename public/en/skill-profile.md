@@ -1,6 +1,8 @@
 # Skill Profile
 
-Product engineer building user-facing, agent-friendly web products since 2008. Deep in React, Next.js and TypeScript; broad across UX, information design, architecture, AI engineering and training.
+Product engineer focused on user-facing software products since 2008. Deep in web tech; broad across UX, information architecture, agentic AI engineering and coaching.
+
+Weaving LLM features and custom agents into product teams via MCP, Agent Skills and the AI SDKs. Coaching teams on resilient end-to-end tech stacks, automated quality assurance and AI-native workflows. At home where conceptual strategy meets hands-on orchestration.
 
 ## Profile
 
@@ -16,20 +18,20 @@ Product engineer building user-facing, agent-friendly web products since 2008. D
 
 |                    |                                                                                            |
 | ------------------ | ------------------------------------------------------------------------------------------ |
-| **Agentic & AI**   | LLM-powered features, custom agents, evals, agent-friendly code layout, MCP & Agent Skills |
+| **Agentic & AI**   | Custom agents, MCP, Agent Skills, AI SDKs, Claude Code, Cursor, OpenRouter, SGLang         |
 | **Build**          | User-facing web products end-to-end — from first sketch to shipped, observable software    |
-| **Architect**      | End-to-end typesafety, iteration speed, resilience, e2e testing, CI/CD                     |
-| **Visualise**      | Information design for large datasets, signals, geographies and family structures          |
+| **Architect**      | End-to-end type safety, agent-first codebases, e2e testing, CI/CD, TypeScript, Next.js, Tailwind, Drizzle ORM |
+| **Visualise**      | Information design for dynamic, complex and geographic data, D3, Mapbox GL, DeckGL, Three.js, WebGL |
 | **Coach**          | Training, workshops, code reviews, stakeholder alignment across engineering and business   |
 
 ## Stack today
 
 |                    |                                                                                             |
 | ------------------ | ------------------------------------------------------------------------------------------- |
-| **Agentic & AI**   | Vercel AI SDK, OpenRouter, Claude Code, Cursor, Agent Skills, MCP, custom agents, SGLang    |
+| **Agentic & AI**   | AI SDKs, OpenRouter, Claude Code, Cursor, Agent Skills, MCP, custom agents, SGLang    |
 | **Languages**      | TypeScript, HTML, CSS, SQL, SVG, WebGL / GLSL                                               |
 | **Frameworks**     | Next.js, React, Tailwind, shadcn/ui, Playwright, XState, D3, Mapbox GL, DeckGL, Three.js    |
-| **Runtime & data** | Bun, Node.js, PostgreSQL, Drizzle ORM, GraphQL, SQLite Vector                               |
+| **Runtime & data** | Bun, Node.js, PostgreSQL, Drizzle ORM, GraphQL, vector databases                               |
 | **Practices**      | UX, performance, accessibility, SEO, eCommerce                                              |
 | **Tools**          | VS Code, Cursor, Git, Docker, Figma                                                         |
 
@@ -39,7 +41,7 @@ Product engineer building user-facing, agent-friendly web products since 2008. D
 
 Catalogue for 5G components with lifecycle management, fine-grained authorisation and multi-faceted entity views. 5G components have a life of their own; the catalogue follows them through it.
 
-*Role:* Architecture audit, rewrite design, hands-on implementation.
+*Role:* Architecture audit, rewrite design, hands-on implementation; advising three developers, three designers and two product-side leads on architecture, delivery and stakeholder alignment.
 
 *Approach:* End-to-end typesafety, complexity reduction, iteration speed; the codebase is laid out for agent-first access so coding agents can contribute without ceremony.
 
@@ -59,7 +61,7 @@ Business-trip management portal for a research institute.
 
 ### Ancestry trees — since 2020
 
-Family trees for four large German dynasties. Historical and contemporary context, careful handling of real-family complexity — patchwork constellations, changed and reclaimed names, relatives who appear in more than one branch, and the quiet edges every old family carries.
+Family trees for four large German dynasties. Careful, discreet treatment of human and social complexity — patchwork constellations, changed and reclaimed names, relatives who appear in more than one branch, and the quiet edges every old family carries.
 
 *Role:* Concept, design, architecture, development, integration, training.
 
@@ -67,11 +69,11 @@ Family trees for four large German dynasties. Historical and contemporary contex
 
 ### Estino GmbH — since 2018
 
-B2B dashboards for engineering product development: signal visualisation, entity management, agent design. Signals, machines, maps — making the invisible workings of hardware readable.
+B2B automotive engineering dashboards: signal visualisation, entity management, agent design. Signals, machines, maps — making the invisible workings of hardware readable.
 
 *Role:* Concept, UX, training, development.
 
-*Stack:* Next.js, D3, Mapbox, DeckGL, GraphQL, Apollo, Playwright, Bun, Tailwind, shadcn/ui, Vercel AI SDK, SGLang, SQLite Vector.
+*Stack:* Next.js, D3, Mapbox, DeckGL, GraphQL, Apollo, Playwright, Bun, Tailwind, shadcn/ui, Vercel AI SDK, SGLang, vector databases.
 
 [estino.de](https://estino.de)
 
@@ -117,7 +119,7 @@ Frontend lead for the intranet of Baselworld / Houruniverse (now "Watches and Wo
 
 Relaunch and evolution of the Weg.de / lastminute.com booking portal. Holidays should feel like the trip — even the booking flow.
 
-*Role:* Training the frontend team in component-based client architecture, consulting on technology transfer, implementing core components, code reviews.
+*Role:* Booking portal relaunch, core components, team enablement for ten developers and two designers; fewer bugs, lower bounce and churn, faster iteration — groundwork for the lastminute.com acquisition.
 
 *Stack:* Next.js, React, Redux, Webpack, Jest, ES6, CSSNEXT, Node.js.
 
@@ -191,7 +193,7 @@ Final grade: 1 (approximate equivalent: A).
 
 ### 2002–2009 Minor in "Art & Design" — HfBK & TU Dresden, Germany
 
-*"Approaching contemporary ornamentics through experimental film"*
+*"Experimental-film approach to contemporary ornament"*
 
 Final grade: 1.3 (approximate equivalent: A).
 
@@ -213,4 +215,4 @@ Advanced courses in mathematics and social sciences.
 
 ### 2008 — 2nd place, "Go-Out Studying" photo contest
 
-### 2007 — 1st prize, logo pitch at the Microcomputer Chair of TU Dresden
+### 2007 — Logo-pitch prizewinner, Microcomputer Chair, TU Dresden

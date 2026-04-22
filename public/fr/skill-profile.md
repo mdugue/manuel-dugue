@@ -1,6 +1,8 @@
 # Profil de compétences
 
-Ingénieur produit — je construis depuis 2008 des produits web orientés utilisateur, pensés pour cohabiter avec des agents. Ancré en React, Next.js et TypeScript ; à l'aise en UX, design d'information, architecture, AI engineering et formation.
+Ingénieur produit centré sur les logiciels orientés utilisateur depuis 2008. Profond en web tech ; large en UX, architecture de l'information, ingénierie AI agentique et coaching.
+
+Tissage de fonctionnalités LLM et d'agents sur mesure dans les équipes produit via MCP, Agent Skills et les AI SDKs. Accompagnement sur des stacks end-to-end résilientes, assurance qualité automatisée et workflows AI-native. À l'aise là où la stratégie conceptuelle rencontre l'orchestration concrète.
 
 ## Profil
 
@@ -16,20 +18,20 @@ Ingénieur produit — je construis depuis 2008 des produits web orientés utili
 
 |                    |                                                                                                    |
 | ------------------ | -------------------------------------------------------------------------------------------------- |
-| **Agentic & IA**   | Fonctionnalités basées sur des LLM, agents sur mesure, évals, code pensé pour les agents, MCP & Agent Skills |
+| **Agentic & IA**   | Agents sur mesure, MCP, Agent Skills, AI SDKs, Claude Code, Cursor, OpenRouter, SGLang |
 | **Développement**  | Produits web orientés utilisateur, de la première esquisse à un logiciel livré et observable       |
-| **Architecture**   | Typesafety de bout en bout, vitesse d'itération, résilience, tests e2e, CI/CD                      |
-| **Visualisation**  | Design d'information pour jeux de données massifs, signaux, cartes et structures familiales        |
+| **Architecture**   | Typesafety de bout en bout, codebases agent-first, tests e2e, CI/CD, TypeScript, Next.js, Tailwind, Drizzle ORM                      |
+| **Visualisation**  | Design d'information pour données dynamiques, complexes et géographiques, D3, Mapbox GL, DeckGL, Three.js, WebGL        |
 | **Coaching**       | Formations, ateliers, revues de code, alignement entre ingénierie et métier                        |
 
 ## Stack actuelle
 
 |                       |                                                                                             |
 | --------------------- | ------------------------------------------------------------------------------------------- |
-| **Agentic & IA**      | Vercel AI SDK, OpenRouter, Claude Code, Cursor, Agent Skills, MCP, agents sur mesure, SGLang |
+| **Agentic & IA**      | AI SDKs, OpenRouter, Claude Code, Cursor, Agent Skills, MCP, agents sur mesure, SGLang |
 | **Langages**          | TypeScript, HTML, CSS, SQL, SVG, WebGL / GLSL                                               |
 | **Frameworks**        | Next.js, React, Tailwind, shadcn/ui, Playwright, XState, D3, Mapbox GL, DeckGL, Three.js    |
-| **Runtime & données** | Bun, Node.js, PostgreSQL, Drizzle ORM, GraphQL, SQLite Vector                               |
+| **Runtime & données** | Bun, Node.js, PostgreSQL, Drizzle ORM, GraphQL, bases de données vectorielles                               |
 | **Pratiques**         | UX, performance, accessibilité, SEO, eCommerce                                              |
 | **Outils**            | VS Code, Cursor, Git, Docker, Figma                                                         |
 
@@ -39,7 +41,7 @@ Ingénieur produit — je construis depuis 2008 des produits web orientés utili
 
 Catalogue pour composants 5G avec gestion du cycle de vie, autorisation fine et vues multi-facettes sur les entités. Les composants 5G ont une vie propre ; le catalogue les accompagne tout du long.
 
-*Rôle :* Audit d'architecture, conception de la refonte, mise en œuvre.
+*Rôle :* Audit d'architecture, conception de la refonte, mise en œuvre ; conseil auprès de trois ingénieurs, trois designers et deux responsables côté produit sur l'architecture, la livraison et l'alignement des parties prenantes.
 
 *Approche :* Typesafety de bout en bout, réduction de la complexité, vitesse d'itération ; la base de code est organisée pour un accès agent-first, de sorte que des agents de codage puissent contribuer sans cérémonie.
 
@@ -59,7 +61,7 @@ Portail de gestion des déplacements professionnels pour un institut de recherch
 
 ### Arbres généalogiques — depuis 2020
 
-Arbres généalogiques pour quatre grandes familles allemandes. Contexte historique et contemporain, prise en compte soignée de la complexité réelle des familles — constellations recomposées, prénoms modifiés ou retrouvés, membres qui apparaissent dans plusieurs branches, et les silences discrets que porte toute famille ancienne.
+Arbres généalogiques pour quatre grandes familles allemandes. Prise en compte soignée et discrète de la complexité humaine et sociale — constellations recomposées, prénoms modifiés ou retrouvés, membres qui apparaissent dans plusieurs branches, et les silences discrets que porte toute famille ancienne.
 
 *Rôle :* Conception, design, architecture, développement, intégration, formation.
 
@@ -67,11 +69,11 @@ Arbres généalogiques pour quatre grandes familles allemandes. Contexte histori
 
 ### Estino GmbH — depuis 2018
 
-Tableaux de bord B2B pour le développement de produits techniques : visualisation de signaux, gestion d'entités, conception d'agents. Signaux, machines, cartes — rendre lisible l'intérieur invisible du matériel.
+Tableaux de bord B2B pour l'ingénierie automobile : visualisation de signaux, gestion d'entités, conception d'agents. Signaux, machines, cartes — rendre lisible l'intérieur invisible du matériel.
 
 *Rôle :* Conception, UX, formation, développement.
 
-*Stack :* Next.js, D3, Mapbox, DeckGL, GraphQL, Apollo, Playwright, Bun, Tailwind, shadcn/ui, Vercel AI SDK, SGLang, SQLite Vector.
+*Stack :* Next.js, D3, Mapbox, DeckGL, GraphQL, Apollo, Playwright, Bun, Tailwind, shadcn/ui, Vercel AI SDK, SGLang, bases de données vectorielles.
 
 [estino.de](https://estino.de)
 
@@ -117,7 +119,7 @@ Frontend Lead pour l'intranet de Baselworld / Houruniverse (aujourd'hui « Watch
 
 Relance et évolution du portail de réservation Weg.de / lastminute.com. Les vacances devraient ressembler au voyage — même au moment de réserver.
 
-*Rôle :* Formation de l'équipe frontend à une architecture client à base de composants, conseil sur le transfert de technologies, implémentation de composants clés, revues de code.
+*Rôle :* Relance du portail de réservation, composants clés, accompagnement de dix ingénieurs et deux designers. Moins de bugs, rebond et churn en baisse, itération plus rapide — base préparant le rachat par lastminute.com.
 
 *Stack :* Next.js, React, Redux, Webpack, Jest, ES6, CSSNEXT, Node.js.
 
@@ -191,7 +193,7 @@ Note finale : 1 (équivalent approximatif : A).
 
 ### 2002–2009 Matière secondaire « Art & Design » — HfBK & TU Dresde, Allemagne
 
-*« Approche de l'ornementique contemporaine par le film expérimental »*
+*« Approche en film expérimental de l'ornementique contemporaine »*
 
 Note finale : 1,3 (équivalent approximatif : A).
 
@@ -211,6 +213,6 @@ Matières renforcées : mathématiques et sciences sociales.
 
 [archiveprogram.github.com](https://archiveprogram.github.com)
 
-### 2008 — 2ᵉ place, concours photo « Go-Out Studying »
+### 2008 — Classement au concours photo « Go-Out Studying »
 
-### 2007 — 1ᵉʳ prix, pitch logo à la chaire Microcomputer de la TU Dresde
+### 2007 — Lauréat du pitch logo, chaire Microcomputer, TU Dresde

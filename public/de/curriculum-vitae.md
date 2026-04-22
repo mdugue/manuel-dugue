@@ -1,60 +1,38 @@
 # Lebenslauf
 
-## Erfahrung
+## Profil
 
-### Consultant
+Seit 2008 arbeite ich an nutzerzentrierten Software-Produkten. Tief in Web-Tech; breit in UX, Informationsarchitektur, Agentic-AI-Engineering und Coaching.
 
-#### **Freiberufliche UI-Entwicklung, seit 2008**
+Resiliente Software-Stacks, automatisierte Qualitätssicherung und KI-native Arbeitsabläufe. Integration von LLM-Features und eigenen Agenten in Produktteams via MCP, Agent Skills & AI-SDKs. Am liebsten an der Schnittstelle zwischen konzeptioneller Strategie und praktischer Umsetzung.
 
-Architektur und Entwicklung von umfangreichen Web-Apps für den Frontend-Bereich. Unterstützung internationaler Marken wie lastminute.com, weg.de, T-Systems und Siemens sowie lokaler Agenturen. Fokussierung auf modernste Technologie und Design.
+## Ausgewählte Engagements
 
-### Frontend Lead
-
-**Exelonix Asina, 2013–2014**
-
-Android-Tablets für Senioren: Konzept, Design-Leitung, Projektmanagement, Kundenentwicklung.
-
-### Filmproduktion
-
-**Verschiedenes, 2008–2011**
-
-Dreh und Produktion von Kurzfilmen, zum Beispiel für Dell Mexiko, Vodafone Chair an der TU Dresden, Werbespot für das Ostrale Kunstfestival, Videotutorials für T-Systems.
-
-### Auszeichnungen
-
-- GitHub Arctic Code Vault Beitragender, 2020
-- 2\. Platz Fotowettbewerb „Go-Out Studying", 2008
-- 1\. Preis Logo-Pitch am Lehrstuhl Mikrocomputer der TU Dresden, 2007
-
-### Sonstiges
-
-Assistent & Fotograf am Goethe-Institut Dresden.
-Freiwillige Arbeit im Kindergarten Cocolores.
+- **Estino GmbH, seit 2018.** B2B-Dashboards für die Produktentwicklung von Nutzfahrzeugen: Signalvisualisierung, Entity Management, Agenten-Design. Agile Startup-Taktung: direkter Kundenkontakt, zuhören, priorisieren, abstrahieren, abliefern.
+- **weg.de (jetzt lastminute.com-Gruppe), 2016–2020.** Relaunch des Buchungsportals, Implementierung der Kernkomponenten, Team-Enablement von zehn Entwicklern und zwei Designern. Weniger Bugs, niedrigere Bounce- und Churn-Raten, schnellere Iteration, u.a. Grundlage für die Acquisition durch lastminute.com.
+- **Barkhausen Institut, seit 2024.** Resiliente Architektur und automatisierte Qualitätssicherung für das interne Forschungsinstituts-Portal.
+- **Stammbäume, seit 2020.** Familienbaum-Plattform für vier große deutsche Dynastien. Sorgfältige und diskrete Abbildung menschlicher und gesellschaftlicher Komplexität.
+- **Fraunhofer Heinrich-Hertz-Institut, seit 2025.** Agent-first-Katalog für 5G-Komponenten mit Lifecycle-Management und feingranularer Autorisierung. Beratung von drei Entwicklern, drei Designern und zwei Führungskräften zu Architektur, Delivery und Stakeholder-Abstimmung.
 
 ## Ausbildung
 
-### 2011 Diplom „Medieninformatik" – TU Dresden, Deutschland
+- **2002–2011 Diplom „Medieninformatik" an der Fakultät Informatik, TU Dresden.** _„Interaktive zweidimensionale Darstellung von Erfahrungszeit basierend auf besuchten Orten"_, Endnote: 1 (≈ A).
+- **2009 Forschungsarbeit an der Fakultät Informatik, TU Dresden.** _„Materialität und Interaktion"_, unbenotet.
+- **2002–2009 Nebenfach „Kunst & Design" an HfBK & TU Dresden.** _„Experimentalfilmische Annäherung an zeitgenössische Ornamentik"_, Endnote: 1,3 (≈ A).
+- **2007–2008 Praktikum bei Cactus Film & Video, Mexiko.** Unterstützt durch InWEnt / GIZ-Stipendium.
 
-„Interaktive zweidimensionale Darstellung von Erfahrungszeit basierend auf besuchten Orten"
-Endnote: 1 (ungefähres Äquivalent: A)
+## Fähigkeiten
 
-### 2009 Forschungsarbeit – TU Dresden, Deutschland
+- **Agentic & KI.** Custom Agents, MCP, Agent Skills, AI-SDKs, Claude Code, Cursor, OpenRouter, SGLang.
+- **Architektur.** End-to-End-Typsicherheit, Agent-first-Codestacks, End-to-End-Tests, CI/CD, TypeScript, Next.js, Tailwind, Drizzle ORM.
+- **Visualisierung.** Informationsdesign für dynamische, komplexe und geografische Daten, D3, Mapbox, DeckGL, Three.js, WebGL.
+- **Runtime & Daten.** Bun, Node.js, PostgreSQL, GraphQL, Vektordatenbanken.
+- **Coaching.** Workshops, Code Reviews, Stakeholder-Abstimmung zwischen Engineering und Business.
 
-„Materialität und Interaktion", unbenotet
+## Sprachen
 
-### 2009 Nebenfach „Kunst & Design" – HfBK & TU Dresden, Deutschland
+Deutsch und Französisch (Muttersprache), Englisch und Spanisch (fließend), Portugiesisch und Niederländisch (Grundkenntnisse).
 
-„Annäherung an zeitgenössische Ornamentik mit dem experimentellen Film"
-Endnote: 1,3 (ungefähres Äquivalent: A)
+## Am Rande
 
-### 2007–2008 Praktikum – Cactus Film & Video, Mexiko
-
-Unterstützt durch ein Inwent / GIZ Stipendium.
-
-## Persönliche Fähigkeiten
-
-|              |                                                                                                                                                                   |
-| ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Sprachen** | Deutsch (Muttersprache), Französisch (Muttersprache), Englisch (fließend), Spanisch (fließend), Portugiesisch (Grundkenntnisse), Niederländisch (Grundkenntnisse) |
-| **IT**       | Web- & Softwareentwicklung, OO- / Komponenten-Design, HTML, TypeScript, CSS3, React, Redux, Flux, Git, Node.js, Webpack, D3                                       |
-| **Software** | Adobe Creative Cloud, Figma, Sketch, MS Office, OpenOffice                                                                                                        |
+GitHub Arctic Code Vault Contributor, Preisträger des Logo-Pitchs am Lehrstuhl Mikrocomputer der TU Dresden, Platzierung beim Fotowettbewerb „Go-Out Studying". Früher Kurzfilme für Dell Mexiko, den Vodafone-Lehrstuhl (TU Dresden), das Kunstfestival Ostrale und T-Systems.

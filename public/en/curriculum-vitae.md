@@ -1,60 +1,38 @@
 # Curriculum Vitae
 
-## Experience
+## Profile
 
-### Consultant
+Product engineer focused on user-facing software products since 2008. Deep in web tech; broad across UX, information architecture, agentic AI engineering and coaching.
 
-#### **Freelance UI development, since 2008**
+Weaving LLM features and custom agents into product teams via MCP, Agent Skills and the AI SDKs. Coaching teams on resilient end-to-end tech stacks, automated quality assurance and AI-native workflows. At home where conceptual strategy meets hands-on orchestration.
 
-Architecture and development of large-scale web apps on the frontend side. Supporting international brands such as lastminute.com, weg.de, T-Systems and Siemens as well as local agencies. Focus on state-of-the-art technology and design.
+## Selected engagements
 
-### Frontend Lead
-
-**Exelonix Asina, 2013–2014**
-
-Android tablets for seniors: concept, design lead, project management, customer development.
-
-### Film production
-
-**Various, 2008–2011**
-
-Shooting and production of short films, for example for Dell Mexico, the Vodafone Chair at TU Dresden, a commercial for the Ostrale art festival, video tutorials for T-Systems.
-
-### Awards
-
-- GitHub Arctic Code Vault Contributor, 2020
-- 2nd place, "Go-Out Studying" photo contest, 2008
-- 1st prize, logo pitch at the Microcomputer Chair of TU Dresden, 2007
-
-### Other
-
-Assistant & photographer at Goethe-Institut Dresden.
-Volunteer work at Cocolores kindergarten.
+- **Estino GmbH, since 2018.** B2B automotive engineering dashboards, signal visualisation, agent design. Agile startup rhythm: direct customer contact, listening, prioritising, abstracting, shipping features.
+- **weg.de (now lastminute.com group), 2016–2020.** Relaunch of the booking portal, core components, team enablement for ten developers and two designers. Fewer bugs, lower bounce and churn, faster iteration, part of the groundwork for the acquisition by lastminute.com.
+- **Barkhausen Institut, since 2024.** Resilient architecture and automated quality for an internal research-institute portal.
+- **Ancestry trees, since 2020.** Family-tree platform for four large German dynasties. Careful, discreet treatment of human and social complexity.
+- **Fraunhofer Heinrich-Hertz-Institut, since 2025.** Agent-first 5G component catalogue with lifecycle management and fine-grained authorisation. Advising three developers, three designers and two product-side leads on architecture, delivery and stakeholder alignment.
 
 ## Education
 
-### 2011 Diploma in "Media Informatics" – TU Dresden, Germany
+- **2002–2011 Diploma in "Media Informatics" at Faculty of Computer Science, TU Dresden.** _"Interactive two-dimensional representation of experiential time based on visited places"_, Final grade: 1 (≈ A).
+- **2009 Research project at Faculty of Computer Science, TU Dresden.** _"Materiality and Interaction"_, ungraded.
+- **2002–2009 Minor in "Art & Design" at HfBK & TU Dresden.** _"Experimental-film approach to contemporary ornament"_, Final grade: 1.3 (≈ A).
+- **2007–2008 Internship at Cactus Film & Video, Mexico.** Supported by an InWEnt / GIZ scholarship.
 
-"Interactive two-dimensional representation of experiential time based on visited places"
-Final grade: 1 (approximate equivalent: A)
+## Skills
 
-### 2009 Research project – TU Dresden, Germany
+- **Agentic & AI.** Custom agents, MCP, Agent Skills, AI SDKs, Claude Code, Cursor, OpenRouter, SGLang.
+- **Architecture.** End-to-end type safety, agent-first codebases, e2e testing, CI/CD. TypeScript, Next.js, React, Tailwind, Drizzle ORM.
+- **Visualisation.** Information design for dynamic, complex and geographic data. D3, Mapbox GL, DeckGL, Three.js, WebGL.
+- **Runtime & data.** Bun, Node.js, PostgreSQL, GraphQL, vector databases.
+- **Coaching.** Workshops, code reviews, stakeholder alignment across engineering and business.
 
-"Materiality and Interaction", ungraded
+## Languages
 
-### 2009 Minor in "Art & Design" – HfBK & TU Dresden, Germany
+German and French (native), English and Spanish (fluent), Portuguese and Dutch (working).
 
-"Approaching contemporary ornamentics through experimental film"
-Final grade: 1.3 (approximate equivalent: A)
+## Aside
 
-### 2007–2008 Internship – Cactus Film & Video, Mexico
-
-Supported by an Inwent / GIZ scholarship.
-
-## Personal skills
-
-|               |                                                                                                                          |
-| ------------- | ------------------------------------------------------------------------------------------------------------------------ |
-| **Languages** | German (native), French (native), English (fluent), Spanish (fluent), Portuguese (basic), Dutch (basic)                  |
-| **IT**        | Web & software development, OO / component design, HTML, TypeScript, CSS3, React, Redux, Flux, Git, Node.js, Webpack, D3 |
-| **Software**  | Adobe Creative Cloud, Figma, Sketch, MS Office, OpenOffice                                                               |
+GitHub Arctic Code Vault contributor, logo-pitch prizewinner at the Microcomputer Chair of TU Dresden, second place in the "Go-Out Studying" photo competition. Earlier, short films for Dell Mexico, the Vodafone Chair (TU Dresden), the Ostrale art festival and T-Systems.
