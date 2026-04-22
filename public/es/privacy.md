@@ -40,7 +40,9 @@ datos personales como nombres o direcciones de correo. Solo se registran
 datos agregados y no identificativos — por ejemplo la página visitada, el
 referente, el tamaño de pantalla, el idioma del navegador y un país
 aproximado derivado de la dirección IP. La dirección IP en sí no se
-almacena.
+almacena. También se recogen métricas anónimas de rendimiento de carga
+(p. ej. tiempo de respuesta, tiempos de DOM y de carga procedentes de la API
+Navigation Timing de tu navegador) para identificar páginas lentas.
 
 Las peticiones al tracker se encaminan a través de la ruta first-party
 `/stats` en este dominio; tu navegador no contacta directamente con

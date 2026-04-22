@@ -40,7 +40,10 @@ collecte pas de données personnelles telles que le nom ou l'adresse
 courriel. Seules des données agrégées et non identifiantes sont collectées —
 par exemple la page consultée, le référent, la taille d'écran, la langue du
 navigateur et un pays approximatif dérivé de l'adresse IP. L'adresse IP
-elle-même n'est pas conservée.
+elle-même n'est pas conservée. Des mesures de performance de chargement
+anonymes (p. ex. temps de réponse, temps de DOM et de chargement issus de
+l'API Navigation Timing de votre navigateur) sont également collectées afin
+d'identifier les pages lentes.
 
 Les requêtes vers l'outil de mesure passent par le chemin first-party
 `/stats` sur ce domaine ; votre navigateur ne contacte donc pas umami.is

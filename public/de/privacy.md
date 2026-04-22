@@ -41,7 +41,9 @@ personenbezogenen Daten wie Namen oder E-Mail-Adressen. Erhoben werden
 lediglich aggregierte, nicht identifizierende Daten — etwa die aufgerufene
 Seite, der Referrer, die Bildschirmgröße, die Browsersprache und ein aus der
 IP-Adresse abgeleitetes ungefähres Herkunftsland. Die IP-Adresse selbst wird
-nicht gespeichert.
+nicht gespeichert. Zusätzlich werden anonyme Ladezeit-Messwerte (z. B.
+Antwortzeit, DOM- und Load-Zeiten aus der Navigation-Timing-API Ihres
+Browsers) erfasst, um langsame Seiten zu erkennen.
 
 Die Anfragen an den Tracker laufen über den First-Party-Pfad `/stats` auf
 dieser Domain; Ihr Browser kontaktiert umami.is nicht direkt.

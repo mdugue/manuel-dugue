@@ -37,7 +37,9 @@ cross-session user profiles, and does not collect personal data such as names
 or email addresses. Only aggregated, non-identifying data is recorded — for
 example the page visited, the referrer, screen size, browser language, and an
 approximate country derived from the IP address. The IP address itself is not
-stored.
+stored. Anonymous page-load performance metrics (e.g. response time, DOM and
+load timings from your browser's Navigation Timing API) are also collected to
+help identify slow pages.
 
 Requests to the tracker are routed via the first-party path `/stats` on this
 domain, so your browser does not contact umami.is directly.
