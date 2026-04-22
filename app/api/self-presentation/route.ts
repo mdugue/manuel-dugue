@@ -4,12 +4,16 @@ import { hasLocale, type Locale } from '@/i18n/config'
 import { readMarkdown } from '@/app/components/markdown-source'
 import { buildSelfPresentationPrompt } from '@/i18n/self-presentation-prompt'
 import { isAiModelId } from '@/i18n/ai-models'
+import { checkRateLimit, rateLimited } from '@/lib/rate-limit'
 
 export const maxDuration = 60
 
 const ONE_DAY_SECONDS = 60 * 60 * 24
 
 export async function POST(req: Request) {
+  const rate = await checkRateLimit('self-presentation', req)
+  if (!rate.ok) return rateLimited(rate.retryAfter)
+
   let payload: unknown
   try {
     payload = await req.json()

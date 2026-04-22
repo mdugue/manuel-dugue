@@ -8,6 +8,15 @@ const nextConfig: NextConfig = {
   experimental: {
     viewTransition: true,
   },
+  async redirects() {
+    return [
+      {
+        source: '/:lang(en|de|fr|es)/cv',
+        destination: '/:lang/curriculum-vitae',
+        permanent: true,
+      },
+    ]
+  },
   async rewrites() {
     return {
       beforeFiles: [

@@ -8,6 +8,7 @@ export default async function Default({
 }: {
   params: Promise<{ lang: string }>
 }) {
+  'use cache'
   const { lang } = await params
   if (!hasLocale(lang)) notFound()
   const locale: Locale = lang

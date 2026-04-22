@@ -20,10 +20,10 @@ export default async function Page({
       title={portfolio.legal.imprint.sheetTitle}
       subtitle={portfolio.legal.imprint.sheetSubtitle}
       contact={portfolio.contact}
-      pdfHref={`/${locale}/imprint/pdf`}
+      pdfHref={`/${locale}/legal/pdf`}
       labels={portfolio.modal}
     >
-      <MarkdownPage slug="imprint" lang={locale} />
+      <MarkdownPage slug="legal" lang={locale} />
     </DocSheetModal>
   )
 }

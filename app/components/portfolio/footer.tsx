@@ -100,7 +100,7 @@ export function SiteFooter({
           </h5>
           <ul className="list-none p-0 m-0 flex flex-col gap-2">
             <li>
-              <Link href={`/${lang}/imprint` as Route} className={footerLink}>
+              <Link href={`/${lang}/legal` as Route} className={footerLink}>
                 {footer.imprint}
               </Link>
             </li>

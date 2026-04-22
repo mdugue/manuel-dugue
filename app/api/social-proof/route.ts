@@ -5,12 +5,16 @@ import { readMarkdown } from '@/app/components/markdown-source'
 import { isAiModelId } from '@/i18n/ai-models'
 import { socialProofSchema } from '@/i18n/social-proof-schema'
 import { buildSocialProofPrompt } from '@/i18n/social-proof-prompt'
+import { checkRateLimit, rateLimited } from '@/lib/rate-limit'
 
 export const maxDuration = 60
 
 const ONE_DAY_SECONDS = 60 * 60 * 24
 
 export async function POST(req: Request) {
+  const rate = await checkRateLimit('social-proof', req)
+  if (!rate.ok) return rateLimited(rate.retryAfter)
+
   let payload: unknown
   try {
     payload = await req.json()
