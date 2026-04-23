@@ -11,12 +11,12 @@
         "stets <em>neugierig.</em>"
       ],
       "lede": "Manuel Dugué · unabhängiger Product Engineer aus Dresden. Architektur, KI-native Arbeitsweisen, User Experience; am liebsten dort, wo Strategie auf Umsetzung trifft.",
-      "facts": [
-        ["Basis", "Dresden / Remote"],
-        ["Offen ab", "Q3 2026 →"],
-        ["Sprachen", "DE · EN · FR · ES"],
-        ["Seite", "manuel.fyi"]
-      ]
+      "facts": {
+        "base": { "label": "Basis", "value": "Dresden / Remote" },
+        "openFor": { "label": "Offen ab", "template": "Q{quarter} {year} →" },
+        "languages": { "label": "Sprachen" },
+        "site": { "label": "Seite" }
+      }
     },
     "self": {
       "label": "Über mich",
@@ -24,7 +24,12 @@
       "sub": "Auf Basis der \"offiziellen Dokumente\". Dann einem Modell übergeben, mit der Bitte, nicht lyrisch zu werden.",
       "tag": "Vom LLM erzeugt · leicht beaufsichtigt von Manuel",
       "cycle": "Neu generieren",
-      "errorRetry": "Das hat nicht geklappt. Nochmal versuchen?"
+      "errorRetry": "Das hat nicht geklappt. Nochmal versuchen?",
+      "tooltip": {
+        "nextModel": "Nächstes Modell",
+        "cached": "Aus dem Cache — frische Ausgabe",
+        "fresh": "Erzeugt eine frische Ausgabe"
+      }
     },
     "docs": {
       "label": "Dokumente",
@@ -63,7 +68,12 @@
       "sub": "Vollständig synthetisch, fake Stimmen, echte Projekte.",
       "cycle": "Neu generieren",
       "errorRetry": "Das hat nicht geklappt. Nochmal versuchen?",
-      "banner": "Alle obigen Zitate stammen von einem Sprachmodell. Sie wurden von keinem Kunden abgesegnet, denn es wurde keiner gefragt. Die Ähnlichkeit zu echtem Lob ist beabsichtigt."
+      "banner": "Alle obigen Zitate stammen von einem Sprachmodell. Sie wurden von keinem Kunden abgesegnet, denn es wurde keiner gefragt. Die Ähnlichkeit zu echtem Lob ist beabsichtigt.",
+      "tooltip": {
+        "nextModel": "Nächstes Modell",
+        "cached": "Aus dem Cache — frische Ausgabe",
+        "fresh": "Erzeugt eine frische Ausgabe"
+      }
     },
     "footer": {
       "word": ["Lasst uns", "<em>reden</em>."],

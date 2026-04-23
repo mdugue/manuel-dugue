@@ -1,5 +1,0 @@
-{
-  "http://localhost:3000/": "https://manuelfyi-lhci.herokuapp.com/app/projects/manuelfyi-lhci/compare/efd6399a-cdec-4123-a005-02ad2ecf950f?compareUrl=http%3A%2F%2Flocalhost%3APORT%2F",
-  "http://localhost:3000/cv": "https://manuelfyi-lhci.herokuapp.com/app/projects/manuelfyi-lhci/compare/efd6399a-cdec-4123-a005-02ad2ecf950f?compareUrl=http%3A%2F%2Flocalhost%3APORT%2Fcv",
-  "http://localhost:3000/skill-profile": "https://manuelfyi-lhci.herokuapp.com/app/projects/manuelfyi-lhci/compare/efd6399a-cdec-4123-a005-02ad2ecf950f?compareUrl=http%3A%2F%2Flocalhost%3APORT%2Fskill-profile"
-}

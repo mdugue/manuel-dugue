@@ -1,7 +1,7 @@
 "use client";
 
 import { experimental_useObject as useObject } from "@ai-sdk/react";
-import { useCallback } from "react";
+import { useCallback, useRef } from "react";
 import type { AiModelId } from "@/i18n/ai-models";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
@@ -11,6 +11,7 @@ import {
 } from "@/i18n/social-proof-schema";
 import { AiControls } from "./ai-controls";
 import { SectionHead } from "./section-head";
+import { useAiCacheStatuses } from "./use-ai-cache-statuses";
 import { useModelCycler } from "./use-model-cycler";
 
 const SLOTS = [0, 1, 2] as const;
@@ -24,19 +25,34 @@ export function SocialProofClient({
   proof: Dictionary["portfolio"]["proof"];
   initialTestimonials: SocialProofObject["testimonials"] | null;
 }) {
+  const { statuses, markGenerated } = useAiCacheStatuses("social-proof", lang);
+
+  const requestedModelRef = useRef<AiModelId | null>(null);
+
   const { object, submit, isLoading, error } = useObject({
     api: "/api/social-proof",
     schema: socialProofSchema,
+    onFinish: ({ error: finishError }) => {
+      if (finishError) {
+        return;
+      }
+      const model = requestedModelRef.current;
+      if (model) {
+        markGenerated(model);
+      }
+    },
   });
 
   const onModelChange = useCallback(
     (model: AiModelId) => {
+      requestedModelRef.current = model;
       submit({ lang, model });
     },
     [submit, lang]
   );
 
-  const { currentModel, position, regenerate } = useModelCycler(onModelChange);
+  const { currentModel, nextModel, position, regenerate } =
+    useModelCycler(onModelChange);
 
   const items = object?.testimonials ?? initialTestimonials;
 
@@ -48,7 +64,7 @@ export function SocialProofClient({
         sub={proof.sub}
       />
 
-      <div className="relative flex max-w-[760px] flex-col gap-8">
+      <div className="relative flex max-w-190 flex-col gap-8">
         <div
           aria-busy={isLoading}
           aria-live="polite"
@@ -71,7 +87,7 @@ export function SocialProofClient({
                     />
                   )}
                 </p>
-                <div className="mt-4 min-h-[1.5em] font-mono text-[11px] text-ink-faint uppercase tracking-[0.14em]">
+                <div className="mt-4 min-h-[1.5em] font-mono text-ink-faint text-micro uppercase tracking-label">
                   {t?.name && (
                     <>
                       <strong className="font-medium text-ink-soft">
@@ -88,7 +104,7 @@ export function SocialProofClient({
 
         {error && (
           <p
-            className="mt-4 font-mono text-[11px] text-accent uppercase tracking-widest"
+            className="mt-4 font-mono text-accent text-micro uppercase tracking-widest"
             role="alert"
           >
             {proof.errorRetry}
@@ -96,7 +112,7 @@ export function SocialProofClient({
         )}
 
         <div className="mt-10 flex justify-between gap-2 border-rule border-t border-b border-dashed py-4 pt-5">
-          <div className="max-w-md font-mono text-[10.5px] text-ink-faint uppercase leading-[1.7] tracking-[0.16em]">
+          <div className="max-w-md font-mono text-ink-faint text-nano uppercase leading-[1.7] tracking-heading">
             {proof.banner}
           </div>
           <AiControls
@@ -106,6 +122,12 @@ export function SocialProofClient({
             modelId={currentModel.id}
             onRegenerate={regenerate}
             position={position}
+            tooltip={{
+              nextModelLabel: nextModel.label,
+              nextModelExpiresAt: statuses[nextModel.id]?.expiresAt ?? null,
+              locale: lang,
+              labels: proof.tooltip,
+            }}
           />
         </div>
       </div>

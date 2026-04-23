@@ -11,12 +11,12 @@
         "toujours <em>curieux.</em>"
       ],
       "lede": "Manuel Dugué · ingénieur produit indépendant basé à Dresde. Architecture, workflows natifs pour l'IA, expérience utilisateur ; de préférence là où la stratégie rencontre l'exécution.",
-      "facts": [
-        ["Base", "Dresde / Remote"],
-        ["Dispo", "T3 2026 →"],
-        ["Langues", "DE · EN · FR · ES"],
-        ["Site", "manuel.fyi"]
-      ]
+      "facts": {
+        "base": { "label": "Base", "value": "Dresde / Remote" },
+        "openFor": { "label": "Dispo", "template": "T{quarter} {year} →" },
+        "languages": { "label": "Langues" },
+        "site": { "label": "Site" }
+      }
     },
     "self": {
       "label": "À propos",
@@ -24,7 +24,12 @@
       "sub": "À partir des documents formels, puis confié à un modèle avec consigne de ne pas devenir lyrique.",
       "tag": "Généré par LLM · légèrement supervisé par Manuel",
       "cycle": "Régénérer",
-      "errorRetry": "Ça n'a pas marché. Réessayer ?"
+      "errorRetry": "Ça n'a pas marché. Réessayer ?",
+      "tooltip": {
+        "nextModel": "Modèle suivant",
+        "cached": "Résultat en cache — sortie fraîche",
+        "fresh": "Générera une sortie fraîche"
+      }
     },
     "docs": {
       "label": "Documents",
@@ -63,7 +68,12 @@
       "sub": "Entièrement synthétiques, fausses voix, projets réels.",
       "cycle": "Régénérer",
       "errorRetry": "Ça n'a pas marché. Réessayer ?",
-      "banner": "Tous les témoignages ci-dessus ont été produits par un modèle de langage. Ils n'ont été approuvés par aucun client, puisqu'aucun client n'a été consulté. Leur ressemblance avec de vrais éloges est un effet, pas une affirmation."
+      "banner": "Tous les témoignages ci-dessus ont été produits par un modèle de langage. Ils n'ont été approuvés par aucun client, puisqu'aucun client n'a été consulté. Leur ressemblance avec de vrais éloges est un effet, pas une affirmation.",
+      "tooltip": {
+        "nextModel": "Modèle suivant",
+        "cached": "Résultat en cache — sortie fraîche",
+        "fresh": "Générera une sortie fraîche"
+      }
     },
     "footer": {
       "word": ["<em>Parlons-</em>", "en."],
