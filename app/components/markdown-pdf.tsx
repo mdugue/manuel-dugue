@@ -318,6 +318,7 @@ function renderBlock(
         return (
           <Text
             key={key}
+            minPresenceAhead={80}
             style={first ? [styles.h2, styles.h2First] : styles.h2}
             wrap={false}
           >
@@ -327,7 +328,7 @@ function renderBlock(
       }
       if (node.depth === 3) {
         return (
-          <Text key={key} style={styles.h3} wrap={false}>
+          <Text key={key} minPresenceAhead={60} style={styles.h3} wrap={false}>
             {renderInline(node.children)}
           </Text>
         );
@@ -348,7 +349,7 @@ function renderBlock(
       return (
         <View key={key} style={styles.list}>
           {node.children.map((item, i) => (
-            <View key={i} style={styles.listItem}>
+            <View key={i} style={styles.listItem} wrap={false}>
               <Text style={styles.bullet}>
                 {node.ordered ? `${i + 1}.` : "•"}
               </Text>
