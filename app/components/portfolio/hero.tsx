@@ -1,6 +1,33 @@
+import type { Route } from "next";
+import Link from "next/link";
+import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
+import { nextQuarter } from "@/lib/next-quarter";
+import { HeroLangPills } from "./hero-lang-pills";
 
-export function Hero({ hero }: { hero: Dictionary["portfolio"]["hero"] }) {
+const SITE_LABEL = "manuel.fyi";
+
+function renderQuarter(template: string): string {
+  const { quarter, year } = nextQuarter();
+  return template
+    .replace("{quarter}", String(quarter))
+    .replace("{year}", String(year));
+}
+
+const ROW =
+  "flex gap-4 border-rule-soft border-t py-2 last:border-rule-soft last:border-b";
+const LABEL = "min-w-[88px] text-ink-faint";
+
+export function Hero({
+  hero,
+  lang,
+}: {
+  hero: Dictionary["portfolio"]["hero"];
+  lang: Locale;
+}) {
+  const { facts } = hero;
+  const openForValue = renderQuarter(facts.openFor.template);
+
   return (
     <section className="relative py-[clamp(80px,14vw,180px)] [&>*:not(.hero-stamp)]:relative [&>*:not(.hero-stamp)]:z-[1]">
       <div
@@ -30,15 +57,27 @@ export function Hero({ hero }: { hero: Dictionary["portfolio"]["hero"] }) {
           {hero.lede}
         </p>
         <div className="font-mono text-[12px] text-ink-soft leading-[1.9] tracking-[0.04em]">
-          {hero.facts.map(([k, v]) => (
-            <div
-              className="flex gap-4 border-rule-soft border-t py-2 last:border-rule-soft last:border-b"
-              key={k}
+          <div className={ROW}>
+            <span className={LABEL}>{facts.base.label}</span>
+            <span>{facts.base.value}</span>
+          </div>
+          <div className={ROW}>
+            <span className={LABEL}>{facts.openFor.label}</span>
+            <span>{openForValue}</span>
+          </div>
+          <div className={ROW}>
+            <span className={LABEL}>{facts.languages.label}</span>
+            <HeroLangPills lang={lang} />
+          </div>
+          <div className={ROW}>
+            <span className={LABEL}>{facts.site.label}</span>
+            <Link
+              className="underline-offset-[3px] transition-colors hover:text-ink hover:underline focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2"
+              href={`/${lang}` as Route}
             >
-              <span className="min-w-[88px] text-ink-faint">{k}</span>
-              <span>{v}</span>
-            </div>
-          ))}
+              {SITE_LABEL}
+            </Link>
+          </div>
         </div>
       </div>
     </section>

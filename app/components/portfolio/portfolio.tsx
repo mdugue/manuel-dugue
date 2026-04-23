@@ -20,7 +20,7 @@ export function Portfolio({
       <SideRail lang={lang} spine={dict.spine} />
       <MobileBar lang={lang} />
       <main className="relative mx-auto max-w-[1380px] px-(--pad-x) pl-[calc(var(--pad-x)+60px)] max-[900px]:pl-(--pad-x)">
-        <Hero hero={dict.hero} />
+        <Hero hero={dict.hero} lang={lang} />
         <Suspense
           fallback={
             <SelfPresentationClient

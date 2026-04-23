@@ -11,12 +11,12 @@
         "toujours <em>curieux.</em>"
       ],
       "lede": "Manuel Dugué · ingénieur produit indépendant basé à Dresde. Architecture, workflows natifs pour l'IA, expérience utilisateur ; de préférence là où la stratégie rencontre l'exécution.",
-      "facts": [
-        ["Base", "Dresde / Remote"],
-        ["Dispo", "T3 2026 →"],
-        ["Langues", "DE · EN · FR · ES"],
-        ["Site", "manuel.fyi"]
-      ]
+      "facts": {
+        "base": { "label": "Base", "value": "Dresde / Remote" },
+        "openFor": { "label": "Dispo", "template": "T{quarter} {year} →" },
+        "languages": { "label": "Langues" },
+        "site": { "label": "Site" }
+      }
     },
     "self": {
       "label": "À propos",

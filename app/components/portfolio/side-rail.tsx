@@ -3,20 +3,8 @@
 import type { Route } from "next";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { type Locale, locales } from "@/i18n/config";
-
-const LANG_LABELS: Record<Locale, string> = {
-  en: "EN",
-  de: "DE",
-  fr: "FR",
-  es: "ES",
-};
-
-const LOCALE_PREFIX_RE = /^\/[a-z]{2}(?=\/|$)/;
-
-function swapLang(pathname: string, target: Locale): Route {
-  return pathname.replace(LOCALE_PREFIX_RE, `/${target}`) as Route;
-}
+import { type Locale, localeLabels, locales } from "@/i18n/config";
+import { swapLang } from "@/i18n/swap-lang";
 
 const WORDMARK =
   "font-display text-[19px] leading-none tracking-[-0.005em] text-ink";
@@ -76,7 +64,7 @@ export function SideRail({ lang, spine }: { lang: Locale; spine: string }) {
             key={code}
             lang={code}
           >
-            {LANG_LABELS[code]}
+            {localeLabels[code]}
           </Link>
         ))}
       </nav>
@@ -109,7 +97,7 @@ export function MobileBar({ lang }: { lang: Locale }) {
             key={code}
             lang={code}
           >
-            {LANG_LABELS[code]}
+            {localeLabels[code]}
           </Link>
         ))}
       </nav>

@@ -11,12 +11,12 @@
         "todavía <em>curioso.</em>"
       ],
       "lede": "Manuel Dugué · ingeniero de producto independiente con base en Dresde. Arquitectura, flujos de trabajo nativos para IA, experiencia de usuario; preferiblemente donde la estrategia se encuentra con la implementación.",
-      "facts": [
-        ["Base", "Dresde / Remoto"],
-        ["Disponible", "Q3 2026 →"],
-        ["Idiomas", "DE · EN · FR · ES"],
-        ["Web", "manuel.fyi"]
-      ]
+      "facts": {
+        "base": { "label": "Base", "value": "Dresde / Remoto" },
+        "openFor": { "label": "Disponible", "template": "Q{quarter} {year} →" },
+        "languages": { "label": "Idiomas" },
+        "site": { "label": "Web" }
+      }
     },
     "self": {
       "label": "Sobre mí",

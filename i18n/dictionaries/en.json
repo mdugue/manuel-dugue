@@ -13,12 +13,12 @@
         "<em>counting.</em>"
       ],
       "lede": "Manuel Dugué · independent product engineer based in Dresden. Architecture, AI-native workflows, User Experience; preferably where strategy meets implementation.",
-      "facts": [
-        ["Base", "Dresden / Remote"],
-        ["Open for", "Q3 2026 →"],
-        ["Tongues", "DE · EN · FR · ES"],
-        ["Site", "manuel.fyi"]
-      ]
+      "facts": {
+        "base": { "label": "Base", "value": "Dresden / Remote" },
+        "openFor": { "label": "Open for", "template": "Q{quarter} {year} →" },
+        "languages": { "label": "Tongues" },
+        "site": { "label": "Site" }
+      }
     },
     "self": {
       "label": "About",
