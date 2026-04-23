@@ -1,6 +1,6 @@
 # Profil de compétences
 
-Ingénieur produit centré sur les logiciels orientés utilisateur depuis 2008. Profond en web tech ; large en UX, architecture de l'information, ingénierie AI agentique et coaching.
+Ingénieur produit centré sur les logiciels orientés utilisateur depuis 2004. Profond en web tech ; large en UX, architecture de l'information, ingénierie AI agentique et coaching.
 
 Tissage de fonctionnalités LLM et d'agents sur mesure dans les équipes produit via MCP, Agent Skills et les AI SDKs. Accompagnement sur des stacks end-to-end résilientes, assurance qualité automatisée et workflows AI-native. À l'aise là où la stratégie conceptuelle rencontre l'orchestration concrète.
 
@@ -169,7 +169,7 @@ Accompagnement de la conversion de supports publicitaires en annonces HTML5 mode
 
 *Stack :* CSS3, Gulp, Node.js, ES6.
 
-### Travaux antérieurs — 2008–2014
+### Travaux antérieurs
 
 - **T-Systems MMS, Dresde — 2009–2012, 2014.** Produit de généalogie : arbre familial à grande échelle, initialement en Flash, ensuite porté en HTML5 avec impression PDF, intégration Jive, support mobile, recherche et filtrage instantanés. *HTML5, CoffeeScript, Spine MVC, Raphael.js, jQuery, React.*
 - **Exelonix GmbH, Dresde — 2013–2014.** Tablettes Android pour seniors — simplicité d'utilisation, maintenance à distance par les proches, applications santé, communication, sécurité, divertissement. *Java, Android, HTTP.*

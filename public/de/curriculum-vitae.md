@@ -2,7 +2,7 @@
 
 ## Profil
 
-Seit 2008 arbeite ich an nutzerzentrierten Software-Produkten. Tief in Web-Tech; breit in UX, Informationsarchitektur, Agentic-AI-Engineering und Coaching.
+Seit 2004 arbeite ich an nutzerzentrierten Software-Produkten. Tief in Web-Tech; breit in UX, Informationsarchitektur, Agentic-AI-Engineering und Coaching.
 
 Resiliente Software-Stacks, automatisierte Qualitätssicherung und KI-native Arbeitsabläufe. Integration von LLM-Features und eigenen Agenten in Produktteams via MCP, Agent Skills & AI-SDKs. Am liebsten an der Schnittstelle zwischen konzeptioneller Strategie und praktischer Umsetzung.
 

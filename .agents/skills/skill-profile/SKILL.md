@@ -23,7 +23,7 @@ Rendering pipeline, for reference: `app/[lang]/skill-profile/page.tsx` (web), `a
 ## Document structure (canonical order)
 
 1. `# Skill Profile` (or locale-equivalent H1)
-2. **Opener** — 1–2 short sentences directly under the H1, no heading. Leads with "Product engineer" / "Ingénieur produit" / "Ingeniero de producto" / "Product Engineer" (German). Names the year "since 2008" and the T-shape.
+2. **Opener** — 1–2 short sentences directly under the H1, no heading. Leads with "Product engineer" / "Ingénieur produit" / "Ingeniero de producto" / "Product Engineer" (German). Names the year "since 2004" and the T-shape.
 3. **Profile table** — Title, Born, Nationality, Languages, Personal interests.
 4. **What I do table** — 5 rows, agentic first: Agentic & AI / Build / Architect / Visualise / Coach (localised).
 5. **Stack today table** — 6 rows, agentic first: Agentic & AI / Languages / Frameworks / Runtime & data / Practices / Tools.

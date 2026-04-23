@@ -2,7 +2,7 @@
 
 ## Profile
 
-Product engineer focused on user-facing software products since 2008. Deep in web tech; broad across UX, information architecture, agentic AI engineering and coaching.
+Product engineer focused on user-facing software products since 2004. Deep in web tech; broad across UX, information architecture, agentic AI engineering and coaching.
 
 Weaving LLM features and custom agents into product teams via MCP, Agent Skills and the AI SDKs. Coaching teams on resilient end-to-end tech stacks, automated quality assurance and AI-native workflows. At home where conceptual strategy meets hands-on orchestration.
 

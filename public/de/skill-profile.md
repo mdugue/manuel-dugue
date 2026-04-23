@@ -1,6 +1,6 @@
 # Skill Profile
 
-Seit 2008 arbeite ich an nutzerzentrierten Software-Produkten. Tief in Web-Tech; breit in UX, Informationsarchitektur, Agentic-AI-Engineering und Coaching.
+Seit 2004 arbeite ich an nutzerzentrierten Software-Produkten. Tief in Web-Tech; breit in UX, Informationsarchitektur, Agentic-AI-Engineering und Coaching.
 
 Coaching zu Themen wie resiliente End-to-End-Stacks, automatisierte Qualitätssicherung und KI-native Arbeitsabläufe. Integration von LLM-Features und eigenen Agenten in Produktteams mit MCP, Agent Skills, AI-SDKs u. a. Am liebsten an der Schnittstelle zwischen konzeptioneller Strategie und praktischer Umsetzung.
 
@@ -169,7 +169,7 @@ Begleitung der Umstellung von Werbemitteln auf moderne HTML5-Anzeigen: Animation
 
 *Stack:* CSS3, Gulp, Node.js, ES6.
 
-### Frühere Arbeiten — 2008–2014
+### Frühere Arbeiten
 
 - **T-Systems MMS, Dresden — 2009–2012, 2014.** Genealogie-Produkt: großer Stammbaum, ursprünglich in Flash, später HTML5-Portierung mit PDF-Druck, Jive-Integration, Mobile-Unterstützung, Instant-Suche und Filterung. *HTML5, CoffeeScript, Spine MVC, Raphael.js, jQuery, React.*
 - **Exelonix GmbH, Dresden — 2013–2014.** Android-Tablets für Seniorinnen und Senioren — Einfachheit der Bedienung, Fernwartung durch Angehörige, Apps für Gesundheit, Kommunikation, Sicherheit, Unterhaltung. *Java, Android, HTTP.*

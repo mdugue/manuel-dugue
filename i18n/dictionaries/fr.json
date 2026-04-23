@@ -1,17 +1,16 @@
 {
   "common": {},
   "portfolio": {
-    "spine": "technologue indépendant · dresde",
+    "spine": "ingénieur produit indépendant · dresde",
     "contact": ["Manuel Dugué", "mail@manuel.fyi", "Dresde / Remote"],
     "hero": {
-      "eyebrow": "Praticien indépendant · depuis ~2004",
+      "eyebrow": "Ingénieur produit · depuis 2004",
       "title": [
-        "Vingt ans à",
-        "concevoir, bâtir,",
-        "livrer — et",
-        "<em>toujours curieux.</em>"
+        "Concevoir, construire & livrer depuis",
+        "vingt ans —",
+        "toujours <em>curieux.</em>"
       ],
-      "lede": "Manuel Dugué · technologue indépendant basé à Dresde. Produit, ingénierie, stratégie ; souvent là où les trois se rencontrent.",
+      "lede": "Manuel Dugué · ingénieur produit indépendant basé à Dresde. Architecture, workflows natifs pour l'IA, expérience utilisateur ; de préférence là où la stratégie rencontre l'exécution.",
       "facts": [
         ["Base", "Dresde / Remote"],
         ["Dispo", "T3 2026 →"],
@@ -20,32 +19,32 @@
       ]
     },
     "self": {
-      "label": "Présentation",
-      "heading": "Quelques mots sur moi",
-      "sub": "Rédigé par un modèle qui a lu mon CV avec plus d'attention que la plupart des recruteurs.",
-      "tag": "Généré par LLM · hallucinations possibles",
+      "label": "À propos",
+      "heading": "Bref autoportrait",
+      "sub": "À partir des documents formels, puis confié à un modèle avec consigne de ne pas devenir lyrique.",
+      "tag": "Généré par LLM · légèrement supervisé par Manuel",
       "cycle": "Régénérer",
       "errorRetry": "Ça n'a pas marché. Réessayer ?"
     },
     "docs": {
       "label": "Documents",
       "heading": "Les documents officiels",
-      "sub": "Un CV et un catalogue des choses que je fais contre rémunération.",
+      "sub": "Un CV et la version longue de ce que je fais et des situations où je me rends utile.",
       "cv": {
         "num": "01",
         "title": "Curriculum Vitae",
-        "desc": "Vingt ans, condensés sur une page. Désormais avec plus d'agents dans la boucle. Exagérations maintenues au minimum.",
+        "desc": "Plus de vingt ans sur une page.",
         "cta": "Ouvrir le document",
         "sheetTitle": "Curriculum Vitae",
-        "sheetSubtitle": "Ingénieur produit — architecture orientée utilisateur, workflows agentiques, stratégie."
+        "sheetSubtitle": "Ingénierie produit — architecture orientée utilisateur, workflows agentiques, stratégie."
       },
       "profile": {
         "num": "02",
         "title": "Profil de compétences",
-        "desc": "Classé par fréquence des demandes. Inclut les refus polis.",
+        "desc": "La version longue : ce que je construis et comment je travaille.",
         "cta": "Ouvrir le document",
         "sheetTitle": "Profil de compétences",
-        "sheetSubtitle": "Catalogue des choses que je fais contre rémunération."
+        "sheetSubtitle": "Compétences, stack, projets et version longue de mon travail."
       }
     },
     "legal": {
@@ -60,22 +59,11 @@
     },
     "proof": {
       "label": "Témoignages",
-      "heading": "Ce que disent les clients générés",
-      "sub": "Entièrement synthétiques, produits à la demande. Plausibilité variable.",
+      "heading": "Ce que disent des clients semi-fictifs",
+      "sub": "Entièrement synthétiques, fausses voix, projets réels.",
       "cycle": "Régénérer",
       "errorRetry": "Ça n'a pas marché. Réessayer ?",
-      "banner": "Tous les témoignages ci-dessus ont été produits par un modèle de langage. Aucun client réel n'a été consulté. La ressemblance avec de vraies louanges est un trait, non une revendication."
-    },
-    "now": {
-      "label": "Maintenant",
-      "status": {
-        "h": "Actuellement",
-        "t": "Deux longs mandats se terminent, le calendrier du T3 s'ouvre doucement. Le soir, je relis Knuth."
-      },
-      "elsewhere": {
-        "h": "Ailleurs",
-        "t": "J'écris moins que je ne devrais. Je cours plus que prévu. Basé à Dresde, je travaille avec l'UE et quelques équipes US-West."
-      }
+      "banner": "Tous les témoignages ci-dessus ont été produits par un modèle de langage. Ils n'ont été approuvés par aucun client, puisqu'aucun client n'a été consulté. Leur ressemblance avec de vrais éloges est un effet, pas une affirmation."
     },
     "footer": {
       "word": ["<em>Parlons-</em>", "en."],
@@ -85,7 +73,7 @@
       "imprint": "Mentions légales",
       "privacy": "Confidentialité",
       "colophon": "Colophon",
-      "meta": "© 2026 Manuel Dugué · composé en EB Garamond & Inter · écrit à la main en HTML"
+      "meta": "© 2026 Manuel Dugué"
     },
     "modal": {
       "download": "Télécharger le PDF",

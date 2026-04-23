@@ -7,8 +7,6 @@ import { Hero } from "./hero";
 import { SelfPresentation } from "./self-presentation";
 import { SelfPresentationClient } from "./self-presentation-client";
 import { MobileBar, SideRail } from "./side-rail";
-import { SocialProof } from "./social-proof";
-import { SocialProofClient } from "./social-proof-client";
 
 export function Portfolio({
   lang,
@@ -39,7 +37,7 @@ export function Portfolio({
           />
         </Suspense>
         <Documents docs={dict.docs} lang={lang} />
-        <Suspense
+        {/*         <Suspense
           fallback={
             <SocialProofClient
               initialTestimonials={null}
@@ -49,7 +47,7 @@ export function Portfolio({
           }
         >
           <SocialProof lang={lang} proof={dict.proof} />
-        </Suspense>
+        </Suspense> */}
       </main>
       <SiteFooter footer={dict.footer} lang={lang} />
     </>

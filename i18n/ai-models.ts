@@ -1,11 +1,11 @@
 export const aiModels = [
   {
-    id: "anthropic/claude-sonnet-4.6",
-    label: "Claude Sonnet 4.6",
-  },
-  {
     id: "openai/gpt-5.4",
     label: "GPT-5.4",
+  },
+  {
+    id: "anthropic/claude-sonnet-4.6",
+    label: "Claude Sonnet 4.6",
   },
   {
     id: "google/gemini-3.1-pro-preview",

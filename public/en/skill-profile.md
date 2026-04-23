@@ -1,6 +1,6 @@
 # Skill Profile
 
-Product engineer focused on user-facing software products since 2008. Deep in web tech; broad across UX, information architecture, agentic AI engineering and coaching.
+Product engineer focused on user-facing software products since 2004. Deep in web tech; broad across UX, information architecture, agentic AI engineering and coaching.
 
 Weaving LLM features and custom agents into product teams via MCP, Agent Skills and the AI SDKs. Coaching teams on resilient end-to-end tech stacks, automated quality assurance and AI-native workflows. At home where conceptual strategy meets hands-on orchestration.
 
@@ -169,7 +169,7 @@ Supporting the transition of advertising assets into modern HTML5 ads: animation
 
 *Stack:* CSS3, Gulp, Node.js, ES6.
 
-### Earlier work — 2008–2014
+### Earlier work
 
 - **T-Systems MMS, Dresden — 2009–2012, 2014.** Genealogy product: large-scale family tree, originally Flash, later ported to HTML5 with PDF print, Jive integration, mobile support, instant search and filtering. *HTML5, CoffeeScript, Spine MVC, Raphael.js, jQuery, React.*
 - **Exelonix GmbH, Dresden — 2013–2014.** Android tablets for seniors — ease of use, remote maintenance by relatives, apps for health, communication, safety, entertainment. *Java, Android, HTTP.*

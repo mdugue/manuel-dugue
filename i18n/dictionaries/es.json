@@ -1,17 +1,16 @@
 {
   "common": {},
   "portfolio": {
-    "spine": "tecnólogo independiente · dresde",
+    "spine": "ingeniero de producto independiente · dresde",
     "contact": ["Manuel Dugué", "mail@manuel.fyi", "Dresde / Remoto"],
     "hero": {
-      "eyebrow": "Profesional independiente · desde ~2004",
+      "eyebrow": "Ingeniero de producto · desde 2004",
       "title": [
-        "Veinte años",
-        "diseñando, creando",
-        "y entregando —",
-        "<em>aún curioso.</em>"
+        "Diseñar, construir y entregar desde",
+        "hace veinte años —",
+        "todavía <em>curioso.</em>"
       ],
-      "lede": "Manuel Dugué · tecnólogo independiente con base en Dresde. Producto, ingeniería, estrategia; casi siempre donde las tres se rozan.",
+      "lede": "Manuel Dugué · ingeniero de producto independiente con base en Dresde. Arquitectura, flujos de trabajo nativos para IA, experiencia de usuario; preferiblemente donde la estrategia se encuentra con la implementación.",
       "facts": [
         ["Base", "Dresde / Remoto"],
         ["Disponible", "Q3 2026 →"],
@@ -20,32 +19,32 @@
       ]
     },
     "self": {
-      "label": "Presentación",
-      "heading": "Unas palabras sobre mí",
-      "sub": "Escrito por un modelo que ha leído mi CV con más cuidado que la mayoría de los reclutadores.",
-      "tag": "Generado por LLM · posibles alucinaciones",
+      "label": "Sobre mí",
+      "heading": "Un breve autorretrato",
+      "sub": "A partir de los documentos formales, luego entregado a un modelo con la instrucción de no ponerse lírico.",
+      "tag": "Generado por LLM · ligeramente supervisado por Manuel",
       "cycle": "Regenerar",
       "errorRetry": "No ha funcionado. ¿Intentarlo de nuevo?"
     },
     "docs": {
       "label": "Documentos",
       "heading": "Los documentos formales",
-      "sub": "Un currículum y un catálogo de cosas que hago por dinero.",
+      "sub": "Un currículum y la versión larga de lo que hago y de dónde suelo resultar útil.",
       "cv": {
         "num": "01",
         "title": "Currículum Vitae",
-        "desc": "Veinte años, condensados en una página. Ahora con más agentes en el bucle. Exageraciones al mínimo.",
+        "desc": "Más de veinte años en una página.",
         "cta": "Abrir documento",
         "sheetTitle": "Curriculum Vitae",
-        "sheetSubtitle": "Ingeniero de producto — arquitectura orientada al usuario, flujos agénticos, estrategia."
+        "sheetSubtitle": "Ingeniería de producto — arquitectura orientada al usuario, flujos agénticos, estrategia."
       },
       "profile": {
         "num": "02",
         "title": "Perfil de habilidades",
-        "desc": "Ordenado por frecuencia de peticiones. Incluye lo que rechazo con educación.",
+        "desc": "La versión larga: qué construyo y cómo trabajo.",
         "cta": "Abrir documento",
-        "sheetTitle": "Skill Profile",
-        "sheetSubtitle": "Catálogo de cosas que hago por dinero."
+        "sheetTitle": "Perfil de habilidades",
+        "sheetSubtitle": "Capacidades, stack, proyectos y la versión larga de mi trabajo."
       }
     },
     "legal": {
@@ -60,22 +59,11 @@
     },
     "proof": {
       "label": "Testimonios",
-      "heading": "Lo que dicen los clientes generados",
-      "sub": "Totalmente sintéticos, producidos bajo demanda. Plausibilidad variable.",
+      "heading": "Lo que dicen clientes semi-ficticios",
+      "sub": "Totalmente sintéticos, voces falsas, proyectos reales.",
       "cycle": "Regenerar",
       "errorRetry": "No ha funcionado. ¿Intentarlo de nuevo?",
-      "banner": "Todos los testimonios anteriores fueron producidos por un modelo de lenguaje. Ningún cliente real fue consultado. El parecido con elogios reales es una característica, no una afirmación."
-    },
-    "now": {
-      "label": "Ahora",
-      "status": {
-        "h": "En curso",
-        "t": "Terminando dos mandatos largos y abriendo poco a poco el calendario para Q3. Por las noches, Knuth."
-      },
-      "elsewhere": {
-        "h": "Por otro lado",
-        "t": "Escribo menos de lo que debería. Corro más de lo previsto. Vivo en Dresde, trabajo con la UE y algunos equipos US-West."
-      }
+      "banner": "Todos los testimonios anteriores fueron producidos por un modelo de lenguaje. No han sido aprobados por ningún cliente, porque no se consultó a ninguno. Su parecido con elogios reales es un efecto, no una afirmación."
     },
     "footer": {
       "word": ["<em>Hablemos.</em>"],
@@ -85,7 +73,7 @@
       "imprint": "Aviso legal",
       "privacy": "Privacidad",
       "colophon": "Colofón",
-      "meta": "© 2026 Manuel Dugué · compuesto en EB Garamond & Inter · escrito a mano en HTML"
+      "meta": "© 2026 Manuel Dugué"
     },
     "modal": {
       "download": "Descargar PDF",

@@ -2,7 +2,7 @@
 
 ## Perfil
 
-Ingeniero de producto centrado en software orientado al usuario desde 2008. Profundo en web tech; amplio en UX, arquitectura de la información, ingeniería de IA agéntica y coaching.
+Ingeniero de producto centrado en software orientado al usuario desde 2004. Profundo en web tech; amplio en UX, arquitectura de la información, ingeniería de IA agéntica y coaching.
 
 Integro funcionalidades LLM y agentes a medida en equipos de producto con MCP, Agent Skills y los AI SDKs. Acompañamiento en pilas resilientes de extremo a extremo, calidad automatizada y flujos de trabajo nativos de IA. Cómodo en la unión entre estrategia conceptual y orquestación práctica.
 
