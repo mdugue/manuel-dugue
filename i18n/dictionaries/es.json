@@ -1,0 +1,85 @@
+{
+  "common": {},
+  "portfolio": {
+    "spine": "ingeniero de producto independiente · dresde",
+    "contact": ["Manuel Dugué", "mail@manuel.fyi", "Dresde / Remoto"],
+    "hero": {
+      "eyebrow": "Ingeniero de producto · desde 2004",
+      "title": [
+        "Diseñar, construir y entregar desde",
+        "hace veinte años —",
+        "todavía <em>curioso.</em>"
+      ],
+      "lede": "Manuel Dugué · ingeniero de producto independiente con base en Dresde. Arquitectura, flujos de trabajo nativos para IA, experiencia de usuario; preferiblemente donde la estrategia se encuentra con la implementación.",
+      "facts": [
+        ["Base", "Dresde / Remoto"],
+        ["Disponible", "Q3 2026 →"],
+        ["Idiomas", "DE · EN · FR · ES"],
+        ["Web", "manuel.fyi"]
+      ]
+    },
+    "self": {
+      "label": "Sobre mí",
+      "heading": "Un breve autorretrato",
+      "sub": "A partir de los documentos formales, luego entregado a un modelo con la instrucción de no ponerse lírico.",
+      "tag": "Generado por LLM · ligeramente supervisado por Manuel",
+      "cycle": "Regenerar",
+      "errorRetry": "No ha funcionado. ¿Intentarlo de nuevo?"
+    },
+    "docs": {
+      "label": "Documentos",
+      "heading": "Los documentos formales",
+      "sub": "Un currículum y la versión larga de lo que hago y de dónde suelo resultar útil.",
+      "cv": {
+        "num": "01",
+        "title": "Currículum Vitae",
+        "desc": "Más de veinte años en una página.",
+        "cta": "Abrir documento",
+        "sheetTitle": "Curriculum Vitae",
+        "sheetSubtitle": "Ingeniería de producto — arquitectura orientada al usuario, flujos agénticos, estrategia."
+      },
+      "profile": {
+        "num": "02",
+        "title": "Perfil de habilidades",
+        "desc": "La versión larga: qué construyo y cómo trabajo.",
+        "cta": "Abrir documento",
+        "sheetTitle": "Perfil de habilidades",
+        "sheetSubtitle": "Capacidades, stack, proyectos y la versión larga de mi trabajo."
+      }
+    },
+    "legal": {
+      "imprint": {
+        "sheetTitle": "Aviso legal",
+        "sheetSubtitle": "Información legal conforme al § 5 TMG"
+      },
+      "privacy": {
+        "sheetTitle": "Privacidad",
+        "sheetSubtitle": "Cómo este sitio trata tus datos"
+      }
+    },
+    "proof": {
+      "label": "Testimonios",
+      "heading": "Lo que dicen clientes semi-ficticios",
+      "sub": "Totalmente sintéticos, voces falsas, proyectos reales.",
+      "cycle": "Regenerar",
+      "errorRetry": "No ha funcionado. ¿Intentarlo de nuevo?",
+      "banner": "Todos los testimonios anteriores fueron producidos por un modelo de lenguaje. No han sido aprobados por ningún cliente, porque no se consultó a ninguno. Su parecido con elogios reales es un efecto, no una afirmación."
+    },
+    "footer": {
+      "word": ["<em>Hablemos.</em>"],
+      "sayHello": "Saludar",
+      "elsewhere": "Por ahí",
+      "legal": "Legal",
+      "imprint": "Aviso legal",
+      "privacy": "Privacidad",
+      "colophon": "Colofón",
+      "meta": "© 2026 Manuel Dugué"
+    },
+    "modal": {
+      "download": "Descargar PDF",
+      "print": "Imprimir",
+      "close": "Cerrar",
+      "escHint": "Esc para cerrar"
+    }
+  }
+}

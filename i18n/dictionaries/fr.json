@@ -1,0 +1,85 @@
+{
+  "common": {},
+  "portfolio": {
+    "spine": "ingénieur produit indépendant · dresde",
+    "contact": ["Manuel Dugué", "mail@manuel.fyi", "Dresde / Remote"],
+    "hero": {
+      "eyebrow": "Ingénieur produit · depuis 2004",
+      "title": [
+        "Concevoir, construire & livrer depuis",
+        "vingt ans —",
+        "toujours <em>curieux.</em>"
+      ],
+      "lede": "Manuel Dugué · ingénieur produit indépendant basé à Dresde. Architecture, workflows natifs pour l'IA, expérience utilisateur ; de préférence là où la stratégie rencontre l'exécution.",
+      "facts": [
+        ["Base", "Dresde / Remote"],
+        ["Dispo", "T3 2026 →"],
+        ["Langues", "DE · EN · FR · ES"],
+        ["Site", "manuel.fyi"]
+      ]
+    },
+    "self": {
+      "label": "À propos",
+      "heading": "Bref autoportrait",
+      "sub": "À partir des documents formels, puis confié à un modèle avec consigne de ne pas devenir lyrique.",
+      "tag": "Généré par LLM · légèrement supervisé par Manuel",
+      "cycle": "Régénérer",
+      "errorRetry": "Ça n'a pas marché. Réessayer ?"
+    },
+    "docs": {
+      "label": "Documents",
+      "heading": "Les documents officiels",
+      "sub": "Un CV et la version longue de ce que je fais et des situations où je me rends utile.",
+      "cv": {
+        "num": "01",
+        "title": "Curriculum Vitae",
+        "desc": "Plus de vingt ans sur une page.",
+        "cta": "Ouvrir le document",
+        "sheetTitle": "Curriculum Vitae",
+        "sheetSubtitle": "Ingénierie produit — architecture orientée utilisateur, workflows agentiques, stratégie."
+      },
+      "profile": {
+        "num": "02",
+        "title": "Profil de compétences",
+        "desc": "La version longue : ce que je construis et comment je travaille.",
+        "cta": "Ouvrir le document",
+        "sheetTitle": "Profil de compétences",
+        "sheetSubtitle": "Compétences, stack, projets et version longue de mon travail."
+      }
+    },
+    "legal": {
+      "imprint": {
+        "sheetTitle": "Mentions légales",
+        "sheetSubtitle": "Informations légales conformément au § 5 TMG"
+      },
+      "privacy": {
+        "sheetTitle": "Confidentialité",
+        "sheetSubtitle": "Comment ce site traite vos données"
+      }
+    },
+    "proof": {
+      "label": "Témoignages",
+      "heading": "Ce que disent des clients semi-fictifs",
+      "sub": "Entièrement synthétiques, fausses voix, projets réels.",
+      "cycle": "Régénérer",
+      "errorRetry": "Ça n'a pas marché. Réessayer ?",
+      "banner": "Tous les témoignages ci-dessus ont été produits par un modèle de langage. Ils n'ont été approuvés par aucun client, puisqu'aucun client n'a été consulté. Leur ressemblance avec de vrais éloges est un effet, pas une affirmation."
+    },
+    "footer": {
+      "word": ["<em>Parlons-</em>", "en."],
+      "sayHello": "Dire bonjour",
+      "elsewhere": "Ailleurs",
+      "legal": "Mentions",
+      "imprint": "Mentions légales",
+      "privacy": "Confidentialité",
+      "colophon": "Colophon",
+      "meta": "© 2026 Manuel Dugué"
+    },
+    "modal": {
+      "download": "Télécharger le PDF",
+      "print": "Imprimer",
+      "close": "Fermer",
+      "escHint": "Échap pour fermer"
+    }
+  }
+}

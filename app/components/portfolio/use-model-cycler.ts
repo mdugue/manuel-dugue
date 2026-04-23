@@ -1,0 +1,47 @@
+"use client";
+
+import { useCallback, useEffect, useRef, useState } from "react";
+import { type AiModelId, aiModels } from "@/i18n/ai-models";
+
+const MODEL_COUNT = aiModels.length;
+
+export function useModelCycler(onModelChange: (_model: AiModelId) => void) {
+  const [modelIndex, setModelIndex] = useState(0);
+
+  const onChangeRef = useRef(onModelChange);
+
+  const currentModel = aiModels[modelIndex];
+
+  const didInit = useRef(false);
+  useEffect(() => {
+    onChangeRef.current = onModelChange;
+  }, [onModelChange]);
+
+  useEffect(() => {
+    if (!currentModel) {
+      return;
+    }
+    if (didInit.current) {
+      return;
+    }
+    didInit.current = true;
+    onChangeRef.current(currentModel.id);
+  }, [currentModel]);
+
+  const regenerate = useCallback(() => {
+    const next = (modelIndex + 1) % MODEL_COUNT;
+    setModelIndex(next);
+    const model = aiModels[next];
+    if (model) {
+      onChangeRef.current(model.id);
+    }
+  }, [modelIndex]);
+
+  const position = `${String(modelIndex + 1).padStart(2, "0")}/${String(MODEL_COUNT).padStart(2, "0")}`;
+
+  if (currentModel === undefined) {
+    throw new Error("useModelCycler: invalid model index");
+  }
+
+  return { currentModel, position, regenerate };
+}

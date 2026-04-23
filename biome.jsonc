@@ -1,15 +1,26 @@
 {
   "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
-  "extends": ["ultracite/core", "ultracite/react", "ultracite/next"],
-  "formatter": {
-    "indentStyle": "tab"
-  },
+  "extends": [
+    "ultracite/biome/core",
+    "ultracite/biome/react",
+    "ultracite/biome/next"
+  ],
   "files": {
-    "includes": ["**", "!gql", "!public"]
+    "includes": ["**", "!!**/.agents"]
   },
-  "linter": {
-    "rules": {
-      "suspicious": { "useAwait": "off" }
+  "javascript": {
+    "globals": ["Bun"]
+  },
+  "overrides": [
+    {
+      "includes": ["**/app/components/markdown-pdf.tsx"],
+      "linter": {
+        "rules": {
+          "suspicious": {
+            "noArrayIndexKey": "off"
+          }
+        }
+      }
     }
-  }
+  ]
 }

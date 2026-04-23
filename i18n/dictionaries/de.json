@@ -1,0 +1,85 @@
+{
+  "common": {},
+  "portfolio": {
+    "spine": "unabhängiger Produktentwickler · dresden",
+    "contact": ["Manuel Dugué", "mail@manuel.fyi", "Dresden / Remote"],
+    "hero": {
+      "eyebrow": "Product Engineer · seit 2004",
+      "title": [
+        "Gestalten, entwickeln & ausliefern seit",
+        "zwanzig Jahren —",
+        "stets <em>neugierig.</em>"
+      ],
+      "lede": "Manuel Dugué · unabhängiger Product Engineer aus Dresden. Architektur, KI-native Arbeitsweisen, User Experience; am liebsten dort, wo Strategie auf Umsetzung trifft.",
+      "facts": [
+        ["Basis", "Dresden / Remote"],
+        ["Offen ab", "Q3 2026 →"],
+        ["Sprachen", "DE · EN · FR · ES"],
+        ["Seite", "manuel.fyi"]
+      ]
+    },
+    "self": {
+      "label": "Über mich",
+      "heading": "Ein kurzes Selbstporträt",
+      "sub": "Auf Basis der \"offiziellen Dokumente\". Dann einem Modell übergeben, mit der Bitte, nicht lyrisch zu werden.",
+      "tag": "Vom LLM erzeugt · leicht beaufsichtigt von Manuel",
+      "cycle": "Neu generieren",
+      "errorRetry": "Das hat nicht geklappt. Nochmal versuchen?"
+    },
+    "docs": {
+      "label": "Dokumente",
+      "heading": "Die offiziellen Dokumente",
+      "sub": "Lebenslauf und die längere Fassung dessen, was ich tue und wobei ich nützlich bin.",
+      "cv": {
+        "num": "01",
+        "title": "Lebenslauf",
+        "desc": "Mehr als zwanzig Jahre auf einer Seite.",
+        "cta": "Dokument öffnen",
+        "sheetTitle": "Lebenslauf",
+        "sheetSubtitle": "Produktentwicklung — nutzerzentrierte Architektur, agentische Workflows, Strategie."
+      },
+      "profile": {
+        "num": "02",
+        "title": "Kompetenzprofil",
+        "desc": "Die längere Fassung: was ich erstelle & wie ich arbeite.",
+        "cta": "Dokument öffnen",
+        "sheetTitle": "Kompetenzprofil",
+        "sheetSubtitle": "Kompetenzen, Stack, Projekte und die längere Fassung meiner Arbeit."
+      }
+    },
+    "legal": {
+      "imprint": {
+        "sheetTitle": "Impressum",
+        "sheetSubtitle": "Angaben gemäß § 5 TMG"
+      },
+      "privacy": {
+        "sheetTitle": "Datenschutz",
+        "sheetSubtitle": "Wie diese Seite mit deinen Daten umgeht"
+      }
+    },
+    "proof": {
+      "label": "Social Proof",
+      "heading": "Was Klienten vermutlich sagten",
+      "sub": "Vollständig synthetisch, fake Stimmen, echte Projekte.",
+      "cycle": "Neu generieren",
+      "errorRetry": "Das hat nicht geklappt. Nochmal versuchen?",
+      "banner": "Alle obigen Zitate stammen von einem Sprachmodell. Sie wurden von keinem Kunden abgesegnet, denn es wurde keiner gefragt. Die Ähnlichkeit zu echtem Lob ist beabsichtigt."
+    },
+    "footer": {
+      "word": ["Lasst uns", "<em>reden</em>."],
+      "sayHello": "Hallo",
+      "elsewhere": "Sonst",
+      "legal": "Legal",
+      "imprint": "Impressum",
+      "privacy": "Datenschutz",
+      "colophon": "Kolophon",
+      "meta": "© 2026 Manuel Dugué"
+    },
+    "modal": {
+      "download": "PDF herunterladen",
+      "print": "Drucken",
+      "close": "Schließen",
+      "escHint": "Esc zum Schließen"
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__next-devtools__nextjs_docs",
+      "mcp__next-devtools__init",
+      "mcp__next-devtools__browser_eval",
+      "mcp__next-devtools__nextjs_index",
+      "mcp__next-devtools__nextjs_call",
+      "Bash(bun run tsc)",
+      "Bash(bun run test)",
+      "Bash(bun test)",
+      "Bash(bun test *)",
+      "Bash(npx next *)",
+      "Bash(bun --bun next build --experimental-build-mode=compile)",
+      "Bash(bun tsc *)",
+      "WebFetch(domain:api.anthropic.com)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "Bash(curl -s https://ai-gateway.vercel.sh/v1/models)",
+      "Bash(bun --bun run tsc)",
+      "Bash(bun --bun run dev)",
+      "Bash(bun add *)"
+    ]
+  },
+  "hooks": {
+    "PostToolUse": [
+      {
+        "hooks": [
+          {
+            "command": "bun fix --skip=correctness/noUnusedImports",
+            "type": "command"
+          }
+        ],
+        "matcher": "Write|Edit"
+      }
+    ]
+  }
+}
