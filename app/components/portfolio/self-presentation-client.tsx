@@ -1,12 +1,13 @@
 "use client";
 
 import { useCompletion } from "@ai-sdk/react";
-import { useCallback } from "react";
+import { useCallback, useRef } from "react";
 import type { AiModelId } from "@/i18n/ai-models";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 import { AiControls } from "./ai-controls";
 import { SectionHead } from "./section-head";
+import { useAiCacheStatuses } from "./use-ai-cache-statuses";
 import { useModelCycler } from "./use-model-cycler";
 
 export function SelfPresentationClient({
@@ -18,20 +19,35 @@ export function SelfPresentationClient({
   self: Dictionary["portfolio"]["self"];
   initialText: string;
 }) {
+  const { statuses, markGenerated } = useAiCacheStatuses(
+    "self-presentation",
+    lang
+  );
+
+  const requestedModelRef = useRef<AiModelId | null>(null);
+
   const { completion, complete, isLoading, error } = useCompletion({
     api: "/api/self-presentation",
     streamProtocol: "text",
     initialCompletion: initialText,
+    onFinish: () => {
+      const model = requestedModelRef.current;
+      if (model) {
+        markGenerated(model);
+      }
+    },
   });
 
   const onModelChange = useCallback(
     (model: AiModelId) => {
+      requestedModelRef.current = model;
       complete("", { body: { lang, model } });
     },
     [complete, lang]
   );
 
-  const { currentModel, position, regenerate } = useModelCycler(onModelChange);
+  const { currentModel, nextModel, position, regenerate } =
+    useModelCycler(onModelChange);
 
   return (
     <section className="py-[clamp(60px,9vw,130px)]" id="self">
@@ -76,6 +92,12 @@ export function SelfPresentationClient({
           modelId={currentModel.id}
           onRegenerate={regenerate}
           position={position}
+          tooltip={{
+            nextModelLabel: nextModel.label,
+            nextModelExpiresAt: statuses[nextModel.id]?.expiresAt ?? null,
+            locale: lang,
+            labels: self.tooltip,
+          }}
         />
       </div>
     </section>

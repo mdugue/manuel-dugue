@@ -11,6 +11,8 @@ export function useModelCycler(onModelChange: (_model: AiModelId) => void) {
   const onChangeRef = useRef(onModelChange);
 
   const currentModel = aiModels[modelIndex];
+  const nextIndex = (modelIndex + 1) % MODEL_COUNT;
+  const nextModel = aiModels[nextIndex];
 
   const didInit = useRef(false);
   useEffect(() => {
@@ -29,19 +31,18 @@ export function useModelCycler(onModelChange: (_model: AiModelId) => void) {
   }, [currentModel]);
 
   const regenerate = useCallback(() => {
-    const next = (modelIndex + 1) % MODEL_COUNT;
-    setModelIndex(next);
-    const model = aiModels[next];
+    setModelIndex(nextIndex);
+    const model = aiModels[nextIndex];
     if (model) {
       onChangeRef.current(model.id);
     }
-  }, [modelIndex]);
+  }, [nextIndex]);
 
   const position = `${String(modelIndex + 1).padStart(2, "0")}/${String(MODEL_COUNT).padStart(2, "0")}`;
 
-  if (currentModel === undefined) {
+  if (currentModel === undefined || nextModel === undefined) {
     throw new Error("useModelCycler: invalid model index");
   }
 
-  return { currentModel, position, regenerate };
+  return { currentModel, nextModel, position, regenerate };
 }

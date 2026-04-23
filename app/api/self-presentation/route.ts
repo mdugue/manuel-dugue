@@ -1,14 +1,12 @@
-import { getCache } from "@vercel/functions";
 import { streamText } from "ai";
 import { readMarkdown } from "@/app/components/markdown-source";
 import { isAiModelId } from "@/i18n/ai-models";
 import { hasLocale, type Locale } from "@/i18n/config";
 import { buildSelfPresentationPrompt } from "@/i18n/self-presentation-prompt";
+import { readAiCacheText, writeAiCacheText } from "@/lib/ai-cache";
 import { checkRateLimit, rateLimited } from "@/lib/rate-limit";
 
 export const maxDuration = 60;
-
-const ONE_DAY_SECONDS = 60 * 60 * 24;
 
 export async function POST(req: Request) {
   const rate = await checkRateLimit("self-presentation", req);
@@ -33,12 +31,11 @@ export async function POST(req: Request) {
   }
 
   const locale: Locale = lang;
-  const cache = getCache({ namespace: "self-presentation" });
-  const key = `${locale}:${model}`;
+  const namespace = "self-presentation" as const;
 
-  const cached = await cache.get(key);
-  if (typeof cached === "string" && cached.length > 0) {
-    return new Response(cached, {
+  const cached = await readAiCacheText({ namespace, locale, model });
+  if (cached) {
+    return new Response(cached.text, {
       headers: {
         "content-type": "text/plain; charset=utf-8",
         "x-cache": "HIT",
@@ -59,14 +56,7 @@ export async function POST(req: Request) {
       `<skill-profile>\n${skills}\n</skill-profile>`,
     temperature: 0.85,
     onFinish: async ({ text }) => {
-      if (!text) {
-        return;
-      }
-      await cache.set(key, text, {
-        ttl: ONE_DAY_SECONDS,
-        tags: ["self-presentation", `self-presentation:${locale}`],
-        name: `self-presentation · ${locale} · ${model}`,
-      });
+      await writeAiCacheText({ namespace, locale, model, text });
     },
   });
 

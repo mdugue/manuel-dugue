@@ -1,0 +1,2 @@
+export const AI_CACHE_TTL_SECONDS = 60 * 60 * 24;
+export const AI_CACHE_TTL_MS = AI_CACHE_TTL_SECONDS * 1000;

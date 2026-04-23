@@ -21,7 +21,8 @@
       "Bash(bun add *)",
       "Bash(bun run *)",
       "Bash(git stash *)",
-      "Bash(git diff *)"
+      "Bash(git diff *)",
+      "Bash(gh pr *)"
     ]
   },
   "hooks": {
