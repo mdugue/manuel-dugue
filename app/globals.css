@@ -12,7 +12,7 @@
   --rule-soft: oklch(0.92 0.006 70);
   --paper: oklch(0.99 0 0);
   --accent: oklch(0.4216 0.112 263.9);
-  --pad-x: clamp(24px, 5vw, 72px);
+  --pad-x: clamp(1.5rem, 5vw, 4.5rem);
   isolation: isolate;
 }
 
@@ -92,7 +92,7 @@ body {
   min-height: 100dvh;
   overflow-x: hidden;
   font-family: var(--font-body), -apple-system, system-ui, sans-serif;
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 400;
   -webkit-font-smoothing: antialiased;
   line-height: 1.6;
@@ -136,8 +136,8 @@ a {
   display: none;
 }
 .doc-prose > h2 {
-  padding-top: 24px;
-  margin: 36px 0 16px;
+  padding-top: 1.5rem;
+  margin: 2.25rem 0 1rem;
   font-family: var(--font-mono);
   font-size: var(--text-nano);
   font-weight: 500;
@@ -153,18 +153,18 @@ a {
   border-top: 0;
 }
 .doc-prose h3 {
-  margin: 18px 0 4px;
+  margin: 1.125rem 0 0.25rem;
   font-weight: 600;
   color: var(--color-ink);
 }
 .doc-prose h4 {
-  margin: 0 0 6px;
+  margin: 0 0 0.375rem;
   font-size: var(--text-sm);
   font-style: italic;
   color: var(--color-ink-soft);
 }
 .doc-prose p {
-  margin: 0 0 10px;
+  margin: 0 0 0.625rem;
   line-height: 1.65;
 }
 .doc-prose strong {
@@ -181,7 +181,7 @@ a {
 .doc-prose ul,
 .doc-prose ol {
   padding: 0 0 0 1.5rem;
-  margin: 4px 0 12px;
+  margin: 0.25rem 0 0.75rem;
   list-style-position: outside;
 }
 /* Tailwind preflight sets list-style: none on ul/ol; restore markers for GFM body copy */
@@ -193,7 +193,7 @@ a {
 }
 .doc-prose li {
   padding-left: 0.25rem;
-  margin: 2px 0;
+  margin: 0.125rem 0;
   line-height: 1.65;
 }
 /* Softer than body text; still tracks light/dark --ink */
@@ -201,13 +201,13 @@ a {
   color: var(--color-ink-faint);
 }
 .doc-prose hr {
-  margin: 28px 0;
+  margin: 1.75rem 0;
   border: 0;
   border-top: 1px solid var(--color-rule);
 }
 .doc-prose blockquote {
-  padding: 4px 0 4px 14px;
-  margin: 12px 0;
+  padding: 0.25rem 0 0.25rem 0.875rem;
+  margin: 0.75rem 0;
   font-style: italic;
   color: var(--color-ink-soft);
   border-left: 2px solid var(--accent);
@@ -215,26 +215,26 @@ a {
 .doc-prose code {
   padding: 1px 5px;
   font-family: var(--font-mono);
-  font-size: 13px;
+  font-size: 0.8125rem;
   background: var(--color-rule-soft);
   border-radius: 2px;
 }
 .doc-prose table {
   width: 100%;
-  margin: 12px 0 20px;
-  font-size: 13px;
+  margin: 0.75rem 0 1.25rem;
+  font-size: 0.8125rem;
   border-collapse: collapse;
 }
 .doc-prose th,
 .doc-prose td {
-  padding: 8px 10px;
+  padding: 0.5rem 0.625rem;
   vertical-align: top;
   text-align: left;
   border-bottom: 1px solid var(--color-rule);
 }
 .doc-prose th {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: var(--text-nano);
   font-weight: 500;
   color: var(--color-ink-soft);
   text-transform: uppercase;
