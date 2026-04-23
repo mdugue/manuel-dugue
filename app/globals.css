@@ -43,6 +43,13 @@
   --font-display: var(--font-display);
   --font-body: var(--font-body);
   --font-mono: var(--font-mono);
+  --text-nano: 0.625rem; /* 10px */
+  --text-nano--line-height: 1.4;
+  --text-micro: 0.6875rem; /* 11px */
+  --text-micro--line-height: 1.4;
+  --tracking-label: 0.14em;
+  --tracking-heading: 0.16em;
+  --tracking-label-tight: 0.08em;
   --animate-blink: blink 1.8s ease-in-out infinite;
   --animate-pulse-dot: pulse-dot 1.2s ease-in-out infinite;
 }
@@ -121,7 +128,7 @@ a {
  * ────────────────────────────────────────────────────────────── */
 .doc-prose {
   font-family: var(--font-display);
-  font-size: 15px;
+  font-size: 1rem;
   line-height: 1.6;
   color: var(--color-ink);
 }
@@ -132,7 +139,7 @@ a {
   padding-top: 24px;
   margin: 36px 0 16px;
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: var(--text-nano);
   font-weight: 500;
   color: var(--color-ink);
   text-transform: uppercase;
@@ -147,19 +154,17 @@ a {
 }
 .doc-prose h3 {
   margin: 18px 0 4px;
-  font-size: 15px;
   font-weight: 600;
   color: var(--color-ink);
 }
 .doc-prose h4 {
   margin: 0 0 6px;
-  font-size: 14px;
+  font-size: var(--text-sm);
   font-style: italic;
-  color: #555;
+  color: var(--color-ink-soft);
 }
 .doc-prose p {
   margin: 0 0 10px;
-  font-size: 14.5px;
   line-height: 1.65;
 }
 .doc-prose strong {
@@ -189,7 +194,6 @@ a {
 .doc-prose li {
   padding-left: 0.25rem;
   margin: 2px 0;
-  font-size: 14.5px;
   line-height: 1.65;
 }
 /* Softer than body text; still tracks light/dark --ink */
@@ -199,26 +203,26 @@ a {
 .doc-prose hr {
   margin: 28px 0;
   border: 0;
-  border-top: 1px solid #e6e0d6;
+  border-top: 1px solid var(--color-rule);
 }
 .doc-prose blockquote {
   padding: 4px 0 4px 14px;
   margin: 12px 0;
   font-style: italic;
-  color: #444;
+  color: var(--color-ink-soft);
   border-left: 2px solid var(--accent);
 }
 .doc-prose code {
   padding: 1px 5px;
   font-family: var(--font-mono);
   font-size: 13px;
-  background: #f1ebdf;
+  background: var(--color-rule-soft);
   border-radius: 2px;
 }
 .doc-prose table {
   width: 100%;
   margin: 12px 0 20px;
-  font-size: 13.5px;
+  font-size: 13px;
   border-collapse: collapse;
 }
 .doc-prose th,
@@ -226,16 +230,16 @@ a {
   padding: 8px 10px;
   vertical-align: top;
   text-align: left;
-  border-bottom: 1px solid #e6e0d6;
+  border-bottom: 1px solid var(--color-rule);
 }
 .doc-prose th {
   font-family: var(--font-mono);
   font-size: 10px;
   font-weight: 500;
-  color: #555;
+  color: var(--color-ink-soft);
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  border-bottom: 1px solid #1a1a1a;
+  border-bottom: 1px solid var(--color-ink);
 }
 .doc-prose tr:last-child td {
   border-bottom: 0;

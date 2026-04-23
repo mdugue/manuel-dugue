@@ -48,7 +48,7 @@ export function SocialProofClient({
         sub={proof.sub}
       />
 
-      <div className="relative flex max-w-[760px] flex-col gap-8">
+      <div className="relative flex max-w-190 flex-col gap-8">
         <div
           aria-busy={isLoading}
           aria-live="polite"
@@ -71,7 +71,7 @@ export function SocialProofClient({
                     />
                   )}
                 </p>
-                <div className="mt-4 min-h-[1.5em] font-mono text-[11px] text-ink-faint uppercase tracking-[0.14em]">
+                <div className="mt-4 min-h-[1.5em] font-mono text-ink-faint text-micro uppercase tracking-label">
                   {t?.name && (
                     <>
                       <strong className="font-medium text-ink-soft">
@@ -88,7 +88,7 @@ export function SocialProofClient({
 
         {error && (
           <p
-            className="mt-4 font-mono text-[11px] text-accent uppercase tracking-widest"
+            className="mt-4 font-mono text-accent text-micro uppercase tracking-widest"
             role="alert"
           >
             {proof.errorRetry}
@@ -96,7 +96,7 @@ export function SocialProofClient({
         )}
 
         <div className="mt-10 flex justify-between gap-2 border-rule border-t border-b border-dashed py-4 pt-5">
-          <div className="max-w-md font-mono text-[10.5px] text-ink-faint uppercase leading-[1.7] tracking-[0.16em]">
+          <div className="max-w-md font-mono text-ink-faint text-nano uppercase leading-[1.7] tracking-heading">
             {proof.banner}
           </div>
           <AiControls

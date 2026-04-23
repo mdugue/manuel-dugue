@@ -16,7 +16,7 @@ function renderQuarter(template: string): string {
 
 const ROW =
   "flex gap-4 border-rule-soft border-t py-2 last:border-rule-soft last:border-b";
-const LABEL = "min-w-[88px] text-ink-faint";
+const LABEL = "min-w-22 text-ink-faint";
 
 export function Hero({
   hero,
@@ -32,16 +32,16 @@ export function Hero({
     <section className="relative py-[clamp(80px,14vw,180px)] [&>*:not(.hero-stamp)]:relative [&>*:not(.hero-stamp)]:z-[1]">
       <div
         aria-hidden="true"
-        className="hero-stamp pointer-events-none absolute top-[clamp(20px,4vw,60px)] right-0 z-0 select-none whitespace-nowrap font-display font-normal text-[clamp(140px,24vw,340px)] text-transparent italic leading-[0.8] tracking-[-0.05em] opacity-75 [-webkit-text-stroke:1px_color-mix(in_oklch,var(--accent)_30%,transparent)]"
+        className="hero-stamp pointer-events-none absolute top-[clamp(20px,4vw,60px)] right-0 z-0 select-none whitespace-nowrap font-display font-normal text-[clamp(140px,24vw,340px)] text-transparent italic leading-[0.8] tracking-tighter opacity-75 [-webkit-text-stroke:1px_color-mix(in_oklch,var(--accent)_30%,transparent)]"
       >
         .fyi
       </div>
 
-      <div className="mb-10 flex items-center gap-3 font-mono text-[12px] text-ink-faint uppercase tracking-[0.2em] before:h-px before:w-7 before:bg-accent before:content-['']">
+      <div className="mb-10 flex items-center gap-3 font-mono text-ink-faint text-xs uppercase tracking-[0.2em] before:h-px before:w-7 before:bg-accent before:content-['']">
         {hero.eyebrow}
       </div>
 
-      <h1 className="m-0 text-balance font-display font-normal text-[clamp(48px,8.5vw,120px)] leading-[0.96] tracking-[-0.02em] [&_em]:text-accent [&_em]:italic">
+      <h1 className="m-0 text-balance font-display font-normal text-[clamp(48px,8.5vw,120px)] leading-[0.96] tracking-tight [&_em]:text-accent [&_em]:italic">
         {hero.title.map((line) => (
           <span
             // biome-ignore lint/security/noDangerouslySetInnerHtml: trusted hero lines from i18n dictionaries (italic markup)
@@ -52,11 +52,11 @@ export function Hero({
         ))}
       </h1>
 
-      <div className="mt-12 grid max-w-[820px] grid-cols-2 items-start gap-10 max-[720px]:grid-cols-1 max-[720px]:gap-6">
-        <p className="m-0 max-w-[36ch] font-display text-[clamp(19px,1.6vw,22px)] text-ink-soft italic leading-[1.5]">
+      <div className="mt-12 grid max-w-205 grid-cols-2 items-start gap-10 max-md:grid-cols-1 max-md:gap-6">
+        <p className="m-0 max-w-[36ch] font-display text-[clamp(19px,1.6vw,22px)] text-ink-soft italic leading-normal">
           {hero.lede}
         </p>
-        <div className="font-mono text-[12px] text-ink-soft leading-[1.9] tracking-[0.04em]">
+        <div className="font-mono text-ink-soft text-xs leading-[1.9] tracking-wider">
           <div className={ROW}>
             <span className={LABEL}>{facts.base.label}</span>
             <span>{facts.base.value}</span>

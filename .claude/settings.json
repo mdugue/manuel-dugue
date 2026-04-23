@@ -18,19 +18,22 @@
       "Bash(curl -s https://ai-gateway.vercel.sh/v1/models)",
       "Bash(bun --bun run tsc)",
       "Bash(bun --bun run dev)",
-      "Bash(bun add *)"
+      "Bash(bun add *)",
+      "Bash(bun run *)",
+      "Bash(git stash *)",
+      "Bash(git diff *)"
     ]
   },
   "hooks": {
     "PostToolUse": [
       {
+        "matcher": "Write|Edit",
         "hooks": [
           {
-            "command": "bun fix --skip=correctness/noUnusedImports",
-            "type": "command"
+            "type": "command",
+            "command": "bun fix --skip=correctness/noUnusedImports"
           }
-        ],
-        "matcher": "Write|Edit"
+        ]
       }
     ]
   }

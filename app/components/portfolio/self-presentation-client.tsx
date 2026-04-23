@@ -38,7 +38,7 @@ export function SelfPresentationClient({
       <SectionHead heading={self.heading} label={self.label} sub={self.sub} />
 
       <div className="relative max-w-195 border border-rule bg-paper p-[clamp(28px,3.5vw,44px)] before:absolute before:-inset-px before:bottom-auto before:left-auto before:h-3.5 before:w-3.5 before:bg-accent before:content-['']">
-        <div className="absolute -top-2.25 left-6 inline-flex items-center gap-2 bg-bg px-2.5 font-mono text-[10px] text-ink-faint uppercase tracking-[0.16em]">
+        <div className="absolute -top-2.25 left-6 inline-flex items-center gap-2 bg-bg px-2.5 font-mono text-ink-faint text-nano uppercase tracking-heading">
           <span
             aria-hidden="true"
             className="h-1.5 w-1.5 animate-blink rounded-full bg-accent"
@@ -62,7 +62,7 @@ export function SelfPresentationClient({
 
         {error && (
           <p
-            className="mt-4 font-mono text-[11px] text-accent uppercase tracking-widest"
+            className="mt-4 font-mono text-accent text-micro uppercase tracking-widest"
             role="alert"
           >
             {self.errorRetry}
