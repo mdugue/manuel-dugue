@@ -6,7 +6,7 @@
     "ultracite/biome/next"
   ],
   "files": {
-    "includes": ["**", "!!**/.agents"]
+    "includes": ["!!**/.agents"]
   },
   "javascript": {
     "globals": ["Bun"]
