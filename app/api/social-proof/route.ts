@@ -1,5 +1,5 @@
 import { Output, streamText } from "ai";
-import { readMarkdown } from "@/app/components/markdown-source";
+import { readMarkdownSource } from "@/app/components/markdown-source";
 import { isAiModelId } from "@/i18n/ai-models";
 import { hasLocale, type Locale } from "@/i18n/config";
 import { buildSocialProofPrompt } from "@/i18n/social-proof-prompt";
@@ -44,12 +44,12 @@ export async function POST(req: Request) {
     });
   }
 
-  const skills = await readMarkdown("skill-profile", locale);
+  const skills = await readMarkdownSource("skill-profile", locale);
 
   const result = streamText({
     model,
     system: buildSocialProofPrompt(locale),
-    prompt: `<skill-profile>\n${skills}\n</skill-profile>`,
+    prompt: `<skill-profile>\n${skills.body}\n</skill-profile>`,
     output: Output.object({ schema: socialProofSchema }),
     temperature: 0.85,
     onFinish: async ({ text }) => {

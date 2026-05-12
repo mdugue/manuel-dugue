@@ -34,6 +34,7 @@
       "label": "Documents",
       "heading": "Les documents officiels",
       "sub": "Un CV et la version longue de ce que je fais et des situations où je me rends utile.",
+      "updatedLabel": "Mis à jour",
       "cv": {
         "num": "01",
         "title": "Curriculum Vitae",

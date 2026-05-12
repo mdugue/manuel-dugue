@@ -7,11 +7,11 @@ export const SITE_NAME = "manuel.fyi";
 export const TWITTER = "@mdugue";
 export const METADATA_BASE = new URL(SITE);
 
-const OG_LOCALE: Record<Locale, string> = {
-  en: "en_US",
-  de: "de_DE",
-  fr: "fr_FR",
-  es: "es_ES",
+export const LOCALE_TAGS: Record<Locale, { og: string; bcp47: string }> = {
+  en: { og: "en_US", bcp47: "en-US" },
+  de: { og: "de_DE", bcp47: "de-DE" },
+  fr: { og: "fr_FR", bcp47: "fr-FR" },
+  es: { og: "es_ES", bcp47: "es-ES" },
 };
 
 export function pageUrl(locale: Locale, slug = "") {
@@ -28,9 +28,11 @@ export function languageAlternates(slug = "") {
 interface SeoInput {
   description: string;
   locale: Locale;
+  publishedIso?: string;
   slug?: string;
   templateTitle?: boolean;
   title: string;
+  updatedIso?: string;
 }
 
 export function buildPageMetadata({
@@ -39,9 +41,22 @@ export function buildPageMetadata({
   title,
   description,
   templateTitle = true,
+  publishedIso,
+  updatedIso,
 }: SeoInput): Metadata {
   const url = pageUrl(locale, slug);
   const fullTitle = templateTitle ? `${title} – Manuel Dugué` : title;
+  const ogBase = {
+    title: fullTitle,
+    description,
+    url,
+    siteName: SITE_NAME,
+    locale: LOCALE_TAGS[locale].og,
+    alternateLocale: locales
+      .filter((l) => l !== locale)
+      .map((l) => LOCALE_TAGS[l].og),
+  } as const;
+  const isArticle = Boolean(publishedIso || updatedIso);
   return {
     title: fullTitle,
     description,
@@ -49,17 +64,15 @@ export function buildPageMetadata({
       canonical: url,
       languages: languageAlternates(slug),
     },
-    openGraph: {
-      title: fullTitle,
-      description,
-      url,
-      siteName: SITE_NAME,
-      type: "website",
-      locale: OG_LOCALE[locale],
-      alternateLocale: locales
-        .filter((l) => l !== locale)
-        .map((l) => OG_LOCALE[l]),
-    },
+    openGraph: isArticle
+      ? {
+          ...ogBase,
+          type: "article",
+          authors: [SITE],
+          ...(publishedIso ? { publishedTime: publishedIso } : {}),
+          ...(updatedIso ? { modifiedTime: updatedIso } : {}),
+        }
+      : { ...ogBase, type: "website" },
     twitter: {
       card: "summary_large_image",
       title: fullTitle,

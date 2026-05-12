@@ -1,5 +1,5 @@
 import { streamText } from "ai";
-import { readMarkdown } from "@/app/components/markdown-source";
+import { readMarkdownSource } from "@/app/components/markdown-source";
 import { isAiModelId } from "@/i18n/ai-models";
 import { hasLocale, type Locale } from "@/i18n/config";
 import { buildSelfPresentationPrompt } from "@/i18n/self-presentation-prompt";
@@ -44,16 +44,16 @@ export async function POST(req: Request) {
   }
 
   const [cv, skills] = await Promise.all([
-    readMarkdown("curriculum-vitae", locale),
-    readMarkdown("skill-profile", locale),
+    readMarkdownSource("curriculum-vitae", locale),
+    readMarkdownSource("skill-profile", locale),
   ]);
 
   const result = streamText({
     model,
     system: buildSelfPresentationPrompt(locale),
     prompt:
-      `<curriculum-vitae>\n${cv}\n</curriculum-vitae>\n\n` +
-      `<skill-profile>\n${skills}\n</skill-profile>`,
+      `<curriculum-vitae>\n${cv.body}\n</curriculum-vitae>\n\n` +
+      `<skill-profile>\n${skills.body}\n</skill-profile>`,
     temperature: 0.85,
     onFinish: async ({ text }) => {
       await writeAiCacheText({ namespace, locale, model, text });

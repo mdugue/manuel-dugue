@@ -3,7 +3,9 @@
 import { Dialog } from "@base-ui/react";
 import { useParams, useRouter } from "next/navigation";
 import { useCallback } from "react";
+import { hasLocale, type Locale } from "@/i18n/config";
 import { DocSheetChrome } from "./doc-sheet-chrome";
+import type { UpdatedLine } from "./markdown-source";
 
 interface Labels {
   close: string;
@@ -18,6 +20,7 @@ export function DocSheetModal({
   pdfHref,
   labels,
   children,
+  updatedLine,
 }: {
   title: string;
   subtitle: string;
@@ -25,9 +28,11 @@ export function DocSheetModal({
   pdfHref: string;
   labels: Labels;
   children: React.ReactNode;
+  updatedLine?: UpdatedLine;
 }) {
   const router = useRouter();
   const { lang } = useParams<{ lang: string }>();
+  const locale: Locale = hasLocale(lang) ? lang : "en";
 
   const handleOpenChange = useCallback(
     (open: boolean) => {
@@ -73,9 +78,12 @@ export function DocSheetModal({
                 <span className="text-[#888] text-[9px]">{labels.escHint}</span>
               </>
             }
+            authorName={contact[0] ?? "Manuel Dugué"}
             contact={contact}
+            lang={locale}
             subtitle={subtitle}
             title={title}
+            updatedLine={updatedLine}
           >
             {children}
           </DocSheetChrome>

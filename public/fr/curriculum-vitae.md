@@ -1,3 +1,8 @@
+---
+published: 2021-04-20
+updated: 2026-05-12
+---
+
 # Curriculum Vitae
 
 ## Profil
@@ -16,9 +21,9 @@ Tissage de fonctionnalités LLM et d'agents sur mesure dans les équipes produit
 
 ## Formation
 
-- **2002–2011 Diplôme en « Informatique des médias » à la Faculté d'informatique, TU Dresde.** *« Représentation interactive en deux dimensions du temps vécu à partir des lieux visités »*, Note finale : 1 (≈ A).
-- **2009 Travail de recherche à la Faculté d'informatique, TU Dresde.** *« Matérialité et interaction »*, non noté.
-- **2002–2009 Matière secondaire « Art & Design » à HfBK & TU Dresde.** *« Approche en film expérimental de l'ornementique contemporaine »*, Note finale : 1,3 (≈ A).
+- **2002–2011 Diplôme en « Informatique des médias » à la Faculté d'informatique, TU Dresde.** _« Représentation interactive en deux dimensions du temps vécu à partir des lieux visités »_, Note finale : 1 (≈ A).
+- **2009 Travail de recherche à la Faculté d'informatique, TU Dresde.** _« Matérialité et interaction »_, non noté.
+- **2002–2009 Matière secondaire « Art & Design » à HfBK & TU Dresde.** _« Approche en film expérimental de l'ornementique contemporaine »_, Note finale : 1,3 (≈ A).
 - **2007–2008 Stage chez Cactus Film & Video, Mexique.** Soutenu par une bourse InWEnt / GIZ.
 
 ## Compétences

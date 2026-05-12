@@ -132,9 +132,6 @@ a {
   line-height: 1.6;
   color: var(--color-ink);
 }
-.doc-prose > h1 {
-  display: none;
-}
 .doc-prose > h2 {
   padding-top: 1.5rem;
   margin: 2.25rem 0 1rem;

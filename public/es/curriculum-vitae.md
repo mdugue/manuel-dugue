@@ -1,3 +1,8 @@
+---
+published: 2021-04-20
+updated: 2026-05-12
+---
+
 # Currículum Vitae
 
 ## Perfil
@@ -16,9 +21,9 @@ Integro funcionalidades LLM y agentes a medida en equipos de producto con MCP, A
 
 ## Formación
 
-- **2002–2011 Diploma en «Informática de Medios» en la Facultad de Informática, TU Dresde.** *«Representación interactiva bidimensional del tiempo vivido a partir de los lugares visitados»*, Nota final: 1 (≈ A).
-- **2009 Trabajo de investigación en la Facultad de Informática, TU Dresde.** *«Materialidad e interacción»*, sin calificación.
-- **2002–2009 Asignatura secundaria «Arte y Diseño» en HfBK & TU Dresde.** *«Aproximación en cine experimental a la ornamentación contemporánea»*, Nota final: 1,3 (≈ A).
+- **2002–2011 Diploma en «Informática de Medios» en la Facultad de Informática, TU Dresde.** _«Representación interactiva bidimensional del tiempo vivido a partir de los lugares visitados»_, Nota final: 1 (≈ A).
+- **2009 Trabajo de investigación en la Facultad de Informática, TU Dresde.** _«Materialidad e interacción»_, sin calificación.
+- **2002–2009 Asignatura secundaria «Arte y Diseño» en HfBK & TU Dresde.** _«Aproximación en cine experimental a la ornamentación contemporánea»_, Nota final: 1,3 (≈ A).
 - **2007–2008 Prácticas en Cactus Film & Video, México.** Apoyado por una beca InWEnt / GIZ.
 
 ## Competencias

@@ -1,3 +1,8 @@
+---
+published: 2021-04-20
+updated: 2026-05-12
+---
+
 # Curriculum Vitae
 
 ## Profile
