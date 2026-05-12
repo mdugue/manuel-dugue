@@ -4,12 +4,18 @@ import type { Article, WithContext } from "schema-dts";
 import { DocSheetPage } from "@/app/components/doc-sheet-page";
 import { MarkdownPage } from "@/app/components/markdown-page";
 import {
-  formatUpdatedDate,
+  buildUpdatedLine,
   readMarkdownSource,
 } from "@/app/components/markdown-source";
 import { hasLocale, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
-import { buildPageMetadata, jsonLdString, pageUrl, SITE } from "@/i18n/seo";
+import {
+  buildPageMetadata,
+  jsonLdString,
+  LOCALE_TAGS,
+  pageUrl,
+  SITE,
+} from "@/i18n/seo";
 
 export async function generateMetadata({
   params,
@@ -28,8 +34,8 @@ export async function generateMetadata({
     slug: "skill-profile",
     title: dict.portfolio.docs.profile.sheetTitle,
     description: dict.portfolio.docs.profile.sheetSubtitle,
-    published: meta.published,
-    updated: meta.updated,
+    publishedIso: meta.publishedIso,
+    updatedIso: meta.updatedIso,
   });
 }
 
@@ -53,23 +59,18 @@ export default async function Page({
     "@type": "Article",
     headline: portfolio.docs.profile.sheetTitle,
     description: portfolio.docs.profile.sheetSubtitle,
-    inLanguage: locale,
+    inLanguage: LOCALE_TAGS[locale].bcp47,
     author: { "@type": "Person", name: "Manuel Dugué", url: SITE },
     url: pageUrl(locale, "skill-profile"),
-    ...(meta.published
-      ? { datePublished: new Date(meta.published).toISOString() }
-      : {}),
-    ...(meta.updated
-      ? { dateModified: new Date(meta.updated).toISOString() }
-      : {}),
+    ...(meta.publishedIso ? { datePublished: meta.publishedIso } : {}),
+    ...(meta.updatedIso ? { dateModified: meta.updatedIso } : {}),
   };
 
-  const updatedLine = meta.updated
-    ? {
-        iso: new Date(meta.updated).toISOString(),
-        label: `${portfolio.docs.updatedLabel} ${formatUpdatedDate(meta.updated, locale)}`,
-      }
-    : undefined;
+  const updatedLine = buildUpdatedLine(
+    meta,
+    locale,
+    portfolio.docs.updatedLabel
+  );
 
   return (
     <DocSheetPage

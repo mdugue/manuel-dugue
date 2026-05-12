@@ -522,8 +522,8 @@ export function createMarkdownPdfRoute(config: MarkdownPdfRouteConfig) {
     const footerLead = author
       ? `${author} · mail@manuel.fyi`
       : "mail@manuel.fyi";
-    const updatedLine = source.updated
-      ? `${dict.portfolio.docs.updatedLabel} ${formatUpdatedDate(source.updated, lang)}`
+    const updatedLine = source.updatedIso
+      ? `${dict.portfolio.docs.updatedLabel} ${formatUpdatedDate(source.updatedIso, lang)}`
       : undefined;
 
     const buffer = await renderToBuffer(
@@ -539,8 +539,8 @@ export function createMarkdownPdfRoute(config: MarkdownPdfRouteConfig) {
       />
     );
 
-    const lastModified = source.updated
-      ? new Date(source.updated).toUTCString()
+    const lastModified = source.updatedIso
+      ? new Date(source.updatedIso).toUTCString()
       : undefined;
 
     return new Response(new Uint8Array(buffer), {

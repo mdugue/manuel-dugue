@@ -25,6 +25,8 @@ export async function MarkdownPage({
           a: ({ node: _node, ...props }) => (
             <a {...props} rel="noopener noreferrer" target="_blank" />
           ),
+          // hiding the h1 because the title gets rendered more complex in the doc sheet chrome
+          h1: () => null,
         }}
         remarkPlugins={[remarkGfm]}
       >

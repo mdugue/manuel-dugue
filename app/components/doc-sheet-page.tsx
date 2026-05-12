@@ -3,6 +3,7 @@ import Link from "next/link";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 import { DocSheetChrome } from "./doc-sheet-chrome";
+import type { UpdatedLine } from "./markdown-source";
 
 export function DocSheetPage({
   lang,
@@ -21,7 +22,7 @@ export function DocSheetPage({
   pdfHref: string;
   modalLabels: Dictionary["portfolio"]["modal"];
   children: React.ReactNode;
-  updatedLine?: { iso: string; label: string };
+  updatedLine?: UpdatedLine;
 }) {
   return (
     <main className="flex items-start justify-center p-10 max-md:p-0">
@@ -44,7 +45,9 @@ export function DocSheetPage({
             </a>
           </>
         }
+        authorName={contact[0] ?? "Manuel Dugué"}
         contact={contact}
+        lang={lang}
         standalone
         subtitle={subtitle}
         title={title}

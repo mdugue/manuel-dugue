@@ -1,10 +1,11 @@
 import path from "node:path";
 import matter from "gray-matter";
+import { cache } from "react";
 import type { Locale } from "@/i18n/config";
 
 export interface MarkdownMeta {
-  published?: string;
-  updated?: string;
+  publishedIso?: string;
+  updatedIso?: string;
 }
 
 export interface MarkdownSource {
@@ -12,42 +13,57 @@ export interface MarkdownSource {
   meta: MarkdownMeta;
 }
 
-function toIsoDate(value: unknown): string | undefined {
+export interface UpdatedLine {
+  iso: string;
+  label: string;
+}
+
+function toIso(value: unknown): string | undefined {
   if (value instanceof Date) {
-    return value.toISOString().slice(0, 10);
+    return value.toISOString();
   }
   if (typeof value === "string") {
-    return value;
+    const date = new Date(value);
+    return Number.isNaN(date.getTime()) ? undefined : date.toISOString();
   }
   return;
 }
 
-export async function readMarkdownSource(
-  slug: string,
-  lang: Locale
-): Promise<MarkdownSource> {
-  const raw = await Bun.file(
-    path.join(process.cwd(), "public", lang, `${slug}.md`)
-  ).text();
-  const parsed = matter(raw);
-  const data = parsed.data as Record<string, unknown>;
-  return {
-    body: parsed.content,
-    meta: {
-      published: toIsoDate(data.published),
-      updated: toIsoDate(data.updated),
-    },
-  };
-}
-
-export function formatUpdatedDate(value: string, locale: Locale): string {
-  const date = new Date(value);
-  if (Number.isNaN(date.getTime())) {
-    return value;
+export const readMarkdownSource = cache(
+  async (slug: string, lang: Locale): Promise<MarkdownSource> => {
+    const raw = await Bun.file(
+      path.join(process.cwd(), "public", lang, `${slug}.md`)
+    ).text();
+    const parsed = matter(raw);
+    const data = parsed.data as Record<string, unknown>;
+    return {
+      body: parsed.content,
+      meta: {
+        publishedIso: toIso(data.published),
+        updatedIso: toIso(data.updated),
+      },
+    };
   }
+);
+
+export function formatUpdatedDate(iso: string, locale: Locale): string {
   return new Intl.DateTimeFormat(locale, {
     year: "numeric",
     month: "long",
     timeZone: "UTC",
-  }).format(date);
+  }).format(new Date(iso));
+}
+
+export function buildUpdatedLine(
+  meta: MarkdownMeta,
+  locale: Locale,
+  label: string
+): UpdatedLine | undefined {
+  if (!meta.updatedIso) {
+    return;
+  }
+  return {
+    iso: meta.updatedIso,
+    label: `${label} ${formatUpdatedDate(meta.updatedIso, locale)}`,
+  };
 }
