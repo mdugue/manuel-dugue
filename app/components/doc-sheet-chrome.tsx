@@ -7,6 +7,7 @@ export interface DocSheetChromeProps {
   standalone?: boolean;
   subtitle: string;
   title: string;
+  updatedLine?: { iso: string; label: string };
 }
 
 export function DocSheetChrome({
@@ -16,6 +17,7 @@ export function DocSheetChrome({
   actions,
   standalone = false,
   children,
+  updatedLine,
 }: DocSheetChromeProps) {
   const sheetClass = [
     "bg-paper max-w-195 w-full px-18 py-16 font-display relative",
@@ -52,6 +54,15 @@ export function DocSheetChrome({
         <div className="font-display text-base text-ink-soft italic">
           {subtitle}
         </div>
+
+        {updatedLine ? (
+          <time
+            className="mt-2 block font-mono text-ink-faint text-nano uppercase tracking-label"
+            dateTime={updatedLine.iso}
+          >
+            {updatedLine.label}
+          </time>
+        ) : null}
       </div>
 
       {children}

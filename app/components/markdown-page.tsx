@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import type { Locale } from "@/i18n/config";
-import { readMarkdown } from "./markdown-source";
+import { readMarkdownSource } from "./markdown-source";
 
 export async function MarkdownPage({
   slug,
@@ -11,9 +11,9 @@ export async function MarkdownPage({
   slug: string;
   lang: Locale;
 }) {
-  let raw: string;
+  let body: string;
   try {
-    raw = await readMarkdown(slug, lang);
+    body = (await readMarkdownSource(slug, lang)).body;
   } catch {
     notFound();
   }
@@ -28,7 +28,7 @@ export async function MarkdownPage({
         }}
         remarkPlugins={[remarkGfm]}
       >
-        {raw}
+        {body}
       </Markdown>
     </div>
   );

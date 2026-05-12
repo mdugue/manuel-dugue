@@ -12,6 +12,7 @@ export function DocSheetPage({
   pdfHref,
   modalLabels,
   children,
+  updatedLine,
 }: {
   lang: Locale;
   title: string;
@@ -20,6 +21,7 @@ export function DocSheetPage({
   pdfHref: string;
   modalLabels: Dictionary["portfolio"]["modal"];
   children: React.ReactNode;
+  updatedLine?: { iso: string; label: string };
 }) {
   return (
     <main className="flex items-start justify-center p-10 max-md:p-0">
@@ -46,6 +48,7 @@ export function DocSheetPage({
         standalone
         subtitle={subtitle}
         title={title}
+        updatedLine={updatedLine}
       >
         {children}
       </DocSheetChrome>

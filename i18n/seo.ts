@@ -28,9 +28,19 @@ export function languageAlternates(slug = "") {
 interface SeoInput {
   description: string;
   locale: Locale;
+  published?: string;
   slug?: string;
   templateTitle?: boolean;
   title: string;
+  updated?: string;
+}
+
+function toIso(value: string | undefined): string | undefined {
+  if (!value) {
+    return;
+  }
+  const date = new Date(value);
+  return Number.isNaN(date.getTime()) ? undefined : date.toISOString();
 }
 
 export function buildPageMetadata({
@@ -39,9 +49,13 @@ export function buildPageMetadata({
   title,
   description,
   templateTitle = true,
+  published,
+  updated,
 }: SeoInput): Metadata {
   const url = pageUrl(locale, slug);
   const fullTitle = templateTitle ? `${title} – Manuel Dugué` : title;
+  const publishedIso = toIso(published);
+  const updatedIso = toIso(updated);
   return {
     title: fullTitle,
     description,
@@ -66,6 +80,14 @@ export function buildPageMetadata({
       description,
       creator: TWITTER,
     },
+    ...(publishedIso || updatedIso
+      ? {
+          other: {
+            ...(publishedIso ? { "article:published_time": publishedIso } : {}),
+            ...(updatedIso ? { "article:modified_time": updatedIso } : {}),
+          },
+        }
+      : {}),
   };
 }
 

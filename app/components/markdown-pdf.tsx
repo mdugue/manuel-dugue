@@ -16,7 +16,7 @@ import { remark } from "remark";
 import remarkGfm from "remark-gfm";
 import { hasLocale, type Locale } from "@/i18n/config";
 import { type Dictionary, getDictionary } from "@/i18n/dictionaries";
-import { readMarkdown } from "./markdown-source";
+import { formatUpdatedDate, readMarkdownSource } from "./markdown-source";
 
 const GARAMOND = "https://fonts.gstatic.com/s/ebgaramond/v32";
 const JETBRAINS = "https://fonts.gstatic.com/s/jetbrainsmono/v24";
@@ -131,6 +131,14 @@ const styles = StyleSheet.create({
     fontStyle: "italic",
     fontSize: 13,
     color: INK_SOFT,
+  },
+  updatedLine: {
+    fontFamily: "Mono",
+    fontSize: 7.5,
+    letterSpacing: 1.1,
+    textTransform: "uppercase",
+    color: INK_FAINT,
+    marginTop: 8,
   },
 
   h2: {
@@ -432,6 +440,7 @@ function MarkdownDocument({
   meta,
   contact,
   footerLead,
+  updatedLine,
 }: {
   tree: Root;
   docTitle: string;
@@ -440,6 +449,7 @@ function MarkdownDocument({
   meta: DocMeta;
   contact: readonly string[];
   footerLead: string;
+  updatedLine?: string;
 }) {
   const ctx = { isFirstH2: { current: true } };
   return (
@@ -461,6 +471,9 @@ function MarkdownDocument({
         <View style={styles.titleBlock}>
           <Text style={styles.title}>{meta.sheetTitle}</Text>
           <Text style={styles.subtitle}>{meta.sheetSubtitle}</Text>
+          {updatedLine ? (
+            <Text style={styles.updatedLine}>{updatedLine}</Text>
+          ) : null}
         </View>
 
         {tree.children.map((node, i) => renderBlock(node, i, ctx))}
@@ -500,8 +513,8 @@ export function createMarkdownPdfRoute(config: MarkdownPdfRouteConfig) {
 
     const dict = await getDictionary(lang);
     const meta = getDocMeta(dict);
-    const raw = await readMarkdown(slug, lang);
-    const tree = remark().use(remarkGfm).parse(raw);
+    const { body, meta: source } = await readMarkdownSource(slug, lang);
+    const tree = remark().use(remarkGfm).parse(body);
 
     const docTitle = author
       ? `${meta.sheetTitle} — ${author}`
@@ -509,6 +522,9 @@ export function createMarkdownPdfRoute(config: MarkdownPdfRouteConfig) {
     const footerLead = author
       ? `${author} · mail@manuel.fyi`
       : "mail@manuel.fyi";
+    const updatedLine = source.updated
+      ? `${dict.portfolio.docs.updatedLabel} ${formatUpdatedDate(source.updated, lang)}`
+      : undefined;
 
     const buffer = await renderToBuffer(
       <MarkdownDocument
@@ -519,8 +535,13 @@ export function createMarkdownPdfRoute(config: MarkdownPdfRouteConfig) {
         language={lang}
         meta={meta}
         tree={tree}
+        updatedLine={updatedLine}
       />
     );
+
+    const lastModified = source.updated
+      ? new Date(source.updated).toUTCString()
+      : undefined;
 
     return new Response(new Uint8Array(buffer), {
       status: 200,
@@ -528,6 +549,7 @@ export function createMarkdownPdfRoute(config: MarkdownPdfRouteConfig) {
         "Content-Type": "application/pdf",
         "Content-Disposition": `inline; filename="${filenameBase}.${lang}.pdf"`,
         "Cache-Control": "public, max-age=0, must-revalidate",
+        ...(lastModified ? { "Last-Modified": lastModified } : {}),
       },
     });
   };
