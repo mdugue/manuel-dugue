@@ -22,6 +22,7 @@ export async function generateMetadata({
 }: {
   params: Promise<{ lang: string }>;
 }): Promise<Metadata> {
+  "use cache";
   const { lang } = await params;
   if (!hasLocale(lang)) {
     return {};

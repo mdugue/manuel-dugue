@@ -13,6 +13,7 @@ export default async function Page({
 }: {
   params: Promise<{ lang: string }>;
 }) {
+  "use cache";
   const { lang } = await params;
   if (!hasLocale(lang)) {
     notFound();
