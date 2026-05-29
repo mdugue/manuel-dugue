@@ -1,7 +1,7 @@
 export const aiModels = [
   {
-    id: "openai/gpt-5.4",
-    label: "GPT-5.4",
+    id: "openai/gpt-5.5",
+    label: "GPT-5.5",
   },
   {
     id: "anthropic/claude-sonnet-4.6",
