@@ -29,12 +29,15 @@ allowlist (`Bash(bunx skills:*)`) covers it. One side effect to know about:
 `bunx skills` writes a `bun.lock` line on first run. If that shows up in
 `git status` afterward, restore it — see cleanup below.
 
-## Why `bunx skills update` does not work here
+## `bunx skills update` vs. re-adding
 
-The vendored skills were installed before the CLI added `skillPath` tracking,
-so `bunx skills update` reports "No project skills can be updated in place" and
-refuses. This is expected, not a bug. The reliable path is to **re-add each
-skill individually from its source.**
+The skills were originally installed before the CLI tracked `skillPath`, so
+`bunx skills update` used to report "No project skills can be updated in place"
+and refuse. After a refresh (below), each lockfile entry gains a `skillPath`,
+so `bunx skills update` *should* work in-place going forward — try it first.
+
+If `update` still reports nothing to do, fall back to the reliable path:
+**re-add each skill individually from its source.**
 
 ## The refresh procedure
 
@@ -53,8 +56,9 @@ bunx skills add https://github.com/<owner>/<repo> --skill <skill-name> -y
 bunx skills add https://github.com/vercel-labs/agent-skills --skill vercel-react-best-practices -y
 ```
 
-Repeat per skill. To refresh several skills from the same repo, you can pass a
-comma-separated list to `--skill` rather than re-cloning each time.
+One skill per command — `--skill` takes a single name, not a
+comma-separated list (an unrecognized list silently matches nothing). To
+refresh several skills from the same repo, loop the command over each name.
 
 ### Mapping skills to sources
 
