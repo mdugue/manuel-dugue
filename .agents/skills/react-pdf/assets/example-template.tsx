@@ -1,19 +1,8 @@
-import {
-  Document,
-  Page,
-  renderToFile,
-  StyleSheet,
-  Text,
-  View,
-} from "@react-pdf/renderer";
+import React from "react";
+import { Document, Page, Text, View, StyleSheet, renderToFile } from "@react-pdf/renderer";
 
 const styles = StyleSheet.create({
-  page: {
-    flexDirection: "column",
-    backgroundColor: "#fff",
-    padding: 40,
-    paddingBottom: 60,
-  },
+  page: { flexDirection: "column", backgroundColor: "#fff", padding: 40, paddingBottom: 60 },
   title: { fontSize: 24, marginBottom: 20, fontWeight: "bold" },
   text: { fontSize: 12, lineHeight: 1.5, marginBottom: 8 },
   section: { marginBottom: 20 },
@@ -40,8 +29,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const filler =
-  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.";
+const filler = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.";
 
 const MyDocument = () => (
   <Document>
@@ -51,10 +39,8 @@ const MyDocument = () => (
       {/* Generate enough content to trigger page breaks */}
       {Array.from({ length: 8 }, (_, i) => (
         // wrap={false} — keeps each card together on one page
-        <View key={i} style={styles.card} wrap={false}>
-          <Text style={[styles.text, { fontWeight: "bold" }]}>
-            Card {i + 1}
-          </Text>
+        <View key={i} wrap={false} style={styles.card}>
+          <Text style={[styles.text, { fontWeight: "bold" }]}>Card {i + 1}</Text>
           <Text style={styles.text}>{filler}</Text>
         </View>
       ))}
@@ -62,11 +48,9 @@ const MyDocument = () => (
       {/* fixed — renders this Text on every page */}
       {/* render prop — gives access to pageNumber / totalPages */}
       <Text
-        fixed
-        render={({ pageNumber, totalPages }) =>
-          `Page ${pageNumber} of ${totalPages}`
-        }
         style={styles.footer}
+        fixed
+        render={({ pageNumber, totalPages }) => `Page ${pageNumber} of ${totalPages}`}
       />
     </Page>
   </Document>
