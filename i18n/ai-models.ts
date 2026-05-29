@@ -8,8 +8,8 @@ export const aiModels = [
     label: "Claude Sonnet 4.6",
   },
   {
-    id: "google/gemini-3.1-pro-preview",
-    label: "Gemini 3.1 Pro",
+    id: "google/gemini-3.5-flash",
+    label: "Gemini 3.5 Flash",
   },
 ] as const;
 
