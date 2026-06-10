@@ -7,15 +7,15 @@ import {
   socialProofSchema,
 } from "@/i18n/social-proof-schema";
 import { AI_CACHE_TTL_MS, AI_CACHE_TTL_SECONDS } from "@/lib/ai-cache-shared";
+import type { AiCacheNamespace } from "@/lib/ai-prompt";
 import {
-  type AiCacheNamespace,
   buildAiRequest,
   buildSelfPresentationRequest,
   buildSocialProofRequest,
   hashAiRequest,
 } from "@/lib/ai-prompt";
 
-export type { AiCacheNamespace };
+export type { AiCacheNamespace } from "@/lib/ai-prompt";
 
 export type AiCacheStatus = {
   cachedAt: number;
@@ -80,7 +80,10 @@ export async function readAiCacheText(params: {
   promptHash: string;
 }): Promise<{ text: string; status: AiCacheStatus } | null> {
   const { namespace, locale, model, promptHash } = params;
-  const entry = await safeReadEntry(namespace, `${locale}:${model}:${promptHash}`);
+  const entry = await safeReadEntry(
+    namespace,
+    `${locale}:${model}:${promptHash}`
+  );
   if (!entry) {
     return null;
   }

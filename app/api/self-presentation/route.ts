@@ -35,7 +35,12 @@ export async function POST(req: Request) {
   const request = await buildSelfPresentationRequest(locale);
   const promptHash = hashAiRequest(request);
 
-  const cached = await readAiCacheText({ namespace, locale, model, promptHash });
+  const cached = await readAiCacheText({
+    namespace,
+    locale,
+    model,
+    promptHash,
+  });
   if (cached) {
     return new Response(cached.text, {
       headers: {

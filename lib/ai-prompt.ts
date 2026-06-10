@@ -8,8 +8,8 @@ import { buildSocialProofPrompt } from "@/i18n/social-proof-prompt";
 export type AiCacheNamespace = "self-presentation" | "social-proof";
 
 export interface AiRequest {
-  system: string;
   prompt: string;
+  system: string;
 }
 
 export async function buildSelfPresentationRequest(
