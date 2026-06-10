@@ -52,8 +52,11 @@ export async function POST(req: Request) {
     model,
     system: buildSelfPresentationPrompt(locale),
     prompt:
-      `<curriculum-vitae>\n${cv.body}\n</curriculum-vitae>\n\n` +
-      `<skill-profile>\n${skills.body}\n</skill-profile>`,
+      "<documents>\n" +
+      `<document index="1">\n<source>curriculum-vitae</source>\n<document_content>\n${cv.body}\n</document_content>\n</document>\n` +
+      `<document index="2">\n<source>skill-profile</source>\n<document_content>\n${skills.body}\n</document_content>\n</document>\n` +
+      "</documents>\n\n" +
+      "Now write Manuel's two-paragraph self-introduction, grounded only in the documents above.",
     temperature: 0.85,
     onFinish: async ({ text }) => {
       await writeAiCacheText({ namespace, locale, model, text });

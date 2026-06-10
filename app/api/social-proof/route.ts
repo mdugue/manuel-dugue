@@ -49,7 +49,9 @@ export async function POST(req: Request) {
   const result = streamText({
     model,
     system: buildSocialProofPrompt(locale),
-    prompt: `<skill-profile>\n${skills.body}\n</skill-profile>`,
+    prompt:
+      `<skill-profile>\n${skills.body}\n</skill-profile>\n\n` +
+      "Now write the three fictional testimonials as instructed.",
     output: Output.object({ schema: socialProofSchema }),
     temperature: 0.85,
     onFinish: async ({ text }) => {
