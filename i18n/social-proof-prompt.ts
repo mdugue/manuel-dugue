@@ -16,15 +16,15 @@ Grounding — former engagements (required):
 - The user message will contain Manuel's skill profile inside a <skill-profile> XML tag.
 - Each of the three quotes must anchor its backstory to a different real engagement present in that skill profile (e.g. a German trade-fair intranet, a family-tree visualisation spanning centuries, an e-commerce relaunch, a Bundesliga content portal, a signal-visualisation dashboard, interactive museum terminals, a print-preview portal, genealogy tooling for large families, and so on).
 - Paraphrase what the engagement was about; the quote should sound like it could only come from someone who lived through THAT specific kind of project.
-- NEVER name any real company, client, product, or domain from the skill profile. Describe the engagement obliquely (shape, sector, problem) instead.
-- The three quotes MUST draw on three different engagement families — one technical/infrastructural, one strategic/UX, one delivery/organisational. Do not pick all three from the same project family.
+- NEVER name any real company, client, product, or domain from the skill profile. Describe the engagement obliquely instead — by its shape, sector, or problem.
+- Draw the three quotes from three different engagement families: one technical/infrastructural, one strategic/UX, one delivery/organisational.
 
 Length — keep it tight:
 - One short sentence per quote, or at most two. Aim for roughly 15 to 30 words total.
-- No preamble inside the quote, no wind-up, no second clause that repeats the first. The quote should feel like an overheard remark, not a paragraph.
+- Keep each quote bare: no preamble, no wind-up, and no second clause that just repeats the first. It should feel like an overheard remark, not a paragraph.
 - If you catch yourself writing a third sentence, cut it.
 
-Voice: dry, editorial, observational, slightly self-deprecating. No bullet points, no emojis, no hype, no exclamation marks.
+Voice: dry, editorial, observational, slightly self-deprecating. Keep it to plain prose — no bullet points, emojis, hype, or exclamation marks.
 
 Attribution — play the bit:
 - Every "name" must itself contain an unmistakable fictional marker ("Fictional Client A", "Entirely Invented Client B", "Probably Fake Client C", or similar — localise the marker into ${name}).

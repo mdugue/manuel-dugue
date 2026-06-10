@@ -1,10 +1,9 @@
 import { Output, streamText } from "ai";
-import { readMarkdownSource } from "@/app/components/markdown-source";
 import { isAiModelId } from "@/i18n/ai-models";
 import { hasLocale, type Locale } from "@/i18n/config";
-import { buildSocialProofPrompt } from "@/i18n/social-proof-prompt";
 import { socialProofSchema } from "@/i18n/social-proof-schema";
 import { readAiCacheText, writeAiCacheText } from "@/lib/ai-cache";
+import { buildSocialProofRequest, hashAiRequest } from "@/lib/ai-prompt";
 import { checkRateLimit, rateLimited } from "@/lib/rate-limit";
 
 export const maxDuration = 60;
@@ -34,7 +33,15 @@ export async function POST(req: Request) {
   const locale: Locale = lang;
   const namespace = "social-proof" as const;
 
-  const cached = await readAiCacheText({ namespace, locale, model });
+  const request = await buildSocialProofRequest(locale);
+  const promptHash = hashAiRequest(request);
+
+  const cached = await readAiCacheText({
+    namespace,
+    locale,
+    model,
+    promptHash,
+  });
   if (cached) {
     return new Response(cached.text, {
       headers: {
@@ -44,16 +51,14 @@ export async function POST(req: Request) {
     });
   }
 
-  const skills = await readMarkdownSource("skill-profile", locale);
-
   const result = streamText({
     model,
-    system: buildSocialProofPrompt(locale),
-    prompt: `<skill-profile>\n${skills.body}\n</skill-profile>`,
+    system: request.system,
+    prompt: request.prompt,
     output: Output.object({ schema: socialProofSchema }),
     temperature: 0.85,
     onFinish: async ({ text }) => {
-      await writeAiCacheText({ namespace, locale, model, text });
+      await writeAiCacheText({ namespace, locale, model, promptHash, text });
     },
   });
 

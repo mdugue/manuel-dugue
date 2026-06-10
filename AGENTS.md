@@ -6,6 +6,6 @@ This version has breaking changes — APIs, conventions, and file structure may 
 
 <!-- END:nextjs-agent-rules -->
 
-**When starting work on a Next.js project, ALWAYS call the `init` tool from
-next-devtools-mcp FIRST to set up proper context and establish documentation
-requirements. Do this automatically without being asked.**
+When starting work on this Next.js project, call the `init` tool from
+next-devtools-mcp to establish context and documentation requirements before
+writing code.
