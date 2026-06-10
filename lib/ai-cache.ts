@@ -7,8 +7,15 @@ import {
   socialProofSchema,
 } from "@/i18n/social-proof-schema";
 import { AI_CACHE_TTL_MS, AI_CACHE_TTL_SECONDS } from "@/lib/ai-cache-shared";
+import {
+  type AiCacheNamespace,
+  buildAiRequest,
+  buildSelfPresentationRequest,
+  buildSocialProofRequest,
+  hashAiRequest,
+} from "@/lib/ai-prompt";
 
-export type AiCacheNamespace = "self-presentation" | "social-proof";
+export type { AiCacheNamespace };
 
 export type AiCacheStatus = {
   cachedAt: number;
@@ -70,9 +77,10 @@ export async function readAiCacheText(params: {
   namespace: AiCacheNamespace;
   locale: Locale;
   model: AiModelId;
+  promptHash: string;
 }): Promise<{ text: string; status: AiCacheStatus } | null> {
-  const { namespace, locale, model } = params;
-  const entry = await safeReadEntry(namespace, `${locale}:${model}`);
+  const { namespace, locale, model, promptHash } = params;
+  const entry = await safeReadEntry(namespace, `${locale}:${model}:${promptHash}`);
   if (!entry) {
     return null;
   }
@@ -83,15 +91,16 @@ export async function writeAiCacheText(params: {
   namespace: AiCacheNamespace;
   locale: Locale;
   model: AiModelId;
+  promptHash: string;
   text: string;
 }): Promise<void> {
-  const { namespace, locale, model, text } = params;
+  const { namespace, locale, model, promptHash, text } = params;
   if (!text) {
     return;
   }
   const cache = getCache({ namespace });
   const entry: StoredEntry = { text, cachedAt: Date.now() };
-  await cache.set(`${locale}:${model}`, JSON.stringify(entry), {
+  await cache.set(`${locale}:${model}:${promptHash}`, JSON.stringify(entry), {
     ttl: AI_CACHE_TTL_SECONDS,
     tags: [namespace, `${namespace}:${locale}`],
     name: `${namespace} · ${locale} · ${model}`,
@@ -102,9 +111,15 @@ export async function readAiCacheStatuses(
   namespace: AiCacheNamespace,
   locale: Locale
 ): Promise<AiCacheStatuses> {
+  const promptHash = hashAiRequest(await buildAiRequest(namespace, locale));
   const entries = await Promise.all(
     aiModels.map(async ({ id }) => {
-      const result = await readAiCacheText({ namespace, locale, model: id });
+      const result = await readAiCacheText({
+        namespace,
+        locale,
+        model: id,
+        promptHash,
+      });
       return [id, result?.status ?? null] as const;
     })
   );
@@ -114,10 +129,12 @@ export async function readAiCacheStatuses(
 export async function readCachedSelfPresentation(
   locale: Locale
 ): Promise<string | null> {
+  const promptHash = hashAiRequest(await buildSelfPresentationRequest(locale));
   const result = await readAiCacheText({
     namespace: "self-presentation",
     locale,
     model: defaultAiModel,
+    promptHash,
   });
   return result?.text ?? null;
 }
@@ -125,10 +142,12 @@ export async function readCachedSelfPresentation(
 export async function readCachedSocialProof(
   locale: Locale
 ): Promise<SocialProofObject | null> {
+  const promptHash = hashAiRequest(await buildSocialProofRequest(locale));
   const result = await readAiCacheText({
     namespace: "social-proof",
     locale,
     model: defaultAiModel,
+    promptHash,
   });
   if (!result) {
     return null;

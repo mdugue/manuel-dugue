@@ -1,9 +1,8 @@
 import { streamText } from "ai";
-import { readMarkdownSource } from "@/app/components/markdown-source";
 import { isAiModelId } from "@/i18n/ai-models";
 import { hasLocale, type Locale } from "@/i18n/config";
-import { buildSelfPresentationPrompt } from "@/i18n/self-presentation-prompt";
 import { readAiCacheText, writeAiCacheText } from "@/lib/ai-cache";
+import { buildSelfPresentationRequest, hashAiRequest } from "@/lib/ai-prompt";
 import { checkRateLimit, rateLimited } from "@/lib/rate-limit";
 
 export const maxDuration = 60;
@@ -33,7 +32,10 @@ export async function POST(req: Request) {
   const locale: Locale = lang;
   const namespace = "self-presentation" as const;
 
-  const cached = await readAiCacheText({ namespace, locale, model });
+  const request = await buildSelfPresentationRequest(locale);
+  const promptHash = hashAiRequest(request);
+
+  const cached = await readAiCacheText({ namespace, locale, model, promptHash });
   if (cached) {
     return new Response(cached.text, {
       headers: {
@@ -43,23 +45,13 @@ export async function POST(req: Request) {
     });
   }
 
-  const [cv, skills] = await Promise.all([
-    readMarkdownSource("curriculum-vitae", locale),
-    readMarkdownSource("skill-profile", locale),
-  ]);
-
   const result = streamText({
     model,
-    system: buildSelfPresentationPrompt(locale),
-    prompt:
-      "<documents>\n" +
-      `<document index="1">\n<source>curriculum-vitae</source>\n<document_content>\n${cv.body}\n</document_content>\n</document>\n` +
-      `<document index="2">\n<source>skill-profile</source>\n<document_content>\n${skills.body}\n</document_content>\n</document>\n` +
-      "</documents>\n\n" +
-      "Now write Manuel's two-paragraph self-introduction, grounded only in the documents above.",
+    system: request.system,
+    prompt: request.prompt,
     temperature: 0.85,
     onFinish: async ({ text }) => {
-      await writeAiCacheText({ namespace, locale, model, text });
+      await writeAiCacheText({ namespace, locale, model, promptHash, text });
     },
   });
 
