@@ -5,7 +5,7 @@
       "source": "vercel/ai",
       "sourceType": "github",
       "skillPath": "skills/use-ai-sdk/SKILL.md",
-      "computedHash": "56de19e586bbd23a75dca11044247fac4b02a9a1413518ddf0e60ae011431dbe"
+      "computedHash": "8190ed3dc5fd836fb9b902f6cf8266a0ede8fb1e1c2fff754aaf79cbdaba5670"
     },
     "deploy-to-vercel": {
       "source": "vercel-labs/agent-skills",
