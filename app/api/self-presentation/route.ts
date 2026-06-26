@@ -50,12 +50,12 @@ export async function POST(req: Request) {
 
   const result = streamText({
     model,
-    system: buildSelfPresentationPrompt(locale),
+    instructions: buildSelfPresentationPrompt(locale),
     prompt:
       `<curriculum-vitae>\n${cv.body}\n</curriculum-vitae>\n\n` +
       `<skill-profile>\n${skills.body}\n</skill-profile>`,
     temperature: 0.85,
-    onFinish: async ({ text }) => {
+    onEnd: async ({ text }) => {
       await writeAiCacheText({ namespace, locale, model, text });
     },
   });

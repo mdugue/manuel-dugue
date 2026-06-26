@@ -48,11 +48,11 @@ export async function POST(req: Request) {
 
   const result = streamText({
     model,
-    system: buildSocialProofPrompt(locale),
+    instructions: buildSocialProofPrompt(locale),
     prompt: `<skill-profile>\n${skills.body}\n</skill-profile>`,
     output: Output.object({ schema: socialProofSchema }),
     temperature: 0.85,
-    onFinish: async ({ text }) => {
+    onEnd: async ({ text }) => {
       await writeAiCacheText({ namespace, locale, model, text });
     },
   });
