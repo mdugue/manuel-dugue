@@ -73,14 +73,14 @@ export function SocialProofClient({
         >
           {SLOTS.map((i) => {
             const t = items?.[i];
-            const showCaret = isLoading && !t?.q;
+            const showCaret = isLoading && !t?.quote;
             return (
               <blockquote
                 className={i === 0 ? "m-0" : "m-0 border-rule border-t pt-6"}
                 key={i}
               >
                 <p className="m-0 min-h-[2.5em] font-display text-[clamp(20px,2vw,26px)] text-ink italic leading-normal before:content-['\201c'] after:content-['\201d']">
-                  {t?.q}
+                  {t?.quote}
                   {showCaret ? (
                     <span
                       aria-hidden="true"
