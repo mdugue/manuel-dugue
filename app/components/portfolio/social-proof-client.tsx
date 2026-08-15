@@ -31,16 +31,17 @@ export function SocialProofClient({
 
   const { object, submit, isLoading, error } = useObject({
     api: "/api/social-proof",
-    schema: socialProofSchema,
     onFinish: ({ error: finishError }) => {
       if (finishError) {
         return;
       }
       const model = requestedModelRef.current;
+      // biome-ignore lint/suspicious/noUnnecessaryConditions: the ref is populated in onModelChange; Biome infers its type from the `null` initializer only.
       if (model) {
         markGenerated(model);
       }
     },
+    schema: socialProofSchema,
   });
 
   const onModelChange = useCallback(
@@ -80,36 +81,36 @@ export function SocialProofClient({
               >
                 <p className="m-0 min-h-[2.5em] font-display text-[clamp(20px,2vw,26px)] text-ink italic leading-normal before:content-['\201c'] after:content-['\201d']">
                   {t?.q}
-                  {showCaret && (
+                  {showCaret ? (
                     <span
                       aria-hidden="true"
                       className="ml-1.5 inline-block h-[0.45em] w-[0.45em] animate-pulse-dot rounded-full bg-accent align-middle motion-reduce:hidden"
                     />
-                  )}
+                  ) : null}
                 </p>
                 <div className="mt-4 min-h-[1.5em] font-mono text-ink-faint text-micro uppercase tracking-label">
-                  {t?.name && (
+                  {t?.name ? (
                     <>
                       <strong className="font-medium text-ink-soft">
                         {t.name}
                       </strong>
                       {t.role ? <> · {t.role}</> : null}
                     </>
-                  )}
+                  ) : null}
                 </div>
               </blockquote>
             );
           })}
         </div>
 
-        {error && (
+        {error ? (
           <p
             className="mt-4 font-mono text-accent text-micro uppercase tracking-widest"
             role="alert"
           >
             {proof.errorRetry}
           </p>
-        )}
+        ) : null}
 
         <div className="mt-10 flex justify-between gap-2 border-rule border-t border-b border-dashed py-4 pt-5">
           <div className="max-w-md font-mono text-ink-faint text-nano uppercase leading-[1.7] tracking-heading">
@@ -123,10 +124,10 @@ export function SocialProofClient({
             onRegenerate={regenerate}
             position={position}
             tooltip={{
-              nextModelLabel: nextModel.label,
-              nextModelExpiresAt: statuses[nextModel.id]?.expiresAt ?? null,
-              locale: lang,
               labels: proof.tooltip,
+              locale: lang,
+              nextModelExpiresAt: statuses[nextModel.id]?.expiresAt ?? null,
+              nextModelLabel: nextModel.label,
             }}
           />
         </div>

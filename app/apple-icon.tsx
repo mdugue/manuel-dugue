@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const size = { width: 180, height: 180 };
+export const size = { height: 180, width: 180 };
 export const contentType = "image/png";
 
 const INK = "#2a241d";
@@ -30,18 +30,18 @@ export default async function AppleIcon() {
   return new ImageResponse(
     <div
       style={{
-        width: "100%",
-        height: "100%",
+        alignItems: "center",
         background: PAPER,
         color: INK,
         display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
         fontFamily: "EB Garamond",
-        fontWeight: 700,
         fontSize: 84,
+        fontWeight: 700,
+        height: "100%",
+        justifyContent: "center",
         letterSpacing: "-0.02em",
         lineHeight: 1,
+        width: "100%",
       }}
     >
       MD
@@ -50,8 +50,8 @@ export default async function AppleIcon() {
       ...size,
       fonts: [
         {
-          name: "EB Garamond",
           data: fontData,
+          name: "EB Garamond",
           style: "normal",
           weight: 700,
         },

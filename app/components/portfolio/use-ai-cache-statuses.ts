@@ -70,5 +70,5 @@ export function useAiCacheStatuses(namespace: AiCacheNamespace, lang: Locale) {
     }));
   }, []);
 
-  return { statuses, markGenerated };
+  return { markGenerated, statuses };
 }

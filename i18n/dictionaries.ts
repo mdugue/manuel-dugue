@@ -7,7 +7,7 @@ import fr from "./dictionaries/fr.json";
 
 export type Dictionary = typeof en;
 
-const dictionaries: Record<Locale, Dictionary> = { en, de, fr, es };
+const dictionaries: Record<Locale, Dictionary> = { de, en, es, fr };
 
 export const getDictionary = async (locale: Locale): Promise<Dictionary> =>
   dictionaries[locale];

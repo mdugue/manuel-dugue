@@ -18,10 +18,10 @@ export async function generateMetadata({
   const locale: Locale = lang;
   const dict = await getDictionary(locale);
   return buildPageMetadata({
+    description: dict.portfolio.legal.privacy.sheetSubtitle,
     locale,
     slug: "privacy",
     title: dict.portfolio.legal.privacy.sheetTitle,
-    description: dict.portfolio.legal.privacy.sheetSubtitle,
   });
 }
 
@@ -36,8 +36,7 @@ export default async function Page({
     notFound();
   }
   const locale: Locale = lang;
-  const dict = await getDictionary(locale);
-  const portfolio = dict.portfolio;
+  const { portfolio } = await getDictionary(locale);
 
   return (
     <DocSheetPage

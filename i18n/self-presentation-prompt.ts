@@ -2,10 +2,10 @@ import "server-only";
 import type { Locale } from "./config";
 
 const languageName: Record<Locale, string> = {
-  en: "English",
   de: "German",
-  fr: "French",
+  en: "English",
   es: "Spanish",
+  fr: "French",
 };
 
 export function buildSelfPresentationPrompt(lang: Locale): string {

@@ -31,11 +31,11 @@ export async function generateMetadata({
   const dict = await getDictionary(locale);
   const { meta } = await readMarkdownSource("curriculum-vitae", locale);
   return buildPageMetadata({
+    description: dict.portfolio.docs.cv.sheetSubtitle,
     locale,
+    publishedIso: meta.publishedIso,
     slug: "curriculum-vitae",
     title: dict.portfolio.docs.cv.sheetTitle,
-    description: dict.portfolio.docs.cv.sheetSubtitle,
-    publishedIso: meta.publishedIso,
     updatedIso: meta.updatedIso,
   });
 }
@@ -51,8 +51,7 @@ export default async function Page({
     notFound();
   }
   const locale: Locale = lang;
-  const dict = await getDictionary(locale);
-  const portfolio = dict.portfolio;
+  const { portfolio } = await getDictionary(locale);
   const { meta } = await readMarkdownSource("curriculum-vitae", locale);
 
   const updatedLine = buildUpdatedLine(
@@ -64,10 +63,10 @@ export default async function Page({
   const articleJsonLd: WithContext<Article> = {
     "@context": "https://schema.org",
     "@type": "Article",
-    headline: portfolio.docs.cv.sheetTitle,
-    description: portfolio.docs.cv.sheetSubtitle,
-    inLanguage: LOCALE_TAGS[locale].bcp47,
     author: { "@type": "Person", name: "Manuel Dugué", url: SITE },
+    description: portfolio.docs.cv.sheetSubtitle,
+    headline: portfolio.docs.cv.sheetTitle,
+    inLanguage: LOCALE_TAGS[locale].bcp47,
     url: pageUrl(locale, "curriculum-vitae"),
     ...(meta.publishedIso ? { datePublished: meta.publishedIso } : {}),
     ...(meta.updatedIso ? { dateModified: meta.updatedIso } : {}),

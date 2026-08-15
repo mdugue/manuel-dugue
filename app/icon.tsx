@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const size = { width: 32, height: 32 };
+export const size = { height: 32, width: 32 };
 export const contentType = "image/png";
 
 const INK = "#2a241d";
@@ -30,29 +30,29 @@ export default async function Icon() {
   return new ImageResponse(
     <div
       style={{
-        width: "100%",
-        height: "100%",
-        display: "flex",
         alignItems: "center",
-        justifyContent: "center",
         background: "transparent",
+        display: "flex",
+        height: "100%",
+        justifyContent: "center",
+        width: "100%",
       }}
     >
       <div
         style={{
-          width: 32,
-          height: 32,
-          borderRadius: "50%",
+          alignItems: "center",
           background: PAPER,
+          borderRadius: "50%",
           color: INK,
           display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
           fontFamily: "EB Garamond",
-          fontWeight: 700,
           fontSize: 19,
+          fontWeight: 700,
+          height: 32,
+          justifyContent: "center",
           letterSpacing: "-0.02em",
           lineHeight: 1,
+          width: 32,
         }}
       >
         MD
@@ -62,8 +62,8 @@ export default async function Icon() {
       ...size,
       fonts: [
         {
-          name: "EB Garamond",
           data: fontData,
+          name: "EB Garamond",
           style: "normal",
           weight: 700,
         },

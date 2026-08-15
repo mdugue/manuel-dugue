@@ -28,14 +28,15 @@ export function SelfPresentationClient({
 
   const { completion, complete, isLoading, error } = useCompletion({
     api: "/api/self-presentation",
-    streamProtocol: "text",
     initialCompletion: initialText,
     onFinish: () => {
       const model = requestedModelRef.current;
+      // biome-ignore lint/suspicious/noUnnecessaryConditions: the ref is populated in onModelChange; Biome infers its type from the `null` initializer only.
       if (model) {
         markGenerated(model);
       }
     },
+    streamProtocol: "text",
   });
 
   const onModelChange = useCallback(
@@ -68,22 +69,22 @@ export function SelfPresentationClient({
           className="m-0 min-h-[7em] whitespace-pre-line font-display text-[clamp(19px,1.75vw,24px)] text-ink leading-[1.55]"
         >
           {completion ?? initialText}
-          {isLoading && (
+          {isLoading ? (
             <span
               aria-hidden="true"
               className="ml-1.5 inline-block h-[0.45em] w-[0.45em] animate-pulse-dot rounded-full bg-accent align-middle motion-reduce:hidden"
             />
-          )}
+          ) : null}
         </p>
 
-        {error && (
+        {error ? (
           <p
             className="mt-4 font-mono text-accent text-micro uppercase tracking-widest"
             role="alert"
           >
             {self.errorRetry}
           </p>
-        )}
+        ) : null}
 
         <AiControls
           className="mt-7 border-rule border-t border-dashed pt-5"
@@ -93,10 +94,10 @@ export function SelfPresentationClient({
           onRegenerate={regenerate}
           position={position}
           tooltip={{
-            nextModelLabel: nextModel.label,
-            nextModelExpiresAt: statuses[nextModel.id]?.expiresAt ?? null,
-            locale: lang,
             labels: self.tooltip,
+            locale: lang,
+            nextModelExpiresAt: statuses[nextModel.id]?.expiresAt ?? null,
+            nextModelLabel: nextModel.label,
           }}
         />
       </div>

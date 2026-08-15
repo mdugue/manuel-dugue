@@ -33,7 +33,7 @@ export async function POST(req: Request) {
   const locale: Locale = lang;
   const namespace = "self-presentation" as const;
 
-  const cached = await readAiCacheText({ namespace, locale, model });
+  const cached = await readAiCacheText({ locale, model, namespace });
   if (cached) {
     return new Response(cached.text, {
       headers: {
@@ -49,15 +49,15 @@ export async function POST(req: Request) {
   ]);
 
   const result = streamText({
-    model,
     instructions: buildSelfPresentationPrompt(locale),
+    model,
+    onEnd: async ({ text }) => {
+      await writeAiCacheText({ locale, model, namespace, text });
+    },
     prompt:
       `<curriculum-vitae>\n${cv.body}\n</curriculum-vitae>\n\n` +
       `<skill-profile>\n${skills.body}\n</skill-profile>`,
     temperature: 0.85,
-    onEnd: async ({ text }) => {
-      await writeAiCacheText({ namespace, locale, model, text });
-    },
   });
 
   const response = result.toTextStreamResponse();

@@ -14,25 +14,25 @@ import {
 import "../globals.css";
 
 const ebGaramond = EB_Garamond({
-  variable: "--font-display",
-  subsets: ["latin"],
-  style: ["normal", "italic"],
-  weight: ["400", "500", "600"],
   display: "swap",
+  style: ["normal", "italic"],
+  subsets: ["latin"],
+  variable: "--font-display",
+  weight: ["400", "500", "600"],
 });
 
 const inter = Inter({
-  variable: "--font-body",
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600"],
   display: "swap",
+  subsets: ["latin"],
+  variable: "--font-body",
+  weight: ["300", "400", "500", "600"],
 });
 
 const jetBrainsMono = JetBrains_Mono({
-  variable: "--font-mono",
-  subsets: ["latin"],
-  weight: ["400", "500"],
   display: "swap",
+  subsets: ["latin"],
+  variable: "--font-mono",
+  weight: ["400", "500"],
 });
 
 export async function generateMetadata({
@@ -42,21 +42,21 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { lang } = await params;
   if (!hasLocale(lang)) {
-    return { metadataBase: METADATA_BASE, applicationName: SITE_NAME };
+    return { applicationName: SITE_NAME, metadataBase: METADATA_BASE };
   }
   const locale: Locale = lang;
   const dict = await getDictionary(locale);
   return {
-    metadataBase: METADATA_BASE,
     applicationName: SITE_NAME,
     authors: [{ name: "Manuel Dugué", url: "https://manuel.fyi" }],
     creator: "Manuel Dugué",
+    metadataBase: METADATA_BASE,
     publisher: "Manuel Dugué",
     ...buildPageMetadata({
-      locale,
-      title: `${SITE_NAME} — Manuel Dugué`,
       description: dict.portfolio.hero.lede,
+      locale,
       templateTitle: false,
+      title: `${SITE_NAME} — Manuel Dugué`,
     }),
   };
 }
@@ -92,7 +92,7 @@ export default async function RootLayout({
         />
         {children}
         {modal}
-        {process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID && (
+        {process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID ? (
           <Script
             data-host-url="/stats"
             data-performance="true"
@@ -100,7 +100,7 @@ export default async function RootLayout({
             src="/stats/script.js"
             strategy="afterInteractive"
           />
-        )}
+        ) : null}
       </body>
     </html>
   );

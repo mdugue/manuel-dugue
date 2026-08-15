@@ -14,7 +14,8 @@ function getLocale(request: NextRequest): string {
 export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
   const hasLocalePrefix = locales.some(
-    (locale) => pathname === `/${locale}` || pathname.startsWith(`/${locale}/`)
+    (candidate) =>
+      pathname === `/${candidate}` || pathname.startsWith(`/${candidate}/`)
   );
   if (hasLocalePrefix) {
     return;

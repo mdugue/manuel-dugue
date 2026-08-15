@@ -41,7 +41,7 @@ export async function checkRateLimit(
 
 export function rateLimited(retryAfter: number): Response {
   return new Response("rate limited", {
-    status: 429,
     headers: { "retry-after": String(Math.max(1, retryAfter)) },
+    status: 429,
   });
 }

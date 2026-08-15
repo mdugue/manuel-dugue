@@ -25,8 +25,8 @@ export async function GET(req: Request) {
   const statuses = await readAiCacheStatuses(namespace, lang as Locale);
   return new Response(JSON.stringify(statuses), {
     headers: {
-      "content-type": "application/json; charset=utf-8",
       "cache-control": "no-store",
+      "content-type": "application/json; charset=utf-8",
     },
   });
 }

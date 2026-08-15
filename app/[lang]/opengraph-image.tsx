@@ -3,7 +3,7 @@ import { hasLocale, type Locale, localeParams } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 
 export const alt = "manuel.fyi — Manuel Dugué";
-export const size = { width: 1200, height: 630 };
+export const size = { height: 630, width: 1200 };
 export const contentType = "image/png";
 
 export function generateStaticParams() {
@@ -23,27 +23,27 @@ export default async function Image({
   return new ImageResponse(
     <div
       style={{
-        width: "100%",
-        height: "100%",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "space-between",
-        padding: "72px 96px",
         background: "#F5EFE4",
         color: "#1E160E",
+        display: "flex",
+        flexDirection: "column",
         fontFamily: "serif",
+        height: "100%",
+        justifyContent: "space-between",
+        padding: "72px 96px",
+        width: "100%",
       }}
     >
       <div
         style={{
-          display: "flex",
-          justifyContent: "space-between",
           alignItems: "center",
+          color: "#6B5E4E",
+          display: "flex",
+          fontFamily: "monospace",
           fontSize: 20,
+          justifyContent: "space-between",
           letterSpacing: "0.2em",
           textTransform: "uppercase",
-          color: "#6B5E4E",
-          fontFamily: "monospace",
         }}
       >
         <span>manuel · fyi</span>
@@ -54,9 +54,9 @@ export default async function Image({
         <div
           style={{
             fontSize: 92,
-            lineHeight: 1.02,
             fontStyle: "italic",
             letterSpacing: "-0.02em",
+            lineHeight: 1.02,
             maxWidth: 940,
           }}
         >
@@ -64,11 +64,11 @@ export default async function Image({
         </div>
         <div
           style={{
-            fontSize: 36,
-            lineHeight: 1.35,
             color: "#3A3025",
-            maxWidth: 940,
+            fontSize: 36,
             fontStyle: "italic",
+            lineHeight: 1.35,
+            maxWidth: 940,
           }}
         >
           {hero.lede}
@@ -77,16 +77,16 @@ export default async function Image({
 
       <div
         style={{
-          display: "flex",
-          justifyContent: "space-between",
           alignItems: "center",
-          fontSize: 20,
-          letterSpacing: "0.14em",
-          textTransform: "uppercase",
-          color: "#6B5E4E",
-          fontFamily: "monospace",
           borderTop: "1px solid #C9B79C",
+          color: "#6B5E4E",
+          display: "flex",
+          fontFamily: "monospace",
+          fontSize: 20,
+          justifyContent: "space-between",
+          letterSpacing: "0.14em",
           paddingTop: 16,
+          textTransform: "uppercase",
         }}
       >
         <span>{spine}</span>

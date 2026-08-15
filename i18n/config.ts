@@ -7,8 +7,8 @@ export const defaultLocale: Locale = "en";
 export const localeLabels: Record<Locale, string> = {
   de: "DE",
   en: "EN",
-  fr: "FR",
   es: "ES",
+  fr: "FR",
 };
 
 export function hasLocale(value: string): value is Locale {
