@@ -12,8 +12,8 @@ export const aiModels = [
     label: "Gemini 3.7 Flash",
   },
   {
-    id: "xai/grok-4.6",
-    label: "Grok 4.6",
+    id: "xai/grok-4.5",
+    label: "Grok 4.5",
   },
   // Open weights (MIT, weights on Hugging Face). Picked over GLM 5.2 and Muse
   // Spark 1.2 in a preview bake-off — see the PR for the numbers.
