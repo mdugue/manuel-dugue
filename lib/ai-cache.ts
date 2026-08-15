@@ -6,7 +6,11 @@ import {
   type SocialProofObject,
   socialProofSchema,
 } from "@/i18n/social-proof-schema";
-import { AI_CACHE_TTL_MS, AI_CACHE_TTL_SECONDS } from "@/lib/ai-cache-shared";
+import {
+  AI_CACHE_SHAPE_VERSION,
+  AI_CACHE_TTL_MS,
+  AI_CACHE_TTL_SECONDS,
+} from "@/lib/ai-cache-shared";
 
 export type AiCacheNamespace = "self-presentation" | "social-proof";
 
@@ -66,13 +70,17 @@ async function safeReadEntry(
   }
 }
 
+function cacheKey(locale: Locale, model: AiModelId): string {
+  return `v${AI_CACHE_SHAPE_VERSION}:${locale}:${model}`;
+}
+
 export async function readAiCacheText(params: {
   namespace: AiCacheNamespace;
   locale: Locale;
   model: AiModelId;
 }): Promise<{ text: string; status: AiCacheStatus } | null> {
   const { namespace, locale, model } = params;
-  const entry = await safeReadEntry(namespace, `${locale}:${model}`);
+  const entry = await safeReadEntry(namespace, cacheKey(locale, model));
   if (!entry) {
     return null;
   }
@@ -91,7 +99,7 @@ export async function writeAiCacheText(params: {
   }
   const cache = getCache({ namespace });
   const entry: StoredEntry = { cachedAt: Date.now(), text };
-  await cache.set(`${locale}:${model}`, JSON.stringify(entry), {
+  await cache.set(cacheKey(locale, model), JSON.stringify(entry), {
     name: `${namespace} · ${locale} · ${model}`,
     tags: [namespace, `${namespace}:${locale}`],
     ttl: AI_CACHE_TTL_SECONDS,
