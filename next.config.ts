@@ -5,6 +5,7 @@ const nextConfig: NextConfig = {
   async headers() {
     return [{ headers: [{ key: "Vary", value: "Accept" }], source: "/:path*" }];
   },
+  partialPrefetching: true,
   reactCompiler: true,
   async redirects() {
     return [
