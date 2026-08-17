@@ -1,20 +1,19 @@
 import type { Route } from "next";
 import Link from "next/link";
-import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
+import { getLocale } from "@/i18n/root-locale";
 
 const footerLink =
   "text-sm text-ink-soft transition-colors hover:text-accent flex items-baseline gap-2 flex-wrap";
 
 const extLabel = "font-mono text-nano text-ink-faint tracking-label-tight";
 
-export function SiteFooter({
-  lang,
+export async function SiteFooter({
   footer,
 }: {
-  lang: Locale;
   footer: Dictionary["portfolio"]["footer"];
 }) {
+  const lang = await getLocale();
   return (
     <footer
       className="mx-auto max-w-345 border-rule border-t px-(--pad-x) py-[clamp(60px,8vw,100px)] pl-[calc(var(--pad-x)+60px)] max-lg:pl-(--pad-x)"

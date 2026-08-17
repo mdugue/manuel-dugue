@@ -10,6 +10,8 @@ export function generateStaticParams() {
   return localeParams();
 }
 
+// Image conventions compile to Route Handlers, which cannot read
+// `next/root-params` yet, so the locale still comes from the route params.
 export default async function Image({
   params,
 }: {

@@ -1,21 +1,10 @@
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
 import { Portfolio } from "@/app/components/portfolio/portfolio";
-import { hasLocale, type Locale } from "@/i18n/config";
-import { getDictionary } from "@/i18n/dictionaries";
+import { getLocaleDictionary } from "@/i18n/root-locale";
 import { buildPageMetadata, SITE_NAME } from "@/i18n/seo";
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ lang: string }>;
-}): Promise<Metadata> {
-  const { lang } = await params;
-  if (!hasLocale(lang)) {
-    return {};
-  }
-  const locale: Locale = lang;
-  const dict = await getDictionary(locale);
+export async function generateMetadata(): Promise<Metadata> {
+  const { dict, locale } = await getLocaleDictionary();
   return buildPageMetadata({
     description: dict.portfolio.hero.lede,
     locale,
@@ -24,17 +13,8 @@ export async function generateMetadata({
   });
 }
 
-export default async function Home({
-  params,
-}: {
-  params: Promise<{ lang: string }>;
-}) {
+export default async function Home() {
   "use cache";
-  const { lang } = await params;
-  if (!hasLocale(lang)) {
-    notFound();
-  }
-  const locale: Locale = lang;
-  const dict = await getDictionary(locale);
-  return <Portfolio dict={dict.portfolio} lang={locale} />;
+  const { dict } = await getLocaleDictionary();
+  return <Portfolio dict={dict.portfolio} />;
 }

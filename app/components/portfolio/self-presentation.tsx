@@ -1,17 +1,16 @@
-import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
+import { getLocale } from "@/i18n/root-locale";
 import { readCachedSelfPresentation } from "@/lib/ai-cache";
 import { SelfPresentationClient } from "./self-presentation-client";
 
 export async function SelfPresentation({
-  lang,
   self,
   fallback,
 }: {
-  lang: Locale;
   self: Dictionary["portfolio"]["self"];
   fallback: string;
 }) {
+  const lang = await getLocale();
   const cached = await readCachedSelfPresentation(lang);
   return (
     <SelfPresentationClient

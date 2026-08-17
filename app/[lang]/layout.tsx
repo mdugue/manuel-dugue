@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
 import { EB_Garamond, Inter, JetBrains_Mono } from "next/font/google";
-import { notFound } from "next/navigation";
 import Script from "next/script";
-import { hasLocale, type Locale, localeParams } from "@/i18n/config";
-import { getDictionary } from "@/i18n/dictionaries";
+import { localeParams } from "@/i18n/config";
+import { getLocale, getLocaleDictionary } from "@/i18n/root-locale";
 import {
   buildPageMetadata,
   jsonLdString,
@@ -35,17 +34,8 @@ const jetBrainsMono = JetBrains_Mono({
   weight: ["400", "500"],
 });
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ lang: string }>;
-}): Promise<Metadata> {
-  const { lang } = await params;
-  if (!hasLocale(lang)) {
-    return { applicationName: SITE_NAME, metadataBase: METADATA_BASE };
-  }
-  const locale: Locale = lang;
-  const dict = await getDictionary(locale);
+export async function generateMetadata(): Promise<Metadata> {
+  const { dict, locale } = await getLocaleDictionary();
   return {
     applicationName: SITE_NAME,
     authors: [{ name: "Manuel Dugué", url: "https://manuel.fyi" }],
@@ -68,21 +58,16 @@ export function generateStaticParams() {
 export default async function RootLayout({
   children,
   modal,
-  params,
 }: Readonly<{
   children: React.ReactNode;
   modal: React.ReactNode;
-  params: Promise<{ lang: string }>;
 }>) {
-  const { lang } = await params;
-  if (!hasLocale(lang)) {
-    notFound();
-  }
+  const locale = await getLocale();
 
   return (
     <html
       className={`${ebGaramond.variable} ${inter.variable} ${jetBrainsMono.variable} antialiased`}
-      lang={lang}
+      lang={locale}
     >
       <body>
         <script

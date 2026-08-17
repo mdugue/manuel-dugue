@@ -2,6 +2,10 @@
   "common": {},
   "portfolio": {
     "spine": "ingénieur produit indépendant · dresde",
+    "error": {
+      "message": "Cette section ne s'est pas chargée.",
+      "retry": "Réessayer"
+    },
     "contact": ["Manuel Dugué", "mail@manuel.fyi", "Dresde / Remote"],
     "hero": {
       "eyebrow": "Ingénieur produit · depuis 2004",

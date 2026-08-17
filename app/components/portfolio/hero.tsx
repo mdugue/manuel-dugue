@@ -1,7 +1,7 @@
 import type { Route } from "next";
 import Link from "next/link";
-import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
+import { getLocale } from "@/i18n/root-locale";
 import { nextQuarter } from "@/lib/next-quarter";
 import { HeroLangPills } from "./hero-lang-pills";
 
@@ -18,13 +18,12 @@ const ROW =
   "flex gap-4 border-rule-soft border-t py-2 last:border-rule-soft last:border-b";
 const LABEL = "min-w-22 text-ink-faint";
 
-export function Hero({
+export async function Hero({
   hero,
-  lang,
 }: {
   hero: Dictionary["portfolio"]["hero"];
-  lang: Locale;
 }) {
+  const lang = await getLocale();
   const { facts } = hero;
   const openForValue = renderQuarter(facts.openFor.template);
 
