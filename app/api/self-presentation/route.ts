@@ -43,10 +43,8 @@ export async function POST(req: Request) {
     });
   }
 
-  const [cv, skills] = await Promise.all([
-    readMarkdownSource("curriculum-vitae", locale),
-    readMarkdownSource("skill-profile", locale),
-  ]);
+  const cv = readMarkdownSource("curriculum-vitae", locale);
+  const skills = readMarkdownSource("skill-profile", locale);
 
   const result = streamText({
     instructions: buildSelfPresentationPrompt(locale),

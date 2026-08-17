@@ -3,8 +3,8 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   cacheComponents: true,
   experimental: {
-    // Native Rust port of the React Compiler, run inside Turbopack instead of
-    // through the Babel plugin. Requires `reactCompiler` below to be on.
+    // Requires `reactCompiler` below; selects the Rust implementation over
+    // the Babel plugin.
     turbopackRustReactCompiler: true,
   },
   async headers() {
@@ -43,11 +43,12 @@ const nextConfig: NextConfig = {
   serverExternalPackages: ["@react-pdf/renderer"],
   turbopack: {
     rules: {
-      // Lets the documents be bundled by `import.meta.glob` instead of read
-      // from disk at request time. Turbopack has no built-in handler for
-      // `.md`; `bytes` is the type that resolves through a glob, and
-      // markdown-source.ts decodes it back to text.
-      "*.md": { type: "bytes" },
+      // Turbopack has no handler for `.md`. `bytes` is the module type that
+      // resolves through a glob; markdown-source.ts decodes it back to text.
+      "*.md": {
+        condition: { path: /(^|\/)public\/[^/]+\/[^/]+\.md$/ },
+        type: "bytes",
+      },
     },
   },
   typedRoutes: true,

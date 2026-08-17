@@ -1,5 +1,4 @@
 import matter from "gray-matter";
-import { notFound } from "next/navigation";
 import type { Locale } from "@/i18n/config";
 
 export interface MarkdownMeta {
@@ -17,10 +16,8 @@ export interface UpdatedLine {
   label: string;
 }
 
-// The documents are bundled and parsed at build time rather than read from
-// disk per request, so nothing here touches the filesystem at runtime. The
-// `bytes` module type comes from the `*.md` rule in next.config.ts; `base` is
-// required because glob patterns cannot climb out of the calling directory
+// Bundled and parsed at build time, so no filesystem access at request time.
+// `base` is required: glob patterns cannot climb out of the calling directory
 // with `../`.
 const RAW_SOURCES = import.meta.glob("*/*.md", {
   base: "../../public",
@@ -75,14 +72,19 @@ function parseSources(): Map<string, MarkdownSource> {
 
 const SOURCES = parseSources();
 
-/**
- * Looks up a bundled document. Every slug is a literal in the route tree, so a
- * miss means the locale has no such document — that is a 404, not an error.
- */
+if (SOURCES.size === 0) {
+  // A glob that matches nothing compiles cleanly, so without this the app
+  // would build green and serve every document broken.
+  throw new Error(
+    "No markdown documents were bundled — check the glob below and the `*.md` rule in next.config.ts"
+  );
+}
+
+/** Slugs are literals in the route tree and locales are validated upstream, so a miss is a build defect. */
 export function readMarkdownSource(slug: string, lang: Locale): MarkdownSource {
   const source = SOURCES.get(`${lang}/${slug}`);
   if (!source) {
-    notFound();
+    throw new Error(`No bundled markdown document for ${lang}/${slug}`);
   }
   return source;
 }

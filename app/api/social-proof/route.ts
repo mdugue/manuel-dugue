@@ -44,7 +44,7 @@ export async function POST(req: Request) {
     });
   }
 
-  const skills = await readMarkdownSource("skill-profile", locale);
+  const skills = readMarkdownSource("skill-profile", locale);
 
   const result = streamText({
     instructions: buildSocialProofPrompt(locale),

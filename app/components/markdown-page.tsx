@@ -29,8 +29,7 @@ export async function MarkdownPage({ slug }: { slug: string }) {
 
   return (
     <div className="doc-prose">
-      {/* A document that fails to render leaves the sheet chrome — title,
-          contact, PDF link — intact and offers a retry. */}
+      {/* Keeps the surrounding sheet chrome when a document fails to render. */}
       <SectionErrorBoundary labels={dict.portfolio.error}>
         <MarkdownBody slug={slug} />
       </SectionErrorBoundary>

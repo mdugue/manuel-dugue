@@ -4,11 +4,9 @@ import { hasLocale, type Locale } from "./config";
 import { type Dictionary, getDictionary } from "./dictionaries";
 
 /**
- * The `[lang]` root parameter, narrowed to a supported locale.
- *
- * `next/root-params` is readable from any Server Component, so nothing below
- * the root layout has to take a `lang` prop. Client Components and Route
- * Handlers cannot read it and still receive the locale explicitly.
+ * The `[lang]` root parameter, narrowed to a supported locale. Readable from
+ * any Server Component; Client Components and Route Handlers cannot read root
+ * params and take the locale explicitly.
  */
 export async function getLocale(): Promise<Locale> {
   const value = await lang();
