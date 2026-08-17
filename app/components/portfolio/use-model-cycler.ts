@@ -11,23 +11,42 @@ import { type AiModelId, aiModels, defaultAiModel } from "@/i18n/ai-models";
 
 const MODEL_COUNT = aiModels.length;
 
-// Starts on the model that produced the server-rendered copy, so the printed
-// id matches the text and nothing is requested on mount.
-const DEFAULT_INDEX = Math.max(
-  0,
-  aiModels.findIndex((m) => m.id === defaultAiModel)
-);
+const MODELS_BY_ID = new Map(aiModels.map((model) => [model.id, model]));
 
-/** Stand-in while prerendering, before any client roll. */
-const SEED_INDEX = (DEFAULT_INDEX + 1) % MODEL_COUNT;
+const OTHER_IDS = aiModels
+  .map((model) => model.id)
+  .filter((id) => id !== defaultAiModel);
 
-/** Uniform pick excluding `exclude`; the offset can never land back on it. */
-function pickOtherIndex(exclude: number): number {
-  if (MODEL_COUNT < 2) {
-    return exclude;
+/**
+ * Default model first: it produced the server-rendered copy, so slot 01 has to
+ * agree across hydration. The tail order does not — it is read only through the
+ * tooltip, which renders in a portal and never reaches the SSR HTML.
+ */
+const BASE_ORDER: AiModelId[] = [defaultAiModel, ...OTHER_IDS];
+
+function shuffledOrder(): AiModelId[] {
+  const pool = [...OTHER_IDS];
+  const tail: AiModelId[] = [];
+  while (pool.length > 0) {
+    const [picked] = pool.splice(Math.floor(Math.random() * pool.length), 1);
+    if (picked) {
+      tail.push(picked);
+    }
   }
-  const offset = 1 + Math.floor(Math.random() * (MODEL_COUNT - 1));
-  return (exclude + offset) % MODEL_COUNT;
+  return [defaultAiModel, ...tail];
+}
+
+// Decided once per page load. Module scope rather than a ref, so the snapshot
+// keeps a stable identity without being read during render.
+let clientOrder: AiModelId[] | null = null;
+
+function getClientOrder(): AiModelId[] {
+  clientOrder ??= shuffledOrder();
+  return clientOrder;
+}
+
+function getServerOrder(): AiModelId[] {
+  return BASE_ORDER;
 }
 
 function subscribeNever() {
@@ -36,51 +55,38 @@ function subscribeNever() {
   };
 }
 
-function getServerFirstRoll() {
-  return SEED_INDEX;
-}
-
 export function useModelCycler(onModelChange: (_model: AiModelId) => void) {
-  const [modelIndex, setModelIndex] = useState(DEFAULT_INDEX);
-  const [rolledIndex, setRolledIndex] = useState<number | null>(null);
-
-  // `Math.random()` is barred while prerendering and during render, so the
-  // first roll happens in the client snapshot and is cached to stay stable.
-  const firstRollRef = useRef<number | null>(null);
-  const getClientFirstRoll = useCallback(() => {
-    if (firstRollRef.current === null) {
-      firstRollRef.current = pickOtherIndex(DEFAULT_INDEX);
-    }
-    return firstRollRef.current;
-  }, []);
-  const firstRoll = useSyncExternalStore(
+  const order = useSyncExternalStore(
     subscribeNever,
-    getClientFirstRoll,
-    getServerFirstRoll
+    getClientOrder,
+    getServerOrder
   );
-
-  const nextIndex = rolledIndex ?? firstRoll;
+  const [step, setStep] = useState(0);
 
   const onChangeRef = useRef(onModelChange);
   useEffect(() => {
     onChangeRef.current = onModelChange;
   }, [onModelChange]);
 
-  const currentModel = aiModels[modelIndex];
-  const nextModel = aiModels[nextIndex];
+  const slot = step % MODEL_COUNT;
+  const nextSlot = (step + 1) % MODEL_COUNT;
+  const currentId = order[slot];
+  const nextId = order[nextSlot];
 
   const regenerate = useCallback(() => {
-    const model = aiModels[nextIndex];
-    setModelIndex(nextIndex);
-    setRolledIndex(pickOtherIndex(nextIndex));
-    if (model) {
-      onChangeRef.current(model.id);
+    const id = order[(step + 1) % MODEL_COUNT];
+    setStep(step + 1);
+    if (id) {
+      onChangeRef.current(id);
     }
-  }, [nextIndex]);
+  }, [order, step]);
 
-  const position = `${String(modelIndex + 1).padStart(2, "0")}/${String(MODEL_COUNT).padStart(2, "0")}`;
+  const currentModel = currentId && MODELS_BY_ID.get(currentId);
+  const nextModel = nextId && MODELS_BY_ID.get(nextId);
 
-  if (currentModel === undefined || nextModel === undefined) {
+  const position = `${String(slot + 1).padStart(2, "0")}/${String(MODEL_COUNT).padStart(2, "0")}`;
+
+  if (!(currentModel && nextModel)) {
     throw new Error("useModelCycler: invalid model index");
   }
 
