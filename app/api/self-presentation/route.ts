@@ -57,6 +57,9 @@ export async function POST(req: Request) {
     prompt:
       `<curriculum-vitae>\n${cv.body}\n</curriculum-vitae>\n\n` +
       `<skill-profile>\n${skills.body}\n</skill-profile>`,
+    // Unset, models spend their default budget before the first token. Don't
+    // lower without a sweep: "none"/"minimal" return empty 200s on some models.
+    reasoning: "low",
     temperature: 0.85,
   });
 

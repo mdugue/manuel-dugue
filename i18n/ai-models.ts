@@ -11,6 +11,15 @@ export const aiModels = [
     id: "google/gemini-3.7-flash",
     label: "Gemini 3.7 Flash",
   },
+  {
+    id: "xai/grok-4.5",
+    label: "Grok 4.5",
+  },
+  // Open-weight slot (MIT).
+  {
+    id: "deepseek/deepseek-v4-pro-0813",
+    label: "DeepSeek V4 Pro",
+  },
 ] as const;
 
 export type AiModelId = (typeof aiModels)[number]["id"];

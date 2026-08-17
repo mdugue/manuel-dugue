@@ -30,7 +30,7 @@ Attribution — play the bit:
 - Every "name" must itself contain an unmistakable fictional marker ("Fictional Client A", "Entirely Invented Client B", "Probably Fake Client C", or similar — localise the marker into ${name}).
 - Every "role" must include a credible job title plus an invented-industry hedge ("Head of Product, plausibly-named SaaS"; "CTO, statistically-likely scale-up"; "Founder, entirely-hypothetical market").
 
-Language: write every q, name and role in ${name}, including the fictional-marker phrasing.
+Language: write every quote, name and role in ${name}, including the fictional-marker phrasing.
 
 Output exactly three testimonials in the required JSON shape. No preamble, no commentary, no markdown.`;
 }

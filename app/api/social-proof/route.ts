@@ -54,6 +54,8 @@ export async function POST(req: Request) {
     },
     output: Output.object({ schema: socialProofSchema }),
     prompt: `<skill-profile>\n${skills.body}\n</skill-profile>`,
+    // See the self-presentation route before changing this.
+    reasoning: "low",
     temperature: 0.85,
   });
 
