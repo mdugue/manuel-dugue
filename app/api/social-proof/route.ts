@@ -54,6 +54,9 @@ export async function POST(req: Request) {
     },
     output: Output.object({ schema: socialProofSchema }),
     prompt: `<skill-profile>\n${skills.body}\n</skill-profile>`,
+    // See the self-presentation route: provider-default reasoning is spent
+    // silently before the first token and buys nothing on a writing task.
+    reasoning: "none",
     temperature: 0.85,
   });
 

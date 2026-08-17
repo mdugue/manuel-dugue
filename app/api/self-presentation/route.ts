@@ -57,6 +57,10 @@ export async function POST(req: Request) {
     prompt:
       `<curriculum-vitae>\n${cv.body}\n</curriculum-vitae>\n\n` +
       `<skill-profile>\n${skills.body}\n</skill-profile>`,
+    // Rewriting a CV into two dry sentences needs no deliberation, but every
+    // model here defaults to its own reasoning effort and spends it silently
+    // before the first token. Opting out is what makes the wait short.
+    reasoning: "none",
     temperature: 0.85,
   });
 
