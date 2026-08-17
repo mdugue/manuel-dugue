@@ -1,7 +1,7 @@
 "use client";
 
 import { useCompletion } from "@ai-sdk/react";
-import { useCallback, useRef } from "react";
+import { useCallback, useRef, useState } from "react";
 import type { AiModelId } from "@/i18n/ai-models";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
@@ -25,14 +25,18 @@ export function SelfPresentationClient({
   );
 
   const requestedModelRef = useRef<AiModelId | null>(null);
+  const [cameBackEmpty, setCameBackEmpty] = useState(false);
 
   const { completion, complete, isLoading, error } = useCompletion({
     api: "/api/self-presentation",
     initialCompletion: initialText,
-    onFinish: () => {
+    onFinish: (_prompt, result) => {
+      // The route answers 200 with an empty body when generation fails, so an
+      // empty result is a failure the `error` state never sees.
+      const produced = result.trim().length > 0;
+      setCameBackEmpty(!produced);
       const model = requestedModelRef.current;
-      // biome-ignore lint/suspicious/noUnnecessaryConditions: the ref is populated in onModelChange; Biome infers its type from the `null` initializer only.
-      if (model) {
+      if (produced && model) {
         markGenerated(model);
       }
     },
@@ -42,6 +46,7 @@ export function SelfPresentationClient({
   const onModelChange = useCallback(
     (model: AiModelId) => {
       requestedModelRef.current = model;
+      setCameBackEmpty(false);
       complete("", { body: { lang, model } });
     },
     [complete, lang]
@@ -68,7 +73,7 @@ export function SelfPresentationClient({
           aria-live="polite"
           className="m-0 min-h-[7em] whitespace-pre-line font-display text-[clamp(19px,1.75vw,24px)] text-ink leading-[1.55]"
         >
-          {completion ?? initialText}
+          {completion || initialText}
           {isLoading ? (
             <span
               aria-hidden="true"
@@ -77,7 +82,7 @@ export function SelfPresentationClient({
           ) : null}
         </p>
 
-        {error ? (
+        {error || cameBackEmpty ? (
           <p
             className="mt-4 font-mono text-accent text-micro uppercase tracking-widest"
             role="alert"
