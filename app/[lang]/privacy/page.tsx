@@ -1,22 +1,11 @@
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
 import { DocSheetPage } from "@/app/components/doc-sheet-page";
 import { MarkdownPage } from "@/app/components/markdown-page";
-import { hasLocale, type Locale } from "@/i18n/config";
-import { getDictionary } from "@/i18n/dictionaries";
+import { getLocaleDictionary } from "@/i18n/root-locale";
 import { buildPageMetadata } from "@/i18n/seo";
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ lang: string }>;
-}): Promise<Metadata> {
-  const { lang } = await params;
-  if (!hasLocale(lang)) {
-    return {};
-  }
-  const locale: Locale = lang;
-  const dict = await getDictionary(locale);
+export async function generateMetadata(): Promise<Metadata> {
+  const { dict, locale } = await getLocaleDictionary();
   return buildPageMetadata({
     description: dict.portfolio.legal.privacy.sheetSubtitle,
     locale,
@@ -25,29 +14,20 @@ export async function generateMetadata({
   });
 }
 
-export default async function Page({
-  params,
-}: {
-  params: Promise<{ lang: string }>;
-}) {
+export default async function Page() {
   "use cache";
-  const { lang } = await params;
-  if (!hasLocale(lang)) {
-    notFound();
-  }
-  const locale: Locale = lang;
-  const { portfolio } = await getDictionary(locale);
+  const { dict, locale } = await getLocaleDictionary();
+  const { portfolio } = dict;
 
   return (
     <DocSheetPage
       contact={portfolio.contact}
-      lang={locale}
       modalLabels={portfolio.modal}
       pdfHref={`/${locale}/privacy/pdf`}
       subtitle={portfolio.legal.privacy.sheetSubtitle}
       title={portfolio.legal.privacy.sheetTitle}
     >
-      <MarkdownPage lang={locale} slug="privacy" />
+      <MarkdownPage slug="privacy" />
     </DocSheetPage>
   );
 }

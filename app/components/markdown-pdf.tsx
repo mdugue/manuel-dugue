@@ -512,7 +512,9 @@ export function createMarkdownPdfRoute(config: MarkdownPdfRouteConfig) {
 
     const dict = await getDictionary(lang);
     const meta = getDocMeta(dict);
-    const { body, meta: source } = await readMarkdownSource(slug, lang);
+    // Route Handlers cannot read `next/root-params`, so the locale still comes
+    // from the route params here.
+    const { body, meta: source } = readMarkdownSource(slug, lang);
     const tree = remark().use(remarkGfm).parse(body);
 
     const docTitle = author

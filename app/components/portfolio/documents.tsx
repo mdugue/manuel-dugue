@@ -1,18 +1,17 @@
 import type { Route } from "next";
 import Link from "next/link";
-import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
+import { getLocale } from "@/i18n/root-locale";
 import { SectionHead } from "./section-head";
 
 type DocCard = Dictionary["portfolio"]["docs"]["cv"];
 
-export function Documents({
-  lang,
+export async function Documents({
   docs,
 }: {
-  lang: Locale;
   docs: Dictionary["portfolio"]["docs"];
 }) {
+  const lang = await getLocale();
   const entries: Array<{
     slug: "curriculum-vitae" | "skill-profile";
     card: DocCard;

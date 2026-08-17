@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
 import type { Article, WithContext } from "schema-dts";
 import { DocSheetPage } from "@/app/components/doc-sheet-page";
 import { MarkdownPage } from "@/app/components/markdown-page";
@@ -7,8 +6,7 @@ import {
   buildUpdatedLine,
   readMarkdownSource,
 } from "@/app/components/markdown-source";
-import { hasLocale, type Locale } from "@/i18n/config";
-import { getDictionary } from "@/i18n/dictionaries";
+import { getLocaleDictionary } from "@/i18n/root-locale";
 import {
   buildPageMetadata,
   jsonLdString,
@@ -17,19 +15,10 @@ import {
   SITE,
 } from "@/i18n/seo";
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ lang: string }>;
-}): Promise<Metadata> {
+export async function generateMetadata(): Promise<Metadata> {
   "use cache";
-  const { lang } = await params;
-  if (!hasLocale(lang)) {
-    return {};
-  }
-  const locale: Locale = lang;
-  const dict = await getDictionary(locale);
-  const { meta } = await readMarkdownSource("curriculum-vitae", locale);
+  const { dict, locale } = await getLocaleDictionary();
+  const { meta } = readMarkdownSource("curriculum-vitae", locale);
   return buildPageMetadata({
     description: dict.portfolio.docs.cv.sheetSubtitle,
     locale,
@@ -40,19 +29,11 @@ export async function generateMetadata({
   });
 }
 
-export default async function Page({
-  params,
-}: {
-  params: Promise<{ lang: string }>;
-}) {
+export default async function Page() {
   "use cache";
-  const { lang } = await params;
-  if (!hasLocale(lang)) {
-    notFound();
-  }
-  const locale: Locale = lang;
-  const { portfolio } = await getDictionary(locale);
-  const { meta } = await readMarkdownSource("curriculum-vitae", locale);
+  const { dict, locale } = await getLocaleDictionary();
+  const { portfolio } = dict;
+  const { meta } = readMarkdownSource("curriculum-vitae", locale);
 
   const updatedLine = buildUpdatedLine(
     meta,
@@ -75,7 +56,6 @@ export default async function Page({
   return (
     <DocSheetPage
       contact={portfolio.contact}
-      lang={locale}
       modalLabels={portfolio.modal}
       pdfHref={`/${locale}/curriculum-vitae/pdf`}
       subtitle={portfolio.docs.cv.sheetSubtitle}
@@ -87,7 +67,7 @@ export default async function Page({
         dangerouslySetInnerHTML={{ __html: jsonLdString(articleJsonLd) }}
         type="application/ld+json"
       />
-      <MarkdownPage lang={locale} slug="curriculum-vitae" />
+      <MarkdownPage slug="curriculum-vitae" />
     </DocSheetPage>
   );
 }

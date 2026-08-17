@@ -2,6 +2,10 @@
   "common": {},
   "portfolio": {
     "spine": "unabhängiger Produktentwickler · dresden",
+    "error": {
+      "message": "Dieser Abschnitt wurde nicht geladen.",
+      "retry": "Erneut versuchen"
+    },
     "contact": ["Manuel Dugué", "mail@manuel.fyi", "Dresden / Remote"],
     "hero": {
       "eyebrow": "Product Engineer · seit 2004",

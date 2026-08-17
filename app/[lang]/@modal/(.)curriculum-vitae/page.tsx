@@ -1,26 +1,16 @@
-import { notFound } from "next/navigation";
 import { MarkdownPage } from "@/app/components/markdown-page";
 import {
   buildUpdatedLine,
   readMarkdownSource,
 } from "@/app/components/markdown-source";
 import { DocSheetModal } from "@/app/components/modal";
-import { hasLocale, type Locale } from "@/i18n/config";
-import { getDictionary } from "@/i18n/dictionaries";
+import { getLocaleDictionary } from "@/i18n/root-locale";
 
-export default async function Page({
-  params,
-}: {
-  params: Promise<{ lang: string }>;
-}) {
+export default async function Page() {
   "use cache";
-  const { lang } = await params;
-  if (!hasLocale(lang)) {
-    notFound();
-  }
-  const locale: Locale = lang;
-  const { portfolio } = await getDictionary(locale);
-  const { meta } = await readMarkdownSource("curriculum-vitae", locale);
+  const { dict, locale } = await getLocaleDictionary();
+  const { portfolio } = dict;
+  const { meta } = readMarkdownSource("curriculum-vitae", locale);
   const updatedLine = buildUpdatedLine(
     meta,
     locale,
@@ -36,7 +26,7 @@ export default async function Page({
       title={portfolio.docs.cv.sheetTitle}
       updatedLine={updatedLine}
     >
-      <MarkdownPage lang={locale} slug="curriculum-vitae" />
+      <MarkdownPage slug="curriculum-vitae" />
     </DocSheetModal>
   );
 }

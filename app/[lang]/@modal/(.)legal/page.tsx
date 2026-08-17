@@ -1,20 +1,10 @@
-import { notFound } from "next/navigation";
 import { MarkdownPage } from "@/app/components/markdown-page";
 import { DocSheetModal } from "@/app/components/modal";
-import { hasLocale, type Locale } from "@/i18n/config";
-import { getDictionary } from "@/i18n/dictionaries";
+import { getLocaleDictionary } from "@/i18n/root-locale";
 
-export default async function Page({
-  params,
-}: {
-  params: Promise<{ lang: string }>;
-}) {
-  const { lang } = await params;
-  if (!hasLocale(lang)) {
-    notFound();
-  }
-  const locale: Locale = lang;
-  const { portfolio } = await getDictionary(locale);
+export default async function Page() {
+  const { dict, locale } = await getLocaleDictionary();
+  const { portfolio } = dict;
 
   return (
     <DocSheetModal
@@ -24,7 +14,7 @@ export default async function Page({
       subtitle={portfolio.legal.imprint.sheetSubtitle}
       title={portfolio.legal.imprint.sheetTitle}
     >
-      <MarkdownPage lang={locale} slug="legal" />
+      <MarkdownPage slug="legal" />
     </DocSheetModal>
   );
 }

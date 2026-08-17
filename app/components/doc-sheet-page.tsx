@@ -1,12 +1,11 @@
 import type { Route } from "next";
 import Link from "next/link";
-import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
+import { getLocale } from "@/i18n/root-locale";
 import { DocSheetChrome } from "./doc-sheet-chrome";
 import type { UpdatedLine } from "./markdown-source";
 
-export function DocSheetPage({
-  lang,
+export async function DocSheetPage({
   title,
   subtitle,
   contact,
@@ -15,7 +14,6 @@ export function DocSheetPage({
   children,
   updatedLine,
 }: {
-  lang: Locale;
   title: string;
   subtitle: string;
   contact: readonly string[];
@@ -24,6 +22,8 @@ export function DocSheetPage({
   children: React.ReactNode;
   updatedLine?: UpdatedLine;
 }) {
+  const lang = await getLocale();
+
   return (
     <main className="flex items-start justify-center p-10 max-md:p-0">
       <DocSheetChrome

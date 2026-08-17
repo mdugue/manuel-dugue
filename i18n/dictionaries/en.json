@@ -2,6 +2,7 @@
   "common": {},
   "portfolio": {
     "spine": "independent product engineer · dresden",
+    "error": { "message": "This section didn't load.", "retry": "Try again" },
     "contact": ["Manuel Dugué", "mail@manuel.fyi", "Dresden / Remote"],
     "hero": {
       "eyebrow": "Independent product engineer · since 2004",
