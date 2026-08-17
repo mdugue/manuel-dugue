@@ -15,8 +15,7 @@ export const aiModels = [
     id: "xai/grok-4.5",
     label: "Grok 4.5",
   },
-  // Open weights (MIT, weights on Hugging Face). Picked over GLM 5.2 and Muse
-  // Spark 1.2 in a preview bake-off — see the PR for the numbers.
+  // Open-weight slot (MIT).
   {
     id: "deepseek/deepseek-v4-pro-0813",
     label: "DeepSeek V4 Pro",

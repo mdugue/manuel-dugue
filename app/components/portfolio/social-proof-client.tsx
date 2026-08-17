@@ -36,7 +36,7 @@ export function SocialProofClient({
         return;
       }
       const model = requestedModelRef.current;
-      // biome-ignore lint/suspicious/noUnnecessaryConditions: the ref is populated in onModelChange; Biome infers its type from the `null` initializer only.
+      // biome-ignore lint/suspicious/noUnnecessaryConditions: ref type inferred from its initializer only
       if (model) {
         markGenerated(model);
       }
