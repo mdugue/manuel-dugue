@@ -7,7 +7,7 @@ updated: 2026-05-12
 
 ## Profil
 
-Ingénieur produit centré sur les logiciels orientés utilisateur depuis 2008. Profond en web tech ; large en UX, architecture de l'information, ingénierie AI agentique et coaching.
+Ingénieur produit centré sur les logiciels orientés utilisateur depuis 2004. Profond en web tech ; large en UX, architecture de l'information, ingénierie AI agentique et coaching.
 
 Tissage de fonctionnalités LLM et d'agents sur mesure dans les équipes produit via MCP, Agent Skills et les AI SDKs. Accompagnement sur des stacks end-to-end résilientes, assurance qualité automatisée et workflows AI-native. À l'aise là où la stratégie conceptuelle rencontre l'orchestration concrète.
 
