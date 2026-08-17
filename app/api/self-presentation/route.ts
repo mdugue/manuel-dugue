@@ -57,6 +57,17 @@ export async function POST(req: Request) {
     prompt:
       `<curriculum-vitae>\n${cv.body}\n</curriculum-vitae>\n\n` +
       `<skill-profile>\n${skills.body}\n</skill-profile>`,
+    // Left unset, every model spends its own default reasoning budget before
+    // emitting a token — silently, since reasoning parts never reach the
+    // client. That was the whole of the cold-reroll wait.
+    //
+    // "low" rather than something more aggressive: a preview sweep of every
+    // level against every model found that lower levels fail *silently* and
+    // unpredictably — "none" returns an empty 200 on Gemini and both Groks,
+    // and "minimal" does the same on GPT-5.6 Terra, the one model where
+    // "none" is fine. "low" is the only level all six honour. Re-run that
+    // sweep before adding a model or lowering this.
+    reasoning: "low",
     temperature: 0.85,
   });
 
