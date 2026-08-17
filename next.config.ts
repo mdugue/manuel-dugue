@@ -2,12 +2,10 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   cacheComponents: true,
-  experimental: {
-    viewTransition: true,
-  },
   async headers() {
     return [{ headers: [{ key: "Vary", value: "Accept" }], source: "/:path*" }];
   },
+  partialPrefetching: true,
   reactCompiler: true,
   async redirects() {
     return [

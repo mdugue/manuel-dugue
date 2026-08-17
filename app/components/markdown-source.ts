@@ -1,3 +1,4 @@
+import { readFile } from "node:fs/promises";
 import path from "node:path";
 import matter from "gray-matter";
 import { cache } from "react";
@@ -30,9 +31,10 @@ function toIso(value: unknown): string | undefined {
 
 export const readMarkdownSource = cache(
   async (slug: string, lang: Locale): Promise<MarkdownSource> => {
-    const raw = await Bun.file(
-      path.join(process.cwd(), "public", lang, `${slug}.md`)
-    ).text();
+    const raw = await readFile(
+      path.join(process.cwd(), "public", lang, `${slug}.md`),
+      "utf8"
+    );
     const parsed = matter(raw);
     const data = parsed.data as Record<string, unknown>;
     return {

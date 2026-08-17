@@ -8,9 +8,6 @@
   "files": {
     "includes": ["!!**/.agents"]
   },
-  "javascript": {
-    "globals": ["Bun"]
-  },
   "overrides": [
     {
       "includes": ["**/app/components/markdown-pdf.tsx"],
