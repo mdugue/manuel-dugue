@@ -31,11 +31,11 @@ export async function generateMetadata({
   const dict = await getDictionary(locale);
   const { meta } = await readMarkdownSource("skill-profile", locale);
   return buildPageMetadata({
+    description: dict.portfolio.docs.profile.sheetSubtitle,
     locale,
+    publishedIso: meta.publishedIso,
     slug: "skill-profile",
     title: dict.portfolio.docs.profile.sheetTitle,
-    description: dict.portfolio.docs.profile.sheetSubtitle,
-    publishedIso: meta.publishedIso,
     updatedIso: meta.updatedIso,
   });
 }
@@ -51,17 +51,16 @@ export default async function Page({
     notFound();
   }
   const locale: Locale = lang;
-  const dict = await getDictionary(locale);
-  const portfolio = dict.portfolio;
+  const { portfolio } = await getDictionary(locale);
   const { meta } = await readMarkdownSource("skill-profile", locale);
 
   const articleJsonLd: WithContext<Article> = {
     "@context": "https://schema.org",
     "@type": "Article",
-    headline: portfolio.docs.profile.sheetTitle,
-    description: portfolio.docs.profile.sheetSubtitle,
-    inLanguage: LOCALE_TAGS[locale].bcp47,
     author: { "@type": "Person", name: "Manuel Dugué", url: SITE },
+    description: portfolio.docs.profile.sheetSubtitle,
+    headline: portfolio.docs.profile.sheetTitle,
+    inLanguage: LOCALE_TAGS[locale].bcp47,
     url: pageUrl(locale, "skill-profile"),
     ...(meta.publishedIso ? { datePublished: meta.publishedIso } : {}),
     ...(meta.updatedIso ? { dateModified: meta.updatedIso } : {}),

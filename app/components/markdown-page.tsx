@@ -13,7 +13,7 @@ export async function MarkdownPage({
 }) {
   let body: string;
   try {
-    body = (await readMarkdownSource(slug, lang)).body;
+    ({ body } = await readMarkdownSource(slug, lang));
   } catch {
     notFound();
   }

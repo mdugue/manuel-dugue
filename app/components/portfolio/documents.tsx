@@ -17,8 +17,8 @@ export function Documents({
     slug: "curriculum-vitae" | "skill-profile";
     card: DocCard;
   }> = [
-    { slug: "curriculum-vitae", card: docs.cv },
-    { slug: "skill-profile", card: docs.profile },
+    { card: docs.cv, slug: "curriculum-vitae" },
+    { card: docs.profile, slug: "skill-profile" },
   ];
 
   return (

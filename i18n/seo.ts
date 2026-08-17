@@ -8,10 +8,10 @@ export const TWITTER = "@mdugue";
 export const METADATA_BASE = new URL(SITE);
 
 export const LOCALE_TAGS: Record<Locale, { og: string; bcp47: string }> = {
-  en: { og: "en_US", bcp47: "en-US" },
-  de: { og: "de_DE", bcp47: "de-DE" },
-  fr: { og: "fr_FR", bcp47: "fr-FR" },
-  es: { og: "es_ES", bcp47: "es-ES" },
+  de: { bcp47: "de-DE", og: "de_DE" },
+  en: { bcp47: "en-US", og: "en_US" },
+  es: { bcp47: "es-ES", og: "es_ES" },
+  fr: { bcp47: "fr-FR", og: "fr_FR" },
 };
 
 export function pageUrl(locale: Locale, slug = "") {
@@ -47,37 +47,37 @@ export function buildPageMetadata({
   const url = pageUrl(locale, slug);
   const fullTitle = templateTitle ? `${title} – Manuel Dugué` : title;
   const ogBase = {
-    title: fullTitle,
-    description,
-    url,
-    siteName: SITE_NAME,
-    locale: LOCALE_TAGS[locale].og,
     alternateLocale: locales
       .filter((l) => l !== locale)
       .map((l) => LOCALE_TAGS[l].og),
+    description,
+    locale: LOCALE_TAGS[locale].og,
+    siteName: SITE_NAME,
+    title: fullTitle,
+    url,
   } as const;
   const isArticle = Boolean(publishedIso || updatedIso);
   return {
-    title: fullTitle,
-    description,
     alternates: {
       canonical: url,
       languages: languageAlternates(slug),
     },
+    description,
     openGraph: isArticle
       ? {
           ...ogBase,
-          type: "article",
           authors: [SITE],
+          type: "article",
           ...(publishedIso ? { publishedTime: publishedIso } : {}),
           ...(updatedIso ? { modifiedTime: updatedIso } : {}),
         }
       : { ...ogBase, type: "website" },
+    title: fullTitle,
     twitter: {
       card: "summary_large_image",
-      title: fullTitle,
-      description,
       creator: TWITTER,
+      description,
+      title: fullTitle,
     },
   };
 }
@@ -86,14 +86,14 @@ export function personJsonLd(): WithContext<Person> {
   return {
     "@context": "https://schema.org",
     "@type": "Person",
-    name: "Manuel Dugué",
-    url: SITE,
     email: "mailto:mail@manuel.fyi",
+    name: "Manuel Dugué",
     sameAs: [
       "https://linkedin.com/in/manuel-dugue",
       "https://x.com/mdugue",
       "https://github.com/mdugue",
     ],
+    url: SITE,
   };
 }
 

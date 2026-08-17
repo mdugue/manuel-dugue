@@ -23,6 +23,7 @@ export function useModelCycler(onModelChange: (_model: AiModelId) => void) {
     if (!currentModel) {
       return;
     }
+    // biome-ignore lint/suspicious/noUnnecessaryConditions: the ref flips to true below; Biome infers its type from the `false` initializer only.
     if (didInit.current) {
       return;
     }

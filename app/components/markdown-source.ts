@@ -26,7 +26,6 @@ function toIso(value: unknown): string | undefined {
     const date = new Date(value);
     return Number.isNaN(date.getTime()) ? undefined : date.toISOString();
   }
-  return;
 }
 
 export const readMarkdownSource = cache(
@@ -48,9 +47,9 @@ export const readMarkdownSource = cache(
 
 export function formatUpdatedDate(iso: string, locale: Locale): string {
   return new Intl.DateTimeFormat(locale, {
-    year: "numeric",
     month: "long",
     timeZone: "UTC",
+    year: "numeric",
   }).format(new Date(iso));
 }
 

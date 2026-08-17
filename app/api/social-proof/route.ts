@@ -34,7 +34,7 @@ export async function POST(req: Request) {
   const locale: Locale = lang;
   const namespace = "social-proof" as const;
 
-  const cached = await readAiCacheText({ namespace, locale, model });
+  const cached = await readAiCacheText({ locale, model, namespace });
   if (cached) {
     return new Response(cached.text, {
       headers: {
@@ -47,14 +47,14 @@ export async function POST(req: Request) {
   const skills = await readMarkdownSource("skill-profile", locale);
 
   const result = streamText({
-    model,
     instructions: buildSocialProofPrompt(locale),
-    prompt: `<skill-profile>\n${skills.body}\n</skill-profile>`,
-    output: Output.object({ schema: socialProofSchema }),
-    temperature: 0.85,
+    model,
     onEnd: async ({ text }) => {
-      await writeAiCacheText({ namespace, locale, model, text });
+      await writeAiCacheText({ locale, model, namespace, text });
     },
+    output: Output.object({ schema: socialProofSchema }),
+    prompt: `<skill-profile>\n${skills.body}\n</skill-profile>`,
+    temperature: 0.85,
   });
 
   const response = result.toTextStreamResponse();

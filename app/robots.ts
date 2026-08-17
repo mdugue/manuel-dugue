@@ -4,14 +4,14 @@ const SITE = "https://manuel.fyi";
 
 export default function robots(): MetadataRoute.Robots {
   return {
+    host: SITE,
     rules: [
       {
-        userAgent: "*",
         allow: "/",
         disallow: ["/api/", "/stats/"],
+        userAgent: "*",
       },
     ],
     sitemap: `${SITE}/sitemap.xml`,
-    host: SITE,
   };
 }

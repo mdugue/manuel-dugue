@@ -17,10 +17,10 @@ export async function generateMetadata({
   const locale: Locale = lang;
   const dict = await getDictionary(locale);
   return buildPageMetadata({
-    locale,
-    title: `${SITE_NAME} — Manuel Dugué`,
     description: dict.portfolio.hero.lede,
+    locale,
     templateTitle: false,
+    title: `${SITE_NAME} — Manuel Dugué`,
   });
 }
 

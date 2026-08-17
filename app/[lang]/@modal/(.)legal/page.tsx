@@ -14,8 +14,7 @@ export default async function Page({
     notFound();
   }
   const locale: Locale = lang;
-  const dict = await getDictionary(locale);
-  const portfolio = dict.portfolio;
+  const { portfolio } = await getDictionary(locale);
 
   return (
     <DocSheetModal

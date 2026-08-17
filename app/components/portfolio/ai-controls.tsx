@@ -142,9 +142,9 @@ function formatRelative(locale: Locale, remainingMs: number): string {
 
 function formatAbsolute(locale: Locale, at: number): string {
   return new Intl.DateTimeFormat(locale, {
-    month: "short",
     day: "numeric",
     hour: "2-digit",
     minute: "2-digit",
+    month: "short",
   }).format(new Date(at));
 }

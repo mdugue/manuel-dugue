@@ -40,7 +40,7 @@ function parseStored(raw: unknown): StoredEntry | null {
   } catch {
     // fall through to legacy handling
   }
-  return { text: raw, cachedAt: 0 };
+  return { cachedAt: 0, text: raw };
 }
 
 function statusFromEntry(entry: StoredEntry): AiCacheStatus {
@@ -76,7 +76,7 @@ export async function readAiCacheText(params: {
   if (!entry) {
     return null;
   }
-  return { text: entry.text, status: statusFromEntry(entry) };
+  return { status: statusFromEntry(entry), text: entry.text };
 }
 
 export async function writeAiCacheText(params: {
@@ -90,11 +90,11 @@ export async function writeAiCacheText(params: {
     return;
   }
   const cache = getCache({ namespace });
-  const entry: StoredEntry = { text, cachedAt: Date.now() };
+  const entry: StoredEntry = { cachedAt: Date.now(), text };
   await cache.set(`${locale}:${model}`, JSON.stringify(entry), {
-    ttl: AI_CACHE_TTL_SECONDS,
-    tags: [namespace, `${namespace}:${locale}`],
     name: `${namespace} · ${locale} · ${model}`,
+    tags: [namespace, `${namespace}:${locale}`],
+    ttl: AI_CACHE_TTL_SECONDS,
   });
 }
 
@@ -104,7 +104,7 @@ export async function readAiCacheStatuses(
 ): Promise<AiCacheStatuses> {
   const entries = await Promise.all(
     aiModels.map(async ({ id }) => {
-      const result = await readAiCacheText({ namespace, locale, model: id });
+      const result = await readAiCacheText({ locale, model: id, namespace });
       return [id, result?.status ?? null] as const;
     })
   );
@@ -115,9 +115,9 @@ export async function readCachedSelfPresentation(
   locale: Locale
 ): Promise<string | null> {
   const result = await readAiCacheText({
-    namespace: "self-presentation",
     locale,
     model: defaultAiModel,
+    namespace: "self-presentation",
   });
   return result?.text ?? null;
 }
@@ -126,9 +126,9 @@ export async function readCachedSocialProof(
   locale: Locale
 ): Promise<SocialProofObject | null> {
   const result = await readAiCacheText({
-    namespace: "social-proof",
     locale,
     model: defaultAiModel,
+    namespace: "social-proof",
   });
   if (!result) {
     return null;

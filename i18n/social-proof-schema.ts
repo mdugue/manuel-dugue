@@ -4,15 +4,15 @@ export const socialProofSchema = z.object({
   testimonials: z
     .array(
       z.object({
-        q: z
-          .string()
-          .describe(
-            "One short sentence, at most two. Roughly 15 to 30 words total. Dry, editorial, slightly self-deprecating. No bullet points, no emojis, no corporate hype."
-          ),
         name: z
           .string()
           .describe(
             'A plausible-sounding fictional person whose name itself contains an unmistakable fictional marker (e.g. "Fictional Client A", "Entirely Invented …", "Probably Fake …"). Localise the marker to the output language.'
+          ),
+        q: z
+          .string()
+          .describe(
+            "One short sentence, at most two. Roughly 15 to 30 words total. Dry, editorial, slightly self-deprecating. No bullet points, no emojis, no corporate hype."
           ),
         role: z
           .string()

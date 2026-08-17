@@ -5,7 +5,7 @@
       "source": "vercel/ai",
       "sourceType": "github",
       "skillPath": "skills/use-ai-sdk/SKILL.md",
-      "computedHash": "8190ed3dc5fd836fb9b902f6cf8266a0ede8fb1e1c2fff754aaf79cbdaba5670"
+      "computedHash": "da25c27a274ef2b71017c255f95a26350d2519765a75cb54ee1a37872b121dab"
     },
     "deploy-to-vercel": {
       "source": "vercel-labs/agent-skills",
@@ -29,7 +29,7 @@
       "source": "haydenbleasel/ultracite",
       "sourceType": "github",
       "skillPath": "skills/ultracite/SKILL.md",
-      "computedHash": "5efa7db1bc960b8beda708e3a6a4f633bf592e68b9d720524d17a300e091ac0e"
+      "computedHash": "e061f8c74bb2ee6ceb57d4a904fc83be81fd559febe6e76971f055913910df75"
     },
     "vercel-composition-patterns": {
       "source": "vercel-labs/agent-skills",
@@ -47,7 +47,7 @@
       "source": "vercel-labs/agent-skills",
       "sourceType": "github",
       "skillPath": "skills/react-view-transitions/SKILL.md",
-      "computedHash": "4fea9144f604256d0a21faaea904b7e205e7676e316721ba5fdd68c2600c7d42"
+      "computedHash": "7336975cd031be2fabc262724dc44a38222c74c07f967d39258d635b3fba7146"
     },
     "web-design-guidelines": {
       "source": "vercel-labs/agent-skills",

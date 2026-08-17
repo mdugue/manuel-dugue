@@ -1,19 +1,20 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  reactCompiler: true,
   cacheComponents: true,
-  typedRoutes: true,
-  serverExternalPackages: ["@react-pdf/renderer"],
   experimental: {
     viewTransition: true,
   },
+  async headers() {
+    return [{ headers: [{ key: "Vary", value: "Accept" }], source: "/:path*" }];
+  },
+  reactCompiler: true,
   async redirects() {
     return [
       {
-        source: "/:lang(en|de|fr|es)/cv",
         destination: "/:lang/curriculum-vitae",
         permanent: true,
+        source: "/:lang(en|de|fr|es)/cv",
       },
     ];
   },
@@ -21,24 +22,23 @@ const nextConfig: NextConfig = {
     return {
       beforeFiles: [
         {
-          source: "/stats/script.js",
           destination: "https://cloud.umami.is/script.js",
+          source: "/stats/script.js",
         },
         {
-          source: "/stats/api/send",
           destination: "https://cloud.umami.is/api/send",
+          source: "/stats/api/send",
         },
         {
-          source: "/:path((?!.*\\.md$|_next|api).*)",
-          has: [{ type: "header", key: "accept", value: ".*text/markdown.*" }],
           destination: "/:path.md",
+          has: [{ key: "accept", type: "header", value: ".*text/markdown.*" }],
+          source: "/:path((?!.*\\.md$|_next|api).*)",
         },
       ],
     };
   },
-  async headers() {
-    return [{ source: "/:path*", headers: [{ key: "Vary", value: "Accept" }] }];
-  },
+  serverExternalPackages: ["@react-pdf/renderer"],
+  typedRoutes: true,
 };
 
 export default nextConfig;
