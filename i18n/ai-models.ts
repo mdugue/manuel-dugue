@@ -15,7 +15,9 @@ export const aiModels = [
 
 export type AiModelId = (typeof aiModels)[number]["id"];
 
-export const defaultAiModel: AiModelId = "anthropic/claude-sonnet-5";
+// The model the server prerenders with. Derived from the first slot rather
+// than named, so it cannot drift from where the cycler starts.
+export const defaultAiModel: AiModelId = aiModels[0].id;
 
 export function isAiModelId(value: unknown): value is AiModelId {
   return typeof value === "string" && aiModels.some((m) => m.id === value);
