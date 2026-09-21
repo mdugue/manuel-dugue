@@ -1,7 +1,9 @@
 import type { Route } from "next";
 import Link from "next/link";
+
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
+
 import { DocSheetChrome } from "./doc-sheet-chrome";
 import type { UpdatedLine } from "./markdown-source";
 
@@ -30,13 +32,13 @@ export function DocSheetPage({
         actions={
           <>
             <Link
-              className="text-accent uppercase tracking-label hover:underline"
+              className="text-accent tracking-label uppercase hover:underline"
               href={`/${lang}` as Route}
             >
               ← manuel.fyi
             </Link>
             <a
-              className="text-accent uppercase tracking-label hover:underline"
+              className="text-accent tracking-label uppercase hover:underline"
               href={pdfHref}
               rel="noopener noreferrer"
               target="_blank"

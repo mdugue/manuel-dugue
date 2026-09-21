@@ -1,5 +1,7 @@
 import type { MetadataRoute } from "next";
-import { defaultLocale, type Locale, locales } from "@/i18n/config";
+
+import { defaultLocale, locales } from "@/i18n/config";
+import type { Locale } from "@/i18n/config";
 
 const SITE = "https://manuel.fyi";
 

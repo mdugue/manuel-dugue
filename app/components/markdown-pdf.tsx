@@ -14,8 +14,12 @@ import { notFound } from "next/navigation";
 import type React from "react";
 import { remark } from "remark";
 import remarkGfm from "remark-gfm";
-import { hasLocale, type Locale } from "@/i18n/config";
-import { type Dictionary, getDictionary } from "@/i18n/dictionaries";
+
+import { hasLocale } from "@/i18n/config";
+import type { Locale } from "@/i18n/config";
+import { getDictionary } from "@/i18n/dictionaries";
+import type { Dictionary } from "@/i18n/dictionaries";
+
 import { formatUpdatedDate, readMarkdownSource } from "./markdown-source";
 
 const GARAMOND = "https://fonts.gstatic.com/s/ebgaramond/v32";
@@ -275,36 +279,43 @@ const styles = StyleSheet.create({
 function renderInline(nodes: PhrasingContent[]): React.ReactNode {
   return nodes.map((node, i) => {
     switch (node.type) {
-      case "text":
+      case "text": {
         return <Text key={i}>{node.value}</Text>;
-      case "strong":
+      }
+      case "strong": {
         return (
           <Text key={i} style={styles.strong}>
             {renderInline(node.children)}
           </Text>
         );
-      case "emphasis":
+      }
+      case "emphasis": {
         return (
           <Text key={i} style={styles.italic}>
             {renderInline(node.children)}
           </Text>
         );
-      case "inlineCode":
+      }
+      case "inlineCode": {
         return (
           <Text key={i} style={styles.inlineCode}>
             {node.value}
           </Text>
         );
-      case "break":
+      }
+      case "break": {
         return <Text key={i}>{"\n"}</Text>;
-      case "link":
+      }
+      case "link": {
         return (
           <Link key={i} src={node.url} style={styles.link}>
             {renderInline(node.children)}
           </Link>
         );
-      default:
+      }
+      default: {
         return null;
+      }
     }
   });
 }
@@ -346,13 +357,14 @@ function renderBlock(
         </Text>
       );
     }
-    case "paragraph":
+    case "paragraph": {
       return (
         <Text key={key} style={styles.paragraph}>
           {renderInline(node.children)}
         </Text>
       );
-    case "list":
+    }
+    case "list": {
       return (
         <View key={key} style={styles.list}>
           {node.children.map((item, i) => (
@@ -369,6 +381,7 @@ function renderBlock(
           ))}
         </View>
       );
+    }
     case "table": {
       const headerCells = node.children[0]?.children ?? [];
       const headerIsEmpty = headerCells.every(
@@ -407,22 +420,26 @@ function renderBlock(
         </View>
       );
     }
-    case "thematicBreak":
+    case "thematicBreak": {
       return <View key={key} style={styles.hr} />;
-    case "blockquote":
+    }
+    case "blockquote": {
       return (
         <View key={key} style={styles.blockquote}>
           {node.children.map((child, i) => renderBlock(child, i, ctx))}
         </View>
       );
-    case "code":
+    }
+    case "code": {
       return (
         <Text key={key} style={styles.codeBlock}>
           {node.value}
         </Text>
       );
-    default:
+    }
+    default: {
       return null;
+    }
   }
 }
 
@@ -510,7 +527,7 @@ export function createMarkdownPdfRoute(config: MarkdownPdfRouteConfig) {
       notFound();
     }
 
-    const dict = await getDictionary(lang);
+    const dict = getDictionary(lang);
     const meta = getDocMeta(dict);
     const { body, meta: source } = await readMarkdownSource(slug, lang);
     const tree = remark().use(remarkGfm).parse(body);

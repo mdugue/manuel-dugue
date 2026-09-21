@@ -7,22 +7,24 @@ const INK = "#2a241d";
 const PAPER = "#fbf8f1";
 
 const GOOGLE_FONTS_TRUETYPE_URL_RE =
-  /src:\s*url\((https:\/\/[^)]+)\)\s*format\(['"]?truetype['"]?\)/;
+  /src:\s*url\((?<url>https:\/\/[^)]+)\)\s*format\(['"]?truetype['"]?\)/u;
 
 async function loadGaramondBold() {
-  const css = await fetch(
+  const cssResponse = await fetch(
     "https://fonts.googleapis.com/css2?family=EB+Garamond:wght@700&text=MD",
     {
       headers: {
         "User-Agent": "Wget/1.14 (linux-gnu)",
       },
     }
-  ).then((r) => r.text());
-  const match = css.match(GOOGLE_FONTS_TRUETYPE_URL_RE);
-  if (!match) {
+  );
+  const css = await cssResponse.text();
+  const url = GOOGLE_FONTS_TRUETYPE_URL_RE.exec(css)?.groups?.url;
+  if (!url) {
     throw new Error("EB Garamond font URL not found");
   }
-  return fetch(match[1]).then((r) => r.arrayBuffer());
+  const fontResponse = await fetch(url);
+  return await fontResponse.arrayBuffer();
 }
 
 export default async function AppleIcon() {

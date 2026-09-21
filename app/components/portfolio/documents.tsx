@@ -1,7 +1,9 @@
 import type { Route } from "next";
 import Link from "next/link";
+
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
+
 import { SectionHead } from "./section-head";
 
 type DocCard = Dictionary["portfolio"]["docs"]["cv"];
@@ -13,10 +15,10 @@ export function Documents({
   lang: Locale;
   docs: Dictionary["portfolio"]["docs"];
 }) {
-  const entries: Array<{
+  const entries: {
     slug: "curriculum-vitae" | "skill-profile";
     card: DocCard;
-  }> = [
+  }[] = [
     { card: docs.cv, slug: "curriculum-vitae" },
     { card: docs.profile, slug: "skill-profile" },
   ];
@@ -27,21 +29,21 @@ export function Documents({
       <div className="grid max-w-225 grid-cols-2 gap-6 max-md:grid-cols-1">
         {entries.map(({ slug, card }) => (
           <Link
-            className="relative flex min-h-55 cursor-pointer flex-col gap-5 border border-rule bg-paper px-7 pt-7 pb-6 text-left text-inherit transition-[transform,border-color] duration-[250ms] hover:-translate-y-0.5 hover:border-accent focus-visible:-translate-y-0.5 focus-visible:border-accent focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2"
+            className="border-rule bg-paper hover:border-accent focus-visible:border-accent focus-visible:outline-accent relative flex min-h-55 cursor-pointer flex-col gap-5 border px-7 pt-7 pb-6 text-left text-inherit transition-[transform,border-color] duration-[250ms] hover:-translate-y-0.5 focus-visible:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-2"
             href={`/${lang}/${slug}` as Route}
             key={slug}
             prefetch
           >
-            <div className="font-mono text-ink-faint text-nano uppercase tracking-[0.18em]">
+            <div className="text-ink-faint text-nano font-mono tracking-[0.18em] uppercase">
               Document · {card.num}
             </div>
-            <h3 className="m-0 font-display font-normal text-[28px] italic leading-[1.15]">
+            <h3 className="font-display m-0 text-[28px] leading-[1.15] font-normal italic">
               {card.title}
             </h3>
-            <div className="max-w-[34ch] flex-1 text-ink-soft text-sm leading-[1.55]">
+            <div className="text-ink-soft max-w-[34ch] flex-1 text-sm leading-[1.55]">
               {card.desc}
             </div>
-            <div className="flex items-baseline justify-between border-rule border-t border-dashed pt-4 font-mono text-accent text-micro uppercase tracking-label">
+            <div className="border-rule text-accent text-micro tracking-label flex items-baseline justify-between border-t border-dashed pt-4 font-mono uppercase">
               <span>{card.cta}</span>
               <span aria-hidden="true" className="text-sm">
                 →

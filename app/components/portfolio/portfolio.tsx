@@ -1,6 +1,8 @@
 import { Suspense } from "react";
+
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
+
 import { Documents } from "./documents";
 import { SiteFooter } from "./footer";
 import { Hero } from "./hero";

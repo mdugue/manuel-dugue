@@ -1,5 +1,7 @@
 import { ImageResponse } from "next/og";
-import { hasLocale, type Locale, localeParams } from "@/i18n/config";
+
+import { hasLocale, localeParams } from "@/i18n/config";
+import type { Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 
 export const alt = "manuel.fyi — Manuel Dugué";
@@ -17,7 +19,7 @@ export default async function Image({
 }) {
   const { lang } = await params;
   const locale: Locale = hasLocale(lang) ? lang : "en";
-  const dict = await getDictionary(locale);
+  const dict = getDictionary(locale);
   const { hero, spine } = dict.portfolio;
 
   return new ImageResponse(

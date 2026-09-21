@@ -1,13 +1,15 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import type { Article, WithContext } from "schema-dts";
+
 import { DocSheetPage } from "@/app/components/doc-sheet-page";
 import { MarkdownPage } from "@/app/components/markdown-page";
 import {
   buildUpdatedLine,
   readMarkdownSource,
 } from "@/app/components/markdown-source";
-import { hasLocale, type Locale } from "@/i18n/config";
+import { hasLocale } from "@/i18n/config";
+import type { Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import {
   buildPageMetadata,
@@ -28,7 +30,7 @@ export async function generateMetadata({
     return {};
   }
   const locale: Locale = lang;
-  const dict = await getDictionary(locale);
+  const dict = getDictionary(locale);
   const { meta } = await readMarkdownSource("curriculum-vitae", locale);
   return buildPageMetadata({
     description: dict.portfolio.docs.cv.sheetSubtitle,
@@ -51,7 +53,7 @@ export default async function Page({
     notFound();
   }
   const locale: Locale = lang;
-  const { portfolio } = await getDictionary(locale);
+  const { portfolio } = getDictionary(locale);
   const { meta } = await readMarkdownSource("curriculum-vitae", locale);
 
   const updatedLine = buildUpdatedLine(
@@ -83,7 +85,6 @@ export default async function Page({
       updatedLine={updatedLine}
     >
       <script
-        // biome-ignore lint/security/noDangerouslySetInnerHtml: Article JSON-LD is built from static metadata, not user input.
         dangerouslySetInnerHTML={{ __html: jsonLdString(articleJsonLd) }}
         type="application/ld+json"
       />

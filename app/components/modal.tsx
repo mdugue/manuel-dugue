@@ -3,7 +3,10 @@
 import { Dialog } from "@base-ui/react";
 import { useParams, useRouter } from "next/navigation";
 import { useCallback } from "react";
-import { hasLocale, type Locale } from "@/i18n/config";
+
+import { hasLocale } from "@/i18n/config";
+import type { Locale } from "@/i18n/config";
+
 import { DocSheetChrome } from "./doc-sheet-chrome";
 import type { UpdatedLine } from "./markdown-source";
 
@@ -52,14 +55,14 @@ export function DocSheetModal({
   return (
     <Dialog.Root onOpenChange={handleOpenChange} open>
       <Dialog.Portal>
-        <Dialog.Backdrop className="fixed inset-0 z-[100] bg-[rgba(30,22,14,0.55)] [-webkit-backdrop-filter:blur(4px)] [backdrop-filter:blur(4px)]" />
+        <Dialog.Backdrop className="fixed inset-0 z-[100] bg-[rgba(30,22,14,0.55)] [backdrop-filter:blur(4px)] [-webkit-backdrop-filter:blur(4px)]" />
         <Dialog.Popup
           className="fixed inset-0 z-[101] flex items-start justify-center overflow-y-auto overscroll-contain p-10 outline-none max-[720px]:p-0"
           finalFocus={false}
         >
           <Dialog.Close
             aria-label={labels.close}
-            className="fixed top-5 right-6 z-[101] inline-flex h-9 w-9 cursor-pointer items-center justify-center rounded-full border border-white/20 bg-[rgba(30,22,14,0.6)] text-white text-xl leading-none hover:border-accent hover:bg-accent focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-2"
+            className="hover:border-accent hover:bg-accent fixed top-5 right-6 z-[101] inline-flex h-9 w-9 cursor-pointer items-center justify-center rounded-full border border-white/20 bg-[rgba(30,22,14,0.6)] text-xl leading-none text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
           >
             ×
           </Dialog.Close>
@@ -68,14 +71,14 @@ export function DocSheetModal({
             actions={
               <>
                 <a
-                  className="text-accent uppercase tracking-[0.14em] hover:underline"
+                  className="text-accent tracking-[0.14em] uppercase hover:underline"
                   href={pdfHref}
                   rel="noopener noreferrer"
                   target="_blank"
                 >
                   {labels.download}
                 </a>
-                <span className="text-[#888] text-[9px]">{labels.escHint}</span>
+                <span className="text-[9px] text-[#888]">{labels.escHint}</span>
               </>
             }
             authorName={contact[0] ?? "Manuel Dugué"}

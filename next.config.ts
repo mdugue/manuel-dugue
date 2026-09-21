@@ -2,12 +2,12 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   cacheComponents: true,
-  async headers() {
+  headers() {
     return [{ headers: [{ key: "Vary", value: "Accept" }], source: "/:path*" }];
   },
   partialPrefetching: true,
   reactCompiler: true,
-  async redirects() {
+  redirects() {
     return [
       {
         destination: "/:lang/curriculum-vitae",
@@ -16,7 +16,7 @@ const nextConfig: NextConfig = {
       },
     ];
   },
-  async rewrites() {
+  rewrites() {
     return {
       beforeFiles: [
         {

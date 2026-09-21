@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import type { Person, WithContext } from "schema-dts";
-import { defaultLocale, type Locale, locales } from "./config";
+
+import { defaultLocale, locales } from "./config";
+import type { Locale } from "./config";
 
 export const SITE = "https://manuel.fyi";
 export const SITE_NAME = "manuel.fyi";
@@ -56,7 +58,7 @@ export function buildPageMetadata({
     title: fullTitle,
     url,
   } as const;
-  const isArticle = Boolean(publishedIso || updatedIso);
+  const isArticle = Boolean(publishedIso ?? updatedIso);
   return {
     alternates: {
       canonical: url,
@@ -98,5 +100,5 @@ export function personJsonLd(): WithContext<Person> {
 }
 
 export function jsonLdString(value: object): string {
-  return JSON.stringify(value).replace(/</g, "\\u003c");
+  return JSON.stringify(value).replaceAll("<", "\\u003c");
 }

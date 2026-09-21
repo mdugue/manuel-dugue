@@ -2,7 +2,7 @@
   "hooks": {
     "afterFileEdit": [
       {
-        "command": "bun fix --skip=correctness/noUnusedImports"
+        "command": "npm run fix --silent"
       }
     ]
   },

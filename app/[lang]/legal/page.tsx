@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+
 import { DocSheetPage } from "@/app/components/doc-sheet-page";
 import { MarkdownPage } from "@/app/components/markdown-page";
-import { hasLocale, type Locale } from "@/i18n/config";
+import { hasLocale } from "@/i18n/config";
+import type { Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { buildPageMetadata } from "@/i18n/seo";
 
@@ -16,7 +18,7 @@ export async function generateMetadata({
     return {};
   }
   const locale: Locale = lang;
-  const dict = await getDictionary(locale);
+  const dict = getDictionary(locale);
   return buildPageMetadata({
     description: dict.portfolio.legal.imprint.sheetSubtitle,
     locale,
@@ -36,7 +38,7 @@ export default async function Page({
     notFound();
   }
   const locale: Locale = lang;
-  const { portfolio } = await getDictionary(locale);
+  const { portfolio } = getDictionary(locale);
 
   return (
     <DocSheetPage

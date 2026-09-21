@@ -1,5 +1,6 @@
-import { hasLocale, type Locale } from "@/i18n/config";
-import { type AiCacheNamespace, readAiCacheStatuses } from "@/lib/ai-cache";
+import { hasLocale } from "@/i18n/config";
+import { readAiCacheStatuses } from "@/lib/ai-cache";
+import type { AiCacheNamespace } from "@/lib/ai-cache";
 
 const namespaces = ["self-presentation", "social-proof"] as const;
 
@@ -22,11 +23,8 @@ export async function GET(req: Request) {
     return new Response("bad lang", { status: 400 });
   }
 
-  const statuses = await readAiCacheStatuses(namespace, lang as Locale);
-  return new Response(JSON.stringify(statuses), {
-    headers: {
-      "cache-control": "no-store",
-      "content-type": "application/json; charset=utf-8",
-    },
+  const statuses = await readAiCacheStatuses(namespace, lang);
+  return Response.json(statuses, {
+    headers: { "cache-control": "no-store" },
   });
 }

@@ -14,22 +14,24 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Setup Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
-          node-version: 22
+          node-version: 24
           cache: npm
 
       - name: Install dependencies
         run: npm ci
 
-      - name: Lint (Ultracite + ESLint)
+      # Build first: it generates .next/types (typed routes), which the
+      # type-aware lint rules and the typecheck rely on.
+      - name: Build
+        run: npm run build
+
+      - name: Lint (oxlint + oxfmt)
         run: npm run lint
 
       - name: Typecheck
         run: npm run tsc
-
-      - name: Build
-        run: npm run build

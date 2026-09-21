@@ -1,7 +1,9 @@
 import { readFile } from "node:fs/promises";
 import path from "node:path";
+
 import matter from "gray-matter";
 import { cache } from "react";
+
 import type { Locale } from "@/i18n/config";
 
 export interface MarkdownMeta {
@@ -27,13 +29,14 @@ function toIso(value: unknown): string | undefined {
     const date = new Date(value);
     return Number.isNaN(date.getTime()) ? undefined : date.toISOString();
   }
+  return undefined;
 }
 
 export const readMarkdownSource = cache(
   async (slug: string, lang: Locale): Promise<MarkdownSource> => {
     const raw = await readFile(
       path.join(process.cwd(), "public", lang, `${slug}.md`),
-      "utf8"
+      "utf-8"
     );
     const parsed = matter(raw);
     const data = parsed.data as Record<string, unknown>;
@@ -61,7 +64,7 @@ export function buildUpdatedLine(
   label: string
 ): UpdatedLine | undefined {
   if (!meta.updatedIso) {
-    return;
+    return undefined;
   }
   return {
     iso: meta.updatedIso,

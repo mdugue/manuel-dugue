@@ -1,5 +1,7 @@
 import { Fragment } from "react";
+
 import type { Locale } from "@/i18n/config";
+
 import type { UpdatedLine } from "./markdown-source";
 
 export interface DocSheetChromeProps {
@@ -36,12 +38,12 @@ export function DocSheetChrome({
   return (
     <article className={sheetClass}>
       <header>
-        <div className="mb-9 flex flex-wrap items-start justify-between gap-4 border-ink-soft border-b-2 pb-4.5 text-ink">
-          <div className="inline-block pr-6 font-mono text-ink-soft text-nano uppercase tracking-[0.22em]">
+        <div className="border-ink-soft text-ink mb-9 flex flex-wrap items-start justify-between gap-4 border-b-2 pb-4.5">
+          <div className="text-ink-soft text-nano inline-block pr-6 font-mono tracking-[0.22em] uppercase">
             manuel
-            <span className="font-semibold text-accent">.fyi</span>
+            <span className="text-accent font-semibold">.fyi</span>
           </div>
-          <address className="text-right font-mono text-ink-soft text-nano uppercase not-italic leading-[1.8] tracking-label">
+          <address className="text-ink-soft text-nano tracking-label text-right font-mono leading-[1.8] uppercase not-italic">
             {contact.map((l) => (
               <Fragment key={l}>
                 <span>{l}</span>
@@ -52,15 +54,15 @@ export function DocSheetChrome({
         </div>
 
         <div className="mb-8">
-          <h1 className="m-0 mb-3 font-display font-normal text-[46px] text-accent italic leading-[1.02] tracking-[-0.01em]">
+          <h1 className="font-display text-accent m-0 mb-3 text-[46px] leading-[1.02] font-normal tracking-[-0.01em] italic">
             {title}
           </h1>
 
-          <p className="m-0 font-display text-base text-ink-soft italic">
+          <p className="font-display text-ink-soft m-0 text-base italic">
             {subtitle}
           </p>
 
-          <p className="m-0 mt-2 font-mono text-ink-faint text-nano uppercase tracking-label">
+          <p className="text-ink-faint text-nano tracking-label m-0 mt-2 font-mono uppercase">
             <a
               className="text-ink-faint hover:text-accent"
               href={`/${lang}`}
@@ -80,11 +82,11 @@ export function DocSheetChrome({
 
       {children}
 
-      <div className="mt-15 flex justify-between border-rule border-t pt-5 font-mono text-ink-faint text-nano uppercase tracking-label">
+      <div className="border-rule text-ink-faint text-nano tracking-label mt-15 flex justify-between border-t pt-5 font-mono uppercase">
         <span>Manuel Dugué · mail@manuel.fyi</span>
       </div>
 
-      <div className="mt-10 flex flex-wrap items-center justify-between gap-3 border border-rule bg-white px-5 py-3 font-mono text-nano uppercase tracking-label">
+      <div className="border-rule text-nano tracking-label mt-10 flex flex-wrap items-center justify-between gap-3 border bg-white px-5 py-3 font-mono uppercase">
         {actions}
       </div>
     </article>

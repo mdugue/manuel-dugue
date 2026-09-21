@@ -1,7 +1,9 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import { type AiModelId, aiModels } from "@/i18n/ai-models";
+
+import { aiModels } from "@/i18n/ai-models";
+import type { AiModelId } from "@/i18n/ai-models";
 
 const MODEL_COUNT = aiModels.length;
 
@@ -23,7 +25,6 @@ export function useModelCycler(onModelChange: (_model: AiModelId) => void) {
     if (!currentModel) {
       return;
     }
-    // biome-ignore lint/suspicious/noUnnecessaryConditions: the ref flips to true below; Biome infers its type from the `false` initializer only.
     if (didInit.current) {
       return;
     }

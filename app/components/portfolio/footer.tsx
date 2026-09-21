@@ -1,5 +1,6 @@
 import type { Route } from "next";
 import Link from "next/link";
+
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 
@@ -17,14 +18,13 @@ export function SiteFooter({
 }) {
   return (
     <footer
-      className="mx-auto max-w-345 border-rule border-t px-(--pad-x) py-[clamp(60px,8vw,100px)] pl-[calc(var(--pad-x)+60px)] max-lg:pl-(--pad-x)"
+      className="border-rule mx-auto max-w-345 border-t px-(--pad-x) py-[clamp(60px,8vw,100px)] pl-[calc(var(--pad-x)+60px)] max-lg:pl-(--pad-x)"
       id="contact"
     >
-      <div className="grid grid-cols-[1.5fr_1fr_1fr_1fr] gap-8 pb-15 max-sm:grid-cols-1 max-lg:grid-cols-2">
-        <h3 className="m-0 font-display text-[clamp(40px,6vw,84px)] italic leading-[0.95] tracking-tight [&_em]:text-accent [&_em]:not-italic">
+      <div className="grid grid-cols-[1.5fr_1fr_1fr_1fr] gap-8 pb-15 max-lg:grid-cols-2 max-sm:grid-cols-1">
+        <h3 className="font-display [&_em]:text-accent m-0 text-[clamp(40px,6vw,84px)] leading-[0.95] tracking-tight italic [&_em]:not-italic">
           {footer.word.map((w) => (
             <span
-              // biome-ignore lint/security/noDangerouslySetInnerHtml: trusted footer copy from i18n dictionaries
               dangerouslySetInnerHTML={{ __html: w }}
               key={w}
               style={{ display: "block" }}
@@ -32,7 +32,7 @@ export function SiteFooter({
           ))}
         </h3>
         <div>
-          <h5 className="m-0 mb-4 font-mono text-ink-faint text-micro uppercase tracking-heading">
+          <h5 className="text-ink-faint text-micro tracking-heading m-0 mb-4 font-mono uppercase">
             {footer.sayHello}
           </h5>
           <ul className="m-0 flex list-none flex-col gap-2 p-0">
@@ -59,7 +59,7 @@ export function SiteFooter({
           </ul>
         </div>
         <div>
-          <h5 className="m-0 mb-4 font-mono text-ink-faint text-micro uppercase tracking-heading">
+          <h5 className="text-ink-faint text-micro tracking-heading m-0 mb-4 font-mono uppercase">
             {footer.elsewhere}
           </h5>
           <ul className="m-0 flex list-none flex-col gap-2 p-0">
@@ -96,7 +96,7 @@ export function SiteFooter({
           </ul>
         </div>
         <div>
-          <h5 className="m-0 mb-4 font-mono text-ink-faint text-micro uppercase tracking-heading">
+          <h5 className="text-ink-faint text-micro tracking-heading m-0 mb-4 font-mono uppercase">
             {footer.legal}
           </h5>
           <ul className="m-0 flex list-none flex-col gap-2 p-0">
@@ -113,11 +113,11 @@ export function SiteFooter({
           </ul>
         </div>
       </div>
-      <div className="flex flex-wrap items-baseline justify-between gap-4 border-rule-soft border-t pt-8 font-mono text-ink-faint text-micro uppercase tracking-label">
+      <div className="border-rule-soft text-ink-faint text-micro tracking-label flex flex-wrap items-baseline justify-between gap-4 border-t pt-8 font-mono uppercase">
         <div>{footer.meta}</div>
         <Link
           aria-label="manuel.fyi"
-          className="font-display text-base text-ink normal-case tracking-normal [&_.tld]:font-medium [&_.tld]:text-accent [&_.tld]:italic"
+          className="font-display text-ink [&_.tld]:text-accent text-base tracking-normal normal-case [&_.tld]:font-medium [&_.tld]:italic"
           href={`/${lang}` as Route}
         >
           <span>manuel</span>

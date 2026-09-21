@@ -1,11 +1,11 @@
 import "server-only";
 import { getCache } from "@vercel/functions";
-import { type AiModelId, aiModels, defaultAiModel } from "@/i18n/ai-models";
+
+import { aiModels, defaultAiModel } from "@/i18n/ai-models";
+import type { AiModelId } from "@/i18n/ai-models";
 import type { Locale } from "@/i18n/config";
-import {
-  type SocialProofObject,
-  socialProofSchema,
-} from "@/i18n/social-proof-schema";
+import { socialProofSchema } from "@/i18n/social-proof-schema";
+import type { SocialProofObject } from "@/i18n/social-proof-schema";
 import { AI_CACHE_TTL_MS, AI_CACHE_TTL_SECONDS } from "@/lib/ai-cache-shared";
 
 export type AiCacheNamespace = "self-presentation" | "social-proof";
@@ -15,7 +15,7 @@ export type AiCacheStatus = {
   expiresAt: number;
 } | null;
 
-export type AiCacheStatuses = { [K in AiModelId]: AiCacheStatus };
+export type AiCacheStatuses = Record<AiModelId, AiCacheStatus>;
 
 interface StoredEntry {
   cachedAt: number;
