@@ -16,14 +16,7 @@ This project runs on **Node.js**, not Bun. Next.js 16.3 fails under the Bun runt
 
 ## Lint & format
 
-[Ultracite](https://ultracite.ai) presets on top of `oxlint` + `oxfmt`
-(`oxlint.config.ts`, `oxfmt.config.ts`), with type-aware rules via
-`oxlint-tsgolint` (`options.typeAware`). `npm run lint` runs
-`ultracite check` (lint + format check), `npm run fix` runs `ultracite fix`.
-There is no Biome, ESLint or Prettier. The type-aware rules read `.next/types`
-(typed routes), so run `next build` or `next dev` once before linting a fresh
-clone. TypeScript is version 7 (the Go-based compiler); `npm run tsc`
-type-checks.
+[Ultracite](https://ultracite.ai) presets on top of `oxlint` + `oxfmt` (`oxlint.config.ts`, `oxfmt.config.ts`), with type-aware rules via `oxlint-tsgolint` (`options.typeAware`). `npm run lint` runs `ultracite check` (lint + format check), `npm run fix` runs `ultracite fix`. There is no Biome, ESLint or Prettier. The type-aware rules read `.next/types` (typed routes), so run `next build` or `next dev` once before linting a fresh clone. TypeScript is version 7 (the Go-based compiler); `npm run tsc` type-checks.
 
 # Ultracite Code Standards
 
