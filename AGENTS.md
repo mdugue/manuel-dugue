@@ -19,3 +19,13 @@ runtime (`Expected CommonJS module to have a function wrapper` during
 "Collecting page data"), so `dev`/`build`/`start` use plain `next` and npm is
 the package manager. Do not reintroduce `bun --bun`, `Bun.*` APIs, or a
 `bunVersion` pin in `vercel.json` until that is fixed upstream.
+
+## Lint & format
+
+Linting is `oxlint` (config in `.oxlintrc.json`: Next.js, React, jsx-a11y,
+import and promise plugins, type-aware rules via `oxlint-tsgolint`) and
+formatting is `oxfmt` (`.oxfmtrc.json`). `npm run lint` checks both,
+`npm run fix` applies auto-fixes and formats. There is no Biome, ESLint or
+Prettier. The type-aware rules read `.next/types` (typed routes), so run
+`next build` or `next dev` once before linting a fresh clone. TypeScript is
+version 7 (the Go-based compiler); `npm run tsc` type-checks.

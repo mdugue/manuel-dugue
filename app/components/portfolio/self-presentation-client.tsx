@@ -42,7 +42,7 @@ export function SelfPresentationClient({
   const onModelChange = useCallback(
     (model: AiModelId) => {
       requestedModelRef.current = model;
-      complete("", { body: { lang, model } });
+      void complete("", { body: { lang, model } });
     },
     [complete, lang]
   );

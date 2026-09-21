@@ -27,6 +27,7 @@ function toIso(value: unknown): string | undefined {
     const date = new Date(value);
     return Number.isNaN(date.getTime()) ? undefined : date.toISOString();
   }
+  return undefined;
 }
 
 export const readMarkdownSource = cache(
@@ -61,7 +62,7 @@ export function buildUpdatedLine(
   label: string
 ): UpdatedLine | undefined {
   if (!meta.updatedIso) {
-    return;
+    return undefined;
   }
   return {
     iso: meta.updatedIso,

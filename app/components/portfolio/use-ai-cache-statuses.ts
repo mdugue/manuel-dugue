@@ -40,7 +40,7 @@ export function useAiCacheStatuses(namespace: AiCacheNamespace, lang: Locale) {
 
   useEffect(() => {
     const controller = new AbortController();
-    (async () => {
+    void (async () => {
       const data = await fetchCacheStatuses(namespace, lang, controller.signal);
       if (!data) {
         return;

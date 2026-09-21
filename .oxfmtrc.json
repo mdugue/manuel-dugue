@@ -1,0 +1,12 @@
+{
+  "$schema": "./node_modules/oxfmt/configuration_schema.json",
+  "printWidth": 80,
+  "trailingComma": "es5",
+  "ignorePatterns": [
+    ".agents",
+    ".claude/skills",
+    ".next",
+    "public",
+    "skills-lock.json"
+  ]
+}
