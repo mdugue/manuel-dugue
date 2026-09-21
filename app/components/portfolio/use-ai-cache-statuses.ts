@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
+
 import type { AiModelId } from "@/i18n/ai-models";
 import type { Locale } from "@/i18n/config";
 import { AI_CACHE_TTL_MS } from "@/lib/ai-cache-shared";
@@ -10,9 +11,9 @@ export type AiCacheClientStatus = {
   expiresAt: number;
 } | null;
 
-export type AiCacheClientStatuses = Partial<{
-  [K in AiModelId]: AiCacheClientStatus;
-}>;
+export type AiCacheClientStatuses = Partial<
+  Record<AiModelId, AiCacheClientStatus>
+>;
 
 export type AiCacheNamespace = "self-presentation" | "social-proof";
 
@@ -59,7 +60,9 @@ export function useAiCacheStatuses(namespace: AiCacheNamespace, lang: Locale) {
         return merged;
       });
     })();
-    return () => controller.abort();
+    return () => {
+      controller.abort();
+    };
   }, [namespace, lang]);
 
   const markGenerated = useCallback((model: AiModelId) => {

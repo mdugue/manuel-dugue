@@ -75,6 +75,7 @@ full GitHub URL for the `add` command. Current mapping:
 | deploy-to-vercel | vercel-labs/agent-skills |
 | react-pdf | molefrog/skills |
 | skill-creator | anthropics/skills |
+| ultracite | haydenbleasel/ultracite |
 | vercel-composition-patterns | vercel-labs/agent-skills |
 | vercel-react-best-practices | vercel-labs/agent-skills |
 | vercel-react-view-transitions | vercel-labs/agent-skills |

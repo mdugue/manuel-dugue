@@ -9,5 +9,5 @@ export type Dictionary = typeof en;
 
 const dictionaries: Record<Locale, Dictionary> = { de, en, es, fr };
 
-export const getDictionary = async (locale: Locale): Promise<Dictionary> =>
+export const getDictionary = (locale: Locale): Dictionary =>
   dictionaries[locale];

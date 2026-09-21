@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import { EB_Garamond, Inter, JetBrains_Mono } from "next/font/google";
 import { notFound } from "next/navigation";
 import Script from "next/script";
-import { hasLocale, type Locale, localeParams } from "@/i18n/config";
+
+import { hasLocale, localeParams } from "@/i18n/config";
+import type { Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import {
   buildPageMetadata,
@@ -11,6 +13,7 @@ import {
   personJsonLd,
   SITE_NAME,
 } from "@/i18n/seo";
+
 import "../globals.css";
 
 const ebGaramond = EB_Garamond({
@@ -45,7 +48,7 @@ export async function generateMetadata({
     return { applicationName: SITE_NAME, metadataBase: METADATA_BASE };
   }
   const locale: Locale = lang;
-  const dict = await getDictionary(locale);
+  const dict = getDictionary(locale);
   return {
     applicationName: SITE_NAME,
     authors: [{ name: "Manuel Dugué", url: "https://manuel.fyi" }],
@@ -86,7 +89,6 @@ export default async function RootLayout({
     >
       <body>
         <script
-          // biome-ignore lint/security/noDangerouslySetInnerHtml: Person JSON-LD is built from static schema on the server.
           dangerouslySetInnerHTML={{ __html: jsonLdString(personJsonLd()) }}
           type="application/ld+json"
         />

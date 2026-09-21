@@ -1,7 +1,10 @@
 import { notFound } from "next/navigation";
-import Markdown, { type Components } from "react-markdown";
+import Markdown from "react-markdown";
+import type { Components } from "react-markdown";
 import remarkGfm from "remark-gfm";
+
 import type { Locale } from "@/i18n/config";
+
 import { readMarkdownSource } from "./markdown-source";
 
 const components: Components = {

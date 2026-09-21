@@ -1,6 +1,7 @@
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 import { readCachedSelfPresentation } from "@/lib/ai-cache";
+
 import { SelfPresentationClient } from "./self-presentation-client";
 
 export async function SelfPresentation({

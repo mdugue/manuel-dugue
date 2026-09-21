@@ -3,7 +3,9 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Fragment } from "react";
-import { type Locale, localeLabels, locales } from "@/i18n/config";
+
+import { localeLabels, locales } from "@/i18n/config";
+import type { Locale } from "@/i18n/config";
 import { swapLang } from "@/i18n/swap-lang";
 
 export function HeroLangPills({ lang }: { lang: Locale }) {
@@ -16,7 +18,7 @@ export function HeroLangPills({ lang }: { lang: Locale }) {
           {i > 0 && " · "}
           <Link
             aria-current={code === lang ? "true" : undefined}
-            className="underline-offset-[3px] transition-colors hover:text-ink hover:underline focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 aria-current:text-accent"
+            className="hover:text-ink focus-visible:outline-accent aria-current:text-accent underline-offset-[3px] transition-colors hover:underline focus-visible:outline-2 focus-visible:outline-offset-2"
             href={swapLang(pathname, code)}
           >
             {localeLabels[code]}

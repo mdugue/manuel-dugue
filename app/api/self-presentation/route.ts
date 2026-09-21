@@ -1,7 +1,9 @@
-import { streamText } from "ai";
+import { createTextStreamResponse, streamText, toTextStream } from "ai";
+
 import { readMarkdownSource } from "@/app/components/markdown-source";
 import { isAiModelId } from "@/i18n/ai-models";
-import { hasLocale, type Locale } from "@/i18n/config";
+import { hasLocale } from "@/i18n/config";
+import type { Locale } from "@/i18n/config";
 import { buildSelfPresentationPrompt } from "@/i18n/self-presentation-prompt";
 import { readAiCacheText, writeAiCacheText } from "@/lib/ai-cache";
 import { checkRateLimit, rateLimited } from "@/lib/rate-limit";
@@ -60,7 +62,8 @@ export async function POST(req: Request) {
     temperature: 0.85,
   });
 
-  const response = result.toTextStreamResponse();
-  response.headers.set("x-cache", "MISS");
-  return response;
+  return createTextStreamResponse({
+    headers: { "x-cache": "MISS" },
+    stream: toTextStream({ stream: result.stream }),
+  });
 }

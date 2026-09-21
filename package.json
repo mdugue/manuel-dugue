@@ -2,12 +2,12 @@
   "name": "my-app",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "build": "next build",
     "dev": "next dev",
-    "fix": "oxlint --fix && oxfmt",
-    "format": "oxfmt",
-    "lint": "oxlint && oxfmt --check",
+    "fix": "ultracite fix",
+    "lint": "ultracite check",
     "start": "next start",
     "tsc": "tsc --noEmit"
   },
@@ -40,6 +40,7 @@
     "oxlint-tsgolint": "^7.0.2002",
     "schema-dts": "^2.0.0",
     "tailwindcss": "^4.3.3",
-    "typescript": "^7.0.2"
+    "typescript": "^7.0.2",
+    "ultracite": "^7.12.0"
   }
 }

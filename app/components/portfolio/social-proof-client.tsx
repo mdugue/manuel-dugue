@@ -1,14 +1,14 @@
 "use client";
 
-import { experimental_useObject as useObject } from "@ai-sdk/react";
+import { useObject } from "@ai-sdk/react";
 import { useCallback, useRef } from "react";
+
 import type { AiModelId } from "@/i18n/ai-models";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
-import {
-  type SocialProofObject,
-  socialProofSchema,
-} from "@/i18n/social-proof-schema";
+import { socialProofSchema } from "@/i18n/social-proof-schema";
+import type { SocialProofObject } from "@/i18n/social-proof-schema";
+
 import { AiControls } from "./ai-controls";
 import { SectionHead } from "./section-head";
 import { useAiCacheStatuses } from "./use-ai-cache-statuses";
@@ -36,7 +36,6 @@ export function SocialProofClient({
         return;
       }
       const model = requestedModelRef.current;
-      // biome-ignore lint/suspicious/noUnnecessaryConditions: the ref is populated in onModelChange; Biome infers its type from the `null` initializer only.
       if (model) {
         markGenerated(model);
       }
@@ -76,22 +75,22 @@ export function SocialProofClient({
             const showCaret = isLoading && !t?.q;
             return (
               <blockquote
-                className={i === 0 ? "m-0" : "m-0 border-rule border-t pt-6"}
+                className={i === 0 ? "m-0" : "border-rule m-0 border-t pt-6"}
                 key={i}
               >
-                <p className="m-0 min-h-[2.5em] font-display text-[clamp(20px,2vw,26px)] text-ink italic leading-normal before:content-['\201c'] after:content-['\201d']">
+                <p className="font-display text-ink m-0 min-h-[2.5em] text-[clamp(20px,2vw,26px)] leading-normal italic before:content-['\201c'] after:content-['\201d']">
                   {t?.q}
                   {showCaret ? (
                     <span
                       aria-hidden="true"
-                      className="ml-1.5 inline-block h-[0.45em] w-[0.45em] animate-pulse-dot rounded-full bg-accent align-middle motion-reduce:hidden"
+                      className="animate-pulse-dot bg-accent ml-1.5 inline-block h-[0.45em] w-[0.45em] rounded-full align-middle motion-reduce:hidden"
                     />
                   ) : null}
                 </p>
-                <div className="mt-4 min-h-[1.5em] font-mono text-ink-faint text-micro uppercase tracking-label">
+                <div className="text-ink-faint text-micro tracking-label mt-4 min-h-[1.5em] font-mono uppercase">
                   {t?.name ? (
                     <>
-                      <strong className="font-medium text-ink-soft">
+                      <strong className="text-ink-soft font-medium">
                         {t.name}
                       </strong>
                       {t.role ? <> · {t.role}</> : null}
@@ -105,15 +104,15 @@ export function SocialProofClient({
 
         {error ? (
           <p
-            className="mt-4 font-mono text-accent text-micro uppercase tracking-widest"
+            className="text-accent text-micro mt-4 font-mono tracking-widest uppercase"
             role="alert"
           >
             {proof.errorRetry}
           </p>
         ) : null}
 
-        <div className="mt-10 flex justify-between gap-2 border-rule border-t border-b border-dashed py-4 pt-5">
-          <div className="max-w-md font-mono text-ink-faint text-nano uppercase leading-[1.7] tracking-heading">
+        <div className="border-rule mt-10 flex justify-between gap-2 border-t border-b border-dashed py-4 pt-5">
+          <div className="text-ink-faint text-nano tracking-heading max-w-md font-mono leading-[1.7] uppercase">
             {proof.banner}
           </div>
           <AiControls

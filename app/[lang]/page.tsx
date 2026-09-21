@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+
 import { Portfolio } from "@/app/components/portfolio/portfolio";
-import { hasLocale, type Locale } from "@/i18n/config";
+import { hasLocale } from "@/i18n/config";
+import type { Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { buildPageMetadata, SITE_NAME } from "@/i18n/seo";
 
@@ -15,7 +17,7 @@ export async function generateMetadata({
     return {};
   }
   const locale: Locale = lang;
-  const dict = await getDictionary(locale);
+  const dict = getDictionary(locale);
   return buildPageMetadata({
     description: dict.portfolio.hero.lede,
     locale,
@@ -35,6 +37,6 @@ export default async function Home({
     notFound();
   }
   const locale: Locale = lang;
-  const dict = await getDictionary(locale);
+  const dict = getDictionary(locale);
   return <Portfolio dict={dict.portfolio} lang={locale} />;
 }
