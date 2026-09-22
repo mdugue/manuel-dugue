@@ -52,6 +52,34 @@
         "sheetSubtitle": "Compétences, stack, projets et version longue de mon travail."
       }
     },
+    "lab": {
+      "label": "Laboratoire",
+      "heading": "Là où les concepts affrontent les vraies données",
+      "sub": "Sans client, sans échéance. Construit avec des agents — les questions et les données en dessous sont bien réelles.",
+      "projects": {
+        "alpen": {
+          "num": "01",
+          "host": "alpen.manuel.fyi",
+          "title": "Cols alpins",
+          "desc": "Quel col tient encore début octobre, et dans quelle ville chercher un lit ? 262 routes, dix ans de climat au sommet, praticabilité par quinzaine. Pas un calculateur d'itinéraire — une boussole de destinations.",
+          "stack": "MapLibre · Open-Meteo · OpenRouteService · OSM"
+        },
+        "bridge": {
+          "num": "02",
+          "host": "bridge.manuel.fyi",
+          "title": "City Walk Dresde",
+          "desc": "Né du débat sur la Carolabrücke : des géodonnées ouvertes peuvent-elles donner un jumeau numérique beau sans être photoréaliste ? Bâtiments LoD2, terrain DGM1, surfaces ATKIS — parcourable dans le navigateur.",
+          "stack": "three.js · CityJSON · GeoSN · OSM"
+        },
+        "effort": {
+          "num": "03",
+          "host": "effort.manuel.fyi",
+          "title": "Effort",
+          "desc": "Quatre heures en selle méritent mieux qu'une capture d'écran. Tracé, profil altimétrique et quelques chiffres deviennent une composition, pas un tableau. Un GPX entre, une carte à partager sort.",
+          "stack": "Next.js · snapdom · Strava · GPX/FIT"
+        }
+      }
+    },
     "legal": {
       "imprint": {
         "sheetTitle": "Mentions légales",
