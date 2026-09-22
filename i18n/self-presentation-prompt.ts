@@ -42,16 +42,16 @@ Write it the way Manuel would answer a potential client who asks, early in a fir
 Check every sentence. Could Manuel say it out loud without sounding rehearsed or like a brochure? Could it just as well be about any other developer? If so, replace it with something concrete from the documents, or cut it.
 
 What to say
-The documents are long and the text is short. Pick two or three things and say them simply, rather than summarising. Good material:
+The documents are long and the text is short. Pick two or three things and say them simply, rather than summarising. Two projects described properly say more than four named in passing, so mention two at most. Good material:
 - what Manuel does, in plain words;
 - one or two projects that make it tangible. Say what the thing is and who uses it, in words a non-developer understands. Projects that are easy to picture work best. Some project headings describe the work rather than name a client (the family trees, for example), so write about those as work, not as a company;
 - how he works with people, which matters more to readers than technology. Show it through something the documents say he did, not through adjectives about himself.
-Where the documents list several things (people on a team, tools, tasks, features, results), take the one that matters or sum them up in plain words ("the team"). Don't string them together. Use a technical term only where a plain one won't do.
+Where the documents list several things (people on a team, tools, tasks, features, results), take the one that matters or sum them up in plain words: "the team", not "developers, designers and product leads". Don't string them together. Use a technical term only where a plain one won't do.
 
 Staying truthful
 - Every statement about Manuel's work must be traceable to <curriculum-vitae> or <skill-profile>. Don't add names, numbers, motives, methods, anecdotes or consequences they don't mention, however plausible. If the documents don't say something, leave it out.
-- Keep every claim the size the documents give it: "advised" stays advised, "part of the groundwork" stays part of it. Mention results only where the documents state them.
-- Naming clients is fine, at most two. If a name won't mean anything to most readers, add a few words about what the client does.
+- Keep every claim the size the documents give it: "advised" stays advised, "part of the groundwork" stays part of it, a changed name stays a changed name. Mention results only where the documents state them.
+- Naming clients is fine, at most two. Don't describe a client beyond what the documents say about it. If a name alone won't mean much, let the description of the work carry it.
 - Engagements marked "since …" are ongoing: present tense. Finished ones: past tense.
 
 What makes generated text sound generated
@@ -60,15 +60,16 @@ Earlier versions of this text fell into these patterns:
 - Recycled lines from the documents: the profile summary ("where strategy meets implementation", "deep in X, broad in Y") and the one-liners in the project entries ("signals, machines, maps", "the invisible workings of hardware"). Say plainly what the project is instead.
 - Vague lead-ins that announce instead of say: "I also work on systems where the details carry weight."
 - Abstract nouns doing things ("complexity becomes clarity"), grand pairings ("technology and people"), metaphors, stress clichés ("under pressure", "when things get messy").
-- Lists of three, contrasts like "not just X but Y" or "with them rather than for them", rhetorical questions, a moral or punchline at the end of a paragraph, irony, lines that sound pleased with themselves.
+- Lists of three, contrasts like "not just X but Y" or "with them rather than for them", rhetorical questions, irony, lines that sound pleased with themselves.
+- A moral, maxim or punchline to close a paragraph: "I try to leave a codebase in better shape than I found it."
 - Hype words: innovative, seamless, robust, cutting-edge, leverage, empower.
 - Casting Manuel as the hero of his own case study ("I get called when …"), or the opposite: false modesty, negative framing, shrinking the work with "just".
 - Talking to the reader or asking them to get in touch. The contact details come further down the page.
 Avoid the patterns, not only these exact words.
 
 Form
-- Exactly two short paragraphs, separated by one blank line. 50 to 90 words altogether, never more.
-- One main idea per sentence, two or three sentences per paragraph. Three short sentences are better than one long, overloaded one.
+- Exactly two short paragraphs, separated by one blank line. 50 to 90 words altogether, never more: the text sits in a small box in large type, and anything longer looks crowded.
+- One main idea per sentence, two or three sentences per paragraph, most of them short. Three short sentences are better than one long, overloaded one.
 - No semicolons, no long insertions, at most one dash in the whole text.
 - Plain text only: no greeting, heading, quotation marks, list or markdown.
 
