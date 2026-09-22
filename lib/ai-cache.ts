@@ -22,6 +22,22 @@ interface StoredEntry {
   text: string;
 }
 
+// Cached texts survive deployments, so the prompt revision is part of every
+// key. Bump a namespace's revision whenever its prompt changes, or the site
+// keeps serving texts written with the old prompt until they expire.
+const promptRevision: Record<AiCacheNamespace, number> = {
+  "self-presentation": 5,
+  "social-proof": 1,
+};
+
+function cacheKey(
+  namespace: AiCacheNamespace,
+  locale: Locale,
+  model: AiModelId
+): string {
+  return `${locale}:${model}:r${promptRevision[namespace]}`;
+}
+
 function parseStored(raw: unknown): StoredEntry | null {
   if (typeof raw !== "string" || raw.length === 0) {
     return null;
@@ -72,7 +88,10 @@ export async function readAiCacheText(params: {
   model: AiModelId;
 }): Promise<{ text: string; status: AiCacheStatus } | null> {
   const { namespace, locale, model } = params;
-  const entry = await safeReadEntry(namespace, `${locale}:${model}`);
+  const entry = await safeReadEntry(
+    namespace,
+    cacheKey(namespace, locale, model)
+  );
   if (!entry) {
     return null;
   }
@@ -91,7 +110,7 @@ export async function writeAiCacheText(params: {
   }
   const cache = getCache({ namespace });
   const entry: StoredEntry = { cachedAt: Date.now(), text };
-  await cache.set(`${locale}:${model}`, JSON.stringify(entry), {
+  await cache.set(cacheKey(namespace, locale, model), JSON.stringify(entry), {
     name: `${namespace} · ${locale} · ${model}`,
     tags: [namespace, `${namespace}:${locale}`],
     ttl: AI_CACHE_TTL_SECONDS,
