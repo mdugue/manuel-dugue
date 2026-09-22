@@ -14,20 +14,20 @@ Email: mail@manuel.fyi
 ## 2. General notes
 
 This website can be visited without disclosing personal data. Personal data is
-only collected if you provide it voluntarily — for example by sending an email
-or filling out a contact form. Transmission is encrypted via TLS.
+only collected if you provide it voluntarily — for example by sending me an
+email. Transmission is encrypted via TLS.
 
 ## 3. Hosting
 
 This website is hosted by Vercel. Technically necessary server log files are
-collected (IP address, timestamp, user-agent, requested URL). These data are
+collected (IP address, timestamp, user-agent, requested URL). This data is
 processed to ensure security, stability, and compliance with legal obligations
 (Art. 6(1)(f) GDPR).
 
 ## 4. Cookies
 
-This website does not use tracking cookies. Only technically necessary
-cookies (e.g. for storing language preferences) are used.
+This website does not use cookies. The language you choose is part of the
+address (e.g. /en) and is not stored in a cookie.
 
 ## 5. Analytics
 
@@ -68,4 +68,4 @@ For data-protection questions, please contact mail@manuel.fyi.
 
 ## 8. Version
 
-Last updated: 22 April 2026.
+Last updated: 22 September 2026.

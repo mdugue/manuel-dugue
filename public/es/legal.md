@@ -1,6 +1,6 @@
 # Aviso legal
 
-## Información conforme al § 5 TMG
+## Información conforme al § 5 DDG
 
 Manuel Dugué
 Görlitzer Straße 23
@@ -17,7 +17,7 @@ Web: https://manuel.fyi
 Número de IVA conforme al § 27 a de la Ley alemana del IVA:
 DE272030502
 
-## Responsable del contenido conforme al § 55 Abs. 2 RStV
+## Responsable del contenido conforme al § 18 Abs. 2 MStV
 
 Manuel Dugué
 Dirección indicada arriba.
@@ -27,9 +27,9 @@ Dirección indicada arriba.
 El contenido de estas páginas se ha elaborado con el mayor cuidado posible.
 No obstante, no puede garantizarse su exactitud, integridad ni actualidad.
 Como proveedor de servicios, soy responsable de mis propios contenidos con
-arreglo al § 7 Abs. 1 TMG y a la legislación general. No obstante, conforme
-a los §§ 8 a 10 TMG, como proveedor de servicios no estoy obligado a
-supervisar la información transmitida o almacenada de terceros ni a
+arreglo a la legislación general. No obstante, conforme al § 7 DDG en
+relación con el art. 8 del DSA, como proveedor de servicios no estoy obligado
+a supervisar la información transmitida o almacenada de terceros ni a
 investigar circunstancias que indiquen una actividad ilegal.
 
 ## Responsabilidad sobre los enlaces

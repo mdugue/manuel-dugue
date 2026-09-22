@@ -15,9 +15,9 @@ Courriel : mail@manuel.fyi
 ## 2. Indications générales
 
 Ce site peut être consulté sans communiquer de données personnelles. Les
-données personnelles ne sont collectées que si vous les communiquez
-volontairement — par exemple en envoyant un courriel ou en remplissant un
-formulaire de contact. La transmission est chiffrée via TLS.
+données personnelles ne sont collectées que si vous me les communiquez
+volontairement — par exemple par courriel. La transmission est chiffrée via
+TLS.
 
 ## 3. Hébergement
 
@@ -28,8 +28,8 @@ et le respect des obligations légales (Art. 6, 1, f du RGPD).
 
 ## 4. Cookies
 
-Ce site n'utilise pas de cookies de suivi. Seuls des cookies techniquement
-nécessaires (p. ex. pour mémoriser la langue choisie) sont utilisés.
+Ce site n'utilise pas de cookies. La langue choisie figure dans l'adresse
+(p. ex. /fr) et n'est pas enregistrée dans un cookie.
 
 ## 5. Outils d'analyse
 
@@ -73,4 +73,4 @@ Pour toute question relative à la protection des données : mail@manuel.fyi.
 
 ## 8. Version
 
-Dernière mise à jour : 22 avril 2026.
+Dernière mise à jour : 22 septembre 2026.

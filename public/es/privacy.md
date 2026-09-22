@@ -15,9 +15,8 @@ Correo: mail@manuel.fyi
 ## 2. Indicaciones generales
 
 Este sitio web puede visitarse sin facilitar datos personales. Solo se
-recogen datos personales si los facilita voluntariamente — por ejemplo al
-enviar un correo o al rellenar un formulario de contacto. La transmisión se
-realiza cifrada mediante TLS.
+recogen datos personales si me los facilitas voluntariamente — por ejemplo
+por correo. La transmisión se realiza cifrada mediante TLS.
 
 ## 3. Alojamiento
 
@@ -28,8 +27,8 @@ estabilidad y el cumplimiento de obligaciones legales (Art. 6(1)(f) RGPD).
 
 ## 4. Cookies
 
-Este sitio no utiliza cookies de seguimiento. Solo se utilizan cookies
-técnicamente necesarias (p. ej., para recordar la selección de idioma).
+Este sitio no utiliza cookies. El idioma elegido forma parte de la dirección
+(p. ej., /es) y no se guarda en ninguna cookie.
 
 ## 5. Herramientas de análisis
 
@@ -72,4 +71,4 @@ Para cuestiones de protección de datos: mail@manuel.fyi.
 
 ## 8. Versión
 
-Última actualización: 22 de abril de 2026.
+Última actualización: 22 de septiembre de 2026.

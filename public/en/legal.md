@@ -1,6 +1,6 @@
-# Imprint
+# Legal notice
 
-## Information pursuant to § 5 TMG
+## Information pursuant to § 5 DDG
 
 Manuel Dugué
 Görlitzer Straße 23
@@ -17,7 +17,7 @@ Web: https://manuel.fyi
 VAT ID pursuant to § 27 a of the German VAT Act:
 DE272030502
 
-## Responsible for content pursuant to § 55 Abs. 2 RStV
+## Responsible for content pursuant to § 18 Abs. 2 MStV
 
 Manuel Dugué
 Address as above.
@@ -27,9 +27,9 @@ Address as above.
 The contents of these pages have been prepared with the greatest possible
 care. However, no liability is assumed for the accuracy, completeness, or
 timeliness of the content. As a service provider, I am responsible for my own
-content on these pages under the general laws pursuant to § 7 Abs. 1 TMG.
-However, pursuant to §§ 8 to 10 TMG, as a service provider I am not obliged
-to monitor transmitted or stored third-party information or to investigate
+content on these pages under the general laws. However, pursuant to § 7 DDG
+in conjunction with Art. 8 DSA, as a service provider I am not obliged to
+monitor transmitted or stored third-party information or to investigate
 circumstances that indicate unlawful activity.
 
 ## Liability for links

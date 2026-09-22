@@ -15,9 +15,8 @@ E-Mail: mail@manuel.fyi
 ## 2. Allgemeine Hinweise
 
 Diese Website kann ohne Angabe personenbezogener Daten besucht werden.
-Personenbezogene Daten werden nur erhoben, wenn Sie uns diese freiwillig
-mitteilen — etwa beim Versand einer E-Mail oder beim Ausfüllen eines
-Kontaktformulars. Die Übertragung erfolgt verschlüsselt per TLS.
+Personenbezogene Daten werden nur erhoben, wenn Sie mir diese freiwillig
+mitteilen — etwa per E-Mail. Die Übertragung erfolgt verschlüsselt per TLS.
 
 ## 3. Hosting
 
@@ -29,8 +28,8 @@ verarbeitet (Art. 6 Abs. 1 lit. f DSGVO).
 
 ## 4. Cookies
 
-Diese Website verwendet keine Tracking-Cookies. Lediglich technisch notwendige
-Cookies (z. B. zur Speicherung der Sprachauswahl) kommen zum Einsatz.
+Diese Website verwendet keine Cookies. Die gewählte Sprache steht in der
+Adresse (z. B. /de) und wird nicht in einem Cookie gespeichert.
 
 ## 5. Analyse-Tools
 
@@ -72,4 +71,4 @@ Fragen zum Datenschutz richten Sie bitte an mail@manuel.fyi.
 
 ## 8. Stand
 
-Stand dieser Erklärung: 22.4.2026.
+Stand dieser Erklärung: 22.9.2026.
