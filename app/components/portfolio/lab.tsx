@@ -18,6 +18,32 @@ const ORDER: MarkId[] = ["alpen", "bridge", "effort"];
 const ROW =
   "group border-rule-soft hover:border-accent focus-visible:border-accent focus-visible:outline-accent grid grid-cols-[96px_1fr] items-start gap-x-8 gap-y-4 border-t py-7 transition-colors last:border-b focus-visible:outline-2 focus-visible:outline-offset-2 max-md:grid-cols-1 max-md:gap-y-3";
 
+/**
+ * Drawn rather than typed: U+2197 carries an emoji presentation, so on Apple
+ * platforms the character renders as a colour glyph next to the title. This is
+ * the same hairline the marks are drawn with.
+ */
+function ExternalArrow() {
+  return (
+    <svg
+      aria-hidden="true"
+      className="text-accent shrink-0 transition-transform duration-[250ms] group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+      fill="none"
+      focusable="false"
+      height="0.58em"
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth={1.4}
+      viewBox="0 0 10 10"
+      width="0.58em"
+    >
+      <path d="M2.2 7.8L7.8 2.2" />
+      <path d="M3.6 2.2H7.8V6.4" />
+    </svg>
+  );
+}
+
 export function Lab({ lab }: { lab: Dictionary["portfolio"]["lab"] }) {
   return (
     <section className="py-[clamp(60px,9vw,130px)]" id="lab">
@@ -46,12 +72,7 @@ export function Lab({ lab }: { lab: Dictionary["portfolio"]["lab"] }) {
 
                 <span className="font-display group-hover:text-accent flex items-baseline gap-2 text-[26px] leading-[1.15] font-normal italic transition-colors">
                   {project.title}
-                  <span
-                    aria-hidden="true"
-                    className="text-accent text-sm not-italic transition-transform duration-[250ms] group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                  >
-                    ↗
-                  </span>
+                  <ExternalArrow />
                 </span>
 
                 <span className="text-ink-soft max-w-[58ch] text-sm leading-[1.55]">
