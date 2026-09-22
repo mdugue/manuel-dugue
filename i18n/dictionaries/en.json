@@ -56,7 +56,7 @@
     "lab": {
       "label": "Lab",
       "heading": "Where concepts run against real data",
-      "sub": "No client, no deadline. Heavily vibe-coded — the pipelines underneath are real.",
+      "sub": "No client, no deadline. Built with agents — the questions and the data underneath are real.",
       "projects": {
         "alpen": {
           "num": "01",
