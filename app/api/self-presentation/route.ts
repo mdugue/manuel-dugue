@@ -4,7 +4,10 @@ import { readMarkdownSource } from "@/app/components/markdown-source";
 import { isAiModelId } from "@/i18n/ai-models";
 import { hasLocale } from "@/i18n/config";
 import type { Locale } from "@/i18n/config";
-import { buildSelfPresentationPrompt } from "@/i18n/self-presentation-prompt";
+import {
+  buildSelfPresentationInstructions,
+  buildSelfPresentationPrompt,
+} from "@/i18n/self-presentation-prompt";
 import { readAiCacheText, writeAiCacheText } from "@/lib/ai-cache";
 import { checkRateLimit, rateLimited } from "@/lib/rate-limit";
 
@@ -51,14 +54,15 @@ export async function POST(req: Request) {
   ]);
 
   const result = streamText({
-    instructions: buildSelfPresentationPrompt(locale),
+    instructions: buildSelfPresentationInstructions(locale),
     model,
     onEnd: async ({ text }) => {
       await writeAiCacheText({ locale, model, namespace, text });
     },
-    prompt:
-      `<curriculum-vitae>\n${cv.body}\n</curriculum-vitae>\n\n` +
-      `<skill-profile>\n${skills.body}\n</skill-profile>`,
+    prompt: buildSelfPresentationPrompt(locale, {
+      cv: cv.body,
+      skills: skills.body,
+    }),
     temperature: 0.85,
   });
 

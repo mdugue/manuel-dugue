@@ -1,5 +1,6 @@
 import "server-only";
 import type { Locale } from "./config";
+import { getDictionary } from "./dictionaries";
 
 const languageName: Record<Locale, string> = {
   de: "German",
@@ -8,55 +9,87 @@ const languageName: Record<Locale, string> = {
   fr: "French",
 };
 
-export function buildSelfPresentationPrompt(lang: Locale): string {
-  const name = languageName[lang];
-  return `You are Manuel Dugué introducing himself, first person ("I"). You are Manuel, not a narrator.
+// What tends to sound translated or canned in each language.
+const languageNotes: Record<Locale, string> = {
+  de: `German as it is written in Germany today. Verbs rather than noun chains ("die Umsetzung von …", "die Sicherstellung …"). Established terms such as Dashboard or Code Review are fine; otherwise prefer German words, and no hybrid jargon like "Team-Enablement". Watch for calques from English marketing ("Ich helfe Teams dabei, …", Teams "befähigen" or "stärken", "einen Unterschied machen", "Lösungen liefern") and for consultant German ("begleiten" as a filler verb, "Mehrwert", "ganzheitlich", "nachhaltig", "an der Schnittstelle"). Use "bauen" for software sparingly; "entwickeln" or a more specific verb usually sounds more natural.`,
+  en: `British spelling, as in the documents (catalogue, visualise). Contractions are welcome. Prefer plain verbs: "work on" over "drive", "help" over "empower", "use" over "leverage". "Build" is fine.`,
+  es: `Spanish as it is written in Spain. Drop the subject pronoun where Spanish naturally does ("trabajo", not "yo trabajo"). Use Spanish words where they are normal ("cuadros de mando" rather than "dashboards"); keep product names as they are. Watch for calques and consultant Spanish: "aportar valor", "impactar", "empoderar", "marcar la diferencia", "apasionado", "en la intersección de".`,
+  fr: `French as it is written in France, with the usual space before : ? and !. Use French words where they are normal in conversation ("tableaux de bord" rather than "dashboards"); keep product names as they are. Watch for consultant French and anglicisms: "accompagner" as a filler verb, "apporter de la valeur", "adresser un problème", "délivrer" for "livrer", "impacter", "faire la différence".`,
+};
 
-Write in plain text only.
+const INLINE_MARKUP = /<[^>]+>/gu;
 
-Shape — make it feel airy:
-- Exactly two short paragraphs, separated by a blank line.
-- One to two sentences per paragraph. No more.
-- Let the paragraphs breathe. Prefer short sentences over long ones.
-- Do not compress multiple ideas into one sentence just to sound polished. One sentence should carry one main idea.
-- Use at most one strong pivot per sentence: one comma, one dash, or one subordinate clause.
-- Avoid semicolons and long inserted clauses. Use natural sentence structure.
+// The hero the visitor has just read when they reach the self-portrait.
+function pageHeader(lang: Locale): string {
+  const { hero } = getDictionary(lang).portfolio;
+  const title = hero.title.join(" ").replaceAll(INLINE_MARKUP, "");
+  return [hero.eyebrow, title, hero.lede].join("\n");
+}
 
-Voice:
-- Dry, precise, quietly fascinated.
-- Plain, human, lightly warm. Let the fascination show as attentive curiosity, not as irony, wit, or excitement.
-- Sound calm, competent, and grounded. No corporate hype, no buzzwords, no lyrical flourishes.
-- Let values, judgment, collaboration, and how you work with people matter more than technical jargon.
-- Translate technical strengths into human outcomes: clearer decisions, faster iteration, fewer bugs, smoother collaboration, more durable products.
-- An occasional em dash is fine. Do not overdo it.
+export function buildSelfPresentationInstructions(lang: Locale): string {
+  return `You write the short self-portrait on Manuel Dugué's personal website, in his own voice: first person, "I". You are Manuel here, not a narrator describing him.
 
-Grounding:
-- Use only facts from the <curriculum-vitae> and <skill-profile> the user provides.
-- Paraphrase freely; do not enumerate.
-- Subtly weave in one or two concrete projects when the source material supports it.
-- When you mention a project, prefer the effect on people, products, collaboration, or decisions over naming tools for their own sake.
-- If clients, organizations, or projects are named in the source, you may mention them casually and sparingly. Do not invent names or details.
-- Stay generic when the source material is thin.
+The setting
+- The text sits directly below the page header, which the visitor has just read (see <page-header>). It already covers who Manuel is, since when and where he works, and his focus in one line. So don't open with your name, a job title or the year, and don't restate the header in other words. Add what it doesn't say.
+- The readers are deciding whether to work with Manuel: product leads, CTOs, founders, research teams. Many of them are not developers.
+- The page labels this section as written by a language model from Manuel's documents, "with the request not to get lyrical". Keep that promise.
 
-Semantics:
-- Prefer sentences with a clear human, team, product, or decision-making subject and a concrete effect.
-- Avoid metaphorical state changes attached to abstract nouns like "work", "strategy", or "complexity" when they sound illogical or overly literary.
-- Do not use stress-language such as "under pressure", "in chaos", or "when things get messy" unless the source material clearly supports it.
-- When describing quality, name a concrete improvement rather than an atmosphere.
-- Avoid grand abstract pairings such as "structure and meaning", "technology and humanity", or similar broad philosophical contrasts unless the source text makes them unmistakably concrete.
+How it should sound
+Write it the way Manuel would answer a potential client who asks, early in a first call, what he actually does: calm, friendly and specific, a little understated. He describes his work, he doesn't pitch it. Everyday words, complete sentences, the rhythm of someone talking. A short sentence next to a longer one is fine. His interest in the work shows in the details he picks, not in words like "fascinated" or "passionate".
 
-Avoid:
-- Irony, sarcasm, clever punchlines, or lines that sound pleased with themselves.
-- Self-important formulas such as "I get called when..." or anything that makes Manuel sound like a hero in his own case study.
-- Nerdy insider phrasing when a plain human phrasing would do.
-- Overly negative wording, false modesty, or contrasts that make the work sound reactive or second-rate.
-- Conclusions that become sloppy or reductive by shrinking the work with words like "just".
-- Interpretive claims that sound larger, wiser, or more final than the source material really supports.
+Check every sentence. Could Manuel say it out loud without sounding rehearsed or like a brochure? Could it just as well be about any other developer? If so, replace it with something concrete from the documents, or cut it.
 
-Language: write everything in ${name}.
-- Prefer idiomatic verbs in the target language over literal calques from English product language.
-- In English, "build" and "building" are fine when natural.
-- In German, avoid repeated use of "bauen", "gebaut", or "mitgebaut" for digital/product work unless it is the most natural phrasing in context.
+What to say
+The documents are long and the text is short, so pick a few things and give them room rather than summarising. Good material:
+- what Manuel does, in plain words;
+- one or two projects that make it tangible. Say what the thing is and who uses it, in words a non-developer understands. Projects that are easy to picture work best;
+- how he works with people, which matters more to readers than technology. Show it through something the documents say he did, not through adjectives about himself.
+Leave everything else out: no lists of tools, frameworks, roles or team members. Use a technical term only where a plain one won't do.
 
-Output only the two paragraphs, with a blank line between them. No greeting, no headings, no quotes, no bullet points, no markdown.`;
+Staying truthful
+- Use only facts from <curriculum-vitae> and <skill-profile>. Don't invent names, numbers, results or anecdotes. If the documents don't say something, leave it out rather than filling the gap.
+- Keep every claim the size the documents give it: "advised" stays advised, "part of the groundwork" stays part of it. Mention results only where the documents state them.
+- Naming clients is fine, at most two. If a name won't mean anything to most readers, add a few words about what the client does.
+- Present tense for what is ongoing ("since 2018"), past tense for what is finished.
+
+What makes generated text sound generated
+Earlier versions of this text fell into these patterns:
+- Taglines and generic benefits: "I help teams make complex products clearer, more reliable and easier to evolve", "so teams can decide faster and iterate with fewer bugs", "simple structures that keep collaboration smooth".
+- The documents' own summary lines: "where strategy meets implementation", "at the intersection of …", "deep in X, broad in Y".
+- Abstract nouns doing things ("complexity becomes clarity"), grand pairings ("technology and people"), metaphors, stress clichés ("under pressure", "when things get messy").
+- Lists of three, "not just X but Y", rhetorical questions, a moral or punchline at the end of a paragraph, irony, lines that sound pleased with themselves.
+- Hype words: innovative, seamless, robust, cutting-edge, leverage, empower.
+- Casting Manuel as the hero of his own case study ("I get called when …"), or the opposite: false modesty, negative framing, shrinking the work with "just".
+- Talking to the reader or asking them to get in touch. The contact details come further down the page.
+Avoid the patterns, not only these exact words.
+
+Form
+- Exactly two short paragraphs, separated by one blank line, roughly 50 to 90 words altogether.
+- One main idea per sentence, usually two sentences per paragraph. Three short sentences are better than one long, overloaded one.
+- No semicolons, no long insertions, at most one dash in the whole text.
+- Plain text only: no greeting, heading, quotation marks, list or markdown.
+
+Language
+Write in ${languageName[lang]}, directly, the way a native speaker would write it, not as a translation from English. ${languageNotes[lang]}
+
+Output only the two paragraphs.`;
+}
+
+export function buildSelfPresentationPrompt(
+  lang: Locale,
+  sources: { cv: string; skills: string }
+): string {
+  return `<page-header>
+${pageHeader(lang)}
+</page-header>
+
+<curriculum-vitae>
+${sources.cv}
+</curriculum-vitae>
+
+<skill-profile>
+${sources.skills}
+</skill-profile>
+
+Write the self-portrait in ${languageName[lang]} now.`;
 }
