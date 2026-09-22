@@ -1,6 +1,6 @@
 ---
 published: 2021-04-20
-updated: 2026-05-12
+updated: 2026-09-22
 ---
 
 # Curriculum Vitae
@@ -16,13 +16,13 @@ Weaving LLM features and custom agents into product teams via MCP, Agent Skills 
 - **Estino GmbH, since 2018.** B2B automotive engineering dashboards, signal visualisation, agent design. Agile startup rhythm: direct customer contact, listening, prioritising, abstracting, shipping features.
 - **weg.de (now lastminute.com group), 2016–2020.** Relaunch of the booking portal, core components, team enablement for ten developers and two designers. Fewer bugs, lower bounce and churn, faster iteration, part of the groundwork for the acquisition by lastminute.com.
 - **Barkhausen Institut, since 2024.** Resilient architecture and automated quality for an internal research-institute portal.
-- **Ancestry trees, since 2020.** Family-tree platform for four large German dynasties. Careful, discreet treatment of human and social complexity.
+- **Family trees, since 2020.** Family-tree platform for four large German dynasties. Careful, discreet treatment of human and social complexity.
 - **Fraunhofer Heinrich-Hertz-Institut, since 2025.** Agent-first 5G component catalogue with lifecycle management and fine-grained authorisation. Advising three developers, three designers and two product-side leads on architecture, delivery and stakeholder alignment.
 
 ## Education
 
-- **2002–2011 Diploma in "Media Informatics" at Faculty of Computer Science, TU Dresden.** _"Interactive two-dimensional representation of experiential time based on visited places"_, Final grade: 1 (≈ A).
-- **2009 Research project at Faculty of Computer Science, TU Dresden.** _"Materiality and Interaction"_, ungraded.
+- **2002–2011 Diploma in "Media Informatics" at the Faculty of Computer Science, TU Dresden.** _"Interactive two-dimensional representation of experiential time based on visited places"_, Final grade: 1 (≈ A).
+- **2009 Research project at the Faculty of Computer Science, TU Dresden.** _"Materiality and Interaction"_, ungraded.
 - **2002–2009 Minor in "Art & Design" at HfBK & TU Dresden.** _"Experimental-film approach to contemporary ornament"_, Final grade: 1.3 (≈ A).
 - **2007–2008 Internship at Cactus Film & Video, Mexico.** Supported by an InWEnt / GIZ scholarship.
 
@@ -36,7 +36,7 @@ Weaving LLM features and custom agents into product teams via MCP, Agent Skills 
 
 ## Languages
 
-German and French (native), English and Spanish (fluent), Portuguese and Dutch (working).
+German and French (native), English and Spanish (fluent), Portuguese and Dutch (basic).
 
 ## Aside
 

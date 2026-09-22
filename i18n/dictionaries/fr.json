@@ -9,7 +9,7 @@
         "Concevoir, construire & livrer —",
         "<em>curieux</em> depuis vingt ans."
       ],
-      "lede": "Manuel Dugué · ingénieur produit indépendant basé à Dresde. Architecture, workflows natifs IA, expérience utilisateur ; de préférence là où la stratégie rencontre l'exécution.",
+      "lede": "Manuel Dugué · ingénieur produit indépendant basé à Dresde. Architecture, workflows natifs IA, expérience utilisateur ; de préférence là où la stratégie rencontre l'exécution.",
       "facts": {
         "base": { "label": "Base", "value": "Dresde / Remote" },
         "openFor": { "label": "Dispo", "template": "T{quarter} {year} →" },
@@ -23,8 +23,8 @@
       "sub": "À partir des documents officiels, puis confié à un modèle avec la consigne de ne pas tomber dans le lyrisme.",
       "tag": "Généré par LLM · légèrement supervisé par Manuel",
       "cycle": "Régénérer",
-      "errorRetry": "Ça n'a pas marché. Réessayer ?",
-      "modelLabel": "modèle :",
+      "errorRetry": "Ça n'a pas marché. Réessayer ?",
+      "modelLabel": "modèle :",
       "tooltip": {
         "nextModel": "Modèle suivant",
         "cached": "Résultat en cache — nouvelle version",
@@ -48,7 +48,7 @@
       "profile": {
         "num": "02",
         "title": "Profil de compétences",
-        "desc": "La version longue : ce que je construis, comment je travaille et où interviennent les agents.",
+        "desc": "La version longue : ce que je construis, comment je travaille et où interviennent les agents.",
         "cta": "Ouvrir le document",
         "sheetTitle": "Profil de compétences",
         "sheetSubtitle": "Compétences, stack, projets et la version longue de ce que je fais."
@@ -63,14 +63,14 @@
           "num": "01",
           "host": "alpen.manuel.fyi",
           "title": "Cols alpins",
-          "desc": "Quel col est encore praticable début octobre, et dans quelle ville chercher un lit ? 262 routes, dix ans de climat au sommet, praticabilité par quinzaine. Pas un calculateur d'itinéraire — une boussole de destinations.",
+          "desc": "Quel col est encore praticable début octobre, et dans quelle ville chercher un lit ? 262 routes, dix ans de climat au sommet, praticabilité par quinzaine. Pas un calculateur d'itinéraire — une boussole de destinations.",
           "stack": "MapLibre · Open-Meteo · OpenRouteService · OSM"
         },
         "bridge": {
           "num": "02",
           "host": "bridge.manuel.fyi",
           "title": "City Walk Dresde",
-          "desc": "Né du débat sur la Carolabrücke : des géodonnées ouvertes peuvent-elles donner un jumeau numérique beau sans être photoréaliste ? Bâtiments LoD2, terrain DGM1, surfaces ATKIS — parcourable dans le navigateur.",
+          "desc": "Né du débat sur la Carolabrücke : des géodonnées ouvertes peuvent-elles donner un jumeau numérique beau sans être photoréaliste ? Bâtiments LoD2, terrain DGM1, surfaces ATKIS — parcourable dans le navigateur.",
           "stack": "three.js · CityJSON · GeoSN · OSM"
         },
         "effort": {
@@ -97,8 +97,8 @@
       "heading": "Ce que disent des clients semi-fictifs",
       "sub": "Entièrement synthétiques, fausses voix, projets réels.",
       "cycle": "Régénérer",
-      "errorRetry": "Ça n'a pas marché. Réessayer ?",
-      "modelLabel": "modèle :",
+      "errorRetry": "Ça n'a pas marché. Réessayer ?",
+      "modelLabel": "modèle :",
       "banner": "Tous les témoignages ci-dessus ont été produits par un modèle de langage. Ils n'ont été approuvés par aucun client, puisqu'aucun client n'a été consulté. Leur ressemblance avec de vrais éloges est un effet, pas une affirmation.",
       "tooltip": {
         "nextModel": "Modèle suivant",

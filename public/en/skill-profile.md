@@ -1,6 +1,6 @@
 ---
 published: 2021-04-20
-updated: 2026-05-12
+updated: 2026-09-22
 ---
 
 # Skill Profile
@@ -14,7 +14,7 @@ Weaving LLM features and custom agents into product teams via MCP, Agent Skills 
 |                        |                                                                                                         |
 | ---------------------- | ------------------------------------------------------------------------------------------------------- |
 | **Title**              | Dipl.-Medieninformatiker (Diploma in Media Informatics)                                                 |
-| **Born**               | 12.09.1981 in Berlin, Germany                                                                           |
+| **Born**               | 12 September 1981 in Berlin, Germany                                                                    |
 | **Nationality**        | German & French                                                                                         |
 | **Languages**          | German (native), French (native), English (fluent), Spanish (fluent), Portuguese (basic), Dutch (basic) |
 | **Personal interests** | Sports, music, photography, typography, architecture, cooking                                           |
@@ -48,7 +48,7 @@ Catalogue for 5G components with lifecycle management, fine-grained authorisatio
 
 _Role:_ Architecture audit, rewrite design, hands-on implementation; advising three developers, three designers and two product-side leads on architecture, delivery and stakeholder alignment.
 
-_Approach:_ End-to-end typesafety, complexity reduction, iteration speed; the codebase is laid out for agent-first access so coding agents can contribute without ceremony.
+_Approach:_ End-to-end type safety, complexity reduction, iteration speed; the codebase is laid out for agent-first access so coding agents can contribute without ceremony.
 
 _Stack:_ Next.js, RSC, Drizzle ORM, PostgreSQL, Bun, Playwright, Claude Code, Cursor, Agent Skills.
 
@@ -56,7 +56,7 @@ _Stack:_ Next.js, RSC, Drizzle ORM, PostgreSQL, Bun, Playwright, Claude Code, Cu
 
 Business-trip management portal for a research institute.
 
-_Role:_ Consulting, teaching, feature development.
+_Role:_ Consulting, training, feature development.
 
 _Approach:_ Resilient architectures, automated quality assurance, complexity reduction.
 
@@ -64,7 +64,7 @@ _Stack:_ Nuxt, Vue.js, TypeScript, Sentry, Playwright, Claude Code, Cursor.
 
 [barkhauseninstitut.org](https://www.barkhauseninstitut.org)
 
-### Ancestry trees — since 2020
+### Family trees — since 2020
 
 Family trees for four large German dynasties. Careful, discreet treatment of human and social complexity — patchwork constellations, changed and reclaimed names, relatives who appear in more than one branch, and the quiet edges every old family carries.
 
@@ -120,11 +120,11 @@ _Role:_ Development, training, consulting.
 
 [mch-group.com](https://mch-group.com) · [ibmix.de](https://www.ibmix.de)
 
-### Comvel GmbH — 2016–2020
+### Comvel GmbH, Munich — 2016–2020
 
 Relaunch and evolution of the Weg.de / lastminute.com booking portal. Holidays should feel like the trip — even the booking flow.
 
-_Role:_ Booking portal relaunch, core components, team enablement for ten developers and two designers; fewer bugs, lower bounce and churn, faster iteration — groundwork for the lastminute.com acquisition.
+_Role:_ Booking portal relaunch, core components, team enablement for ten developers and two designers; fewer bugs, lower bounce and churn, faster iteration — part of the groundwork for the lastminute.com acquisition.
 
 _Stack:_ Next.js, React, Redux, Webpack, Jest, ES6, CSSNEXT, Node.js.
 
@@ -174,7 +174,7 @@ Supporting the transition of advertising assets into modern HTML5 ads: animation
 
 _Stack:_ CSS3, Gulp, Node.js, ES6.
 
-### Earlier work
+### Earlier work — 2008–2014
 
 - **T-Systems MMS, Dresden — 2009–2012, 2014.** Genealogy product: large-scale family tree, originally Flash, later ported to HTML5 with PDF print, Jive integration, mobile support, instant search and filtering. _HTML5, CoffeeScript, Spine MVC, Raphael.js, jQuery, React._
 - **Exelonix GmbH, Dresden — 2013–2014.** Android tablets for seniors — ease of use, remote maintenance by relatives, apps for health, communication, safety, entertainment. _Java, Android, HTTP._

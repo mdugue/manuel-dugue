@@ -9,12 +9,12 @@ Allemagne
 
 ## Contact
 
-Courriel : mail@manuel.fyi
-Web : https://manuel.fyi
+Courriel : mail@manuel.fyi
+Web : https://manuel.fyi
 
 ## Numéro d'identification TVA
 
-Numéro de TVA conformément au § 27 a de la loi allemande sur la TVA :
+Numéro de TVA conformément au § 27 a de la loi allemande sur la TVA :
 DE272030502
 
 ## Responsable du contenu conformément au § 18 Abs. 2 MStV

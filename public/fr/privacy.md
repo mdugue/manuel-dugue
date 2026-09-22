@@ -3,14 +3,14 @@
 ## 1. Responsable du traitement
 
 Responsable au sens du Règlement général sur la protection des données (RGPD)
-et des autres réglementations applicables :
+et des autres réglementations applicables :
 
 Manuel Dugué
 Görlitzer Straße 23
 01099 Dresde
 Allemagne
 
-Courriel : mail@manuel.fyi
+Courriel : mail@manuel.fyi
 
 ## 2. Indications générales
 
@@ -46,18 +46,18 @@ l'API Navigation Timing de votre navigateur) sont également collectées afin
 d'identifier les pages lentes.
 
 Les requêtes vers l'outil de mesure passent par le chemin first-party
-`/stats` sur ce domaine ; votre navigateur ne contacte donc pas umami.is
+`/stats` sur ce domaine ; votre navigateur ne contacte donc pas umami.is
 directement.
 
 La base légale est l'art. 6, 1, f du RGPD (intérêt légitime à mesurer
 l'audience). Vous pouvez vous y opposer à tout moment en bloquant le chemin
 `/stats` dans votre navigateur ou via un bloqueur de contenu.
 
-Plus d'informations : <https://umami.is>
+Plus d'informations : <https://umami.is>
 
 ## 6. Vos droits
 
-Vous avez le droit :
+Vous avez le droit :
 
 - d'accès (Art. 15 RGPD)
 - de rectification (Art. 16 RGPD)
@@ -69,8 +69,8 @@ Vous avez le droit :
 
 ## 7. Contact
 
-Pour toute question relative à la protection des données : mail@manuel.fyi.
+Pour toute question relative à la protection des données : mail@manuel.fyi.
 
 ## 8. Version
 
-Dernière mise à jour : 22 septembre 2026.
+Dernière mise à jour : 22 septembre 2026.
