@@ -75,7 +75,7 @@
           "num": "03",
           "host": "effort.manuel.fyi",
           "title": "Effort",
-          "desc": "Der Sonntagsritt als Artefakt statt als Screenshot. Routenpfad, Höhenprofil und einzelne Metriken werden zum Gestaltungselement. GPX rein, druckreife Karte raus.",
+          "desc": "Vier Stunden im Sattel verdienen mehr als einen Screenshot. Routenlinie, Höhenprofil und ein paar Kennzahlen werden zur Komposition statt zur Tabelle. GPX rein, teilbare Karte raus.",
           "stack": "Next.js · snapdom · Strava · GPX/FIT"
         }
       }

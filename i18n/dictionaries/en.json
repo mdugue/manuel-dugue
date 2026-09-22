@@ -76,7 +76,7 @@
           "num": "03",
           "host": "effort.manuel.fyi",
           "title": "Effort",
-          "desc": "Sunday's ride as an artefact rather than a screenshot. Route path, elevation profile and single metrics become the composition. GPX in, print-ready card out.",
+          "desc": "Four hours in the saddle deserve better than a screenshot. Route line, elevation profile and a handful of numbers become a composition instead of a table. GPX in, a card worth posting out.",
           "stack": "Next.js · snapdom · Strava · GPX/FIT"
         }
       }

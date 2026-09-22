@@ -75,7 +75,7 @@
           "num": "03",
           "host": "effort.manuel.fyi",
           "title": "Effort",
-          "desc": "La sortie du dimanche comme objet, pas comme capture d'écran. Tracé, profil altimétrique et métriques isolées deviennent la composition. Un GPX entre, une carte prête à imprimer sort.",
+          "desc": "Quatre heures en selle méritent mieux qu'une capture d'écran. Tracé, profil altimétrique et quelques chiffres deviennent une composition, pas un tableau. Un GPX entre, une carte à partager sort.",
           "stack": "Next.js · snapdom · Strava · GPX/FIT"
         }
       }
