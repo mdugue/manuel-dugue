@@ -53,6 +53,34 @@
         "sheetSubtitle": "Capabilities, stack, projects, and the longer version of what I do."
       }
     },
+    "lab": {
+      "label": "Lab",
+      "heading": "Where concepts run against real data",
+      "sub": "No client, no deadline. Heavily vibe-coded — the pipelines underneath are real.",
+      "projects": {
+        "alpen": {
+          "num": "01",
+          "host": "alpen.manuel.fyi",
+          "title": "Alpine passes",
+          "desc": "Which pass still holds in early October, and which town should I look for a bed in? 262 roads, ten years of summit climate, rideability per half-month. Not a route planner — a destination compass.",
+          "stack": "MapLibre · Open-Meteo · OpenRouteService · OSM"
+        },
+        "bridge": {
+          "num": "02",
+          "host": "bridge.manuel.fyi",
+          "title": "City Walk Dresden",
+          "desc": "Prompted by the argument over the Carolabrücke: can open geodata yield a digital twin that is beautiful without being photoreal? LoD2 buildings, DGM1 terrain, ATKIS surfaces — walkable in the browser.",
+          "stack": "three.js · CityJSON · GeoSN · OSM"
+        },
+        "effort": {
+          "num": "03",
+          "host": "effort.manuel.fyi",
+          "title": "Effort",
+          "desc": "Sunday's ride as an artefact rather than a screenshot. Route path, elevation profile and single metrics become the composition. GPX in, print-ready card out.",
+          "stack": "Next.js · snapdom · Strava · GPX/FIT"
+        }
+      }
+    },
     "legal": {
       "imprint": {
         "sheetTitle": "Imprint",

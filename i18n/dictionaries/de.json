@@ -52,6 +52,34 @@
         "sheetSubtitle": "Kompetenzen, Stack, Projekte und die längere Fassung meiner Arbeit."
       }
     },
+    "lab": {
+      "label": "Labor",
+      "heading": "Wo Konzepte gegen echte Daten laufen",
+      "sub": "Kein Auftrag, keine Deadline. Hoher Vibe-Coding-Anteil — die Pipelines dahinter sind echt.",
+      "projects": {
+        "alpen": {
+          "num": "01",
+          "host": "alpen.manuel.fyi",
+          "title": "Alpenpässe",
+          "desc": "Welcher Pass trägt Anfang Oktober noch, und wo suche ich dafür die Unterkunft? 262 Straßen, zehn Jahre Klimareihe am Gipfel, Fahrbarkeit pro Halbmonat. Kein Routenplaner — ein Reiseziel-Kompass.",
+          "stack": "MapLibre · Open-Meteo · OpenRouteService · OSM"
+        },
+        "bridge": {
+          "num": "02",
+          "host": "bridge.manuel.fyi",
+          "title": "City Walk Dresden",
+          "desc": "Angestoßen von der Debatte um die Carolabrücke: Lässt sich aus offenen Geodaten ein digitaler Zwilling bauen, der schön ist, ohne fotorealistisch zu sein? LoD2-Gebäude, DGM1-Gelände, ATKIS-Oberflächen — begehbar im Browser.",
+          "stack": "three.js · CityJSON · GeoSN · OSM"
+        },
+        "effort": {
+          "num": "03",
+          "host": "effort.manuel.fyi",
+          "title": "Effort",
+          "desc": "Der Sonntagsritt als Artefakt statt als Screenshot. Routenpfad, Höhenprofil und einzelne Metriken werden zum Gestaltungselement. GPX rein, druckreife Karte raus.",
+          "stack": "Next.js · snapdom · Strava · GPX/FIT"
+        }
+      }
+    },
     "legal": {
       "imprint": {
         "sheetTitle": "Impressum",

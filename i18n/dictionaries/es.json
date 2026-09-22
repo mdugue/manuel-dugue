@@ -52,6 +52,34 @@
         "sheetSubtitle": "Capacidades, stack, proyectos y la versión larga de mi trabajo."
       }
     },
+    "lab": {
+      "label": "Laboratorio",
+      "heading": "Donde los conceptos chocan con datos reales",
+      "sub": "Sin cliente, sin plazo. Con mucho vibe-coding — las pipelines de debajo son de verdad.",
+      "projects": {
+        "alpen": {
+          "num": "01",
+          "host": "alpen.manuel.fyi",
+          "title": "Puertos alpinos",
+          "desc": "¿Qué puerto aguanta a principios de octubre, y en qué pueblo busco alojamiento? 262 carreteras, diez años de clima en la cima, practicabilidad por quincena. No es un planificador de rutas — es una brújula de destinos.",
+          "stack": "MapLibre · Open-Meteo · OpenRouteService · OSM"
+        },
+        "bridge": {
+          "num": "02",
+          "host": "bridge.manuel.fyi",
+          "title": "City Walk Dresde",
+          "desc": "Nacido del debate sobre el Carolabrücke: ¿pueden unos geodatos abiertos dar un gemelo digital bello sin ser fotorrealista? Edificios LoD2, terreno DGM1, superficies ATKIS — transitable en el navegador.",
+          "stack": "three.js · CityJSON · GeoSN · OSM"
+        },
+        "effort": {
+          "num": "03",
+          "host": "effort.manuel.fyi",
+          "title": "Effort",
+          "desc": "La salida del domingo como artefacto, no como captura de pantalla. Trazado, perfil de altitud y métricas sueltas se vuelven composición. Entra un GPX, sale una tarjeta lista para imprimir.",
+          "stack": "Next.js · snapdom · Strava · GPX/FIT"
+        }
+      }
+    },
     "legal": {
       "imprint": {
         "sheetTitle": "Aviso legal",

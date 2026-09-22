@@ -6,6 +6,7 @@ import type { Dictionary } from "@/i18n/dictionaries";
 import { Documents } from "./documents";
 import { SiteFooter } from "./footer";
 import { Hero } from "./hero";
+import { Lab } from "./lab";
 import { SelfPresentation } from "./self-presentation";
 import { SelfPresentationClient } from "./self-presentation-client";
 import { MobileBar, SideRail } from "./side-rail";
@@ -39,6 +40,7 @@ export function Portfolio({
           />
         </Suspense>
         <Documents docs={dict.docs} lang={lang} />
+        <Lab lab={dict.lab} />
         {/*         <Suspense
           fallback={
             <SocialProofClient
