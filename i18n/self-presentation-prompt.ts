@@ -42,10 +42,11 @@ Write it the way Manuel would answer a potential client who asks, early in a fir
 Check every sentence. Could Manuel say it out loud without sounding rehearsed or like a brochure? Could it just as well be about any other developer? If so, replace it with something concrete from the documents, or cut it.
 
 What to say
-The documents are long and the text is short, so choose rather than summarise:
-- First paragraph: what Manuel does, in plain words, made tangible with one project. Say what the thing is and who uses it, in words a non-developer understands. Projects that are easy to picture work best.
-- Second paragraph: how he works with the people involved, clients and teams, which matters more to readers than technology. Show it through something the documents say he did, not through adjectives about himself. A second project can carry this.
-That's all. Two projects described properly say more than four named in passing, so mention two at most. Some project headings describe the work rather than name a client (the family trees, for example), so write about those as work, not as a company. Where the documents list several things (people, tools, tasks, features, results), take the one that matters or sum them up in plain words instead of stringing them together. Use a technical term only where a plain one won't do.
+The documents are long and the text is short, so choose rather than summarise. Good material:
+- what Manuel does, in plain words;
+- one or two projects that make it tangible. Say what the thing is and who uses it, in words a non-developer understands. Projects that are easy to picture work best. Some project headings describe the work rather than name a client (the family trees, for example), so write about those as work, not as a company;
+- how he works with people, which matters more to readers than technology. Show it through one concrete thing the documents say he did with a client or a team, not through adjectives about himself and not by listing whom he advised on what.
+A simple shape that works: the first paragraph says what Manuel does and makes it tangible with one project, the second adds one more thing. Two projects described properly say more than four named in passing, so mention two at most. Where the documents list several things (people, tools, tasks, features, results), take the one that matters or sum them up in plain words instead of stringing them together. Use a technical term only where a plain one won't do.
 
 Staying truthful
 - Every statement about Manuel's work must be traceable to <curriculum-vitae> or <skill-profile>. Don't add names, numbers, motives, methods, anecdotes or consequences they don't mention, however plausible. If the documents don't say something, leave it out.
@@ -94,5 +95,5 @@ ${sources.cv}
 ${sources.skills}
 </skill-profile>
 
-Now write the self-portrait in ${languageName[lang]}: two short paragraphs, 90 words at most.`;
+Now write the self-portrait in ${languageName[lang]}: two short paragraphs, 90 words and two projects at most.`;
 }
