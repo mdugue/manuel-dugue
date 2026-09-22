@@ -6,7 +6,10 @@ import { usePathname } from "next/navigation";
 
 import { localeLabels, locales } from "@/i18n/config";
 import type { Locale } from "@/i18n/config";
+import type { Dictionary } from "@/i18n/dictionaries";
 import { swapLang } from "@/i18n/swap-lang";
+
+type NavLabels = Dictionary["portfolio"]["nav"];
 
 const WORDMARK =
   "font-display text-[19px] leading-none tracking-normal text-ink";
@@ -30,16 +33,24 @@ function Wordmark({ orientation }: { orientation: "vertical" | "horizontal" }) {
   );
 }
 
-export function SideRail({ lang, spine }: { lang: Locale; spine: string }) {
+export function SideRail({
+  lang,
+  spine,
+  labels,
+}: {
+  lang: Locale;
+  spine: string;
+  labels: NavLabels;
+}) {
   const pathname = usePathname();
 
   return (
     <aside
-      aria-label="Site navigation"
+      aria-label={labels.site}
       className="pointer-events-none fixed inset-y-0 left-0 z-30 flex w-15 flex-col items-center justify-between py-7 *:pointer-events-auto max-lg:hidden"
     >
       <Link
-        aria-label="manuel.fyi — home"
+        aria-label={labels.home}
         className={`${WORDMARK} inline-flex rotate-180 items-baseline py-1 [writing-mode:vertical-rl] [&:hover_.tld]:underline [&:hover_.tld]:underline-offset-[3px]`}
         href={`/${lang}` as Route}
       >
@@ -54,7 +65,7 @@ export function SideRail({ lang, spine }: { lang: Locale; spine: string }) {
       </div>
 
       <nav
-        aria-label="Language"
+        aria-label={labels.language}
         className="text-nano flex flex-col items-center gap-0.5 font-mono tracking-widest"
       >
         {locales.map((code) => (
@@ -74,20 +85,26 @@ export function SideRail({ lang, spine }: { lang: Locale; spine: string }) {
   );
 }
 
-export function MobileBar({ lang }: { lang: Locale }) {
+export function MobileBar({
+  lang,
+  labels,
+}: {
+  lang: Locale;
+  labels: NavLabels;
+}) {
   const pathname = usePathname();
 
   return (
     <header className="border-rule-soft sticky top-0 z-30 hidden items-center justify-between border-b bg-[color-mix(in_oklch,var(--bg)_88%,transparent)] px-(--pad-x) py-3.5 [backdrop-filter:saturate(140%)_blur(10px)] [-webkit-backdrop-filter:saturate(140%)_blur(10px)] max-lg:flex">
       <Link
-        aria-label="manuel.fyi — home"
+        aria-label={labels.home}
         className="font-display text-ink text-xl"
         href={`/${lang}` as Route}
       >
         <Wordmark orientation="horizontal" />
       </Link>
       <nav
-        aria-label="Language"
+        aria-label={labels.language}
         className="text-micro tracking-label-tight flex gap-0.5 font-mono"
       >
         {locales.map((code) => (

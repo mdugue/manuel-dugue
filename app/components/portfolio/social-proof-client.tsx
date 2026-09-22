@@ -120,6 +120,7 @@ export function SocialProofClient({
             cycleLabel={proof.cycle}
             disabled={isLoading}
             modelId={currentModel.id}
+            modelLabel={proof.modelLabel}
             onRegenerate={regenerate}
             position={position}
             tooltip={{

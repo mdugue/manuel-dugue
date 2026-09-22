@@ -38,12 +38,13 @@ export function SiteFooter({
           <ul className="m-0 flex list-none flex-col gap-2 p-0">
             <li>
               <a className={footerLink} href="mailto:mail@manuel.fyi">
-                mail@manuel.fyi <span className={extLabel}>email</span>
+                mail@manuel.fyi{" "}
+                <span className={extLabel}>{footer.emailNote}</span>
               </a>
             </li>
             <li>
               <a className={footerLink} href="#signal">
-                Signal <span className={extLabel}>on request</span>
+                Signal <span className={extLabel}>{footer.signalNote}</span>
               </a>
             </li>
             <li>
@@ -53,7 +54,7 @@ export function SiteFooter({
                 rel="noopener noreferrer"
                 target="_blank"
               >
-                Calendar <span className={extLabel}>cal.com</span>
+                {footer.calendar} <span className={extLabel}>cal.eu</span>
               </a>
             </li>
           </ul>
