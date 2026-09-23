@@ -11,14 +11,6 @@ export const aiModels = [
     id: "google/gemini-3.8-flash",
     label: "Gemini 3.8 Flash",
   },
-  {
-    id: "openai/gpt-6-luna",
-    label: "GPT-6 Luna",
-  },
-  {
-    id: "openai/gpt-5.6-terra",
-    label: "GPT-5.6 Terra",
-  },
 ] as const;
 
 export type AiModelId = (typeof aiModels)[number]["id"];
