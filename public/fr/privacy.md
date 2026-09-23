@@ -55,7 +55,26 @@ l'audience). Vous pouvez vous y opposer à tout moment en bloquant le chemin
 
 Plus d'informations : <https://umami.is>
 
-## 6. Vos droits
+## 6. Textes générés par IA et limitation des requêtes
+
+L'autoportrait et les témoignages de la page d'accueil sont rédigés par un
+modèle de langage. À l'ouverture de la page, puis à chaque clic sur
+« Régénérer », votre navigateur demande un texte à ce site. Si aucun texte
+récent n'est en cache, la demande est transmise via le Vercel AI Gateway au
+fournisseur du modèle choisi (OpenAI, Anthropic ou Google). Le modèle ne reçoit
+que mon CV, mon profil de compétences et mes instructions — aucune donnée vous
+concernant. Les textes générés sont mis en cache chez Vercel pendant
+24 heures au maximum et affichés aussi aux autres visiteurs.
+
+Pour éviter les abus et les coûts inutiles, le site n'accepte qu'un nombre
+limité de ces demandes par minute et par adresse IP (limitation des requêtes,
+ou « rate limiting »). Votre adresse IP est pour cela enregistrée avec un
+compteur dans le cache de Vercel, puis supprimée automatiquement au bout d'une
+minute environ. Elle n'est ni transmise aux fournisseurs des modèles ni
+recoupée avec d'autres données. La base légale est l'art. 6, 1, f du RGPD
+(intérêt légitime à prévenir les abus et les coûts inutiles).
+
+## 7. Vos droits
 
 Vous avez le droit :
 
@@ -67,10 +86,10 @@ Vous avez le droit :
 - d'opposition (Art. 21 RGPD)
 - d'introduire une réclamation auprès d'une autorité de contrôle (Art. 77 RGPD)
 
-## 7. Contact
+## 8. Contact
 
 Pour toute question relative à la protection des données : mail@manuel.fyi.
 
-## 8. Version
+## 9. Version
 
-Dernière mise à jour : 22 septembre 2026.
+Dernière mise à jour : 23 septembre 2026.

@@ -50,7 +50,24 @@ path in your browser or via a content blocker.
 
 More information: <https://umami.is>
 
-## 6. Your rights
+## 6. AI-generated texts and rate limiting
+
+The self-portrait and the testimonials on the home page are written by a
+language model. When you open the page, and each time you click "Regenerate",
+your browser requests a text from this website. If no recent text is cached,
+the request is forwarded via the Vercel AI Gateway to the provider of the
+selected model (OpenAI, Anthropic or Google). The model only receives my CV,
+my skill profile and my instructions — no data about you. The finished texts
+are cached at Vercel for up to 24 hours and shown to other visitors as well.
+
+To prevent abuse and unnecessary costs, the website accepts only a limited
+number of these requests per minute from each IP address (rate limiting). For
+this, your IP address is stored in Vercel's cache together with a counter and
+deleted automatically after about a minute. It is neither passed on to the
+model providers nor combined with other data. The legal basis is Art. 6(1)(f)
+GDPR (legitimate interest in preventing abuse and unnecessary costs).
+
+## 7. Your rights
 
 You have the right to:
 
@@ -62,10 +79,10 @@ You have the right to:
 - object (Art. 21 GDPR)
 - lodge a complaint with a supervisory authority (Art. 77 GDPR)
 
-## 7. Contact
+## 8. Contact
 
 For data-protection questions, please contact mail@manuel.fyi.
 
-## 8. Version
+## 9. Version
 
-Last updated: 22 September 2026.
+Last updated: 23 September 2026.
