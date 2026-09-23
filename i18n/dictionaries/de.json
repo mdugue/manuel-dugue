@@ -151,22 +151,6 @@
         "guess": "Vermutlich",
         "wayBack": "Rückweg"
       },
-      "excuse": {
-        "label": "Ausrede",
-        "heading": "Eine kurze Ausrede",
-        "sub": "Von Hand geschrieben. Kein Modell wurde gefragt, und das merkt man.",
-        "tag": "Handgeschrieben · unbeaufsichtigt",
-        "model": "Modell: keins",
-        "cycle": "Neue Ausrede",
-        "items": [
-          "Ein Agent hat aufgeräumt. Sehr gründlich.",
-          "Beim Refactoring entfernt. Alle Tests blieben grün.",
-          "Pass gesperrt. Angeblich Schnee. Im August.",
-          "Auf meinem Rechner läuft’s.",
-          "Zugunsten der Startseite abgekündigt.",
-          "Zwanzig Jahre ausgeliefert — und ausgerechnet diese Seite ist beim Zusteller liegen geblieben."
-        ]
-      },
       "detours": {
         "label": "Umleitung",
         "heading": "Wege zurück",

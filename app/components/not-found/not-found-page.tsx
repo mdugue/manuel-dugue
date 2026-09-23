@@ -9,7 +9,6 @@ import type { RouteGuess } from "@/lib/guess-route";
 import { SiteFooter } from "../portfolio/footer";
 import { SectionHead } from "../portfolio/section-head";
 import { MobileBar, SideRail } from "../portfolio/side-rail";
-import { ExcuseCard } from "./excuse-card";
 
 type Portfolio = Dictionary["portfolio"];
 
@@ -124,9 +123,8 @@ function DetourBody({
 
 /**
  * The 404, built from the home page's own parts: a hero that quotes the real
- * one, a card that parodies the self-portrait, and rows in the lab's shape.
- * `path` is the requested address when the proxy passed it on, and drives the
- * guess at what was meant.
+ * one and rows in the lab's shape. `path` is the requested address when the
+ * proxy passed it on, and drives the guess at what was meant.
  */
 export function NotFoundPage({
   lang,
@@ -218,15 +216,6 @@ export function NotFoundPage({
               </div>
             </dl>
           </div>
-        </section>
-
-        <section className="py-[clamp(60px,9vw,130px)]">
-          <SectionHead
-            heading={nf.excuse.heading}
-            label={nf.excuse.label}
-            sub={nf.excuse.sub}
-          />
-          <ExcuseCard excuse={nf.excuse} />
         </section>
 
         <section className="py-[clamp(60px,9vw,130px)]">

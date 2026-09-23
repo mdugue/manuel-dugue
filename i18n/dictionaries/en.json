@@ -153,22 +153,6 @@
         "guess": "Probably",
         "wayBack": "Way back"
       },
-      "excuse": {
-        "label": "Excuse",
-        "heading": "A brief excuse",
-        "sub": "Written by hand. No model was consulted, and it shows.",
-        "tag": "Handwritten · supervised by no one",
-        "model": "model: none",
-        "cycle": "Another excuse",
-        "items": [
-          "An agent tidied up. Very thoroughly.",
-          "Removed in a refactor. Every test stayed green.",
-          "Pass closed. Snow, allegedly. In August.",
-          "Works on my machine.",
-          "Deprecated in favour of the home page.",
-          "Twenty years of shipping, and this one got lost in the post."
-        ]
-      },
       "detours": {
         "label": "Detour",
         "heading": "Ways back",

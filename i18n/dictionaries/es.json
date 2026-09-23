@@ -151,22 +151,6 @@
         "guess": "Seguramente",
         "wayBack": "Volver"
       },
-      "excuse": {
-        "label": "Excusa",
-        "heading": "Una breve excusa",
-        "sub": "Escrita a mano. No se consultó a ningún modelo, y se nota.",
-        "tag": "Escrita a mano · sin supervisión",
-        "model": "modelo: ninguno",
-        "cycle": "Otra excusa",
-        "items": [
-          "Un agente hizo limpieza. A fondo.",
-          "Eliminada en un refactor. Todos los tests siguieron en verde.",
-          "Puerto cerrado. Por nieve, dicen. En agosto.",
-          "En mi máquina funciona.",
-          "Obsoleta en favor de la página de inicio.",
-          "Veinte años entregando, y justo esta página se perdió por el camino."
-        ]
-      },
       "detours": {
         "label": "Desvío",
         "heading": "Caminos de vuelta",

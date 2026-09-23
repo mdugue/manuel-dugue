@@ -151,22 +151,6 @@
         "guess": "Sans doute",
         "wayBack": "Retour"
       },
-      "excuse": {
-        "label": "Excuse",
-        "heading": "Brève excuse",
-        "sub": "Écrite à la main. Aucun modèle n'a été consulté, et ça se voit.",
-        "tag": "Écrite à la main · non supervisée",
-        "model": "modèle : aucun",
-        "cycle": "Autre excuse",
-        "items": [
-          "Un agent a fait le ménage. Très consciencieusement.",
-          "Supprimée lors d'un refactoring. Tous les tests sont restés au vert.",
-          "Col fermé. Pour cause de neige, paraît-il. En août.",
-          "Chez moi, ça marche.",
-          "Dépréciée au profit de la page d'accueil.",
-          "Vingt ans à livrer, et c'est justement cette page qui s'est perdue en route."
-        ]
-      },
       "detours": {
         "label": "Déviation",
         "heading": "Chemins du retour",
