@@ -1,17 +1,8 @@
-import { match } from "@formatjs/intl-localematcher";
-import Negotiator from "negotiator";
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
-import { defaultLocale, locales } from "@/i18n/config";
-
-function getLocale(request: NextRequest): string {
-  const headers = {
-    "accept-language": request.headers.get("accept-language") ?? "",
-  };
-  const languages = new Negotiator({ headers }).languages();
-  return match(languages, locales, defaultLocale);
-}
+import { locales } from "@/i18n/config";
+import { negotiateLocale } from "@/i18n/negotiate-locale";
 
 export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
@@ -23,7 +14,7 @@ export function proxy(request: NextRequest) {
     return NextResponse.next();
   }
 
-  const locale = getLocale(request);
+  const locale = negotiateLocale(request.headers.get("accept-language"));
   request.nextUrl.pathname = `/${locale}${pathname}`;
   return NextResponse.redirect(request.nextUrl);
 }
