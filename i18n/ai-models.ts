@@ -1,15 +1,15 @@
 export const aiModels = [
   {
-    id: "openai/gpt-5.6-terra",
-    label: "GPT-5.6 Terra",
+    id: "openai/gpt-6-sol",
+    label: "GPT-6 Sol",
   },
   {
     id: "anthropic/claude-sonnet-5",
     label: "Claude Sonnet 5",
   },
   {
-    id: "google/gemini-3.7-flash",
-    label: "Gemini 3.7 Flash",
+    id: "google/gemini-3.8-flash",
+    label: "Gemini 3.8 Flash",
   },
 ] as const;
 
