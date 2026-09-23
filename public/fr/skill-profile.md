@@ -1,6 +1,6 @@
 ---
 published: 2021-04-20
-updated: 2026-09-22
+updated: 2026-09-23
 ---
 
 # Profil de compétences
@@ -218,6 +218,6 @@ Matières renforcées : mathématiques et sciences sociales.
 
 [archiveprogram.github.com](https://archiveprogram.github.com)
 
-### 2008 — Classement au concours photo « Go-Out Studying »
+### 2008 — Deuxième place au concours photo « Go-Out Studying »
 
 ### 2007 — Lauréat du pitch logo, chaire Microcomputer, TU Dresde

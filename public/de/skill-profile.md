@@ -1,6 +1,6 @@
 ---
 published: 2021-04-20
-updated: 2026-09-22
+updated: 2026-09-23
 ---
 
 # Kompetenzprofil
@@ -218,6 +218,6 @@ Leistungskurse in Mathematik und Sozialwissenschaften.
 
 [archiveprogram.github.com](https://archiveprogram.github.com)
 
-### 2008 — Platzierung beim Fotowettbewerb „Go-Out Studying“
+### 2008 — 2. Platz beim Fotowettbewerb „Go-Out Studying“
 
 ### 2007 — Preisträger des Logo-Pitchs am Lehrstuhl Mikrocomputer der TU Dresden

@@ -1,6 +1,6 @@
 ---
 published: 2021-04-20
-updated: 2026-09-22
+updated: 2026-09-23
 ---
 
 # Perfil de competencias
@@ -218,6 +218,6 @@ Asignaturas de especialidad: matemáticas y ciencias sociales.
 
 [archiveprogram.github.com](https://archiveprogram.github.com)
 
-### 2008 — Clasificación en el concurso fotográfico «Go-Out Studying»
+### 2008 — Segundo puesto en el concurso fotográfico «Go-Out Studying»
 
 ### 2007 — Premio en el pitch de logotipo, cátedra Microcomputer, TU Dresde

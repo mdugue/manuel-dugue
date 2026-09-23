@@ -1,6 +1,6 @@
 ---
 published: 2021-04-20
-updated: 2026-09-22
+updated: 2026-09-23
 ---
 
 # Currículum Vitae
@@ -40,4 +40,4 @@ Alemán y francés (lengua materna), inglés y español (fluido), portugués y n
 
 ## Al margen
 
-Contribuidor del Arctic Code Vault de GitHub, premio de pitch de logotipo en la cátedra Microcomputer de la TU Dresde, clasificado en el concurso fotográfico «Go-Out Studying». Antes, cortometrajes para Dell México, la cátedra Vodafone (TU Dresde), el festival Ostrale y T-Systems.
+Contribuidor del Arctic Code Vault de GitHub, premio de pitch de logotipo en la cátedra Microcomputer de la TU Dresde, segundo puesto en el concurso fotográfico «Go-Out Studying». Antes, cortometrajes para Dell México, la cátedra Vodafone (TU Dresde), el festival Ostrale y T-Systems.

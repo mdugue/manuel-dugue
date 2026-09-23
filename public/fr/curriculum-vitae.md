@@ -1,6 +1,6 @@
 ---
 published: 2021-04-20
-updated: 2026-09-22
+updated: 2026-09-23
 ---
 
 # Curriculum Vitae
@@ -40,4 +40,4 @@ Allemand et français (langue maternelle), anglais et espagnol (courant), portug
 
 ## À côté
 
-Contributeur GitHub Arctic Code Vault, lauréat d'un pitch logo à la chaire Microcomputer de la TU Dresde, classé au concours photo « Go-Out Studying ». Plus tôt, courts-métrages pour Dell Mexique, la chaire Vodafone (TU Dresde), le festival Ostrale et T-Systems.
+Contributeur GitHub Arctic Code Vault, lauréat d'un pitch logo à la chaire Microcomputer de la TU Dresde, deuxième place au concours photo « Go-Out Studying ». Plus tôt, courts-métrages pour Dell Mexique, la chaire Vodafone (TU Dresde), le festival Ostrale et T-Systems.

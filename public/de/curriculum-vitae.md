@@ -1,6 +1,6 @@
 ---
 published: 2021-04-20
-updated: 2026-09-22
+updated: 2026-09-23
 ---
 
 # Lebenslauf
@@ -23,7 +23,7 @@ Resiliente Software-Stacks, automatisierte Qualitätssicherung und KI-native Arb
 
 - **2002–2011 Diplom „Medieninformatik“ an der Fakultät Informatik, TU Dresden.** _„Interaktive zweidimensionale Darstellung von Erfahrungszeit basierend auf besuchten Orten“_, Endnote: 1 (≈ A).
 - **2009 Forschungsarbeit an der Fakultät Informatik, TU Dresden.** _„Materialität und Interaktion“_, unbenotet.
-- **2002–2009 Nebenfach „Kunst & Design“ an der HfBK und der TU Dresden.** _„Experimentalfilmische Annäherung an zeitgenössische Ornamentik“_, Endnote: 1,3 (≈ A).
+- **2002–2009 Nebenfach „Kunst & Gestaltung“ an der HfBK und der TU Dresden.** _„Experimentalfilmische Annäherung an zeitgenössische Ornamentik“_, Endnote: 1,3 (≈ A).
 - **2007–2008 Praktikum bei Cactus Film & Video, Mexiko.** Unterstützt durch InWEnt / GIZ-Stipendium.
 
 ## Fähigkeiten
@@ -40,4 +40,4 @@ Deutsch und Französisch (Muttersprache), Englisch und Spanisch (fließend), Por
 
 ## Am Rande
 
-GitHub Arctic Code Vault Contributor, Preisträger des Logo-Pitchs am Lehrstuhl Mikrocomputer der TU Dresden, Platzierung beim Fotowettbewerb „Go-Out Studying“. Früher Kurzfilme für Dell Mexiko, den Vodafone-Lehrstuhl (TU Dresden), das Kunstfestival Ostrale und T-Systems.
+GitHub Arctic Code Vault Contributor, Preisträger des Logo-Pitchs am Lehrstuhl Mikrocomputer der TU Dresden, 2. Platz beim Fotowettbewerb „Go-Out Studying“. Früher Kurzfilme für Dell Mexiko, den Vodafone-Lehrstuhl (TU Dresden), das Kunstfestival Ostrale und T-Systems.
