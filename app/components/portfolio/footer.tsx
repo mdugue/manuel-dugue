@@ -43,11 +43,6 @@ export function SiteFooter({
               </a>
             </li>
             <li>
-              <a className={footerLink} href="#signal">
-                Signal <span className={extLabel}>{footer.signalNote}</span>
-              </a>
-            </li>
-            <li>
               <a
                 className={footerLink}
                 href="https://www.cal.eu/manuel-dugue"
