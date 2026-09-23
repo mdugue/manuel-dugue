@@ -44,16 +44,21 @@ Check every sentence. Could Manuel say it out loud without sounding rehearsed or
 What to say
 The documents are long and the text is short, so choose rather than summarise. Good material:
 - what Manuel does, in plain words;
-- one or two projects that make it tangible. Say what the thing is and who uses it, in words a non-developer understands. Projects that are easy to picture work best. Some project headings describe the work rather than name a client (the family trees, for example), so write about those as work, not as a company;
+- the work made tangible. Say what a thing is and who uses it, in words a non-developer understands. Work that is easy to picture works best. Some project headings describe the work rather than name a client (the family trees, for example), so write about those as work, not as a company;
 - how he works with people, which matters more to readers than technology. Show it through one concrete thing the documents say he did with a client or a team, not through adjectives about himself and not by listing whom he advised on what.
 Web technology is Manuel's means, not his subject, and it will matter less over time. Don't present him as a web developer or his work as websites, web apps, web products or web technology, and don't name frameworks or programming languages. Say what the software does and for whom. Where the documents offer a choice, prefer what points forward: product decisions, architecture, and the agents and AI features he builds into products. The documents mention that agent work only briefly ("agent design", a codebase "laid out for agent-first access"). Be exactly as specific as they are: don't say what the agents do, whom they help or how they are used.
 
-A shape that works: the first paragraph says what Manuel does and makes it tangible with one project. The second turns to a second project or to how he works with people, and it follows on from the first. Find the thread that links them before you write: a similar problem, the same kind of users, another side of the same work, or a contrast. Then let the first sentence of the second paragraph make that link heard, the way someone continues a thought in conversation. A connecting word such as "also", "similarly" or "unlike" is welcome when it names a real link. Without one, it is just filler. Two paragraphs that could swap places read like a list, and so does a second paragraph that opens with "Another project is …" or "In addition, …". Two projects described properly say more than four named in passing, so mention two at most. Where the documents list several things (people, tools, tasks, features, results), take the one that matters or sum them up in plain words instead of stringing them together. Say "the team", not how many developers, designers and leads it has. Use a technical term only where a plain one won't do.
+Each paragraph has one subject, and there are two ways to pick it. Choose whichever the material serves better; neither is preferred.
+- A single project, described properly.
+- A theme that several engagements share: a kind of product Manuel has built for different clients, or a way of working that recurs. Take only themes the documents show those engagements actually have in common, and put them in concrete terms, not as a skill ("dashboards for engineering teams", not "making complexity clear"). A theme still needs an example: describe one engagement properly and name at most two others as further instances, in a few words.
+Either way, describe at most two engagements in detail in the whole text. More than that, named in passing, turns into a list.
+
+The first paragraph says what Manuel does and makes it tangible. The second turns to another subject or to how he works with people, and it follows on from the first. Find the thread that links them before you write: a similar problem, the same kind of users, another side of the same work, or a contrast. Then let the first sentence of the second paragraph make that link heard, the way someone continues a thought in conversation. A connecting word such as "also", "similarly" or "unlike" is welcome when it names a real link. Without one, it is just filler. Two paragraphs that could swap places read like a list, and so does a second paragraph that opens with "Another project is …" or "In addition, …". Where the documents list several things (people, tools, tasks, features, results), take the one that matters or sum them up in plain words instead of stringing them together. Say "the team", not how many developers, designers and leads it has. Use a technical term only where a plain one won't do.
 
 Staying truthful
 - Every statement about Manuel's work must be traceable to <curriculum-vitae> or <skill-profile>. Don't add names, numbers, motives, methods, anecdotes or consequences they don't mention, however plausible. If the documents don't say something, leave it out.
 - Keep every claim the size the documents give it: "advised" stays advised, "part of the groundwork" stays part of it, a changed name stays a changed name. Mention results only where the documents state them.
-- Naming clients is fine, at most two. Don't describe a client beyond what the documents say about it. If a name alone won't mean much, let the description of the work carry it.
+- Naming clients is fine, at most three in the whole text. Don't describe a client beyond what the documents say about it. If a name alone won't mean much, let the description of the work carry it.
 - Engagements marked "since …" are ongoing: present tense. Finished ones: past tense.
 
 What makes generated text sound generated
@@ -98,5 +103,5 @@ ${sources.cv}
 ${sources.skills}
 </skill-profile>
 
-Now write the self-portrait in ${languageName[lang]}: two short paragraphs that follow on from each other, 90 words and two projects at most, and don't start with "I".`;
+Now write the self-portrait in ${languageName[lang]}: two short paragraphs that follow on from each other, 90 words at most, and don't start with "I".`;
 }

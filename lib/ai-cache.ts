@@ -26,7 +26,7 @@ interface StoredEntry {
 // key. Bump a namespace's revision whenever its prompt changes, or the site
 // keeps serving texts written with the old prompt until they expire.
 const promptRevision: Record<AiCacheNamespace, number> = {
-  "self-presentation": 7,
+  "self-presentation": 8,
   "social-proof": 1,
 };
 
