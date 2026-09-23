@@ -21,7 +21,7 @@ Resiliente Software-Stacks, automatisierte Qualitätssicherung und KI-native Arb
 
 ## Ausbildung
 
-- **2002–2011 Diplom „Medieninformatik“ an der Fakultät Informatik, TU Dresden.** _„Interaktive zweidimensionale Darstellung von Erfahrungszeit basierend auf besuchten Orten“_, Endnote: 1 (≈ A).
+- **2002–2011 Diplom „Medieninformatik“ an der Fakultät Informatik, TU Dresden.** _„Interaktive zweidimensionale Darstellung von Erlebniszeit basierend auf besuchten Orten“_, Endnote: 1 (≈ A).
 - **2009 Forschungsarbeit an der Fakultät Informatik, TU Dresden.** _„Materialität und Interaktion“_, unbenotet.
 - **2002–2009 Nebenfach „Kunst & Gestaltung“ an der HfBK und der TU Dresden.** _„Experimentalfilmische Annäherung an zeitgenössische Ornamentik“_, Endnote: 1,3 (≈ A).
 - **2007–2008 Praktikum bei Cactus Film & Video, Mexiko.** Unterstützt durch InWEnt / GIZ-Stipendium.
