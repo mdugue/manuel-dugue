@@ -44,14 +44,24 @@ Check every sentence. Could Manuel say it out loud without sounding rehearsed or
 What to say
 The documents are long and the text is short, so choose rather than summarise. Good material:
 - what Manuel does, in plain words;
-- one or two projects that make it tangible. Say what the thing is and who uses it, in words a non-developer understands. Projects that are easy to picture work best. Some project headings describe the work rather than name a client (the family trees, for example), so write about those as work, not as a company;
+- the work made tangible. Say what a thing is and who uses it, in words a non-developer understands. Work that is easy to picture works best. Some project headings describe the work rather than name a client (the family trees, for example), so write about those as work, not as a company;
 - how he works with people, which matters more to readers than technology. Show it through one concrete thing the documents say he did with a client or a team, not through adjectives about himself and not by listing whom he advised on what.
-A simple shape that works: the first paragraph says what Manuel does and makes it tangible with one project, the second adds one more thing. Two projects described properly say more than four named in passing, so mention two at most. Where the documents list several things (people, tools, tasks, features, results), take the one that matters or sum them up in plain words instead of stringing them together. Use a technical term only where a plain one won't do.
+Web technology is Manuel's means, not his subject, and it will matter less over time. Don't present him as a web developer or his work as websites, web apps, web products or web technology, and don't name frameworks or programming languages. Say what the software does and for whom. Where the documents offer a choice, prefer what points forward: product decisions, architecture, and the agents and AI features he builds into products. The documents mention that agent work only briefly ("agent design", a codebase "laid out for agent-first access"). Be exactly as specific as they are: don't say what the agents do, whom they help or how they are used.
+
+Each paragraph has one subject: a theme or a single project.
+Before you choose, look across all the projects in <skill-profile> for work that recurs: the same kind of product built for different clients, or the same role taken on again and again. A theme like that often says more than one project, because it shows what clients keep coming to Manuel for. If you find one, consider building a paragraph on it:
+- Put it in concrete terms, not as a skill: "dashboards and portals for engineering and research teams", not "making complexity clear". Take it only from what the engagements demonstrably share.
+- Say what the engagements have in common, and anchor it in one of them, described properly. Name at most two others as further instances, in a few words.
+- Everything you say the engagements share must be true of each of them. Don't stretch a detail of one engagement to the others, and don't invent a sequence or cause between them ("that work led me to …").
+If no theme holds up, or a single project tells the story better, describe that project properly instead.
+Either way, the whole text mentions at most three engagements, and at most two of them in detail. Never put two unrelated projects into one paragraph.
+
+The first paragraph says what Manuel does and makes it tangible. The second turns to another subject or to how he works with people, and it follows on from the first. Find the thread that links them before you write: a similar problem, the same kind of users, another side of the same work, or a contrast. Then let the first sentence of the second paragraph make that link heard, the way someone continues a thought in conversation. A connecting word such as "also", "similarly" or "unlike" is welcome when it names a real link. Without one, it is just filler. Two paragraphs that could swap places read like a list, and so does a second paragraph that opens with "Another project is …" or "In addition, …". Where the documents list several things (people, tools, tasks, features, results), take the one that matters or sum them up in plain words instead of stringing them together. Say "the team", not how many developers, designers and leads it has; no head counts anywhere. Use a technical term only where a plain one won't do.
 
 Staying truthful
 - Every statement about Manuel's work must be traceable to <curriculum-vitae> or <skill-profile>. Don't add names, numbers, motives, methods, anecdotes or consequences they don't mention, however plausible. If the documents don't say something, leave it out.
 - Keep every claim the size the documents give it: "advised" stays advised, "part of the groundwork" stays part of it, a changed name stays a changed name. Mention results only where the documents state them.
-- Naming clients is fine, at most two. Don't describe a client beyond what the documents say about it. If a name alone won't mean much, let the description of the work carry it.
+- Naming clients is fine, at most three in the whole text. Don't describe a client beyond what the documents say about it. If a name alone won't mean much, let the description of the work carry it.
 - Engagements marked "since …" are ongoing: present tense. Finished ones: past tense.
 
 What makes generated text sound generated
@@ -69,6 +79,7 @@ Avoid the patterns, not only these exact words.
 
 Form
 - Exactly two short paragraphs, separated by one blank line. 50 to 90 words altogether, never more: the text sits in a small box in large type, and anything longer looks crowded.
+- Don't open the text with "I" or a first-person verb, and don't start both paragraphs or two sentences in a row that way. A text that starts with "I" sounds like a form being filled in. Lead with the matter instead: the people the work is for, the thing being built, the project or the theme. A general statement about what teams need is not the matter; it is a tagline. The text stays in the first person; the "I" just moves further into the sentence. Don't open both paragraphs the same way, for instance both with a client or place name.
 - One main idea per sentence, two or three sentences per paragraph, most of them short. Three short sentences are better than one long, overloaded one.
 - No semicolons, no long insertions, at most one dash in the whole text.
 - Plain text only: no greeting, heading, quotation marks, list or markdown.
@@ -95,5 +106,5 @@ ${sources.cv}
 ${sources.skills}
 </skill-profile>
 
-Now write the self-portrait in ${languageName[lang]}: two short paragraphs, 90 words and two projects at most.`;
+Now write the self-portrait in ${languageName[lang]}: two short paragraphs that follow on from each other, 90 words at most, and don't start with "I".`;
 }

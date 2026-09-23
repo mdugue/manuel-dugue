@@ -1,17 +1,9 @@
-import { match } from "@formatjs/intl-localematcher";
-import Negotiator from "negotiator";
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
-import { defaultLocale, locales } from "@/i18n/config";
-
-function getLocale(request: NextRequest): string {
-  const headers = {
-    "accept-language": request.headers.get("accept-language") ?? "",
-  };
-  const languages = new Negotiator({ headers }).languages();
-  return match(languages, locales, defaultLocale);
-}
+import { locales } from "@/i18n/config";
+import { negotiateLocale } from "@/i18n/negotiate-locale";
+import { REQUEST_PATH_HEADER } from "@/lib/request-path";
 
 export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
@@ -20,14 +12,21 @@ export function proxy(request: NextRequest) {
       pathname === `/${candidate}` || pathname.startsWith(`/${candidate}/`)
   );
   if (hasLocalePrefix) {
-    return NextResponse.next();
+    const headers = new Headers(request.headers);
+    headers.set(REQUEST_PATH_HEADER, pathname);
+    return NextResponse.next({ request: { headers } });
   }
 
-  const locale = getLocale(request);
+  const locale = negotiateLocale(request.headers.get("accept-language"));
   request.nextUrl.pathname = `/${locale}${pathname}`;
   return NextResponse.redirect(request.nextUrl);
 }
 
 export const config = {
-  matcher: ["/((?!_next|api/|stats/|icon|apple-icon|.*\\..*).*)"],
+  matcher: [
+    "/((?!_next|api/|stats/|icon|apple-icon|.*\\..*).*)",
+    // Locale-prefixed paths with a dot (/de/cv.pdf) never reach a page, but the
+    // 404 can still answer them in the right language.
+    "/(de|en|fr|es)/(.*\\..*)",
+  ],
 };

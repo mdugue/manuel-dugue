@@ -1,6 +1,6 @@
 ---
 published: 2021-04-20
-updated: 2026-05-12
+updated: 2026-09-23
 ---
 
 # Perfil de competencias
@@ -14,9 +14,9 @@ Integro funcionalidades LLM y agentes a medida en equipos de producto con MCP, A
 |                          |                                                                                                                                   |
 | ------------------------ | --------------------------------------------------------------------------------------------------------------------------------- |
 | **Titulación**           | Dipl.-Medieninformatiker (Diploma en Informática de Medios)                                                                       |
-| **Nacimiento**           | 12.09.1981 en Berlín, Alemania                                                                                                    |
+| **Nacimiento**           | 12 de septiembre de 1981 en Berlín, Alemania                                                                                      |
 | **Nacionalidad**         | Alemana y francesa                                                                                                                |
-| **Idiomas**              | Alemán (lengua materna), Francés (lengua materna), Inglés (fluido), Español (fluido), Portugués (nociones), Neerlandés (nociones) |
+| **Idiomas**              | Alemán (lengua materna), francés (lengua materna), inglés (fluido), español (fluido), portugués (nociones), neerlandés (nociones) |
 | **Intereses personales** | Deporte, música, fotografía, tipografía, arquitectura, cocina                                                                     |
 
 ## Lo que hago
@@ -74,7 +74,7 @@ _Stack:_ React, GEDCOM, Figma, Lovable.
 
 ### Estino GmbH — desde 2018
 
-Dashboards B2B para la ingeniería de producto en automoción: visualización de señales, gestión de entidades, diseño de agentes. Señales, máquinas, mapas — hacer legible lo invisible del hardware.
+Cuadros de mando B2B para la ingeniería de producto en automoción: visualización de señales, gestión de entidades, diseño de agentes. Señales, máquinas, mapas — hacer legible lo invisible del hardware.
 
 _Rol:_ Conceptualización, UX, formación, desarrollo.
 
@@ -84,7 +84,7 @@ _Stack:_ Next.js, D3, Mapbox, DeckGL, GraphQL, Apollo, Playwright, Bun, Tailwind
 
 ### Fioscope — 2024
 
-Prototipo de dashboard para flujos de cámara en directo desde el interior de hornos en marcha, junto a métricas derivadas de las imágenes como el avance de la fusión. Una mirada al fuego — traducida en cifras con las que el operador puede trabajar.
+Prototipo de cuadro de mando para flujos de cámara en directo desde el interior de hornos en marcha, junto a métricas derivadas de las imágenes como el avance de la fusión. Una mirada al fuego — traducida en cifras con las que el operador puede trabajar.
 
 _Rol:_ Conceptualización, UX, desarrollo del prototipo.
 
@@ -124,7 +124,7 @@ _Rol:_ Desarrollo, formación, consultoría.
 
 Relanzamiento y evolución del portal de reservas Weg.de / lastminute.com. Las vacaciones deberían sentirse como el viaje — también al reservarlas.
 
-_Rol:_ Relanzamiento del portal, componentes clave, capacitación de diez desarrolladores y dos diseñadores. Menos bugs, rebote y churn a la baja, iteración más rápida — base para la adquisición por lastminute.com.
+_Rol:_ Relanzamiento del portal, componentes clave, capacitación de diez desarrolladores y dos diseñadores. Menos bugs, rebote y churn a la baja, iteración más rápida — parte de la base para la adquisición por lastminute.com.
 
 _Stack:_ Next.js, React, Redux, Webpack, Jest, ES6, CSSNEXT, Node.js.
 
@@ -174,7 +174,7 @@ Acompañamiento en la transformación de soportes publicitarios a anuncios HTML5
 
 _Stack:_ CSS3, Gulp, Node.js, ES6.
 
-### Trabajos anteriores
+### Trabajos anteriores — 2008–2014
 
 - **T-Systems MMS, Dresde — 2009–2012, 2014.** Producto de genealogía: árbol familiar a gran escala, originalmente en Flash, luego portado a HTML5 con impresión en PDF, integración con Jive, soporte móvil, búsqueda y filtrado en tiempo real. _HTML5, CoffeeScript, Spine MVC, Raphael.js, jQuery, React._
 - **Exelonix GmbH, Dresde — 2013–2014.** Tabletas Android para personas mayores — facilidad de uso, mantenimiento remoto por familiares, aplicaciones de salud, comunicación, seguridad, entretenimiento. _Java, Android, HTTP._
@@ -218,6 +218,6 @@ Asignaturas de especialidad: matemáticas y ciencias sociales.
 
 [archiveprogram.github.com](https://archiveprogram.github.com)
 
-### 2008 — Clasificación en el concurso fotográfico «Go-Out Studying»
+### 2008 — Segundo puesto en el concurso fotográfico «Go-Out Studying»
 
 ### 2007 — Premio en el pitch de logotipo, cátedra Microcomputer, TU Dresde

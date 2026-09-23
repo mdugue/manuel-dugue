@@ -3,21 +3,21 @@
 ## 1. Responsable du traitement
 
 Responsable au sens du Règlement général sur la protection des données (RGPD)
-et des autres réglementations applicables :
+et des autres réglementations applicables :
 
 Manuel Dugué
 Görlitzer Straße 23
 01099 Dresde
 Allemagne
 
-Courriel : mail@manuel.fyi
+Courriel : mail@manuel.fyi
 
 ## 2. Indications générales
 
 Ce site peut être consulté sans communiquer de données personnelles. Les
-données personnelles ne sont collectées que si vous les communiquez
-volontairement — par exemple en envoyant un courriel ou en remplissant un
-formulaire de contact. La transmission est chiffrée via TLS.
+données personnelles ne sont collectées que si vous me les communiquez
+volontairement — par exemple par courriel. La transmission est chiffrée via
+TLS.
 
 ## 3. Hébergement
 
@@ -28,8 +28,8 @@ et le respect des obligations légales (Art. 6, 1, f du RGPD).
 
 ## 4. Cookies
 
-Ce site n'utilise pas de cookies de suivi. Seuls des cookies techniquement
-nécessaires (p. ex. pour mémoriser la langue choisie) sont utilisés.
+Ce site n'utilise pas de cookies. La langue choisie figure dans l'adresse
+(p. ex. /fr) et n'est pas enregistrée dans un cookie.
 
 ## 5. Outils d'analyse
 
@@ -46,18 +46,37 @@ l'API Navigation Timing de votre navigateur) sont également collectées afin
 d'identifier les pages lentes.
 
 Les requêtes vers l'outil de mesure passent par le chemin first-party
-`/stats` sur ce domaine ; votre navigateur ne contacte donc pas umami.is
+`/stats` sur ce domaine ; votre navigateur ne contacte donc pas umami.is
 directement.
 
 La base légale est l'art. 6, 1, f du RGPD (intérêt légitime à mesurer
 l'audience). Vous pouvez vous y opposer à tout moment en bloquant le chemin
 `/stats` dans votre navigateur ou via un bloqueur de contenu.
 
-Plus d'informations : <https://umami.is>
+Plus d'informations : <https://umami.is>
 
-## 6. Vos droits
+## 6. Textes générés par IA et limitation des requêtes
 
-Vous avez le droit :
+L'autoportrait et les témoignages de la page d'accueil sont rédigés par un
+modèle de langage. À l'ouverture de la page, puis à chaque clic sur
+« Régénérer », votre navigateur demande un texte à ce site. Si aucun texte
+récent n'est en cache, la demande est transmise via le Vercel AI Gateway au
+fournisseur du modèle choisi (OpenAI, Anthropic ou Google). Le modèle ne reçoit
+que mon CV, mon profil de compétences et mes instructions — aucune donnée vous
+concernant. Les textes générés sont mis en cache chez Vercel pendant
+24 heures au maximum et affichés aussi aux autres visiteurs.
+
+Pour éviter les abus et les coûts inutiles, le site n'accepte qu'un nombre
+limité de ces demandes par minute et par adresse IP (limitation des requêtes,
+ou « rate limiting »). Votre adresse IP est pour cela enregistrée avec un
+compteur dans le cache de Vercel, puis supprimée automatiquement au bout d'une
+minute environ. Elle n'est ni transmise aux fournisseurs des modèles ni
+recoupée avec d'autres données. La base légale est l'art. 6, 1, f du RGPD
+(intérêt légitime à prévenir les abus et les coûts inutiles).
+
+## 7. Vos droits
+
+Vous avez le droit :
 
 - d'accès (Art. 15 RGPD)
 - de rectification (Art. 16 RGPD)
@@ -67,10 +86,10 @@ Vous avez le droit :
 - d'opposition (Art. 21 RGPD)
 - d'introduire une réclamation auprès d'une autorité de contrôle (Art. 77 RGPD)
 
-## 7. Contact
+## 8. Contact
 
-Pour toute question relative à la protection des données : mail@manuel.fyi.
+Pour toute question relative à la protection des données : mail@manuel.fyi.
 
-## 8. Version
+## 9. Version
 
-Dernière mise à jour : 22 avril 2026.
+Dernière mise à jour : 23 septembre 2026.

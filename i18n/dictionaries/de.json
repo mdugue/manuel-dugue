@@ -1,7 +1,7 @@
 {
   "common": {},
   "portfolio": {
-    "spine": "unabhängiger Produktentwickler · dresden",
+    "spine": "unabhängiger Product Engineer · dresden",
     "contact": ["Manuel Dugué", "mail@manuel.fyi", "Dresden / Remote"],
     "hero": {
       "eyebrow": "Product Engineer · seit 2004",
@@ -20,10 +20,11 @@
     "self": {
       "label": "Über mich",
       "heading": "Ein kurzes Selbstporträt",
-      "sub": "Auf Basis der \"offiziellen Dokumente\". Dann einem Modell übergeben, mit der Bitte, nicht lyrisch zu werden.",
+      "sub": "Auf Basis der „offiziellen Dokumente“. Dann einem Modell übergeben, mit der Bitte, nicht lyrisch zu werden.",
       "tag": "Vom LLM erzeugt · leicht beaufsichtigt von Manuel",
       "cycle": "Neu generieren",
       "errorRetry": "Das hat nicht geklappt. Nochmal versuchen?",
+      "modelLabel": "Modell:",
       "tooltip": {
         "nextModel": "Nächstes Modell",
         "cached": "Aus dem Cache — frische Ausgabe",
@@ -34,11 +35,12 @@
       "label": "Dokumente",
       "heading": "Die offiziellen Dokumente",
       "sub": "Lebenslauf und die längere Fassung dessen, was ich tue und wobei ich nützlich bin.",
+      "kicker": "Dokument",
       "updatedLabel": "Aktualisiert",
       "cv": {
         "num": "01",
         "title": "Lebenslauf",
-        "desc": "Mehr als zwanzig Jahre auf einer Seite.",
+        "desc": "Mehr als zwanzig Jahre auf einer Seite. Genauer als Smalltalk, kürzer als die lange Fassung.",
         "cta": "Dokument öffnen",
         "sheetTitle": "Lebenslauf",
         "sheetSubtitle": "Produktentwicklung — nutzerzentrierte Architektur, agentische Workflows, Strategie."
@@ -46,7 +48,7 @@
       "profile": {
         "num": "02",
         "title": "Kompetenzprofil",
-        "desc": "Die längere Fassung: was ich erstelle & wie ich arbeite.",
+        "desc": "Die längere Fassung: was ich entwickle, wie ich arbeite und wo die Agenten ins Spiel kommen.",
         "cta": "Dokument öffnen",
         "sheetTitle": "Kompetenzprofil",
         "sheetSubtitle": "Kompetenzen, Stack, Projekte und die längere Fassung meiner Arbeit."
@@ -83,20 +85,21 @@
     "legal": {
       "imprint": {
         "sheetTitle": "Impressum",
-        "sheetSubtitle": "Angaben gemäß § 5 TMG"
+        "sheetSubtitle": "Angaben gemäß § 5 DDG"
       },
       "privacy": {
         "sheetTitle": "Datenschutz",
-        "sheetSubtitle": "Wie diese Seite mit deinen Daten umgeht"
+        "sheetSubtitle": "Welche Daten diese Seite verarbeitet und wozu"
       }
     },
     "proof": {
       "label": "Social Proof",
-      "heading": "Was Klienten vermutlich sagten",
-      "sub": "Vollständig synthetisch, fake Stimmen, echte Projekte.",
+      "heading": "Was Kunden vermutlich sagten",
+      "sub": "Vollständig synthetisch: erfundene Stimmen, echte Projekte.",
       "cycle": "Neu generieren",
       "errorRetry": "Das hat nicht geklappt. Nochmal versuchen?",
-      "banner": "Alle obigen Zitate stammen von einem Sprachmodell. Sie wurden von keinem Kunden abgesegnet, denn es wurde keiner gefragt. Die Ähnlichkeit zu echtem Lob ist beabsichtigt.",
+      "modelLabel": "Modell:",
+      "banner": "Alle obigen Zitate stammen von einem Sprachmodell. Sie wurden von keinem Kunden abgesegnet, denn es wurde keiner gefragt. Die Ähnlichkeit mit echtem Lob ist beabsichtigt.",
       "tooltip": {
         "nextModel": "Nächstes Modell",
         "cached": "Aus dem Cache — frische Ausgabe",
@@ -105,19 +108,64 @@
     },
     "footer": {
       "word": ["Lasst uns", "<em>reden</em>."],
-      "sayHello": "Hallo",
-      "elsewhere": "Sonst",
-      "legal": "Legal",
+      "sayHello": "Hallo sagen",
+      "emailNote": "E-Mail",
+      "calendar": "Kalender",
+      "elsewhere": "Anderswo",
+      "legal": "Rechtliches",
       "imprint": "Impressum",
       "privacy": "Datenschutz",
       "colophon": "Kolophon",
       "meta": "© 2026 Manuel Dugué"
+    },
+    "nav": {
+      "site": "Seitennavigation",
+      "home": "manuel.fyi — Startseite",
+      "language": "Sprache"
     },
     "modal": {
       "download": "PDF herunterladen",
       "print": "Drucken",
       "close": "Schließen",
       "escHint": "Esc zum Schließen"
+    },
+    "notFound": {
+      "metaTitle": "Seite nicht gefunden",
+      "metaDescription": "Diese Adresse führt ins Leere. Der Weg zurück ist einen Klick entfernt.",
+      "eyebrow": "404 · Seite nicht gefunden",
+      "title": [
+        "Gestalten, entwickeln & ausliefern —",
+        "<em>nur diese Seite nicht.</em>"
+      ],
+      "lede": "Diese Adresse führt ins Leere. Vielleicht ein Tippfehler, vielleicht ein Link, der seine Seite überlebt hat. Die Wege weiter unten sind jedenfalls frei.",
+      "facts": {
+        "requested": "Angefragt",
+        "status": {
+          "label": "Status",
+          "value": "404 · nicht gefunden"
+        },
+        "rideable": {
+          "label": "Fahrbar",
+          "value": "0 von 24 Halbmonaten"
+        },
+        "guess": "Vermutlich",
+        "wayBack": "Rückweg"
+      },
+      "detours": {
+        "label": "Umleitung",
+        "heading": "Wege zurück",
+        "sub": "Der Pass ist gesperrt. Diese Straßen sind ganzjährig befahrbar.",
+        "home": {
+          "title": "Startseite",
+          "desc": "Selbstporträt, Dokumente, Labor — alles, was es tatsächlich gibt."
+        },
+        "report": {
+          "title": "Sackgasse melden",
+          "desc": "Ein Link auf dieser Website hat hierher geführt? Dann freue ich mich über einen kurzen Hinweis.",
+          "subject": "Sackgasse: {path}"
+        }
+      },
+      "contact": "Kontakt"
     }
   }
 }

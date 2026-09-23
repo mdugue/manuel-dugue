@@ -1,13 +1,13 @@
 ---
 published: 2021-04-20
-updated: 2026-05-12
+updated: 2026-09-23
 ---
 
-# Skill Profile
+# Kompetenzprofil
 
 Seit 2004 arbeite ich an nutzerzentrierten Software-Produkten. Tief in Web-Tech; breit in UX, Informationsarchitektur, Agentic-AI-Engineering und Coaching.
 
-Coaching zu Themen wie resiliente End-to-End-Stacks, automatisierte Qualitätssicherung und KI-native Arbeitsabläufe. Integration von LLM-Features und eigenen Agenten in Produktteams mit MCP, Agent Skills, AI-SDKs u. a. Am liebsten an der Schnittstelle zwischen konzeptioneller Strategie und praktischer Umsetzung.
+Coaching zu Themen wie resilienten End-to-End-Stacks, automatisierter Qualitätssicherung und KI-nativen Arbeitsabläufen. Integration von LLM-Features und eigenen Agenten in Produktteams mit MCP, Agent Skills, AI-SDKs u. a. Am liebsten an der Schnittstelle zwischen konzeptioneller Strategie und praktischer Umsetzung.
 
 ## Profil
 
@@ -98,7 +98,7 @@ _Stack:_ Docker, npm, AWS, TypeScript, Drone CI, Jira, Bitbucket, Three.js, WebG
 
 ### JoDDiD — 2022–2023
 
-Digitale Ausstellung _"einfach gut gemacht — politische Bildung in Sachsen"_. Politische Bildung, die das Vorbeiscrollen überlebt.
+Digitale Ausstellung _„einfach gut gemacht — politische Bildung in Sachsen“_. Politische Bildung, die das Vorbeiscrollen überlebt.
 
 _Rolle:_ Konzeption, UX, Schulung, Entwicklung.
 
@@ -114,7 +114,7 @@ UX-Beratung für Landing Pages, Testimonials und interaktive Widgets. Über Mill
 
 ### Baselworld — 2021
 
-Frontend-Lead für das Intranet von Baselworld / Houruniverse (heute "Watches and Wonders"). Uhren messen Zeit; ein Intranet misst ein Unternehmen — beide sind auf ineinandergreifende kleine Zahnräder angewiesen.
+Frontend-Lead für das Intranet von Baselworld / Houruniverse (heute „Watches and Wonders“). Uhren messen Zeit; ein Intranet misst ein Unternehmen — beide sind auf ineinandergreifende kleine Zahnräder angewiesen.
 
 _Rolle:_ Entwicklung, Schulung, Beratung.
 
@@ -174,7 +174,7 @@ Begleitung der Umstellung von Werbemitteln auf moderne HTML5-Anzeigen: Animation
 
 _Stack:_ CSS3, Gulp, Node.js, ES6.
 
-### Frühere Arbeiten
+### Frühere Arbeiten — 2008–2014
 
 - **T-Systems MMS, Dresden — 2009–2012, 2014.** Genealogie-Produkt: großer Stammbaum, ursprünglich in Flash, später HTML5-Portierung mit PDF-Druck, Jive-Integration, Mobile-Unterstützung, Instant-Suche und Filterung. _HTML5, CoffeeScript, Spine MVC, Raphael.js, jQuery, React._
 - **Exelonix GmbH, Dresden — 2013–2014.** Android-Tablets für Seniorinnen und Senioren — Einfachheit der Bedienung, Fernwartung durch Angehörige, Apps für Gesundheit, Kommunikation, Sicherheit, Unterhaltung. _Java, Android, HTTP._
@@ -186,19 +186,19 @@ _Stack:_ CSS3, Gulp, Node.js, ES6.
 
 ## Ausbildung
 
-### 2002–2011 Diplom "Medieninformatik" — Fakultät Informatik, TU Dresden
+### 2002–2011 Diplom „Medieninformatik“ — Fakultät Informatik, TU Dresden
 
-_"Interaktive zweidimensionale Darstellung von Erlebniszeit basierend auf besuchten Orten"_
+_„Interaktive zweidimensionale Darstellung von Erlebniszeit basierend auf besuchten Orten“_
 
 Endnote: 1 (ungefähres Äquivalent: A).
 
 ### 2009 Forschungsarbeit — Fakultät Informatik, TU Dresden
 
-_"Materialität und Interaktion"_, nicht bewertet.
+_„Materialität und Interaktion“_, nicht bewertet.
 
-### 2002–2009 Nebenfach "Kunst & Gestaltung" — HfBK & TU Dresden, Deutschland
+### 2002–2009 Nebenfach „Kunst & Gestaltung“ — HfBK & TU Dresden, Deutschland
 
-_"Experimentalfilmische Annäherung an zeitgenössische Ornamentik"_
+_„Experimentalfilmische Annäherung an zeitgenössische Ornamentik“_
 
 Endnote: 1,3 (ungefähres Äquivalent: A).
 
@@ -218,6 +218,6 @@ Leistungskurse in Mathematik und Sozialwissenschaften.
 
 [archiveprogram.github.com](https://archiveprogram.github.com)
 
-### 2008 — Platzierung beim Fotowettbewerb „Go-Out Studying"
+### 2008 — 2. Platz beim Fotowettbewerb „Go-Out Studying“
 
 ### 2007 — Preisträger des Logo-Pitchs am Lehrstuhl Mikrocomputer der TU Dresden

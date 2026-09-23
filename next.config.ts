@@ -2,6 +2,11 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   cacheComponents: true,
+  experimental: {
+    // Unmatched URLs get the site's own 404 (app/global-not-found.tsx). With the
+    // root layout below [lang] there is no app/not-found.tsx to catch them.
+    globalNotFound: true,
+  },
   headers() {
     return [{ headers: [{ key: "Vary", value: "Accept" }], source: "/:path*" }];
   },

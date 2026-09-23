@@ -6,7 +6,10 @@ import { usePathname } from "next/navigation";
 
 import { localeLabels, locales } from "@/i18n/config";
 import type { Locale } from "@/i18n/config";
+import type { Dictionary } from "@/i18n/dictionaries";
 import { swapLang } from "@/i18n/swap-lang";
+
+type NavLabels = Dictionary["portfolio"]["nav"];
 
 const WORDMARK =
   "font-display text-[19px] leading-none tracking-normal text-ink";
@@ -30,18 +33,38 @@ function Wordmark({ orientation }: { orientation: "vertical" | "horizontal" }) {
   );
 }
 
-export function SideRail({ lang, spine }: { lang: Locale; spine: string }) {
-  const pathname = usePathname();
+/**
+ * The language links swap the locale of the current route, or of `pathname`
+ * when given. The global 404 passes both props: the router knows it only as
+ * `/_not-found`, and every link there leaves its root layout — a full page load
+ * that no prefetch can speed up.
+ */
+export function SideRail({
+  lang,
+  spine,
+  labels,
+  pathname,
+  prefetch,
+}: {
+  lang: Locale;
+  spine: string;
+  labels: NavLabels;
+  pathname?: string;
+  prefetch?: boolean;
+}) {
+  const routePathname = usePathname();
+  const current = pathname ?? routePathname;
 
   return (
     <aside
-      aria-label="Site navigation"
+      aria-label={labels.site}
       className="pointer-events-none fixed inset-y-0 left-0 z-30 flex w-15 flex-col items-center justify-between py-7 *:pointer-events-auto max-lg:hidden"
     >
       <Link
-        aria-label="manuel.fyi — home"
+        aria-label={labels.home}
         className={`${WORDMARK} inline-flex rotate-180 items-baseline py-1 [writing-mode:vertical-rl] [&:hover_.tld]:underline [&:hover_.tld]:underline-offset-[3px]`}
         href={`/${lang}` as Route}
+        prefetch={prefetch}
       >
         <Wordmark orientation="vertical" />
       </Link>
@@ -54,7 +77,7 @@ export function SideRail({ lang, spine }: { lang: Locale; spine: string }) {
       </div>
 
       <nav
-        aria-label="Language"
+        aria-label={labels.language}
         className="text-nano flex flex-col items-center gap-0.5 font-mono tracking-widest"
       >
         {locales.map((code) => (
@@ -62,9 +85,10 @@ export function SideRail({ lang, spine }: { lang: Locale; spine: string }) {
             aria-current={lang === code ? "true" : undefined}
             className="text-ink-faint hover:text-ink focus-visible:outline-accent data-[active=true]:text-accent data-[active=true]:before:bg-accent relative px-1.5 py-1 transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 data-[active=true]:before:absolute data-[active=true]:before:top-1/2 data-[active=true]:before:-left-1 data-[active=true]:before:h-[3px] data-[active=true]:before:w-[3px] data-[active=true]:before:-translate-y-1/2 data-[active=true]:before:rounded-full data-[active=true]:before:content-['']"
             data-active={lang === code}
-            href={swapLang(pathname, code)}
+            href={swapLang(current, code)}
             key={code}
             lang={code}
+            prefetch={prefetch}
           >
             {localeLabels[code]}
           </Link>
@@ -74,20 +98,32 @@ export function SideRail({ lang, spine }: { lang: Locale; spine: string }) {
   );
 }
 
-export function MobileBar({ lang }: { lang: Locale }) {
-  const pathname = usePathname();
+export function MobileBar({
+  lang,
+  labels,
+  pathname,
+  prefetch,
+}: {
+  lang: Locale;
+  labels: NavLabels;
+  pathname?: string;
+  prefetch?: boolean;
+}) {
+  const routePathname = usePathname();
+  const current = pathname ?? routePathname;
 
   return (
     <header className="border-rule-soft sticky top-0 z-30 hidden items-center justify-between border-b bg-[color-mix(in_oklch,var(--bg)_88%,transparent)] px-(--pad-x) py-3.5 [backdrop-filter:saturate(140%)_blur(10px)] [-webkit-backdrop-filter:saturate(140%)_blur(10px)] max-lg:flex">
       <Link
-        aria-label="manuel.fyi — home"
+        aria-label={labels.home}
         className="font-display text-ink text-xl"
         href={`/${lang}` as Route}
+        prefetch={prefetch}
       >
         <Wordmark orientation="horizontal" />
       </Link>
       <nav
-        aria-label="Language"
+        aria-label={labels.language}
         className="text-micro tracking-label-tight flex gap-0.5 font-mono"
       >
         {locales.map((code) => (
@@ -95,9 +131,10 @@ export function MobileBar({ lang }: { lang: Locale }) {
             aria-current={lang === code ? "true" : undefined}
             className="text-ink-faint focus-visible:outline-accent data-[active=true]:text-accent px-1.5 py-1 focus-visible:outline-2 focus-visible:outline-offset-2"
             data-active={lang === code}
-            href={swapLang(pathname, code)}
+            href={swapLang(current, code)}
             key={code}
             lang={code}
+            prefetch={prefetch}
           >
             {localeLabels[code]}
           </Link>

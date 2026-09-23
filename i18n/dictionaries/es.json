@@ -9,10 +9,10 @@
         "Diseñar, construir y entregar —",
         "<em>curioso</em> desde hace veinte años."
       ],
-      "lede": "Manuel Dugué · ingeniero de producto independiente con base en Dresde. Arquitectura, flujos de trabajo nativos para IA, experiencia de usuario; preferiblemente donde la estrategia se encuentra con la implementación.",
+      "lede": "Manuel Dugué · ingeniero de producto independiente con base en Dresde. Arquitectura, flujos de trabajo nativos de IA, experiencia de usuario; idealmente donde la estrategia se encuentra con la implementación.",
       "facts": {
         "base": { "label": "Base", "value": "Dresde / Remoto" },
-        "openFor": { "label": "Disponible", "template": "Q{quarter} {year} →" },
+        "openFor": { "label": "Disponible", "template": "T{quarter} {year} →" },
         "languages": { "label": "Idiomas" },
         "site": { "label": "Web" }
       }
@@ -20,33 +20,35 @@
     "self": {
       "label": "Sobre mí",
       "heading": "Un breve autorretrato",
-      "sub": "A partir de los documentos formales, luego entregado a un modelo con la instrucción de no ponerse lírico.",
+      "sub": "Basado en los documentos formales y entregado después a un modelo con la instrucción de no ponerse lírico.",
       "tag": "Generado por LLM · ligeramente supervisado por Manuel",
       "cycle": "Regenerar",
       "errorRetry": "No ha funcionado. ¿Intentarlo de nuevo?",
+      "modelLabel": "modelo:",
       "tooltip": {
-        "nextModel": "Próximo modelo",
-        "cached": "Resultado en caché — salida fresca",
-        "fresh": "Generará una salida fresca"
+        "nextModel": "Siguiente modelo",
+        "cached": "Resultado en caché — versión nueva",
+        "fresh": "Generará una versión nueva"
       }
     },
     "docs": {
       "label": "Documentos",
       "heading": "Los documentos formales",
-      "sub": "Un currículum y la versión larga de lo que hago y de dónde suelo resultar útil.",
+      "sub": "Un currículum y la versión larga: lo que hago y dónde suelo resultar útil.",
+      "kicker": "Documento",
       "updatedLabel": "Actualizado",
       "cv": {
         "num": "01",
-        "title": "Currículum Vitae",
-        "desc": "Más de veinte años en una página.",
+        "title": "Currículum vítae",
+        "desc": "Más de veinte años en una página. Más preciso que una charla de pasillo, más corto que la versión larga.",
         "cta": "Abrir documento",
-        "sheetTitle": "Curriculum Vitae",
+        "sheetTitle": "Currículum vítae",
         "sheetSubtitle": "Ingeniería de producto — arquitectura orientada al usuario, flujos agénticos, estrategia."
       },
       "profile": {
         "num": "02",
         "title": "Perfil de habilidades",
-        "desc": "La versión larga: qué construyo y cómo trabajo.",
+        "desc": "La versión larga: qué construyo, cómo trabajo y dónde entran los agentes.",
         "cta": "Abrir documento",
         "sheetTitle": "Perfil de habilidades",
         "sheetSubtitle": "Capacidades, stack, proyectos y la versión larga de mi trabajo."
@@ -55,13 +57,13 @@
     "lab": {
       "label": "Laboratorio",
       "heading": "Donde los conceptos chocan con datos reales",
-      "sub": "Sin cliente, sin plazo. Construido con agentes — las preguntas y los datos de debajo son de verdad.",
+      "sub": "Sin cliente, sin plazo. Hechos con agentes — las preguntas y los datos que hay detrás son de verdad.",
       "projects": {
         "alpen": {
           "num": "01",
           "host": "alpen.manuel.fyi",
           "title": "Puertos alpinos",
-          "desc": "¿Qué puerto aguanta a principios de octubre, y en qué pueblo busco alojamiento? 262 carreteras, diez años de clima en la cima, practicabilidad por quincena. No es un planificador de rutas — es una brújula de destinos.",
+          "desc": "¿Qué puerto sigue siendo practicable a principios de octubre, y en qué pueblo busco alojamiento? 262 carreteras, diez años de clima en la cima, practicabilidad por quincena. No es un planificador de rutas — es una brújula de destinos.",
           "stack": "MapLibre · Open-Meteo · OpenRouteService · OSM"
         },
         "bridge": {
@@ -83,7 +85,7 @@
     "legal": {
       "imprint": {
         "sheetTitle": "Aviso legal",
-        "sheetSubtitle": "Información legal conforme al § 5 TMG"
+        "sheetSubtitle": "Información legal conforme al § 5 DDG"
       },
       "privacy": {
         "sheetTitle": "Privacidad",
@@ -92,20 +94,23 @@
     },
     "proof": {
       "label": "Testimonios",
-      "heading": "Lo que dicen clientes semi-ficticios",
+      "heading": "Lo que dicen clientes semificticios",
       "sub": "Totalmente sintéticos, voces falsas, proyectos reales.",
       "cycle": "Regenerar",
       "errorRetry": "No ha funcionado. ¿Intentarlo de nuevo?",
+      "modelLabel": "modelo:",
       "banner": "Todos los testimonios anteriores fueron producidos por un modelo de lenguaje. No han sido aprobados por ningún cliente, porque no se consultó a ninguno. Su parecido con elogios reales es un efecto, no una afirmación.",
       "tooltip": {
-        "nextModel": "Próximo modelo",
-        "cached": "Resultado en caché — salida fresca",
-        "fresh": "Generará una salida fresca"
+        "nextModel": "Siguiente modelo",
+        "cached": "Resultado en caché — versión nueva",
+        "fresh": "Generará una versión nueva"
       }
     },
     "footer": {
       "word": ["<em>Hablemos.</em>"],
-      "sayHello": "Saludar",
+      "sayHello": "Di hola",
+      "emailNote": "correo",
+      "calendar": "Agenda",
       "elsewhere": "Por ahí",
       "legal": "Legal",
       "imprint": "Aviso legal",
@@ -113,11 +118,54 @@
       "colophon": "Colofón",
       "meta": "© 2026 Manuel Dugué"
     },
+    "nav": {
+      "site": "Navegación del sitio",
+      "home": "manuel.fyi — inicio",
+      "language": "Idioma"
+    },
     "modal": {
       "download": "Descargar PDF",
       "print": "Imprimir",
       "close": "Cerrar",
       "escHint": "Esc para cerrar"
+    },
+    "notFound": {
+      "metaTitle": "Página no encontrada",
+      "metaDescription": "Esta dirección no lleva a ninguna parte. El camino de vuelta está a un clic.",
+      "eyebrow": "404 · Página no encontrada",
+      "title": [
+        "Diseñar, construir y entregar —",
+        "<em>salvo esta página.</em>"
+      ],
+      "lede": "Esta dirección no lleva a ninguna parte. Quizá una errata, quizá un enlace que sobrevivió a su página. Los caminos de abajo, en cambio, están abiertos.",
+      "facts": {
+        "requested": "Solicitado",
+        "status": {
+          "label": "Estado",
+          "value": "404 · no encontrada"
+        },
+        "rideable": {
+          "label": "Practicable",
+          "value": "0 de 24 quincenas"
+        },
+        "guess": "Seguramente",
+        "wayBack": "Volver"
+      },
+      "detours": {
+        "label": "Desvío",
+        "heading": "Caminos de vuelta",
+        "sub": "El puerto está cerrado. Estas carreteras están abiertas todo el año.",
+        "home": {
+          "title": "Inicio",
+          "desc": "Autorretrato, documentos, laboratorio: todo lo que sí existe."
+        },
+        "report": {
+          "title": "Avisar del enlace roto",
+          "desc": "¿Te trajo aquí un enlace de este sitio? Con un correo breve basta y lo arreglo.",
+          "subject": "Enlace roto: {path}"
+        }
+      },
+      "contact": "Contacto"
     }
   }
 }

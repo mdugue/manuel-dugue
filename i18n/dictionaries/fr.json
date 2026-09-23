@@ -9,7 +9,7 @@
         "Concevoir, construire & livrer —",
         "<em>curieux</em> depuis vingt ans."
       ],
-      "lede": "Manuel Dugué · ingénieur produit indépendant basé à Dresde. Architecture, workflows natifs pour l'IA, expérience utilisateur ; de préférence là où la stratégie rencontre l'exécution.",
+      "lede": "Manuel Dugué · ingénieur produit indépendant basé à Dresde. Architecture, workflows natifs IA, expérience utilisateur ; de préférence là où la stratégie rencontre l'exécution.",
       "facts": {
         "base": { "label": "Base", "value": "Dresde / Remote" },
         "openFor": { "label": "Dispo", "template": "T{quarter} {year} →" },
@@ -20,25 +20,27 @@
     "self": {
       "label": "À propos",
       "heading": "Bref autoportrait",
-      "sub": "À partir des documents formels, puis confié à un modèle avec consigne de ne pas devenir lyrique.",
+      "sub": "À partir des documents officiels, puis confié à un modèle avec la consigne de ne pas tomber dans le lyrisme.",
       "tag": "Généré par LLM · légèrement supervisé par Manuel",
       "cycle": "Régénérer",
-      "errorRetry": "Ça n'a pas marché. Réessayer ?",
+      "errorRetry": "Ça n'a pas marché. Réessayer ?",
+      "modelLabel": "modèle :",
       "tooltip": {
         "nextModel": "Modèle suivant",
-        "cached": "Résultat en cache — sortie fraîche",
-        "fresh": "Générera une sortie fraîche"
+        "cached": "Résultat en cache — nouvelle version",
+        "fresh": "Générera une nouvelle version"
       }
     },
     "docs": {
       "label": "Documents",
       "heading": "Les documents officiels",
       "sub": "Un CV et la version longue de ce que je fais et des situations où je me rends utile.",
+      "kicker": "Document",
       "updatedLabel": "Mis à jour",
       "cv": {
         "num": "01",
         "title": "Curriculum Vitae",
-        "desc": "Plus de vingt ans sur une page.",
+        "desc": "Plus de vingt ans sur une page. Plus précis qu'une discussion de couloir, plus court que la version longue.",
         "cta": "Ouvrir le document",
         "sheetTitle": "Curriculum Vitae",
         "sheetSubtitle": "Ingénierie produit — architecture orientée utilisateur, workflows agentiques, stratégie."
@@ -46,29 +48,29 @@
       "profile": {
         "num": "02",
         "title": "Profil de compétences",
-        "desc": "La version longue : ce que je construis et comment je travaille.",
+        "desc": "La version longue : ce que je construis, comment je travaille et où interviennent les agents.",
         "cta": "Ouvrir le document",
         "sheetTitle": "Profil de compétences",
-        "sheetSubtitle": "Compétences, stack, projets et version longue de mon travail."
+        "sheetSubtitle": "Compétences, stack, projets et la version longue de ce que je fais."
       }
     },
     "lab": {
       "label": "Laboratoire",
       "heading": "Là où les concepts affrontent les vraies données",
-      "sub": "Sans client, sans échéance. Construit avec des agents — les questions et les données en dessous sont bien réelles.",
+      "sub": "Sans client, sans échéance. Construits avec des agents — les questions et les données derrière sont bien réelles.",
       "projects": {
         "alpen": {
           "num": "01",
           "host": "alpen.manuel.fyi",
           "title": "Cols alpins",
-          "desc": "Quel col tient encore début octobre, et dans quelle ville chercher un lit ? 262 routes, dix ans de climat au sommet, praticabilité par quinzaine. Pas un calculateur d'itinéraire — une boussole de destinations.",
+          "desc": "Quel col est encore praticable début octobre, et dans quelle ville chercher un lit ? 262 routes, dix ans de climat au sommet, praticabilité par quinzaine. Pas un calculateur d'itinéraire — une boussole de destinations.",
           "stack": "MapLibre · Open-Meteo · OpenRouteService · OSM"
         },
         "bridge": {
           "num": "02",
           "host": "bridge.manuel.fyi",
           "title": "City Walk Dresde",
-          "desc": "Né du débat sur la Carolabrücke : des géodonnées ouvertes peuvent-elles donner un jumeau numérique beau sans être photoréaliste ? Bâtiments LoD2, terrain DGM1, surfaces ATKIS — parcourable dans le navigateur.",
+          "desc": "Né du débat sur la Carolabrücke : des géodonnées ouvertes peuvent-elles donner un jumeau numérique beau sans être photoréaliste ? Bâtiments LoD2, terrain DGM1, surfaces ATKIS — parcourable dans le navigateur.",
           "stack": "three.js · CityJSON · GeoSN · OSM"
         },
         "effort": {
@@ -83,7 +85,7 @@
     "legal": {
       "imprint": {
         "sheetTitle": "Mentions légales",
-        "sheetSubtitle": "Informations légales conformément au § 5 TMG"
+        "sheetSubtitle": "Informations légales conformément au § 5 DDG"
       },
       "privacy": {
         "sheetTitle": "Confidentialité",
@@ -95,17 +97,20 @@
       "heading": "Ce que disent des clients semi-fictifs",
       "sub": "Entièrement synthétiques, fausses voix, projets réels.",
       "cycle": "Régénérer",
-      "errorRetry": "Ça n'a pas marché. Réessayer ?",
+      "errorRetry": "Ça n'a pas marché. Réessayer ?",
+      "modelLabel": "modèle :",
       "banner": "Tous les témoignages ci-dessus ont été produits par un modèle de langage. Ils n'ont été approuvés par aucun client, puisqu'aucun client n'a été consulté. Leur ressemblance avec de vrais éloges est un effet, pas une affirmation.",
       "tooltip": {
         "nextModel": "Modèle suivant",
-        "cached": "Résultat en cache — sortie fraîche",
-        "fresh": "Générera une sortie fraîche"
+        "cached": "Résultat en cache — nouvelle version",
+        "fresh": "Générera une nouvelle version"
       }
     },
     "footer": {
       "word": ["<em>Parlons-</em>", "en."],
       "sayHello": "Dire bonjour",
+      "emailNote": "e-mail",
+      "calendar": "Agenda",
       "elsewhere": "Ailleurs",
       "legal": "Mentions",
       "imprint": "Mentions légales",
@@ -113,11 +118,54 @@
       "colophon": "Colophon",
       "meta": "© 2026 Manuel Dugué"
     },
+    "nav": {
+      "site": "Navigation du site",
+      "home": "manuel.fyi — accueil",
+      "language": "Langue"
+    },
     "modal": {
       "download": "Télécharger le PDF",
       "print": "Imprimer",
       "close": "Fermer",
       "escHint": "Échap pour fermer"
+    },
+    "notFound": {
+      "metaTitle": "Page introuvable",
+      "metaDescription": "Cette adresse ne mène nulle part. Le chemin du retour est à un clic.",
+      "eyebrow": "404 · Page introuvable",
+      "title": [
+        "Concevoir, construire & livrer —",
+        "<em>sauf cette page.</em>"
+      ],
+      "lede": "Cette adresse ne mène nulle part. Une faute de frappe, peut-être, ou un lien qui a survécu à sa page. Les routes ci-dessous, elles, sont ouvertes.",
+      "facts": {
+        "requested": "Demandé",
+        "status": {
+          "label": "Statut",
+          "value": "404 · introuvable"
+        },
+        "rideable": {
+          "label": "Praticable",
+          "value": "0 quinzaine sur 24"
+        },
+        "guess": "Sans doute",
+        "wayBack": "Retour"
+      },
+      "detours": {
+        "label": "Déviation",
+        "heading": "Chemins du retour",
+        "sub": "Le col est fermé. Ces routes sont ouvertes toute l'année.",
+        "home": {
+          "title": "Accueil",
+          "desc": "Autoportrait, documents, laboratoire — tout ce qui existe vraiment."
+        },
+        "report": {
+          "title": "Signaler l'impasse",
+          "desc": "Un lien de ce site vous a conduit ici ? Un petit e-mail suffit, je m'en occupe.",
+          "subject": "Impasse : {path}"
+        }
+      },
+      "contact": "Contact"
     }
   }
 }

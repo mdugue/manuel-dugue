@@ -92,6 +92,7 @@ export function SelfPresentationClient({
           cycleLabel={self.cycle}
           disabled={isLoading}
           modelId={currentModel.id}
+          modelLabel={self.modelLabel}
           onRegenerate={regenerate}
           position={position}
           tooltip={{

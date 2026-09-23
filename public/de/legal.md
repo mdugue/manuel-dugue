@@ -1,6 +1,6 @@
 # Impressum
 
-## Angaben gemäß § 5 TMG
+## Angaben gemäß § 5 DDG
 
 Manuel Dugué
 Görlitzer Straße 23
@@ -17,7 +17,7 @@ Web: https://manuel.fyi
 Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz:
 DE272030502
 
-## Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV
+## Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV
 
 Manuel Dugué
 Anschrift wie oben.
@@ -26,9 +26,9 @@ Anschrift wie oben.
 
 Die Inhalte dieser Seiten wurden mit größtmöglicher Sorgfalt erstellt. Für die
 Richtigkeit, Vollständigkeit und Aktualität der Inhalte kann jedoch keine
-Gewähr übernommen werden. Als Diensteanbieter bin ich gemäß § 7 Abs. 1 TMG für
-eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich.
-Nach §§ 8 bis 10 TMG bin ich als Diensteanbieter jedoch nicht verpflichtet,
+Gewähr übernommen werden. Als Diensteanbieter bin ich für eigene Inhalte auf
+diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach § 7 DDG in
+Verbindung mit Art. 8 DSA bin ich als Diensteanbieter jedoch nicht verpflichtet,
 übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach
 Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.
 

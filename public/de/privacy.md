@@ -15,9 +15,8 @@ E-Mail: mail@manuel.fyi
 ## 2. Allgemeine Hinweise
 
 Diese Website kann ohne Angabe personenbezogener Daten besucht werden.
-Personenbezogene Daten werden nur erhoben, wenn Sie uns diese freiwillig
-mitteilen — etwa beim Versand einer E-Mail oder beim Ausfüllen eines
-Kontaktformulars. Die Übertragung erfolgt verschlüsselt per TLS.
+Personenbezogene Daten werden nur erhoben, wenn Sie mir diese freiwillig
+mitteilen — etwa per E-Mail. Die Übertragung erfolgt verschlüsselt per TLS.
 
 ## 3. Hosting
 
@@ -29,8 +28,8 @@ verarbeitet (Art. 6 Abs. 1 lit. f DSGVO).
 
 ## 4. Cookies
 
-Diese Website verwendet keine Tracking-Cookies. Lediglich technisch notwendige
-Cookies (z. B. zur Speicherung der Sprachauswahl) kommen zum Einsatz.
+Diese Website verwendet keine Cookies. Die gewählte Sprache steht in der
+Adresse (z. B. /de) und wird nicht in einem Cookie gespeichert.
 
 ## 5. Analyse-Tools
 
@@ -54,7 +53,26 @@ Pfad `/stats` in Ihrem Browser oder per Content-Blocker blockieren.
 
 Weitere Informationen: <https://umami.is>
 
-## 6. Ihre Rechte
+## 6. KI-generierte Texte und Rate Limiting
+
+Das Selbstporträt und die Kundenstimmen auf der Startseite schreibt ein
+Sprachmodell. Beim Aufruf der Seite und bei jedem Klick auf „Neu generieren“
+fragt Ihr Browser dafür einen Text bei dieser Website an. Liegt kein aktueller
+Text im Zwischenspeicher, wird die Anfrage über das Vercel AI Gateway an den
+Anbieter des gewählten Modells (OpenAI, Anthropic oder Google) weitergeleitet.
+Das Modell erhält nur meinen Lebenslauf, mein Kompetenzprofil und meine
+Anweisungen — keine Daten über Sie. Die fertigen Texte werden bis zu
+24 Stunden bei Vercel zwischengespeichert und auch anderen Besuchern angezeigt.
+
+Um Missbrauch und unnötige Kosten zu vermeiden, nimmt die Website pro
+IP-Adresse nur eine begrenzte Zahl solcher Anfragen pro Minute an (Rate
+Limiting). Dafür wird Ihre IP-Adresse zusammen mit einem Zähler im Cache von
+Vercel abgelegt und nach etwa einer Minute automatisch gelöscht. Sie wird
+weder an die Modellanbieter weitergegeben noch mit anderen Daten
+zusammengeführt. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes
+Interesse am Schutz vor Missbrauch und unnötigen Kosten).
+
+## 7. Ihre Rechte
 
 Sie haben das Recht auf:
 
@@ -66,10 +84,10 @@ Sie haben das Recht auf:
 - Widerspruch (Art. 21 DSGVO)
 - Beschwerde bei einer Aufsichtsbehörde (Art. 77 DSGVO)
 
-## 7. Kontakt
+## 8. Kontakt
 
 Fragen zum Datenschutz richten Sie bitte an mail@manuel.fyi.
 
-## 8. Stand
+## 9. Stand
 
-Stand dieser Erklärung: 22.4.2026.
+Stand dieser Erklärung: 23.9.2026.

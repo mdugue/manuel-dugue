@@ -35,7 +35,7 @@ export function Documents({
             prefetch
           >
             <div className="text-ink-faint text-nano font-mono tracking-[0.18em] uppercase">
-              Document · {card.num}
+              {docs.kicker} · {card.num}
             </div>
             <h3 className="font-display m-0 text-[28px] leading-[1.15] font-normal italic">
               {card.title}

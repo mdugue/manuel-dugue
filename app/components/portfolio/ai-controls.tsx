@@ -103,6 +103,7 @@ function RegenerateTooltipContent({
 
 export function AiControls({
   modelId,
+  modelLabel,
   position,
   cycleLabel,
   onRegenerate,
@@ -111,6 +112,7 @@ export function AiControls({
   className,
 }: {
   modelId: string;
+  modelLabel: string;
   position: string;
   cycleLabel: string;
   onRegenerate: () => void;
@@ -123,7 +125,9 @@ export function AiControls({
       className={`text-ink-faint text-nano tracking-label flex flex-wrap items-center justify-between gap-4 font-mono uppercase ${className}`}
     >
       <div className="flex flex-wrap gap-4.5">
-        <span>model: {modelId}</span>
+        <span>
+          {modelLabel} {modelId}
+        </span>
         <span>{position}</span>
       </div>
       <Tooltip.Provider closeDelay={80} delay={250}>

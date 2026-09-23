@@ -1,6 +1,6 @@
 # Mentions légales
 
-## Informations conformément au § 5 TMG
+## Informations conformément au § 5 DDG
 
 Manuel Dugué
 Görlitzer Straße 23
@@ -9,15 +9,15 @@ Allemagne
 
 ## Contact
 
-Courriel : mail@manuel.fyi
-Web : https://manuel.fyi
+Courriel : mail@manuel.fyi
+Web : https://manuel.fyi
 
 ## Numéro d'identification TVA
 
-Numéro de TVA conformément au § 27 a de la loi allemande sur la TVA :
+Numéro de TVA conformément au § 27 a de la loi allemande sur la TVA :
 DE272030502
 
-## Responsable du contenu conformément au § 55 Abs. 2 RStV
+## Responsable du contenu conformément au § 18 Abs. 2 MStV
 
 Manuel Dugué
 Adresse indiquée ci-dessus.
@@ -27,11 +27,11 @@ Adresse indiquée ci-dessus.
 Le contenu de ces pages a été rédigé avec le plus grand soin. Toutefois,
 aucune garantie n'est donnée quant à son exactitude, son exhaustivité ou son
 actualité. En tant que prestataire de services, je suis responsable du
-contenu que je publie conformément au § 7 Abs. 1 TMG et aux lois générales.
-Toutefois, conformément aux §§ 8 à 10 TMG, en tant que prestataire de
-services, je ne suis pas tenu de surveiller les informations transmises ou
-stockées par des tiers, ni de rechercher des circonstances indiquant une
-activité illégale.
+contenu que je publie conformément aux lois générales. Toutefois,
+conformément au § 7 DDG en liaison avec l'art. 8 du DSA, en tant que
+prestataire de services, je ne suis pas tenu de surveiller les informations
+transmises ou stockées par des tiers, ni de rechercher des circonstances
+indiquant une activité illégale.
 
 ## Responsabilité des liens
 

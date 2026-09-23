@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import { EB_Garamond, Inter, JetBrains_Mono } from "next/font/google";
 import { notFound } from "next/navigation";
-import Script from "next/script";
 
+import { Analytics } from "@/app/components/analytics";
+import { fontVariables } from "@/app/fonts";
 import { hasLocale, localeParams } from "@/i18n/config";
 import type { Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
@@ -15,28 +15,6 @@ import {
 } from "@/i18n/seo";
 
 import "../globals.css";
-
-const ebGaramond = EB_Garamond({
-  display: "swap",
-  style: ["normal", "italic"],
-  subsets: ["latin"],
-  variable: "--font-display",
-  weight: ["400", "500", "600"],
-});
-
-const inter = Inter({
-  display: "swap",
-  subsets: ["latin"],
-  variable: "--font-body",
-  weight: ["300", "400", "500", "600"],
-});
-
-const jetBrainsMono = JetBrains_Mono({
-  display: "swap",
-  subsets: ["latin"],
-  variable: "--font-mono",
-  weight: ["400", "500"],
-});
 
 export async function generateMetadata({
   params,
@@ -83,10 +61,7 @@ export default async function RootLayout({
   }
 
   return (
-    <html
-      className={`${ebGaramond.variable} ${inter.variable} ${jetBrainsMono.variable} antialiased`}
-      lang={lang}
-    >
+    <html className={`${fontVariables} antialiased`} lang={lang}>
       <body>
         <script
           dangerouslySetInnerHTML={{ __html: jsonLdString(personJsonLd()) }}
@@ -94,15 +69,7 @@ export default async function RootLayout({
         />
         {children}
         {modal}
-        {process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID ? (
-          <Script
-            data-host-url="/stats"
-            data-performance="true"
-            data-website-id={process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID}
-            src="/stats/script.js"
-            strategy="afterInteractive"
-          />
-        ) : null}
+        <Analytics />
       </body>
     </html>
   );

@@ -14,20 +14,20 @@ Email: mail@manuel.fyi
 ## 2. General notes
 
 This website can be visited without disclosing personal data. Personal data is
-only collected if you provide it voluntarily — for example by sending an email
-or filling out a contact form. Transmission is encrypted via TLS.
+only collected if you provide it voluntarily — for example by sending me an
+email. Transmission is encrypted via TLS.
 
 ## 3. Hosting
 
 This website is hosted by Vercel. Technically necessary server log files are
-collected (IP address, timestamp, user-agent, requested URL). These data are
+collected (IP address, timestamp, user-agent, requested URL). This data is
 processed to ensure security, stability, and compliance with legal obligations
 (Art. 6(1)(f) GDPR).
 
 ## 4. Cookies
 
-This website does not use tracking cookies. Only technically necessary
-cookies (e.g. for storing language preferences) are used.
+This website does not use cookies. The language you choose is part of the
+address (e.g. /en) and is not stored in a cookie.
 
 ## 5. Analytics
 
@@ -50,7 +50,24 @@ path in your browser or via a content blocker.
 
 More information: <https://umami.is>
 
-## 6. Your rights
+## 6. AI-generated texts and rate limiting
+
+The self-portrait and the testimonials on the home page are written by a
+language model. When you open the page, and each time you click "Regenerate",
+your browser requests a text from this website. If no recent text is cached,
+the request is forwarded via the Vercel AI Gateway to the provider of the
+selected model (OpenAI, Anthropic or Google). The model only receives my CV,
+my skill profile and my instructions — no data about you. The finished texts
+are cached at Vercel for up to 24 hours and shown to other visitors as well.
+
+To prevent abuse and unnecessary costs, the website accepts only a limited
+number of these requests per minute from each IP address (rate limiting). For
+this, your IP address is stored in Vercel's cache together with a counter and
+deleted automatically after about a minute. It is neither passed on to the
+model providers nor combined with other data. The legal basis is Art. 6(1)(f)
+GDPR (legitimate interest in preventing abuse and unnecessary costs).
+
+## 7. Your rights
 
 You have the right to:
 
@@ -62,10 +79,10 @@ You have the right to:
 - object (Art. 21 GDPR)
 - lodge a complaint with a supervisory authority (Art. 77 GDPR)
 
-## 7. Contact
+## 8. Contact
 
 For data-protection questions, please contact mail@manuel.fyi.
 
-## 8. Version
+## 9. Version
 
-Last updated: 22 April 2026.
+Last updated: 23 September 2026.
