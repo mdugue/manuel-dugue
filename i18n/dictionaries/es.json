@@ -128,6 +128,60 @@
       "print": "Imprimir",
       "close": "Cerrar",
       "escHint": "Esc para cerrar"
+    },
+    "notFound": {
+      "metaTitle": "Página no encontrada",
+      "metaDescription": "Esta dirección no lleva a ninguna parte. El camino de vuelta está a un clic.",
+      "eyebrow": "404 · Página no encontrada",
+      "title": [
+        "Diseñar, construir y entregar —",
+        "<em>salvo esta página.</em>"
+      ],
+      "lede": "Esta dirección no lleva a ninguna parte. Quizá una errata, quizá un enlace que sobrevivió a su página. Los caminos de abajo, en cambio, están abiertos.",
+      "facts": {
+        "requested": "Solicitado",
+        "status": {
+          "label": "Estado",
+          "value": "404 · no encontrada"
+        },
+        "rideable": {
+          "label": "Practicable",
+          "value": "0 de 24 quincenas"
+        },
+        "guess": "Seguramente",
+        "wayBack": "Volver"
+      },
+      "excuse": {
+        "label": "Excusa",
+        "heading": "Una breve excusa",
+        "sub": "Escrita a mano. No se consultó a ningún modelo, y se nota.",
+        "tag": "Escrita a mano · sin supervisión",
+        "model": "modelo: ninguno",
+        "cycle": "Otra excusa",
+        "items": [
+          "Un agente hizo limpieza. A fondo.",
+          "Eliminada en un refactor. Todos los tests siguieron en verde.",
+          "Puerto cerrado. Por nieve, dicen. En agosto.",
+          "En mi máquina funciona.",
+          "Obsoleta en favor de la página de inicio.",
+          "Veinte años entregando, y justo esta página se perdió por el camino."
+        ]
+      },
+      "detours": {
+        "label": "Desvío",
+        "heading": "Caminos de vuelta",
+        "sub": "El puerto está cerrado. Estas carreteras están abiertas todo el año.",
+        "home": {
+          "title": "Inicio",
+          "desc": "Autorretrato, documentos, laboratorio: todo lo que sí existe."
+        },
+        "report": {
+          "title": "Avisar del enlace roto",
+          "desc": "¿Te trajo aquí un enlace de este sitio? Con un correo breve basta y lo arreglo.",
+          "subject": "Enlace roto: {path}"
+        }
+      },
+      "contact": "Contacto"
     }
   }
 }

@@ -129,6 +129,61 @@
       "print": "Print",
       "close": "Close",
       "escHint": "Press Esc to close"
+    },
+    "notFound": {
+      "metaTitle": "Page not found",
+      "metaDescription": "This address leads nowhere. The way back is one click away.",
+      "eyebrow": "404 · Page not found",
+      "title": [
+        "Designing, building & shipping",
+        "for twenty years —",
+        "<em>just not this page.</em>"
+      ],
+      "lede": "This address leads nowhere. Perhaps a typo, perhaps a link that outlived its page. Either way, the roads below are open.",
+      "facts": {
+        "requested": "Requested",
+        "status": {
+          "label": "Status",
+          "value": "404 · not found"
+        },
+        "rideable": {
+          "label": "Rideable",
+          "value": "0 of 24 half-months"
+        },
+        "guess": "Probably",
+        "wayBack": "Way back"
+      },
+      "excuse": {
+        "label": "Excuse",
+        "heading": "A brief excuse",
+        "sub": "Written by hand. No model was consulted, and it shows.",
+        "tag": "Handwritten · supervised by no one",
+        "model": "model: none",
+        "cycle": "Another excuse",
+        "items": [
+          "An agent tidied up. Very thoroughly.",
+          "Removed in a refactor. Every test stayed green.",
+          "Pass closed. Snow, allegedly. In August.",
+          "Works on my machine.",
+          "Deprecated in favour of the home page.",
+          "Twenty years of shipping, and this one got lost in the post."
+        ]
+      },
+      "detours": {
+        "label": "Detour",
+        "heading": "Ways back",
+        "sub": "The pass is closed. These roads are open all year.",
+        "home": {
+          "title": "Home page",
+          "desc": "Self-portrait, documents, lab — everything that does exist."
+        },
+        "report": {
+          "title": "Report the dead end",
+          "desc": "Did a link on this site bring you here? A short email is enough, and I'll fix it.",
+          "subject": "Dead end: {path}"
+        }
+      },
+      "contact": "Contact"
     }
   }
 }

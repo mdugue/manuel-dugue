@@ -128,6 +128,60 @@
       "print": "Drucken",
       "close": "Schließen",
       "escHint": "Esc zum Schließen"
+    },
+    "notFound": {
+      "metaTitle": "Seite nicht gefunden",
+      "metaDescription": "Diese Adresse führt ins Leere. Der Weg zurück ist einen Klick entfernt.",
+      "eyebrow": "404 · Seite nicht gefunden",
+      "title": [
+        "Gestalten, entwickeln & ausliefern —",
+        "<em>nur diese Seite nicht.</em>"
+      ],
+      "lede": "Diese Adresse führt ins Leere. Vielleicht ein Tippfehler, vielleicht ein Link, der seine Seite überlebt hat. Die Wege weiter unten sind jedenfalls frei.",
+      "facts": {
+        "requested": "Angefragt",
+        "status": {
+          "label": "Status",
+          "value": "404 · nicht gefunden"
+        },
+        "rideable": {
+          "label": "Fahrbar",
+          "value": "0 von 24 Halbmonaten"
+        },
+        "guess": "Vermutlich",
+        "wayBack": "Rückweg"
+      },
+      "excuse": {
+        "label": "Ausrede",
+        "heading": "Eine kurze Ausrede",
+        "sub": "Von Hand geschrieben. Kein Modell wurde gefragt, und das merkt man.",
+        "tag": "Handgeschrieben · unbeaufsichtigt",
+        "model": "Modell: keins",
+        "cycle": "Neue Ausrede",
+        "items": [
+          "Ein Agent hat aufgeräumt. Sehr gründlich.",
+          "Beim Refactoring entfernt. Alle Tests blieben grün.",
+          "Pass gesperrt. Angeblich Schnee. Im August.",
+          "Auf meinem Rechner läuft’s.",
+          "Zugunsten der Startseite abgekündigt.",
+          "Zwanzig Jahre ausgeliefert — und ausgerechnet diese Seite ist beim Zusteller liegen geblieben."
+        ]
+      },
+      "detours": {
+        "label": "Umleitung",
+        "heading": "Wege zurück",
+        "sub": "Der Pass ist gesperrt. Diese Straßen sind ganzjährig befahrbar.",
+        "home": {
+          "title": "Startseite",
+          "desc": "Selbstporträt, Dokumente, Labor — alles, was es tatsächlich gibt."
+        },
+        "report": {
+          "title": "Sackgasse melden",
+          "desc": "Ein Link auf dieser Website hat hierher geführt? Dann freue ich mich über einen kurzen Hinweis.",
+          "subject": "Sackgasse: {path}"
+        }
+      },
+      "contact": "Kontakt"
     }
   }
 }

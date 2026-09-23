@@ -9,12 +9,16 @@ const footerLink =
 
 const extLabel = "font-mono text-nano text-ink-faint tracking-label-tight";
 
+/** `prefetch={false}` where the internal links leave the current root layout
+ *  (the global 404): those navigations are full page loads anyway. */
 export function SiteFooter({
   lang,
   footer,
+  prefetch,
 }: {
   lang: Locale;
   footer: Dictionary["portfolio"]["footer"];
+  prefetch?: boolean;
 }) {
   return (
     <footer
@@ -97,12 +101,20 @@ export function SiteFooter({
           </h5>
           <ul className="m-0 flex list-none flex-col gap-2 p-0">
             <li>
-              <Link className={footerLink} href={`/${lang}/legal` as Route}>
+              <Link
+                className={footerLink}
+                href={`/${lang}/legal` as Route}
+                prefetch={prefetch}
+              >
                 {footer.imprint}
               </Link>
             </li>
             <li>
-              <Link className={footerLink} href={`/${lang}/privacy` as Route}>
+              <Link
+                className={footerLink}
+                href={`/${lang}/privacy` as Route}
+                prefetch={prefetch}
+              >
                 {footer.privacy}
               </Link>
             </li>
@@ -115,6 +127,7 @@ export function SiteFooter({
           aria-label="manuel.fyi"
           className="font-display text-ink [&_.tld]:text-accent text-base tracking-normal normal-case [&_.tld]:font-medium [&_.tld]:italic"
           href={`/${lang}` as Route}
+          prefetch={prefetch}
         >
           <span>manuel</span>
           <span className="tld">.fyi</span>

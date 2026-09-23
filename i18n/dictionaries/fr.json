@@ -128,6 +128,60 @@
       "print": "Imprimer",
       "close": "Fermer",
       "escHint": "Échap pour fermer"
+    },
+    "notFound": {
+      "metaTitle": "Page introuvable",
+      "metaDescription": "Cette adresse ne mène nulle part. Le chemin du retour est à un clic.",
+      "eyebrow": "404 · Page introuvable",
+      "title": [
+        "Concevoir, construire & livrer —",
+        "<em>sauf cette page.</em>"
+      ],
+      "lede": "Cette adresse ne mène nulle part. Une faute de frappe, peut-être, ou un lien qui a survécu à sa page. Les routes ci-dessous, elles, sont ouvertes.",
+      "facts": {
+        "requested": "Demandé",
+        "status": {
+          "label": "Statut",
+          "value": "404 · introuvable"
+        },
+        "rideable": {
+          "label": "Praticable",
+          "value": "0 quinzaine sur 24"
+        },
+        "guess": "Sans doute",
+        "wayBack": "Retour"
+      },
+      "excuse": {
+        "label": "Excuse",
+        "heading": "Brève excuse",
+        "sub": "Écrite à la main. Aucun modèle n'a été consulté, et ça se voit.",
+        "tag": "Écrite à la main · non supervisée",
+        "model": "modèle : aucun",
+        "cycle": "Autre excuse",
+        "items": [
+          "Un agent a fait le ménage. Très consciencieusement.",
+          "Supprimée lors d'un refactoring. Tous les tests sont restés au vert.",
+          "Col fermé. Pour cause de neige, paraît-il. En août.",
+          "Chez moi, ça marche.",
+          "Dépréciée au profit de la page d'accueil.",
+          "Vingt ans à livrer, et c'est justement cette page qui s'est perdue en route."
+        ]
+      },
+      "detours": {
+        "label": "Déviation",
+        "heading": "Chemins du retour",
+        "sub": "Le col est fermé. Ces routes sont ouvertes toute l'année.",
+        "home": {
+          "title": "Accueil",
+          "desc": "Autoportrait, documents, laboratoire — tout ce qui existe vraiment."
+        },
+        "report": {
+          "title": "Signaler l'impasse",
+          "desc": "Un lien de ce site vous a conduit ici ? Un petit e-mail suffit, je m'en occupe.",
+          "subject": "Impasse : {path}"
+        }
+      },
+      "contact": "Contact"
     }
   }
 }
