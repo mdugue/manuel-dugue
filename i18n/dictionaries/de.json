@@ -68,8 +68,8 @@
         },
         "bridge": {
           "num": "02",
-          "host": "bridge.manuel.fyi",
-          "title": "City Walk Dresden",
+          "host": "mit.manuel.fyi/dresden",
+          "title": "Mit Manuel in Dresden",
           "desc": "Angestoßen von der Debatte um die Carolabrücke: Lässt sich aus offenen Geodaten ein digitaler Zwilling bauen, der schön ist, ohne fotorealistisch zu sein? LoD2-Gebäude, DGM1-Gelände, ATKIS-Oberflächen — begehbar im Browser.",
           "stack": "three.js · CityJSON · GeoSN · OSM"
         },

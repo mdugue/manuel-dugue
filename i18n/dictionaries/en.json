@@ -69,8 +69,8 @@
         },
         "bridge": {
           "num": "02",
-          "host": "bridge.manuel.fyi",
-          "title": "City Walk Dresden",
+          "host": "mit.manuel.fyi/dresden",
+          "title": "With Manuel in Dresden",
           "desc": "Prompted by the argument over the Carolabrücke: can open geodata yield a digital twin that is beautiful without being photoreal? LoD2 buildings, DGM1 terrain, ATKIS surfaces — walkable in the browser.",
           "stack": "three.js · CityJSON · GeoSN · OSM"
         },

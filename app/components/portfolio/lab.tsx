@@ -4,11 +4,11 @@ import { LabMark } from "./lab-marks";
 import type { MarkId } from "./lab-marks";
 import { SectionHead } from "./section-head";
 
-/** Each project lives on its own subdomain; the row shows the host so the
+/** Each project lives on its own (sub)domain; the row shows the address so the
  *  destination is readable before the click. */
 const PROJECT_URLS: Record<MarkId, string> = {
   alpen: "https://alpen.manuel.fyi",
-  bridge: "https://bridge.manuel.fyi",
+  bridge: "https://mit.manuel.fyi/dresden",
   effort: "https://effort.manuel.fyi",
 };
 

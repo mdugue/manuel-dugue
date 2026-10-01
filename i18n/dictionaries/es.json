@@ -68,8 +68,8 @@
         },
         "bridge": {
           "num": "02",
-          "host": "bridge.manuel.fyi",
-          "title": "City Walk Dresde",
+          "host": "mit.manuel.fyi/dresden",
+          "title": "Con Manuel en Dresde",
           "desc": "Nacido del debate sobre el Carolabrücke: ¿pueden unos geodatos abiertos dar un gemelo digital bello sin ser fotorrealista? Edificios LoD2, terreno DGM1, superficies ATKIS — transitable en el navegador.",
           "stack": "three.js · CityJSON · GeoSN · OSM"
         },
