@@ -12,6 +12,13 @@ concurrency:
 jobs:
   check:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        # 26 is the project's Node version (.nvmrc). Vercel builds and
+        # Functions still run 24.x until it offers 26, so keep that covered.
+        node: [26, 24]
+    name: check (node ${{ matrix.node }})
     steps:
       - name: Checkout
         uses: actions/checkout@v7
@@ -19,7 +26,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v7
         with:
-          node-version: 24
+          node-version: ${{ matrix.node }}
           cache: npm
 
       - name: Install dependencies

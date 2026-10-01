@@ -1,36 +1,34 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# manuel.fyi
 
-## Getting Started
+Personal site of Manuel Dugué, an independent product engineer in Dresden. It is live at [manuel.fyi](https://manuel.fyi), runs on Next.js 16 (App Router, Cache Components, React Compiler) and is deployed on Vercel.
 
-First, run the development server:
+## What's in here
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- **Portfolio** (`app/[lang]/page.tsx`, `app/components/portfolio/`): hero, documents, the "Lab" with side projects, and two AI-written sections.
+- **AI sections**: a self-portrait and social proof, generated through the [Vercel AI Gateway](https://vercel.com/ai-gateway) with the [AI SDK](https://ai-sdk.dev). Visitors can switch between the models in `i18n/ai-models.ts`. Results are cached per locale, model and prompt revision for 24 h (`lib/ai-cache.ts`).
+- **Documents**: the CV, skill profile, imprint and privacy policy are Markdown files in `public/{en,de,fr,es}/`. Each one is rendered three ways: as a page, as a modal over the portfolio and as a PDF (`@react-pdf/renderer`). Requests with `Accept: text/markdown` get the raw Markdown.
+- **i18n**: English, German, French and Spanish. `proxy.ts` negotiates the locale, and UI strings live in `i18n/dictionaries/*.json`.
+
+## Development
+
+Requires Node.js 26 (see `.nvmrc`) and npm. Do not use Bun: Next.js 16.3 fails to build under the Bun runtime.
+
+```sh
+npm ci
+npm run dev     # http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The AI sections need AI Gateway credentials. Run `vercel env pull` to get an OIDC token for the linked project, or set `AI_GATEWAY_API_KEY`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+| Script          | What it does                                    |
+| --------------- | ----------------------------------------------- |
+| `npm run build` | Production build (also generates `.next/types`) |
+| `npm run lint`  | Ultracite check: oxlint (type-aware) + oxfmt    |
+| `npm run fix`   | Ultracite autofix                               |
+| `npm run tsc`   | Type-check with TypeScript 7                    |
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+The type-aware lint rules read the typed routes in `.next/types`, so on a fresh clone run `npm run build` once before linting. CI runs build, lint and type-check on Node 26 and on Node 24, the version Vercel deploys with.
 
-## Learn More
+## Working with agents
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+`AGENTS.md` (also read through `CLAUDE.md`) has the project rules for coding agents. Vendored agent skills live in `.agents/skills/` and are pinned in `skills-lock.json`. To refresh them, use the `update-skills` skill. Edits to the skill profile go through the `skill-profile` skill, which keeps all four locales in sync.
