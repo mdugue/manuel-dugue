@@ -68,8 +68,8 @@
         },
         "bridge": {
           "num": "02",
-          "host": "bridge.manuel.fyi",
-          "title": "City Walk Dresde",
+          "host": "mit.manuel.fyi/dresden",
+          "title": "Avec Manuel à Dresde",
           "desc": "Né du débat sur la Carolabrücke : des géodonnées ouvertes peuvent-elles donner un jumeau numérique beau sans être photoréaliste ? Bâtiments LoD2, terrain DGM1, surfaces ATKIS — parcourable dans le navigateur.",
           "stack": "three.js · CityJSON · GeoSN · OSM"
         },
