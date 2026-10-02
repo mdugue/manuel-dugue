@@ -32,3 +32,7 @@ The type-aware lint rules read the typed routes in `.next/types`, so on a fresh 
 ## Working with agents
 
 `AGENTS.md` (also read through `CLAUDE.md`) has the project rules for coding agents. Vendored agent skills live in `.agents/skills/` and are pinned in `skills-lock.json`. To refresh them, use the `update-skills` skill. Edits to the skill profile go through the `skill-profile` skill, which keeps all four locales in sync.
+
+## License
+
+The code is licensed under the [Apache License 2.0](LICENSE). The content is not: the documents in `public/`, the texts in `i18n/dictionaries/` and the prompt texts are © Manuel Dugué, all rights reserved. Build your own site from the code, with your own content. See [`NOTICE`](NOTICE).
