@@ -50,7 +50,7 @@ function sideProjects(lang: Locale): string {
 // has several possible subjects, the day picks one, so the same angle reads
 // differently from one day to the next and each text stays on one subject.
 const themeFocus = [
-  "Family trees. At T-Systems he worked on a large genealogy product (2009 to 2012 and 2014). Since 2020 he has made family trees for four large German families, where patchwork families, changed names and relatives in more than one branch have to be shown with care. For Franz Haniel & Cie. he worked on a digital family history covering 350 years.",
+  "Family trees. At T-Systems he worked on a large genealogy product (2009 to 2012 and 2014). Since 2020 he has made family trees for four large German families (families, not dynasties), where patchwork families, changed names and relatives in more than one branch have to be shown with care. For Franz Haniel & Cie. he worked on a digital family history covering 350 years.",
   "Making complicated things simple to use. For Saxoprint, an interactive print preview that brings six hundred very different products, from folding tents to books and packaging, into one consistent way of working (2016). For Exelonix, Android tablets for older people, simple to use and maintained remotely by their relatives (2013 to 2014).",
   "Software for research institutes, where he develops and also advises or teaches. At Barkhausen Institut, a portal for business travel, with advising, training and new features (since 2024). At Fraunhofer HHI, a catalogue for 5G components, where he reviewed the architecture, designed the rewrite, works on it and advises the team (since 2025).",
   "Exhibitions and history. Virtual books for the museum terminals of the Military History Museum in Dresden (2011 to 2013). A digital exhibition about political education in Saxony for JoDDiD (2022 to 2023). The digital family history of Franz Haniel & Cie. (2018, 2020).",
@@ -87,7 +87,7 @@ Stay with this subject and leave out the other points about how he works. You ma
     focus
   ) => `The question: what is Manuel trying to find out at the moment?
 The subject of this text: ${pick(curiosityFocus, focus)}
-Stay with this question and leave out the others. Present it as an open question. You may say how he goes about it, but only what <side-projects> or the documents state. Don't invent answers, findings or progress, and don't claim that the question comes up in a client project.`,
+Stay with this question. Leave out his other open questions and side projects, even in passing. Present it as an open question. You may say how he goes about it, but only what <side-projects> or the documents state. Don't invent answers, findings or progress, and don't claim that the question comes up in a client project.`,
   path: () => `The question: how did Manuel get to where he is now?
 Material: computer science alongside art and design, experimental film, the internship at a film production company in Mexico and what Latin America meant to him (in <notes>), early work for museums and trade fairs, and what he works on today. Choose two or three stations, not the whole CV.
 Tell it as a short story, not a timeline: at most one year in the whole text. Take every sequence from the documents. Add no transitions they don't support ("shortly after", "that is how I came to …") and no causes ("film taught me …"). Only a link that <notes> states may be used.`,
