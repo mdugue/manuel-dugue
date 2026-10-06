@@ -92,7 +92,7 @@ export default async function Image({
         }}
       >
         <span>{spine}</span>
-        <span style={{ color: "#B04A2A" }}>→ manuel.fyi</span>
+        <span style={{ color: "#C2188F" }}>→ manuel.fyi</span>
       </div>
     </div>,
     { ...size }

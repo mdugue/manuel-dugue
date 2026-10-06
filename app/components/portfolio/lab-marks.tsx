@@ -95,15 +95,19 @@ export function LabMark({ id }: { id: MarkId }) {
       {onGround ? (
         <path
           d={`M0 ${PLATE_H}${d.replace("M", "L")}L${PLATE_W} ${PLATE_H}Z`}
+          className="lab-fade"
           fill={`url(#${gradientId})`}
         />
       ) : null}
 
       <path
+        className="lab-draw"
         d={d}
         fill="none"
+        pathLength={1}
         stroke={onGround ? "currentColor" : `url(#${gradientId})`}
         strokeLinecap="round"
+        strokeDasharray={1}
         strokeLinejoin="round"
         strokeWidth={STROKE}
       />

@@ -41,7 +41,7 @@ export function Documents({
             <h3 className="font-display m-0 text-[28px] leading-[1.15] font-normal italic">
               {card.title}
             </h3>
-            <div className="text-ink-soft max-w-[34ch] flex-1 text-sm leading-[1.55]">
+            <div className="font-display text-ink-soft max-w-[34ch] flex-1 text-[19px] leading-[1.45] text-pretty">
               {card.desc}
             </div>
             <div className="border-rule text-accent text-micro tracking-label flex items-baseline justify-between border-t border-dashed pt-4 font-mono uppercase">

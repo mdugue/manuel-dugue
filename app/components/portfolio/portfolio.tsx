@@ -10,6 +10,7 @@ import { Lab } from "./lab";
 import { SelfPresentation } from "./self-presentation";
 import { SelfPresentationClient } from "./self-presentation-client";
 import { MobileBar, SideRail } from "./side-rail";
+import { Work } from "./work";
 
 export function Portfolio({
   lang,
@@ -27,18 +28,19 @@ export function Portfolio({
         <Suspense
           fallback={
             <SelfPresentationClient
-              initialText={dict.hero.lede}
+              initialText={dict.self.fallback}
               lang={lang}
               self={dict.self}
             />
           }
         >
           <SelfPresentation
-            fallback={dict.hero.lede}
+            fallback={dict.self.fallback}
             lang={lang}
             self={dict.self}
           />
         </Suspense>
+        <Work lang={lang} work={dict.work} />
         <Documents docs={dict.docs} lang={lang} />
         <Lab lab={dict.lab} />
         {/*         <Suspense

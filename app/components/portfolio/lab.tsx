@@ -75,7 +75,7 @@ export function Lab({ lab }: { lab: Dictionary["portfolio"]["lab"] }) {
                   <ExternalArrow />
                 </span>
 
-                <span className="text-ink-soft max-w-[58ch] text-sm leading-[1.55]">
+                <span className="font-display text-ink-soft max-w-[58ch] text-[19px] leading-[1.45] text-pretty">
                   {project.desc}
                 </span>
 

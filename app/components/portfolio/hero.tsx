@@ -1,19 +1,24 @@
-import type { Route } from "next";
-import Link from "next/link";
-
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 import { nextQuarter } from "@/lib/next-quarter";
 
-import { HeroLangPills } from "./hero-lang-pills";
+import { LocalTime } from "./local-time";
 
-const SITE_LABEL = "manuel.fyi";
+const MONTHS_PER_QUARTER = 3;
+const BOOKING_URL = "https://www.cal.eu/manuel-dugue";
+const EMAIL = "mail@manuel.fyi";
 
-function renderQuarter(template: string): string {
+/** First month of the next bookable quarter, named in the page's language. */
+function renderAvailability(template: string, lang: Locale): string {
   const { quarter, year } = nextQuarter();
-  return template
-    .replace("{quarter}", String(quarter))
-    .replace("{year}", String(year));
+  const firstMonth = new Date(
+    Date.UTC(year, (quarter - 1) * MONTHS_PER_QUARTER, 1)
+  );
+  const month = new Intl.DateTimeFormat(lang, {
+    month: "long",
+    timeZone: "UTC",
+  }).format(firstMonth);
+  return template.replace("{month}", month).replace("{year}", String(year));
 }
 
 const ROW =
@@ -28,7 +33,7 @@ export function Hero({
   lang: Locale;
 }) {
   const { facts } = hero;
-  const openForValue = renderQuarter(facts.openFor.template);
+  const openForValue = renderAvailability(facts.openFor.template, lang);
 
   return (
     <section className="relative py-[clamp(80px,14vw,180px)] [&>*:not(.hero-stamp)]:relative [&>*:not(.hero-stamp)]:z-[1]">
@@ -43,7 +48,7 @@ export function Hero({
         {hero.eyebrow}
       </div>
 
-      <h1 className="font-display [&_em]:text-accent m-0 text-[clamp(48px,8.5vw,120px)] leading-[0.96] font-normal tracking-tight text-balance [&_em]:italic">
+      <h1 className="font-display [&_em]:text-accent m-0 text-[clamp(44px,8.4vw,120px)] leading-[0.96] font-normal tracking-tight text-balance [&_em]:italic">
         {hero.title.map((line) => (
           <span
             dangerouslySetInnerHTML={{ __html: line }}
@@ -54,9 +59,28 @@ export function Hero({
       </h1>
 
       <div className="mt-12 grid max-w-205 grid-cols-2 items-start gap-10 max-md:grid-cols-1 max-md:gap-6">
-        <p className="font-display text-ink-soft m-0 max-w-[36ch] text-[clamp(19px,1.6vw,22px)] leading-normal italic">
-          {hero.lede}
-        </p>
+        <div>
+          <p className="font-display text-ink-soft m-0 max-w-[36ch] text-[clamp(19px,1.6vw,22px)] leading-[1.45] text-pretty">
+            {hero.lede}
+          </p>
+          <div className="mt-7 flex flex-wrap items-center gap-x-5 gap-y-3">
+            <a
+              className="bg-accent text-paper hover:bg-ink focus-visible:outline-accent inline-flex min-h-12 items-center gap-2.5 px-5.5 font-mono text-[13px] tracking-[0.12em] uppercase transition-colors focus-visible:outline-2 focus-visible:outline-offset-3"
+              href={BOOKING_URL}
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              {hero.cta.book}
+              <span aria-hidden="true">→</span>
+            </a>
+            <a
+              className="border-rule hover:border-accent hover:text-accent focus-visible:outline-accent border-b pb-1 font-mono text-[13px] transition-colors focus-visible:outline-2 focus-visible:outline-offset-2"
+              href={`mailto:${EMAIL}`}
+            >
+              {EMAIL}
+            </a>
+          </div>
+        </div>
         <div className="text-ink-soft font-mono text-xs leading-[1.9] tracking-wider">
           <div className={ROW}>
             <span className={LABEL}>{facts.base.label}</span>
@@ -64,20 +88,20 @@ export function Hero({
           </div>
           <div className={ROW}>
             <span className={LABEL}>{facts.openFor.label}</span>
-            <span>{openForValue}</span>
-          </div>
-          <div className={ROW}>
-            <span className={LABEL}>{facts.languages.label}</span>
-            <HeroLangPills lang={lang} />
-          </div>
-          <div className={ROW}>
-            <span className={LABEL}>{facts.site.label}</span>
-            <Link
-              className="hover:text-ink focus-visible:outline-accent underline-offset-[3px] transition-colors hover:underline focus-visible:outline-2 focus-visible:outline-offset-2"
-              href={`/${lang}` as Route}
+            <a
+              className="hover:text-ink focus-visible:outline-accent inline-flex items-center gap-2 underline-offset-[3px] transition-colors hover:underline focus-visible:outline-2 focus-visible:outline-offset-2"
+              href="#contact"
             >
-              {SITE_LABEL}
-            </Link>
+              <span
+                aria-hidden="true"
+                className="bg-signal size-[7px] shrink-0 rounded-full"
+              />
+              {openForValue}
+            </a>
+          </div>
+          <div className={ROW}>
+            <span className={LABEL}>{facts.localTime.label}</span>
+            <LocalTime lang={lang} template={facts.localTime.template} />
           </div>
         </div>
       </div>

@@ -11,7 +11,8 @@
   --rule: oklch(0.88 0.008 70);
   --rule-soft: oklch(0.92 0.006 70);
   --paper: oklch(0.99 0 0);
-  --accent: oklch(0.4216 0.112 263.9);
+  --accent: oklch(0.55 0.222 344.7);
+  --signal: oklch(0.572 0.106 153.4);
   --pad-x: clamp(1.5rem, 5vw, 4.5rem);
   isolation: isolate;
 }
@@ -28,6 +29,7 @@
     --rule: oklch(0.3 0.012 70);
     --rule-soft: oklch(0.24 0.01 70);
     --paper: oklch(0.2 0.01 70);
+    --accent: oklch(0.72 0.17 345);
   }
 }
 
@@ -40,6 +42,7 @@
   --color-rule-soft: var(--rule-soft);
   --color-paper: var(--paper);
   --color-accent: var(--accent);
+  --color-signal: var(--signal);
   --font-display: var(--font-display);
   --font-body: var(--font-body);
   --font-mono: var(--font-mono);
@@ -75,6 +78,41 @@
   }
 }
 
+/* Lab marks draw themselves while they scroll into view. Without
+ * scroll-driven animations, or with reduced motion, they stand still, fully
+ * drawn. */
+@keyframes lab-draw {
+  from {
+    stroke-dashoffset: 1;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes lab-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@supports (animation-timeline: view()) {
+  /* Scroll-driven, so the reduced-motion duration override below would not
+   * stop it; opt in explicitly instead. */
+  @media (prefers-reduced-motion: no-preference) {
+    .lab-draw,
+    .lab-fade {
+      animation: lab-draw linear both;
+      animation-timeline: view();
+      animation-range: entry 10% cover 35%;
+    }
+    .lab-fade {
+      animation-name: lab-fade;
+    }
+  }
+}
+
 /* ──────────────────────────────────────────────────────────────
  *  Base
  * ────────────────────────────────────────────────────────────── */
@@ -107,9 +145,13 @@ body {
     background 0.35s ease,
     color 0.35s ease;
 }
-a {
-  color: inherit;
-  text-decoration: none;
+/* In the base layer, so link colour utilities (text-paper, hover:text-accent)
+ * win over it; unlayered, it would beat every utility. */
+@layer base {
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
 }
 ::selection {
   color: var(--paper);
