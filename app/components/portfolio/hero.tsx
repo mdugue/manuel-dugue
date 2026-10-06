@@ -1,19 +1,20 @@
-import type { Route } from "next";
-import Link from "next/link";
-
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 import { nextQuarter } from "@/lib/next-quarter";
 
-import { HeroLangPills } from "./hero-lang-pills";
+const MONTHS_PER_QUARTER = 3;
 
-const SITE_LABEL = "manuel.fyi";
-
-function renderQuarter(template: string): string {
+/** First month of the next bookable quarter, named in the page's language. */
+function renderAvailability(template: string, lang: Locale): string {
   const { quarter, year } = nextQuarter();
-  return template
-    .replace("{quarter}", String(quarter))
-    .replace("{year}", String(year));
+  const firstMonth = new Date(
+    Date.UTC(year, (quarter - 1) * MONTHS_PER_QUARTER, 1)
+  );
+  const month = new Intl.DateTimeFormat(lang, {
+    month: "long",
+    timeZone: "UTC",
+  }).format(firstMonth);
+  return template.replace("{month}", month).replace("{year}", String(year));
 }
 
 const ROW =
@@ -28,7 +29,7 @@ export function Hero({
   lang: Locale;
 }) {
   const { facts } = hero;
-  const openForValue = renderQuarter(facts.openFor.template);
+  const openForValue = renderAvailability(facts.openFor.template, lang);
 
   return (
     <section className="relative py-[clamp(80px,14vw,180px)] [&>*:not(.hero-stamp)]:relative [&>*:not(.hero-stamp)]:z-[1]">
@@ -64,20 +65,16 @@ export function Hero({
           </div>
           <div className={ROW}>
             <span className={LABEL}>{facts.openFor.label}</span>
-            <span>{openForValue}</span>
-          </div>
-          <div className={ROW}>
-            <span className={LABEL}>{facts.languages.label}</span>
-            <HeroLangPills lang={lang} />
-          </div>
-          <div className={ROW}>
-            <span className={LABEL}>{facts.site.label}</span>
-            <Link
-              className="hover:text-ink focus-visible:outline-accent underline-offset-[3px] transition-colors hover:underline focus-visible:outline-2 focus-visible:outline-offset-2"
-              href={`/${lang}` as Route}
+            <a
+              className="hover:text-ink focus-visible:outline-accent inline-flex items-center gap-2 underline-offset-[3px] transition-colors hover:underline focus-visible:outline-2 focus-visible:outline-offset-2"
+              href="#contact"
             >
-              {SITE_LABEL}
-            </Link>
+              <span
+                aria-hidden="true"
+                className="bg-signal size-[7px] shrink-0 rounded-full"
+              />
+              {openForValue}
+            </a>
           </div>
         </div>
       </div>

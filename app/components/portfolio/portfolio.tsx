@@ -27,14 +27,14 @@ export function Portfolio({
         <Suspense
           fallback={
             <SelfPresentationClient
-              initialText={dict.hero.lede}
+              initialText={dict.self.fallback}
               lang={lang}
               self={dict.self}
             />
           }
         >
           <SelfPresentation
-            fallback={dict.hero.lede}
+            fallback={dict.self.fallback}
             lang={lang}
             self={dict.self}
           />
