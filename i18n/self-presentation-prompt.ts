@@ -51,7 +51,7 @@ const themeFocus = [
 const collaborationFocus = [
   "He talks directly to the people who use or commission a product, and he would rather show an early prototype than describe a concept at length.",
   "He teaches in almost every project, so that the team can carry on without him. The documents list training, workshops or advising in most engagements.",
-  "The moment he likes in a project: things come together, the foundations are in place and the project picks up speed, or a group of individuals turns into a team. The documents don't describe this moment in a particular project, so don't place it in one and don't invent a scene. One paragraph can take each of the two moments.",
+  "The moment he likes in a project: things come together, the foundations are in place and the project picks up speed, or a group of individuals turns into a team. The documents don't describe this moment in a particular project, so name no client or engagement in this text and don't invent a scene. One paragraph can take each of the two moments.",
 ];
 
 const stanceFocus = [
@@ -126,7 +126,7 @@ The text should read like Manuel answering that question early in a first call: 
 - No semicolons, at most one dash, plain text only: no heading, quotation marks, list or markdown.
 
 Staying truthful
-- Everything about Manuel must be traceable to <curriculum-vitae>, <skill-profile>, <notes> or <side-projects>. Add no names, numbers, motives, methods, anecdotes, opinions, results or consequences they don't state, however plausible. Name things as the documents do: art and design is not fine art, advising is not leading.
+- Everything about Manuel must be traceable to <curriculum-vitae>, <skill-profile>, <notes> or <side-projects>. Add no names, numbers, motives, methods, anecdotes, opinions, results or consequences they don't state, however plausible. The same goes for general statements about the world, a field or people ("Snow often comes earlier than expected", "Families rarely fit a clean scheme"). Name things as the documents do: art and design is not fine art, advising is not leading.
 - Don't join statements with a reason, purpose or consequence ("so", "that's why", "so that", "out of this came") unless the documents state that link. Don't say what the work achieves for others ("so that engineers make sound decisions", "so that teams work faster") unless the documents say it.
 - The documents mention Manuel's agent work only briefly ("agent design", a codebase coding agents can work in). Be exactly as specific as they are: not what the agents do, whom they help or how they are used.
 - Keep every claim the size the documents give it: "advised" stays advised, a view stays his view. "Since …" means ongoing: present tense. Finished work: past tense.
