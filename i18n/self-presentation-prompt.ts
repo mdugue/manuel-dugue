@@ -59,7 +59,7 @@ const themeFocus = [
 const collaborationFocus = [
   "He talks directly to the people who use or commission a product, and he would rather show an early prototype than describe a concept at length.",
   "He teaches in almost every project, so that the team can carry on without him. The documents list training, workshops or advising in most engagements.",
-  "The moment he likes in a project: things come together, the foundations are in place and the project picks up speed, or a group of individuals turns into a team. The documents don't describe this moment in a particular project, so name no client, engagement or team in this text and don't invent a scene. One paragraph can take each of the two moments. There is little material here: keep the text to 40 to 55 words and add nothing to the two moments, no causes, no feelings, no team details.",
+  "The moment he likes in a project: things come together, the foundations are in place and the project picks up speed, or a group of individuals turns into a team. The documents don't describe this moment in a particular project, so name no client, engagement or team in this text and don't invent a scene. One paragraph can take each of the two moments. There is little material here: keep the text to 40 to 55 words and add nothing to the two moments, no causes, no feelings, no team details. Leave out teaching, prototypes and talking to clients.",
 ];
 
 const stanceFocus = [
