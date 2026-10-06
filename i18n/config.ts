@@ -11,6 +11,14 @@ export const localeLabels: Record<Locale, string> = {
   fr: "FR",
 };
 
+/** "Hello" in each language, shown beside the language switch on hover. */
+export const localeGreetings: Record<Locale, string> = {
+  de: "Hallo",
+  en: "Hello",
+  es: "Hola",
+  fr: "Bonjour",
+};
+
 export function hasLocale(value: string): value is Locale {
   return (locales as readonly string[]).includes(value);
 }

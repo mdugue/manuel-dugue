@@ -78,6 +78,41 @@
   }
 }
 
+/* Lab marks draw themselves while they scroll into view. Without
+ * scroll-driven animations, or with reduced motion, they stand still, fully
+ * drawn. */
+@keyframes lab-draw {
+  from {
+    stroke-dashoffset: 1;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes lab-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@supports (animation-timeline: view()) {
+  /* Scroll-driven, so the reduced-motion duration override below would not
+   * stop it; opt in explicitly instead. */
+  @media (prefers-reduced-motion: no-preference) {
+    .lab-draw,
+    .lab-fade {
+      animation: lab-draw linear both;
+      animation-timeline: view();
+      animation-range: entry 10% cover 35%;
+    }
+    .lab-fade {
+      animation-name: lab-fade;
+    }
+  }
+}
+
 /* ──────────────────────────────────────────────────────────────
  *  Base
  * ────────────────────────────────────────────────────────────── */

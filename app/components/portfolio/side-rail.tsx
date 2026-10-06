@@ -3,8 +3,9 @@
 import type { Route } from "next";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useState } from "react";
 
-import { localeLabels, locales } from "@/i18n/config";
+import { localeGreetings, localeLabels, locales } from "@/i18n/config";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 import { swapLang } from "@/i18n/swap-lang";
@@ -54,6 +55,21 @@ export function SideRail({
 }) {
   const routePathname = usePathname();
   const current = pathname ?? routePathname;
+  // The last greeting stays in place while it fades out.
+  const [greeting, setGreeting] = useState<{
+    code: Locale;
+    shown: boolean;
+  } | null>(null);
+  const fadeGreeting = () => {
+    setGreeting((prev) => (prev ? { ...prev, shown: false } : null));
+  };
+  const greet = (code: Locale) => {
+    if (code === lang) {
+      fadeGreeting();
+    } else {
+      setGreeting({ code, shown: true });
+    }
+  };
 
   return (
     <aside
@@ -76,24 +92,43 @@ export function SideRail({
         {spine}
       </div>
 
-      <nav
-        aria-label={labels.language}
-        className="text-nano flex flex-col items-center gap-0.5 font-mono tracking-widest"
-      >
-        {locales.map((code) => (
-          <Link
-            aria-current={lang === code ? "true" : undefined}
-            className="text-ink-faint hover:text-ink focus-visible:outline-accent data-[active=true]:text-accent data-[active=true]:before:bg-accent relative px-1.5 py-1 transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 data-[active=true]:before:absolute data-[active=true]:before:top-1/2 data-[active=true]:before:-left-1 data-[active=true]:before:h-[3px] data-[active=true]:before:w-[3px] data-[active=true]:before:-translate-y-1/2 data-[active=true]:before:rounded-full data-[active=true]:before:content-['']"
-            data-active={lang === code}
-            href={swapLang(current, code)}
-            key={code}
-            lang={code}
-            prefetch={prefetch}
-          >
-            {localeLabels[code]}
-          </Link>
-        ))}
-      </nav>
+      <div className="flex flex-col items-center gap-2">
+        <nav
+          aria-label={labels.language}
+          className="text-nano flex flex-col items-center gap-0.5 font-mono tracking-widest"
+        >
+          {locales.map((code) => (
+            <Link
+              aria-current={lang === code ? "true" : undefined}
+              className="text-ink-faint hover:text-ink focus-visible:outline-accent data-[active=true]:text-accent data-[active=true]:before:bg-accent relative px-1.5 py-1 transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 data-[active=true]:before:absolute data-[active=true]:before:top-1/2 data-[active=true]:before:-left-1 data-[active=true]:before:h-[3px] data-[active=true]:before:w-[3px] data-[active=true]:before:-translate-y-1/2 data-[active=true]:before:rounded-full data-[active=true]:before:content-['']"
+              data-active={lang === code}
+              href={swapLang(current, code)}
+              key={code}
+              lang={code}
+              onBlur={fadeGreeting}
+              onFocus={() => {
+                greet(code);
+              }}
+              onMouseEnter={() => {
+                greet(code);
+              }}
+              onMouseLeave={fadeGreeting}
+              prefetch={prefetch}
+            >
+              {localeLabels[code]}
+            </Link>
+          ))}
+        </nav>
+        {/* Fixed height, so the greeting never moves the rail. */}
+        <span
+          aria-hidden="true"
+          className="font-display text-accent h-18 rotate-180 text-[15px] whitespace-nowrap italic opacity-0 transition-opacity duration-[250ms] select-none [writing-mode:vertical-rl] data-[shown=true]:opacity-100"
+          data-shown={greeting?.shown ?? false}
+          lang={greeting?.code}
+        >
+          {greeting ? localeGreetings[greeting.code] : null}
+        </span>
+      </div>
     </aside>
   );
 }

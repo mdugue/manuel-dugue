@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 import { Analytics } from "@/app/components/analytics";
+import { ConsoleHello } from "@/app/components/console-hello";
 import { fontVariables } from "@/app/fonts";
 import { hasLocale, localeParams } from "@/i18n/config";
 import type { Locale } from "@/i18n/config";
@@ -59,6 +60,7 @@ export default async function RootLayout({
   if (!hasLocale(lang)) {
     notFound();
   }
+  const dict = getDictionary(lang);
 
   return (
     <html className={`${fontVariables} antialiased`} lang={lang}>
@@ -70,6 +72,7 @@ export default async function RootLayout({
         {children}
         {modal}
         <Analytics />
+        <ConsoleHello message={dict.portfolio.console} />
       </body>
     </html>
   );
