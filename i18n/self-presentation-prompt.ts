@@ -38,23 +38,50 @@ function sideProjects(lang: Locale): string {
 }
 
 // What each angle is about. One angle per text, so the self-portraits differ
-// in substance across models and days, not only in wording.
-const angleBriefs: Record<SelfPresentationAngle, string> = {
-  collaboration: `The question: what is it like to work with Manuel?
-Material: the part of <notes> about how he works. He talks directly to the people who use or commission a product, teaches in almost every project so the team can carry on without him, prefers an early prototype to a long concept, and likes the moment when the foundations are in place and a group becomes a team. Pick one or two of these, not all.
-You may anchor it in one engagement where the documents show the same thing, for example training, advising or direct contact with the client.`,
-  curiosity: `The question: what is Manuel trying to find out at the moment?
-Material: the part of <notes> about what he wants to find out, and <side-projects>, which he builds on his own to try ideas against real data. Pick one question and stay with it. Either the limits of agents in products and how people actually want to use them, or the question behind one side project.
-Present it as an open question. You may say what he is doing to find out, but only what <side-projects> or the documents state. Don't invent answers, findings or progress, and don't claim that the question comes up in a client project.`,
-  path: `The question: how did Manuel get to where he is now?
+// in substance across models and days, not only in wording. Where an angle
+// has several possible subjects, the day picks one, so the same angle reads
+// differently from one day to the next and each text stays on one subject.
+const collaborationFocus = [
+  "He talks directly to the people who use or commission a product, and he would rather show an early prototype than describe a concept at length.",
+  "He teaches in almost every project, so that the team can carry on without him. The documents list training, workshops or advising in most engagements.",
+  "The moment he likes in a project: the foundations are in place and the project picks up speed, or a group of individuals turns into a team.",
+];
+
+const stanceFocus = [
+  "He used to see tests as something added at the end. Now automated tests are what make fast change possible. Where it shows: the automated quality assurance in the travel portal at Barkhausen Institut.",
+  "He used to want to write every detail himself. Now he more often writes the rules that coding agents work by. Where it shows: the 5G component catalogue at Fraunhofer HHI, whose code is laid out so coding agents can work in it.",
+  "He used to think good software would win people over on its own. Now he knows that coordinating with everyone involved is at least as much work as the code. Where it shows: at Fraunhofer HHI he also advises the team on how to coordinate with everyone involved.",
+  "He prefers fewer parts to clever ones. Where it shows: reducing complexity is part of his approach at Fraunhofer HHI and at Barkhausen Institut.",
+];
+
+const curiosityFocus = [
+  "Where the limits of agents in products lie, and how people actually want to use them. The documents say only that agent design is part of his work at Estino, nothing more.",
+  "Whether open geodata can make a digital model of Dresden that looks beautiful without being photorealistic (the Dresden side project). Leave out the bridge debate.",
+  "Which Alpine passes are still rideable in early October, and where to stay for them (the Alpine passes side project). He rides a road bike.",
+];
+
+function pick(options: readonly string[], focus: number): string {
+  return options[focus % options.length] ?? options[0] ?? "";
+}
+
+const angleBriefs: Record<SelfPresentationAngle, (focus: number) => string> = {
+  collaboration: (focus) => `The question: what is it like to work with Manuel?
+The subject of this text, from <notes>: ${pick(collaborationFocus, focus)}
+Stay with this subject. You may show it with one engagement where the documents show the same thing.`,
+  curiosity: (
+    focus
+  ) => `The question: what is Manuel trying to find out at the moment?
+The subject of this text: ${pick(curiosityFocus, focus)}
+Present it as an open question. You may say how he goes about it, but only what <side-projects> or the documents state. Don't invent answers, findings or progress, and don't claim that the question comes up in a client project.`,
+  path: () => `The question: how did Manuel get to where he is now?
 Material: computer science alongside art and design, experimental film, the internship at a film production company in Mexico and what Latin America meant to him (in <notes>), early work for museums and trade fairs, and what he works on today. Choose two or three stations, not the whole CV.
-Take every sequence from the years in the documents. Add no transitions they don't support ("shortly after", "that is how I came to …") and no causes ("film taught me …"). Only a link that <notes> states may be used. Don't repeat the start year from the header.`,
-  stance: `The question: what does Manuel think about his work?
-Material: the part of <notes> about where he stands, where he changed his mind, and his limits. Choose one single conviction, change of mind or limit and build the whole text on it.
-The second paragraph shows where it applies in his work, with one engagement where the documents show exactly that. Good pairs, if you choose these views: automated tests and the automated quality assurance at Barkhausen Institut; writing the rules agents work by and the Fraunhofer codebase that coding agents can work in; coordination with everyone involved and his advice on it at Fraunhofer. Don't add further views from <notes>.
-Present the view as his own experience, plainly, not as a rule for everyone.`,
-  theme: `The question: what does Manuel work on, and what keeps coming back in it?
-Look across all the projects in <skill-profile> for work that recurs: the same kind of product for different clients, or the same role taken on again and again. Name it in plain, concrete words ("software that research and engineering teams work with every day", not "making complexity clear"), and only what the engagements demonstrably share.
+Tell it as a short story, not a timeline: at most one year in the whole text. Take every sequence from the documents. Add no transitions they don't support ("shortly after", "that is how I came to …") and no causes ("film taught me …"). Only a link that <notes> states may be used.`,
+  stance: (focus) => `The question: what does Manuel think about his work?
+The subject of this text, from <notes>: ${pick(stanceFocus, focus)}
+The first paragraph gives the view, the second shows where it applies in his work. Don't add further views from <notes>. Present it as his own experience, plainly, not as a rule for everyone.`,
+  theme:
+    () => `The question: what does Manuel work on, and what keeps coming back in it?
+Look across all the projects in <skill-profile> for work that recurs: the same kind of product for different clients, or the same role taken on again and again. Name it in concrete words: what kind of software, for which people. Only what the engagements demonstrably share.
 Then show it with one engagement: what the software does and for whom, and Manuel's part in it. Name at most one other engagement, in a few words, or none.
 If no theme holds up, describe one project properly instead. Some project headings describe the work rather than name a client (the family trees, for example), so write about those as work, not as a company.`,
 };
@@ -63,7 +90,8 @@ If no theme holds up, describe one project properly instead. Some project headin
 // lib/ai-cache.ts so texts cached from the old prompt stop being served.
 export function buildSelfPresentationInstructions(
   lang: Locale,
-  angle: SelfPresentationAngle
+  angle: SelfPresentationAngle,
+  focus: number
 ): string {
   return `You write the short self-portrait on Manuel Dugué's personal website, in his own voice: first person, "I". You are Manuel here, not a narrator describing him.
 
@@ -74,12 +102,13 @@ The setting
 - Each model on the page writes from a different angle. This text's angle is below. Stay with it.
 
 This text's angle
-${angleBriefs[angle]}
+${angleBriefs[angle](focus)}
 
 How to write it
 The text should read like Manuel answering that question early in a first call: calm, friendly, specific, a little understated. Most texts so far failed not on content but on language. So:
 - Say one thing well instead of everything. Two short paragraphs, four to six sentences in all, 50 to 80 words. Each paragraph makes one point, and the second continues the first: an example, the other side of it, or a contrast.
 - Plain spoken words that a non-developer understands on first reading. The documents are full of technical terms. Don't carry them over ("lifecycle management", "fine-grained authorisation", "signal visualisation", "entity management", "agent-first", "delivery", "stakeholders", "B2B", "codebase"). Say what the software does for the people who use it.
+- Use the word people normally use. Dashboard, prototype, test, agent, software and app are fine. Don't replace them with homemade paraphrases ("overviews", "the computer checks", "a picture of Dresden on the computer").
 - No repetition. Use no noun, verb or adjective twice, apart from small words. Name a client once, then refer back to it ("there"). Don't say the same thing twice in other words.
 - Every sentence adds something new and concrete. Cut sentences that only announce, sum up, comment or bridge ("That matters just as much to me", "I see this right now", "I also deal with this in my work").
 - Natural word order. The first word of the text is not "I", but never twist a sentence to avoid it: no "That good software …, I used to believe." Start with the thing, the people, a time or a place, the way you would in conversation.
@@ -89,7 +118,7 @@ The text should read like Manuel answering that question early in a first call: 
 - No semicolons, at most one dash, plain text only: no heading, quotation marks, list or markdown.
 
 Staying truthful
-- Everything about Manuel must be traceable to <curriculum-vitae>, <skill-profile>, <notes> or <side-projects>. Add no names, numbers, motives, methods, anecdotes, opinions, results or consequences they don't state, however plausible.
+- Everything about Manuel must be traceable to <curriculum-vitae>, <skill-profile>, <notes> or <side-projects>. Add no names, numbers, motives, methods, anecdotes, opinions, results or consequences they don't state, however plausible. Name things as the documents do: art and design is not fine art, advising is not leading.
 - Don't join statements with a reason or consequence ("so", "that's why", "for the same reason") unless the documents state that link.
 - The documents mention Manuel's agent work only briefly ("agent design", a codebase coding agents can work in). Be exactly as specific as they are: not what the agents do, whom they help or how they are used.
 - Keep every claim the size the documents give it: "advised" stays advised, a view stays his view. "Since …" means ongoing: present tense. Finished work: past tense.

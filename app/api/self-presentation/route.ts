@@ -1,7 +1,7 @@
 import { createTextStreamResponse, streamText, toTextStream } from "ai";
 
 import { readMarkdownSource } from "@/app/components/markdown-source";
-import { isAiModelId } from "@/i18n/ai-models";
+import { aiModelReasoning, isAiModelId } from "@/i18n/ai-models";
 import { hasLocale } from "@/i18n/config";
 import type { Locale } from "@/i18n/config";
 import {
@@ -13,6 +13,7 @@ import { checkRateLimit, rateLimited } from "@/lib/rate-limit";
 import {
   isSelfPresentationAngle,
   selfPresentationAngle,
+  selfPresentationDay,
 } from "@/lib/self-presentation-angle";
 
 export const maxDuration = 60;
@@ -34,8 +35,10 @@ export async function POST(req: Request) {
     lang,
     model,
     angle: requestedAngle,
+    focus: requestedFocus,
   } = payload as {
     angle?: unknown;
+    focus?: unknown;
     lang?: unknown;
     model?: unknown;
   };
@@ -49,16 +52,22 @@ export async function POST(req: Request) {
 
   const locale: Locale = lang;
   const namespace = "self-presentation" as const;
-  // Preview deployments accept an explicit angle, uncached, so every angle
-  // can be tried with every model on the same day.
+  // Preview deployments accept an explicit angle and focus, uncached, so
+  // every combination can be tried with every model on the same day.
+  const isPreview = process.env.VERCEL_ENV === "preview";
   const pinnedAngle =
-    process.env.VERCEL_ENV === "preview" &&
-    isSelfPresentationAngle(requestedAngle)
+    isPreview && isSelfPresentationAngle(requestedAngle)
       ? requestedAngle
+      : null;
+  const pinnedFocus =
+    isPreview && Number.isInteger(requestedFocus)
+      ? (requestedFocus as number)
       : null;
   // Fixed once per request, so a text finished after midnight is still
   // stored under the angle it was written from.
-  const angle = pinnedAngle ?? selfPresentationAngle(model);
+  const now = Date.now();
+  const angle = pinnedAngle ?? selfPresentationAngle(model, now);
+  const focus = pinnedFocus ?? selfPresentationDay(now);
 
   const cached = pinnedAngle
     ? null
@@ -79,7 +88,7 @@ export async function POST(req: Request) {
   ]);
 
   const result = streamText({
-    instructions: buildSelfPresentationInstructions(locale, angle),
+    instructions: buildSelfPresentationInstructions(locale, angle, focus),
     model,
     onEnd: async ({ text }) => {
       if (pinnedAngle) {
@@ -98,6 +107,7 @@ export async function POST(req: Request) {
       notes: notes.body,
       skills: skills.body,
     }),
+    reasoning: aiModelReasoning[model],
     temperature: 0.85,
   });
 

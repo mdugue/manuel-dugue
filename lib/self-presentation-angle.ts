@@ -23,6 +23,11 @@ export function isSelfPresentationAngle(
 
 const DAY_MS = 24 * 60 * 60 * 1000;
 
+/** Days since the epoch, in UTC. Picks the angle and its focus. */
+export function selfPresentationDay(now: number = Date.now()): number {
+  return Math.floor(now / DAY_MS);
+}
+
 /**
  * On any given day each model gets a different angle, and the assignment
  * moves on daily. So "Regenerate" shows different portraits, not one
@@ -32,7 +37,7 @@ export function selfPresentationAngle(
   model: AiModelId,
   now: number = Date.now()
 ): SelfPresentationAngle {
-  const day = Math.floor(now / DAY_MS);
+  const day = selfPresentationDay(now);
   const modelIndex = aiModels.findIndex((m) => m.id === model);
   const index = (day + modelIndex) % selfPresentationAngles.length;
   return selfPresentationAngles[index] ?? "theme";
