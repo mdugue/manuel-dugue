@@ -23,6 +23,13 @@ export const aiModelReasoning: Partial<Record<AiModelId, "low">> = {
   "google/gemini-3.8-flash": "low",
 };
 
+// Models that write a draft and then check it against the prompt's rules in
+// a second pass before the text is streamed. Gemini's short thinking skips
+// that check and otherwise adds reasons, general claims and punchlines.
+export const aiModelsThatReviseDraft: ReadonlySet<AiModelId> = new Set([
+  "google/gemini-3.8-flash",
+]);
+
 export function isAiModelId(value: unknown): value is AiModelId {
   return typeof value === "string" && aiModels.some((m) => m.id === value);
 }

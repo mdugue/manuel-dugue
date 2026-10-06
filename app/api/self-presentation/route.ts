@@ -1,12 +1,23 @@
-import { createTextStreamResponse, streamText, toTextStream } from "ai";
+import {
+  createTextStreamResponse,
+  generateText,
+  streamText,
+  toTextStream,
+} from "ai";
+import type { ModelMessage } from "ai";
 
 import { readMarkdownSource } from "@/app/components/markdown-source";
-import { aiModelReasoning, isAiModelId } from "@/i18n/ai-models";
+import {
+  aiModelReasoning,
+  aiModelsThatReviseDraft,
+  isAiModelId,
+} from "@/i18n/ai-models";
 import { hasLocale } from "@/i18n/config";
 import type { Locale } from "@/i18n/config";
 import {
   buildSelfPresentationInstructions,
   buildSelfPresentationPrompt,
+  buildSelfPresentationReview,
 } from "@/i18n/self-presentation-prompt";
 import { readAiCacheText, writeAiCacheText } from "@/lib/ai-cache";
 import { checkRateLimit, rateLimited } from "@/lib/rate-limit";
@@ -87,8 +98,40 @@ export async function POST(req: Request) {
     readMarkdownSource("notes", locale),
   ]);
 
+  const instructions = buildSelfPresentationInstructions(locale, angle, focus);
+  const reasoning = aiModelReasoning[model];
+  const temperature = 0.85;
+  const messages: ModelMessage[] = [
+    {
+      content: buildSelfPresentationPrompt(locale, angle, {
+        cv: cv.body,
+        notes: notes.body,
+        skills: skills.body,
+      }),
+      role: "user",
+    },
+  ];
+  if (aiModelsThatReviseDraft.has(model)) {
+    const draft = await generateText({
+      instructions,
+      messages,
+      model,
+      reasoning,
+      temperature,
+    });
+    // An empty draft has nothing to review; the streamed call then simply
+    // writes the text in one pass.
+    if (draft.text.trim()) {
+      messages.push(
+        { content: draft.text, role: "assistant" },
+        { content: buildSelfPresentationReview(locale), role: "user" }
+      );
+    }
+  }
+
   const result = streamText({
-    instructions: buildSelfPresentationInstructions(locale, angle, focus),
+    instructions,
+    messages,
     model,
     onEnd: async ({ text }) => {
       if (pinnedAngle) {
@@ -102,13 +145,8 @@ export async function POST(req: Request) {
         variant: angle,
       });
     },
-    prompt: buildSelfPresentationPrompt(locale, angle, {
-      cv: cv.body,
-      notes: notes.body,
-      skills: skills.body,
-    }),
-    reasoning: aiModelReasoning[model],
-    temperature: 0.85,
+    reasoning,
+    temperature,
   });
 
   return createTextStreamResponse({

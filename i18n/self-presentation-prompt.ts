@@ -193,3 +193,13 @@ ${sideProjects(lang)}
 
 Now write the self-portrait in ${languageName[lang]}, about ${angleQuestions[angle]}: two short paragraphs, 40 to 80 words, plain words, nothing repeated, the first word not "I", ending on a fact.`;
 }
+
+// The second turn for models that revise their draft before it is shown.
+export function buildSelfPresentationReview(lang: Locale): string {
+  return `Read your text again as a visitor would, sentence by sentence, and check it against the rules:
+- Is every statement in <curriculum-vitae>, <skill-profile>, <notes> or <side-projects>? Remove what they don't say: added details, reasons, purposes, consequences, feelings, general statements about the world.
+- Is the first sentence about Manuel? Does the last sentence state a fact, not a verdict, lesson or punchline?
+- Does it stay on its one subject, in 40 to 80 words?
+- Is there a word repeated in neighbouring sentences, a term a non-developer wouldn't know, a semicolon, "not just … but", a list of three, a metaphor?
+Fix what you find and keep everything else as it is. Output only the final text in ${languageName[lang]}, two paragraphs, nothing before or after.`;
+}
