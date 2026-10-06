@@ -18,9 +18,10 @@ export type AiModelId = (typeof aiModels)[number]["id"];
 export const defaultAiModel: AiModelId = "anthropic/claude-sonnet-5.5";
 
 // Gemini thinks at length by default and can run past the function's time
-// limit before it writes a word. These texts are short; low is plenty.
-export const aiModelReasoning: Partial<Record<AiModelId, "low">> = {
-  "google/gemini-3.8-flash": "low",
+// limit before it writes a word. Medium leaves it enough room to check its
+// text against the rules; low skipped that and invented more.
+export const aiModelReasoning: Partial<Record<AiModelId, "medium">> = {
+  "google/gemini-3.8-flash": "medium",
 };
 
 export function isAiModelId(value: unknown): value is AiModelId {

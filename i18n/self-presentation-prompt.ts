@@ -59,7 +59,7 @@ const themeFocus = [
 const collaborationFocus = [
   "He talks directly to the people who use or commission a product, and he would rather show an early prototype than describe a concept at length.",
   "He teaches in almost every project, so that the team can carry on without him. The documents list training, workshops or advising in most engagements.",
-  "The moment he likes in a project: things come together, the foundations are in place and the project picks up speed, or a group of individuals turns into a team. The documents don't describe this moment in a particular project, so name no client or engagement in this text and don't invent a scene. One paragraph can take each of the two moments.",
+  "The moment he likes in a project: things come together, the foundations are in place and the project picks up speed, or a group of individuals turns into a team. The documents don't describe this moment in a particular project, so name no client or engagement in this text and don't invent a scene. One paragraph can take each of the two moments. There is little material here: keep the text to 40 to 55 words and add nothing to the two moments, no causes, no feelings, no team details.",
 ];
 
 const stanceFocus = [
@@ -128,6 +128,7 @@ The text should read like Manuel answering that question early in a first call: 
 - No repetition. Don't say the same thing twice in other words. Don't repeat a noun, verb or adjective in neighbouring sentences: use a pronoun ("there", "it") or rebuild the sentence. But never swap in an odd synonym just to avoid a repeat ("agents … these programs"): the plain word again is better.
 - Every sentence adds something new and concrete. Cut sentences that only announce, sum up, comment or bridge ("That matters just as much to me", "I see this right now", "This also belongs in that series").
 - End on a fact. The last sentence is not a verdict, lesson or outlook ("That saves a few loops later", "What matters is …").
+- The first sentence is about Manuel: his work, his view or his question. Don't open with a general statement about a field, a season or a group of people ("Research institutes need …", "Autumn in the mountains is short").
 - Natural word order. The first word of the text is not "I", but never twist a sentence to avoid it: no "That good software …, I used to believe." Start with the thing, the people, a time or a place, the way you would in conversation.
 - Retell <notes> and <side-projects> in your own words. Don't reuse their sentences or turns of phrase.
 - At most one detail from outside work, and only if it belongs to the angle.
