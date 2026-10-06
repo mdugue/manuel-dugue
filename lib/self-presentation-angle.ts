@@ -12,6 +12,15 @@ export const selfPresentationAngles = [
 
 export type SelfPresentationAngle = (typeof selfPresentationAngles)[number];
 
+export function isSelfPresentationAngle(
+  value: unknown
+): value is SelfPresentationAngle {
+  return (
+    typeof value === "string" &&
+    (selfPresentationAngles as readonly string[]).includes(value)
+  );
+}
+
 const DAY_MS = 24 * 60 * 60 * 1000;
 
 /**
