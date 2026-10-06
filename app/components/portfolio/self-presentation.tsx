@@ -16,7 +16,8 @@ export async function SelfPresentation({
   const cached = await readCachedSelfPresentation(lang);
   return (
     <SelfPresentationClient
-      initialText={cached ?? fallback}
+      initialAngle={cached?.angle}
+      initialText={cached?.text ?? fallback}
       lang={lang}
       self={self}
     />

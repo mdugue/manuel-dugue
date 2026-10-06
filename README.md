@@ -5,7 +5,7 @@ Personal site of Manuel Dugué, an independent product engineer in Dresden. It i
 ## What's in here
 
 - **Portfolio** (`app/[lang]/page.tsx`, `app/components/portfolio/`): hero, documents, the "Lab" with side projects, and two AI-written sections.
-- **AI sections**: a self-portrait and social proof, generated through the [Vercel AI Gateway](https://vercel.com/ai-gateway) with the [AI SDK](https://ai-sdk.dev). Visitors can switch between the models in `i18n/ai-models.ts`. Results are cached per locale, model and prompt revision for 24 h (`lib/ai-cache.ts`).
+- **AI sections**: a self-portrait and social proof, generated through the [Vercel AI Gateway](https://vercel.com/ai-gateway) with the [AI SDK](https://ai-sdk.dev). Visitors can switch between the models in `i18n/ai-models.ts`. The self-portrait draws on the CV, the skill profile and the notes (`public/{locale}/notes.md`), and each model writes it from a different angle that moves on daily (`lib/self-presentation-angle.ts`). Results are cached per locale, model and prompt revision for 24 h (`lib/ai-cache.ts`).
 - **Documents**: the CV, skill profile, imprint and privacy policy are Markdown files in `public/{en,de,fr,es}/`. Each one is rendered three ways: as a page, as a modal over the portfolio and as a PDF (`@react-pdf/renderer`). Requests with `Accept: text/markdown` get the raw Markdown.
 - **i18n**: English, German, French and Spanish. `proxy.ts` negotiates the locale, and UI strings live in `i18n/dictionaries/*.json`.
 

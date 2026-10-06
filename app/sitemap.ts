@@ -9,6 +9,7 @@ const PAGES = [
   "",
   "curriculum-vitae",
   "skill-profile",
+  "notes",
   "legal",
   "privacy",
 ] as const;

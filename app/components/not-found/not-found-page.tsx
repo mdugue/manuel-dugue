@@ -65,6 +65,10 @@ function destinations(
       href: `${home}/legal` as Route,
       label: dict.legal.imprint.sheetTitle,
     },
+    notes: {
+      href: `${home}/notes` as Route,
+      label: dict.docs.notes.title,
+    },
     privacy: {
       href: `${home}/privacy` as Route,
       label: dict.legal.privacy.sheetTitle,

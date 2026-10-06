@@ -28,9 +28,16 @@
     "self": {
       "label": "Sobre mí",
       "heading": "Autorretrato, subcontratado",
-      "sub": "Un modelo leyó mis documentos. Solo le pedí que no se pusiera lírico.",
+      "sub": "Tres modelos leyeron mis documentos. Cada uno cuenta hoy un capítulo distinto. Solo les pedí que no se pusieran líricos.",
       "tag": "Texto · generado por IA, aprobado por Manuel",
-      "cycle": "Otra vez",
+      "angles": {
+        "theme": "Lo que siempre vuelve",
+        "path": "Cómo llegué hasta aquí",
+        "collaboration": "Cómo es trabajar conmigo",
+        "stance": "Lo que hoy veo de otra manera",
+        "curiosity": "Lo que quiero averiguar"
+      },
+      "cycle": "Siguiente capítulo",
       "errorRetry": "No ha funcionado. ¿Intentarlo de nuevo?",
       "modelLabel": "modelo:",
       "tooltip": {
@@ -63,6 +70,14 @@
         "cta": "Abrir",
         "sheetTitle": "Perfil de habilidades",
         "sheetSubtitle": "Capacidades, stack, proyectos y la versión larga de mi trabajo."
+      },
+      "notes": {
+        "num": "03",
+        "title": "Notas",
+        "desc": "Lo que el currículum no cuenta: cómo pienso y qué quiero averiguar.",
+        "cta": "Abrir",
+        "sheetTitle": "Notas",
+        "sheetSubtitle": "Lo que pienso, cómo trabajo, influencias y lo que quiero averiguar."
       }
     },
     "lab": {

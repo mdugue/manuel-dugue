@@ -5,6 +5,7 @@ export type RouteGuess =
   | "home"
   | "lab"
   | "legal"
+  | "notes"
   | "privacy"
   | "skill-profile";
 
@@ -47,6 +48,9 @@ const KNOWN: Record<string, RouteGuess> = {
   legal: "legal",
   legalnotice: "legal",
   mentionslegales: "legal",
+  notas: "notes",
+  notes: "notes",
+  notizen: "notes",
   perfil: "skill-profile",
   perfildehabilidades: "skill-profile",
   privacidad: "privacy",
