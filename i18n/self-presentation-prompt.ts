@@ -13,7 +13,7 @@ const languageName: Record<Locale, string> = {
 
 // What tends to sound translated or canned in each language.
 const languageNotes: Record<Locale, string> = {
-  de: `German as it is written in Germany today. Verbs rather than noun chains ("die Umsetzung von …", "die Sicherstellung …"). Established terms such as Dashboard or Code Review are fine; otherwise prefer German words, and no hybrid jargon like "Team-Enablement". Watch for calques from English marketing ("Ich helfe Teams dabei, …", Teams "befähigen" or "stärken", "einen Unterschied machen", "Lösungen liefern") and for consultant German ("begleiten" as a filler verb, "Mehrwert", "ganzheitlich", "nachhaltig", "an der Schnittstelle"). Use "bauen" for software sparingly; "entwickeln" or a more specific verb usually sounds more natural.`,
+  de: `German as it is written in Germany today. Verbs rather than noun chains ("die Umsetzung von …", "die Sicherstellung …"). Established terms such as Dashboard or Code Review are fine; otherwise prefer German words, and no hybrid jargon like "Team-Enablement". Watch for calques from English marketing ("Ich helfe Teams dabei, …", Teams "befähigen" or "stärken", "einen Unterschied machen", "Lösungen liefern") and for consultant German ("begleiten" as a filler verb, "Mehrwert", "ganzheitlich", "nachhaltig", "an der Schnittstelle"). Use "bauen" for software sparingly; "entwickeln" or a more specific verb usually sounds more natural. No "nicht nur …, sondern auch".`,
   en: `British spelling, as in the documents (catalogue, visualise). Contractions are welcome. Prefer plain verbs: "work on" over "drive", "help" over "empower", "use" over "leverage". "Build" is fine.`,
   es: `Spanish as it is written in Spain. Drop the subject pronoun where Spanish naturally does ("trabajo", not "yo trabajo"). Use Spanish words where they are normal ("cuadros de mando" rather than "dashboards"); keep product names as they are. Watch for calques and consultant Spanish: "acompañar" as a filler verb, "aportar valor", "impactar", "empoderar", "marcar la diferencia", "apasionado", "en la intersección de".`,
   fr: `French as it is written in France, with the usual space before : ? and !. Use French words where they are normal in conversation ("tableaux de bord" rather than "dashboards"); keep product names as they are. Watch for consultant French and anglicisms: "accompagner" as a filler verb, "apporter de la valeur", "adresser un problème", "délivrer" for "livrer", "impacter", "faire la différence".`,
@@ -41,10 +41,17 @@ function sideProjects(lang: Locale): string {
 // in substance across models and days, not only in wording. Where an angle
 // has several possible subjects, the day picks one, so the same angle reads
 // differently from one day to the next and each text stays on one subject.
+const themeFocus = [
+  "Family trees. At T-Systems he worked on a large genealogy product (2009 to 2012 and 2014). Since 2020 he has made family trees for four large German families, where patchwork families, changed names and relatives in more than one branch have to be shown with care. For Franz Haniel & Cie. he worked on a digital family history covering 350 years.",
+  "Making data readable that people otherwise can't see. At Estino, dashboards that show signals from commercial vehicles to the people developing them (since 2018). For Fioscope, a prototype that shows live camera images from running furnaces next to figures such as the melting progress (2024). Earlier, at T-Systems, a visualisation of over a thousand employees and their working groups (2009).",
+  "Software for research institutes, where he develops and also advises or teaches. At Fraunhofer HHI, a catalogue for 5G components, where he reviewed the architecture, designed the rewrite, works on it and advises the team (since 2025). At Barkhausen Institut, a portal for business travel, with advising, training and new features (since 2024).",
+  "Exhibitions and history. Virtual books for the museum terminals of the Military History Museum in Dresden (2011 to 2013). A digital exhibition about political education in Saxony for JoDDiD (2022 to 2023). The digital family history of Franz Haniel & Cie. (2018, 2020).",
+];
+
 const collaborationFocus = [
   "He talks directly to the people who use or commission a product, and he would rather show an early prototype than describe a concept at length.",
   "He teaches in almost every project, so that the team can carry on without him. The documents list training, workshops or advising in most engagements.",
-  "The moment he likes in a project: the foundations are in place and the project picks up speed, or a group of individuals turns into a team.",
+  "The moment he likes in a project: things come together, the foundations are in place and the project picks up speed, or a group of individuals turns into a team. The documents don't describe this moment in a particular project, so don't place it in one and don't invent a scene. One paragraph can take each of the two moments.",
 ];
 
 const stanceFocus = [
@@ -55,7 +62,7 @@ const stanceFocus = [
 ];
 
 const curiosityFocus = [
-  "Where the limits of agents in products lie, and how people actually want to use them. The documents say only that agent design is part of his work at Estino, nothing more.",
+  "Where the limits of agents in products lie, and how people actually want to use them. Where he meets agents in his work: agent design is part of his work at Estino (the documents say no more), and in his own coding he now more often writes the rules that coding agents work by (<notes>).",
   "Whether open geodata can make a digital model of Dresden that looks beautiful without being photorealistic (the Dresden side project). Leave out the bridge debate.",
   "Which Alpine passes are still rideable in early October, and where to stay for them (the Alpine passes side project). He rides a road bike.",
 ];
@@ -67,23 +74,23 @@ function pick(options: readonly string[], focus: number): string {
 const angleBriefs: Record<SelfPresentationAngle, (focus: number) => string> = {
   collaboration: (focus) => `The question: what is it like to work with Manuel?
 The subject of this text, from <notes>: ${pick(collaborationFocus, focus)}
-Stay with this subject. You may show it with one engagement where the documents show the same thing.`,
+Stay with this subject and leave out the other points about how he works. You may show it with one engagement where the documents show the same thing.`,
   curiosity: (
     focus
   ) => `The question: what is Manuel trying to find out at the moment?
 The subject of this text: ${pick(curiosityFocus, focus)}
-Present it as an open question. You may say how he goes about it, but only what <side-projects> or the documents state. Don't invent answers, findings or progress, and don't claim that the question comes up in a client project.`,
+Stay with this question and leave out the others. Present it as an open question. You may say how he goes about it, but only what <side-projects> or the documents state. Don't invent answers, findings or progress, and don't claim that the question comes up in a client project.`,
   path: () => `The question: how did Manuel get to where he is now?
 Material: computer science alongside art and design, experimental film, the internship at a film production company in Mexico and what Latin America meant to him (in <notes>), early work for museums and trade fairs, and what he works on today. Choose two or three stations, not the whole CV.
 Tell it as a short story, not a timeline: at most one year in the whole text. Take every sequence from the documents. Add no transitions they don't support ("shortly after", "that is how I came to …") and no causes ("film taught me …"). Only a link that <notes> states may be used.`,
   stance: (focus) => `The question: what does Manuel think about his work?
 The subject of this text, from <notes>: ${pick(stanceFocus, focus)}
-The first paragraph gives the view, the second shows where it applies in his work. Don't add further views from <notes>. Present it as his own experience, plainly, not as a rule for everyone.`,
-  theme:
-    () => `The question: what does Manuel work on, and what keeps coming back in it?
-Look across all the projects in <skill-profile> for work that recurs: the same kind of product for different clients, or the same role taken on again and again. Name it in concrete words: what kind of software, for which people. Only what the engagements demonstrably share.
-Then show it with one engagement: what the software does and for whom, and Manuel's part in it. Name at most one other engagement, in a few words, or none.
-If no theme holds up, describe one project properly instead. Some project headings describe the work rather than name a client (the family trees, for example), so write about those as work, not as a company.`,
+The first paragraph gives the view, the second shows where it applies in his work. Leave out his other views. Present it as his own experience, plainly, not as a rule for everyone.`,
+  theme: (
+    focus
+  ) => `The question: what does Manuel work on, and what keeps coming back in it?
+The subject of this text, from <skill-profile>: ${pick(themeFocus, focus)}
+Name what recurs in concrete words, then show it with one engagement: what the software does and for whom, and Manuel's part in it. Mention at most one other engagement, in a few words. This text is about the work: leave his ways of working and his views to the other angles.`,
 };
 
 // Changing the prompts below? Bump the self-presentation revision in
@@ -106,20 +113,21 @@ ${angleBriefs[angle](focus)}
 
 How to write it
 The text should read like Manuel answering that question early in a first call: calm, friendly, specific, a little understated. Most texts so far failed not on content but on language. So:
-- Say one thing well instead of everything. Two short paragraphs, four to six sentences in all, 50 to 80 words. Each paragraph makes one point, and the second continues the first: an example, the other side of it, or a contrast.
+- Say one thing well instead of everything. Two short paragraphs, four to six sentences in all, 40 to 80 words. Each paragraph makes one point, and the second continues the first: an example, the other side of it, or a contrast. When the material runs out, stop: a short text is better than a filler sentence.
 - Plain spoken words that a non-developer understands on first reading. The documents are full of technical terms. Don't carry them over ("lifecycle management", "fine-grained authorisation", "signal visualisation", "entity management", "agent-first", "delivery", "stakeholders", "B2B", "codebase"). Say what the software does for the people who use it.
 - Use the word people normally use. Dashboard, prototype, test, agent, software and app are fine. Don't replace them with homemade paraphrases ("overviews", "the computer checks", "a picture of Dresden on the computer").
-- No repetition. Use no noun, verb or adjective twice, apart from small words. Name a client once, then refer back to it ("there"). Don't say the same thing twice in other words.
-- Every sentence adds something new and concrete. Cut sentences that only announce, sum up, comment or bridge ("That matters just as much to me", "I see this right now", "I also deal with this in my work").
+- No repetition. Don't say the same thing twice in other words. Don't repeat a noun, verb or adjective in neighbouring sentences: use a pronoun ("there", "it") or rebuild the sentence. But never swap in an odd synonym just to avoid a repeat ("agents … these programs"): the plain word again is better.
+- Every sentence adds something new and concrete. Cut sentences that only announce, sum up, comment or bridge ("That matters just as much to me", "I see this right now", "This also belongs in that series").
+- End on a fact. The last sentence is not a verdict, lesson or outlook ("That saves a few loops later", "What matters is …").
 - Natural word order. The first word of the text is not "I", but never twist a sentence to avoid it: no "That good software …, I used to believe." Start with the thing, the people, a time or a place, the way you would in conversation.
-- Retell <notes> in your own words. Don't reuse their sentences or turns of phrase.
+- Retell <notes> and <side-projects> in your own words. Don't reuse their sentences or turns of phrase.
 - At most one detail from outside work, and only if it belongs to the angle.
 - Web technology is Manuel's means, not his subject. Don't call his work websites or web apps, and don't name frameworks or programming languages.
 - No semicolons, at most one dash, plain text only: no heading, quotation marks, list or markdown.
 
 Staying truthful
 - Everything about Manuel must be traceable to <curriculum-vitae>, <skill-profile>, <notes> or <side-projects>. Add no names, numbers, motives, methods, anecdotes, opinions, results or consequences they don't state, however plausible. Name things as the documents do: art and design is not fine art, advising is not leading.
-- Don't join statements with a reason or consequence ("so", "that's why", "for the same reason") unless the documents state that link.
+- Don't join statements with a reason, purpose or consequence ("so", "that's why", "so that", "out of this came") unless the documents state that link. Don't say what the work achieves for others ("so that engineers make sound decisions", "so that teams work faster") unless the documents say it.
 - The documents mention Manuel's agent work only briefly ("agent design", a codebase coding agents can work in). Be exactly as specific as they are: not what the agents do, whom they help or how they are used.
 - Keep every claim the size the documents give it: "advised" stays advised, a view stays his view. "Since …" means ongoing: present tense. Finished work: past tense.
 - At most two clients named in the whole text. Nothing about family or private life beyond what <notes> say.
@@ -169,5 +177,5 @@ ${sources.notes}
 ${sideProjects(lang)}
 </side-projects>
 
-Now write the self-portrait in ${languageName[lang]}, about ${angleQuestions[angle]}: two short paragraphs, 50 to 80 words, plain words, nothing repeated.`;
+Now write the self-portrait in ${languageName[lang]}, about ${angleQuestions[angle]}: two short paragraphs, 40 to 80 words, plain words, nothing repeated, the first word not "I", ending on a fact.`;
 }
