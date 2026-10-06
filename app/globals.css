@@ -117,8 +117,41 @@
  *  Documents — card ↔ sheet morph and the sheet's small extras
  * ────────────────────────────────────────────────────────────── */
 :root {
-  --doc-morph: 720ms;
+  --doc-morph: 800ms;
   --doc-ease: cubic-bezier(0.16, 1, 0.3, 1);
+  /* A damped spring: overshoots by about 5% once, then settles. */
+  --doc-bounce: linear(
+    0,
+    0.059,
+    0.197,
+    0.367,
+    0.538,
+    0.691,
+    0.817,
+    0.912,
+    0.979,
+    1.021,
+    1.044,
+    1.054,
+    1.053,
+    1.047,
+    1.038,
+    1.029,
+    1.02,
+    1.013,
+    1.007,
+    1.003,
+    1,
+    0.998,
+    0.997,
+    0.997,
+    0.997,
+    0.998,
+    0.998,
+    0.999,
+    0.999,
+    1
+  );
 }
 
 /* A second sheet peeks out from under each card, a third on hover. */
@@ -153,14 +186,18 @@
 }
 
 /* The card grows into the sheet: the frame expands, the sheet's top unfolds
- * from inside it at reading size, and the paper tilts once in the air. */
+ * from inside it at reading size, and both land with one soft bounce. Sheet
+ * and title share duration and easing, so the title rides along. */
 ::view-transition-group(.doc-morph),
 ::view-transition-group(.doc-title) {
   animation-duration: var(--doc-morph);
   animation-timing-function: var(--doc-ease);
 }
-::view-transition-image-pair(.doc-morph) {
-  animation: doc-toss var(--doc-morph) var(--doc-ease) both;
+/* Only on the way in: a spring on the way back would squash the tall sheet
+ * by a few hundred pixels below the small card it lands in. */
+:active-view-transition-type(doc-open)::view-transition-group(.doc-morph),
+:active-view-transition-type(doc-open)::view-transition-group(.doc-title) {
+  animation-timing-function: var(--doc-bounce);
 }
 /* The sheet fills the frame from the top at reading size; the card scales
  * with the frame's width. Opening is typed `doc-open`; closing goes through
@@ -168,7 +205,9 @@
 ::view-transition-old(.doc-morph),
 ::view-transition-new(.doc-morph) {
   height: 100%;
-  object-position: top;
+  /* Left as well as top: when the spring squeezes the frame, the card stays
+   * flush left, where the separately flying title expects it. */
+  object-position: left top;
 }
 ::view-transition-old(.doc-morph),
 :active-view-transition-type(doc-open)::view-transition-new(.doc-morph) {
@@ -184,9 +223,13 @@
 ::view-transition-new(.doc-morph) {
   animation: doc-fade calc(var(--doc-morph) * 0.45) ease-in both;
 }
-/* The title rides on top of the sheet and lands in its heading. */
-::view-transition-group(.doc-title) {
+/* The sheet flies above the scrim (the card it starts from sits below it in
+ * the page), and the title rides on top and lands in its heading. */
+::view-transition-group(.doc-morph) {
   z-index: 1;
+}
+::view-transition-group(.doc-title) {
+  z-index: 2;
 }
 ::view-transition-old(.doc-title),
 ::view-transition-new(.doc-title) {
@@ -201,29 +244,16 @@
 
 /* Sheets without a card (imprint, privacy) rise from below instead. */
 ::view-transition-new(.doc-sheet-in) {
-  animation: doc-rise 520ms var(--doc-ease) both;
+  animation:
+    doc-rise 640ms var(--doc-bounce) both,
+    doc-fade 240ms ease-out both;
 }
 ::view-transition-old(.doc-sheet-out) {
-  animation: doc-rise 260ms ease-in both reverse;
+  animation:
+    doc-rise 260ms ease-in both reverse,
+    doc-fade 260ms ease-in both reverse;
 }
 
-@keyframes doc-toss {
-  0% {
-    rotate: 0deg;
-    filter: drop-shadow(0 0 0 rgb(0 0 0 / 0));
-  }
-  40% {
-    rotate: -1.6deg;
-    filter: drop-shadow(0 28px 36px rgb(0 0 0 / 0.28));
-  }
-  75% {
-    rotate: 0.4deg;
-  }
-  100% {
-    rotate: 0deg;
-    filter: drop-shadow(0 0 0 rgb(0 0 0 / 0));
-  }
-}
 @keyframes doc-fade {
   from {
     opacity: 0;
@@ -234,14 +264,10 @@
 }
 @keyframes doc-rise {
   from {
-    opacity: 0;
     translate: 0 48px;
-    rotate: 1deg;
   }
   to {
-    opacity: 1;
     translate: 0 0;
-    rotate: 0deg;
   }
 }
 
