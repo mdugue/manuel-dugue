@@ -31,6 +31,7 @@ export default async function Page({
 
   return (
     <DocSheetModal
+      slug="notes"
       contact={portfolio.contact}
       labels={portfolio.modal}
       pdfHref={`/${locale}/notes/pdf`}

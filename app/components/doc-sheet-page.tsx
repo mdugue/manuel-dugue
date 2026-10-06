@@ -5,6 +5,7 @@ import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 
 import { DocSheetChrome } from "./doc-sheet-chrome";
+import { DocSheetToolbar } from "./doc-sheet-toolbar";
 import type { UpdatedLine } from "./markdown-source";
 
 export function DocSheetPage({
@@ -29,30 +30,26 @@ export function DocSheetPage({
   return (
     <main className="flex items-start justify-center p-10 max-md:p-0">
       <DocSheetChrome
-        actions={
-          <>
-            <Link
-              className="text-accent tracking-label uppercase hover:underline"
-              href={`/${lang}` as Route}
-            >
-              ← manuel.fyi
-            </Link>
-            <a
-              className="text-accent tracking-label uppercase hover:underline"
-              href={pdfHref}
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              {modalLabels.download}
-            </a>
-          </>
-        }
         authorName={contact[0] ?? "Manuel Dugué"}
         contact={contact}
         lang={lang}
         standalone
         subtitle={subtitle}
         title={title}
+        toolbar={
+          <DocSheetToolbar
+            downloadLabel={modalLabels.download}
+            lead={
+              <Link
+                className="text-ink-soft hover:text-accent text-nano tracking-label font-mono uppercase transition-colors"
+                href={`/${lang}` as Route}
+              >
+                ← manuel.fyi
+              </Link>
+            }
+            pdfHref={pdfHref}
+          />
+        }
         updatedLine={updatedLine}
       >
         {children}

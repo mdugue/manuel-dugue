@@ -1,12 +1,12 @@
 import type { Route } from "next";
-import Link from "next/link";
 
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 
+import { DocCard } from "./doc-card";
 import { SectionHead } from "./section-head";
 
-type DocCard = Dictionary["portfolio"]["docs"]["cv"];
+type DocCardCopy = Dictionary["portfolio"]["docs"]["cv"];
 
 export function Documents({
   lang,
@@ -17,7 +17,7 @@ export function Documents({
 }) {
   const entries: {
     slug: "curriculum-vitae" | "notes" | "skill-profile";
-    card: DocCard;
+    card: DocCardCopy;
   }[] = [
     { card: docs.cv, slug: "curriculum-vitae" },
     { card: docs.profile, slug: "skill-profile" },
@@ -29,28 +29,13 @@ export function Documents({
       <SectionHead heading={docs.heading} label={docs.label} sub={docs.sub} />
       <div className="grid max-w-225 grid-cols-3 gap-6 max-md:grid-cols-1">
         {entries.map(({ slug, card }) => (
-          <Link
-            className="border-rule bg-paper hover:border-accent focus-visible:border-accent focus-visible:outline-accent relative flex min-h-55 cursor-pointer flex-col gap-5 border px-7 pt-7 pb-6 text-left text-inherit transition-[transform,border-color] duration-[250ms] hover:-translate-y-0.5 focus-visible:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-2"
+          <DocCard
+            card={card}
             href={`/${lang}/${slug}` as Route}
             key={slug}
-            prefetch
-          >
-            <div className="text-ink-faint text-nano font-mono tracking-[0.18em] uppercase">
-              {docs.kicker} · {card.num}
-            </div>
-            <h3 className="font-display m-0 text-[28px] leading-[1.15] font-normal italic">
-              {card.title}
-            </h3>
-            <div className="font-display text-ink-soft max-w-[34ch] flex-1 text-[19px] leading-[1.45] text-pretty">
-              {card.desc}
-            </div>
-            <div className="border-rule text-accent text-micro tracking-label flex items-baseline justify-between border-t border-dashed pt-4 font-mono uppercase">
-              <span>{card.cta}</span>
-              <span aria-hidden="true" className="text-sm">
-                →
-              </span>
-            </div>
-          </Link>
+            kicker={docs.kicker}
+            slug={slug}
+          />
         ))}
       </div>
     </section>
