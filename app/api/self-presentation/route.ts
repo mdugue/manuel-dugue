@@ -12,6 +12,7 @@ import {
   aiModelsThatReviseDraft,
   isAiModelId,
 } from "@/i18n/ai-models";
+import type { AiModelId } from "@/i18n/ai-models";
 import { hasLocale } from "@/i18n/config";
 import type { Locale } from "@/i18n/config";
 import {
@@ -28,6 +29,30 @@ import {
 } from "@/lib/self-presentation-angle";
 
 export const maxDuration = 60;
+
+// Leaves the streamed answer enough of the function's time when the draft
+// is slow.
+const DRAFT_TIMEOUT_MS = 20_000;
+
+// The draft for models that revise it before streaming. A slow or failed
+// draft is skipped, and the streamed call then writes the text in one pass.
+async function writeDraft(options: {
+  instructions: string;
+  messages: ModelMessage[];
+  model: AiModelId;
+  reasoning: (typeof aiModelReasoning)[AiModelId];
+  temperature: number;
+}): Promise<string> {
+  try {
+    const { text } = await generateText({
+      ...options,
+      timeout: DRAFT_TIMEOUT_MS,
+    });
+    return text.trim();
+  } catch {
+    return "";
+  }
+}
 
 export async function POST(req: Request) {
   const rate = await checkRateLimit("self-presentation", req);
@@ -111,22 +136,20 @@ export async function POST(req: Request) {
       role: "user",
     },
   ];
-  if (aiModelsThatReviseDraft.has(model)) {
-    const draft = await generateText({
-      instructions,
-      messages,
-      model,
-      reasoning,
-      temperature,
-    });
-    // An empty draft has nothing to review; the streamed call then simply
-    // writes the text in one pass.
-    if (draft.text.trim()) {
-      messages.push(
-        { content: draft.text, role: "assistant" },
-        { content: buildSelfPresentationReview(locale), role: "user" }
-      );
-    }
+  const draft = aiModelsThatReviseDraft.has(model)
+    ? await writeDraft({
+        instructions,
+        messages,
+        model,
+        reasoning,
+        temperature,
+      })
+    : "";
+  if (draft) {
+    messages.push(
+      { content: draft, role: "assistant" },
+      { content: buildSelfPresentationReview(locale), role: "user" }
+    );
   }
 
   const result = streamText({

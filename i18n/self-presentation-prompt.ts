@@ -59,7 +59,7 @@ const themeFocus = [
 const collaborationFocus = [
   "He talks directly to the people who use or commission a product, and he would rather show an early prototype than describe a concept at length.",
   "He teaches in almost every project, so that the team can carry on without him. The documents list training, workshops or advising in most engagements.",
-  "The moment he likes in a project: things come together, the foundations are in place and the project picks up speed, or a group of individuals turns into a team. The documents don't describe this moment in a particular project, so name no client or engagement in this text and don't invent a scene. One paragraph can take each of the two moments. There is little material here: keep the text to 40 to 55 words and add nothing to the two moments, no causes, no feelings, no team details.",
+  "The moment he likes in a project: things come together, the foundations are in place and the project picks up speed, or a group of individuals turns into a team. The documents don't describe this moment in a particular project, so name no client, engagement or team in this text and don't invent a scene. One paragraph can take each of the two moments. There is little material here: keep the text to 40 to 55 words and add nothing to the two moments, no causes, no feelings, no team details.",
 ];
 
 const stanceFocus = [
@@ -198,8 +198,8 @@ Now write the self-portrait in ${languageName[lang]}, about ${angleQuestions[ang
 export function buildSelfPresentationReview(lang: Locale): string {
   return `Read your text again as a visitor would, sentence by sentence, and check it against the rules:
 - Is every statement in <curriculum-vitae>, <skill-profile>, <notes> or <side-projects>? Remove what they don't say: added details, reasons, purposes, consequences, feelings, general statements about the world.
+- Does it follow the brief under "This text's angle", including what it says to leave out? Does it stay on that one subject, in 40 to 80 words?
 - Is the first sentence about Manuel? Does the last sentence state a fact, not a verdict, lesson or punchline?
-- Does it stay on its one subject, in 40 to 80 words?
 - Is there a word repeated in neighbouring sentences, a term a non-developer wouldn't know, a semicolon, "not just … but", a list of three, a metaphor?
 Fix what you find and keep everything else as it is. Output only the final text in ${languageName[lang]}, two paragraphs, nothing before or after.`;
 }

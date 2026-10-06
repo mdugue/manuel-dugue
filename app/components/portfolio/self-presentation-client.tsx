@@ -40,6 +40,10 @@ export function SelfPresentationClient({
     streamProtocol: "text",
   });
 
+  // A provider error after the response has started ends the stream without
+  // text and without an error, which would otherwise leave the box blank.
+  const endedEmpty = !(isLoading || error) && completion === "";
+
   const onModelChange = useCallback(
     (model: AiModelId) => {
       requestedModelRef.current = model;
@@ -78,7 +82,7 @@ export function SelfPresentationClient({
           ) : null}
         </p>
 
-        {error ? (
+        {error || endedEmpty ? (
           <p
             className="text-accent text-micro mt-4 font-mono tracking-widest uppercase"
             role="alert"
