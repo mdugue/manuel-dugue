@@ -35,8 +35,8 @@ const angleBriefs: Record<SelfPresentationAngle, string> = {
 Draw mainly on the section of <notes> about how he works: talking directly to the people who use or commission a product, teaching in almost every project so the team carries on without him, showing an early prototype rather than describing a concept, the moment when the foundations are in place and a group becomes a team. Pick one or two of these, not all.
 Anchor it in at most one engagement from the documents, where his role there shows the same thing (training, advising or working directly with the client).`,
   curiosity: `This text answers: what is Manuel trying to find out at the moment?
-Draw on the section of <notes> about what he wants to find out: the limits of agents in products and how people actually want to use them, and the questions behind his side projects. Present them as open questions he is working on, not as findings. Don't invent answers, results or progress.
-The second paragraph can show where the question comes from in his current work, using at most one engagement from the documents.`,
+Draw on the section of <notes> about what he wants to find out: the limits of agents in products and how people actually want to use them, and the questions behind his side projects. Pick one question, or two that belong together. Present them as open questions he is working on, not as findings. Don't invent answers, results or progress.
+The second paragraph can name one engagement where the documents mention agents, saying no more about that agent work than the documents do. Don't claim the question comes up there or what users there want from agents.`,
   path: `This text answers: how did Manuel get to where he is now?
 Material: computer science alongside art and design, experimental film, the internship at a film production company in Mexico and what Latin America meant to him (in <notes>), early work for museums and trade fairs, and what he works on today. Choose two or three stations, not the whole CV.
 Order is the risk here. Take every sequence from the years in the documents and add no transitions they don't support ("shortly after", "that is how I came to …") and no causes ("film taught me …"). Only a link that <notes> states itself may be used. Don't repeat the start year from the header.`,
@@ -49,7 +49,7 @@ Look across all the projects in <skill-profile> for work that recurs: the same k
 - Say what the engagements have in common, and anchor it in one of them, described properly. Name at most two others as further instances, in a few words.
 - Everything you say the engagements share must be true of each of them. Don't stretch a detail of one engagement to the others, and don't invent a sequence or cause between them.
 If no theme holds up, describe one project properly instead: what it is, who uses it, Manuel's part in it. Some project headings describe the work rather than name a client (the family trees, for example), so write about those as work, not as a company.
-Where the documents offer a choice, prefer what points forward: product decisions, architecture, and the agents and AI features he builds into products. The documents mention that agent work only briefly. Be exactly as specific as they are: don't say what the agents do, whom they help or how they are used.`,
+Where the documents offer a choice, prefer what points forward: product decisions, architecture, and the agents and AI features he builds into products.`,
 };
 
 // Changing the prompts below? Bump the self-presentation revision in
@@ -73,7 +73,7 @@ Check every sentence. Could Manuel say it out loud without sounding rehearsed or
 
 The material
 - <curriculum-vitae> and <skill-profile> describe Manuel's work and engagements.
-- <notes> are short notes in Manuel's own words: where he stands, how he works, what shaped him, what he wants to find out, his limits, and a little about life outside work. Use them as material, not as text: say it in your own words and don't copy their sentences.
+- <notes> are short notes in Manuel's own words: where he stands, how he works, what shaped him, what he wants to find out, his limits, and a little about life outside work. Use them as material, not as text. Retell what you take from them in your own, shorter words. Don't reuse their sentences or their turns of phrase, and don't line up several notes one after another.
 - Projects are evidence, not the subject. Unless the angle says otherwise, mention at most one engagement, only where it supports what the text is about.
 - At most one detail from outside work in the whole text, and only if it belongs to the angle. Don't string several hobbies or interests together.
 - Web technology is Manuel's means, not his subject. Don't present him as a web developer or his work as websites, web apps, web products or web technology, and don't name frameworks or programming languages. Say what the software does and for whom.
@@ -86,6 +86,8 @@ The second paragraph follows on from the first. Find the thread that links them 
 
 Staying truthful
 - Every statement about Manuel must be traceable to <curriculum-vitae>, <skill-profile> or <notes>. Don't add names, numbers, motives, methods, anecdotes, opinions or consequences they don't mention, however plausible. If the documents don't say something, leave it out.
+- Don't connect two statements with a reason or a consequence ("so", "that's why", "for the same reason", "this is where … comes in") unless the documents state that link. Notes that sit next to each other are not causes of each other.
+- The documents mention Manuel's agent work only briefly ("agent design", a codebase "laid out for agent-first access"). Be exactly as specific as they are: don't say what the agents do, whom they help, how they are used or what users want from them.
 - Keep every claim the size the documents give it: "advised" stays advised, "part of the groundwork" stays part of it, a changed name stays a changed name, a view he holds stays his view. Mention results only where the documents state them.
 - Naming clients is fine, at most three in the whole text. Don't describe a client beyond what the documents say about it. If a name alone won't mean much, let the description of the work carry it.
 - Engagements marked "since …" are ongoing: present tense. Finished ones: past tense.
