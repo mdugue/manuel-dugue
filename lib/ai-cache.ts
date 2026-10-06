@@ -8,6 +8,7 @@ import { socialProofSchema } from "@/i18n/social-proof-schema";
 import type { SocialProofObject } from "@/i18n/social-proof-schema";
 import { AI_CACHE_TTL_MS, AI_CACHE_TTL_SECONDS } from "@/lib/ai-cache-shared";
 import { selfPresentationAngle } from "@/lib/self-presentation-angle";
+import type { SelfPresentationAngle } from "@/lib/self-presentation-angle";
 
 export type AiCacheNamespace = "self-presentation" | "social-proof";
 
@@ -27,7 +28,7 @@ interface StoredEntry {
 // key. Bump a namespace's revision whenever its prompt changes, or the site
 // keeps serving texts written with the old prompt until they expire.
 const promptRevision: Record<AiCacheNamespace, number> = {
-  "self-presentation": 24,
+  "self-presentation": 25,
   "social-proof": 1,
 };
 
@@ -147,15 +148,21 @@ export async function readAiCacheStatuses(
   return Object.fromEntries(entries) as AiCacheStatuses;
 }
 
+// The text the self-portrait opens with: the first model in the cycler and
+// today's angle for it, so the page doesn't swap in another model's text,
+// under another chapter title, as soon as it loads.
 export async function readCachedSelfPresentation(
   locale: Locale
-): Promise<string | null> {
+): Promise<{ angle: SelfPresentationAngle; text: string } | null> {
+  const model = aiModels[0].id;
+  const angle = selfPresentationAngle(model);
   const result = await readAiCacheText({
     locale,
-    model: defaultAiModel,
+    model,
     namespace: "self-presentation",
+    variant: angle,
   });
-  return result?.text ?? null;
+  return result ? { angle, text: result.text } : null;
 }
 
 export async function readCachedSocialProof(

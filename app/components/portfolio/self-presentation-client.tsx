@@ -1,11 +1,13 @@
 "use client";
 
 import { useCompletion } from "@ai-sdk/react";
-import { useCallback, useRef } from "react";
+import { useCallback, useRef, useState } from "react";
 
 import type { AiModelId } from "@/i18n/ai-models";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
+import { selfPresentationAngle } from "@/lib/self-presentation-angle";
+import type { SelfPresentationAngle } from "@/lib/self-presentation-angle";
 
 import { AiControls } from "./ai-controls";
 import { SectionHead } from "./section-head";
@@ -16,10 +18,13 @@ export function SelfPresentationClient({
   lang,
   self,
   initialText,
+  initialAngle,
 }: {
   lang: Locale;
   self: Dictionary["portfolio"]["self"];
   initialText: string;
+  /** Set when `initialText` is a cached model text rather than the fallback. */
+  initialAngle?: SelfPresentationAngle;
 }) {
   const { statuses, markGenerated } = useAiCacheStatuses(
     "self-presentation",
@@ -27,6 +32,10 @@ export function SelfPresentationClient({
   );
 
   const requestedModelRef = useRef<AiModelId | null>(null);
+  // The chapter title above the text. The fallback text has none.
+  const [angle, setAngle] = useState<SelfPresentationAngle | null>(
+    initialAngle ?? null
+  );
 
   const { completion, complete, isLoading, error } = useCompletion({
     api: "/api/self-presentation",
@@ -47,13 +56,16 @@ export function SelfPresentationClient({
   const onModelChange = useCallback(
     (model: AiModelId) => {
       requestedModelRef.current = model;
+      setAngle(selfPresentationAngle(model));
       void complete("", { body: { lang, model } });
     },
     [complete, lang]
   );
 
-  const { currentModel, nextModel, position, regenerate } =
-    useModelCycler(onModelChange);
+  const { currentModel, nextModel, position, regenerate } = useModelCycler(
+    onModelChange,
+    { requestOnMount: initialAngle === undefined }
+  );
 
   return (
     <section className="py-[clamp(60px,9vw,130px)]" id="self">
@@ -67,6 +79,12 @@ export function SelfPresentationClient({
           />
           {self.tag}
         </div>
+
+        {angle ? (
+          <h3 className="font-display text-ink m-0 mb-5 text-[clamp(22px,2vw,26px)] leading-[1.15] font-normal italic">
+            {self.angles[angle]}
+          </h3>
+        ) : null}
 
         <p
           aria-busy={isLoading}

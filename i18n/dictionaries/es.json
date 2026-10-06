@@ -28,9 +28,16 @@
     "self": {
       "label": "Sobre mí",
       "heading": "Autorretrato, subcontratado",
-      "sub": "Un modelo leyó mis documentos. Solo le pedí que no se pusiera lírico.",
+      "sub": "Tres modelos leyeron mis documentos. Cada uno cuenta hoy un capítulo distinto. Solo les pedí que no se pusieran líricos.",
       "tag": "Texto · generado por IA, aprobado por Manuel",
-      "cycle": "Otra vez",
+      "angles": {
+        "theme": "Lo que siempre vuelve",
+        "path": "Cómo llegué hasta aquí",
+        "collaboration": "Cómo es trabajar conmigo",
+        "stance": "Lo que hoy veo de otra manera",
+        "curiosity": "Lo que quiero averiguar"
+      },
+      "cycle": "Siguiente capítulo",
       "errorRetry": "No ha funcionado. ¿Intentarlo de nuevo?",
       "modelLabel": "modelo:",
       "tooltip": {

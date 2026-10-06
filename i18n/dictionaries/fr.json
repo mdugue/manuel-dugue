@@ -31,9 +31,16 @@
     "self": {
       "label": "À propos",
       "heading": "Autoportrait, sous-traité",
-      "sub": "Un modèle a lu mes documents. Je lui ai seulement demandé de ne pas devenir lyrique.",
+      "sub": "Trois modèles ont lu mes documents. Chacun raconte aujourd'hui un autre chapitre. Je leur ai seulement demandé de ne pas devenir lyriques.",
       "tag": "Texte · généré par IA, validé par Manuel",
-      "cycle": "Encore",
+      "angles": {
+        "theme": "Ce qui revient toujours",
+        "path": "Comment j'en suis arrivé là",
+        "collaboration": "Travailler avec moi",
+        "stance": "Ce que je vois autrement aujourd'hui",
+        "curiosity": "Ce que je cherche à savoir"
+      },
+      "cycle": "Chapitre suivant",
       "errorRetry": "Ça n'a pas marché. Réessayer ?",
       "modelLabel": "modèle :",
       "tooltip": {

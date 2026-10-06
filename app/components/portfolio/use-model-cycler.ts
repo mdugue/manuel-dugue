@@ -7,7 +7,14 @@ import type { AiModelId } from "@/i18n/ai-models";
 
 const MODEL_COUNT = aiModels.length;
 
-export function useModelCycler(onModelChange: (_model: AiModelId) => void) {
+/**
+ * Cycles through the models. The first model is requested on mount unless
+ * `requestOnMount` is false, for when the server already rendered its text.
+ */
+export function useModelCycler(
+  onModelChange: (_model: AiModelId) => void,
+  { requestOnMount = true }: { requestOnMount?: boolean } = {}
+) {
   const [modelIndex, setModelIndex] = useState(0);
 
   const onChangeRef = useRef(onModelChange);
@@ -29,8 +36,10 @@ export function useModelCycler(onModelChange: (_model: AiModelId) => void) {
       return;
     }
     didInit.current = true;
-    onChangeRef.current(currentModel.id);
-  }, [currentModel]);
+    if (requestOnMount) {
+      onChangeRef.current(currentModel.id);
+    }
+  }, [currentModel, requestOnMount]);
 
   const regenerate = useCallback(() => {
     setModelIndex(nextIndex);

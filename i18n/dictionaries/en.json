@@ -28,9 +28,16 @@
     "self": {
       "label": "About",
       "heading": "Self-portrait, outsourced",
-      "sub": "A model read my documents. I only asked it not to get lyrical.",
+      "sub": "Three models read my documents. Each tells a different chapter today. I only asked them not to get lyrical.",
       "tag": "Text · AI-generated, approved by Manuel",
-      "cycle": "Again",
+      "angles": {
+        "theme": "What keeps coming back",
+        "path": "How I got here",
+        "collaboration": "What it's like to work with me",
+        "stance": "What I see differently now",
+        "curiosity": "What I want to find out"
+      },
+      "cycle": "Next chapter",
       "errorRetry": "That didn't work. Try again?",
       "modelLabel": "model:",
       "tooltip": {
