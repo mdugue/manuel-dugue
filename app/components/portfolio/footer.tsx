@@ -5,7 +5,7 @@ import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 
 const footerLink =
-  "text-sm text-ink-soft transition-colors hover:text-accent flex items-baseline gap-2 flex-wrap";
+  "font-display text-[19px] text-ink transition-colors hover:text-accent flex items-baseline gap-2 flex-wrap";
 
 const extLabel = "font-mono text-nano text-ink-faint tracking-label-tight";
 
@@ -26,14 +26,8 @@ export function SiteFooter({
       id="contact"
     >
       <div className="grid grid-cols-[1.5fr_1fr_1fr_1fr] gap-8 pb-15 max-lg:grid-cols-2 max-sm:grid-cols-1">
-        <h3 className="font-display [&_em]:text-accent m-0 text-[clamp(40px,6vw,84px)] leading-[0.95] tracking-tight italic [&_em]:not-italic">
-          {footer.word.map((w) => (
-            <span
-              dangerouslySetInnerHTML={{ __html: w }}
-              key={w}
-              style={{ display: "block" }}
-            />
-          ))}
+        <h3 className="font-display [&_em]:text-accent m-0 text-[clamp(40px,6vw,84px)] leading-[0.95] font-normal tracking-tight [&_em]:italic">
+          <span dangerouslySetInnerHTML={{ __html: footer.word.join(" ") }} />
         </h3>
         <div>
           <h5 className="text-ink-faint text-micro tracking-heading m-0 mb-4 font-mono uppercase">
