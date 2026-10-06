@@ -17,7 +17,7 @@ export function SectionHead({
         <h2 className="font-display text-ink m-0 text-[clamp(28px,3.2vw,34px)] leading-tight font-normal italic">
           {heading}
         </h2>
-        <p className="font-display text-ink-soft m-0 flex-[1_1_280px] text-lg text-pretty">
+        <p className="font-display text-ink-soft m-0 flex-[1_1_280px] text-lg text-balance">
           {sub}
         </p>
       </div>
