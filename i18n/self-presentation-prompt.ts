@@ -28,6 +28,14 @@ function pageHeader(lang: Locale): string {
   return [hero.eyebrow, title, hero.lede].join("\n");
 }
 
+// The three engagements shown as cards directly below the self-portrait.
+function workSection(lang: Locale): string {
+  const { cases } = getDictionary(lang).portfolio.work;
+  return Object.values(cases)
+    .map(({ client, kind, desc }) => `${client} (${kind}): ${desc}`)
+    .join("\n");
+}
+
 // The side projects shown further down the page, as material for the
 // "curiosity" angle.
 function sideProjects(lang: Locale): string {
@@ -43,8 +51,8 @@ function sideProjects(lang: Locale): string {
 // differently from one day to the next and each text stays on one subject.
 const themeFocus = [
   "Family trees. At T-Systems he worked on a large genealogy product (2009 to 2012 and 2014). Since 2020 he has made family trees for four large German families, where patchwork families, changed names and relatives in more than one branch have to be shown with care. For Franz Haniel & Cie. he worked on a digital family history covering 350 years.",
-  "Making data readable that people otherwise can't see. At Estino, dashboards that show signals from commercial vehicles to the people developing them (since 2018). For Fioscope, a prototype that shows live camera images from running furnaces next to figures such as the melting progress (2024). Earlier, at T-Systems, a visualisation of over a thousand employees and their working groups (2009).",
-  "Software for research institutes, where he develops and also advises or teaches. At Fraunhofer HHI, a catalogue for 5G components, where he reviewed the architecture, designed the rewrite, works on it and advises the team (since 2025). At Barkhausen Institut, a portal for business travel, with advising, training and new features (since 2024).",
+  "Making complicated things simple to use. For Saxoprint, an interactive print preview that brings six hundred very different products, from folding tents to books and packaging, into one consistent way of working (2016). For Exelonix, Android tablets for older people, simple to use and maintained remotely by their relatives (2013 to 2014).",
+  "Software for research institutes, where he develops and also advises or teaches. At Barkhausen Institut, a portal for business travel, with advising, training and new features (since 2024). At Fraunhofer HHI, a catalogue for 5G components, where he reviewed the architecture, designed the rewrite, works on it and advises the team (since 2025).",
   "Exhibitions and history. Virtual books for the museum terminals of the Military History Museum in Dresden (2011 to 2013). A digital exhibition about political education in Saxony for JoDDiD (2022 to 2023). The digital family history of Franz Haniel & Cie. (2018, 2020).",
 ];
 
@@ -56,7 +64,7 @@ const collaborationFocus = [
 
 const stanceFocus = [
   "He used to see tests as something added at the end. Now automated tests are what make fast change possible. Where it shows: the automated quality assurance in the travel portal at Barkhausen Institut.",
-  "He used to want to write every detail himself. Now he more often writes the rules that coding agents work by. Where it shows: the 5G component catalogue at Fraunhofer HHI, whose code is laid out so coding agents can work in it.",
+  "He used to want to write every detail himself. Now he more often writes the rules that coding agents work by. Where it shows: coding agents are part of his current work at Fraunhofer HHI and Barkhausen Institut, and he coaches teams on working with AI (<skill-profile>).",
   "He used to think good software would win people over on its own. Now he knows that coordinating with everyone involved is at least as much work as the code. Where it shows: at Fraunhofer HHI he also advises the team on how to coordinate with everyone involved.",
   "He prefers fewer parts to clever ones. Where it shows: reducing complexity is part of his approach at Fraunhofer HHI and at Barkhausen Institut.",
 ];
@@ -104,8 +112,9 @@ export function buildSelfPresentationInstructions(
 
 The setting
 - The text sits directly below the page header (<page-header>), which already says who Manuel is, since when and where he works, and his focus. Don't repeat it, and don't open with a name, a job title or a year.
-- The readers may work with Manuel one day: product leads, CTOs, founders, research teams. Many are not developers. His projects are listed further down the page. Here they want a sense of who he is and what it is like to deal with him.
-- The page says this text was written by a language model from Manuel's documents and notes, "with the request not to get lyrical".
+- Directly below the text, three engagements are shown as cards (<work-section>). Don't retell them. Prefer other engagements as examples, and if you do use one of these, say something the card doesn't.
+- The readers may work with Manuel one day: product leads, CTOs, founders, research teams. Many are not developers. Here they want a sense of who he is and what it is like to deal with him.
+- The page says a model read Manuel's documents and that he only asked it not to get lyrical.
 - Each model on the page writes from a different angle. This text's angle is below. Stay with it.
 
 This text's angle
@@ -160,6 +169,10 @@ export function buildSelfPresentationPrompt(
   return `<page-header>
 ${pageHeader(lang)}
 </page-header>
+
+<work-section>
+${workSection(lang)}
+</work-section>
 
 <curriculum-vitae>
 ${sources.cv}
