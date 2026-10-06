@@ -109,7 +109,10 @@ export function DocSheetChrome({
       <div className="border-rule text-ink-faint text-nano tracking-label mt-15 flex items-baseline justify-between border-t pt-5 font-mono uppercase">
         <span>Manuel Dugué · mail@manuel.fyi</span>
         {/* Tombstone: the end of the document, the way a proof ends. */}
-        <span aria-hidden="true" className="doc-end text-accent font-display text-lg leading-none">
+        <span
+          aria-hidden="true"
+          className="doc-end text-accent font-display text-lg leading-none"
+        >
           ∎
         </span>
       </div>
