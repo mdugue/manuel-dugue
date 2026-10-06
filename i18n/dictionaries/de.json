@@ -28,9 +28,16 @@
     "self": {
       "label": "Über mich",
       "heading": "Selbstporträt, ausgelagert",
-      "sub": "Ein Modell hat meine Unterlagen gelesen. Ich habe nur gebeten, nicht lyrisch zu werden.",
+      "sub": "Drei Modelle haben meine Unterlagen gelesen. Jedes erzählt heute ein anderes Kapitel. Ich habe nur gebeten, nicht lyrisch zu werden.",
       "tag": "Text · KI-generiert, von Manuel abgenickt",
-      "cycle": "Nochmal",
+      "angles": {
+        "theme": "Was immer wiederkommt",
+        "path": "Wie ich hierher kam",
+        "collaboration": "Wie es ist, mit mir zu arbeiten",
+        "stance": "Was ich heute anders sehe",
+        "curiosity": "Was ich gerade wissen will"
+      },
+      "cycle": "Nächstes Kapitel",
       "errorRetry": "Das hat nicht geklappt. Nochmal versuchen?",
       "modelLabel": "Modell:",
       "tooltip": {
@@ -63,6 +70,14 @@
         "cta": "Öffnen",
         "sheetTitle": "Kompetenzprofil",
         "sheetSubtitle": "Kompetenzen, Stack, Projekte und die längere Fassung meiner Arbeit."
+      },
+      "notes": {
+        "num": "03",
+        "title": "Notizen",
+        "desc": "Was nicht im Lebenslauf steht: wie ich denke und was ich gerade wissen will.",
+        "cta": "Öffnen",
+        "sheetTitle": "Notizen",
+        "sheetSubtitle": "Haltung, Arbeitsweise, Einflüsse und was ich gerade wissen will."
       }
     },
     "lab": {

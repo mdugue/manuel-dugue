@@ -1,17 +1,58 @@
-import { createTextStreamResponse, streamText, toTextStream } from "ai";
+import {
+  createTextStreamResponse,
+  generateText,
+  streamText,
+  toTextStream,
+} from "ai";
+import type { ModelMessage } from "ai";
 
 import { readMarkdownSource } from "@/app/components/markdown-source";
-import { isAiModelId } from "@/i18n/ai-models";
+import {
+  aiModelReasoning,
+  aiModelsThatReviseDraft,
+  isAiModelId,
+} from "@/i18n/ai-models";
+import type { AiModelId } from "@/i18n/ai-models";
 import { hasLocale } from "@/i18n/config";
 import type { Locale } from "@/i18n/config";
 import {
   buildSelfPresentationInstructions,
   buildSelfPresentationPrompt,
+  buildSelfPresentationReview,
 } from "@/i18n/self-presentation-prompt";
 import { readAiCacheText, writeAiCacheText } from "@/lib/ai-cache";
 import { checkRateLimit, rateLimited } from "@/lib/rate-limit";
+import {
+  isSelfPresentationAngle,
+  selfPresentationAngle,
+  selfPresentationDay,
+} from "@/lib/self-presentation-angle";
 
 export const maxDuration = 60;
+
+// Leaves the streamed answer enough of the function's time when the draft
+// is slow.
+const DRAFT_TIMEOUT_MS = 20_000;
+
+// The draft for models that revise it before streaming. A slow or failed
+// draft is skipped, and the streamed call then writes the text in one pass.
+async function writeDraft(options: {
+  instructions: string;
+  messages: ModelMessage[];
+  model: AiModelId;
+  reasoning: (typeof aiModelReasoning)[AiModelId];
+  temperature: number;
+}): Promise<string> {
+  try {
+    const { text } = await generateText({
+      ...options,
+      timeout: DRAFT_TIMEOUT_MS,
+    });
+    return text.trim();
+  } catch {
+    return "";
+  }
+}
 
 export async function POST(req: Request) {
   const rate = await checkRateLimit("self-presentation", req);
@@ -26,7 +67,17 @@ export async function POST(req: Request) {
     return new Response("bad json", { status: 400 });
   }
 
-  const { lang, model } = payload as { lang?: unknown; model?: unknown };
+  const {
+    lang,
+    model,
+    angle: requestedAngle,
+    focus: requestedFocus,
+  } = payload as {
+    angle?: unknown;
+    focus?: unknown;
+    lang?: unknown;
+    model?: unknown;
+  };
 
   if (typeof lang !== "string" || !hasLocale(lang)) {
     return new Response("bad lang", { status: 400 });
@@ -37,8 +88,26 @@ export async function POST(req: Request) {
 
   const locale: Locale = lang;
   const namespace = "self-presentation" as const;
+  // Preview deployments accept an explicit angle and focus, uncached, so
+  // every combination can be tried with every model on the same day.
+  const isPreview = process.env.VERCEL_ENV === "preview";
+  const pinnedAngle =
+    isPreview && isSelfPresentationAngle(requestedAngle)
+      ? requestedAngle
+      : null;
+  const pinnedFocus =
+    isPreview && Number.isInteger(requestedFocus)
+      ? (requestedFocus as number)
+      : null;
+  // Fixed once per request, so a text finished after midnight is still
+  // stored under the angle it was written from.
+  const now = Date.now();
+  const angle = pinnedAngle ?? selfPresentationAngle(model, now);
+  const focus = pinnedFocus ?? selfPresentationDay(now);
 
-  const cached = await readAiCacheText({ locale, model, namespace });
+  const cached = pinnedAngle
+    ? null
+    : await readAiCacheText({ locale, model, namespace, variant: angle });
   if (cached) {
     return new Response(cached.text, {
       headers: {
@@ -48,22 +117,59 @@ export async function POST(req: Request) {
     });
   }
 
-  const [cv, skills] = await Promise.all([
+  const [cv, skills, notes] = await Promise.all([
     readMarkdownSource("curriculum-vitae", locale),
     readMarkdownSource("skill-profile", locale),
+    readMarkdownSource("notes", locale),
   ]);
 
+  const instructions = buildSelfPresentationInstructions(locale, angle, focus);
+  const reasoning = aiModelReasoning[model];
+  const temperature = 0.85;
+  const messages: ModelMessage[] = [
+    {
+      content: buildSelfPresentationPrompt(locale, angle, {
+        cv: cv.body,
+        notes: notes.body,
+        skills: skills.body,
+      }),
+      role: "user",
+    },
+  ];
+  const draft = aiModelsThatReviseDraft.has(model)
+    ? await writeDraft({
+        instructions,
+        messages,
+        model,
+        reasoning,
+        temperature,
+      })
+    : "";
+  if (draft) {
+    messages.push(
+      { content: draft, role: "assistant" },
+      { content: buildSelfPresentationReview(locale), role: "user" }
+    );
+  }
+
   const result = streamText({
-    instructions: buildSelfPresentationInstructions(locale),
+    instructions,
+    messages,
     model,
     onEnd: async ({ text }) => {
-      await writeAiCacheText({ locale, model, namespace, text });
+      if (pinnedAngle) {
+        return;
+      }
+      await writeAiCacheText({
+        locale,
+        model,
+        namespace,
+        text,
+        variant: angle,
+      });
     },
-    prompt: buildSelfPresentationPrompt(locale, {
-      cv: cv.body,
-      skills: skills.body,
-    }),
-    temperature: 0.85,
+    reasoning,
+    temperature,
   });
 
   return createTextStreamResponse({
