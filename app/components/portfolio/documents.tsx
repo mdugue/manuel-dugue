@@ -16,17 +16,18 @@ export function Documents({
   docs: Dictionary["portfolio"]["docs"];
 }) {
   const entries: {
-    slug: "curriculum-vitae" | "skill-profile";
+    slug: "curriculum-vitae" | "notes" | "skill-profile";
     card: DocCard;
   }[] = [
     { card: docs.cv, slug: "curriculum-vitae" },
     { card: docs.profile, slug: "skill-profile" },
+    { card: docs.notes, slug: "notes" },
   ];
 
   return (
     <section className="py-[clamp(60px,9vw,130px)]" id="docs">
       <SectionHead heading={docs.heading} label={docs.label} sub={docs.sub} />
-      <div className="grid max-w-225 grid-cols-2 gap-6 max-md:grid-cols-1">
+      <div className="grid max-w-225 grid-cols-3 gap-6 max-md:grid-cols-1">
         {entries.map(({ slug, card }) => (
           <Link
             className="border-rule bg-paper hover:border-accent focus-visible:border-accent focus-visible:outline-accent relative flex min-h-55 cursor-pointer flex-col gap-5 border px-7 pt-7 pb-6 text-left text-inherit transition-[transform,border-color] duration-[250ms] hover:-translate-y-0.5 focus-visible:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-2"

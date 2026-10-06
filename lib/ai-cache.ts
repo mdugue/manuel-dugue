@@ -7,6 +7,7 @@ import type { Locale } from "@/i18n/config";
 import { socialProofSchema } from "@/i18n/social-proof-schema";
 import type { SocialProofObject } from "@/i18n/social-proof-schema";
 import { AI_CACHE_TTL_MS, AI_CACHE_TTL_SECONDS } from "@/lib/ai-cache-shared";
+import { selfPresentationAngle } from "@/lib/self-presentation-angle";
 
 export type AiCacheNamespace = "self-presentation" | "social-proof";
 
@@ -26,16 +27,29 @@ interface StoredEntry {
 // key. Bump a namespace's revision whenever its prompt changes, or the site
 // keeps serving texts written with the old prompt until they expire.
 const promptRevision: Record<AiCacheNamespace, number> = {
-  "self-presentation": 10,
+  "self-presentation": 11,
   "social-proof": 1,
 };
+
+// The self-portrait's angle moves on daily per model, so it is part of the
+// key: a new day starts a fresh text instead of serving yesterday's angle.
+function defaultVariant(
+  namespace: AiCacheNamespace,
+  model: AiModelId
+): string | undefined {
+  return namespace === "self-presentation"
+    ? selfPresentationAngle(model)
+    : undefined;
+}
 
 function cacheKey(
   namespace: AiCacheNamespace,
   locale: Locale,
-  model: AiModelId
+  model: AiModelId,
+  variant = defaultVariant(namespace, model)
 ): string {
-  return `${locale}:${model}:r${promptRevision[namespace]}`;
+  const base = `${locale}:${model}:r${promptRevision[namespace]}`;
+  return variant ? `${base}:${variant}` : base;
 }
 
 function parseStored(raw: unknown): StoredEntry | null {
@@ -86,11 +100,12 @@ export async function readAiCacheText(params: {
   namespace: AiCacheNamespace;
   locale: Locale;
   model: AiModelId;
+  variant?: string;
 }): Promise<{ text: string; status: AiCacheStatus } | null> {
-  const { namespace, locale, model } = params;
+  const { namespace, locale, model, variant } = params;
   const entry = await safeReadEntry(
     namespace,
-    cacheKey(namespace, locale, model)
+    cacheKey(namespace, locale, model, variant)
   );
   if (!entry) {
     return null;
@@ -103,14 +118,16 @@ export async function writeAiCacheText(params: {
   locale: Locale;
   model: AiModelId;
   text: string;
+  variant?: string;
 }): Promise<void> {
-  const { namespace, locale, model, text } = params;
+  const { namespace, locale, model, text, variant } = params;
   if (!text) {
     return;
   }
   const cache = getCache({ namespace });
   const entry: StoredEntry = { cachedAt: Date.now(), text };
-  await cache.set(cacheKey(namespace, locale, model), JSON.stringify(entry), {
+  const key = cacheKey(namespace, locale, model, variant);
+  await cache.set(key, JSON.stringify(entry), {
     name: `${namespace} · ${locale} · ${model}`,
     tags: [namespace, `${namespace}:${locale}`],
     ttl: AI_CACHE_TTL_SECONDS,

@@ -10,6 +10,7 @@ import {
 } from "@/i18n/self-presentation-prompt";
 import { readAiCacheText, writeAiCacheText } from "@/lib/ai-cache";
 import { checkRateLimit, rateLimited } from "@/lib/rate-limit";
+import { selfPresentationAngle } from "@/lib/self-presentation-angle";
 
 export const maxDuration = 60;
 
@@ -37,8 +38,16 @@ export async function POST(req: Request) {
 
   const locale: Locale = lang;
   const namespace = "self-presentation" as const;
+  // Fixed once per request, so a text finished after midnight is still
+  // stored under the angle it was written from.
+  const angle = selfPresentationAngle(model);
 
-  const cached = await readAiCacheText({ locale, model, namespace });
+  const cached = await readAiCacheText({
+    locale,
+    model,
+    namespace,
+    variant: angle,
+  });
   if (cached) {
     return new Response(cached.text, {
       headers: {
@@ -48,19 +57,27 @@ export async function POST(req: Request) {
     });
   }
 
-  const [cv, skills] = await Promise.all([
+  const [cv, skills, notes] = await Promise.all([
     readMarkdownSource("curriculum-vitae", locale),
     readMarkdownSource("skill-profile", locale),
+    readMarkdownSource("notes", locale),
   ]);
 
   const result = streamText({
-    instructions: buildSelfPresentationInstructions(locale),
+    instructions: buildSelfPresentationInstructions(locale, angle),
     model,
     onEnd: async ({ text }) => {
-      await writeAiCacheText({ locale, model, namespace, text });
+      await writeAiCacheText({
+        locale,
+        model,
+        namespace,
+        text,
+        variant: angle,
+      });
     },
-    prompt: buildSelfPresentationPrompt(locale, {
+    prompt: buildSelfPresentationPrompt(locale, angle, {
       cv: cv.body,
+      notes: notes.body,
       skills: skills.body,
     }),
     temperature: 0.85,

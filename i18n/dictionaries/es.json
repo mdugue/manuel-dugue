@@ -11,16 +11,26 @@
       ],
       "lede": "Manuel Dugué · ingeniero de producto independiente con base en Dresde. Arquitectura, flujos de trabajo nativos de IA, experiencia de usuario; idealmente donde la estrategia se encuentra con la implementación.",
       "facts": {
-        "base": { "label": "Base", "value": "Dresde / Remoto" },
-        "openFor": { "label": "Disponible", "template": "T{quarter} {year} →" },
-        "languages": { "label": "Idiomas" },
-        "site": { "label": "Web" }
+        "base": {
+          "label": "Base",
+          "value": "Dresde / Remoto"
+        },
+        "openFor": {
+          "label": "Disponible",
+          "template": "T{quarter} {year} →"
+        },
+        "languages": {
+          "label": "Idiomas"
+        },
+        "site": {
+          "label": "Web"
+        }
       }
     },
     "self": {
       "label": "Sobre mí",
       "heading": "Un breve autorretrato",
-      "sub": "Basado en los documentos formales y entregado después a un modelo con la instrucción de no ponerse lírico.",
+      "sub": "Basado en los documentos formales y unas notas, y entregado después a un modelo con la instrucción de no ponerse lírico.",
       "tag": "Generado por LLM · ligeramente supervisado por Manuel",
       "cycle": "Regenerar",
       "errorRetry": "No ha funcionado. ¿Intentarlo de nuevo?",
@@ -34,7 +44,7 @@
     "docs": {
       "label": "Documentos",
       "heading": "Los documentos formales",
-      "sub": "Un currículum y la versión larga: lo que hago y dónde suelo resultar útil.",
+      "sub": "Un currículum, la versión larga de lo que hago y dónde suelo resultar útil, y unas notas.",
       "kicker": "Documento",
       "updatedLabel": "Actualizado",
       "cv": {
@@ -52,6 +62,14 @@
         "cta": "Abrir documento",
         "sheetTitle": "Perfil de habilidades",
         "sheetSubtitle": "Capacidades, stack, proyectos y la versión larga de mi trabajo."
+      },
+      "notes": {
+        "num": "03",
+        "title": "Notas",
+        "desc": "Lo que el currículum deja fuera: lo que pienso, los rodeos, las preguntas abiertas y la vida fuera del trabajo.",
+        "cta": "Abrir documento",
+        "sheetTitle": "Notas",
+        "sheetSubtitle": "Lo que pienso, cómo trabajo, influencias y lo que quiero averiguar."
       }
     },
     "lab": {

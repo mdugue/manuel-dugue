@@ -11,16 +11,26 @@
       ],
       "lede": "Manuel Dugué · unabhängiger Product Engineer aus Dresden. Architektur, KI-native Arbeitsweisen, User Experience; am liebsten dort, wo Strategie auf Umsetzung trifft.",
       "facts": {
-        "base": { "label": "Basis", "value": "Dresden / Remote" },
-        "openFor": { "label": "Offen ab", "template": "Q{quarter} {year} →" },
-        "languages": { "label": "Sprachen" },
-        "site": { "label": "Seite" }
+        "base": {
+          "label": "Basis",
+          "value": "Dresden / Remote"
+        },
+        "openFor": {
+          "label": "Offen ab",
+          "template": "Q{quarter} {year} →"
+        },
+        "languages": {
+          "label": "Sprachen"
+        },
+        "site": {
+          "label": "Seite"
+        }
       }
     },
     "self": {
       "label": "Über mich",
       "heading": "Ein kurzes Selbstporträt",
-      "sub": "Auf Basis der „offiziellen Dokumente“. Dann einem Modell übergeben, mit der Bitte, nicht lyrisch zu werden.",
+      "sub": "Auf Basis der „offiziellen Dokumente“ und ein paar Notizen. Dann einem Modell übergeben, mit der Bitte, nicht lyrisch zu werden.",
       "tag": "Vom LLM erzeugt · leicht beaufsichtigt von Manuel",
       "cycle": "Neu generieren",
       "errorRetry": "Das hat nicht geklappt. Nochmal versuchen?",
@@ -34,7 +44,7 @@
     "docs": {
       "label": "Dokumente",
       "heading": "Die offiziellen Dokumente",
-      "sub": "Lebenslauf und die längere Fassung dessen, was ich tue und wobei ich nützlich bin.",
+      "sub": "Lebenslauf, die längere Fassung dessen, was ich tue und wobei ich nützlich bin, und ein paar Notizen.",
       "kicker": "Dokument",
       "updatedLabel": "Aktualisiert",
       "cv": {
@@ -52,6 +62,14 @@
         "cta": "Dokument öffnen",
         "sheetTitle": "Kompetenzprofil",
         "sheetSubtitle": "Kompetenzen, Stack, Projekte und die längere Fassung meiner Arbeit."
+      },
+      "notes": {
+        "num": "03",
+        "title": "Notizen",
+        "desc": "Was nicht im Lebenslauf steht: Haltung, Umwege, offene Fragen und was außerhalb der Arbeit passiert.",
+        "cta": "Dokument öffnen",
+        "sheetTitle": "Notizen",
+        "sheetSubtitle": "Haltung, Arbeitsweise, Einflüsse und was ich gerade wissen will."
       }
     },
     "lab": {

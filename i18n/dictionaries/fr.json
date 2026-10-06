@@ -11,16 +11,26 @@
       ],
       "lede": "Manuel Dugué · ingénieur produit indépendant basé à Dresde. Architecture, workflows natifs IA, expérience utilisateur ; de préférence là où la stratégie rencontre l'exécution.",
       "facts": {
-        "base": { "label": "Base", "value": "Dresde / Remote" },
-        "openFor": { "label": "Dispo", "template": "T{quarter} {year} →" },
-        "languages": { "label": "Langues" },
-        "site": { "label": "Site" }
+        "base": {
+          "label": "Base",
+          "value": "Dresde / Remote"
+        },
+        "openFor": {
+          "label": "Dispo",
+          "template": "T{quarter} {year} →"
+        },
+        "languages": {
+          "label": "Langues"
+        },
+        "site": {
+          "label": "Site"
+        }
       }
     },
     "self": {
       "label": "À propos",
       "heading": "Bref autoportrait",
-      "sub": "À partir des documents officiels, puis confié à un modèle avec la consigne de ne pas tomber dans le lyrisme.",
+      "sub": "À partir des documents officiels et de quelques notes, puis confié à un modèle avec la consigne de ne pas tomber dans le lyrisme.",
       "tag": "Généré par LLM · légèrement supervisé par Manuel",
       "cycle": "Régénérer",
       "errorRetry": "Ça n'a pas marché. Réessayer ?",
@@ -34,7 +44,7 @@
     "docs": {
       "label": "Documents",
       "heading": "Les documents officiels",
-      "sub": "Un CV et la version longue de ce que je fais et des situations où je me rends utile.",
+      "sub": "Un CV, la version longue de ce que je fais et des situations où je me rends utile, et quelques notes.",
       "kicker": "Document",
       "updatedLabel": "Mis à jour",
       "cv": {
@@ -52,6 +62,14 @@
         "cta": "Ouvrir le document",
         "sheetTitle": "Profil de compétences",
         "sheetSubtitle": "Compétences, stack, projets et la version longue de ce que je fais."
+      },
+      "notes": {
+        "num": "03",
+        "title": "Notes",
+        "desc": "Ce que le CV laisse de côté : mes convictions, les détours, les questions ouvertes et la vie hors du travail.",
+        "cta": "Ouvrir le document",
+        "sheetTitle": "Notes",
+        "sheetSubtitle": "Convictions, façon de travailler, influences et ce que je cherche à savoir."
       }
     },
     "lab": {
