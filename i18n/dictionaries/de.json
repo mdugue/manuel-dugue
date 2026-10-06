@@ -1,86 +1,98 @@
 {
   "common": {},
   "portfolio": {
-    "spine": "unabhängiger Product Engineer · dresden",
+    "spine": "unabhängig · dresden",
     "contact": ["Manuel Dugué", "mail@manuel.fyi", "Dresden / Remote"],
     "hero": {
-      "eyebrow": "Product Engineer · seit 2004",
-      "title": [
-        "Gestalten, entwickeln & ausliefern —",
-        "<em>neugierig</em> seit zwanzig Jahren."
-      ],
-      "lede": "Manuel Dugué · unabhängiger Product Engineer aus Dresden. Architektur, KI-native Arbeitsweisen, User Experience; am liebsten dort, wo Strategie auf Umsetzung trifft.",
+      "eyebrow": "Product Engineer · Dresden",
+      "title": ["Von der Idee bis live.", "<em>Neugierig</em> seit 2004."],
+      "lede": "Architektur, UX und KI aus einer Hand. Am liebsten dort, wo aus Strategie Software wird.",
       "facts": {
-        "base": { "label": "Basis", "value": "Dresden / Remote" },
-        "openFor": { "label": "Offen ab", "template": "Q{quarter} {year} →" },
-        "languages": { "label": "Sprachen" },
-        "site": { "label": "Seite" }
+        "base": {
+          "label": "Basis",
+          "value": "Dresden / remote"
+        },
+        "openFor": {
+          "label": "Frei ab",
+          "template": "{month} {year} →"
+        },
+        "localTime": {
+          "label": "Ortszeit",
+          "template": "{time} in Dresden"
+        }
+      },
+      "cta": {
+        "book": "Termin buchen"
       }
     },
     "self": {
       "label": "Über mich",
-      "heading": "Ein kurzes Selbstporträt",
-      "sub": "Auf Basis der „offiziellen Dokumente“. Dann einem Modell übergeben, mit der Bitte, nicht lyrisch zu werden.",
-      "tag": "Vom LLM erzeugt · leicht beaufsichtigt von Manuel",
-      "cycle": "Neu generieren",
+      "heading": "Selbstporträt, ausgelagert",
+      "sub": "Ein Modell hat meine Unterlagen gelesen. Ich habe nur gebeten, nicht lyrisch zu werden.",
+      "tag": "Text · KI-generiert, von Manuel abgenickt",
+      "cycle": "Nochmal",
       "errorRetry": "Das hat nicht geklappt. Nochmal versuchen?",
       "modelLabel": "Modell:",
       "tooltip": {
         "nextModel": "Nächstes Modell",
         "cached": "Aus dem Cache — frische Ausgabe",
         "fresh": "Erzeugt eine frische Ausgabe"
-      }
+      },
+      "photoCaption": "Foto · nicht generiert",
+      "photoAlt": "Porträt von Manuel Dugué",
+      "fallback": "Seit 2004 entwickle ich Software, mit der Menschen gern arbeiten.\n\nBei Estino mache ich Signale aus Nutzfahrzeugen lesbar. Beim Fraunhofer HHI sorge ich für eine Architektur, an der auch Coding-Agenten mitarbeiten können."
     },
     "docs": {
       "label": "Dokumente",
-      "heading": "Die offiziellen Dokumente",
-      "sub": "Lebenslauf und die längere Fassung dessen, was ich tue und wobei ich nützlich bin.",
+      "heading": "Das Offizielle",
+      "sub": "Für alle, die es genau wissen wollen.",
       "kicker": "Dokument",
       "updatedLabel": "Aktualisiert",
       "cv": {
         "num": "01",
         "title": "Lebenslauf",
-        "desc": "Mehr als zwanzig Jahre auf einer Seite. Genauer als Smalltalk, kürzer als die lange Fassung.",
-        "cta": "Dokument öffnen",
+        "desc": "Über zwanzig Jahre auf einer Seite.",
+        "cta": "Öffnen",
         "sheetTitle": "Lebenslauf",
         "sheetSubtitle": "Produktentwicklung — nutzerzentrierte Architektur, agentische Workflows, Strategie."
       },
       "profile": {
         "num": "02",
         "title": "Kompetenzprofil",
-        "desc": "Die längere Fassung: was ich entwickle, wie ich arbeite und wo die Agenten ins Spiel kommen.",
-        "cta": "Dokument öffnen",
+        "desc": "Was ich entwickle, wie ich arbeite und wo die Agenten mitmachen.",
+        "cta": "Öffnen",
         "sheetTitle": "Kompetenzprofil",
         "sheetSubtitle": "Kompetenzen, Stack, Projekte und die längere Fassung meiner Arbeit."
       }
     },
     "lab": {
       "label": "Labor",
-      "heading": "Wo Konzepte gegen echte Daten laufen",
-      "sub": "Kein Auftrag, keine Deadline. Agentisch gebaut — die Fragen und die Daten dahinter sind echt.",
+      "heading": "Gebaut aus Neugier",
+      "sub": "Ohne Auftrag, ohne Deadline. Echte Daten, echte Fragen.",
       "projects": {
         "alpen": {
           "num": "01",
           "host": "alpen.manuel.fyi",
           "title": "Alpenpässe",
-          "desc": "Welcher Pass trägt Anfang Oktober noch, und wo suche ich dafür die Unterkunft? 262 Straßen, zehn Jahre Klimareihe am Gipfel, Fahrbarkeit pro Halbmonat. Kein Routenplaner — ein Reiseziel-Kompass.",
+          "desc": "Welcher Pass ist Anfang Oktober noch offen, und wo schlafe ich? 262 Pässe, zehn Jahre Gipfelwetter.",
           "stack": "MapLibre · Open-Meteo · OpenRouteService · OSM"
         },
         "bridge": {
           "num": "02",
           "host": "mit.manuel.fyi/dresden",
           "title": "Mit Manuel in Dresden",
-          "desc": "Angestoßen von der Debatte um die Carolabrücke: Lässt sich aus offenen Geodaten ein digitaler Zwilling bauen, der schön ist, ohne fotorealistisch zu sein? LoD2-Gebäude, DGM1-Gelände, ATKIS-Oberflächen — begehbar im Browser.",
+          "desc": "Dresden als digitaler Zwilling aus offenen Geodaten. Schön statt fotorealistisch, begehbar im Browser.",
           "stack": "three.js · CityJSON · GeoSN · OSM"
         },
         "effort": {
           "num": "03",
           "host": "effort.manuel.fyi",
           "title": "Effort",
-          "desc": "Vier Stunden im Sattel verdienen mehr als einen Screenshot. Routenlinie, Höhenprofil und ein paar Kennzahlen werden zur Komposition statt zur Tabelle. GPX rein, teilbare Karte raus.",
+          "desc": "Vier Stunden im Sattel verdienen mehr als einen Screenshot. GPX rein, Poster raus.",
           "stack": "Next.js · snapdom · Strava · GPX/FIT"
         }
-      }
+      },
+      "liveTemplate": "Heute befahrbar: {open} von {total}"
     },
     "legal": {
       "imprint": {
@@ -107,10 +119,10 @@
       }
     },
     "footer": {
-      "word": ["Lasst uns", "<em>reden</em>."],
-      "sayHello": "Hallo sagen",
+      "word": ["Sag", "<em>hallo</em>."],
+      "sayHello": "Direkt",
       "emailNote": "E-Mail",
-      "calendar": "Kalender",
+      "calendar": "Termin buchen",
       "elsewhere": "Anderswo",
       "legal": "Rechtliches",
       "imprint": "Impressum",
@@ -133,10 +145,7 @@
       "metaTitle": "Seite nicht gefunden",
       "metaDescription": "Diese Adresse führt ins Leere. Der Weg zurück ist einen Klick entfernt.",
       "eyebrow": "404 · Seite nicht gefunden",
-      "title": [
-        "Gestalten, entwickeln & ausliefern —",
-        "<em>nur diese Seite nicht.</em>"
-      ],
+      "title": ["Von der Idee bis live.", "<em>Nur diese Seite nicht.</em>"],
       "lede": "Diese Adresse führt ins Leere. Vielleicht ein Tippfehler, vielleicht ein Link, der seine Seite überlebt hat. Die Wege weiter unten sind jedenfalls frei.",
       "facts": {
         "requested": "Angefragt",
@@ -166,6 +175,35 @@
         }
       },
       "contact": "Kontakt"
-    }
+    },
+    "work": {
+      "label": "Arbeit",
+      "heading": "Wobei ich helfe",
+      "sub": "Drei Beispiele aus zwanzig Jahren.",
+      "alsoLabel": "Außerdem für",
+      "also": "Barkhausen Institut, JoDDiD, Baselworld, Haniel, Saxoprint, T‑Systems MMS",
+      "allLink": "Alle Projekte",
+      "cases": {
+        "hhi": {
+          "kind": "Architektur & Neubau",
+          "client": "Fraunhofer Heinrich-Hertz-Institut",
+          "desc": "Architektur-Audit und Neubau eines Katalogs für 5G-Komponenten. Typsicher von der Datenbank bis zur Oberfläche und so angelegt, dass Coding-Agenten mitarbeiten können.",
+          "meta": "Seit 2025 · 8 Personen beraten"
+        },
+        "estino": {
+          "kind": "Daten lesbar machen",
+          "client": "Estino",
+          "desc": "Dashboards für die Entwicklung von Nutzfahrzeugen: Signale, Maschinen, Karten. Das unsichtbare Innere von Hardware wird lesbar, inzwischen mit eigenen Agenten.",
+          "meta": "Seit 2018 · D3 · DeckGL · AI SDK"
+        },
+        "wegde": {
+          "kind": "Teams schneller machen",
+          "client": "weg.de / lastminute.com",
+          "desc": "Relaunch des Buchungsportals mit zehn Entwicklern und zwei Designern. Weniger Bugs, weniger Absprünge und ein Teil der Grundlage für die Übernahme.",
+          "meta": "2016–2020 · über Comvel"
+        }
+      }
+    },
+    "console": "Du schaust unter die Haube? Dann sollten wir reden: mail@manuel.fyi"
   }
 }

@@ -1,86 +1,98 @@
 {
   "common": {},
   "portfolio": {
-    "spine": "ingeniero de producto independiente · dresde",
+    "spine": "independiente · dresde",
     "contact": ["Manuel Dugué", "mail@manuel.fyi", "Dresde / Remoto"],
     "hero": {
-      "eyebrow": "Ingeniero de producto · desde 2004",
-      "title": [
-        "Diseñar, construir y entregar —",
-        "<em>curioso</em> desde hace veinte años."
-      ],
-      "lede": "Manuel Dugué · ingeniero de producto independiente con base en Dresde. Arquitectura, flujos de trabajo nativos de IA, experiencia de usuario; idealmente donde la estrategia se encuentra con la implementación.",
+      "eyebrow": "Product Engineer · Dresde",
+      "title": ["De la idea al lanzamiento.", "<em>Curioso</em> desde 2004."],
+      "lede": "Arquitectura, UX e IA en las mismas manos. Sobre todo allí donde la estrategia se convierte en software.",
       "facts": {
-        "base": { "label": "Base", "value": "Dresde / Remoto" },
-        "openFor": { "label": "Disponible", "template": "T{quarter} {year} →" },
-        "languages": { "label": "Idiomas" },
-        "site": { "label": "Web" }
+        "base": {
+          "label": "Base",
+          "value": "Dresde / remoto"
+        },
+        "openFor": {
+          "label": "Disponible",
+          "template": "{month} {year} →"
+        },
+        "localTime": {
+          "label": "Hora local",
+          "template": "{time} en Dresde"
+        }
+      },
+      "cta": {
+        "book": "Reservar una cita"
       }
     },
     "self": {
       "label": "Sobre mí",
-      "heading": "Un breve autorretrato",
-      "sub": "Basado en los documentos formales y entregado después a un modelo con la instrucción de no ponerse lírico.",
-      "tag": "Generado por LLM · ligeramente supervisado por Manuel",
-      "cycle": "Regenerar",
+      "heading": "Autorretrato, subcontratado",
+      "sub": "Un modelo leyó mis documentos. Solo le pedí que no se pusiera lírico.",
+      "tag": "Texto · generado por IA, aprobado por Manuel",
+      "cycle": "Otra vez",
       "errorRetry": "No ha funcionado. ¿Intentarlo de nuevo?",
       "modelLabel": "modelo:",
       "tooltip": {
         "nextModel": "Siguiente modelo",
         "cached": "Resultado en caché — versión nueva",
         "fresh": "Generará una versión nueva"
-      }
+      },
+      "photoCaption": "Foto · no generada",
+      "photoAlt": "Retrato de Manuel Dugué",
+      "fallback": "Desde 2004 desarrollo software con el que a la gente le gusta trabajar.\n\nEn Estino hago legibles las señales de vehículos comerciales. En el Fraunhofer HHI diseño una arquitectura en la que también pueden trabajar agentes de código."
     },
     "docs": {
       "label": "Documentos",
-      "heading": "Los documentos formales",
-      "sub": "Un currículum y la versión larga: lo que hago y dónde suelo resultar útil.",
+      "heading": "Lo oficial",
+      "sub": "Para quien quiera los detalles.",
       "kicker": "Documento",
       "updatedLabel": "Actualizado",
       "cv": {
         "num": "01",
         "title": "Currículum vítae",
-        "desc": "Más de veinte años en una página. Más preciso que una charla de pasillo, más corto que la versión larga.",
-        "cta": "Abrir documento",
+        "desc": "Más de veinte años en una página.",
+        "cta": "Abrir",
         "sheetTitle": "Currículum vítae",
         "sheetSubtitle": "Ingeniería de producto — arquitectura orientada al usuario, flujos agénticos, estrategia."
       },
       "profile": {
         "num": "02",
         "title": "Perfil de habilidades",
-        "desc": "La versión larga: qué construyo, cómo trabajo y dónde entran los agentes.",
-        "cta": "Abrir documento",
+        "desc": "Qué desarrollo, cómo trabajo y dónde entran los agentes.",
+        "cta": "Abrir",
         "sheetTitle": "Perfil de habilidades",
         "sheetSubtitle": "Capacidades, stack, proyectos y la versión larga de mi trabajo."
       }
     },
     "lab": {
       "label": "Laboratorio",
-      "heading": "Donde los conceptos chocan con datos reales",
-      "sub": "Sin cliente, sin plazo. Hechos con agentes — las preguntas y los datos que hay detrás son de verdad.",
+      "heading": "Hecho por curiosidad",
+      "sub": "Sin cliente, sin plazo. Datos reales, preguntas reales.",
       "projects": {
         "alpen": {
           "num": "01",
           "host": "alpen.manuel.fyi",
           "title": "Puertos alpinos",
-          "desc": "¿Qué puerto sigue siendo practicable a principios de octubre, y en qué pueblo busco alojamiento? 262 carreteras, diez años de clima en la cima, practicabilidad por quincena. No es un planificador de rutas — es una brújula de destinos.",
+          "desc": "¿Qué puerto sigue abierto a principios de octubre y dónde duermo? 262 puertos, diez años de clima en la cima.",
           "stack": "MapLibre · Open-Meteo · OpenRouteService · OSM"
         },
         "bridge": {
           "num": "02",
           "host": "mit.manuel.fyi/dresden",
           "title": "Con Manuel en Dresde",
-          "desc": "Nacido del debate sobre el Carolabrücke: ¿pueden unos geodatos abiertos dar un gemelo digital bello sin ser fotorrealista? Edificios LoD2, terreno DGM1, superficies ATKIS — transitable en el navegador.",
+          "desc": "Dresde como gemelo digital a partir de geodatos abiertos. Bonito en lugar de fotorrealista, transitable en el navegador.",
           "stack": "three.js · CityJSON · GeoSN · OSM"
         },
         "effort": {
           "num": "03",
           "host": "effort.manuel.fyi",
           "title": "Effort",
-          "desc": "Cuatro horas sobre la bici merecen algo mejor que una captura. Trazado, perfil de altitud y unas pocas cifras se vuelven composición, no tabla. Entra un GPX, sale una tarjeta que apetece compartir.",
+          "desc": "Cuatro horas sobre la bici merecen más que una captura de pantalla. Entra un GPX, sale un póster.",
           "stack": "Next.js · snapdom · Strava · GPX/FIT"
         }
-      }
+      },
+      "liveTemplate": "Abiertos hoy: {open} de {total}"
     },
     "legal": {
       "imprint": {
@@ -107,10 +119,10 @@
       }
     },
     "footer": {
-      "word": ["<em>Hablemos.</em>"],
-      "sayHello": "Di hola",
+      "word": ["Di", "<em>hola</em>."],
+      "sayHello": "Directo",
       "emailNote": "correo",
-      "calendar": "Agenda",
+      "calendar": "Reservar una cita",
       "elsewhere": "Por ahí",
       "legal": "Legal",
       "imprint": "Aviso legal",
@@ -133,10 +145,7 @@
       "metaTitle": "Página no encontrada",
       "metaDescription": "Esta dirección no lleva a ninguna parte. El camino de vuelta está a un clic.",
       "eyebrow": "404 · Página no encontrada",
-      "title": [
-        "Diseñar, construir y entregar —",
-        "<em>salvo esta página.</em>"
-      ],
+      "title": ["De la idea al lanzamiento.", "<em>Salvo esta página.</em>"],
       "lede": "Esta dirección no lleva a ninguna parte. Quizá una errata, quizá un enlace que sobrevivió a su página. Los caminos de abajo, en cambio, están abiertos.",
       "facts": {
         "requested": "Solicitado",
@@ -166,6 +175,35 @@
         }
       },
       "contact": "Contacto"
-    }
+    },
+    "work": {
+      "label": "Trabajo",
+      "heading": "En qué ayudo",
+      "sub": "Tres ejemplos de veinte años.",
+      "alsoLabel": "También para",
+      "also": "Barkhausen Institut, JoDDiD, Baselworld, Haniel, Saxoprint, T‑Systems MMS",
+      "allLink": "Todos los proyectos",
+      "cases": {
+        "hhi": {
+          "kind": "Arquitectura y reconstrucción",
+          "client": "Fraunhofer Heinrich-Hertz-Institut",
+          "desc": "Auditoría de arquitectura y reconstrucción de un catálogo de componentes 5G. Tipado de la base de datos a la interfaz, y pensado para que agentes de código puedan colaborar.",
+          "meta": "Desde 2025 · 8 personas asesoradas"
+        },
+        "estino": {
+          "kind": "Hacer legibles los datos",
+          "client": "Estino",
+          "desc": "Dashboards para el desarrollo de vehículos comerciales: señales, máquinas, mapas. El interior invisible del hardware se vuelve legible, ahora con agentes propios.",
+          "meta": "Desde 2018 · D3 · DeckGL · AI SDK"
+        },
+        "wegde": {
+          "kind": "Acelerar equipos",
+          "client": "weg.de / lastminute.com",
+          "desc": "Relanzamiento del portal de reservas con diez desarrolladores y dos diseñadores. Menos bugs, menos rebote y parte de la base para la adquisición.",
+          "meta": "2016–2020 · vía Comvel"
+        }
+      }
+    },
+    "console": "¿Mirando bajo el capó? Entonces deberíamos hablar: mail@manuel.fyi"
   }
 }

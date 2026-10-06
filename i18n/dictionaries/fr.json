@@ -1,86 +1,101 @@
 {
   "common": {},
   "portfolio": {
-    "spine": "ingénieur produit indépendant · dresde",
+    "spine": "indépendant · dresde",
     "contact": ["Manuel Dugué", "mail@manuel.fyi", "Dresde / Remote"],
     "hero": {
-      "eyebrow": "Ingénieur produit · depuis 2004",
+      "eyebrow": "Product Engineer · Dresde",
       "title": [
-        "Concevoir, construire & livrer —",
-        "<em>curieux</em> depuis vingt ans."
+        "De l’idée à la mise en ligne.",
+        "<em>Curieux</em> depuis 2004."
       ],
-      "lede": "Manuel Dugué · ingénieur produit indépendant basé à Dresde. Architecture, workflows natifs IA, expérience utilisateur ; de préférence là où la stratégie rencontre l'exécution.",
+      "lede": "Architecture, UX et IA, d’une seule main. Surtout là où la stratégie devient logiciel.",
       "facts": {
-        "base": { "label": "Base", "value": "Dresde / Remote" },
-        "openFor": { "label": "Dispo", "template": "T{quarter} {year} →" },
-        "languages": { "label": "Langues" },
-        "site": { "label": "Site" }
+        "base": {
+          "label": "Base",
+          "value": "Dresde / à distance"
+        },
+        "openFor": {
+          "label": "Disponible",
+          "template": "{month} {year} →"
+        },
+        "localTime": {
+          "label": "Heure locale",
+          "template": "{time} à Dresde"
+        }
+      },
+      "cta": {
+        "book": "Prendre rendez-vous"
       }
     },
     "self": {
       "label": "À propos",
-      "heading": "Bref autoportrait",
-      "sub": "À partir des documents officiels, puis confié à un modèle avec la consigne de ne pas tomber dans le lyrisme.",
-      "tag": "Généré par LLM · légèrement supervisé par Manuel",
-      "cycle": "Régénérer",
+      "heading": "Autoportrait, sous-traité",
+      "sub": "Un modèle a lu mes documents. Je lui ai seulement demandé de ne pas devenir lyrique.",
+      "tag": "Texte · généré par IA, validé par Manuel",
+      "cycle": "Encore",
       "errorRetry": "Ça n'a pas marché. Réessayer ?",
       "modelLabel": "modèle :",
       "tooltip": {
         "nextModel": "Modèle suivant",
         "cached": "Résultat en cache — nouvelle version",
         "fresh": "Générera une nouvelle version"
-      }
+      },
+      "photoCaption": "Photo · non générée",
+      "photoAlt": "Portrait de Manuel Dugué",
+      "fallback": "Depuis 2004, je développe des logiciels avec lesquels on aime travailler.\n\nChez Estino, je rends lisibles les signaux des véhicules utilitaires. Au Fraunhofer HHI, je conçois une architecture dans laquelle des agents de code peuvent aussi travailler."
     },
     "docs": {
       "label": "Documents",
       "heading": "Les documents officiels",
-      "sub": "Un CV et la version longue de ce que je fais et des situations où je me rends utile.",
+      "sub": "Pour qui veut les détails.",
       "kicker": "Document",
       "updatedLabel": "Mis à jour",
       "cv": {
         "num": "01",
         "title": "Curriculum Vitae",
-        "desc": "Plus de vingt ans sur une page. Plus précis qu'une discussion de couloir, plus court que la version longue.",
-        "cta": "Ouvrir le document",
+        "desc": "Plus de vingt ans sur une page.",
+        "cta": "Ouvrir",
         "sheetTitle": "Curriculum Vitae",
         "sheetSubtitle": "Ingénierie produit — architecture orientée utilisateur, workflows agentiques, stratégie."
       },
       "profile": {
         "num": "02",
         "title": "Profil de compétences",
-        "desc": "La version longue : ce que je construis, comment je travaille et où interviennent les agents.",
-        "cta": "Ouvrir le document",
+        "desc": "Ce que je développe, comment je travaille et où les agents interviennent.",
+        "cta": "Ouvrir",
         "sheetTitle": "Profil de compétences",
         "sheetSubtitle": "Compétences, stack, projets et la version longue de ce que je fais."
       }
     },
     "lab": {
       "label": "Laboratoire",
-      "heading": "Là où les concepts affrontent les vraies données",
-      "sub": "Sans client, sans échéance. Construits avec des agents — les questions et les données derrière sont bien réelles.",
+      "heading": "Construit par curiosité",
+      "sub": "Sans client, sans deadline. De vraies données, de vraies questions.",
       "projects": {
         "alpen": {
           "num": "01",
           "host": "alpen.manuel.fyi",
           "title": "Cols alpins",
-          "desc": "Quel col est encore praticable début octobre, et dans quelle ville chercher un lit ? 262 routes, dix ans de climat au sommet, praticabilité par quinzaine. Pas un calculateur d'itinéraire — une boussole de destinations.",
+          "desc": "Quel col est encore ouvert début octobre, et où dormir ? 262 cols, dix ans de météo au sommet.",
           "stack": "MapLibre · Open-Meteo · OpenRouteService · OSM"
         },
         "bridge": {
           "num": "02",
           "host": "mit.manuel.fyi/dresden",
           "title": "Avec Manuel à Dresde",
-          "desc": "Né du débat sur la Carolabrücke : des géodonnées ouvertes peuvent-elles donner un jumeau numérique beau sans être photoréaliste ? Bâtiments LoD2, terrain DGM1, surfaces ATKIS — parcourable dans le navigateur.",
+          "desc": "Dresde en jumeau numérique à partir de géodonnées ouvertes. Beau plutôt que photoréaliste, à parcourir dans le navigateur.",
           "stack": "three.js · CityJSON · GeoSN · OSM"
         },
         "effort": {
           "num": "03",
           "host": "effort.manuel.fyi",
           "title": "Effort",
-          "desc": "Quatre heures en selle méritent mieux qu'une capture d'écran. Tracé, profil altimétrique et quelques chiffres deviennent une composition, pas un tableau. Un GPX entre, une carte à partager sort.",
+          "desc": "Quatre heures en selle méritent mieux qu’une capture d’écran. GPX en entrée, affiche en sortie.",
           "stack": "Next.js · snapdom · Strava · GPX/FIT"
         }
-      }
+      },
+      "liveTemplate": "Ouverts aujourd’hui : {open} sur {total}"
     },
     "legal": {
       "imprint": {
@@ -107,10 +122,10 @@
       }
     },
     "footer": {
-      "word": ["<em>Parlons-</em>", "en."],
-      "sayHello": "Dire bonjour",
+      "word": ["Dites", "<em>bonjour</em>."],
+      "sayHello": "Direct",
       "emailNote": "e-mail",
-      "calendar": "Agenda",
+      "calendar": "Prendre rendez-vous",
       "elsewhere": "Ailleurs",
       "legal": "Mentions",
       "imprint": "Mentions légales",
@@ -133,10 +148,7 @@
       "metaTitle": "Page introuvable",
       "metaDescription": "Cette adresse ne mène nulle part. Le chemin du retour est à un clic.",
       "eyebrow": "404 · Page introuvable",
-      "title": [
-        "Concevoir, construire & livrer —",
-        "<em>sauf cette page.</em>"
-      ],
+      "title": ["De l’idée à la mise en ligne.", "<em>Sauf cette page.</em>"],
       "lede": "Cette adresse ne mène nulle part. Une faute de frappe, peut-être, ou un lien qui a survécu à sa page. Les routes ci-dessous, elles, sont ouvertes.",
       "facts": {
         "requested": "Demandé",
@@ -166,6 +178,35 @@
         }
       },
       "contact": "Contact"
-    }
+    },
+    "work": {
+      "label": "Travail",
+      "heading": "Là où j’aide",
+      "sub": "Trois exemples sur vingt ans.",
+      "alsoLabel": "Aussi pour",
+      "also": "Barkhausen Institut, JoDDiD, Baselworld, Haniel, Saxoprint, T‑Systems MMS",
+      "allLink": "Tous les projets",
+      "cases": {
+        "hhi": {
+          "kind": "Architecture & refonte",
+          "client": "Fraunhofer Heinrich-Hertz-Institut",
+          "desc": "Audit d’architecture et refonte d’un catalogue de composants 5G. Typé de la base de données à l’interface, et pensé pour que des agents de code puissent y contribuer.",
+          "meta": "Depuis 2025 · 8 personnes conseillées"
+        },
+        "estino": {
+          "kind": "Rendre les données lisibles",
+          "client": "Estino",
+          "desc": "Tableaux de bord pour le développement de véhicules utilitaires : signaux, machines, cartes. L’intérieur invisible du matériel devient lisible, désormais avec des agents dédiés.",
+          "meta": "Depuis 2018 · D3 · DeckGL · AI SDK"
+        },
+        "wegde": {
+          "kind": "Accélérer les équipes",
+          "client": "weg.de / lastminute.com",
+          "desc": "Refonte du portail de réservation avec dix développeurs et deux designers. Moins de bugs, moins de rebonds et une partie des bases du rachat.",
+          "meta": "2016–2020 · via Comvel"
+        }
+      }
+    },
+    "console": "Vous regardez sous le capot ? Alors parlons-en : mail@manuel.fyi"
   }
 }
