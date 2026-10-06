@@ -31,6 +31,7 @@ export default async function Page({
 
   return (
     <DocSheetModal
+      slug="curriculum-vitae"
       contact={portfolio.contact}
       labels={portfolio.modal}
       pdfHref={`/${locale}/curriculum-vitae/pdf`}

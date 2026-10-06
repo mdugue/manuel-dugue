@@ -11,6 +11,7 @@ export default async function Page({
 }: {
   params: Promise<{ lang: string }>;
 }) {
+  "use cache";
   const { lang } = await params;
   if (!hasLocale(lang)) {
     notFound();
@@ -20,6 +21,7 @@ export default async function Page({
 
   return (
     <DocSheetModal
+      slug="privacy"
       contact={portfolio.contact}
       labels={portfolio.modal}
       pdfHref={`/${locale}/privacy/pdf`}

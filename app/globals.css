@@ -114,6 +114,262 @@
 }
 
 /* ──────────────────────────────────────────────────────────────
+ *  Documents — card ↔ sheet morph and the sheet's small extras
+ * ────────────────────────────────────────────────────────────── */
+:root {
+  --doc-morph: 720ms;
+  --doc-ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* A second sheet peeks out from under each card, a third on hover. */
+.doc-card {
+  box-shadow:
+    5px 5px 0 -1px var(--paper),
+    5px 5px 0 0 var(--rule);
+}
+.doc-card:hover,
+.doc-card:focus-visible {
+  box-shadow:
+    5px 5px 0 -1px var(--paper),
+    5px 5px 0 0 var(--rule),
+    10px 10px 0 -1px var(--paper),
+    10px 10px 0 0 var(--rule);
+}
+.doc-card-arrow {
+  transition: translate 250ms var(--doc-ease);
+}
+.doc-card:hover .doc-card-arrow {
+  translate: 4px 0;
+}
+/* While its document is open, the card leaves its outline behind. */
+.doc-card[data-lifted] {
+  background: transparent;
+  border-style: dashed;
+  border-color: var(--ink-faint);
+  box-shadow: none;
+}
+.doc-card[data-lifted] > * {
+  visibility: hidden;
+}
+
+/* The card grows into the sheet: the frame expands, the sheet's top unfolds
+ * from inside it at reading size, and the paper tilts once in the air. */
+::view-transition-group(.doc-morph),
+::view-transition-group(.doc-title) {
+  animation-duration: var(--doc-morph);
+  animation-timing-function: var(--doc-ease);
+}
+::view-transition-image-pair(.doc-morph) {
+  animation: doc-toss var(--doc-morph) var(--doc-ease) both;
+}
+/* The sheet fills the frame from the top at reading size; the card scales
+ * with the frame's width. Opening is typed `doc-open`; closing goes through
+ * history, which carries no type, so the untyped rules describe the way back. */
+::view-transition-old(.doc-morph),
+::view-transition-new(.doc-morph) {
+  height: 100%;
+  object-position: top;
+}
+::view-transition-old(.doc-morph),
+:active-view-transition-type(doc-open)::view-transition-new(.doc-morph) {
+  object-fit: cover;
+}
+::view-transition-new(.doc-morph),
+:active-view-transition-type(doc-open)::view-transition-old(.doc-morph) {
+  object-fit: contain;
+}
+::view-transition-old(.doc-morph) {
+  animation: doc-fade calc(var(--doc-morph) * 0.3) ease-out both reverse;
+}
+::view-transition-new(.doc-morph) {
+  animation: doc-fade calc(var(--doc-morph) * 0.45) ease-in both;
+}
+/* The title rides on top of the sheet and lands in its heading. */
+::view-transition-group(.doc-title) {
+  z-index: 1;
+}
+::view-transition-old(.doc-title),
+::view-transition-new(.doc-title) {
+  height: 100%;
+}
+::view-transition-old(.doc-title) {
+  animation: doc-fade calc(var(--doc-morph) * 0.5) ease-out both reverse;
+}
+::view-transition-new(.doc-title) {
+  animation: doc-fade calc(var(--doc-morph) * 0.5) ease-in both;
+}
+
+/* Sheets without a card (imprint, privacy) rise from below instead. */
+::view-transition-new(.doc-sheet-in) {
+  animation: doc-rise 520ms var(--doc-ease) both;
+}
+::view-transition-old(.doc-sheet-out) {
+  animation: doc-rise 260ms ease-in both reverse;
+}
+
+@keyframes doc-toss {
+  0% {
+    rotate: 0deg;
+    filter: drop-shadow(0 0 0 rgb(0 0 0 / 0));
+  }
+  40% {
+    rotate: -1.6deg;
+    filter: drop-shadow(0 28px 36px rgb(0 0 0 / 0.28));
+  }
+  75% {
+    rotate: 0.4deg;
+  }
+  100% {
+    rotate: 0deg;
+    filter: drop-shadow(0 0 0 rgb(0 0 0 / 0));
+  }
+}
+@keyframes doc-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes doc-rise {
+  from {
+    opacity: 0;
+    translate: 0 48px;
+    rotate: 1deg;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+    rotate: 0deg;
+  }
+}
+
+/* The scrim dims the page while the sheet is in the air. */
+::view-transition-new(.doc-scrim-in) {
+  animation: doc-fade 420ms ease-out both;
+}
+::view-transition-old(.doc-scrim-out) {
+  animation: doc-fade 420ms ease-in both reverse;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-image-pair(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
+}
+
+/* Reading progress: a hairline under the toolbar fills with the accent. */
+.doc-progress {
+  position: absolute;
+  inset: auto 0 0;
+  height: 2px;
+  background: var(--rule);
+}
+.doc-progress::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+}
+@keyframes doc-progress {
+  to {
+    transform: scaleX(1);
+  }
+}
+@supports (animation-timeline: scroll()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .doc-progress::after {
+      animation: doc-progress linear both;
+      animation-timeline: scroll(nearest block);
+    }
+  }
+}
+
+/* PDF: the arrow leans towards the tray on hover and drops into it on click. */
+.doc-pdf-arrow {
+  transition: translate 200ms var(--doc-ease);
+}
+.doc-pdf:hover .doc-pdf-arrow {
+  translate: 0 1.5px;
+}
+.doc-pdf[data-dropping] .doc-pdf-arrow {
+  animation: doc-drop 520ms var(--doc-ease);
+}
+@keyframes doc-drop {
+  0% {
+    translate: 0 0;
+    opacity: 1;
+  }
+  45% {
+    translate: 0 9px;
+    opacity: 0;
+  }
+  46% {
+    translate: 0 -9px;
+    opacity: 0;
+  }
+  100% {
+    translate: 0 0;
+    opacity: 1;
+  }
+}
+
+/* The tombstone at the end of a document stamps itself as it scrolls in. */
+@keyframes doc-stamp {
+  from {
+    opacity: 0;
+    scale: 2.4;
+    rotate: -20deg;
+  }
+}
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .doc-end {
+      display: inline-block;
+      animation: doc-stamp var(--doc-ease) both;
+      animation-timeline: view();
+      animation-range: entry 40% entry 100%;
+    }
+  }
+}
+
+/* Close: the cross turns a quarter on hover. */
+.doc-close svg {
+  transition: rotate 300ms var(--doc-ease);
+}
+.doc-close:hover svg,
+.doc-close:focus-visible svg {
+  rotate: 90deg;
+}
+
+/* Esc as a keycap that actually goes down. */
+.doc-kbd {
+  display: inline-block;
+  padding: 1px 5px 0;
+  margin: 0 0.15em;
+  font: inherit;
+  color: var(--ink-soft);
+  border: 1px solid var(--rule);
+  border-bottom-width: 2px;
+  border-radius: 3px;
+  transition:
+    translate 80ms ease-out,
+    border-bottom-width 80ms ease-out;
+}
+.doc-kbd[data-pressed] {
+  color: var(--accent);
+  border-color: var(--accent);
+  border-bottom-width: 1px;
+  translate: 0 1px;
+}
+
+/* ──────────────────────────────────────────────────────────────
  *  Base
  * ────────────────────────────────────────────────────────────── */
 *,
