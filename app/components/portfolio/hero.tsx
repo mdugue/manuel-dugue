@@ -48,7 +48,7 @@ export function Hero({
         {hero.eyebrow}
       </div>
 
-      <h1 className="font-display [&_em]:text-accent m-0 text-[clamp(44px,8.4vw,120px)] leading-[0.96] font-normal tracking-tight text-balance [&_em]:italic">
+      <h1 className="font-display [&_em]:text-accent m-0 text-[clamp(48px,8.5vw,120px)] leading-[0.96] font-normal tracking-tight text-balance [&_em]:italic">
         {hero.title.map((line) => (
           <span
             dangerouslySetInnerHTML={{ __html: line }}
@@ -58,23 +58,28 @@ export function Hero({
         ))}
       </h1>
 
-      <div className="mt-12 grid max-w-205 grid-cols-2 items-start gap-10 max-md:grid-cols-1 max-md:gap-6">
+      <div className="mt-[clamp(48px,7vw,96px)] grid max-w-205 grid-cols-2 items-start gap-x-14 max-md:grid-cols-1 max-md:gap-y-12">
         <div>
-          <p className="font-display text-ink-soft m-0 max-w-[36ch] text-[clamp(19px,1.6vw,22px)] leading-[1.45] text-pretty">
+          <p className="font-display text-ink-soft m-0 max-w-[36ch] text-[clamp(19px,1.6vw,22px)] leading-normal text-pretty italic">
             {hero.lede}
           </p>
-          <div className="mt-7 flex flex-wrap items-center gap-x-5 gap-y-3">
+          <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-4">
             <a
-              className="bg-accent text-paper hover:bg-ink focus-visible:outline-accent inline-flex min-h-12 items-center gap-2.5 px-5.5 font-mono text-[13px] tracking-[0.12em] uppercase transition-colors focus-visible:outline-2 focus-visible:outline-offset-3"
+              className="group border-ink/20 text-ink hover:border-accent hover:text-accent focus-visible:outline-accent inline-flex min-h-11 items-center gap-2.5 border px-4.5 font-mono text-xs tracking-[0.12em] uppercase transition-colors focus-visible:outline-2 focus-visible:outline-offset-3"
               href={BOOKING_URL}
               rel="noopener noreferrer"
               target="_blank"
             >
               {hero.cta.book}
-              <span aria-hidden="true">→</span>
+              <span
+                aria-hidden="true"
+                className="text-accent motion-safe:transition-transform motion-safe:group-hover:translate-x-0.5"
+              >
+                →
+              </span>
             </a>
             <a
-              className="border-rule hover:border-accent hover:text-accent focus-visible:outline-accent border-b pb-1 font-mono text-[13px] transition-colors focus-visible:outline-2 focus-visible:outline-offset-2"
+              className="border-rule text-ink-soft hover:border-accent hover:text-accent focus-visible:outline-accent border-b pb-1 font-mono text-xs tracking-wider transition-colors focus-visible:outline-2 focus-visible:outline-offset-2"
               href={`mailto:${EMAIL}`}
             >
               {EMAIL}
