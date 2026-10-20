@@ -11,7 +11,7 @@ Personal site of Manuel Dugué, an independent product engineer in Dresden. It i
 
 ## Development
 
-Requires Node.js 26 (see `.nvmrc`) and npm. Do not use Bun: Next.js 16.3 fails to build under the Bun runtime.
+Requires Node.js 26 (see `.nvmrc`) and npm. Do not run the app with Bun: Next.js 16 fails to build under the Bun runtime. Bun 1.4.3 or newer is only used as the type checker (`bun check`).
 
 ```sh
 npm ci
@@ -20,14 +20,14 @@ npm run dev     # http://localhost:3000
 
 The AI sections need AI Gateway credentials. Run `vercel env pull` to get an OIDC token for the linked project, or set `AI_GATEWAY_API_KEY`.
 
-| Script          | What it does                                    |
-| --------------- | ----------------------------------------------- |
-| `npm run build` | Production build (also generates `.next/types`) |
-| `npm run lint`  | Ultracite check: oxlint (type-aware) + oxfmt    |
-| `npm run fix`   | Ultracite autofix                               |
-| `npm run tsc`   | Type-check with TypeScript 7                    |
+| Script              | What it does                                    |
+| ------------------- | ----------------------------------------------- |
+| `npm run build`     | Production build (also generates `.next/types`) |
+| `npm run lint`      | Ultracite check: oxlint (type-aware) + oxfmt    |
+| `npm run fix`       | Ultracite autofix                               |
+| `npm run typecheck` | Type-check with `bun check` (needs Bun ≥ 1.4.3) |
 
-The type-aware lint rules read the typed routes in `.next/types`, so on a fresh clone run `npm run build` once before linting. CI runs build, lint and type-check on Node 26 and on Node 24, the version Vercel deploys with.
+The type-aware lint rules read the typed routes in `.next/types`, so on a fresh clone run `npx next typegen` (or `npm run build`) once before linting or type-checking. CI generates the route types, then runs the type-check, lint and build in that order so it fails fast, on Node 26 and on Node 24, the version Vercel deploys with.
 
 ## Working with agents
 

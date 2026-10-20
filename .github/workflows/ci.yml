@@ -32,13 +32,22 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      # Build first: it generates .next/types (typed routes), which the
-      # type-aware lint rules and the typecheck rely on.
-      - name: Build
-        run: npm run build
+      # Generate .next/types (typed routes) without a full build, so the
+      # typecheck and the type-aware lint rules can run first and fail fast.
+      - name: Generate route types
+        run: npx next typegen
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          # `bun check` needs Bun 1.4.3 or newer.
+          bun-version: latest
+
+      - name: Typecheck (bun check)
+        run: npm run typecheck
 
       - name: Lint (oxlint + oxfmt)
         run: npm run lint
 
-      - name: Typecheck
-        run: npm run tsc
+      - name: Build
+        run: npm run build

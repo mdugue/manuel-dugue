@@ -12,11 +12,11 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 
 ## Runtime
 
-This project runs on **Node.js**, not Bun. Next.js 16.3 fails under the Bun runtime (`Expected CommonJS module to have a function wrapper` during "Collecting page data"), so `dev`/`build`/`start` use plain `next` and npm is the package manager. Do not reintroduce `bun --bun`, `Bun.*` APIs, or a `bunVersion` pin in `vercel.json` until that is fixed upstream.
+This project runs on **Node.js**, not Bun. Next.js 16.3 fails under the Bun runtime (`Expected CommonJS module to have a function wrapper` during "Collecting page data"), so `dev`/`build`/`start` use plain `next` and npm is the package manager. Do not reintroduce `bun --bun`, `Bun.*` APIs, or a `bunVersion` pin in `vercel.json` until that is fixed upstream. The one exception is type-checking: `npm run typecheck` runs `bun check` (Bun ≥ 1.4.3), which only reads the sources and never runs Next.js.
 
 ## Lint & format
 
-[Ultracite](https://ultracite.ai) presets on top of `oxlint` + `oxfmt` (`oxlint.config.ts`, `oxfmt.config.ts`), with type-aware rules via `oxlint-tsgolint` (`options.typeAware`). `npm run lint` runs `ultracite check` (lint + format check), `npm run fix` runs `ultracite fix`. There is no Biome, ESLint or Prettier. The type-aware rules read `.next/types` (typed routes), so run `next build` or `next dev` once before linting a fresh clone. TypeScript is version 7 (the Go-based compiler); `npm run tsc` type-checks.
+[Ultracite](https://ultracite.ai) presets on top of `oxlint` + `oxfmt` (`oxlint.config.ts`, `oxfmt.config.ts`), with type-aware rules via `oxlint-tsgolint` (`options.typeAware`). `npm run lint` runs `ultracite check` (lint + format check), `npm run fix` runs `ultracite fix`. There is no Biome, ESLint or Prettier. The type-aware rules read `.next/types` (typed routes), so run `next typegen` (or `next build`/`next dev`) once before linting or type-checking a fresh clone. `npm run typecheck` type-checks with `bun check`; TypeScript 7 stays installed for editors.
 
 # Ultracite Code Standards
 
