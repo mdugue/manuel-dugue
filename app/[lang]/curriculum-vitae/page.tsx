@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import type { Article, WithContext } from "schema-dts";
 
+import { ArticleJsonLd } from "@/app/components/article-json-ld";
 import { DocSheetPage } from "@/app/components/doc-sheet-page";
 import { MarkdownPage } from "@/app/components/markdown-page";
 import {
@@ -9,13 +9,7 @@ import {
 } from "@/app/components/markdown-source";
 import { getDictionary } from "@/i18n/dictionaries";
 import { getLocale } from "@/i18n/locale";
-import {
-  buildPageMetadata,
-  jsonLdString,
-  LOCALE_TAGS,
-  pageUrl,
-  SITE,
-} from "@/i18n/seo";
+import { buildPageMetadata } from "@/i18n/seo";
 
 export async function generateMetadata(): Promise<Metadata> {
   "use cache";
@@ -44,18 +38,6 @@ export default async function Page() {
     portfolio.docs.updatedLabel
   );
 
-  const articleJsonLd: WithContext<Article> = {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    author: { "@type": "Person", name: "Manuel Dugué", url: SITE },
-    description: portfolio.docs.cv.sheetSubtitle,
-    headline: portfolio.docs.cv.sheetTitle,
-    inLanguage: LOCALE_TAGS[locale].bcp47,
-    url: pageUrl(locale, "curriculum-vitae"),
-    ...(meta.publishedIso ? { datePublished: meta.publishedIso } : {}),
-    ...(meta.updatedIso ? { dateModified: meta.updatedIso } : {}),
-  };
-
   return (
     <DocSheetPage
       contact={portfolio.contact}
@@ -66,9 +48,12 @@ export default async function Page() {
       title={portfolio.docs.cv.sheetTitle}
       updatedLine={updatedLine}
     >
-      <script
-        dangerouslySetInnerHTML={{ __html: jsonLdString(articleJsonLd) }}
-        type="application/ld+json"
+      <ArticleJsonLd
+        description={portfolio.docs.cv.sheetSubtitle}
+        locale={locale}
+        meta={meta}
+        slug="curriculum-vitae"
+        title={portfolio.docs.cv.sheetTitle}
       />
       <MarkdownPage lang={locale} slug="curriculum-vitae" />
     </DocSheetPage>
