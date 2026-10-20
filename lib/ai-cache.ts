@@ -28,8 +28,8 @@ interface StoredEntry {
 // key. Bump a namespace's revision whenever its prompt changes, or the site
 // keeps serving texts written with the old prompt until they expire.
 const promptRevision: Record<AiCacheNamespace, number> = {
-  "self-presentation": 26,
-  "social-proof": 1,
+  "self-presentation": 27,
+  "social-proof": 2,
 };
 
 // The self-portrait's angle moves on daily per model, so it is part of the
