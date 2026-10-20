@@ -9,13 +9,13 @@ updated: 2026-10-20
 
 Seit 2004 konzipiere und baue ich nutzerzentrierte Produkte. Tief in Web-Architektur; breit in UX, Informationsarchitektur, KI und Beratung.
 
-Architektur-Audits, Zielbilder, automatisierte Qualitätssicherung. Sprachmodelle und eigene Agenten im Produkt. Am liebsten beraten und umsetzen im selben Projekt.
+Architektur-Audits, Zielbilder, automatisierte Qualitätssicherung. Sprachmodelle und eigene Agenten im Produkt. Am liebsten berate ich und setze selbst mit um.
 
 ## Ausgewählte Engagements
 
-- **Fraunhofer Heinrich-Hertz-Institut, seit 2025.** Architektur-Audit und Neubau eines Katalogs für 5G-Komponenten, ausgelegt auf Coding-Agenten. Beratung von acht Personen aus Entwicklung, Design und Leitung.
+- **Fraunhofer Heinrich-Hertz-Institut, seit 2025.** Architektur-Audit und Neubau eines Katalogs für 5G-Komponenten, an dem Coding-Agenten mitarbeiten. Beratung von acht Personen aus Entwicklung, Design und Leitung.
 - **Estino GmbH, seit 2018.** Produkt und Architektur für B2B-Dashboards in der Nutzfahrzeug-Entwicklung: Signale, Karten, Agenten. Direkter Kundenkontakt im Startup-Takt.
-- **weg.de (jetzt lastminute.com-Gruppe), 2016–2020.** Zielarchitektur und Kernkomponenten für den Relaunch, zwölf Leute eingearbeitet. Weniger Bugs, niedrigere Bounce- und Churn-Raten, schnellere Iteration, u. a. Grundlage für die Übernahme durch lastminute.com.
+- **weg.de (jetzt lastminute.com-Gruppe), 2016–2020.** Zielarchitektur und Kernkomponenten für den Relaunch, Team von zwölf Leuten geschult. Weniger Bugs, niedrigere Bounce- und Churn-Raten, schnellere Iteration, u. a. Grundlage für die Übernahme durch lastminute.com.
 - **Barkhausen Institut, seit 2024.** Architektur und Qualitätsstrategie für das Portal eines Forschungsinstituts.
 - **Stammbäume, seit 2020.** Familienbaum-Plattform für vier große deutsche Dynastien. Sorgfältige und diskrete Abbildung menschlicher und gesellschaftlicher Komplexität.
 

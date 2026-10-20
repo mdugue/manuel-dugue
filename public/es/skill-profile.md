@@ -21,13 +21,13 @@ Auditorías de arquitectura, arquitecturas objetivo, calidad automatizada. Model
 
 ## Lo que hago
 
-|                         |                                                                                   |
-| ----------------------- | --------------------------------------------------------------------------------- |
-| **Arquitectura**        | Auditorías, arquitecturas objetivo, migración, integración, estrategia de calidad |
-| **Product engineering** | Del boceto a producción, con implementación propia                                |
-| **IA**                  | Agentes en el producto, agentes de codificación en el equipo                      |
-| **Visualización**       | Diseño de información para datos complejos y geográficos                          |
-| **Consultoría**         | Talleres, revisiones, alineación entre tecnología y negocio                       |
+|                            |                                                                                   |
+| -------------------------- | --------------------------------------------------------------------------------- |
+| **Arquitectura**           | Auditorías, arquitecturas objetivo, migración, integración, estrategia de calidad |
+| **Ingeniería de producto** | Del boceto a producción, con implementación propia                                |
+| **IA**                     | Agentes en el producto, agentes de codificación en el equipo                      |
+| **Visualización**          | Diseño de información para datos complejos y geográficos                          |
+| **Consultoría**            | Talleres, revisiones, alineación entre tecnología y negocio                       |
 
 ## Proyectos
 
@@ -113,7 +113,7 @@ _Rol:_ Implementación, formación, consultoría.
 
 Relanzamiento y evolución del portal de reservas Weg.de / lastminute.com. Las vacaciones deberían sentirse como el viaje — también al reservarlas.
 
-_Rol:_ Arquitectura objetivo, componentes clave, incorporación de doce personas. Menos bugs, rebote y churn a la baja, iteración más rápida — parte de la base para la adquisición por lastminute.com.
+_Rol:_ Arquitectura objetivo, componentes clave, formación de un equipo de doce personas. Menos bugs, rebote y churn a la baja, iteración más rápida — parte de la base para la adquisición por lastminute.com.
 
 _Stack:_ Next.js, React, Node.js.
 
@@ -149,7 +149,7 @@ _Stack:_ React, Three.js, WebGL.
 
 ### Kti Multimedia GmbH, Hamburgo — 2015–2016
 
-Diseño de la solución y dirección técnica en la preventa de la licitación del portal de juegos de Bundesliga.de, incluyendo el canal HTML5 Games y Kidscorner. Integración de Free2Play y juegos móviles, redes sociales, contenidos de fútbol y VoD, seguimiento de go-live, estrategias SEO. Cliente: KTI Multimedia GmbH para DFL / Bundesliga.de.
+Preventa: diseño de la solución y dirección técnica de la licitación del portal de juegos de Bundesliga.de, incluyendo el canal HTML5 Games y Kidscorner. Integración de Free2Play y juegos móviles, redes sociales, contenidos de fútbol y VoD, seguimiento de go-live, estrategias SEO. Cliente: KTI Multimedia GmbH para DFL / Bundesliga.de.
 
 ### HQ Plus GmbH, Berlín — 2015–2016
 

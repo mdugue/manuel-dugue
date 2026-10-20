@@ -21,13 +21,13 @@ Audits d'architecture, architectures cibles, assurance qualité automatisée. Mo
 
 ## Ce que je fais
 
-|                         |                                                                         |
-| ----------------------- | ----------------------------------------------------------------------- |
-| **Architecture**        | Audits, architectures cibles, migration, intégration, stratégie qualité |
-| **Product engineering** | De l'esquisse à la production, mise en œuvre comprise                   |
-| **IA**                  | Agents dans le produit, agents de codage dans l'équipe                  |
-| **Visualisation**       | Design d'information pour données complexes et géographiques            |
-| **Conseil**             | Ateliers, revues, alignement entre technique et métier                  |
+|                        |                                                                         |
+| ---------------------- | ----------------------------------------------------------------------- |
+| **Architecture**       | Audits, architectures cibles, migration, intégration, stratégie qualité |
+| **Ingénierie produit** | De l'esquisse à la production, mise en œuvre comprise                   |
+| **IA**                 | Agents dans le produit, agents de codage dans l'équipe                  |
+| **Visualisation**      | Design d'information pour données complexes et géographiques            |
+| **Conseil**            | Ateliers, revues, alignement entre technique et métier                  |
 
 ## Projets
 
@@ -113,7 +113,7 @@ _Rôle :_ Mise en œuvre, formation, conseil.
 
 Refonte et évolution du portail de réservation Weg.de / lastminute.com. Les vacances devraient ressembler au voyage — même au moment de réserver.
 
-_Rôle :_ Architecture cible, composants clés, montée en compétence de douze personnes. Moins de bugs, rebond et churn en baisse, itération plus rapide — en partie à la base du rachat par lastminute.com.
+_Rôle :_ Architecture cible, composants clés, formation d'une équipe de douze personnes. Moins de bugs, rebond et churn en baisse, itération plus rapide — en partie à la base du rachat par lastminute.com.
 
 _Stack :_ Next.js, React, Node.js.
 
@@ -149,7 +149,7 @@ _Stack :_ React, Three.js, WebGL.
 
 ### Kti Multimedia GmbH, Hambourg — 2015–2016
 
-Conception de la solution et direction technique en avant-vente pour la réponse à l'appel d'offres pour le portail de jeux de Bundesliga.de, incluant le canal HTML5 Games et Kidscorner. Intégration de Free2Play et jeux mobiles, réseaux sociaux, contenus football et VoD, suivi de mise en ligne, stratégies SEO. Client : KTI Multimedia GmbH pour DFL / Bundesliga.de.
+Avant-vente : conception de la solution et direction technique de la réponse à l'appel d'offres pour le portail de jeux de Bundesliga.de, incluant le canal HTML5 Games et Kidscorner. Intégration de Free2Play et jeux mobiles, réseaux sociaux, contenus football et VoD, suivi de mise en ligne, stratégies SEO. Client : KTI Multimedia GmbH pour DFL / Bundesliga.de.
 
 ### HQ Plus GmbH, Berlin — 2015–2016
 

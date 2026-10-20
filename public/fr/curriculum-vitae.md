@@ -13,9 +13,9 @@ Audits d'architecture, architectures cibles, assurance qualité automatisée. Mo
 
 ## Missions sélectionnées
 
-- **Fraunhofer Heinrich-Hertz-Institut, depuis 2025.** Audit d'architecture et refonte d'un catalogue de composants 5G, conçu pour les agents de codage. Conseil auprès de huit personnes en développement, design et direction.
+- **Fraunhofer Heinrich-Hertz-Institut, depuis 2025.** Audit d'architecture et refonte d'un catalogue de composants 5G auquel des agents de codage contribuent. Conseil auprès de huit personnes en développement, design et direction.
 - **Estino GmbH, depuis 2018.** Produit et architecture de tableaux de bord B2B pour l'ingénierie automobile : signaux, cartes, agents. Contact client direct, rythme de startup.
-- **weg.de (désormais groupe lastminute.com), 2016–2020.** Architecture cible et composants clés de la refonte du portail, montée en compétence de douze personnes. Moins de bugs, rebond et churn en baisse, itération plus rapide, en partie à la base du rachat par lastminute.com.
+- **weg.de (désormais groupe lastminute.com), 2016–2020.** Architecture cible et composants clés de la refonte du portail, formation d'une équipe de douze personnes. Moins de bugs, rebond et churn en baisse, itération plus rapide, en partie à la base du rachat par lastminute.com.
 - **Barkhausen Institut, depuis 2024.** Architecture et stratégie qualité pour le portail d'un institut de recherche.
 - **Arbres généalogiques, depuis 2020.** Plateforme pour quatre grandes dynasties allemandes. Prise en compte soignée et discrète de la complexité humaine et sociale.
 

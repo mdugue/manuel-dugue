@@ -11,23 +11,23 @@ Architecture audits, target architectures, automated quality assurance. Language
 
 ## Profile
 
-|                        |                                                               |
-| ---------------------- | ------------------------------------------------------------- |
-| **Title**              | Dipl.-Medieninformatiker (Diploma in Media Informatics)       |
-| **Born**               | 12 September 1981 in Berlin, Germany                          |
-| **Nationality**        | German & French                                               |
-| **Languages**          | TypeScript, SQL, GLSL                                         |
-| **Personal interests** | Sports, music, photography, typography, architecture, cooking |
+|                        |                                                                                                         |
+| ---------------------- | ------------------------------------------------------------------------------------------------------- |
+| **Title**              | Dipl.-Medieninformatiker (Diploma in Media Informatics)                                                 |
+| **Born**               | 12 September 1981 in Berlin, Germany                                                                    |
+| **Nationality**        | German & French                                                                                         |
+| **Languages**          | German (native), French (native), English (fluent), Spanish (fluent), Portuguese (basic), Dutch (basic) |
+| **Personal interests** | Sports, music, photography, typography, architecture, cooking                                           |
 
 ## What I do
 
 |                         |                                                                        |
 | ----------------------- | ---------------------------------------------------------------------- |
-| **Architect**           | Audits, target architectures, migration, integration, quality strategy |
+| **Architecture**        | Audits, target architectures, migration, integration, quality strategy |
 | **Product engineering** | From sketch to production, hands-on                                    |
 | **AI**                  | Agents in the product, coding agents in the team                       |
-| **Visualise**           | Information design for complex and geographic data                     |
-| **Advise**              | Workshops, reviews, alignment between tech and business                |
+| **Visualisation**       | Information design for complex and geographic data                     |
+| **Advising**            | Workshops, reviews, alignment between tech and business                |
 
 ## Projects
 
@@ -113,7 +113,7 @@ _Role:_ Implementation, training, consulting.
 
 Relaunch and evolution of the Weg.de / lastminute.com booking portal. Holidays should feel like the trip — even the booking flow.
 
-_Role:_ Target architecture, core components, onboarding twelve people; fewer bugs, lower bounce and churn, faster iteration — part of the groundwork for the lastminute.com acquisition.
+_Role:_ Target architecture, core components, training a team of twelve; fewer bugs, lower bounce and churn, faster iteration — part of the groundwork for the lastminute.com acquisition.
 
 _Stack:_ Next.js, React, Node.js.
 
@@ -149,7 +149,7 @@ _Stack:_ React, Three.js, WebGL.
 
 ### Kti Multimedia GmbH, Hamburg — 2015–2016
 
-Solution design and technical lead in pre-sales on the bid for the Bundesliga.de games portal, including the HTML5 Games channel and Kidscorner. Integration of Free2Play and mobile games, social media, football and VoD content, go-live tracking, SEO strategies. Client: KTI Multimedia GmbH for DFL / Bundesliga.de.
+Pre-sales: solution design and technical lead on the bid for the Bundesliga.de games portal, including the HTML5 Games channel and Kidscorner. Integration of Free2Play and mobile games, social media, football and VoD content, go-live tracking, SEO strategies. Client: KTI Multimedia GmbH for DFL / Bundesliga.de.
 
 ### HQ Plus GmbH, Berlin — 2015–2016
 
@@ -178,7 +178,7 @@ _Stack:_ HTML5, CSS3, Node.js.
 |                    |                                                                                          |
 | ------------------ | ---------------------------------------------------------------------------------------- |
 | **Agentic & AI**   | AI SDKs, OpenRouter, Claude Code, Cursor, Agent Skills, MCP, custom agents, SGLang       |
-| **Languages**      | TypeScript, HTML, CSS, SQL, SVG, WebGL / GLSL                                            |
+| **Languages**      | TypeScript, SQL, GLSL                                                                    |
 | **Frameworks**     | Next.js, React, Tailwind, shadcn/ui, Playwright, XState, D3, Mapbox GL, DeckGL, Three.js |
 | **Runtime & data** | Bun, Node.js, PostgreSQL, Drizzle ORM, GraphQL, vector databases                         |
 | **Practices**      | UX, performance, accessibility, SEO, eCommerce                                           |

@@ -25,7 +25,7 @@ Rendering pipeline, for reference: `app/[lang]/skill-profile/page.tsx` (web), `a
 1. `# Skill Profile` (or locale-equivalent H1)
 2. **Opener** — two short paragraphs directly under the H1, no heading. Positions Manuel as product engineer and solutions architect (DE leaves the title to the site header), names the year "since 2004" and the T-shape. Role and outcome before tools: no library names here.
 3. **Profile table** — Title, Born, Nationality, Languages, Personal interests.
-4. **What I do table** — 5 rows, architecture first: Architect / Product engineering / AI / Visualise / Advise (localised). Competences, not tool lists.
+4. **What I do table** — 5 rows, architecture first: Architecture / Product engineering / AI / Visualisation / Advising (localised). Competences, not tool lists.
 5. **Projects** — H2. Recent projects get full H3 entries; everything 2008–2014 lives in the "Earlier work" subsection.
 6. **Stack table** — H2 `Stack`, after the projects. 5 rows: Agentic & AI / Languages / Frameworks / Runtime & data / Practices.
 7. **Education** — H2. Diploma, Research project, Minor, Internship, Abitur.

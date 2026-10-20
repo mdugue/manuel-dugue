@@ -13,9 +13,9 @@ Architecture audits, target architectures, automated quality assurance. Language
 
 ## Selected engagements
 
-- **Fraunhofer Heinrich-Hertz-Institut, since 2025.** Architecture audit and rebuild of a 5G component catalogue, laid out for coding agents. Advising eight people across engineering, design and leadership.
+- **Fraunhofer Heinrich-Hertz-Institut, since 2025.** Architecture audit and rebuild of a 5G component catalogue that coding agents work on too. Advising eight people across engineering, design and leadership.
 - **Estino GmbH, since 2018.** Product and architecture for B2B automotive engineering dashboards: signals, maps, agents. Direct customer contact at startup pace.
-- **weg.de (now lastminute.com group), 2016–2020.** Target architecture and core components for the booking portal relaunch, onboarding twelve people. Fewer bugs, lower bounce and churn, faster iteration, part of the groundwork for the acquisition by lastminute.com.
+- **weg.de (now lastminute.com group), 2016–2020.** Target architecture and core components for the booking portal relaunch, training a team of twelve. Fewer bugs, lower bounce and churn, faster iteration, part of the groundwork for the acquisition by lastminute.com.
 - **Barkhausen Institut, since 2024.** Architecture and quality strategy for a research institute's portal.
 - **Family trees, since 2020.** Family-tree platform for four large German dynasties. Careful, discreet treatment of human and social complexity.
 

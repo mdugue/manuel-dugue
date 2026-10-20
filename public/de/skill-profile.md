@@ -7,7 +7,7 @@ updated: 2026-10-20
 
 Seit 2004 konzipiere und baue ich nutzerzentrierte Produkte. Tief in Web-Architektur; breit in UX, Informationsarchitektur, KI und Beratung.
 
-Architektur-Audits, Zielbilder, automatisierte Qualitätssicherung. Sprachmodelle und eigene Agenten im Produkt. Am liebsten beraten und umsetzen im selben Projekt.
+Architektur-Audits, Zielbilder, automatisierte Qualitätssicherung. Sprachmodelle und eigene Agenten im Produkt. Am liebsten berate ich und setze selbst mit um.
 
 ## Profil
 
@@ -113,7 +113,7 @@ _Rolle:_ Umsetzung, Schulung, Beratung.
 
 Relaunch und Weiterentwicklung des Buchungsportals Weg.de / lastminute.com. Urlaub sollte sich wie die Reise anfühlen — auch schon im Buchungsprozess.
 
-_Rolle:_ Zielarchitektur, Kernkomponenten, Einarbeitung von zwölf Leuten. Weniger Bugs, niedrigere Bounce- und Churn-Raten, schnellere Iteration, Teil der Grundlage für die Übernahme durch lastminute.com.
+_Rolle:_ Zielarchitektur, Kernkomponenten, Schulung des Teams (zwölf Leute). Weniger Bugs, niedrigere Bounce- und Churn-Raten, schnellere Iteration, Teil der Grundlage für die Übernahme durch lastminute.com.
 
 _Stack:_ Next.js, React, Node.js.
 
@@ -149,7 +149,7 @@ _Stack:_ React, Three.js, WebGL.
 
 ### Kti Multimedia GmbH, Hamburg — 2015–2016
 
-Lösungskonzept und technische Leitung im Pre-Sales für das Spiele-Portal von Bundesliga.de, einschließlich HTML5-Games-Channel und Kidscorner. Integration von Free2Play- und Mobile-Games, Social Media, Fußball- und VoD-Inhalten, Go-Live-Tracking, SEO-Strategien. Auftraggeber: KTI Multimedia GmbH für DFL / Bundesliga.de.
+Pre-Sales: Lösungskonzept und technische Leitung beim Angebot für das Spiele-Portal von Bundesliga.de, einschließlich HTML5-Games-Channel und Kidscorner. Integration von Free2Play- und Mobile-Games, Social Media, Fußball- und VoD-Inhalten, Go-Live-Tracking, SEO-Strategien. Auftraggeber: KTI Multimedia GmbH für DFL / Bundesliga.de.
 
 ### HQ Plus GmbH, Berlin — 2015–2016
 

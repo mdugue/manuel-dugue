@@ -13,9 +13,9 @@ Auditorías de arquitectura, arquitecturas objetivo, calidad automatizada. Model
 
 ## Colaboraciones destacadas
 
-- **Fraunhofer Heinrich-Hertz-Institut, desde 2025.** Auditoría de arquitectura y reconstrucción de un catálogo de componentes 5G, pensado para agentes de codificación. Asesoramiento a ocho personas de desarrollo, diseño y dirección.
+- **Fraunhofer Heinrich-Hertz-Institut, desde 2025.** Auditoría de arquitectura y reconstrucción de un catálogo de componentes 5G en el que también trabajan agentes de codificación. Asesoramiento a ocho personas de desarrollo, diseño y dirección.
 - **Estino GmbH, desde 2018.** Producto y arquitectura de cuadros de mando B2B para la ingeniería de automoción: señales, mapas, agentes. Contacto directo con clientes a ritmo de startup.
-- **weg.de (ahora grupo lastminute.com), 2016–2020.** Arquitectura objetivo y componentes centrales del relanzamiento, incorporación de doce personas. Menos bugs, rebote y churn a la baja, iteración más rápida, parte de la base para la adquisición por lastminute.com.
+- **weg.de (ahora grupo lastminute.com), 2016–2020.** Arquitectura objetivo y componentes centrales del relanzamiento, formación de un equipo de doce personas. Menos bugs, rebote y churn a la baja, iteración más rápida, parte de la base para la adquisición por lastminute.com.
 - **Barkhausen Institut, desde 2024.** Arquitectura y estrategia de calidad para el portal de un instituto de investigación.
 - **Árboles genealógicos, desde 2020.** Plataforma para cuatro grandes dinastías alemanas. Tratamiento cuidadoso y discreto de la complejidad humana y social.
 
