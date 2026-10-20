@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 import type { AiModelId } from "@/i18n/ai-models";
 import type { Locale } from "@/i18n/config";
@@ -65,13 +65,13 @@ export function useAiCacheStatuses(namespace: AiCacheNamespace, lang: Locale) {
     };
   }, [namespace, lang]);
 
-  const markGenerated = useCallback((model: AiModelId) => {
+  const markGenerated = (model: AiModelId) => {
     const cachedAt = Date.now();
     setStatuses((prev) => ({
       ...prev,
       [model]: { cachedAt, expiresAt: cachedAt + AI_CACHE_TTL_MS },
     }));
-  }, []);
+  };
 
   return { markGenerated, statuses };
 }

@@ -1,15 +1,14 @@
 "use client";
 
-import { useParams, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import {
-  useCallback,
   useEffect,
+  useEffectEvent,
   useRef,
   useState,
   ViewTransition,
 } from "react";
 
-import { hasLocale } from "@/i18n/config";
 import type { Locale } from "@/i18n/config";
 
 import { docSheetName } from "./doc-morph";
@@ -33,6 +32,7 @@ const MODAL_ATTR = "data-doc-modal";
  * navigation, or the card on the home page has nothing to morph into.
  */
 export function DocSheetModal({
+  lang,
   slug,
   title,
   subtitle,
@@ -42,6 +42,7 @@ export function DocSheetModal({
   children,
   updatedLine,
 }: {
+  lang: Locale;
   slug: string;
   title: string;
   subtitle: string;
@@ -52,33 +53,32 @@ export function DocSheetModal({
   updatedLine?: UpdatedLine;
 }) {
   const router = useRouter();
-  const { lang } = useParams<{ lang: string }>();
-  const locale: Locale = hasLocale(lang) ? lang : "en";
   const dialogRef = useRef<HTMLDialogElement>(null);
   const [escPressed, setEscPressed] = useState(false);
 
-  const close = useCallback(() => {
+  const close = () => {
     const idx = (window.history.state as { idx?: number } | null)?.idx;
     if (typeof idx === "number" && idx > 0) {
       router.back();
     } else {
       router.push(`/${lang}`);
     }
-  }, [router, lang]);
+  };
 
   // Esc and a click beside the sheet close it. Listeners rather than JSX
   // handlers, since the dialog element itself is not a control.
+  const onDismiss = useEffectEvent(close);
   useEffect(() => {
     const dialog = dialogRef.current;
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
         setEscPressed(true);
-        close();
+        onDismiss();
       }
     };
     const onClick = (event: MouseEvent) => {
       if (event.target === dialog) {
-        close();
+        onDismiss();
       }
     };
     document.addEventListener("keydown", onKeyDown);
@@ -87,7 +87,7 @@ export function DocSheetModal({
       document.removeEventListener("keydown", onKeyDown);
       dialog?.removeEventListener("click", onClick);
     };
-  }, [close]);
+  }, []);
 
   // Modal behaviour without a portal: everything else on the page goes inert,
   // the page stops scrolling underneath, focus moves into the sheet.
@@ -143,7 +143,7 @@ export function DocSheetModal({
             <DocSheetChrome
               authorName={contact[0] ?? "Manuel Dugué"}
               contact={contact}
-              lang={locale}
+              lang={lang}
               morphSlug={slug}
               subtitle={subtitle}
               title={title}

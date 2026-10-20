@@ -1,7 +1,7 @@
 "use client";
 
 import { useObject } from "@ai-sdk/react";
-import { useCallback, useRef } from "react";
+import { useRef } from "react";
 
 import type { AiModelId } from "@/i18n/ai-models";
 import type { Locale } from "@/i18n/config";
@@ -43,13 +43,10 @@ export function SocialProofClient({
     schema: socialProofSchema,
   });
 
-  const onModelChange = useCallback(
-    (model: AiModelId) => {
-      requestedModelRef.current = model;
-      submit({ lang, model });
-    },
-    [submit, lang]
-  );
+  const onModelChange = (model: AiModelId) => {
+    requestedModelRef.current = model;
+    submit({ lang, model });
+  };
 
   const { currentModel, nextModel, position, regenerate } =
     useModelCycler(onModelChange);

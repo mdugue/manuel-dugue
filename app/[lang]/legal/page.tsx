@@ -1,23 +1,13 @@
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
 
 import { DocSheetPage } from "@/app/components/doc-sheet-page";
 import { MarkdownPage } from "@/app/components/markdown-page";
-import { hasLocale } from "@/i18n/config";
-import type { Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
+import { getLocale } from "@/i18n/locale";
 import { buildPageMetadata } from "@/i18n/seo";
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ lang: string }>;
-}): Promise<Metadata> {
-  const { lang } = await params;
-  if (!hasLocale(lang)) {
-    return {};
-  }
-  const locale: Locale = lang;
+export async function generateMetadata(): Promise<Metadata> {
+  const locale = await getLocale();
   const dict = getDictionary(locale);
   return buildPageMetadata({
     description: dict.portfolio.legal.imprint.sheetSubtitle,
@@ -27,17 +17,9 @@ export async function generateMetadata({
   });
 }
 
-export default async function Page({
-  params,
-}: {
-  params: Promise<{ lang: string }>;
-}) {
+export default async function Page() {
   "use cache";
-  const { lang } = await params;
-  if (!hasLocale(lang)) {
-    notFound();
-  }
-  const locale: Locale = lang;
+  const locale = await getLocale();
   const { portfolio } = getDictionary(locale);
 
   return (

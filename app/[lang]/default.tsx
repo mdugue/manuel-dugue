@@ -1,21 +1,10 @@
-import { notFound } from "next/navigation";
-
 import { Portfolio } from "@/app/components/portfolio/portfolio";
-import { hasLocale } from "@/i18n/config";
-import type { Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
+import { getLocale } from "@/i18n/locale";
 
-export default async function Default({
-  params,
-}: {
-  params: Promise<{ lang: string }>;
-}) {
+export default async function Default() {
   "use cache";
-  const { lang } = await params;
-  if (!hasLocale(lang)) {
-    notFound();
-  }
-  const locale: Locale = lang;
+  const locale = await getLocale();
   const dict = getDictionary(locale);
   return <Portfolio dict={dict.portfolio} lang={locale} />;
 }

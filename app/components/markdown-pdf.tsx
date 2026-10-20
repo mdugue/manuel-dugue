@@ -448,28 +448,28 @@ interface DocMeta {
   sheetTitle: string;
 }
 
+const AUTHOR = "Manuel Dugué";
+
 function MarkdownDocument({
   tree,
-  docTitle,
-  author,
   language,
   meta,
   contact,
-  footerLead,
   updatedLine,
 }: {
   tree: Root;
-  docTitle: string;
-  author?: string;
   language: Locale;
   meta: DocMeta;
   contact: readonly string[];
-  footerLead: string;
   updatedLine?: string;
 }) {
   const ctx = { isFirstH2: { current: true } };
   return (
-    <Document author={author} language={language} title={docTitle}>
+    <Document
+      author={AUTHOR}
+      language={language}
+      title={`${meta.sheetTitle} — ${AUTHOR}`}
+    >
       <Page size="A4" style={styles.page}>
         <View style={styles.letterhead}>
           <View style={styles.letterheadLeft}>
@@ -496,7 +496,7 @@ function MarkdownDocument({
 
         <View fixed style={styles.footerRule} />
         <Text fixed style={styles.footerLeft}>
-          {footerLead}
+          {`${AUTHOR} · mail@manuel.fyi`}
         </Text>
         <Text fixed style={styles.footerRight}>
           manuel<Text style={styles.footerRightTld}>.fyi</Text>
@@ -506,17 +506,13 @@ function MarkdownDocument({
   );
 }
 
-export type LocalizedString = Record<Locale, string>;
-
 export interface MarkdownPdfRouteConfig {
-  author?: string;
-  filenameBase: string;
   getDocMeta: (dict: Dictionary) => DocMeta;
   slug: string;
 }
 
 export function createMarkdownPdfRoute(config: MarkdownPdfRouteConfig) {
-  const { slug, filenameBase, author, getDocMeta } = config;
+  const { slug, getDocMeta } = config;
 
   return async function GET(
     _request: Request,
@@ -532,22 +528,13 @@ export function createMarkdownPdfRoute(config: MarkdownPdfRouteConfig) {
     const { body, meta: source } = await readMarkdownSource(slug, lang);
     const tree = remark().use(remarkGfm).parse(body);
 
-    const docTitle = author
-      ? `${meta.sheetTitle} — ${author}`
-      : meta.sheetTitle;
-    const footerLead = author
-      ? `${author} · mail@manuel.fyi`
-      : "mail@manuel.fyi";
     const updatedLine = source.updatedIso
       ? `${dict.portfolio.docs.updatedLabel} ${formatUpdatedDate(source.updatedIso, lang)}`
       : undefined;
 
     const buffer = await renderToBuffer(
       <MarkdownDocument
-        author={author}
         contact={dict.portfolio.contact}
-        docTitle={docTitle}
-        footerLead={footerLead}
         language={lang}
         meta={meta}
         tree={tree}
@@ -562,7 +549,7 @@ export function createMarkdownPdfRoute(config: MarkdownPdfRouteConfig) {
     return new Response(new Uint8Array(buffer), {
       headers: {
         "Cache-Control": "public, max-age=0, must-revalidate",
-        "Content-Disposition": `inline; filename="${filenameBase}.${lang}.pdf"`,
+        "Content-Disposition": `inline; filename="${slug}-manuel-dugue.${lang}.pdf"`,
         "Content-Type": "application/pdf",
         ...(lastModified ? { "Last-Modified": lastModified } : {}),
       },
