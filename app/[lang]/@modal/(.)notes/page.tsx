@@ -1,26 +1,15 @@
-import { notFound } from "next/navigation";
-
 import { MarkdownPage } from "@/app/components/markdown-page";
 import {
   buildUpdatedLine,
   readMarkdownSource,
 } from "@/app/components/markdown-source";
 import { DocSheetModal } from "@/app/components/modal";
-import { hasLocale } from "@/i18n/config";
-import type { Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
+import { getLocale } from "@/i18n/locale";
 
-export default async function Page({
-  params,
-}: {
-  params: Promise<{ lang: string }>;
-}) {
+export default async function Page() {
   "use cache";
-  const { lang } = await params;
-  if (!hasLocale(lang)) {
-    notFound();
-  }
-  const locale: Locale = lang;
+  const locale = await getLocale();
   const { portfolio } = getDictionary(locale);
   const { meta } = await readMarkdownSource("notes", locale);
   const updatedLine = buildUpdatedLine(

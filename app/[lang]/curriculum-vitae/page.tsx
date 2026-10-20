@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
 import type { Article, WithContext } from "schema-dts";
 
 import { DocSheetPage } from "@/app/components/doc-sheet-page";
@@ -8,9 +7,8 @@ import {
   buildUpdatedLine,
   readMarkdownSource,
 } from "@/app/components/markdown-source";
-import { hasLocale } from "@/i18n/config";
-import type { Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
+import { getLocale } from "@/i18n/locale";
 import {
   buildPageMetadata,
   jsonLdString,
@@ -19,17 +17,9 @@ import {
   SITE,
 } from "@/i18n/seo";
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ lang: string }>;
-}): Promise<Metadata> {
+export async function generateMetadata(): Promise<Metadata> {
   "use cache";
-  const { lang } = await params;
-  if (!hasLocale(lang)) {
-    return {};
-  }
-  const locale: Locale = lang;
+  const locale = await getLocale();
   const dict = getDictionary(locale);
   const { meta } = await readMarkdownSource("curriculum-vitae", locale);
   return buildPageMetadata({
@@ -42,17 +32,9 @@ export async function generateMetadata({
   });
 }
 
-export default async function Page({
-  params,
-}: {
-  params: Promise<{ lang: string }>;
-}) {
+export default async function Page() {
   "use cache";
-  const { lang } = await params;
-  if (!hasLocale(lang)) {
-    notFound();
-  }
-  const locale: Locale = lang;
+  const locale = await getLocale();
   const { portfolio } = getDictionary(locale);
   const { meta } = await readMarkdownSource("curriculum-vitae", locale);
 
