@@ -2,8 +2,8 @@
 
 import { useRouter } from "next/navigation";
 import {
-  useCallback,
   useEffect,
+  useEffectEvent,
   useRef,
   useState,
   ViewTransition,
@@ -56,28 +56,29 @@ export function DocSheetModal({
   const dialogRef = useRef<HTMLDialogElement>(null);
   const [escPressed, setEscPressed] = useState(false);
 
-  const close = useCallback(() => {
+  const close = () => {
     const idx = (window.history.state as { idx?: number } | null)?.idx;
     if (typeof idx === "number" && idx > 0) {
       router.back();
     } else {
       router.push(`/${lang}`);
     }
-  }, [router, lang]);
+  };
 
   // Esc and a click beside the sheet close it. Listeners rather than JSX
   // handlers, since the dialog element itself is not a control.
+  const onDismiss = useEffectEvent(close);
   useEffect(() => {
     const dialog = dialogRef.current;
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
         setEscPressed(true);
-        close();
+        onDismiss();
       }
     };
     const onClick = (event: MouseEvent) => {
       if (event.target === dialog) {
-        close();
+        onDismiss();
       }
     };
     document.addEventListener("keydown", onKeyDown);
@@ -86,7 +87,7 @@ export function DocSheetModal({
       document.removeEventListener("keydown", onKeyDown);
       dialog?.removeEventListener("click", onClick);
     };
-  }, [close]);
+  }, []);
 
   // Modal behaviour without a portal: everything else on the page goes inert,
   // the page stops scrolling underneath, focus moves into the sheet.

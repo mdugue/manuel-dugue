@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useEffect, useEffectEvent, useRef, useState } from "react";
 
 import { aiModels } from "@/i18n/ai-models";
 import type { AiModelId } from "@/i18n/ai-models";
@@ -17,17 +17,12 @@ export function useModelCycler(
 ) {
   const [modelIndex, setModelIndex] = useState(0);
 
-  const onChangeRef = useRef(onModelChange);
-
   const currentModel = aiModels[modelIndex];
   const nextIndex = (modelIndex + 1) % MODEL_COUNT;
   const nextModel = aiModels[nextIndex];
 
+  const requestFirstModel = useEffectEvent(onModelChange);
   const didInit = useRef(false);
-  useEffect(() => {
-    onChangeRef.current = onModelChange;
-  }, [onModelChange]);
-
   useEffect(() => {
     if (!currentModel) {
       return;
@@ -37,17 +32,17 @@ export function useModelCycler(
     }
     didInit.current = true;
     if (requestOnMount) {
-      onChangeRef.current(currentModel.id);
+      requestFirstModel(currentModel.id);
     }
   }, [currentModel, requestOnMount]);
 
-  const regenerate = useCallback(() => {
+  const regenerate = () => {
     setModelIndex(nextIndex);
     const model = aiModels[nextIndex];
     if (model) {
-      onChangeRef.current(model.id);
+      onModelChange(model.id);
     }
-  }, [nextIndex]);
+  };
 
   const position = `${String(modelIndex + 1).padStart(2, "0")}/${String(MODEL_COUNT).padStart(2, "0")}`;
 
