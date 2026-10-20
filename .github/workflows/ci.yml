@@ -12,33 +12,30 @@ concurrency:
 jobs:
   check:
     runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        # 26 is the project's Node version (.nvmrc). Vercel builds and
-        # Functions still run 24.x until it offers 26, so keep that covered.
-        node: [26, 24]
-    name: check (node ${{ matrix.node }})
     steps:
       - name: Checkout
         uses: actions/checkout@v7
 
-      - name: Setup Node
-        uses: actions/setup-node@v7
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
         with:
-          node-version: ${{ matrix.node }}
-          cache: npm
+          # Reads the version from "packageManager" in package.json, the same
+          # Bun that Vercel runs (bunVersion in vercel.json).
+          bun-version-file: package.json
 
       - name: Install dependencies
-        run: npm ci
+        run: bun install --frozen-lockfile
 
-      # Build first: it generates .next/types (typed routes), which the
-      # type-aware lint rules and the typecheck rely on.
-      - name: Build
-        run: npm run build
+      # Generate .next/types (typed routes) without a full build, so the
+      # typecheck and the type-aware lint rules can run first and fail fast.
+      - name: Generate route types
+        run: bun --bun next typegen
+
+      - name: Typecheck (bun check)
+        run: bun run typecheck
 
       - name: Lint (oxlint + oxfmt)
-        run: npm run lint
+        run: bun run lint
 
-      - name: Typecheck
-        run: npm run tsc
+      - name: Build
+        run: bun run build

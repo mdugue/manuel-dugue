@@ -6,8 +6,8 @@ description: >-
   Use this whenever the user wants to update skills, refresh a skill to its
   latest version, bump skill versions, add a new skill from a GitHub repo, or
   asks why `skills update` "doesn't work" — even if they don't mention skills.sh
-  or npx by name. This project runs on Node.js/npm: always drive the skills CLI
-  with `npx skills@latest`, never `bunx`.
+  or bunx by name. This project runs on Bun: always drive the skills CLI
+  with `bunx skills@latest`, never `npx`.
 ---
 
 # Updating this repo's skills
@@ -21,21 +21,21 @@ Two skills are **local**, authored in this repo, and deliberately *not* in the
 lockfile: `skill-profile` and `update-skills` (this one). Never try to refresh
 those from a remote — they have no upstream.
 
-## Why `npx`, not `bunx`
+## Why `bunx`, not `npx`
 
-This project runs on Node.js with npm (`package-lock.json`, plain `next`
-scripts) — see the Runtime note in `AGENTS.md`. Use `npx -y skills@latest ...`
-so the toolchain stays consistent and the permission allowlist
-(`Bash(npx skills:*)`) covers it. The CLI is not a project dependency, so it
-never touches `package.json` or `package-lock.json`.
+This project runs on Bun (`bun.lock`, `bun --bun next` scripts) — see the
+Runtime note in `AGENTS.md`. Use `bunx skills@latest ...` so the toolchain
+stays consistent and the permission allowlist (`Bash(bunx skills:*)`) covers
+it. The CLI is not a project dependency, so it never touches `package.json` or
+`bun.lock`.
 
-## `npx skills update` vs. re-adding
+## `bunx skills update` vs. re-adding
 
 Try the in-place update first — it refreshes every lockfile entry that has a
 `skillPath`:
 
 ```sh
-npx -y skills@latest update -y -p
+bunx skills@latest update -y -p
 ```
 
 It sometimes skips a skill with "Multiple current paths match" (the vendored
@@ -51,13 +51,13 @@ of these sources are multi-skill repos (e.g. `vercel-labs/agent-skills` ships a
 dozen skills), and an unscoped add pulls in *all* of them plus stray artifacts.
 
 ```sh
-npx -y skills@latest add https://github.com/<owner>/<repo> --skill <skill-name> -y
+bunx skills@latest add https://github.com/<owner>/<repo> --skill <skill-name> -y
 ```
 
 **Example** — refresh just the AI SDK best-practices skill:
 
 ```sh
-npx -y skills@latest add https://github.com/vercel-labs/agent-skills --skill vercel-react-best-practices -y
+bunx skills@latest add https://github.com/vercel-labs/agent-skills --skill vercel-react-best-practices -y
 ```
 
 One skill per command — `--skill` takes a single name, not a
@@ -104,7 +104,7 @@ committing:
 Same command, with a source the user provides:
 
 ```sh
-npx -y skills@latest add https://github.com/<owner>/<repo> --skill <skill-name> -y
+bunx skills@latest add https://github.com/<owner>/<repo> --skill <skill-name> -y
 ```
 
 Then run the same review-and-cleanup pass. The CLI updates `skills-lock.json`

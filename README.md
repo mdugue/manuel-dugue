@@ -11,23 +11,23 @@ Personal site of Manuel Dugué, an independent product engineer in Dresden. It i
 
 ## Development
 
-Requires Node.js 26 (see `.nvmrc`) and npm. Do not use Bun: Next.js 16.3 fails to build under the Bun runtime.
+Requires Bun 1.4.3 (pinned in `packageManager` in `package.json`). Bun installs the dependencies, runs Next.js (`bun --bun`) and type-checks; on Vercel the Functions run on Bun too (`bunVersion` in `vercel.json`).
 
 ```sh
-npm ci
-npm run dev     # http://localhost:3000
+bun install
+bun run dev     # http://localhost:3000
 ```
 
 The AI sections need AI Gateway credentials. Run `vercel env pull` to get an OIDC token for the linked project, or set `AI_GATEWAY_API_KEY`.
 
-| Script          | What it does                                    |
-| --------------- | ----------------------------------------------- |
-| `npm run build` | Production build (also generates `.next/types`) |
-| `npm run lint`  | Ultracite check: oxlint (type-aware) + oxfmt    |
-| `npm run fix`   | Ultracite autofix                               |
-| `npm run tsc`   | Type-check with TypeScript 7                    |
+| Script              | What it does                                    |
+| ------------------- | ----------------------------------------------- |
+| `bun run build`     | Production build (also generates `.next/types`) |
+| `bun run lint`      | Ultracite check: oxlint (type-aware) + oxfmt    |
+| `bun run fix`       | Ultracite autofix                               |
+| `bun run typecheck` | Type-check with `bun check`                     |
 
-The type-aware lint rules read the typed routes in `.next/types`, so on a fresh clone run `npm run build` once before linting. CI runs build, lint and type-check on Node 26 and on Node 24, the version Vercel deploys with.
+The type-aware lint rules read the typed routes in `.next/types`, so on a fresh clone run `bunx next typegen` (or `bun run build`) once before linting or type-checking. CI generates the route types, then runs the type-check, lint and build in that order so it fails fast.
 
 ## Working with agents
 
