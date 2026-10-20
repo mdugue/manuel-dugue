@@ -1,12 +1,11 @@
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
 
 import { Analytics } from "@/app/components/analytics";
 import { ConsoleHello } from "@/app/components/console-hello";
 import { fontVariables } from "@/app/fonts";
-import { hasLocale, localeParams } from "@/i18n/config";
-import type { Locale } from "@/i18n/config";
+import { localeParams } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
+import { getLocale } from "@/i18n/locale";
 import {
   buildPageMetadata,
   jsonLdString,
@@ -17,16 +16,8 @@ import {
 
 import "../globals.css";
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ lang: string }>;
-}): Promise<Metadata> {
-  const { lang } = await params;
-  if (!hasLocale(lang)) {
-    return { applicationName: SITE_NAME, metadataBase: METADATA_BASE };
-  }
-  const locale: Locale = lang;
+export async function generateMetadata(): Promise<Metadata> {
+  const locale = await getLocale();
   const dict = getDictionary(locale);
   return {
     applicationName: SITE_NAME,
@@ -50,20 +41,12 @@ export function generateStaticParams() {
 export default async function RootLayout({
   children,
   modal,
-  params,
-}: Readonly<{
-  children: React.ReactNode;
-  modal: React.ReactNode;
-  params: Promise<{ lang: string }>;
-}>) {
-  const { lang } = await params;
-  if (!hasLocale(lang)) {
-    notFound();
-  }
-  const dict = getDictionary(lang);
+}: LayoutProps<"/[lang]">) {
+  const locale = await getLocale();
+  const dict = getDictionary(locale);
 
   return (
-    <html className={`${fontVariables} antialiased`} lang={lang}>
+    <html className={`${fontVariables} antialiased`} lang={locale}>
       <body>
         <script
           dangerouslySetInnerHTML={{ __html: jsonLdString(personJsonLd()) }}

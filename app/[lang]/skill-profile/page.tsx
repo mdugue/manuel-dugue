@@ -1,35 +1,19 @@
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
-import type { Article, WithContext } from "schema-dts";
 
+import { ArticleJsonLd } from "@/app/components/article-json-ld";
 import { DocSheetPage } from "@/app/components/doc-sheet-page";
 import { MarkdownPage } from "@/app/components/markdown-page";
 import {
   buildUpdatedLine,
   readMarkdownSource,
 } from "@/app/components/markdown-source";
-import { hasLocale } from "@/i18n/config";
-import type { Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
-import {
-  buildPageMetadata,
-  jsonLdString,
-  LOCALE_TAGS,
-  pageUrl,
-  SITE,
-} from "@/i18n/seo";
+import { getLocale } from "@/i18n/locale";
+import { buildPageMetadata } from "@/i18n/seo";
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ lang: string }>;
-}): Promise<Metadata> {
+export async function generateMetadata(): Promise<Metadata> {
   "use cache";
-  const { lang } = await params;
-  if (!hasLocale(lang)) {
-    return {};
-  }
-  const locale: Locale = lang;
+  const locale = await getLocale();
   const dict = getDictionary(locale);
   const { meta } = await readMarkdownSource("skill-profile", locale);
   return buildPageMetadata({
@@ -42,31 +26,11 @@ export async function generateMetadata({
   });
 }
 
-export default async function Page({
-  params,
-}: {
-  params: Promise<{ lang: string }>;
-}) {
+export default async function Page() {
   "use cache";
-  const { lang } = await params;
-  if (!hasLocale(lang)) {
-    notFound();
-  }
-  const locale: Locale = lang;
+  const locale = await getLocale();
   const { portfolio } = getDictionary(locale);
   const { meta } = await readMarkdownSource("skill-profile", locale);
-
-  const articleJsonLd: WithContext<Article> = {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    author: { "@type": "Person", name: "Manuel Dugué", url: SITE },
-    description: portfolio.docs.profile.sheetSubtitle,
-    headline: portfolio.docs.profile.sheetTitle,
-    inLanguage: LOCALE_TAGS[locale].bcp47,
-    url: pageUrl(locale, "skill-profile"),
-    ...(meta.publishedIso ? { datePublished: meta.publishedIso } : {}),
-    ...(meta.updatedIso ? { dateModified: meta.updatedIso } : {}),
-  };
 
   const updatedLine = buildUpdatedLine(
     meta,
@@ -84,9 +48,12 @@ export default async function Page({
       title={portfolio.docs.profile.sheetTitle}
       updatedLine={updatedLine}
     >
-      <script
-        dangerouslySetInnerHTML={{ __html: jsonLdString(articleJsonLd) }}
-        type="application/ld+json"
+      <ArticleJsonLd
+        description={portfolio.docs.profile.sheetSubtitle}
+        locale={locale}
+        meta={meta}
+        slug="skill-profile"
+        title={portfolio.docs.profile.sheetTitle}
       />
       <MarkdownPage lang={locale} slug="skill-profile" />
     </DocSheetPage>

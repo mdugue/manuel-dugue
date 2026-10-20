@@ -1,7 +1,7 @@
 "use client";
 
 import { useCompletion } from "@ai-sdk/react";
-import { useCallback, useRef, useState } from "react";
+import { useRef, useState } from "react";
 
 import type { AiModelId } from "@/i18n/ai-models";
 import type { Locale } from "@/i18n/config";
@@ -53,14 +53,11 @@ export function SelfPresentationClient({
   // text and without an error, which would otherwise leave the box blank.
   const endedEmpty = !(isLoading || error) && completion === "";
 
-  const onModelChange = useCallback(
-    (model: AiModelId) => {
-      requestedModelRef.current = model;
-      setAngle(selfPresentationAngle(model));
-      void complete("", { body: { lang, model } });
-    },
-    [complete, lang]
-  );
+  const onModelChange = (model: AiModelId) => {
+    requestedModelRef.current = model;
+    setAngle(selfPresentationAngle(model));
+    void complete("", { body: { lang, model } });
+  };
 
   const { currentModel, nextModel, position, regenerate } = useModelCycler(
     onModelChange,
