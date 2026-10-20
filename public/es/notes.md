@@ -1,6 +1,6 @@
 ---
 published: 2026-10-06
-updated: 2026-10-06
+updated: 2026-10-20
 ---
 
 # Notas
@@ -43,9 +43,9 @@ Lo que no está en el currículum ni en el perfil de habilidades. El autorretrat
 
 ## Límites
 
-- No soy especialista en back-end para grandes sistemas distribuidos.
+- Los grandes back-ends distribuidos los dejo a especialistas.
 - Acepto a disgusto proyectos en los que solo se espera que ejecute, sin pensar con el equipo.
-- Con IA consigo que Kubernetes funcione y luego sé leerlo. Saberme todos los comandos de memoria no me interesa.
+- Sé leer Kubernetes y montarlo con IA. Para eso no necesito saberme los comandos de memoria.
 
 ## Fuera del trabajo
 

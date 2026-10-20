@@ -1,44 +1,33 @@
 ---
 published: 2021-04-20
-updated: 2026-09-22
+updated: 2026-10-20
 ---
 
 # Skill Profile
 
-Product engineer focused on user-facing software products since 2004. Deep in web tech; broad across UX, information architecture, agentic AI engineering and coaching.
+Product engineer and solutions architect building user-facing products since 2004. Deep in web architecture; broad across UX, information architecture, AI and consulting.
 
-Weaving LLM features and custom agents into product teams via MCP, Agent Skills and the AI SDKs. Coaching teams on resilient end-to-end tech stacks, automated quality assurance and AI-native workflows. At home where conceptual strategy meets hands-on orchestration.
+Architecture audits, target architectures, automated quality assurance. Language models and custom agents in the product. Happiest advising and building on the same project.
 
 ## Profile
 
-|                        |                                                                                                         |
-| ---------------------- | ------------------------------------------------------------------------------------------------------- |
-| **Title**              | Dipl.-Medieninformatiker (Diploma in Media Informatics)                                                 |
-| **Born**               | 12 September 1981 in Berlin, Germany                                                                    |
-| **Nationality**        | German & French                                                                                         |
-| **Languages**          | German (native), French (native), English (fluent), Spanish (fluent), Portuguese (basic), Dutch (basic) |
-| **Personal interests** | Sports, music, photography, typography, architecture, cooking                                           |
+|                        |                                                               |
+| ---------------------- | ------------------------------------------------------------- |
+| **Title**              | Dipl.-Medieninformatiker (Diploma in Media Informatics)       |
+| **Born**               | 12 September 1981 in Berlin, Germany                          |
+| **Nationality**        | German & French                                               |
+| **Languages**          | TypeScript, SQL, GLSL                                         |
+| **Personal interests** | Sports, music, photography, typography, architecture, cooking |
 
 ## What I do
 
-|                  |                                                                                                               |
-| ---------------- | ------------------------------------------------------------------------------------------------------------- |
-| **Agentic & AI** | Custom agents, MCP, Agent Skills, AI SDKs, Claude Code, Cursor, OpenRouter, SGLang                            |
-| **Build**        | User-facing web products end-to-end — from first sketch to shipped, observable software                       |
-| **Architect**    | End-to-end type safety, agent-first codebases, e2e testing, CI/CD, TypeScript, Next.js, Tailwind, Drizzle ORM |
-| **Visualise**    | Information design for dynamic, complex and geographic data, D3, Mapbox GL, DeckGL, Three.js, WebGL           |
-| **Coach**        | Training, workshops, code reviews, stakeholder alignment across engineering and business                      |
-
-## Stack today
-
-|                    |                                                                                          |
-| ------------------ | ---------------------------------------------------------------------------------------- |
-| **Agentic & AI**   | AI SDKs, OpenRouter, Claude Code, Cursor, Agent Skills, MCP, custom agents, SGLang       |
-| **Languages**      | TypeScript, HTML, CSS, SQL, SVG, WebGL / GLSL                                            |
-| **Frameworks**     | Next.js, React, Tailwind, shadcn/ui, Playwright, XState, D3, Mapbox GL, DeckGL, Three.js |
-| **Runtime & data** | Bun, Node.js, PostgreSQL, Drizzle ORM, GraphQL, vector databases                         |
-| **Practices**      | UX, performance, accessibility, SEO, eCommerce                                           |
-| **Tools**          | VS Code, Cursor, Git, Docker, Figma                                                      |
+|                         |                                                                        |
+| ----------------------- | ---------------------------------------------------------------------- |
+| **Architect**           | Audits, target architectures, migration, integration, quality strategy |
+| **Product engineering** | From sketch to production, hands-on                                    |
+| **AI**                  | Agents in the product, coding agents in the team                       |
+| **Visualise**           | Information design for complex and geographic data                     |
+| **Advise**              | Workshops, reviews, alignment between tech and business                |
 
 ## Projects
 
@@ -46,9 +35,9 @@ Weaving LLM features and custom agents into product teams via MCP, Agent Skills 
 
 Catalogue for 5G components with lifecycle management, fine-grained authorisation and multi-faceted entity views. 5G components have a life of their own; the catalogue follows them through it.
 
-_Role:_ Architecture audit, rewrite design, hands-on implementation; advising three developers, three designers and two product-side leads on architecture, delivery and stakeholder alignment.
+_Role:_ Architecture audit, rebuild, implementation; advising eight people across engineering, design and leadership.
 
-_Approach:_ End-to-end type safety, complexity reduction, iteration speed; the codebase is laid out for agent-first access so coding agents can contribute without ceremony.
+_Approach:_ End-to-end type safety, complexity reduction, iteration speed; coding agents contribute without onboarding.
 
 _Stack:_ Next.js, RSC, Drizzle ORM, PostgreSQL, Bun, Playwright, Claude Code, Cursor, Agent Skills.
 
@@ -56,7 +45,7 @@ _Stack:_ Next.js, RSC, Drizzle ORM, PostgreSQL, Bun, Playwright, Claude Code, Cu
 
 Business-trip management portal for a research institute.
 
-_Role:_ Consulting, training, feature development.
+_Role:_ Consulting, training, implementation.
 
 _Approach:_ Resilient architectures, automated quality assurance, complexity reduction.
 
@@ -68,15 +57,15 @@ _Stack:_ Nuxt, Vue.js, TypeScript, Sentry, Playwright, Claude Code, Cursor.
 
 Family trees for four large German dynasties. Careful, discreet treatment of human and social complexity — patchwork constellations, changed and reclaimed names, relatives who appear in more than one branch, and the quiet edges every old family carries.
 
-_Role:_ Concept, design, architecture, development, integration, training.
+_Role:_ Concept, design, architecture, integration, implementation, training.
 
 _Stack:_ React, GEDCOM, Figma, Lovable.
 
 ### Estino GmbH — since 2018
 
-B2B automotive engineering dashboards: signal visualisation, entity management, agent design. Signals, machines, maps — making the invisible workings of hardware readable.
+B2B automotive engineering dashboards, now with custom agents. Signals, machines, maps — making the invisible workings of hardware readable.
 
-_Role:_ Concept, UX, training, development.
+_Role:_ Concept, UX, architecture, implementation, training.
 
 _Stack:_ Next.js, D3, Mapbox, DeckGL, GraphQL, Apollo, Playwright, Bun, Tailwind, shadcn/ui, Vercel AI SDK, SGLang, vector databases.
 
@@ -86,7 +75,7 @@ _Stack:_ Next.js, D3, Mapbox, DeckGL, GraphQL, Apollo, Playwright, Bun, Tailwind
 
 Dashboard prototype for live camera streams from inside running furnaces, paired with image-derived metrics like melting progress. A window into the fire — translated into numbers the operator can read.
 
-_Role:_ Concept, UX, prototype development.
+_Role:_ Concept, UX, prototype.
 
 [fioscope.de](https://www.fioscope.de)
 
@@ -94,13 +83,13 @@ _Role:_ Concept, UX, prototype development.
 
 Consulting and implementation of QA and CI strategies for microservice-based web applications. Set up processes and tools for measuring software quality, defined standards and delivered automated deployments teams could trust.
 
-_Stack:_ Docker, npm, AWS, TypeScript, Drone CI, Jira, Bitbucket, Three.js, WebGL, Next.js.
+_Stack:_ Docker, AWS, Drone CI.
 
 ### JoDDiD — 2022–2023
 
 Digital exhibition _"einfach gut gemacht — political education in Saxony"_. Political education that survives being scrolled past.
 
-_Role:_ Concept, UX, training, development.
+_Role:_ Concept, UX, implementation, training.
 
 _Stack:_ Svelte, Contentful, GraphQL, Tailwind.
 
@@ -116,7 +105,7 @@ UX consulting for landing pages, testimonials and interactive widgets. Via Mille
 
 Frontend lead for the intranet of Baselworld / Houruniverse (now "Watches and Wonders"). Watches measure time; an intranet measures a company — both rely on tiny gears meshing.
 
-_Role:_ Development, training, consulting.
+_Role:_ Implementation, training, consulting.
 
 [mch-group.com](https://mch-group.com) · [ibmix.de](https://www.ibmix.de)
 
@@ -124,9 +113,9 @@ _Role:_ Development, training, consulting.
 
 Relaunch and evolution of the Weg.de / lastminute.com booking portal. Holidays should feel like the trip — even the booking flow.
 
-_Role:_ Booking portal relaunch, core components, team enablement for ten developers and two designers; fewer bugs, lower bounce and churn, faster iteration — part of the groundwork for the lastminute.com acquisition.
+_Role:_ Target architecture, core components, onboarding twelve people; fewer bugs, lower bounce and churn, faster iteration — part of the groundwork for the lastminute.com acquisition.
 
-_Stack:_ Next.js, React, Redux, Webpack, Jest, ES6, CSSNEXT, Node.js.
+_Stack:_ Next.js, React, Node.js.
 
 ### Franz Haniel & Cie. GmbH, Duisburg — 2018, 2020
 
@@ -156,11 +145,11 @@ _Stack:_ Oxid eSales, Google Ads, HTML5, JavaScript.
 
 Interactive print preview for the Saxoprint.de print portal. Six hundred very different products — folding tents, wrap-around brochures, books, packaging — all previewed through one unified interaction model.
 
-_Stack:_ React, Redux, ES6/7, CSSNEXT, Jest, Enzyme, Webpack, Node.js, Three.js, WebGL.
+_Stack:_ React, Three.js, WebGL.
 
 ### Kti Multimedia GmbH, Hamburg — 2015–2016
 
-Technical lead on the bid for the Bundesliga.de games portal, including the HTML5 Games channel and Kidscorner. Integration of Free2Play and mobile games, social media, football and VoD content, go-live tracking, SEO strategies. Client: KTI Multimedia GmbH for DFL / Bundesliga.de.
+Solution design and technical lead in pre-sales on the bid for the Bundesliga.de games portal, including the HTML5 Games channel and Kidscorner. Integration of Free2Play and mobile games, social media, football and VoD content, go-live tracking, SEO strategies. Client: KTI Multimedia GmbH for DFL / Bundesliga.de.
 
 ### HQ Plus GmbH, Berlin — 2015–2016
 
@@ -172,7 +161,7 @@ _Stack:_ React, Redux, Flash / Flex.
 
 Supporting the transition of advertising assets into modern HTML5 ads: animation kit, deployment pipeline, optimisation for specific ad-size specs, production-process streamlining, team training.
 
-_Stack:_ CSS3, Gulp, Node.js, ES6.
+_Stack:_ HTML5, CSS3, Node.js.
 
 ### Earlier work — 2008–2014
 
@@ -183,6 +172,16 @@ _Stack:_ CSS3, Gulp, Node.js, ES6.
 - **Vodafone Endowed Chair, TU Dresden — 2008, 2011.** Project management, production and motion design for documentary videos on research projects — material that helped the chair secure EU funding.
 - **Groupnet, T-Systems MMS, Dresden — 2010.** Design lead on the redesign of an SAP Netweaver intranet: concept, client coordination, implementation handoff. _SAP Netweaver, RFC, CSS._ [telekom-mms.com](https://www.telekom-mms.com)
 - **Macro semantic visualisation, T-Systems MMS, Dresden — 2009.** Interactive corporate visualisation of over a thousand employees across hundreds of working groups and thousands of topics, designed to surface synergies. _Flash, ActionScript, Atlassian Confluence._
+
+## Stack
+
+|                    |                                                                                          |
+| ------------------ | ---------------------------------------------------------------------------------------- |
+| **Agentic & AI**   | AI SDKs, OpenRouter, Claude Code, Cursor, Agent Skills, MCP, custom agents, SGLang       |
+| **Languages**      | TypeScript, HTML, CSS, SQL, SVG, WebGL / GLSL                                            |
+| **Frameworks**     | Next.js, React, Tailwind, shadcn/ui, Playwright, XState, D3, Mapbox GL, DeckGL, Three.js |
+| **Runtime & data** | Bun, Node.js, PostgreSQL, Drizzle ORM, GraphQL, vector databases                         |
+| **Practices**      | UX, performance, accessibility, SEO, eCommerce                                           |
 
 ## Education
 

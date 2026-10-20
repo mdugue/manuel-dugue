@@ -1,23 +1,23 @@
 ---
 published: 2021-04-20
-updated: 2026-09-22
+updated: 2026-10-20
 ---
 
 # Curriculum Vitae
 
 ## Profile
 
-Product engineer focused on user-facing software products since 2004. Deep in web tech; broad across UX, information architecture, agentic AI engineering and coaching.
+Product engineer and solutions architect building user-facing products since 2004. Deep in web architecture; broad across UX, information architecture, AI and consulting.
 
-Weaving LLM features and custom agents into product teams via MCP, Agent Skills and the AI SDKs. Coaching teams on resilient end-to-end tech stacks, automated quality assurance and AI-native workflows. At home where conceptual strategy meets hands-on orchestration.
+Architecture audits, target architectures, automated quality assurance. Language models and custom agents in the product. Happiest advising and building on the same project.
 
 ## Selected engagements
 
-- **Estino GmbH, since 2018.** B2B automotive engineering dashboards, signal visualisation, agent design. Agile startup rhythm: direct customer contact, listening, prioritising, abstracting, shipping features.
-- **weg.de (now lastminute.com group), 2016–2020.** Relaunch of the booking portal, core components, team enablement for ten developers and two designers. Fewer bugs, lower bounce and churn, faster iteration, part of the groundwork for the acquisition by lastminute.com.
-- **Barkhausen Institut, since 2024.** Resilient architecture and automated quality for an internal research-institute portal.
+- **Fraunhofer Heinrich-Hertz-Institut, since 2025.** Architecture audit and rebuild of a 5G component catalogue, laid out for coding agents. Advising eight people across engineering, design and leadership.
+- **Estino GmbH, since 2018.** Product and architecture for B2B automotive engineering dashboards: signals, maps, agents. Direct customer contact at startup pace.
+- **weg.de (now lastminute.com group), 2016–2020.** Target architecture and core components for the booking portal relaunch, onboarding twelve people. Fewer bugs, lower bounce and churn, faster iteration, part of the groundwork for the acquisition by lastminute.com.
+- **Barkhausen Institut, since 2024.** Architecture and quality strategy for a research institute's portal.
 - **Family trees, since 2020.** Family-tree platform for four large German dynasties. Careful, discreet treatment of human and social complexity.
-- **Fraunhofer Heinrich-Hertz-Institut, since 2025.** Agent-first 5G component catalogue with lifecycle management and fine-grained authorisation. Advising three developers, three designers and two product-side leads on architecture, delivery and stakeholder alignment.
 
 ## Education
 
@@ -28,11 +28,11 @@ Weaving LLM features and custom agents into product teams via MCP, Agent Skills 
 
 ## Skills
 
-- **Agentic & AI.** Custom agents, MCP, Agent Skills, AI SDKs, Claude Code, Cursor, OpenRouter, SGLang.
-- **Architecture.** End-to-end type safety, agent-first codebases, e2e testing, CI/CD. TypeScript, Next.js, React, Tailwind, Drizzle ORM.
-- **Visualisation.** Information design for dynamic, complex and geographic data. D3, Mapbox GL, DeckGL, Three.js, WebGL.
-- **Runtime & data.** Bun, Node.js, PostgreSQL, GraphQL, vector databases.
-- **Coaching.** Workshops, code reviews, stakeholder alignment across engineering and business.
+- **Architecture.** Audits, target architectures, migration, integration, quality strategy.
+- **AI.** Agents in the product, coding agents in the team, MCP, Agent Skills, AI SDKs.
+- **Visualisation.** Complex and geographic data, D3, DeckGL, Three.js.
+- **Advising.** Workshops, reviews, alignment between tech and business.
+- **Stack.** TypeScript, Next.js, Node.js, PostgreSQL, GraphQL.
 
 ## Languages
 

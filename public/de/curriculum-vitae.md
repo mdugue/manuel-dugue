@@ -1,23 +1,23 @@
 ---
 published: 2021-04-20
-updated: 2026-09-23
+updated: 2026-10-20
 ---
 
 # Lebenslauf
 
 ## Profil
 
-Seit 2004 arbeite ich an nutzerzentrierten Software-Produkten. Tief in Web-Tech; breit in UX, Informationsarchitektur, Agentic-AI-Engineering und Coaching.
+Seit 2004 konzipiere und baue ich nutzerzentrierte Produkte. Tief in Web-Architektur; breit in UX, Informationsarchitektur, KI und Beratung.
 
-Resiliente Software-Stacks, automatisierte Qualitätssicherung und KI-native Arbeitsabläufe. Integration von LLM-Features und eigenen Agenten in Produktteams via MCP, Agent Skills & AI-SDKs. Am liebsten an der Schnittstelle zwischen konzeptioneller Strategie und praktischer Umsetzung.
+Architektur-Audits, Zielbilder, automatisierte Qualitätssicherung. Sprachmodelle und eigene Agenten im Produkt. Am liebsten beraten und umsetzen im selben Projekt.
 
 ## Ausgewählte Engagements
 
-- **Estino GmbH, seit 2018.** B2B-Dashboards für die Produktentwicklung von Nutzfahrzeugen: Signalvisualisierung, Entity Management, Agenten-Design. Agile Startup-Taktung: direkter Kundenkontakt, zuhören, priorisieren, abstrahieren, abliefern.
-- **weg.de (jetzt lastminute.com-Gruppe), 2016–2020.** Relaunch des Buchungsportals, Implementierung der Kernkomponenten, Team-Enablement von zehn Entwicklern und zwei Designern. Weniger Bugs, niedrigere Bounce- und Churn-Raten, schnellere Iteration, u. a. Grundlage für die Übernahme durch lastminute.com.
-- **Barkhausen Institut, seit 2024.** Resiliente Architektur und automatisierte Qualitätssicherung für das interne Portal eines Forschungsinstituts.
+- **Fraunhofer Heinrich-Hertz-Institut, seit 2025.** Architektur-Audit und Neubau eines Katalogs für 5G-Komponenten, ausgelegt auf Coding-Agenten. Beratung von acht Personen aus Entwicklung, Design und Leitung.
+- **Estino GmbH, seit 2018.** Produkt und Architektur für B2B-Dashboards in der Nutzfahrzeug-Entwicklung: Signale, Karten, Agenten. Direkter Kundenkontakt im Startup-Takt.
+- **weg.de (jetzt lastminute.com-Gruppe), 2016–2020.** Zielarchitektur und Kernkomponenten für den Relaunch, zwölf Leute eingearbeitet. Weniger Bugs, niedrigere Bounce- und Churn-Raten, schnellere Iteration, u. a. Grundlage für die Übernahme durch lastminute.com.
+- **Barkhausen Institut, seit 2024.** Architektur und Qualitätsstrategie für das Portal eines Forschungsinstituts.
 - **Stammbäume, seit 2020.** Familienbaum-Plattform für vier große deutsche Dynastien. Sorgfältige und diskrete Abbildung menschlicher und gesellschaftlicher Komplexität.
-- **Fraunhofer Heinrich-Hertz-Institut, seit 2025.** Agent-first-Katalog für 5G-Komponenten mit Lifecycle-Management und feingranularer Autorisierung. Beratung von drei Entwicklern, drei Designern und zwei Führungskräften zu Architektur, Delivery und Stakeholder-Abstimmung.
 
 ## Ausbildung
 
@@ -28,11 +28,11 @@ Resiliente Software-Stacks, automatisierte Qualitätssicherung und KI-native Arb
 
 ## Fähigkeiten
 
-- **Agentic & KI.** Custom Agents, MCP, Agent Skills, AI-SDKs, Claude Code, Cursor, OpenRouter, SGLang.
-- **Architektur.** End-to-End-Typsicherheit, Agent-first-Codestacks, End-to-End-Tests, CI/CD, TypeScript, Next.js, Tailwind, Drizzle ORM.
-- **Visualisierung.** Informationsdesign für dynamische, komplexe und geografische Daten, D3, Mapbox, DeckGL, Three.js, WebGL.
-- **Runtime & Daten.** Bun, Node.js, PostgreSQL, GraphQL, Vektordatenbanken.
-- **Coaching.** Workshops, Code Reviews, Stakeholder-Abstimmung zwischen Engineering und Business.
+- **Architektur.** Audits, Zielbilder, Migration, Integration, Qualitätsstrategie.
+- **KI.** Agenten im Produkt, Coding-Agenten im Team, MCP, Agent Skills, AI-SDKs.
+- **Visualisierung.** Komplexe und geografische Daten, D3, DeckGL, Three.js.
+- **Beratung.** Workshops, Reviews, Abstimmung zwischen Technik und Fachseite.
+- **Stack.** TypeScript, Next.js, Node.js, PostgreSQL, GraphQL.
 
 ## Sprachen
 

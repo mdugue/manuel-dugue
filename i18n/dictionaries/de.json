@@ -4,9 +4,9 @@
     "spine": "unabhängig · dresden",
     "contact": ["Manuel Dugué", "mail@manuel.fyi", "Dresden / Remote"],
     "hero": {
-      "eyebrow": "Product Engineer · Dresden",
+      "eyebrow": "Solutions Architect · Product Engineer",
       "title": ["Von der Idee bis live.", "<em>Neugierig</em> seit 2004."],
-      "lede": "Architektur, UX und KI aus einer Hand. Am liebsten dort, wo aus Strategie Software wird.",
+      "lede": "Architektur, Produkt und KI aus einer Hand. Beraten und umsetzen.",
       "facts": {
         "base": {
           "label": "Basis",
@@ -47,7 +47,7 @@
       },
       "photoCaption": "Foto · nicht generiert",
       "photoAlt": "Porträt von Manuel Dugué",
-      "fallback": "Seit 2004 entwickle ich Software, mit der Menschen gern arbeiten.\n\nBei Estino mache ich Signale aus Nutzfahrzeugen lesbar. Beim Fraunhofer HHI sorge ich für eine Architektur, an der auch Coding-Agenten mitarbeiten können."
+      "fallback": "Seit 2004 entwerfe ich Software, mit der Menschen gern arbeiten.\n\nBei Estino mache ich Signale aus Nutzfahrzeugen lesbar. Beim Fraunhofer HHI sorge ich für eine Architektur, an der auch Coding-Agenten mitarbeiten können."
     },
     "docs": {
       "label": "Dokumente",
@@ -61,12 +61,12 @@
         "desc": "Über zwanzig Jahre auf einer Seite.",
         "cta": "Öffnen",
         "sheetTitle": "Lebenslauf",
-        "sheetSubtitle": "Produktentwicklung — nutzerzentrierte Architektur, agentische Workflows, Strategie."
+        "sheetSubtitle": "Lösungsarchitektur, Product Engineering, KI, Strategie."
       },
       "profile": {
         "num": "02",
         "title": "Kompetenzprofil",
-        "desc": "Was ich entwickle, wie ich arbeite und wo die Agenten mitmachen.",
+        "desc": "Was ich verantworte, wie ich arbeite, wo Agenten mitmachen.",
         "cta": "Öffnen",
         "sheetTitle": "Kompetenzprofil",
         "sheetSubtitle": "Kompetenzen, Stack, Projekte und die längere Fassung meiner Arbeit."
@@ -209,12 +209,12 @@
           "kind": "Daten lesbar machen",
           "client": "Estino",
           "desc": "Dashboards für die Entwicklung von Nutzfahrzeugen: Signale, Maschinen, Karten. Das unsichtbare Innere von Hardware wird lesbar, inzwischen mit eigenen Agenten.",
-          "meta": "Seit 2018 · D3 · DeckGL · AI SDK"
+          "meta": "Seit 2018 · Produkt & Architektur"
         },
         "wegde": {
           "kind": "Teams schneller machen",
           "client": "weg.de / lastminute.com",
-          "desc": "Relaunch des Buchungsportals mit zehn Entwicklern und zwei Designern. Weniger Bugs, weniger Absprünge und ein Teil der Grundlage für die Übernahme.",
+          "desc": "Neue Architektur fürs Buchungsportal, umgesetzt mit zwölf Leuten. Weniger Bugs, weniger Absprünge, Teil der Grundlage für die Übernahme.",
           "meta": "2016–2020 · über Comvel"
         }
       }
