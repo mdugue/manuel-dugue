@@ -4,12 +4,12 @@
     "spine": "indépendant · dresde",
     "contact": ["Manuel Dugué", "mail@manuel.fyi", "Dresde / Remote"],
     "hero": {
-      "eyebrow": "Product Engineer · Dresde",
+      "eyebrow": "Solutions Architect · Product Engineer",
       "title": [
         "De l’idée à la mise en ligne.",
         "<em>Curieux</em> depuis 2004."
       ],
-      "lede": "Architecture, UX et IA, d’une seule main. Surtout là où la stratégie devient logiciel.",
+      "lede": "Architecture, produit et IA, d’une seule main. Conseiller et réaliser.",
       "facts": {
         "base": {
           "label": "Base",
@@ -50,7 +50,7 @@
       },
       "photoCaption": "Photo · non générée",
       "photoAlt": "Portrait de Manuel Dugué",
-      "fallback": "Depuis 2004, je développe des logiciels avec lesquels on aime travailler.\n\nChez Estino, je rends lisibles les signaux des véhicules utilitaires. Au Fraunhofer HHI, je conçois une architecture dans laquelle des agents de code peuvent aussi travailler."
+      "fallback": "Depuis 2004, je conçois des logiciels avec lesquels on aime travailler.\n\nChez Estino, je rends lisibles les signaux des véhicules utilitaires. Au Fraunhofer HHI, je conçois une architecture dans laquelle des agents de code peuvent aussi travailler."
     },
     "docs": {
       "label": "Documents",
@@ -64,12 +64,12 @@
         "desc": "Plus de vingt ans sur une page.",
         "cta": "Ouvrir",
         "sheetTitle": "Curriculum Vitae",
-        "sheetSubtitle": "Ingénierie produit — architecture orientée utilisateur, workflows agentiques, stratégie."
+        "sheetSubtitle": "Architecture de solutions, ingénierie produit, IA, stratégie."
       },
       "profile": {
         "num": "02",
         "title": "Profil de compétences",
-        "desc": "Ce que je développe, comment je travaille et où les agents interviennent.",
+        "desc": "Ce dont je suis responsable, comment je travaille, où les agents interviennent.",
         "cta": "Ouvrir",
         "sheetTitle": "Profil de compétences",
         "sheetSubtitle": "Compétences, stack, projets et la version longue de ce que je fais."
@@ -212,12 +212,12 @@
           "kind": "Rendre les données lisibles",
           "client": "Estino",
           "desc": "Tableaux de bord pour le développement de véhicules utilitaires : signaux, machines, cartes. L’intérieur invisible du matériel devient lisible, désormais avec des agents dédiés.",
-          "meta": "Depuis 2018 · D3 · DeckGL · AI SDK"
+          "meta": "Depuis 2018 · Produit & architecture"
         },
         "wegde": {
           "kind": "Accélérer les équipes",
           "client": "weg.de / lastminute.com",
-          "desc": "Refonte du portail de réservation avec dix développeurs et deux designers. Moins de bugs, moins de rebonds et une partie des bases du rachat.",
+          "desc": "Nouvelle architecture pour le portail de réservation, réalisée avec douze personnes. Moins de bugs, moins de rebonds, une partie des bases du rachat.",
           "meta": "2016–2020 · via Comvel"
         }
       }

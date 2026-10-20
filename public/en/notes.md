@@ -1,6 +1,6 @@
 ---
 published: 2026-10-06
-updated: 2026-10-06
+updated: 2026-10-20
 ---
 
 # Notes
@@ -43,9 +43,9 @@ What isn't in the CV or the skill profile. The self-portrait on the home page dr
 
 ## Limits
 
-- I'm not a back-end specialist for large distributed systems.
+- I leave large distributed back-ends to specialists.
 - I'm reluctant to take on projects where I'm only meant to execute and not to think along.
-- With AI I get Kubernetes working and can read it afterwards. Knowing all the commands by heart doesn't interest me.
+- I can read Kubernetes and set it up with AI. I don't need to memorise the commands for that.
 
 ## Outside work
 

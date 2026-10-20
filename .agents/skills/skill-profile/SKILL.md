@@ -23,11 +23,11 @@ Rendering pipeline, for reference: `app/[lang]/skill-profile/page.tsx` (web), `a
 ## Document structure (canonical order)
 
 1. `# Skill Profile` (or locale-equivalent H1)
-2. **Opener** — 1–2 short sentences directly under the H1, no heading. Leads with "Product engineer" / "Ingénieur produit" / "Ingeniero de producto" / "Product Engineer" (German). Names the year "since 2004" and the T-shape.
+2. **Opener** — two short paragraphs directly under the H1, no heading. Positions Manuel as product engineer and solutions architect (DE leaves the title to the site header), names the year "since 2004" and the T-shape. Role and outcome before tools: no library names here.
 3. **Profile table** — Title, Born, Nationality, Languages, Personal interests.
-4. **What I do table** — 5 rows, agentic first: Agentic & AI / Build / Architect / Visualise / Coach (localised).
-5. **Stack today table** — 6 rows, agentic first: Agentic & AI / Languages / Frameworks / Runtime & data / Practices / Tools.
-6. **Projects** — H2. Recent projects get full H3 entries; everything 2008–2014 lives in the "Earlier work" subsection.
+4. **What I do table** — 5 rows, architecture first: Architecture / Product engineering / AI / Visualisation / Advising (localised). Competences, not tool lists.
+5. **Projects** — H2. Recent projects get full H3 entries; everything 2008–2014 lives in the "Earlier work" subsection.
+6. **Stack table** — H2 `Stack`, after the projects. 5 rows: Agentic & AI / Languages / Frameworks / Runtime & data / Practices.
 7. **Education** — H2. Diploma, Research project, Minor, Internship, Abitur.
 8. **Awards** — H2. Each award is its own H3 with year in the heading.
 
@@ -102,12 +102,12 @@ When translating:
 
 ## Opener templates
 
-Drop-in starting points; tune rather than rewrite when small updates are needed.
+Current wording; tune rather than rewrite when small updates are needed.
 
-- EN: `Product engineer building user-facing, agent-friendly web products since 2008. Deep in React, Next.js and TypeScript; broad across UX, information design, architecture, AI engineering and training.`
-- DE: `Product Engineer — baut seit 2008 nutzerzentrierte, agent-freundliche Web-Produkte. Tief in React, Next.js und TypeScript; breit aufgestellt in UX, Informationsdesign, Architektur, AI Engineering und Schulung.`
-- FR: `Ingénieur produit — je construis depuis 2008 des produits web orientés utilisateur, pensés pour cohabiter avec des agents. Ancré en React, Next.js et TypeScript ; à l'aise en UX, design d'information, architecture, AI engineering et formation.`
-- ES: `Ingeniero de producto — construyo desde 2008 productos web orientados al usuario y pensados para convivir con agentes. Profundo en React, Next.js y TypeScript; amplio en UX, diseño de información, arquitectura, AI engineering y formación.`
+- EN: `Product engineer and solutions architect building user-facing products since 2004. Deep in web architecture; broad across UX, information architecture, AI and consulting.`
+- DE: `Seit 2004 konzipiere und baue ich nutzerzentrierte Produkte. Tief in Web-Architektur; breit in UX, Informationsarchitektur, KI und Beratung.`
+- FR: `Ingénieur produit et architecte de solutions, je conçois des produits orientés utilisateur depuis 2004. Spécialiste de l'architecture web ; polyvalent en UX, architecture de l'information, IA et conseil.`
+- ES: `Ingeniero de producto y arquitecto de soluciones; concibo y construyo productos orientados al usuario desde 2004. Profundo en arquitectura web; amplio en UX, arquitectura de la información, IA y consultoría.`
 
 ## Tone: fascinated, short, dry
 
@@ -119,6 +119,7 @@ Drop-in starting points; tune rather than rewrite when small updates are needed.
   - "A window into the fire — translated into numbers the operator can read."
 - **Avoid pitch-deck language.** No "mission-critical", "cutting-edge", "enterprise-grade", "synergies".
 - **Avoid hedges.** No "Goal:", "Topic:", "Responsibilities:" as sentence starters — the bold labels already carry that weight.
+- **Positioning: solutions architect and product engineer.** Lead with role and outcome (audit, target architecture, rebuild, consulting, pre-sales), then implementation. Say "implementation" / "Umsetzung" / "mise en œuvre" / "implementación" rather than "development" for Manuel's hands-on part. Library names belong in `*Stack:*` lines only; keep older projects' stacks to about three defining names.
 - **Prefer verbs over nouns** in the `*Role:*` line: "Architecture audit, rewrite design, hands-on implementation." beats "Responsible for the architecture audit and the rewrite design."
 - **One idea per sentence.** If a project needs three sentences to explain, reconsider which one is the story.
 
@@ -161,11 +162,11 @@ Drop-in starting points; tune rather than rewrite when small updates are needed.
 2. If the project appeared in the opener as an example, update the opener too.
 
 **Update the Stack today table:**
-1. Match the order Agentic & AI → Languages → Frameworks → Runtime & data → Practices → Tools.
+1. Match the order Agentic & AI → Languages → Frameworks → Runtime & data → Practices.
 2. When a tech graduates from "new and interesting" to "everyday", consider whether it still earns a Stack-today row or whether it should only live on project entries.
 3. Mirror additions/removals in all four locales.
 
 **Tune the opener:**
 1. Keep it 1–2 sentences.
-2. Keep the anchor year "since 2008" / "seit 2008" / "depuis 2008" / "desde 2008".
+2. Keep the anchor year "since 2004" / "seit 2004" / "depuis 2004" / "desde 2004".
 3. Keep the T-shape phrasing: deep-in-X; broad-across-Y.

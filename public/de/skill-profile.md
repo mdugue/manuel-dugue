@@ -1,13 +1,13 @@
 ---
 published: 2021-04-20
-updated: 2026-09-23
+updated: 2026-10-20
 ---
 
 # Kompetenzprofil
 
-Seit 2004 arbeite ich an nutzerzentrierten Software-Produkten. Tief in Web-Tech; breit in UX, Informationsarchitektur, Agentic-AI-Engineering und Coaching.
+Seit 2004 konzipiere und baue ich nutzerzentrierte Produkte. Tief in Web-Architektur; breit in UX, Informationsarchitektur, KI und Beratung.
 
-Coaching zu Themen wie resilienten End-to-End-Stacks, automatisierter Qualitätssicherung und KI-nativen Arbeitsabläufen. Integration von LLM-Features und eigenen Agenten in Produktteams mit MCP, Agent Skills, AI-SDKs u. a. Am liebsten an der Schnittstelle zwischen konzeptioneller Strategie und praktischer Umsetzung.
+Architektur-Audits, Zielbilder, automatisierte Qualitätssicherung. Sprachmodelle und eigene Agenten im Produkt. Am liebsten berate ich und setze selbst mit um.
 
 ## Profil
 
@@ -21,24 +21,13 @@ Coaching zu Themen wie resilienten End-to-End-Stacks, automatisierter Qualitäts
 
 ## Was ich mache
 
-|                    |                                                                                                                       |
-| ------------------ | --------------------------------------------------------------------------------------------------------------------- |
-| **Agentic & KI**   | Eigene Agenten, MCP, Agent Skills, AI-SDKs, Claude Code, Cursor, OpenRouter, SGLang                                   |
-| **Entwicklung**    | Nutzerzentrierte Web-Produkte von der ersten Skizze bis zur ausgelieferten, beobachtbaren App                         |
-| **Architektur**    | End-to-End-Typsicherheit, agent-first-Codestacks, End-to-End-Tests, CI/CD, TypeScript, Next.js, Tailwind, Drizzle ORM |
-| **Visualisierung** | Informationsdesign für dynamische, komplexe und geografische Daten, D3, Mapbox, DeckGL, Three.js, WebGL               |
-| **Coaching**       | Schulungen, Workshops, Code Reviews, Stakeholder-Abstimmung zwischen Engineering und Business                         |
-
-## Aktueller Stack
-
-|                     |                                                                                          |
-| ------------------- | ---------------------------------------------------------------------------------------- |
-| **Agentic & KI**    | AI-SDKs, OpenRouter, Claude Code, Cursor, Agent Skills, MCP, eigene Agenten, SGLang      |
-| **Sprachen**        | TypeScript, HTML, CSS, SQL, SVG, WebGL / GLSL                                            |
-| **Frameworks**      | Next.js, React, Tailwind, shadcn/ui, Playwright, XState, D3, Mapbox GL, DeckGL, Three.js |
-| **Runtime & Daten** | Bun, Node.js, PostgreSQL, Drizzle ORM, GraphQL, Vektordatenbanken                        |
-| **Schwerpunkte**    | UX, Performance, Barrierefreiheit, SEO, eCommerce                                        |
-| **Tools**           | VS Code, Cursor, Git, Docker, Figma                                                      |
+|                         |                                                                |
+| ----------------------- | -------------------------------------------------------------- |
+| **Architektur**         | Audits, Zielbilder, Migration, Integration, Qualitätsstrategie |
+| **Product Engineering** | Von der Skizze bis zum Betrieb, selbst umgesetzt               |
+| **KI**                  | Agenten im Produkt, Coding-Agenten im Team                     |
+| **Visualisierung**      | Informationsdesign für komplexe und geografische Daten         |
+| **Beratung**            | Workshops, Reviews, Abstimmung zwischen Technik und Fachseite  |
 
 ## Projekte
 
@@ -46,9 +35,9 @@ Coaching zu Themen wie resilienten End-to-End-Stacks, automatisierter Qualitäts
 
 Katalog für 5G-Komponenten mit Lebenszyklus-Management, feingranularer Autorisierung und facettenreichen Entitätsansichten. 5G-Komponenten haben ihr eigenes Leben — der Katalog begleitet sie dabei.
 
-_Rolle:_ Architektur-Audit, Rewrite-Design, praktische Umsetzung; Beratung von drei Entwicklern, drei Designern und zwei Führungskräften zu Architektur, Delivery und Stakeholder-Abstimmung.
+_Rolle:_ Architektur-Audit, Neubau, Umsetzung; Beratung von acht Personen aus Entwicklung, Design und Leitung.
 
-_Ansatz:_ Durchgängige Typsicherheit, Komplexitätsreduktion, Iterationsgeschwindigkeit; die Codebasis ist auf Agent-First-Zugriff ausgelegt, sodass Coding-Agenten ohne großen Aufwand mitarbeiten können.
+_Ansatz:_ Durchgängige Typsicherheit, Komplexitätsreduktion, Iterationsgeschwindigkeit; Coding-Agenten arbeiten ohne Einarbeitung mit.
 
 _Stack:_ Next.js, RSC, Drizzle ORM, PostgreSQL, Bun, Playwright, Claude Code, Cursor, Agent Skills.
 
@@ -56,7 +45,7 @@ _Stack:_ Next.js, RSC, Drizzle ORM, PostgreSQL, Bun, Playwright, Claude Code, Cu
 
 Portal für Dienstreisen-Management eines Forschungsinstituts.
 
-_Rolle:_ Beratung, Schulung, Feature-Entwicklung.
+_Rolle:_ Beratung, Schulung, Umsetzung.
 
 _Ansatz:_ Resiliente Architekturen, automatisierte Qualitätssicherung, Komplexitätsreduktion.
 
@@ -68,15 +57,15 @@ _Stack:_ Nuxt, Vue.js, TypeScript, Sentry, Playwright, Claude Code, Cursor.
 
 Stammbäume für vier große deutsche Familien. Sorgfältige und diskrete Abbildung menschlicher und gesellschaftlicher Komplexität — Patchwork-Konstellationen, geänderte und zurückgeforderte Namen, Verwandte, die in mehr als einem Zweig auftauchen, und die leisen Kanten, die jede alte Familie mit sich trägt.
 
-_Rolle:_ Konzeption, Design, Architektur, Entwicklung, Integration, Schulung.
+_Rolle:_ Konzeption, Design, Architektur, Integration, Umsetzung, Schulung.
 
 _Stack:_ React, GEDCOM, Figma, Lovable.
 
 ### Estino GmbH — seit 2018
 
-B2B-Dashboards für die Produktentwicklung von Nutzfahrzeugen: Signalvisualisierung, Entity-Management, Agenten-Design. Signale, Maschinen, Karten — das unsichtbare Innere von Hardware lesbar machen.
+B2B-Dashboards für die Produktentwicklung von Nutzfahrzeugen, inzwischen mit eigenen Agenten. Signale, Maschinen, Karten — das unsichtbare Innere von Hardware lesbar machen.
 
-_Rolle:_ Konzeption, UX, Schulung, Entwicklung.
+_Rolle:_ Konzeption, UX, Architektur, Umsetzung, Schulung.
 
 _Stack:_ Next.js, D3, Mapbox, DeckGL, GraphQL, Apollo, Playwright, Bun, Tailwind, shadcn/ui, Vercel AI SDK, SGLang, Vektordatenbanken.
 
@@ -86,7 +75,7 @@ _Stack:_ Next.js, D3, Mapbox, DeckGL, GraphQL, Apollo, Playwright, Bun, Tailwind
 
 Dashboard-Prototyp für Live-Kamera-Streams aus laufenden Öfen, zusammen mit bildbasierten Metriken wie dem Schmelzfortschritt. Ein Blick ins Feuer — übersetzt in Zahlen, mit denen die Bedienung arbeiten kann.
 
-_Rolle:_ Konzeption, UX, Prototyp-Entwicklung.
+_Rolle:_ Konzeption, UX, Prototyp.
 
 [fioscope.de](https://www.fioscope.de)
 
@@ -94,13 +83,13 @@ _Rolle:_ Konzeption, UX, Prototyp-Entwicklung.
 
 Beratung und Umsetzung von QA- und CI-Strategien für microservice-basierte Webanwendungen. Prozesse und Werkzeuge zur Messung der Softwarequalität etabliert, Qualitätsstandards definiert und automatisierte Deployments geliefert, auf die sich Teams verlassen können.
 
-_Stack:_ Docker, npm, AWS, TypeScript, Drone CI, Jira, Bitbucket, Three.js, WebGL, Next.js.
+_Stack:_ Docker, AWS, Drone CI.
 
 ### JoDDiD — 2022–2023
 
 Digitale Ausstellung _„einfach gut gemacht — politische Bildung in Sachsen“_. Politische Bildung, die das Vorbeiscrollen überlebt.
 
-_Rolle:_ Konzeption, UX, Schulung, Entwicklung.
+_Rolle:_ Konzeption, UX, Umsetzung, Schulung.
 
 _Stack:_ Svelte, Contentful, GraphQL, Tailwind.
 
@@ -116,7 +105,7 @@ UX-Beratung für Landing Pages, Testimonials und interaktive Widgets. Über Mill
 
 Frontend-Lead für das Intranet von Baselworld / Houruniverse (heute „Watches and Wonders“). Uhren messen Zeit; ein Intranet misst ein Unternehmen — beide sind auf ineinandergreifende kleine Zahnräder angewiesen.
 
-_Rolle:_ Entwicklung, Schulung, Beratung.
+_Rolle:_ Umsetzung, Schulung, Beratung.
 
 [mch-group.com](https://mch-group.com) · [ibmix.de](https://www.ibmix.de)
 
@@ -124,9 +113,9 @@ _Rolle:_ Entwicklung, Schulung, Beratung.
 
 Relaunch und Weiterentwicklung des Buchungsportals Weg.de / lastminute.com. Urlaub sollte sich wie die Reise anfühlen — auch schon im Buchungsprozess.
 
-_Rolle:_ Relaunch des Buchungsportals, Umsetzung der Kernkomponenten, Team-Enablement von zehn Entwicklern und zwei Designern. Weniger Bugs, niedrigere Bounce- und Churn-Raten, schnellere Iteration, Teil der Grundlage für die Übernahme durch lastminute.com.
+_Rolle:_ Zielarchitektur, Kernkomponenten, Schulung des Teams (zwölf Leute). Weniger Bugs, niedrigere Bounce- und Churn-Raten, schnellere Iteration, Teil der Grundlage für die Übernahme durch lastminute.com.
 
-_Stack:_ Next.js, React, Redux, Webpack, Jest, ES6, CSSNEXT, Node.js.
+_Stack:_ Next.js, React, Node.js.
 
 ### Franz Haniel & Cie. GmbH, Duisburg — 2018, 2020
 
@@ -156,11 +145,11 @@ _Stack:_ Oxid eSales, Google Ads, HTML5, JavaScript.
 
 Interaktive Druckvorschau für das Druckportal Saxoprint.de. Sechshundert sehr unterschiedliche Produkte — Faltzelte, Wickelbroschüren, Bücher, Verpackungen — alle in einem einheitlichen Interaktionsmodell.
 
-_Stack:_ React, Redux, ES6/7, CSSNEXT, Jest, Enzyme, Webpack, Node.js, Three.js, WebGL.
+_Stack:_ React, Three.js, WebGL.
 
 ### Kti Multimedia GmbH, Hamburg — 2015–2016
 
-Technische Leitung bei der Angebotserstellung für das Spiele-Portal von Bundesliga.de, einschließlich HTML5-Games-Channel und Kidscorner. Integration von Free2Play- und Mobile-Games, Social Media, Fußball- und VoD-Inhalten, Go-Live-Tracking, SEO-Strategien. Auftraggeber: KTI Multimedia GmbH für DFL / Bundesliga.de.
+Pre-Sales: Lösungskonzept und technische Leitung beim Angebot für das Spiele-Portal von Bundesliga.de, einschließlich HTML5-Games-Channel und Kidscorner. Integration von Free2Play- und Mobile-Games, Social Media, Fußball- und VoD-Inhalten, Go-Live-Tracking, SEO-Strategien. Auftraggeber: KTI Multimedia GmbH für DFL / Bundesliga.de.
 
 ### HQ Plus GmbH, Berlin — 2015–2016
 
@@ -172,7 +161,7 @@ _Stack:_ React, Redux, Flash / Flex.
 
 Begleitung der Umstellung von Werbemitteln auf moderne HTML5-Anzeigen: Animation-Kit, Deployment-Pipeline, Optimierung für spezifische Ad-Größenvorgaben, Verschlankung der Produktionsprozesse, Team-Schulungen.
 
-_Stack:_ CSS3, Gulp, Node.js, ES6.
+_Stack:_ HTML5, CSS3, Node.js.
 
 ### Frühere Arbeiten — 2008–2014
 
@@ -183,6 +172,16 @@ _Stack:_ CSS3, Gulp, Node.js, ES6.
 - **Vodafone-Stiftungslehrstuhl, TU Dresden — 2008, 2011.** Projektmanagement, Produktion und Motion Design für Dokumentationsvideos zu Forschungsprojekten — Material, das dem Lehrstuhl half, EU-Fördergelder einzuwerben.
 - **Groupnet, T-Systems MMS, Dresden — 2010.** Design-Lead bei der Neugestaltung eines SAP-Netweaver-Intranets: Konzept, Kundenabstimmung, Umsetzungsübergabe. _SAP Netweaver, RFC, CSS._ [telekom-mms.com](https://www.telekom-mms.com)
 - **Makro-semantische Visualisierung, T-Systems MMS, Dresden — 2009.** Interaktive Unternehmensvisualisierung von über tausend Mitarbeitenden in mehreren hundert Arbeitsgruppen und tausenden Themen, um Synergien sichtbar zu machen. _Flash, ActionScript, Atlassian Confluence._
+
+## Stack
+
+|                     |                                                                                          |
+| ------------------- | ---------------------------------------------------------------------------------------- |
+| **Agentic & KI**    | AI-SDKs, OpenRouter, Claude Code, Cursor, Agent Skills, MCP, eigene Agenten, SGLang      |
+| **Sprachen**        | TypeScript, SQL, GLSL                                                                    |
+| **Frameworks**      | Next.js, React, Tailwind, shadcn/ui, Playwright, XState, D3, Mapbox GL, DeckGL, Three.js |
+| **Runtime & Daten** | Bun, Node.js, PostgreSQL, Drizzle ORM, GraphQL, Vektordatenbanken                        |
+| **Schwerpunkte**    | UX, Performance, Barrierefreiheit, SEO, eCommerce                                        |
 
 ## Ausbildung
 

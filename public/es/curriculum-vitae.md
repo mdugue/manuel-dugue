@@ -1,23 +1,23 @@
 ---
 published: 2021-04-20
-updated: 2026-09-23
+updated: 2026-10-20
 ---
 
 # Currículum Vitae
 
 ## Perfil
 
-Ingeniero de producto centrado en software orientado al usuario desde 2004. Profundo en web tech; amplio en UX, arquitectura de la información, ingeniería de IA agéntica y coaching.
+Ingeniero de producto y arquitecto de soluciones; concibo y construyo productos orientados al usuario desde 2004. Profundo en arquitectura web; amplio en UX, arquitectura de la información, IA y consultoría.
 
-Integro funcionalidades LLM y agentes a medida en equipos de producto con MCP, Agent Skills y los AI SDKs. Acompañamiento en pilas resilientes de extremo a extremo, calidad automatizada y flujos de trabajo nativos de IA. Cómodo en la unión entre estrategia conceptual y orquestación práctica.
+Auditorías de arquitectura, arquitecturas objetivo, calidad automatizada. Modelos de lenguaje y agentes a medida en el producto. Lo que más me gusta: asesorar e implementar en el mismo proyecto.
 
 ## Colaboraciones destacadas
 
-- **Estino GmbH, desde 2018.** Cuadros de mando B2B para la ingeniería de producto en automoción: visualización de señales, gestión de entidades, diseño de agentes. Ritmo de startup ágil: contacto directo con clientes, escucha, priorización, entrega de las funcionalidades adecuadas.
-- **weg.de (ahora grupo lastminute.com), 2016–2020.** Relanzamiento del portal de reservas, componentes centrales, capacitación de un equipo de diez desarrolladores y dos diseñadores. Menos bugs, rebote y churn a la baja, iteración más rápida, parte de la base para la adquisición por lastminute.com.
-- **Barkhausen Institut, desde 2024.** Arquitectura resiliente y garantía de calidad automatizada para el portal interno de un instituto de investigación.
+- **Fraunhofer Heinrich-Hertz-Institut, desde 2025.** Auditoría de arquitectura y reconstrucción de un catálogo de componentes 5G en el que también trabajan agentes de codificación. Asesoramiento a ocho personas de desarrollo, diseño y dirección.
+- **Estino GmbH, desde 2018.** Producto y arquitectura de cuadros de mando B2B para la ingeniería de automoción: señales, mapas, agentes. Contacto directo con clientes a ritmo de startup.
+- **weg.de (ahora grupo lastminute.com), 2016–2020.** Arquitectura objetivo y componentes centrales del relanzamiento, formación de un equipo de doce personas. Menos bugs, rebote y churn a la baja, iteración más rápida, parte de la base para la adquisición por lastminute.com.
+- **Barkhausen Institut, desde 2024.** Arquitectura y estrategia de calidad para el portal de un instituto de investigación.
 - **Árboles genealógicos, desde 2020.** Plataforma para cuatro grandes dinastías alemanas. Tratamiento cuidadoso y discreto de la complejidad humana y social.
-- **Fraunhofer Heinrich-Hertz-Institut, desde 2025.** Catálogo agent-first de componentes 5G con gestión del ciclo de vida y autorización fina. Asesoramiento a tres ingenieros, tres diseñadores y dos responsables de producto: arquitectura, entrega y alineación de interesados.
 
 ## Formación
 
@@ -28,11 +28,11 @@ Integro funcionalidades LLM y agentes a medida en equipos de producto con MCP, A
 
 ## Competencias
 
-- **Agentic & IA.** Agentes a medida, MCP, Agent Skills, AI SDKs, Claude Code, Cursor, OpenRouter, SGLang.
-- **Arquitectura.** Typesafety de extremo a extremo, bases de código agent-first, pruebas e2e, CI/CD. TypeScript, Next.js, React, Tailwind, Drizzle ORM.
-- **Visualización.** Diseño de información para datos dinámicos, complejos y geográficos, D3, Mapbox GL, DeckGL, Three.js, WebGL.
-- **Runtime y datos.** Bun, Node.js, PostgreSQL, GraphQL, bases de datos vectoriales.
-- **Coaching.** Talleres, revisiones de código, alineación entre ingeniería y negocio.
+- **Arquitectura.** Auditorías, arquitecturas objetivo, migración, integración, estrategia de calidad.
+- **IA.** Agentes en el producto, agentes de codificación en el equipo, MCP, Agent Skills, AI SDKs.
+- **Visualización.** Datos complejos y geográficos, D3, DeckGL, Three.js.
+- **Consultoría.** Talleres, revisiones, alineación entre tecnología y negocio.
+- **Stack.** TypeScript, Next.js, Node.js, PostgreSQL, GraphQL.
 
 ## Idiomas
 

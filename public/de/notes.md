@@ -1,6 +1,6 @@
 ---
 published: 2026-10-06
-updated: 2026-10-06
+updated: 2026-10-20
 ---
 
 # Notizen
@@ -43,9 +43,9 @@ Was nicht in Lebenslauf und Kompetenzprofil steht. Das Selbstporträt auf der St
 
 ## Grenzen
 
-- Ich bin kein Backend-Spezialist für große verteilte Systeme.
+- Große verteilte Backends überlasse ich Spezialisten.
 - Projekte, bei denen ich nur ausführen und nichts mitdenken soll, nehme ich ungern an.
-- Kubernetes bekomme ich mit KI gut hin und kann es dann auch lesen. Die ganzen Befehle auswendig zu können, interessiert mich nicht.
+- Kubernetes kann ich lesen und mit KI aufsetzen. Befehle auswendig lernen muss ich dafür nicht.
 
 ## Außerhalb der Arbeit
 

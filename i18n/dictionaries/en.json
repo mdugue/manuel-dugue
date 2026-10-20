@@ -4,9 +4,9 @@
     "spine": "independent · dresden",
     "contact": ["Manuel Dugué", "mail@manuel.fyi", "Dresden / Remote"],
     "hero": {
-      "eyebrow": "Product Engineer · Dresden",
+      "eyebrow": "Solutions Architect · Product Engineer",
       "title": ["From first idea to live.", "<em>Curious</em> since 2004."],
-      "lede": "Architecture, UX and AI from one pair of hands. Happiest where strategy turns into software.",
+      "lede": "Architecture, product and AI from one pair of hands. Advising and building.",
       "facts": {
         "base": {
           "label": "Base",
@@ -47,7 +47,7 @@
       },
       "photoCaption": "Photo · not generated",
       "photoAlt": "Portrait of Manuel Dugué",
-      "fallback": "I have been developing software people enjoy working with since 2004.\n\nAt Estino I make signals from commercial vehicles readable. At Fraunhofer HHI I shape an architecture that coding agents can work in too."
+      "fallback": "I have been designing software people enjoy working with since 2004.\n\nAt Estino I make signals from commercial vehicles readable. At Fraunhofer HHI I shape an architecture that coding agents can work in too."
     },
     "docs": {
       "label": "Documents",
@@ -61,12 +61,12 @@
         "desc": "Twenty-plus years on one page.",
         "cta": "Open",
         "sheetTitle": "Curriculum Vitae",
-        "sheetSubtitle": "Product engineering — user-facing architecture, agentic workflows, strategy."
+        "sheetSubtitle": "Solutions architecture, product engineering, AI, strategy."
       },
       "profile": {
         "num": "02",
         "title": "Skill Profile",
-        "desc": "What I develop, how I work and where the agents come in.",
+        "desc": "What I own, how I work, where agents come in.",
         "cta": "Open",
         "sheetTitle": "Skill Profile",
         "sheetSubtitle": "Capabilities, stack, projects, and the longer version of what I do."
@@ -209,12 +209,12 @@
           "kind": "Making data readable",
           "client": "Estino",
           "desc": "Dashboards for commercial-vehicle development: signals, machines, maps. The invisible inside of hardware becomes readable, now with custom agents.",
-          "meta": "Since 2018 · D3 · DeckGL · AI SDK"
+          "meta": "Since 2018 · Product & architecture"
         },
         "wegde": {
           "kind": "Making teams faster",
           "client": "weg.de / lastminute.com",
-          "desc": "Relaunch of the booking portal with ten developers and two designers. Fewer bugs, lower bounce rates and part of the groundwork for the acquisition.",
+          "desc": "New architecture for the booking portal, built with twelve people. Fewer bugs, fewer bounces, part of the groundwork for the acquisition.",
           "meta": "2016–2020 · via Comvel"
         }
       }

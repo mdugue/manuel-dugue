@@ -89,6 +89,7 @@ export function personJsonLd(): WithContext<Person> {
     "@context": "https://schema.org",
     "@type": "Person",
     email: "mailto:mail@manuel.fyi",
+    jobTitle: "Solutions Architect & Product Engineer",
     name: "Manuel Dugué",
     sameAs: [
       "https://linkedin.com/in/manuel-dugue",

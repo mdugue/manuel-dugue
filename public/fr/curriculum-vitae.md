@@ -1,23 +1,23 @@
 ---
 published: 2021-04-20
-updated: 2026-09-23
+updated: 2026-10-20
 ---
 
 # Curriculum Vitae
 
 ## Profil
 
-Ingénieur produit centré sur les logiciels orientés utilisateur depuis 2004. Spécialiste du web ; polyvalent en UX, architecture de l'information, ingénierie de l'IA agentique et coaching.
+Ingénieur produit et architecte de solutions, je conçois des produits orientés utilisateur depuis 2004. Spécialiste de l'architecture web ; polyvalent en UX, architecture de l'information, IA et conseil.
 
-J'intègre des fonctionnalités LLM et des agents sur mesure dans les équipes produit, via MCP, Agent Skills et les AI SDKs. J'accompagne les équipes sur des stacks résilientes de bout en bout, l'assurance qualité automatisée et les workflows natifs IA. À l'aise là où la stratégie conceptuelle rencontre l'orchestration concrète.
+Audits d'architecture, architectures cibles, assurance qualité automatisée. Modèles de langage et agents sur mesure dans le produit. Idéalement, conseiller et réaliser dans le même projet.
 
 ## Missions sélectionnées
 
-- **Estino GmbH, depuis 2018.** Tableaux de bord B2B pour l'ingénierie automobile : visualisation de signaux, gestion d'entités, conception d'agents. Rythme de startup agile : contact client direct, écoute, priorisation, livraison des bonnes fonctionnalités.
-- **weg.de (désormais groupe lastminute.com), 2016–2020.** Refonte du portail de réservation, composants clés, accompagnement d'une équipe de dix ingénieurs et deux designers. Moins de bugs, rebond et churn en baisse, itération plus rapide, en partie à la base du rachat par lastminute.com.
-- **Barkhausen Institut, depuis 2024.** Architecture résiliente et assurance qualité automatisée pour le portail interne d'un institut de recherche.
+- **Fraunhofer Heinrich-Hertz-Institut, depuis 2025.** Audit d'architecture et refonte d'un catalogue de composants 5G auquel des agents de codage contribuent. Conseil auprès de huit personnes en développement, design et direction.
+- **Estino GmbH, depuis 2018.** Produit et architecture de tableaux de bord B2B pour l'ingénierie automobile : signaux, cartes, agents. Contact client direct, rythme de startup.
+- **weg.de (désormais groupe lastminute.com), 2016–2020.** Architecture cible et composants clés de la refonte du portail, formation d'une équipe de douze personnes. Moins de bugs, rebond et churn en baisse, itération plus rapide, en partie à la base du rachat par lastminute.com.
+- **Barkhausen Institut, depuis 2024.** Architecture et stratégie qualité pour le portail d'un institut de recherche.
 - **Arbres généalogiques, depuis 2020.** Plateforme pour quatre grandes dynasties allemandes. Prise en compte soignée et discrète de la complexité humaine et sociale.
-- **Fraunhofer Heinrich-Hertz-Institut, depuis 2025.** Catalogue agent-first pour composants 5G avec gestion du cycle de vie et autorisations fines. Conseil auprès de trois ingénieurs, trois designers et deux responsables côté produit : architecture, livraison, alignement des parties prenantes.
 
 ## Formation
 
@@ -28,11 +28,11 @@ J'intègre des fonctionnalités LLM et des agents sur mesure dans les équipes p
 
 ## Compétences
 
-- **Agentic & IA.** Agents sur mesure, MCP, Agent Skills, AI SDKs, Claude Code, Cursor, OpenRouter, SGLang.
-- **Architecture.** Typesafety de bout en bout, codebases agent-first, tests e2e, CI/CD. TypeScript, Next.js, React, Tailwind, Drizzle ORM.
-- **Visualisation.** Design d'information pour des données dynamiques, complexes et géographiques, D3, Mapbox GL, DeckGL, Three.js, WebGL.
-- **Runtime & données.** Bun, Node.js, PostgreSQL, GraphQL, bases de données vectorielles.
-- **Coaching.** Ateliers, revues de code, alignement entre ingénierie et métier.
+- **Architecture.** Audits, architectures cibles, migration, intégration, stratégie qualité.
+- **IA.** Agents dans le produit, agents de codage dans l'équipe, MCP, Agent Skills, AI SDKs.
+- **Visualisation.** Données complexes et géographiques, D3, DeckGL, Three.js.
+- **Conseil.** Ateliers, revues, alignement entre technique et métier.
+- **Stack.** TypeScript, Next.js, Node.js, PostgreSQL, GraphQL.
 
 ## Langues
 

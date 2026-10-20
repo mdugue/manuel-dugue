@@ -1,6 +1,6 @@
 ---
 published: 2026-10-06
-updated: 2026-10-06
+updated: 2026-10-20
 ---
 
 # Notes
@@ -43,9 +43,9 @@ Ce qui ne figure ni dans le CV ni dans le profil de compétences. L'autoportrait
 
 ## Limites
 
-- Je ne suis pas un spécialiste du back-end pour les grands systèmes distribués.
+- Je laisse les grands back-ends distribués aux spécialistes.
 - J'accepte à contrecœur les projets où l'on attend de moi seulement d'exécuter, sans réfléchir avec l'équipe.
-- Avec l'IA, je fais fonctionner Kubernetes et je sais ensuite le lire. Connaître toutes les commandes par cœur ne m'intéresse pas.
+- Je sais lire Kubernetes et le mettre en place avec l'IA. Pas besoin d'en connaître les commandes par cœur.
 
 ## En dehors du travail
 
