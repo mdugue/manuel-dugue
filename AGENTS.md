@@ -12,11 +12,11 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 
 ## Runtime
 
-This project runs on **Node.js**, not Bun. Next.js 16.3 fails under the Bun runtime (`Expected CommonJS module to have a function wrapper` during "Collecting page data"), so `dev`/`build`/`start` use plain `next` and npm is the package manager. Do not reintroduce `bun --bun`, `Bun.*` APIs, or a `bunVersion` pin in `vercel.json` until that is fixed upstream. The one exception is type-checking: `npm run typecheck` runs `bun check` (Bun ≥ 1.4.3), which only reads the sources and never runs Next.js.
+This project runs on **Bun** (version pinned in `packageManager` in `package.json`). Bun is the package manager (`bun.lock`; there is no `package-lock.json`), `dev`/`build`/`start` run Next.js on the Bun runtime (`bun --bun next …`), and Vercel runs the Functions on Bun (`bunVersion` in `vercel.json`). Use `bun`/`bunx`, never `npm`/`npx`. Next.js 16.3 failed under the Bun runtime (`Expected CommonJS module to have a function wrapper` during "Collecting page data"); Next.js 16.4 with Bun 1.4.3 builds and runs cleanly, so if that error comes back after an upgrade, that is where to look.
 
 ## Lint & format
 
-[Ultracite](https://ultracite.ai) presets on top of `oxlint` + `oxfmt` (`oxlint.config.ts`, `oxfmt.config.ts`), with type-aware rules via `oxlint-tsgolint` (`options.typeAware`). `npm run lint` runs `ultracite check` (lint + format check), `npm run fix` runs `ultracite fix`. There is no Biome, ESLint or Prettier. The type-aware rules read `.next/types` (typed routes), so run `next typegen` (or `next build`/`next dev`) once before linting or type-checking a fresh clone. `npm run typecheck` type-checks with `bun check`; TypeScript 7 stays installed for editors.
+[Ultracite](https://ultracite.ai) presets on top of `oxlint` + `oxfmt` (`oxlint.config.ts`, `oxfmt.config.ts`), with type-aware rules via `oxlint-tsgolint` (`options.typeAware`). `bun run lint` runs `ultracite check` (lint + format check), `bun run fix` runs `ultracite fix`. There is no Biome, ESLint or Prettier. The type-aware rules read `.next/types` (typed routes), so run `next typegen` (or `next build`/`next dev`) once before linting or type-checking a fresh clone. `bun run typecheck` type-checks with `bun check`. The `typescript` package stays installed: `next build` refuses to run without it, and editors use it.
 
 # Ultracite Code Standards
 
@@ -24,9 +24,9 @@ This project uses **Ultracite**, a zero-config preset that enforces strict code 
 
 ## Quick Reference
 
-- **Format code**: `npm exec -- ultracite fix`
-- **Check for issues**: `npm exec -- ultracite check`
-- **Diagnose setup**: `npm exec -- ultracite doctor`
+- **Format code**: `bunx ultracite fix`
+- **Check for issues**: `bunx ultracite check`
+- **Diagnose setup**: `bunx ultracite doctor`
 
 Oxlint + Oxfmt (the underlying engine) provides robust linting and formatting. Most issues are automatically fixable.
 
@@ -143,4 +143,4 @@ Oxlint + Oxfmt's linter will catch most issues automatically. Focus your attenti
 
 ---
 
-Most formatting and common issues are automatically fixed by Oxlint + Oxfmt. Run `npm exec -- ultracite fix` before committing to ensure compliance.
+Most formatting and common issues are automatically fixed by Oxlint + Oxfmt. Run `bunx ultracite fix` before committing to ensure compliance.
