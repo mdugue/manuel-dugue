@@ -20,6 +20,7 @@ export default async function Page() {
 
   return (
     <DocSheetModal
+      lang={locale}
       slug="skill-profile"
       contact={portfolio.contact}
       labels={portfolio.modal}

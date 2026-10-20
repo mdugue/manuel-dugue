@@ -1,6 +1,6 @@
 "use client";
 
-import { useParams, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import {
   useCallback,
   useEffect,
@@ -9,7 +9,6 @@ import {
   ViewTransition,
 } from "react";
 
-import { hasLocale } from "@/i18n/config";
 import type { Locale } from "@/i18n/config";
 
 import { docSheetName } from "./doc-morph";
@@ -33,6 +32,7 @@ const MODAL_ATTR = "data-doc-modal";
  * navigation, or the card on the home page has nothing to morph into.
  */
 export function DocSheetModal({
+  lang,
   slug,
   title,
   subtitle,
@@ -42,6 +42,7 @@ export function DocSheetModal({
   children,
   updatedLine,
 }: {
+  lang: Locale;
   slug: string;
   title: string;
   subtitle: string;
@@ -52,8 +53,6 @@ export function DocSheetModal({
   updatedLine?: UpdatedLine;
 }) {
   const router = useRouter();
-  const { lang } = useParams<{ lang: string }>();
-  const locale: Locale = hasLocale(lang) ? lang : "en";
   const dialogRef = useRef<HTMLDialogElement>(null);
   const [escPressed, setEscPressed] = useState(false);
 
@@ -143,7 +142,7 @@ export function DocSheetModal({
             <DocSheetChrome
               authorName={contact[0] ?? "Manuel Dugué"}
               contact={contact}
-              lang={locale}
+              lang={lang}
               morphSlug={slug}
               subtitle={subtitle}
               title={title}

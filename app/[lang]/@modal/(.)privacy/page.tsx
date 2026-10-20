@@ -10,6 +10,7 @@ export default async function Page() {
 
   return (
     <DocSheetModal
+      lang={locale}
       slug="privacy"
       contact={portfolio.contact}
       labels={portfolio.modal}
