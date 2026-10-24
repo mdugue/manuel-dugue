@@ -12,7 +12,7 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 
 ## Runtime
 
-This project runs on **Bun** (version pinned in `packageManager` in `package.json`). Bun is the package manager (`bun.lock`; there is no `package-lock.json`), `dev`/`build`/`start` run Next.js on the Bun runtime (`bun --bun next …`), and Vercel runs the Functions on Bun (`bunVersion` in `vercel.json`). Use `bun`/`bunx`, never `npm`/`npx`. Next.js 16.3 failed under the Bun runtime (`Expected CommonJS module to have a function wrapper` during "Collecting page data"); Next.js 16.4 with Bun 1.4.3 builds and runs cleanly, so if that error comes back after an upgrade, that is where to look.
+This project runs on **Bun** (version pinned in `packageManager` in `package.json`). Bun is the package manager (`bun.lock`; there is no `package-lock.json`), `dev`/`build`/`start` run Next.js on the Bun runtime (`bun --bun next …`), and Vercel runs the Functions on Bun (`bunVersion` in `vercel.json`). Use `bun`/`bunx`, never `npm`/`npx`. Next.js 16.3 failed under the Bun runtime (`Expected CommonJS module to have a function wrapper` during "Collecting page data"); Next.js 16.4 with Bun 1.4.4 builds and runs cleanly, so if that error comes back after an upgrade, that is where to look.
 
 ## Lint & format
 

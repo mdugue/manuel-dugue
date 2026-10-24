@@ -45,7 +45,7 @@ const TRACK =
  * underside, so the gradient runs along the stroke instead.
  */
 const MARKS = {
-  alpen: { d: STELVIO, kind: "ground" },
+  bergauf: { d: STELVIO, kind: "ground" },
   bridge: { d: NEUMARKT, kind: "ground" },
   effort: { d: TRACK, kind: "path" },
 } as const;

@@ -85,11 +85,11 @@
       "heading": "Gebaut aus Neugier",
       "sub": "Ohne Auftrag, ohne Deadline. Echte Daten, echte Fragen.",
       "projects": {
-        "alpen": {
+        "bergauf": {
           "num": "01",
-          "host": "alpen.manuel.fyi",
-          "title": "Alpenpässe",
-          "desc": "Welcher Pass ist Anfang Oktober noch offen, und wo schlafe ich? 262 Pässe, zehn Jahre Gipfelwetter.",
+          "host": "bergauf.manuel.fyi",
+          "title": "Bergauf",
+          "desc": "Wohin mit dem Rennrad, und wann? Pässe und Anstiege von den Alpen über das Erzgebirge bis Mallorca, mit Befahrbarkeit je Halbmonat und zehn Jahren Gipfelwetter.",
           "stack": "MapLibre · Open-Meteo · OpenRouteService · OSM"
         },
         "bridge": {

@@ -39,7 +39,7 @@ What isn't in the CV or the skill profile. The self-portrait on the home page dr
 
 - Where the limits of agents in products lie, and how people actually want to use them.
 - Whether open geodata can make a digital twin of Dresden that is beautiful without being photorealistic.
-- Which Alpine passes are still rideable in early October.
+- Where to take the road bike, and when: which passes and climbs in the Alps, the Ore Mountains or on Mallorca are rideable right now.
 
 ## Limits
 

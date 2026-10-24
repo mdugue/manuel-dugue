@@ -39,7 +39,7 @@ Was nicht in Lebenslauf und Kompetenzprofil steht. Das Selbstporträt auf der St
 
 - Wo die Grenzen von Agenten in Produkten liegen und wie Nutzer sie eigentlich verwenden wollen.
 - Ob sich aus offenen Geodaten ein digitaler Zwilling von Dresden bauen lässt, der schön ist, ohne fotorealistisch zu sein.
-- Welche Alpenpässe Anfang Oktober noch fahrbar sind.
+- Wohin ich mit dem Rennrad wann fahren kann: welche Pässe und Anstiege in den Alpen, im Erzgebirge oder auf Mallorca gerade gut fahrbar sind.
 
 ## Grenzen
 

@@ -72,7 +72,7 @@ const stanceFocus = [
 const curiosityFocus = [
   "Where the limits of agents in products lie, and how people actually want to use them. Where he meets agents in his work: agent design is part of his work at Estino (the documents say no more), and in his own coding he now more often writes the rules that coding agents work by (<notes>).",
   "Whether open geodata can make a digital model of Dresden that looks beautiful without being photorealistic (the Dresden side project). Leave out the bridge debate.",
-  "Which Alpine passes are still rideable in early October, and where to stay for them (the Alpine passes side project). He rides a road bike.",
+  "Where to take the road bike, and when: which passes and climbs are rideable in a given half-month, in the Alps and beyond (the Ore Mountains, Mallorca and more), and where to stay for them (the Bergauf side project). He rides a road bike.",
 ];
 
 function pick(options: readonly string[], focus: number): string {

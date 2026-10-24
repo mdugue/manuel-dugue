@@ -88,11 +88,11 @@
       "heading": "Construit par curiosité",
       "sub": "Sans client, sans deadline. De vraies données, de vraies questions.",
       "projects": {
-        "alpen": {
+        "bergauf": {
           "num": "01",
-          "host": "alpen.manuel.fyi",
-          "title": "Cols alpins",
-          "desc": "Quel col est encore ouvert début octobre, et où dormir ? 262 cols, dix ans de météo au sommet.",
+          "host": "bergauf.manuel.fyi",
+          "title": "Bergauf",
+          "desc": "Où emmener le vélo de route, et quand ? Cols et montées des Alpes aux monts Métallifères et à Majorque, praticabilité par quinzaine et dix ans de météo au sommet.",
           "stack": "MapLibre · Open-Meteo · OpenRouteService · OSM"
         },
         "bridge": {
