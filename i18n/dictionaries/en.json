@@ -85,11 +85,11 @@
       "heading": "Built out of curiosity",
       "sub": "No client, no deadline. Real data, real questions.",
       "projects": {
-        "alpen": {
+        "bergauf": {
           "num": "01",
-          "host": "alpen.manuel.fyi",
-          "title": "Alpine passes",
-          "desc": "Which pass is still open in early October, and where do I sleep? 262 passes, ten years of summit weather.",
+          "host": "bergauf.manuel.fyi",
+          "title": "Bergauf",
+          "desc": "Where to take the road bike, and when? Passes and climbs from the Alps to the Ore Mountains and Mallorca, with rideability by half-month and ten years of summit weather.",
           "stack": "MapLibre · Open-Meteo · OpenRouteService · OSM"
         },
         "bridge": {

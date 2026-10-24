@@ -85,11 +85,11 @@
       "heading": "Hecho por curiosidad",
       "sub": "Sin cliente, sin plazo. Datos reales, preguntas reales.",
       "projects": {
-        "alpen": {
+        "bergauf": {
           "num": "01",
-          "host": "alpen.manuel.fyi",
-          "title": "Puertos alpinos",
-          "desc": "¿Qué puerto sigue abierto a principios de octubre y dónde duermo? 262 puertos, diez años de clima en la cima.",
+          "host": "bergauf.manuel.fyi",
+          "title": "Bergauf",
+          "desc": "¿Adónde llevar la bici de carretera, y cuándo? Puertos y subidas de los Alpes a los Montes Metálicos y Mallorca, con transitabilidad por quincena y diez años de clima en la cima.",
           "stack": "MapLibre · Open-Meteo · OpenRouteService · OSM"
         },
         "bridge": {

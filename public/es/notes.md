@@ -39,7 +39,7 @@ Lo que no está en el currículum ni en el perfil de habilidades. El autorretrat
 
 - Dónde están los límites de los agentes en los productos y cómo quieren usarlos de verdad las personas.
 - Si con datos geográficos abiertos se puede hacer un gemelo digital de Dresde que sea bonito sin ser fotorrealista.
-- Qué puertos alpinos siguen siendo transitables a principios de octubre.
+- Adónde llevar la bici de carretera, y cuándo: qué puertos y subidas de los Alpes, los Montes Metálicos o Mallorca se pueden subir ahora mismo.
 
 ## Límites
 

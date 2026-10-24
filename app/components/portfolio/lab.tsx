@@ -7,13 +7,13 @@ import { SectionHead } from "./section-head";
 /** Each project lives on its own (sub)domain; the row shows the address so the
  *  destination is readable before the click. */
 const PROJECT_URLS: Record<MarkId, string> = {
-  alpen: "https://alpen.manuel.fyi",
+  bergauf: "https://bergauf.manuel.fyi",
   bridge: "https://mit.manuel.fyi/dresden",
   effort: "https://effort.manuel.fyi",
 };
 
 /** Oldest question first — the order the projects actually happened in. */
-const ORDER: MarkId[] = ["alpen", "bridge", "effort"];
+const ORDER: MarkId[] = ["bergauf", "bridge", "effort"];
 
 const ROW =
   "group border-rule-soft hover:border-accent focus-visible:border-accent focus-visible:outline-accent grid grid-cols-[96px_1fr] items-start gap-x-8 gap-y-4 border-t py-7 transition-colors last:border-b focus-visible:outline-2 focus-visible:outline-offset-2 max-md:grid-cols-1 max-md:gap-y-3";

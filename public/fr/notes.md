@@ -39,7 +39,7 @@ Ce qui ne figure ni dans le CV ni dans le profil de compétences. L'autoportrait
 
 - Où se situent les limites des agents dans les produits, et comment les utilisateurs veulent vraiment s'en servir.
 - Si l'on peut tirer des données géographiques ouvertes un jumeau numérique de Dresde qui soit beau sans être photoréaliste.
-- Quels cols alpins sont encore praticables début octobre.
+- Où emmener le vélo de route, et quand : quels cols et montées des Alpes, des monts Métallifères ou de Majorque sont praticables en ce moment.
 
 ## Limites
 
